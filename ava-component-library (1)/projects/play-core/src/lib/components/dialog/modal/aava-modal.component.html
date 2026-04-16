@@ -1,0 +1,24 @@
+<div class="ava-modal-content" [attr.id]="id ? 'aava-modal-' + id : null" [ngStyle]="modalStyles">
+  <!-- Header Section -->
+  <div class="ava-modal-header" *ngIf="hasHeaderContent">
+    <ng-content select="[dialog-header]"></ng-content>
+  </div>
+
+  <!-- Body Section -->
+  <div class="ava-modal-body" *ngIf="hasBodyContent">
+    <ng-content select="[dialog-body]"></ng-content>
+  </div>
+
+  <!-- Footer Section -->
+  <div class="ava-modal-footer" *ngIf="hasFooterContent">
+    <ng-content select="[dialog-footer]"></ng-content>
+  </div>
+
+  <!-- Default content (for backward compatibility) -->
+  <div class="ava-modal-default-content" *ngIf="!hasHeaderContent && !hasBodyContent && !hasFooterContent">
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Dynamic component container for service-based dialogs -->
+  <ng-container #dynamicContainer></ng-container>
+</div>

@@ -1,0 +1,227 @@
+<div class="test-footer-container">
+    <div class="footer-test-title">
+        <div class="title">
+            Footer Component
+        </div>
+    </div>
+
+    <div class="footer-variant-1">
+        <aava-footer class="footer-variant1">
+            <aava-footer-left>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-left>
+
+            <aava-footer-centre>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-centre>
+
+            <aava-footer-centre>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-centre>
+
+            <aava-footer-centre>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-centre>
+
+            <aava-footer-centre>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-centre>
+
+            <aava-footer-right>
+                <div class="body-regular-default-200-inter footer-header">Subtitle</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+                <div class="body-regular-default-100-inter footer-content">Footer Text</div>
+            </aava-footer-right>
+            <!-- bottom row -->
+
+            <div bottom>
+                <div class="footer-logo">
+                    <img src="assets/ascendion.png" alt="Ascendion Logo" />
+                </div>
+                <div class="footer-copy">
+                    © 2024 Ascendion. All Rights Reserved.
+                </div>
+            </div>
+        </aava-footer>
+
+    </div>
+
+    <div class="footer-variant-2">
+        <aava-footer>
+            <div class="footer-container" [style.background]="background">
+                <!-- Brand -->
+                <div class="footer-brand">
+                    <img *ngIf="brandLogo" [src]="brandLogo" alt="{{ brandName }} Logo" class="brand-logo" />
+                </div>
+
+                <!-- Newsletter -->
+                <div class="footer-newsletter">
+                    <div class="newsletter-subscribe-wrapper">
+                        <div class="newsletter-footer">
+                            <aava-textbox type="email" placeholder="Enter you email" size="lg"
+                                [(ngModel)]="email"></aava-textbox>
+                        </div>
+                        <div class="subscribe button">
+                            <aava-button label="Subscribe" variant="primary" [background]="hyperlinksColor"
+                                (userClick)="handleSubscribe()" pressedEffect="ripple"></aava-button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation Links -->
+                <nav class="footer-nav">
+                    <div *ngFor="let link of navLinks" class="navigation-links">
+                        <aava-link [label]="link.label" [color]="'#6B7280'" [href]="link.url" [size]="'lg'"></aava-link>
+                    </div>
+                </nav>
+
+                <aava-dividers variant="solid" [color]="hyperlinksColor" class="footer-divider"></aava-dividers>
+
+                <!-- Bottom Section -->
+                <div class="footer-bottom">
+                    <div class="footer-copyright">© 2024 {{ brandName }}. All Rights Reserved.</div>
+
+                    <div class="footer-socials">
+                        <div *ngFor="let social of socialLinks" class="social-links" (click)="redirectTo(social)">
+                            <aava-avatars size="sm" shape="pill" [imageUrl]="social.icon" altText="User avatar">
+                            </aava-avatars>
+                        </div>
+                    </div>
+
+                    <div class="footer-extra">
+                        <div *ngFor="let label of extraLabels" class="navigation-links">
+                            <aava-link [label]="label.label" [href]="label.url" [color]="'#6B7280'"
+                                [size]="'md'"></aava-link>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aava-footer>
+    </div>
+
+    <div class="footer-variant2">
+        <div class="footer-wrapper">
+            <div class="footer-top-left">
+                <div class="body-regular-default-200-inter font-bold">About Us</div>
+                <div class="body-regular-default-100-inter">
+                    Lorem ipsum dolor sit amet consectetur. Bibendum consequat laoreet turpis in pellentesque sem id eu.
+                    Feugiat quam porttitor in augue sed quis pellentesque quam purus. Ac euismod ac proin vitae
+                    vulputate.
+                    Urna facilisis varius vestibulum et gravida turpis.
+                </div>
+
+                <div class="footer-newsletter">
+                    <div class="newsletter-subscribe-wrapper">
+                        <div class="newsletter-footer">
+                            <aava-textbox type="email" placeholder="Enter you email" size="lg"
+                                [(ngModel)]="email"></aava-textbox>
+                        </div>
+                        <div class="subscribe button">
+                            <aava-button label="Subscribe" variant="primary" [background]="hyperlinksColor"
+                                (userClick)="handleSubscribe()" pressedEffect="ripple"></aava-button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="social-icons">
+                    <div class="footer-socials1">
+                        <div *ngFor="let social of socialLinks" class="social-links" (click)="redirectTo(social)">
+                            <aava-avatars size="sm" shape="pill" [imageUrl]="social.icon" altText="User avatar">
+                            </aava-avatars>
+                        </div>
+                    </div>
+
+
+
+                </div>
+            </div>
+
+            <div class="footer-right-columns">
+                <!-- Website Links -->
+                <div class="footer-varient2-list-links">
+                    <div class="body-regular-default-200-inter font-bold">Website Links</div>
+                    <div class="footer-variant-2-links" *ngFor="let link of navLinks">
+                        <aava-link [label]="link.label" [href]="link.url" [color]="'#6B7280'" [size]="'md'">
+                        </aava-link>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div class="footer-varient2-list-services">
+                    <div class="body-regular-default-200-inter font-bold">Services</div>
+                    <div class="footer-variant-2-links" *ngFor="let link of serviceLinks">
+                        <aava-link [label]="link.label" [href]="link.url" [color]="'#6B7280'" [size]="'md'">
+                        </aava-link>
+                    </div>
+                </div>
+
+                <!-- Developers -->
+                <div class="footer-varient2-list-developer">
+                    <div class="body-regular-default-200-inter font-bold">Developers</div>
+                    <div class="footer-variant-2-links" *ngFor="let link of developerLinks">
+                        <aava-link [label]="link.label" [href]="link.url" [color]="'#6B7280'" [size]="'md'">
+                        </aava-link>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Bottom Section -->
+        <div bottom>
+            <div class="footer-top">
+                <div class="footer-logo">
+                    <img src="assets/ascendion-2.png" alt="Logo" />
+                </div>
+
+                <div class="footer-links">
+                    <aava-link label="Privacy Policy" href="/privacy" [color]="'#FFF'" [size]="'md'">
+                    </aava-link>
+
+                    <aava-link label="Terms of services" href="/terms" [color]="'#FFF'" [size]="'md'">
+                    </aava-link>
+
+                </div>
+
+            </div>
+
+            <aava-dividers variant="solid" [color]="'#FFF'" class="footer-divider"></aava-dividers>
+
+            <div class="footer-copy">
+                <div class="footer-copyright">© 2024 {{ brandName }}. All Rights Reserved.</div>
+            </div>
+        </div>
+    </div>

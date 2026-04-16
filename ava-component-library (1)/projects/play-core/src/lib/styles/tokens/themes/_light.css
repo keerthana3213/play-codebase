@@ -1,0 +1,215 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Light Theme
+ *
+ * Light theme overrides for semantic tokens.
+ * This theme maintains the same token structure but changes
+ * the visual appearance to a light mode.
+ * =========================================================================
+ */
+
+[data-theme="light"] {
+   /* --- Light Theme Color Overrides --- */
+   /* PRIMARY (Vibrant Pink) */
+   --color-brand-primary: var(--global-color-pink-500);
+   --color-brand-primary-hover: var(--global-color-pink-700);
+   --color-brand-primary-active: var(--global-color-purple-500);
+   --color-brand-primary-hover-soft: var(--global-color-rose-200);
+
+   --color-surface-interactive-primary: var(--global-color-pink-500);
+   --color-surface-interactive-primary-hover: var(--global-color-pink-700);
+   --color-surface-interactive-primary-active: var(--global-color-purple-500);
+
+   --color-border-primary: var(--global-color-pink-500);
+   --color-border-primary-hover: var(--global-color-pink-700);
+   --color-border-primary-active: var(--global-color-purple-500);
+
+   --color-text-primary: var(--global-color-gray-700);
+   --color-text-on-primary: var(--global-color-white);
+
+   --color-text-inactive-tab-button: var(--global-color-black);
+   --color-text-active-stepper-circle: var(--global-color-gray-800);
+   --color-textbox-input: var(--global-color-gray-700);
+
+   /* SECONDARY (Light Blue) */
+   --color-brand-secondary: var(--global-color-blue-info-500);
+   --color-brand-secondary-hover: var(--global-color-royal-blue-500);
+   --color-brand-secondary-active: var(--global-color-royal-blue-700);
+
+   --color-surface-interactive-secondary: var(--global-color-blue-100);
+   --color-surface-interactive-secondary-hover: var(--global-color-blue-info-500);
+   --color-surface-interactive-secondary-active: var(--global-color-royal-blue-500);
+
+   --color-border-secondary: var(--global-color-blue-info-500);
+   --color-border-secondary-hover: var(--global-color-royal-blue-500);
+   --color-border-secondary-active: var(--global-color-royal-blue-700);
+
+   --color-text-secondary: var(--global-color-gray-700);
+   --color-text-on-secondary: var(--global-color-white);
+   --color-background-secondary: var(--global-color-blue-100);
+
+   /* BUTTONS, TABS, TAGS: Use these tokens for all secondary/primary states */
+   --color-text-placeholder: var(--global-color-gray-400);
+   --color-text-disabled: var(--global-color-gray-400);
+   --color-text-on-brand: var(--global-color-white);
+   --color-text-interactive: var(--global-color-pink-500);
+   --color-text-interactive-hover: var(--global-color-pink-700);
+   --color-text-success: var(--global-color-green-500);
+   --color-text-error: var(--global-color-red-500);
+   --color-background-primary: var(--global-color-white);
+   --color-background-disabled: var(--global-color-gray-100);
+
+   --color-surface-interactive-default: var(--global-color-pink-500);
+   --color-surface-interactive-hover: var(--global-color-pink-700);
+   --color-surface-interactive-active: var(--global-color-pink-700);
+   --color-surface-disabled: var(--global-color-gray-200);
+   --color-surface-subtle-hover: var(--global-color-gray-100);
+   --color-border-default: var(--global-color-gray-300);
+   --color-border-subtle: var(--global-color-gray-200);
+   --color-border-interactive: var(--global-color-pink-500);
+   --color-border-focus: var(--global-color-pink-500);
+   --color-border-error: var(--global-color-red-500);
+   --color-background-error: var(--global-color-red-500);
+   /* Semantic Border Colors */
+   --color-border-warning: var(--global-color-yellow-500);
+   --color-border-success: var(--global-color-green-500);
+   --color-border-info: var(--global-color-blue-500);
+
+   /* Semantic Text Colors */
+   --color-text-warning: var(--global-color-yellow-600);
+   --color-text-success: var(--global-color-green-600);
+   --color-text-error: var(--global-color-red-600);
+   --color-text-info: var(--global-color-blue-300);
+
+   /* Semantic Background Colors */
+   --color-background-warning: var(--global-color-yellow-500);
+   --color-background-success: var(--global-color-green-500);
+   --color-background-info: var(--global-color-blue-500);;
+
+   /* --- Light Theme Glassmorphism --- */
+   --glass-backdrop-blur: 12px;
+   --glass-background-color: rgba(255, 255, 255, 0.6);
+   --glass-border-width: 1px;
+   --glass-elevation: var(--global-elevation-02);
+
+   /*---- Time picker ----*/
+   --color-icon-border: var(--global-color-black);
+   /* =======================
+     LIGHT THEME: RGB OVERRIDES
+     Extract RGB values from light theme semantic colors
+     ======================= */
+   --rgb-brand-primary: 233, 30, 99;
+   /* From #e91e63 */
+   --rgb-brand-secondary: 156, 39, 176;
+   /* From #9c27b0 */
+   --rgb-brand-tertiary: 37, 99, 235;
+   /* From #2563eb */
+   --rgb-brand-quaternary: 3, 189, 212;
+   /* From #03bdd4 */
+   --rgb-brand-quinary: 67, 189, 144;
+   /* From #43bd90 */
+   --rgb-brand-senary: 250, 112, 154;
+   /* From #fa709a */
+   --rgb-violet: 124, 58, 237;
+   /* From #7c3aed */
+   --rgb-royal-blue: 37, 99, 235;
+   /* From #2563eb */
+   --rgb-cyan: 3, 189, 212;
+   /* From #03bdd4 */
+   --rgb-spearmint: 67, 189, 144;
+   /* From #43bd90 */
+   --rgb-rose: 250, 112, 154;
+   /* From #fa709a */
+   --rgb-white: 255, 255, 255;
+   /* From #ffffff */
+   --rgb-black: 0, 0, 0;
+   /* From #000000 */
+   --rgb-neutral-100: 243, 244, 246;
+   /* From #f3f4f6 */
+
+   /* =======================
+     LIGHT THEME: EFFECT COLOR OVERRIDES
+     Override all effect colors for proper light theme adaptation
+     ======================= */
+   --effect-color-primary: var(--rgb-brand-primary);
+   /* Pink - consistent with light theme */
+   --effect-color-secondary: var(--rgb-brand-secondary);
+   /* Blue instead of purple in light */
+   --effect-color-accent: var(--rgb-violet);
+   /* Violet accent - keep consistent */
+   --effect-color-neutral: var(--rgb-black);
+   /* Black shadows work well on light bg */
+   --effect-color-surface: var(--rgb-white);
+   /* White glass/shimmer on light bg */
+
+   /* =======================
+     LIGHT THEME: PERSONALITY OVERRIDES
+     Only override personality tokens that need light theme adjustments
+     ======================= */
+   /* Most personalities use base values, only override if light theme needs different intensity */
+   /* Base personalities work well for light theme, no overrides needed currently */
+
+   /* =======================
+     LIGHT THEME: SEMANTIC COMPONENT TOKENS
+     Theme-aware component-specific tokens using the metaphor system
+     ======================= */
+
+   /* Glass Metaphor (Theme-Aware) */
+   --surface-glass-bg: rgba(var(--effect-color-surface), 0.15);
+   --surface-glass-border: rgba(var(--effect-color-surface), 0.7);
+   --surface-glass-shadow: rgba(var(--effect-color-surface), 0.18);
+
+   /* Light Metaphor (Theme-Aware) */
+   --color-light-glow: rgba(var(--effect-color-primary), 0.45);
+   --color-light-glow-focus: rgba(var(--effect-color-primary), 0.65);
+   --color-light-shadow: rgba(var(--effect-color-accent), 0.1);
+   --color-light-border: var(--color-brand-primary);
+   --color-light-border-focus: var(--color-brand-secondary);
+
+   /* Liquid Metaphor (Theme-Aware) */
+   --color-liquid-shimmer-start: var(--color-brand-secondary);
+   --color-liquid-shimmer-end: var(--color-brand-primary);
+
+   /* =======================
+     LIGHT THEME: SOPHISTICATED GLASS CHAINING
+     Override glass surface colors for light theme variants
+     ======================= */
+
+   /* Light theme glass surface - keep default white */
+   --glass-surface-color: var(--rgb-white);
+
+   /* Light theme variant glass colors */
+   --glass-variant-primary: var(--rgb-brand-primary);
+   --glass-variant-success: 76, 175, 80;
+   --glass-variant-warning: 255, 152, 0;
+   --glass-variant-danger: 244, 67, 54;
+   --glass-variant-info: 33, 150, 243;
+
+   /* Custom variant example - Add new colors here */
+   --glass-variant-purple: 156, 39, 176;
+   /* Custom purple variant */
+   --glass-variant-emerald: 16, 185, 129;
+   /* Custom emerald variant */
+
+   /* Light theme effect color adjustments */
+   --effect-color-neutral: var(--rgb-black);
+   /* Black shadows work on light bg */
+   --effect-color-surface: var(--rgb-white);
+   /* White highlights on light bg */
+
+   --neutral-bg: #f0f1f2;
+
+   /* Added for tabs component */
+   --tabs-dropdown-arrow-color: #888;
+   --tabs-border-color: #616874;
+   --tabs-scroll-hover-bg-color: #f1f5f9;
+   --tabs-scroll-icon-color: #64748b;
+
+   --surface-border-radius: 24px;
+   --surface-border-color: #fff;
+   --surface-bg: 255, 255, 255;
+
+
+   --icon-hover-color: var(--color-brand-primary);
+   --icon-color: var(--global-color-gray-900);
+}

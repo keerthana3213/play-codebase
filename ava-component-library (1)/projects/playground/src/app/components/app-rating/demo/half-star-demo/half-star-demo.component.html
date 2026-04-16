@@ -1,0 +1,43 @@
+<div class="demo-container">
+  <div class="half-star-demo">
+    <div class="demo-section">
+      <aava-rating
+        [value]="ratingValue"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+
+      <div class="rating-display">
+        <p>
+          Current Rating: <strong>{{ ratingValue }}</strong>
+        </p>
+        <p class="rating-text">{{ getRatingText(ratingValue) }}</p>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Half-Star Examples</h4>
+      <div class="examples-grid">
+        <div class="example-item">
+          <span class="example-label">3.5 Stars:</span>
+          <aava-rating [value]="3.5" [readonly]="true"></aava-rating>
+        </div>
+        <div class="example-item">
+          <span class="example-label">4.5 Stars:</span>
+          <aava-rating [value]="4.5" [readonly]="true"></aava-rating>
+        </div>
+        <div class="example-item">
+          <span class="example-label">2.5 Stars:</span>
+          <aava-rating [value]="2.5" [readonly]="true"></aava-rating>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--div class="rating-controls">
+        <button (click)="setRating(1.5)" class="control-btn">Set 1.5</button>
+        <button (click)="setRating(2.5)" class="control-btn">Set 2.5</button>
+        <button (click)="setRating(3.5)" class="control-btn">Set 3.5</button>
+        <button (click)="setRating(4.5)" class="control-btn">Set 4.5</button>
+        <button (click)="resetRating()" class="reset-btn">Reset</button>
+      </div-->
+</div>

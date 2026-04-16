@@ -1,0 +1,11 @@
+<div
+  class="ava-nav-bar"
+  [class.ava-nav-bar--sm]="size === 'sm'"
+  [class.ava-nav-bar--md]="size === 'md'"
+  [class.ava-nav-bar--lg]="size === 'lg'"
+  [ngStyle]="computedStyles"
+>
+  <div class="ava-nav-bar__content">
+    <ng-content></ng-content>
+  </div>
+</div>

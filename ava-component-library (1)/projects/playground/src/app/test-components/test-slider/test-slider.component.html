@@ -1,0 +1,88 @@
+<div class="t-container">
+  <!-- Original sliders -->
+  <div class="con">
+    <h3>Original Sliders (Default Type)</h3>
+    <div class="col-12 col-sm-auto">
+      <p>Value: {{ basicValue }}</p>
+      <aava-slider [disabled]="true" [value]="0" [min]="0" [max]="100" [step]="1" size="sm" type="default"
+        [showTooltip]="true" (valueChange)="onBasicValueChange($event)">
+      </aava-slider>
+      <aava-slider [value]="0" [min]="0" [max]="100" [step]="1" size="sm" type="default" [showTooltip]="true"
+        (valueChange)="onBasicValueChange($event)">
+      </aava-slider>
+      <br>
+      <aava-slider [value]="25" [min]="0" [max]="100" [step]="1" size="sm" type="default" [showTooltip]="true"
+        (valueChange)="onBasicValueChange($event)">
+      </aava-slider>
+      <br>
+      <aava-slider [disabled]="true" [value]="50" [min]="0" [max]="100" [step]="1" size="sm" type="default"
+        [showTooltip]="true" (valueChange)="onBasicValueChange($event)">
+      </aava-slider>
+      <br>
+      <aava-slider [value]="100" [min]="0" [max]="100" [step]="1" size="sm" type="default" [showTooltip]="true"
+        (valueChange)="onBasicValueChange($event)">
+      </aava-slider>
+    </div>
+  </div>
+
+  <div class="con">
+    <aava-slider [value]="0" [min]="0" [max]="100" [step]="1" size="md" type="default" [showTooltip]="true"
+      (valueChange)="onBasicValueChange($event)">
+    </aava-slider>
+    <br>
+    <aava-slider [value]="25" [min]="0" [max]="100" [step]="1" size="md" type="default" [showTooltip]="true"
+      (valueChange)="onBasicValueChange($event)">
+    </aava-slider>
+    <br>
+    <aava-slider [value]="50" [min]="0" [max]="100" [step]="1" size="md" type="default" [showTooltip]="true"
+      (valueChange)="onBasicValueChange($event)">
+    </aava-slider>
+    <br>
+    <aava-slider [value]="100" [min]="0" [max]="100" [step]="1" size="md" type="default" [showTooltip]="true"
+      (valueChange)="onBasicValueChange($event)">
+    </aava-slider>
+  </div>
+
+  <!-- New Input Type Sliders -->
+  <div class="con">
+    <h3>New Input Type Sliders</h3>
+
+    <div class="demo-section">
+      <h4>Default Type vs Input Type Comparison</h4>
+      <div class="comparison-row">
+        <div class="comparison-item">
+          <p>Default Type (tooltip below): {{ defaultTypeValue }}</p>
+          <aava-slider [value]="defaultTypeValue" [min]="0" [max]="100" [step]="1" type="default" [showTooltip]="true"
+            size="md" (valueChange)="onDefaultTypeChange($event)">
+          </aava-slider>
+        </div>
+
+        <div class="comparison-item">
+          <p>Input Type (textbox beside): {{ inputTypeValue }}</p>
+          <aava-slider [value]="inputTypeValue" [min]="0" [max]="100" [step]="1" type="input" size="md"
+            (valueChange)="onInputTypeChange($event)">
+          </aava-slider>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Input Type with Different Sizes</h4>
+      <div class="size-row">
+        <div class="size-item">
+          <p>Small + Input Type: {{ inputTypeSmallValue }}</p>
+          <aava-slider [value]="inputTypeSmallValue" [min]="0" [max]="100" [step]="1" type="input" size="sm"
+            (valueChange)="onInputTypeSmallChange($event)">
+          </aava-slider>
+        </div>
+
+        <div class="size-item">
+          <p>Medium + Input Type: {{ inputTypeMediumValue }}</p>
+          <aava-slider [value]="inputTypeMediumValue" [min]="0" [max]="100" [step]="1" type="input" size="md"
+            (valueChange)="onInputTypeMediumChange($event)">
+          </aava-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

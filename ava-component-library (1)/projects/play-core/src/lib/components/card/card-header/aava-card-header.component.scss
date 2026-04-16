@@ -1,0 +1,11 @@
+.ava-header {
+    h1 {
+        font-family: var(--card-heading1-font);
+        font-weight: var(--card-heading1-font-weight);
+    }
+
+}
+
+:host {
+    color: var(--color-text-primary);
+}

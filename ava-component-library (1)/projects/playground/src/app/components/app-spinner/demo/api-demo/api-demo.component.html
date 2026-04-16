@@ -1,0 +1,110 @@
+<div class="demo-container">
+  <div class="demo-header">
+    <h2>API Reference</h2>
+    <p>
+      Complete API documentation for the Spinner component with examples and
+      usage guidelines.
+    </p>
+    <button class="copy-button" (click)="copyToClipboard()">
+      📋 Copy Code
+    </button>
+  </div>
+
+  <div class="demo-content">
+    <div class="demo-section">
+      <h3>Input Properties</h3>
+      <p>
+        All available input properties for customizing the spinner component.
+      </p>
+      <div class="api-table-container">
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prop of apiProps">
+              <td>
+                <code>{{ prop.name }}</code>
+              </td>
+              <td>
+                <code>{{ prop.type }}</code>
+              </td>
+              <td>
+                <code>{{ prop.default }}</code>
+              </td>
+              <td>{{ prop.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Usage Examples</h3>
+      <p>Common usage patterns and examples for different scenarios.</p>
+      <div class="examples-grid">
+        <div class="example-card">
+          <h4>Basic Usage</h4>
+          <div class="example-preview">
+            <aava-spinner type="linear-gradient" size="md" color="primary"></aava-spinner>
+          </div>
+          <div class="example-code">
+            <code>&lt;ava-spinner type="linear-gradient" size="md"
+              color="primary"&gt;&lt;/ava-spinner&gt;</code>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4>Progress Indicator</h4>
+          <div class="example-preview">
+            <aava-spinner type="linear-gradient" [progressIndex]="75" color="success"></aava-spinner>
+          </div>
+          <div class="example-code">
+            <code>&lt;ava-spinner type="linear-gradient" [progressIndex]="75"
+              color="success"&gt;&lt;/ava-spinner&gt;</code>
+          </div>
+        </div>
+
+        <div class="example-card">
+          <h4>Static Spinner</h4>
+          <div class="example-preview">
+            <aava-spinner type="blob" [animation]="false" color="warning"></aava-spinner>
+          </div>
+          <div class="example-code">
+            <code>&lt;ava-spinner type="blob" [animation]="false"
+              color="warning"&gt;&lt;/ava-spinner&gt;</code>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>CSS Custom Properties</h3>
+      <p>Available CSS custom properties for advanced customization.</p>
+      <div class="css-properties">
+        <div class="property-group">
+          <h4>Size Tokens</h4>
+          <ul>
+            <li><code>--spinner-size-sm</code>: 16px</li>
+            <li><code>--spinner-size-md</code>: 24px</li>
+            <li><code>--spinner-size-lg</code>: 32px</li>
+            <li><code>--spinner-size-xl</code>: 40px</li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h4>Animation Tokens</h4>
+          <ul>
+            <li><code>--spinner-animation-duration</code>: 3s</li>
+            <li><code>--spinner-animation-timing</code>: linear</li>
+            <li><code>--spinner-transition-duration</code>: 0.45s</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

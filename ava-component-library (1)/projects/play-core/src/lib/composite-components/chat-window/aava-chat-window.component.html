@@ -1,0 +1,66 @@
+<div class="chat-window">
+  <div class="chat-main">
+    <!-- Messages area that scrolls -->
+    <div class="messages-container" #messagesContainer>
+      @for (message of messages; track message.id) {
+        <div class="message-wrapper" [class.user-message]="message.isUser" [class.bot-message]="!message.isUser">
+          @if (!message.isUser) {
+            <div class="message-content">
+              <aava-default-card class="message-card bot-card">
+                <div content>
+                  <p class="message-text">{{ message.text }}</p>
+                  <div class="message-timestamp">{{ message.timestamp }}</div>
+                </div>
+              </aava-default-card>
+            </div>
+          } @else {
+            <div class="message-content">
+              <aava-default-card class="message-card user-card">
+                <div content>
+                  <p class="message-text">{{ message.text }}</p>
+                  <div class="message-timestamp">{{ message.timestamp }}</div>
+                </div>
+              </aava-default-card>
+            </div>
+          }
+        </div>
+      }
+    </div>
+
+    <!-- Fixed input area at bottom -->
+    <div class="input-area">
+      <aava-textarea
+      [placeholder]="placeholder"
+      [resizable]="false"
+      [rows]="rows"
+      [style]="{ 'border-width': '2px' }"
+      [processingGradientBorder]="false"
+      [processingGradientColors]="['#fa709a', '#e5cb3a']"
+      [(ngModel)]="currentMessage"
+      (textareaInput)="onInput($event)"
+      (keydown)="onKeyPress($event)"
+    >
+      @for (icon of getIconsBySlot('icon-start'); track icon.name) {
+        <aava-icon
+          slot="icon-start"
+          [iconName]="icon.name"
+          [iconColor]="icon.color || '#2563eb'"
+          [iconSize]="icon.size || 16"
+          (click)="onIconClick(icon)"
+          [style.cursor]="icon.click ? 'pointer' : 'default'"
+        ></aava-icon>
+      }
+      @for (icon of getIconsBySlot('icon-end'); track icon.name) {
+        <aava-icon
+          slot="icon-end"
+          [iconName]="icon.name"
+          [iconColor]="icon.color || '#2563eb'"
+          [iconSize]="icon.size || 16"
+          (click)="onIconClick(icon)"
+          [style.cursor]="icon.click ? 'pointer' : 'default'"
+        ></aava-icon>
+      }
+    </aava-textarea>
+    </div>
+  </div>
+</div>

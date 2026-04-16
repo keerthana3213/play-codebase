@@ -1,0 +1,184 @@
+.tree {
+    list-style: none;
+    padding: 0px;
+    margin: 0;
+    color: var(--color-text-primary);
+
+    li {
+        list-style: none;
+        margin: 0;
+
+        .tree-node {
+            display: flex;
+            align-items: center;
+            gap: var(--tree-node-gap);
+            cursor: pointer;
+            border-radius: var(--tree-node-gap);
+            padding: 2px 6px;
+            transition: background 0.2s ease;
+            color: var(--color-text-primary);
+
+            &:hover {
+                background: rgba(var(--rgb-brand-disabled), 0.4);
+            }
+
+            &.selected {
+                background: var(--color-brand-primary);
+                color: white;
+
+                .label {
+                    color: white;
+                }
+
+                aava-icon {
+                    --icon-color: white;
+                }
+            }
+
+            .toggle {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                cursor: pointer;
+                flex-shrink: 0;
+            }
+
+            aava-icon {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                vertical-align: middle;
+                flex-shrink: 0;
+            }
+
+            .label {
+                display: inline-flex;
+                align-items: center;
+                font-family: var(--tree-label-font-family);
+                font-weight: var(--tree-node-font-weight-xl);
+            }
+        }
+
+        /* Reset nested UL */
+        ul {
+            list-style: none;
+            margin: 0;
+            padding-left: 0; // ✅ rely on TS indent only
+        }
+    }
+
+    /* === Sizes === */
+    &.xs .tree-node {
+        font-size: var(--tree-label-font-size-xs);
+        padding: 1px 4px;
+        height: var(--tree-node-height-xs);
+
+        .toggle {
+            width: var(--tree-icon-size-xs);
+            height: var(--tree-icon-size-xs);
+        }
+
+        aava-icon {
+            width: var(--tree-icon-size-xs);
+            height: var(--tree-icon-size-xs);
+        }
+
+        .label {
+            font-size: var(--tree-label-font-size-xs);
+            line-height: var(--tree-node-line-height-xs);
+        }
+    }
+
+    &.sm .tree-node {
+        padding: 2px 6px;
+        height: var(--tree-node-height-sm);
+
+        .toggle {
+            width: var(--tree-icon-size-sm);
+            height: var(--tree-icon-size-sm);
+        }
+
+        aava-icon {
+            width: var(--tree-icon-size-sm);
+            height: var(--tree-icon-size-sm);
+        }
+
+        .label {
+            font-size: var(--tree-label-font-size-sm);
+            line-height: var(--tree-node-line-height-medium);
+        }
+    }
+
+    &.md .tree-node {
+        padding: 3px 8px;
+        height: var(--tree-node-height-md);
+
+        .toggle {
+            width: var(--tree-icon-size-md);
+            height: var(--tree-icon-size-md);
+        }
+
+        aava-icon {
+            width: var(--tree-icon-size-md);
+            height: var(--tree-icon-size-md);
+        }
+
+        .label {
+            font-size: var(--tree-label-font-size-medium);
+            line-height: var(--tree-node-line-height-medium);
+        }
+    }
+
+    &.lg .tree-node {
+        font-size: var(--tree-label-font-size-lg);
+        padding: 4px 10px;
+        height: var(--tree-node-height-lg);
+
+        .toggle {
+            width: var(--tree-icon-size-lg);
+            height: var(--tree-icon-size-lg);
+        }
+
+        aava-icon {
+            width: var(--tree-icon-size-lg);
+            height: var(--tree-icon-size-lg);
+        }
+
+        .label {
+            font-size: var(--tree-label-font-size-lg);
+            line-height: var(--tree-node-line-height-lg);
+        }
+    }
+
+    &.xl .tree-node {
+        padding: 6px 12px;
+        height: var(--tree-node-height-xl);
+        display: flex;
+        align-items: center;
+
+        .toggle {
+            width: var(--tree-icon-size-xl);
+            height: var(--tree-icon-size-xl);
+
+        }
+
+        aava-icon {
+            width: var(--tree-icon-size-xl);
+            height: var(--tree-icon-size-xl);
+        }
+
+        .label {
+            font-size: var(--tree-label-font-size-xl);
+            line-height: var(--tree-node-line-height-xl);
+        }
+    }
+
+    /* === Icon Position Variants === */
+    &.icon-left .tree-node {
+        flex-direction: row;
+    }
+
+    &.icon-right .tree-node {
+        flex-direction: row; // normal direction
+    }
+}

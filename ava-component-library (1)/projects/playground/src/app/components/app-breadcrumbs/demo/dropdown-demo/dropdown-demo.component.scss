@@ -1,0 +1,12 @@
+.basic-usage-demo {
+  max-width: var(--global-max-width-3xl, 1024px);
+  margin: 0 auto;
+  padding: var(--global-spacing-6, 2rem);
+  min-height: 100vh;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.demo-content {
+  margin-top: var(--global-spacing-6, 2rem);
+}

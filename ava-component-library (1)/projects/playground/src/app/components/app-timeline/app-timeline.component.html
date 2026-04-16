@@ -1,0 +1,86 @@
+<div class="timeline-demo">
+  <div class="demo-header">
+    <h1>Timeline Component Demos</h1>
+    <p>
+      A flexible timeline component for displaying chronological events with
+      multiple orientations, statuses, and customization options. Perfect for
+      project management, user onboarding flows, historical displays, and any
+      scenario requiring chronological representation.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <div class="nav-card" routerLink="/app-timeline/basic">
+      <h3>Basic Timeline</h3>
+      <p>
+        A simple vertical timeline with default settings and basic event
+        display.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-timeline/variants">
+      <h3>Text Alignment Variants</h3>
+      <p>
+        Different text alignment patterns for visual variety and layout
+        flexibility.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-timeline/orientations">
+      <h3>Orientations</h3>
+      <p>
+        Vertical and horizontal timeline layouts for different screen
+        orientations.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-timeline/sizes">
+      <h3>Size Variants</h3>
+      <p>
+        Multiple size options from x-small to large for different use cases.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-timeline/statuses">
+      <h3>Status Types</h3>
+      <p>Visual status indicators for timeline events with different states.</p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-timeline/advanced">
+      <h3>Advanced Features</h3>
+      <p>
+        Custom sorting, images, and advanced styling options for complex
+        timelines.
+      </p>
+    </div>
+  </div>
+
+  <div class="component-showcase">
+    <h2>Component Showcase</h2>
+    <p>
+      Interactive example of the timeline component in action with different
+      statuses.
+    </p>
+
+    <div class="showcase-container">
+      <aava-timeline
+        [events]="showcaseEvents"
+        [size]="'lg'"
+        [orientation]="'vertical'"
+        [textAlign]="'zigzag-left'"
+        [iconCircleSize]="'40px'"
+        [iconCircleBgColor]="'#fff'"
+        [iconCircleBorderColor]="'#ccc'"
+      ></aava-timeline>
+    </div>
+
+    <div class="showcase-status" *ngIf="selectedEvent">
+      <h3>Event Details</h3>
+      <p><strong>Title:</strong> {{ selectedEvent.title }}</p>
+      <p><strong>Time:</strong> {{ selectedEvent.time }}</p>
+      <p><strong>Year:</strong> {{ selectedEvent.year }}</p>
+      <p><strong>Status:</strong> {{ selectedEvent.status }}</p>
+      <p><strong>Description:</strong> {{ selectedEvent.description }}</p>
+    </div>
+  </div>
+</div>

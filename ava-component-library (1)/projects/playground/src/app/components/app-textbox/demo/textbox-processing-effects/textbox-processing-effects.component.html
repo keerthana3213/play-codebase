@@ -1,0 +1,14 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <div class="demo-column padl">
+      <aava-textbox [(ngModel)]="processingValue" label="Processing State" placeholder="Processing..."
+        [processing]="true" (textboxChange)="onProcessingChange($event)"></aava-textbox>
+      <aava-textbox [(ngModel)]="gradientValue" label="Gradient Border" placeholder="Submitting..." [processing]="true"
+        [processingGradientBorder]="true" (textboxChange)="onGradientChange($event)"></aava-textbox>
+    </div>
+
+    <div class="demo-column padr">
+      <aava-textbox [(ngModel)]="shimmerValue" label="Shimmer Effect" placeholder="Validating..." [processing]="true"
+        processingEffect="shimmer" (textboxChange)="onShimmerChange($event)"></aava-textbox>
+    </div>
+  </div>

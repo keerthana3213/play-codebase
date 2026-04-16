@@ -1,0 +1,62 @@
+.aava-list-item {
+    display: flex;
+
+    &.outline {
+        border: var(--list-item-outline-border);
+        border-radius: var(--list-item-border-radius);
+    }
+
+    margin-right: 10px;
+    font-family: var(--global-font-family-body);
+    font-size: var(--global-font-size-md);
+    font-style: normal;
+    font-weight: var(--global-font-weight-medium);
+
+}
+
+.aava-list-item {
+    .style1 {
+        padding: 10px;
+        color: var(--color-text-primary);
+
+        .head {
+            display: flex;
+            align-items: center;
+
+            font-family: var(--global-font-family-body);
+            font-size: var(--global-font-size-md);
+            font-style: normal;
+            font-weight: var(--global-font-weight-medium);
+            gap: 12px;
+
+        }
+
+        .description {
+            line-height: 1.3;
+            font-size: var(--global-font-size-xs);
+            margin-top: 10px;
+        }
+    }
+
+}
+
+// Hover states
+.aava-list-item.hover-bg:hover {
+    background-color: var(--list-item-hover-bg);
+}
+
+.aava-list-item.hover-border:hover {
+    border: var(--list-item-outline-border);
+    border-radius: var(--list-item-border-radius);
+    border-color: var(--list-item-outline-hover-border-color);
+}
+
+.aava-list-item.selected.hover-bg {
+    background-color: var(--list-item-hover-bg);
+}
+
+.aava-list-item.selected.hover-border {
+    border: var(--list-item-outline-border);
+    border-radius: var(--list-item-border-radius);
+    border-color: var(--list-item-outline-hover-border-color);
+}

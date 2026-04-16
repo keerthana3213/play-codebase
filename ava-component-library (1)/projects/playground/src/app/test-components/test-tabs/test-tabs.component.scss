@@ -1,0 +1,26 @@
+::ng-deep .ava-tabs__container {
+    border: none !important;
+    box-shadow: none !important;
+
+}
+
+.test-tabs-container,
+.test-tabs-container-iconOnly {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+    justify-content: center;
+    align-items: center;
+    // background-color: rgb(194, 221, 241);
+}
+
+.test-tabs-container-iconOnly {
+    gap: 160px
+}
+
+.tabs-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px !important;
+    padding: 20px;
+}

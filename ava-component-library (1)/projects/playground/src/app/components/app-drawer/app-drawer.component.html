@@ -1,0 +1,1157 @@
+<div class="drawer-demo-container">
+  <h1>Drawer Component</h1>
+  <p class="component-description">
+    A versatile slide-out panel component that can be positioned on any side of
+    the screen. Perfect for navigation menus, detail panels, settings, and
+    contextual content.
+  </p>
+
+  <!-- Demo Navigation -->
+  <div class="demo-navigation">
+    <div class="demo-grid">
+      <div *ngFor="let demo of demos" class="demo-card" [routerLink]="[demo.path]" routerLinkActive="active">
+        <h3>{{ demo.title }}</h3>
+        <p>{{ demo.description }}</p>
+        <div class="demo-arrow"><span>→</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Content -->
+  <div class="demo-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Documentation Sections -->
+  <div class="demo-sections">
+    <div *ngFor="let section of sections" class="demo-section">
+      <div class="section-header">
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.description }}</p>
+        <button class="toggle-code-btn" (click)="toggleCode(section)" [attr.aria-expanded]="section.showCode">
+          {{ section.showCode ? "Hide" : "Show" }} Code
+        </button>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Positions -->
+            <ng-container *ngSwitchCase="'Positions'">
+              <div class="button-group">
+                <aava-button label="Right Drawer" (click)="rightDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Left Drawer" (click)="leftDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Top Drawer" (click)="topDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Bottom Drawer" (click)="bottomDrawerOpen = true" variant="secondary"></aava-button>
+              </div>
+
+              <!-- Right Position (Default) -->
+              <aava-drawer [isOpen]="rightDrawerOpen" position="right" title="Right Drawer"
+                (closed)="rightDrawerOpen = false">
+                <p>This drawer slides in from the right side.</p>
+                <p>This is the default position for drawers.</p>
+              </aava-drawer>
+
+              <!-- Left Position -->
+              <aava-drawer [isOpen]="leftDrawerOpen" position="left" title="Left Drawer"
+                (closed)="leftDrawerOpen = false">
+                <p>This drawer slides in from the left side.</p>
+                <p>Perfect for navigation menus and sidebars.</p>
+              </aava-drawer>
+
+
+              <!-- Top Position -->
+              <aava-drawer [isOpen]="topDrawerOpen" position="top" title="Top Drawer" (closed)="topDrawerOpen = false">
+                <p>This drawer slides in from the top.</p>
+                <p>Great for notifications or quick actions.</p>
+              </aava-drawer>
+
+
+              <!-- Bottom Position -->
+              <aava-drawer [isOpen]="bottomDrawerOpen" position="bottom" title="Bottom Drawer"
+                (closed)="bottomDrawerOpen = false">
+                <p>This drawer slides in from the bottom.</p>
+                <p>Ideal for mobile-first designs and action sheets.</p>
+              </aava-drawer>
+
+            </ng-container>
+
+            <!-- Sizes -->
+            <ng-container *ngSwitchCase="'Sizes'">
+              <div class="button-group">
+                <aava-button label="Small" (click)="smallDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Medium" (click)="mediumDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Large" (click)="largeDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Extra Large" (click)="extraLargeDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Full Size" (click)="fullDrawerOpen = true" variant="secondary"></aava-button>
+              </div>
+
+              <!-- Small Size -->
+              <aava-drawer [isOpen]="smallDrawerOpen" size="sm" title="Small Drawer"
+                (closed)="smallDrawerOpen = false">
+                <p>This is a small drawer (320px wide).</p>
+                <p>Perfect for simple forms or quick actions.</p>
+              </aava-drawer>
+
+
+              <!-- Medium Size (Default) -->
+              <aava-drawer [isOpen]="mediumDrawerOpen" size="md" title="Medium Drawer"
+                (closed)="mediumDrawerOpen = false">
+                <p>This is a medium drawer (480px wide).</p>
+                <p>The default size, good for most use cases.</p>
+              </aava-drawer>
+
+
+              <!-- Large Size -->
+              <aava-drawer [isOpen]="largeDrawerOpen" size="lg" title="Large Drawer"
+                (closed)="largeDrawerOpen = false">
+                <p>This is a large drawer (640px wide).</p>
+                <p>Great for detailed forms or content.</p>
+              </aava-drawer>
+
+
+              <!-- Extra Large Size -->
+              <aava-drawer [isOpen]="extraLargeDrawerOpen" size="xl" title="Extra Large Drawer"
+                (closed)="extraLargeDrawerOpen = false">
+                <p>This is an extra large drawer (800px wide).</p>
+                <p>For complex interfaces or detailed views.</p>
+              </aava-drawer>
+
+              <!-- Full Size -->
+              <aava-drawer [isOpen]="fullDrawerOpen" size="full" title="Full Size Drawer"
+                (closed)="fullDrawerOpen = false">
+                <p>This drawer takes up the full viewport.</p>
+                <p>Essentially a full-screen modal experience.</p>
+              </aava-drawer>
+
+            </ng-container>
+
+            <!-- Spring Animation -->
+            <ng-container *ngSwitchCase="'Spring Animation'">
+              <div class="spring-animation-info">
+                <div class="animation-params">
+                  <h4>Spring Animation Parameters</h4>
+                  <div class="param-grid">
+                    <div class="param-item">
+                      <span class="param-label">Mass:</span>
+                      <span class="param-value">1</span>
+                    </div>
+                    <div class="param-item">
+                      <span class="param-label">Stiffness:</span>
+                      <span class="param-value">711.1</span>
+                    </div>
+                    <div class="param-item">
+                      <span class="param-label">Damping:</span>
+                      <span class="param-value">40</span>
+                    </div>
+                    <div class="param-item">
+                      <span class="param-label">Duration:</span>
+                      <span class="param-value">0.6s</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="button-group">
+                <aava-button label="Spring Right" (click)="springRightDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Spring Left" (click)="springLeftDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Spring Top" (click)="springTopDrawerOpen = true" variant="secondary"></aava-button>
+                <aava-button label="Spring Bottom" (click)="springBottomDrawerOpen = true"
+                  variant="secondary"></aava-button>
+              </div>
+
+              <!-- Spring Right Drawer -->
+              <aava-drawer [isOpen]="springRightDrawerOpen" position="right" size="md"
+                title="Spring Animation - Right" subtitle="Notice the dynamic spring bounce effect"
+                (closed)="springRightDrawerOpen = false">
+                <div class="spring-demo-content">
+                  <h4>🌸 Smart Animate Spring!</h4>
+                  <p>This drawer uses a dynamic spring animation with:</p>
+                  <ul>
+                    <li>
+                      <strong>Mass: 1</strong> - Controls the weight of the
+                      animation
+                    </li>
+                    <li>
+                      <strong>Stiffness: 711.1</strong> - High spring response
+                      for bounce
+                    </li>
+                    <li>
+                      <strong>Damping: 40</strong> - Lower damping for energetic
+                      motion
+                    </li>
+                  </ul>
+                  <p>
+                    The result is a bouncy, dynamic animation that feels alive
+                    and engaging!
+                  </p>
+                </div>
+              </aava-drawer>
+
+
+              <!-- Spring Left Drawer -->
+              <aava-drawer [isOpen]="springLeftDrawerOpen" position="left" size="md" title="Spring Animation - Left"
+                subtitle="Smooth spring bounce from the left" (closed)="springLeftDrawerOpen = false">
+                <div class="spring-demo-content">
+                  <h4>⬅️ Left Spring Animation</h4>
+                  <p>Same spring parameters, different direction!</p>
+                  <p>
+                    The spring animation adapts to each position while
+                    maintaining the same natural feel.
+                  </p>
+                </div>
+              </aava-drawer>
+
+
+              <!-- Spring Top Drawer -->
+              <aava-drawer [isOpen]="springTopDrawerOpen" position="top" size="md" title="Spring Animation - Top"
+                subtitle="Bouncy animation from above" (closed)="springTopDrawerOpen = false">
+                <div class="spring-demo-content">
+                  <h4>⬆️ Top Spring Animation</h4>
+                  <p>
+                    Perfect for notifications or quick actions that slide down
+                    from the top.
+                  </p>
+                </div>
+              </aava-drawer>
+
+
+              <!-- Spring Bottom Drawer -->
+              <aava-drawer [isOpen]="springBottomDrawerOpen" position="bottom" size="md"
+                title="Spring Animation - Bottom" subtitle="Smooth spring from below"
+                (closed)="springBottomDrawerOpen = false">
+                <div class="spring-demo-content">
+                  <h4>⬇️ Bottom Spring Animation</h4>
+                  <p>Great for mobile-style action sheets and bottom panels.</p>
+                </div>
+              </aava-drawer>
+
+
+              <!-- No Animation Example -->
+              <aava-drawer [isOpen]="noAnimationDrawerOpen" [animate]="false" title="No Animation Drawer"
+                subtitle="Appears instantly without spring animation" (closed)="noAnimationDrawerOpen = false">
+                <div class="spring-demo-content">
+                  <h4>⚡ Instant Appearance</h4>
+                  <p>
+                    This drawer has <code>[animate]="false"</code> so it appears
+                    instantly without any spring animation.
+                  </p>
+                  <p>
+                    Useful for performance-critical applications or when you
+                    want immediate response.
+                  </p>
+                </div>
+              </aava-drawer>
+            </ng-container>
+
+            <!-- Behavior Properties -->
+            <ng-container *ngSwitchCase="'Behavior Properties'">
+              <div class="behavior-section">
+                <h4>🎛️ Drawer Behavior Control Properties</h4>
+                <p>
+                  Control how your drawer behaves with these input properties.
+                  Each property has a specific purpose and use case.
+                </p>
+
+                <div class="behavior-grid">
+                  <!-- showOverlay Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>showOverlay</h5>
+                      <span class="property-type">boolean = true</span>
+                    </div>
+                    <p class="property-description">
+                      Controls whether to show the dark background overlay
+                      behind the drawer.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="With Overlay" variant="primary" (click)="overlayTrueDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="No Overlay" variant="secondary" (click)="overlayFalseDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[showOverlay]="true"</code> - Standard modal
+                      behavior<br />
+                      <code>[showOverlay]="false"</code> - Non-modal sidebar
+                    </div>
+                  </div>
+
+                  <!-- closeOnOverlayClick Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>closeOnOverlayClick</h5>
+                      <span class="property-type">boolean = true</span>
+                    </div>
+                    <p class="property-description">
+                      Controls whether clicking the overlay closes the drawer.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="Closeable" variant="primary" (click)="overlayClickTrueDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="Not Closeable" variant="secondary"
+                        (click)="overlayClickFalseDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[closeOnOverlayClick]="true"</code> - Easy
+                      dismissal<br />
+                      <code>[closeOnOverlayClick]="false"</code> - Prevent
+                      accidents
+                    </div>
+                  </div>
+
+                  <!-- closeOnEscape Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>closeOnEscape</h5>
+                      <span class="property-type">boolean = true</span>
+                    </div>
+                    <p class="property-description">
+                      Controls whether pressing the Escape key closes the
+                      drawer.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="ESC Enabled" variant="primary" (click)="escapeTrueDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="ESC Disabled" variant="secondary" (click)="escapeFalseDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[closeOnEscape]="true"</code> - Keyboard
+                      accessibility<br />
+                      <code>[closeOnEscape]="false"</code> - Critical workflows
+                    </div>
+                  </div>
+
+                  <!-- showCloseButton Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>showCloseButton</h5>
+                      <span class="property-type">boolean = true</span>
+                    </div>
+                    <p class="property-description">
+                      Controls whether to show the X close button in the header.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="With Button" variant="primary" (click)="closeButtonTrueDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="No Button" variant="secondary" (click)="closeButtonFalseDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[showCloseButton]="true"</code> - Clear exit
+                      option<br />
+                      <code>[showCloseButton]="false"</code> - Custom triggers
+                    </div>
+                  </div>
+
+                  <!-- persistent Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>persistent</h5>
+                      <span class="property-type">boolean = false</span>
+                    </div>
+                    <p class="property-description">
+                      Makes the drawer "sticky" - cannot be closed by user
+                      actions.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="Normal" variant="primary" (click)="persistentFalseDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="Persistent" variant="secondary" (click)="persistentTrueDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[persistent]="false"</code> - Normal behavior<br />
+                      <code>[persistent]="true"</code> - Force interaction
+                    </div>
+                  </div>
+
+                  <!-- animate Property -->
+                  <div class="behavior-card">
+                    <div class="property-header">
+                      <h5>animate</h5>
+                      <span class="property-type">boolean = true</span>
+                    </div>
+                    <p class="property-description">
+                      Controls whether to use spring animation when
+                      opening/closing.
+                    </p>
+                    <div class="property-examples">
+                      <aava-button label="Animated" variant="primary" (click)="animateTrueDrawerOpen = true">
+                      </aava-button>
+                      <aava-button label="Instant" variant="secondary" (click)="animateFalseDrawerOpen = true">
+                      </aava-button>
+                    </div>
+                    <div class="code-snippet">
+                      <code>[animate]="true"</code> - Smooth transitions<br />
+                      <code>[animate]="false"</code> - Performance mode
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Behavior Property Drawer Examples -->
+
+              <!-- showOverlay Examples -->
+              <aava-drawer [isOpen]="overlayTrueDrawerOpen" [showOverlay]="true" title="With Overlay"
+                subtitle="showOverlay = true (default)" (closed)="overlayTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>✅ Overlay Enabled</h4>
+                  <p><code>[showOverlay]="true"</code></p>
+                  <p>
+                    Notice the dark background overlay that dims the page
+                    content. This is the standard modal behavior that focuses
+                    attention on the drawer.
+                  </p>
+                  <ul>
+                    <li>✅ Background is dimmed</li>
+                    <li>✅ Page content is not interactive</li>
+                    <li>✅ Focus is trapped in drawer</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+
+              <aava-drawer [isOpen]="overlayFalseDrawerOpen" [showOverlay]="false" title="No Overlay"
+                subtitle="showOverlay = false" (closed)="overlayFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>❌ Overlay Disabled</h4>
+                  <p><code>[showOverlay]="false"</code></p>
+                  <p>
+                    No background overlay - the page content remains visible and
+                    interactive. Perfect for non-modal sidebars and panels.
+                  </p>
+                  <ul>
+                    <li>✅ Background remains visible</li>
+                    <li>✅ Page content stays interactive</li>
+                    <li>✅ Great for navigation panels</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+
+              <!-- closeOnOverlayClick Examples -->
+              <aava-drawer [isOpen]="overlayClickTrueDrawerOpen" [closeOnOverlayClick]="true"
+                title="Overlay Click Closes" subtitle="closeOnOverlayClick = true (default)"
+                (closed)="overlayClickTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>👆 Click Overlay to Close</h4>
+                  <p><code>[closeOnOverlayClick]="true"</code></p>
+                  <p>
+                    Try clicking the dark background area to close this drawer.
+                    This is standard modal behavior for easy dismissal.
+                  </p>
+                  <ul>
+                    <li>✅ Quick and intuitive closing</li>
+                    <li>✅ Standard user expectation</li>
+                    <li>✅ Good for temporary content</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="overlayClickFalseDrawerOpen" [closeOnOverlayClick]="false" [closeOnEscape]="false"
+                title="Overlay Click Ignored" subtitle="closeOnOverlayClick = false"
+                (closed)="overlayClickFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>🚫 Overlay Click Disabled</h4>
+                  <p><code>[closeOnOverlayClick]="false"</code></p>
+                  <p>
+                    Clicking the overlay won't close this drawer. Use the close
+                    button or ESC key instead.
+                  </p>
+                  <ul>
+                    <li>✅ Prevents accidental closing</li>
+                    <li>✅ Good for important forms</li>
+                    <li>✅ Forces intentional interaction</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- closeOnEscape Examples -->
+              <aava-drawer [isOpen]="escapeTrueDrawerOpen" [closeOnEscape]="true" title="ESC Key Enabled"
+                subtitle="closeOnEscape = true (default)" (closed)="escapeTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>⌨️ Press ESC to Close</h4>
+                  <p><code>[closeOnEscape]="true"</code></p>
+                  <p>
+                    Try pressing the Escape key to close this drawer. This is
+                    standard accessibility behavior for keyboard users.
+                  </p>
+                  <ul>
+                    <li>✅ Keyboard accessibility</li>
+                    <li>✅ Quick escape route</li>
+                    <li>✅ Standard web behavior</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="escapeFalseDrawerOpen" [closeOnEscape]="false" title="ESC Key Disabled"
+                subtitle="closeOnEscape = false" (closed)="escapeFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>🔒 ESC Key Ignored</h4>
+                  <p><code>[closeOnEscape]="false"</code></p>
+                  <p>
+                    The Escape key won't close this drawer. Use the close button
+                    instead.
+                  </p>
+                  <ul>
+                    <li>✅ Prevents accidental closing</li>
+                    <li>✅ Good for critical workflows</li>
+                    <li>✅ Forces completion</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- showCloseButton Examples -->
+              <aava-drawer [isOpen]="closeButtonTrueDrawerOpen" [showCloseButton]="true" title="With Close Button"
+                subtitle="showCloseButton = true (default)" (closed)="closeButtonTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>❌ Close Button Visible</h4>
+                  <p><code>[showCloseButton]="true"</code></p>
+                  <p>
+                    Notice the X button in the top-right corner. This provides a
+                    clear way for users to close the drawer.
+                  </p>
+                  <ul>
+                    <li>✅ Clear visual exit</li>
+                    <li>✅ Familiar UI pattern</li>
+                    <li>✅ Always accessible</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="closeButtonFalseDrawerOpen" [showCloseButton]="false" title="No Close Button"
+                subtitle="showCloseButton = false" (closed)="closeButtonFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>🚫 Close Button Hidden</h4>
+                  <p><code>[showCloseButton]="false"</code></p>
+                  <p>
+                    No X button is shown in the header. Users must close via
+                    overlay click, ESC key, or custom buttons.
+                  </p>
+                  <ul>
+                    <li>✅ Clean header design</li>
+                    <li>✅ Custom close triggers</li>
+                    <li>✅ Guided workflows</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- persistent Examples -->
+              <aava-drawer [isOpen]="persistentFalseDrawerOpen" [persistent]="false" title="Normal Drawer"
+                subtitle="persistent = false (default)" (closed)="persistentFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>✅ Normal Behavior</h4>
+                  <p><code>[persistent]="false"</code></p>
+                  <p>This drawer can be closed by multiple methods:</p>
+                  <ul>
+                    <li>✅ Clicking the overlay</li>
+                    <li>✅ Pressing ESC key</li>
+                    <li>✅ Clicking the close button</li>
+                    <li>✅ Standard user-friendly behavior</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="persistentTrueDrawerOpen" [persistent]="true" title="Persistent Drawer"
+                subtitle="persistent = true - Must close programmatically" [showCloseButton]="false"
+                (closed)="persistentTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>🔒 Persistent Mode</h4>
+                  <p><code>[persistent]="true"</code></p>
+                  <p>This drawer ignores user attempts to close it:</p>
+                  <ul>
+                    <li>❌ Overlay clicks are ignored</li>
+                    <li>❌ ESC key presses are ignored</li>
+                    <li>✅ Only close button works</li>
+                    <li>✅ Perfect for critical forms</li>
+                  </ul>
+                  <aava-button label="Close Manually" variant="primary" (click)="persistentTrueDrawerOpen = false">
+                  </aava-button>
+                </div>
+              </aava-drawer>
+
+              <!-- animate Examples -->
+              <aava-drawer [isOpen]="animateTrueDrawerOpen" [animate]="true" title="With Animation"
+                subtitle="animate = true (default)" (closed)="animateTrueDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>🌸 Smart Animate Spring</h4>
+                  <p><code>[animate]="true"</code></p>
+                  <p>
+                    Notice the dynamic spring animation when this drawer opened.
+                    This provides an engaging user experience.
+                  </p>
+                  <ul>
+                    <li>✅ Bouncy spring motion</li>
+                    <li>✅ Energetic feeling transitions</li>
+                    <li>✅ Enhanced user experience</li>
+                    <li>✅ Modern, lively polish</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="animateFalseDrawerOpen" [animate]="false" title="No Animation"
+                subtitle="animate = false" (closed)="animateFalseDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>⚡ Instant Appearance</h4>
+                  <p><code>[animate]="false"</code></p>
+                  <p>
+                    This drawer appeared instantly without animation. Better for
+                    performance-critical applications.
+                  </p>
+                  <ul>
+                    <li>✅ Instant response</li>
+                    <li>✅ Better performance</li>
+                    <li>✅ Reduced motion preference</li>
+                    <li>✅ Accessibility friendly</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+            </ng-container>
+
+            <!-- Trigger Examples -->
+            <ng-container *ngSwitchCase="'Trigger Examples'">
+              <div class="trigger-examples">
+                <h4>🎯 Any Element Can Trigger a Drawer</h4>
+                <p>
+                  Drawers can be opened by clicking any HTML element. Just set
+                  the state variable to <code>true</code> in the click handler.
+                </p>
+
+                <div class="trigger-grid">
+                  <!-- Button Trigger -->
+                  <div class="trigger-card">
+                    <h5>Button Trigger</h5>
+                    <aava-button label="Open with Button" variant="primary" (click)="buttonTriggerDrawerOpen = true"
+                      variant="secondary">
+                    </aava-button>
+                    <code>&lt;aava-button (click)="drawerOpen = true"&gt;</code>
+                  </div>
+
+                  <!-- Link Trigger -->
+                  <div class="trigger-card">
+                    <h5>Link Trigger</h5>
+                    <a href="#" (click)="
+                        linkTriggerDrawerOpen = true; $event.preventDefault()
+                      " class="trigger-link">
+                      📄 Open Documentation
+                    </a>
+                    <code>&lt;a (click)="drawerOpen = true"&gt;</code>
+                  </div>
+
+                  <!-- Icon Trigger -->
+                  <div class="trigger-card">
+                    <h5>Icon Trigger</h5>
+                    <div class="icon-trigger" (click)="iconTriggerDrawerOpen = true">
+                      ⚙️ Settings
+                    </div>
+                    <code>&lt;div (click)="drawerOpen = true"&gt;</code>
+                  </div>
+
+                  <!-- Image Trigger -->
+                  <div class="trigger-card">
+                    <h5>Image Trigger</h5>
+                    <div class="image-trigger" (click)="imageTriggerDrawerOpen = true">
+                      🖼️ View Gallery
+                    </div>
+                    <code>&lt;img (click)="drawerOpen = true"&gt;</code>
+                  </div>
+
+                  <!-- Text Trigger -->
+                  <div class="trigger-card">
+                    <h5>Text Trigger</h5>
+                    <p class="text-trigger" (click)="textTriggerDrawerOpen = true">
+                      Click this text to open drawer
+                    </p>
+                    <code>&lt;p (click)="drawerOpen = true"&gt;</code>
+                  </div>
+
+                  <!-- Card Trigger -->
+                  <div class="trigger-card">
+                    <h5>Card Trigger</h5>
+                    <div class="card-trigger" (click)="cardTriggerDrawerOpen = true">
+                      <div class="card-content">
+                        <h6>Product Card</h6>
+                        <p>Click anywhere on this card</p>
+                      </div>
+                    </div>
+                    <code>&lt;div (click)="drawerOpen = true"&gt;</code>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Trigger Example Drawers -->
+              <aava-drawer [isOpen]="buttonTriggerDrawerOpen" title="Triggered by Button"
+                subtitle="This drawer was opened by clicking a button" (closed)="buttonTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>🔘 Button Trigger</h4>
+                  <p>This is the most common way to trigger drawers.</p>
+                  <p>Buttons provide clear, accessible interaction points.</p>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="linkTriggerDrawerOpen" title="Triggered by Link"
+                subtitle="This drawer was opened by clicking a link" (closed)="linkTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>🔗 Link Trigger</h4>
+                  <p>
+                    Links can open drawers instead of navigating to new pages.
+                  </p>
+                  <p>
+                    Great for documentation, help content, or detailed views.
+                  </p>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="iconTriggerDrawerOpen" title="Triggered by Icon"
+                subtitle="This drawer was opened by clicking an icon" (closed)="iconTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>⚙️ Icon Trigger</h4>
+                  <p>Icons are perfect for compact interfaces.</p>
+                  <p>Common for settings, menus, and action panels.</p>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="imageTriggerDrawerOpen" title="Triggered by Image"
+                subtitle="This drawer was opened by clicking an image" (closed)="imageTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>🖼️ Image Trigger</h4>
+                  <p>
+                    Images can trigger drawers for galleries, previews, or
+                    details.
+                  </p>
+                  <p>Great for product catalogs and media viewers.</p>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="textTriggerDrawerOpen" title="Triggered by Text"
+                subtitle="This drawer was opened by clicking text" (closed)="textTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>📝 Text Trigger</h4>
+                  <p>Any text element can be made clickable.</p>
+                  <p>
+                    Useful for inline help, definitions, or expandable content.
+                  </p>
+                </div>
+              </aava-drawer>
+
+              <aava-drawer [isOpen]="cardTriggerDrawerOpen" title="Triggered by Card"
+                subtitle="This drawer was opened by clicking a card" (closed)="cardTriggerDrawerOpen = false">
+                <div class="trigger-demo-content">
+                  <h4>🃏 Card Trigger</h4>
+                  <p>Entire cards can be clickable for detailed views.</p>
+                  <p>
+                    Perfect for product listings, user profiles, or content
+                    previews.
+                  </p>
+                </div>
+              </aava-drawer>
+            </ng-container>
+
+            <!-- Customization Examples -->
+            <ng-container *ngSwitchCase="'Customization Examples'">
+              <div class="customization-examples">
+                <h4>🎨 Drawer Customization Options</h4>
+                <p>
+                  Customize drawer appearance with close icon size, body padding, and header-less drawers with floating close button.
+                </p>
+
+                <div class="button-group">
+                  <aava-button label="Custom Icon Size" (click)="closeIconSizeDrawerOpen = true" variant="secondary"></aava-button>
+                  <aava-button label="Custom Body Padding" (click)="bodyPaddingDrawerOpen = true" variant="secondary"></aava-button>
+                  <aava-button label="No Header - Right" (click)="noHeaderRightDrawerOpen = true" variant="secondary"></aava-button>
+                  <aava-button label="No Header - Left" (click)="noHeaderLeftDrawerOpen = true" variant="secondary"></aava-button>
+                  <aava-button label="No Header - Top" (click)="noHeaderTopDrawerOpen = true" variant="secondary"></aava-button>
+                  <aava-button label="No Header - Bottom" (click)="noHeaderBottomDrawerOpen = true" variant="secondary"></aava-button>
+                </div>
+              </div>
+
+              <!-- Custom Close Button Size Drawer -->
+              <aava-drawer [isOpen]="closeIconSizeDrawerOpen" title="Custom Close Button Size" 
+                subtitle="Close button size set to xl" [closeButtonSize]="'xl'"
+                (closed)="closeIconSizeDrawerOpen = false">
+                <div class="sample-demo">
+                  <h4>🔍 Custom Close Button Size</h4>
+                  <p><code>[closeButtonSize]="'xl'"</code></p>
+                  <p>
+                    The close button is larger than the default 'sm' size. 
+                    Notice the bigger button and icon in the header.
+                  </p>
+                  <ul>
+                    <li>✅ Default size: 'sm' (16px icon)</li>
+                    <li>✅ Current size: 'xl' (24px icon)</li>
+                    <li>✅ Useful for accessibility</li>
+                    <li>✅ Better for touch interfaces</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- Custom Body Padding Drawer -->
+              <aava-drawer [isOpen]="bodyPaddingDrawerOpen" title="Custom Body Padding" 
+                subtitle="Body padding customized using CSS variables"
+                [customStyles]="bodyPaddingStyles"
+                (closed)="bodyPaddingDrawerOpen = false">
+
+                <div class="demo-content" >
+                  <h4>📏 Custom Body Padding</h4>
+                  <p><code>[customStyles]="bodyPaddingStyles"</code></p>
+                  <p>
+                    The body section has increased padding (40px) compared to the default.
+                    This creates more breathing room for the content.
+                  </p>
+                  <ul>
+                    <li>✅ Default padding: 16px</li>
+                    <li>✅ Current padding: 40px</li>
+                    <li>✅ More spacious layout</li>
+                    <li>✅ Better for minimal designs</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- No Header - Right Position -->
+              <aava-drawer [isOpen]="noHeaderRightDrawerOpen" position="right" 
+                [showHeader]="false" [showCloseButton]="true"
+                (closed)="noHeaderRightDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>➡️ No Header - Right Position</h4>
+                  <p><code>[showHeader]="false" [showCloseButton]="true"</code></p>
+                  <p>
+                    This drawer has no header section, but the close button is still visible
+                    as a floating button in the top-right corner.
+                  </p>
+                  <ul>
+                    <li>✅ Clean, minimal design</li>
+                    <li>✅ Floating close button</li>
+                    <li>✅ Custom button padding: 16px</li>
+                    <li>✅ Perfect for image galleries</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- No Header - Left Position -->
+              <aava-drawer [isOpen]="noHeaderLeftDrawerOpen" position="left" 
+                [showHeader]="false" [showCloseButton]="true" [closeButtonSize]="'md'"
+                [customStyles]="closeButtonPaddingStyles"
+                (closed)="noHeaderLeftDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>⬅️ No Header - Left Position</h4>
+                  <p><code>[showHeader]="false" [showCloseButton]="true"</code></p>
+                  <p>
+                    Same headerless design from the left side. The close button
+                    floats in the top-right corner of the drawer.
+                  </p>
+                  <ul>
+                    <li>✅ Slides from left</li>
+                    <li>✅ No header clutter</li>
+                    <li>✅ Floating close button</li>
+                    <li>✅ Great for navigation panels</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- No Header - Top Position -->
+              <aava-drawer [isOpen]="noHeaderTopDrawerOpen" position="top" 
+                [showHeader]="false" [showCloseButton]="true" [closeButtonSize]="'md'"
+                [customStyles]="closeButtonPaddingStyles"
+                (closed)="noHeaderTopDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>⬆️ No Header - Top Position</h4>
+                  <p><code>[showHeader]="false" [showCloseButton]="true"</code></p>
+                  <p>
+                    Headerless drawer sliding from the top. Close button positioned
+                    in the top-right corner with custom padding.
+                  </p>
+                  <ul>
+                    <li>✅ Slides from top</li>
+                    <li>✅ Minimal header-free design</li>
+                    <li>✅ Floating close button</li>
+                    <li>✅ Perfect for notifications</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+
+              <!-- No Header - Bottom Position -->
+              <aava-drawer [isOpen]="noHeaderBottomDrawerOpen" position="bottom" 
+                [showHeader]="false" [showCloseButton]="true" [closeButtonSize]="'md'"
+                [customStyles]="closeButtonPaddingStyles"
+                (closed)="noHeaderBottomDrawerOpen = false">
+                <div class="demo-content">
+                  <h4>⬇️ No Header - Bottom Position</h4>
+                  <p><code>[showHeader]="false" [showCloseButton]="true"</code></p>
+                  <p>
+                    Bottom drawer without header section. The close button floats
+                    in the top-right corner for easy access.
+                  </p>
+                  <ul>
+                    <li>✅ Slides from bottom</li>
+                    <li>✅ Clean, modern look</li>
+                    <li>✅ Floating close button</li>
+                    <li>✅ Great for mobile sheets</li>
+                  </ul>
+                </div>
+              </aava-drawer>
+            </ng-container>
+
+            <!-- Real-world Examples -->
+            <ng-container *ngSwitchCase="'Real-world Examples'">
+              <div class="button-group">
+                <aava-button label="User Profile" (click)="userProfileDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Settings Panel" (click)="settingsDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Notifications" (click)="notificationsDrawerOpen = true"
+                  variant="secondary"></aava-button>
+                <aava-button label="Candidate Details" (click)="candidateDetailsDrawerOpen = true"
+                  variant="secondary"></aava-button>
+              </div>
+
+              <!-- User Profile Drawer -->
+              <aava-drawer [isOpen]="userProfileDrawerOpen" size="md" title="User Profile"
+                subtitle="Manage your account settings" [showFooter]="true" 
+                [customStyles]="headerCustomStyles" 
+                (closed)="userProfileDrawerOpen = false">
+                <div class="profile-section">
+                  <aava-avatars [imageUrl]="'assets/avatar.jpg'" size="lg"></aava-avatars>
+                  <h3>John Doe</h3>
+                  <p>Senior Developer</p>
+                </div>
+
+                <div class="form-section">
+                  <aava-textbox label="Full Name" value="John Doe"></aava-textbox>
+                  <aava-textbox label="Email" value="john.doe@company.com"></aava-textbox>
+                  <aava-textbox label="Phone" value="+1 (555) 123-4567"></aava-textbox>
+                </div>
+
+                <div slot="footer">
+                  <aava-button label="Cancel" variant="secondary" (click)="userProfileDrawerOpen = false"></aava-button>
+                  <aava-button label="Save Changes" variant="primary"></aava-button>
+                </div>
+              </aava-drawer>
+
+              <!-- Settings Panel -->
+              <aava-drawer [isOpen]="settingsDrawerOpen" size="md" title="Settings"
+                subtitle="Configure your preferences" [showFooter]="true" 
+                [customStyles]="headerCustomStyles" 
+                (closed)="settingsDrawerOpen = false">
+                <div class="settings-group">
+                  <h4>Notifications</h4>
+                  <aava-checkbox label="Email notifications" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox label="Push notifications" [isChecked]="false"></aava-checkbox>
+                  <aava-checkbox label="SMS notifications" [isChecked]="true"></aava-checkbox>
+                </div>
+
+                <div class="settings-group">
+                  <h4>Privacy</h4>
+                  <aava-checkbox label="Public profile" [isChecked]="false"></aava-checkbox>
+                  <aava-checkbox label="Show online status" [isChecked]="true"></aava-checkbox>
+                </div>
+
+                <div slot="footer">
+                  <aava-button label="Reset to Defaults" variant="secondary"></aava-button>
+                  <aava-button label="Save Settings" variant="primary"
+                    (click)="settingsDrawerOpen = false"></aava-button>
+                </div>
+              </aava-drawer>
+
+              <!-- Notifications Drawer -->
+              <aava-drawer [isOpen]="notificationsDrawerOpen" size="md" title="Notifications"
+                [subtitle]="notificationsSubtitle" [showFooter]="true" 
+                [customStyles]="headerCustomStyles" 
+                (closed)="notificationsDrawerOpen = false">
+                <div class="notifications-list">
+                  <div *ngFor="let notification of notifications" class="notification-item"
+                    [class.unread]="!notification.read">
+                    <div class="notification-content">
+                      <h4>{{ notification.title }}</h4>
+                      <p>{{ notification.time }}</p>
+                    </div>
+                    <aava-button *ngIf="!notification.read" label="Mark as Read" variant="secondary" size="sm"
+                      (click)="markAsRead(notification)">
+                    </aava-button>
+                  </div>
+                </div>
+
+                <div slot="footer">
+                  <aava-button label="Clear All" variant="secondary" (click)="clearAllNotifications()"></aava-button>
+                  <aava-button label="Close" variant="primary" (click)="notificationsDrawerOpen = false"></aava-button>
+                </div>
+              </aava-drawer>
+
+              <!-- Candidate Details Drawer (Inspired by Dribbble design) -->
+              <aava-drawer [isOpen]="candidateDetailsDrawerOpen" size="lg" title="Candidate Details"
+                subtitle="Review candidate information and make decisions" [showFooter]="true" 
+                [customStyles]="headerCustomStyles" 
+                (closed)="candidateDetailsDrawerOpen = false">
+                <!-- Candidate Profile Section -->
+                <div class="candidate-profile">
+                  <aava-avatars [imageUrl]="'assets/avatar.jpg'" size="lg"></aava-avatars>
+                  <h3>{{ candidateData.name }}</h3>
+                  <p>{{ candidateData.position }}</p>
+                  <aava-badges state="information" [count]="1"></aava-badges>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info">
+                  <h4>Contact Information</h4>
+                  <p><strong>Email:</strong> {{ candidateData.email }}</p>
+                  <p><strong>Phone:</strong> {{ candidateData.phone }}</p>
+                  <p><strong>Location:</strong> {{ candidateData.location }}</p>
+                  <p>
+                    <strong>Applied:</strong> {{ candidateData.appliedDate }}
+                  </p>
+                </div>
+
+                <!-- Skills -->
+                <div class="skills-section">
+                  <h4>Skills & Technologies</h4>
+                  <div class="skills-list">
+                    <span *ngFor="let skill of candidateData.skills" class="skill-tag">
+                      {{ skill }}
+                    </span>
+                  </div>
+                </div>
+
+                <!-- Experience -->
+                <div class="experience-section">
+                  <h4>Experience</h4>
+                  <p>{{ candidateData.experience }} in frontend development</p>
+                  <p>Rating: {{ candidateData.rating }}/5.0</p>
+                </div>
+
+                <div slot="footer">
+                  <aava-button label="Reject" variant="danger"></aava-button>
+                  <aava-button label="Schedule Interview" variant="primary"></aava-button>
+                </div>
+              </aava-drawer>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <!-- Code Display -->
+        <div *ngIf="section.showCode" class="code-display">
+          <pre><code>{{ getExampleCode(section.title) }}</code></pre>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Agent Details Demo Section -->
+  <div class="demo-section special-demo">
+    <div class="section-header">
+      <h2>🎯 Real-world Agent Details Demo</h2>
+      <p>
+        A complete example showing how to build an agent details drawer with
+        tags, stats, and content sections - just like in modern AI platforms.
+      </p>
+    </div>
+
+    <div class="example-preview">
+      <app-agent-details-demo (openAgentDrawer)="agentDemoDrawerOpen = true"></app-agent-details-demo>
+
+      <!-- Agent Details Drawer -->
+      <aava-drawer [isOpen]="agentDemoDrawerOpen" position="right" size="lg" [showCloseButton]="true"
+        (closed)="agentDemoDrawerOpen = false">
+        <div class="agent-details-content">
+          <!-- Header Section -->
+          <div class="agent-header">
+            <h1 class="agent-title">Heading</h1>
+            <p class="agent-description">
+              Effortlessly convert Ruby code to Spring Boot with optimised
+              migration
+            </p>
+          </div>
+
+          <!-- Tags Section -->
+          <div class="agent-tags">
+            <button class="demo-tag primary" (click)="onTagClick('#1 in Agents')">
+              #1 in Agents
+            </button>
+            <button class="demo-tag outlined" (click)="onTagClick('Code Migration')">
+              Code Migration
+            </button>
+            <button class="demo-tag outlined" (click)="onTagClick('Development')">
+              Development
+            </button>
+            <button class="demo-tag outlined" (click)="onTagClick('Backend')">
+              Backend
+            </button>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="agent-stats">
+            <div class="stats-grid">
+              <!-- Category Column -->
+              <div class="stat-column">
+                <div class="stat-header">
+                  <span class="stat-label">Category</span>
+                  <div class="nav-arrows">
+                    <button class="nav-arrow" (click)="onStatNavigation('category', 'prev')" title="Previous category">
+                      ‹
+                    </button>
+                    <button class="nav-arrow" (click)="onStatNavigation('category', 'next')" title="Next category">
+                      ›
+                    </button>
+                  </div>
+                </div>
+                <div class="stat-value">Type</div>
+              </div>
+
+              <!-- Developed by Column -->
+              <div class="stat-column">
+                <div class="stat-header">
+                  <span class="stat-label">Developed by</span>
+                  <div class="stat-icon">👤</div>
+                </div>
+                <div class="stat-value">Name</div>
+              </div>
+
+              <!-- Relevancy Column -->
+              <div class="stat-column">
+                <div class="stat-header">
+                  <span class="stat-label">Relevancy</span>
+                </div>
+                <div class="stat-value highlight">9.5/10</div>
+                <div class="stat-sublabel">Score</div>
+              </div>
+
+              <!-- Rating Column -->
+              <div class="stat-column">
+                <div class="stat-header">
+                  <span class="stat-label">Rating</span>
+                </div>
+                <div class="stat-value highlight">4.5 ⭐</div>
+                <div class="stat-sublabel">Out of 5</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- What it's for Section -->
+          <div class="agent-content">
+            <div class="content-section">
+              <h3 class="section-title">What it's for</h3>
+              <p class="section-text">
+                A agent that converts Ruby code to Spring Boot can be highly
+                beneficial for organisation's migrating from Ruby on Rails to
+                Java Spring Boot. However, the effectiveness depends on several
+                factors, including the complexity of the application, language
+                differences, and the capabilities of the conversion agent.
+              </p>
+            </div>
+          </div>
+
+          <!-- Action Button -->
+          <div class="agent-actions">
+            <aava-button label="Label" variant="primary" class="action-button" (click)="onAgentAction()">
+            </aava-button>
+          </div>
+        </div>
+      </aava-drawer>
+    </div>
+  </div>
+</div>

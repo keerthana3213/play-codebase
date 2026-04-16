@@ -1,0 +1,15 @@
+<div class="shapes-demo">
+  <div class="demo-content">
+    <div class="shapes-grid">
+      <div *ngFor="let config of shapeConfigs" class="shape-item">
+        <div class="shape-preview">
+          <aava-skeleton [width]="config.width" [height]="config.height" [shape]="config.shape"
+            [animation]="config.animation"></aava-skeleton>
+        </div>
+        <div class="shape-info">
+          <h4>{{ config.shape | titlecase }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

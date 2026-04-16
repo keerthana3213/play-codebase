@@ -1,0 +1,28 @@
+<div class="avatar-wrapper" [class.avatar-wrapper--with-text]="hasAnyText" [attr.id]="id ? 'aava-avatar-' + id : null" [ngStyle]="customStyles">
+  <div *ngIf="imageUrl" [class]="avatarClasses" [style.background-image]="imageUrl ? 'url(' + imageUrl + ')' : 'none'"
+    [ngClass]="initials && initials!.length > 0 ? 'initials' : ''" [ngStyle]="imageStyles">
+    <aava-badges *ngIf="hasBadge" [state]="badgeState!" [size]="badgeSize!" [count]="badgeCount" class="avatar-badge">
+    </aava-badges>
+  </div>
+  <div *ngIf="initials && initials!.length > 0" [class]="avatarClasses"
+    [style.background]="initials && initials!.length > 0 && initialsBackground ? initialsBackground : null"
+    [ngClass]="initials && initials!.length > 0 ? 'initials' : ''">
+    <aava-badges *ngIf="hasBadge" [state]="badgeState!" [size]="badgeSize!" [count]="badgeCount" class="avatar-badge">
+    </aava-badges>
+    <span class="in-f" *ngIf="initials && initials!.length > 0" [style.color]="initialsColor">{{initials}}</span>
+  </div>
+
+
+  <!-- Text labels - can have status, profile, and additional text -->
+  <div *ngIf="hasAnyText" class="avatar-text-container" [attr.data-size]="size">
+    <div *ngIf="hasStatusText" class="avatar-text avatar-text--status" [attr.data-size]="size">
+      {{ statusText }}
+    </div>
+    <div *ngIf="hasProfileText" class="avatar-text avatar-text--profile" [attr.data-size]="size">
+      {{ profileText }}
+    </div>
+    <div *ngIf="hasAdditionalText" class="avatar-text avatar-text--additional" [attr.data-size]="size">
+      {{ additionalText }}
+    </div>
+  </div>
+</div>

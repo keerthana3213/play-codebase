@@ -1,0 +1,84 @@
+header {
+  width: 100%;
+}
+
+.outer-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  transition: all 0.3s ease;
+  position: relative;
+
+  .container {
+    width: 100%;
+    max-width: 100%;
+    position: relative;
+  }
+
+  .row {
+    margin: 0;
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  :host ::ng-deep {
+    >* {
+      margin: 0;
+    }
+  }
+}
+
+/*  Default (above 1440px): normal spacing */
+.center-col {
+  border-left: none;
+  padding-left: 0;
+  position: relative;
+  /* required for ::before separator */
+}
+
+/*  Separator on or below 1440px */
+@media (max-width: 1440px) {
+  .center-col {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 10%;
+      bottom: 10%;
+      width: 1px;
+
+      /* Gradient separator */
+      background: linear-gradient(to bottom,
+          transparent,
+          #aaa 40%,
+          #aaa 60%,
+          transparent);
+    }
+  }
+
+  .outer-box .row {
+    justify-content: flex-start;
+  }
+
+  .outer-box .row>.right-col {
+    margin-left: auto;
+    /* keep right section pinned right */
+  }
+}
+
+@media (max-width: 1280px) {
+  .center-col {
+    display: none;
+
+    &::before {
+      display: none;
+    }
+  }
+}

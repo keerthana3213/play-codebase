@@ -1,0 +1,251 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>List Component</h1>
+        <p class="description">
+          A flexible list component supporting avatars, icons, buttons,
+          multi-select, and more. Built for accessibility and rich UI
+          experiences.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Demo Navigation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="demo-navigation">
+        <h2>Demo Pages</h2>
+        <div class="demo-grid">
+          <a routerLink="/list/basic-usage" class="demo-card">
+            <h3>Basic Usage</h3>
+            <p>Simple lists with basic functionality and selection</p>
+          </a>
+          <a routerLink="/list/multi-selection" class="demo-card">
+            <h3>Multi-Selection</h3>
+            <p>
+              Lists with multi-selection capabilities using checkboxes and click
+              interactions
+            </p>
+          </a>
+          <a routerLink="/list/action-buttons" class="demo-card">
+            <h3>Action Buttons</h3>
+            <p>Lists with action buttons for different operations</p>
+          </a>
+          <a routerLink="/list/form-integration" class="demo-card">
+            <h3>Form Integration</h3>
+            <p>Lists integrated with Angular reactive forms for validation</p>
+          </a>
+          <a routerLink="/list/accessibility" class="demo-card">
+            <h3>Accessibility</h3>
+            <p>
+              Accessibility features including keyboard navigation and screen
+              reader support
+            </p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} ListComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section
+      class="doc-section"
+      *ngFor="let section of sections; let i = index"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div
+                class="code-toggle"
+                (click)="toggleCodeVisibility(i, $event)"
+              >
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Simple List'">
+              <aava-list
+                [title]="'Simple List'"
+                [items]="simpleList"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onOptionSelected)="onOptionSelected($event, 'simple')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'List with Subtitles'">
+              <aava-list
+                [title]="'List with Subtitles'"
+                [items]="listWithSubtitles"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onOptionSelected)="onOptionSelected($event, 'subtitles')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'List with Avatars'">
+              <aava-list
+                [title]="'List with Avatars'"
+                [items]="listWithAvatars"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onOptionSelected)="onOptionSelected($event, 'avatars')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'List with Icons Only'">
+              <aava-list
+                [title]="'List with Icons Only'"
+                [items]="listWithIcons"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onIconClick)="onIconClick($event, 'icons')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'List with Buttons'">
+              <aava-list
+                [title]="'List with Buttons'"
+                [items]="listWithButtons"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onButtonClick)="onButtonClick($event, 'buttons')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'List with All Fields'">
+              <aava-list
+                [title]="'List with All Fields'"
+                [items]="listWithAllFields"
+                [height]="'336px'"
+                [width]="'607px'"
+                (onOptionSelected)="onOptionSelected($event, 'allFields')"
+                (onIconClick)="onIconClick($event, 'allFields')"
+                (onButtonClick)="onButtonClick($event, 'allFields')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Multi-Select with Checkboxes'">
+              <aava-list
+                [title]="'Multi-Select List'"
+                [items]="multiSelectUsers"
+                [height]="'336px'"
+                [width]="'607px'"
+                [multiSelect]="true"
+                [showCheckboxes]="true"
+                [maxSelections]="5"
+                [selectedItemIds]="selectedUserIds"
+                (onSelectionChanged)="onSelectionChanged($event, 'multiSelect')"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Empty State'">
+              <aava-list
+                [items]="emptyList"
+                [height]="'336px'"
+                [width]="'607px'"
+                emptyLabel="No data available"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Error State'">
+              <aava-list
+                [title]="'List with Error'"
+                [items]="errorList"
+                [height]="'336px'"
+                [width]="'400px'"
+                [required]="true"
+                [errorMessage]="errorMessage"
+                [errorPosition]="errorPosition"
+                [selectedItemId]="errorSelectedId"
+                (onOptionSelected)="onErrorOptionSelected($event)"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Error State (Bottom)'">
+              <aava-list
+                [title]="'List with Error (Bottom)'"
+                [items]="errorList"
+                [height]="'336px'"
+                [width]="'400px'"
+                [required]="true"
+                [errorMessage]="'Error at the bottom.'"
+                [errorPosition]="'bottom'"
+                [showErrorImmediately]="true"
+                [selectedItemId]="errorBottomId"
+                (onOptionSelected)="onErrorBottom($event)"
+              ></aava-list>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Error State (Multi-Select)'">
+              <aava-list
+                [title]="'Multi-Select with Error'"
+                [items]="errorMultiList"
+                [height]="'336px'"
+                [width]="'400px'"
+                [multiSelect]="true"
+                [showCheckboxes]="true"
+                [required]="true"
+                [errorMessage]="'Select at least one user.'"
+                [showErrorImmediately]="false"
+                [selectedItemIds]="errorMultiIds"
+                (onSelectionChanged)="onErrorMulti($event)"
+              ></aava-list>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getListCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button
+            class="copy-button"
+            (click)="copyCode(section.title.toLowerCase())"
+          >
+            <!-- Icon for copy button -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,0 +1,193 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Textarea with Icons</h3>
+    <p>
+      Enhance your textareas with icons to improve visual recognition and
+      provide additional context. Icons can be positioned at the start or end of
+      the textarea.
+    </p>
+
+    <div class="icon-examples">
+      <div class="icon-example" *ngFor="let example of iconExamples">
+        <div class="example-header">
+          <h4>{{ example.title }}</h4>
+          <p>{{ example.description }}</p>
+        </div>
+        <div class="textarea-demo">
+          <aava-textarea
+            [placeholder]="example.placeholder"
+            [variant]="example.variant ?? 'default'"
+            [size]="example.size ?? 'md'"
+            [rows]="example.rows ?? 3"
+            [disabled]="example.disabled ?? false"
+            [readonly]="example.readonly ?? false"
+            [processingGradientBorder]="
+              example.processingGradientBorder ?? false
+            "
+            [processingGradientColors]="example.processingGradientColors ?? []"
+            (textareaChange)="onTextareaChange($any($event), example)"
+            (textareaFocus)="onTextareaFocus(example)"
+            (textareaBlur)="onTextareaBlur(example)"
+          >
+            <aava-icon
+              *ngIf="example.iconStart"
+              slot="icon-start"
+              [iconName]="example.iconStart"
+              [iconColor]="example.iconStartColor ?? '#666'"
+              [iconSize]="16"
+              (click)="onIconClick(example.iconStart!, 'start')"
+              style="cursor: pointer"
+            ></aava-icon>
+            <aava-icon
+              *ngIf="example.iconEnd"
+              slot="icon-end"
+              [iconName]="example.iconEnd"
+              [iconColor]="example.iconEndColor ?? '#666'"
+              [iconSize]="16"
+              (click)="onIconClick(example.iconEnd!, 'end')"
+              style="cursor: pointer"
+            ></aava-icon>
+          </aava-textarea>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Use Case Examples</h3>
+    <p>
+      Real-world examples of how to use icons effectively in different textarea
+      scenarios and applications.
+    </p>
+
+    <div class="use-case-examples">
+      <div class="use-case-group" *ngFor="let useCase of useCaseExamples">
+        <h4>{{ useCase.title }}</h4>
+        <p>{{ useCase.description }}</p>
+        <div class="textarea-examples">
+          <div
+            class="textarea-example"
+            *ngFor="let example of useCase.examples"
+          >
+            <h5>{{ example.label }}</h5>
+            <aava-textarea
+              [placeholder]="example.placeholder"
+              [variant]="example.variant"
+              [rows]="3"
+            >
+              <aava-icon
+                *ngIf="example.iconStart"
+                slot="icon-start"
+                [iconName]="example.iconStart"
+                [iconColor]="example.iconStartColor ?? '#666'"
+                [iconSize]="16"
+                (click)="onIconClick(example.iconStart!, 'start')"
+                style="cursor: pointer"
+              ></aava-icon>
+              <aava-icon
+                *ngIf="example.iconEnd"
+                slot="icon-end"
+                [iconName]="example.iconEnd"
+                [iconColor]="example.iconEndColor ?? '#666'"
+                [iconSize]="16"
+                (click)="onIconClick(example.iconEnd!, 'end')"
+                style="cursor: pointer"
+              ></aava-icon>
+            </aava-textarea>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Icon Guidelines</h3>
+    <p>
+      Best practices for using icons effectively in your textarea
+      implementations to ensure consistency and accessibility.
+    </p>
+
+    <div class="guidelines-grid">
+      <div class="guideline-card" *ngFor="let guideline of iconGuidelines">
+        <h4>{{ guideline.title }}</h4>
+        <ul>
+          <li *ngFor="let item of guideline.items">{{ item }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Interactive Examples</h3>
+    <p>
+      Try these interactive examples to see how icons enhance the user
+      experience.
+    </p>
+
+    <div class="interactive-examples">
+      <div class="interactive-example">
+        <h4>Message Composer</h4>
+        <p>Textarea with multiple action icons for a messaging interface</p>
+        <aava-textarea
+          [(ngModel)]="messageValue"
+          placeholder="Type your message..."
+          variant="primary"
+          [rows]="4"
+        >
+          <aava-icon
+            slot="icon-start"
+            iconName="paperclip"
+            iconColor="#7c3aed"
+            [iconSize]="16"
+            (click)="onIconClick('paperclip', 'attach')"
+            style="cursor: pointer"
+          ></aava-icon>
+          <aava-icon
+            slot="icon-end"
+            iconName="smile"
+            iconColor="#f59e0b"
+            [iconSize]="16"
+            (click)="onIconClick('smile', 'emoji')"
+            style="cursor: pointer"
+          ></aava-icon>
+          <aava-icon
+            slot="icon-end"
+            iconName="send"
+            iconColor="#059669"
+            [iconSize]="16"
+            (click)="onIconClick('send', 'send')"
+            style="cursor: pointer"
+          ></aava-icon>
+        </aava-textarea>
+      </div>
+
+      <div class="interactive-example">
+        <h4>Code Editor</h4>
+        <p>Textarea with code-specific icons for development environments</p>
+        <aava-textarea
+          [(ngModel)]="commentValue"
+          placeholder="Add code comments..."
+          variant="info"
+          [rows]="3"
+        >
+          <aava-icon
+            slot="icon-start"
+            iconName="code"
+            iconColor="#059669"
+            [iconSize]="16"
+            (click)="onIconClick('code', 'format')"
+            style="cursor: pointer"
+          ></aava-icon>
+          <aava-icon
+            slot="icon-end"
+            iconName="check"
+            iconColor="#059669"
+            [iconSize]="16"
+            (click)="onIconClick('check', 'validate')"
+            style="cursor: pointer"
+          ></aava-icon>
+        </aava-textarea>
+      </div>
+    </div>
+  </div>
+</div>

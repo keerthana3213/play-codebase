@@ -1,0 +1,134 @@
+<div class="phone-demo-container">
+  <h2>Phone Number Textbox Variants</h2>
+
+  <div class="variant-examples">
+    <h3>Country Prefix at Start (Left Side)</h3>
+
+      <aava-textbox
+        label="Label Name"
+        variant="default"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="US"
+        countryPosition="start"
+        [value]="phoneDefault"
+        (textboxInput)="onPhoneInput($event, 'default')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="error"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="US"
+        countryPosition="start"
+        error="Error message comes here"
+        [value]="phoneError"
+        (textboxInput)="onPhoneInput($event, 'error')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="success"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="US"
+        countryPosition="start"
+        [value]="phoneSuccess"
+        (textboxInput)="onPhoneInput($event, 'success')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="warning"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="US"
+        countryPosition="start"
+        [value]="phoneWarning"
+        (textboxInput)="onPhoneInput($event, 'warning')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="info"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="US"
+        countryPosition="start"
+        [value]="phoneInfo"
+        (textboxInput)="onPhoneInput($event, 'info')">
+      </aava-textbox>
+
+
+    <div class="variant-examples">
+      <h3>Country Prefix at End (Right Side)</h3>
+
+      <aava-textbox
+        label="Label Name"
+        variant="default"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="USD"
+        countryPosition="end"
+        [value]="phoneDefaultEnd"
+        (textboxInput)="onPhoneInput($event, 'defaultEnd')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="error"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="USD"
+        countryPosition="end"
+        error="Error message comes here"
+        [value]="phoneErrorEnd"
+        (textboxInput)="onPhoneInput($event, 'errorEnd')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="success"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="USD"
+        countryPosition="end"
+        [value]="phoneSuccessEnd"
+        (textboxInput)="onPhoneInput($event, 'successEnd')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="warning"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="USD"
+        countryPosition="end"
+        [value]="phoneWarningEnd"
+        (textboxInput)="onPhoneInput($event, 'warningEnd')">
+      </aava-textbox>
+
+      <aava-textbox
+        label="Label Name"
+        variant="info"
+        type="tel"
+        placeholder="Enter Ph. No."
+        [phone]="true"
+        countryName="USD"
+        countryPosition="end"
+        [value]="phoneInfoEnd"
+        (textboxInput)="onPhoneInput($event, 'infoEnd')">
+      </aava-textbox>
+    </div>
+  </div>
+</div>

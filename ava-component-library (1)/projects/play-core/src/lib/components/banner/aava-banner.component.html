@@ -1,0 +1,51 @@
+<div *ngIf="isVisible" class="aava-banner" [style.width]="width" [style.height]="height" [attr.id]="id ? 'aava-banner-' + id : null" [ngSwitch]="variant" [ngStyle]="customStyles">
+
+    <!-- ================= STACKED VARIANT ================= -->
+    <ng-container *ngSwitchCase="'stacked'">
+        <div class="aava-banner__media" [style.backgroundImage]="'url(' + imageUrl + ')'"
+            [style.backgroundColor]="stackedBgColor">
+        </div>
+
+        <section class="text-container" role="region" [attr.aria-label]="title">
+            <h2 class="banner-title">{{ title }}</h2>
+            <p class="banner-desc">{{ description }}</p>
+            <div class="banner-actions" *ngIf="bannerActions">
+                <aava-button [label]="primaryBtnText" variant="primary" [size]="buttonSize"
+                    (click)="handlePrimary()"></aava-button>
+                <aava-button [label]="secondaryBtnText" variant="primary" [size]="buttonSize"
+                    (click)="handleSecondary()"></aava-button>
+            </div>
+        </section>
+
+    </ng-container>
+
+    <!-- ================= ROW VARIANT ================= -->
+    <ng-container *ngSwitchCase="'row'">
+        <div class="row-container" [style.backgroundColor]="rowBgColor">
+
+            <!-- Logo -->
+            <div class="row-logo" *ngIf="imageUrl">
+                <img [src]="imageUrl" alt="Banner Logo" />
+            </div>
+
+            <!-- Truncated description -->
+            <div class="row-text">
+                <span class="row-description">{{ description }}</span>
+            </div>
+
+            <!-- Inline buttons -->
+            <div class="row-actions">
+                <aava-button [label]="primaryBtnText" variant="primary" [size]="buttonSize"
+                    (click)="handlePrimary()"></aava-button>
+                <aava-button [label]="secondaryBtnText" variant="primary" [size]="buttonSize"
+                    (click)="handleSecondary()"></aava-button>
+            </div>
+
+            <!-- Close button -->
+            <aava-icon class="close-btn" iconName="X" iconSize="26" iconColor="black" [cursor]="true" role="button"
+                aria-label="Close banner" tabindex="0" (userClick)="onCloseClick()">
+            </aava-icon>
+        </div>
+    </ng-container>
+
+</div>

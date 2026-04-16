@@ -1,0 +1,51 @@
+/**
+ * Component: Filter
+ * Purpose: Filter component tokens for page footers and navigation
+ */
+
+:root {
+    /* Base styles */
+    --filter-background-primary: var(--global-background);
+    --filter-container-padding: var(--global-spacing-2);
+    --filter-border-radius: var(--global-radius-sm);
+    --filter-layout-gap:var(--global-spacing-2);
+    --filter-container-max-height: 250px;
+
+    --filter-options-height-xl:52px;
+    --filter-options-padding-xl:var(--global-spacing-1) var(--global-spacing-3);
+
+      --filter-options-height-lg:48px;
+    --filter-options-padding-lg:6px var(--global-spacing-3);
+
+    --filter-options-height-md:44px;
+    --filter-options-padding-md:var(--global-spacing-2);
+
+    --filter-options-height-sm:36px;
+    --filter-options-padding-sm:6px var(--global-spacing-2);
+
+    --filter-options-height-xs:28px;
+    --filter-options-padding-xs:2px var(--global-spacing-1);
+    --filter-options-label-color:var(--color-text-primary);
+    --filter-options-font-family:var(--global-font-family-body);
+    --filter-options-font-size-default:18px;
+    --filter-options-font-weight:var(--global-font-weight-medium);
+    --filter-options-line-height:24px;
+
+    --filter-options-font-size-xl:var(--global-font-size-lg);
+    --filter-options-font-size-lg:18px;
+    --filter-options-font-size-md:var(--global-font-size-md);
+    --filter-options-font-size-sm:var(--global-font-size-sm);
+    --filter-options-font-size-xs:var(--global-font-size-xs);
+
+    --filter-checkbox-padding:var(--global-spacing-1);
+    --filter-action-buttons-gap:var(--global-spacing-2);
+
+    --filter-options-hover-background:var(--color-brand-primary);
+
+    --filter-options-gap-xl:var(--global-spacing-2);
+    --filter-options-gap-xs:var(--global-spacing-1);
+
+    --filter-placeholder-color:var(--color-text-placeholder);
+    --filter-action-padding:var(--global-spacing-2);
+    
+}

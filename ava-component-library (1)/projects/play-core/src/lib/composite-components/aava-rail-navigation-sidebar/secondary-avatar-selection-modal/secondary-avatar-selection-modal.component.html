@@ -1,0 +1,16 @@
+<aava-select [showSearch]="false" mode="normal" [expanded]="false" size="md" [label]="label" [placeholder]="placeholder"
+    (selectionChange)="onSecondaryAvatarSelect($event)" [inModal]="true" [ngClass]="'secondary-avatar-selector'">
+    <aava-select-option *ngFor="let item of items" [value]="item.id" [selected]="!!item.isSelected">
+        <div style="display: flex; align-items: center; gap: 8px; justify-content: space-between; width: 100%;">
+            <div style="display: flex; align-items: center; gap: 8px;">
+                <aava-avatars size="xs" shape="pill" [imageUrl]="item.avatar || ''" [initials]="item.initials || ''"
+                    [initialsBackground]="item.initialsBackground || ''" [initialsColor]="item.initialsColor || ''">
+                </aava-avatars>
+                <span>{{ item.label }}</span>
+            </div>
+            <aava-icon *ngIf="item.isSelected" iconName="Check" [iconSize]="16"
+                >
+            </aava-icon>
+        </div>
+    </aava-select-option>
+</aava-select>

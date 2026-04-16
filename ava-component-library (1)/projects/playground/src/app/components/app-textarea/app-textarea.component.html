@@ -1,0 +1,150 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Textarea Component</h1>
+        <p class="description">
+          A flexible textarea component supporting variants, sizes, states,
+          icons, prefix/suffix, and accessibility.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Components</h2>
+        <div class="nav-links">
+          <h3>Demo Sections</h3>
+          <div class="nav-grid">
+            <a routerLink="/textarea/basic-usage" class="nav-link">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Basic Usage</span>
+            </a>
+            <a routerLink="/textarea/sizes" class="nav-link">
+              <span class="nav-icon">📏</span>
+              <span class="nav-text">Sizes</span>
+            </a>
+            <a routerLink="/textarea/variants" class="nav-link">
+              <span class="nav-icon">🎨</span>
+              <span class="nav-text">Variants</span>
+            </a>
+            <a routerLink="/textarea/events" class="nav-link">
+              <span class="nav-icon">⚡</span>
+              <span class="nav-text">Events</span>
+            </a>
+            <a routerLink="/textarea/icons" class="nav-link">
+              <span class="nav-icon">🎨</span>
+              <span class="nav-text">Icons</span>
+            </a>
+            <a routerLink="/textarea/accessibility" class="nav-link">
+              <span class="nav-icon">♿</span>
+              <span class="nav-text">Accessibility</span>
+            </a>
+            <a routerLink="/textarea/api" class="nav-link">
+              <span class="nav-icon">📚</span>
+              <span class="nav-text">API Reference</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Basic Example -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Basic Example</h2>
+    <aava-textarea label="Basic Textarea" placeholder="Type here..." [(ngModel)]="basicValue"
+      (textareaInput)="onTextareaInput()" (textareaFocus)="onTextareaFocus()" (blur)="onTextareaBlur()"
+      (textareaChange)="onTextareaChange()"></aava-textarea>
+  </div>
+
+  <!-- Sizes -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Sizes</h2>
+    <div style="display: grid; gap: 1rem; margin-bottom: 2rem">
+      <aava-textarea label="Small" size="sm" placeholder="Small textarea"></aava-textarea>
+      <aava-textarea label="Medium (Default)" size="md" placeholder="Medium textarea"></aava-textarea>
+      <aava-textarea label="Large" size="lg" placeholder="Large textarea"></aava-textarea>
+    </div>
+  </div>
+
+  <!-- Variants -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Variants</h2>
+    <div style="display: grid; gap: 1rem; margin-bottom: 2rem">
+      <aava-textarea label="Default" variant="default" placeholder="Default variant"></aava-textarea>
+      <aava-textarea label="Primary" variant="primary" placeholder="Primary variant"></aava-textarea>
+      <aava-textarea label="Success" variant="success" placeholder="Success variant"
+        helper="Looks good!"></aava-textarea>
+      <aava-textarea label="Warning" variant="warning" placeholder="Warning variant"
+        helper="Please double-check."></aava-textarea>
+      <aava-textarea label="Error" variant="error" placeholder="Error variant"
+        error="This field has an error"></aava-textarea>
+      <aava-textarea variant="success" [processing]="true"></aava-textarea>
+    </div>
+  </div>
+
+  <!-- Auto-Resize Demo -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Auto-Resize</h2>
+    <div style="display: grid; gap: 1rem; margin-bottom: 2rem">
+      <aava-textarea label="Auto-Resize Enabled"
+        placeholder="Start typing... The textarea will automatically grow as you add more content. Try adding multiple lines!"
+        [autoResize]="true" [rows]="2" [(ngModel)]="autoResizeValue"
+        helper="This textarea automatically adjusts its height based on content"></aava-textarea>
+      <aava-textarea label="Regular Textarea (Manual Resize)"
+        placeholder="This is a regular textarea with manual resize handle..." [autoResize]="false" [rows]="2"
+        [(ngModel)]="regularValue" helper="This textarea has a manual resize handle"></aava-textarea>
+    </div>
+  </div>
+
+  <!-- States -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>States</h2>
+    <div style="display: grid; gap: 1rem; margin-bottom: 2rem">
+      <aava-textarea label="Disabled" [disabled]="true" [rows]="rows" [(ngModel)]="disabledValue"></aava-textarea>
+      <aava-textarea label="Read-only" [readonly]="true" [rows]="rows" [(ngModel)]="readonlyValue"></aava-textarea>
+      <aava-textarea label="Required" [required]="true" [rows]="rows"></aava-textarea>
+    </div>
+  </div>
+
+  <!-- With Icons -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>With Processing Gradient Border</h2>
+    <aava-textarea label="Message" placeholder="Type your message..." [(ngModel)]="iconValue" [resizable]="false"
+      [rows]="rows" [style]="{ 'border-width': '2px' }" [processingGradientBorder]="true"
+      [processingGradientColors]="['#fa709a', '#e5cb3a']">
+      <aava-icon slot="icon-start" iconName="paperclip" [iconColor]="'#7c3aed'" (click)="onEditClick()"
+        [iconSize]="16"></aava-icon>
+      <aava-icon slot="icon-end" iconName="edit" [iconColor]="'#7c3aed'" (click)="onEditClick()"
+        [iconSize]="16"></aava-icon>
+      <aava-icon slot="icon-end" iconName="send" [iconColor]="'#2563eb'" (click)="onSendClick()"
+        [iconSize]="16"></aava-icon>
+      <aava-icon slot="icon-end" iconName="x" [iconColor]="'#e91e63'" (click)="onClearClick()"
+        [iconSize]="16"></aava-icon>
+    </aava-textarea>
+  </div>
+
+  <!-- Helper & Error -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Helper & Error</h2>
+    <aava-textarea label="With Helper" placeholder="Helper text example" helper="This is some helpful info."
+      [(ngModel)]="helperValue"></aava-textarea>
+    <aava-textarea label="With Error" placeholder="Error text example" error="This field is required."
+      [(ngModel)]="errorValue"></aava-textarea>
+  </div>
+
+  <!-- Live Value Display -->
+  <div style="max-width: 800px; margin: 40px auto">
+    <h2>Live Value</h2>
+    <aava-textarea label="Live Value" placeholder="Type to see value below" [(ngModel)]="basicValue"></aava-textarea>
+    <div style="margin-top: 1rem">
+      <strong>Value:</strong>
+      <pre>{{ basicValue }}</pre>
+    </div>
+  </div>
+</div>

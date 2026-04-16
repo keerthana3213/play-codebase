@@ -1,0 +1,255 @@
+<div class="select-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Select Component</h1>
+            <p class="description">
+              A versatile select component that supports single and multiple selection,
+              form integration, search functionality, and keyboard navigation. Built with
+              accessibility and user experience in mind.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/select/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+                <a routerLink="/select/sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+          
+              <a routerLink="/select/multiple-selection" class="nav-link">
+                <span class="nav-icon">☑️</span>
+                <span class="nav-text">Multiple Selection</span>
+              </a>
+                <a routerLink="/select/states" class="nav-link">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">States</span>
+              </a>
+              <a routerLink="/select/icons" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Icons & Visuals</span>
+              </a>
+            
+            
+              <a routerLink="/select/search" class="nav-link">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-text">Search </span>
+              </a>
+                  <a routerLink="/select/form-integration" class="nav-link">
+                <span class="nav-icon">📋</span>
+                <span class="nav-text">Form Integration</span>
+              </a>
+              <a routerLink="/select/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>Simple select component with keyboard navigation</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-select
+                label="Select User"
+                placeholder="Select a user"
+                [(ngModel)]="selectedUser"
+                (selectionChange)="onSelectionChange($event)">
+                <aava-select-option value="1">👤 John Doe</aava-select-option>
+                <aava-select-option value="2">👤 Jane Smith</aava-select-option>
+                <aava-select-option value="3">👤 Jack Wilson</aava-select-option>
+                <aava-select-option value="4">👤 James Brown</aava-select-option>
+              </aava-select>
+              <div class="mt-3">
+                <strong>Selected User:</strong> {{selectedUser}}
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multiple Selection -->
+    <section class="demo-section multiple-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Multiple Selection</h2>
+          <p>Select multiple options with checkboxes</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-select
+                [multiple]="true"
+                label="Select Users"
+                placeholder="Select users"
+                [(ngModel)]="selectedUsers"
+                (selectionChange)="onSelectionChange($event)">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+              <div class="mt-3">
+                <strong>Selected Users:</strong> {{selectedUsers | json}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Size Variants -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Size Variants</h2>
+          <p>Different sizes for various use cases</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+               <div class="col-12 col-sm-auto">
+              <aava-select
+                size="xs"
+                label="Extra Small"
+                placeholder="Small select"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-select
+                size="sm"
+                label="Small"
+                placeholder="Small select"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-select
+                size="md"
+                label="Medium"
+                placeholder="Medium select"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-select
+                size="lg"
+                label="Large"
+                placeholder="Large select"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+               <div class="col-12 col-sm-auto">
+              <aava-select
+                size="xl"
+                label="Extra Large"
+                placeholder="Small select"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- States -->
+    <section class="demo-section states-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Component States</h2>
+          <p>Different states and validation examples</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <aava-select
+                label="Normal State"
+                placeholder="Select a user"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-select
+                label="Disabled State"
+                placeholder="This is disabled"
+                [disabled]="true"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-select
+                label="Error State"
+                placeholder="Select a user"
+                error="This field is required"
+                [(ngModel)]="selectedUser">
+                <aava-select-option value="1">John Doe</aava-select-option>
+                <aava-select-option value="2">Jane Smith</aava-select-option>
+                <aava-select-option value="3">Jack Wilson</aava-select-option>
+                <aava-select-option value="4">James Brown</aava-select-option>
+              </aava-select>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

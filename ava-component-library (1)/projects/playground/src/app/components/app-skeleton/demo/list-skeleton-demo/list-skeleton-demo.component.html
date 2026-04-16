@@ -1,0 +1,24 @@
+<div class="list-skeleton-demo">
+  <div class="demo-content">
+    <div class="list-skeleton-container">
+      <div class="table-skeleton">
+        <!-- Table Header -->
+        <div class="table-header">
+          <div *ngFor="let element of listItemElements" class="header-cell">
+            <aava-skeleton [width]="element.width" [height]="element.height" [shape]="element.shape"
+              [animation]="element.animation"></aava-skeleton>
+            <!-- <span class="element-label">{{ element.description }}</span> -->
+          </div>
+        </div>
+
+        <!-- Table Rows -->
+        <div *ngFor="let item of listItems" class="table-row">
+          <div *ngFor="let element of listItemElements" class="table-cell">
+            <aava-skeleton [width]="element.width" [height]="element.height" [shape]="element.shape"
+              [animation]="element.animation"></aava-skeleton>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

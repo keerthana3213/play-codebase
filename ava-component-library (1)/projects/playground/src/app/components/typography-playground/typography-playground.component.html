@@ -1,0 +1,361 @@
+<div class="typography-playground">
+    <div class="container">
+        <h1 class="playground-title">Typography Playground - Play Design System</h1>
+        <p class="playground-description">
+            This playground showcases all typography classes from the Play Design System, including Mulish (primary) and
+            Inter (secondary) font families with various weights, sizes, and styles.
+        </p>
+
+        <!-- Mulish Primary Font Section -->
+        <section class="font-section">
+            <h2 class="section-title">🎨 Mulish Font Family (Primary)</h2>
+            <p class="section-description">Primary font used for headings, titles, and primary text content.</p>
+
+            <!-- Light Weight (300) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Light Weight (300)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of mulishClasses.light" class="class-example">
+                        <div class="class-name">.body-light-default-{{size.token}}</div>
+                        <div class="class-demo body-light-default-{{size.token}}">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Mulish</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Weight (400) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Regular Weight (400)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of mulishClasses.regular" class="class-example">
+                        <div class="class-name">.body-regular-default-{{size.token}}</div>
+                        <div class="class-demo body-regular-default-{{size.token}}">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Mulish</span>
+                            <span class="font-weight">400</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Weight (500) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Medium Weight (500)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of mulishClasses.medium" class="class-example">
+                        <div class="class-name">.body-medium-default-{{size.token}}</div>
+                        <div class="class-demo body-medium-default-{{size.token}}">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Mulish</span>
+                            <span class="font-weight">500</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bold Weight (700) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Bold Weight (700)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of mulishClasses.bold" class="class-example">
+                        <div class="class-name">.body-bold-default-{{size.token}}</div>
+                        <div class="class-demo body-bold-default-{{size.token}}">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Mulish</span>
+                            <span class="font-weight">700</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inter Secondary Font Section -->
+        <section class="font-section">
+            <h2 class="section-title">🔤 Inter Font Family (Secondary)</h2>
+            <p class="section-description">Secondary font used for body text, captions, and secondary content.</p>
+
+            <!-- Light Weight (300) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Light Weight (300)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of interClasses.light" class="class-example">
+                        <div class="class-name">.body-light-default-{{size.token}}-inter</div>
+                        <div class="class-demo body-light-default-{{size.token}}-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Regular Weight (400) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Regular Weight (400)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of interClasses.regular" class="class-example">
+                        <div class="class-name">.body-regular-default-{{size.token}}-inter</div>
+                        <div class="class-demo body-regular-default-{{size.token}}-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">400</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Medium Weight (500) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Medium Weight (500)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of interClasses.medium" class="class-example">
+                        <div class="class-name">.body-medium-default-{{size.token}}-inter</div>
+                        <div class="class-demo body-medium-default-{{size.token}}-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">500</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Bold Weight (700) -->
+            <div class="weight-section">
+                <h3 class="weight-title">Bold Weight (700)</h3>
+                <div class="class-grid">
+                    <div *ngFor="let size of interClasses.bold" class="class-example">
+                        <div class="class-name">.body-bold-default-{{size.token}}-inter</div>
+                        <div class="class-demo body-bold-default-{{size.token}}-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">700</span>
+                            <span class="font-size">{{size.size}} ({{size.pixels}})</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inter Font Variants Section -->
+        <section class="font-section">
+            <h2 class="section-title">✨ Inter Font Variants</h2>
+            <p class="section-description">Special variants including italic, underline, and combined styles.</p>
+
+            <div class="weight-section">
+                <h3 class="weight-title">Style Variants (100px size example)</h3>
+                <div class="class-grid variants-grid">
+                    <div class="class-example">
+                        <div class="class-name">.body-light-default-100-inter</div>
+                        <div class="class-demo body-light-default-100-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-style">Normal</span>
+                        </div>
+                    </div>
+
+                    <div class="class-example">
+                        <div class="class-name">.body-light-italic-100-inter</div>
+                        <div class="class-demo body-light-italic-100-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-style">Italic</span>
+                        </div>
+                    </div>
+
+                    <div class="class-example">
+                        <div class="class-name">.body-light-underline-100-inter</div>
+                        <div class="class-demo body-light-underline-100-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-style">Underline</span>
+                        </div>
+                    </div>
+
+                    <div class="class-example">
+                        <div class="class-name">.body-light-italic-underline-100-inter</div>
+                        <div class="class-demo body-light-italic-underline-100-inter">
+                            {{sampleText}}
+                        </div>
+                        <div class="class-info">
+                            <span class="font-family">Inter</span>
+                            <span class="font-weight">300</span>
+                            <span class="font-style">Italic + Underline</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Utility Classes Section -->
+        <section class="font-section">
+            <h2 class="section-title">🛠️ Utility Classes</h2>
+            <p class="section-description">Quick utility classes for typography styling.</p>
+
+            <!-- Font Family Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Font Family</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.fontFamily" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Size Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Text Sizes</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.textSizes" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Font Weight Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Font Weights</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.fontWeights" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Line Height Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Line Heights</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.lineHeights" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleTextLong}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Letter Spacing Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Letter Spacing</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.letterSpacing" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Alignment Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Text Alignment</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.textAlign" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Transform Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Text Transform</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.textTransform" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Decoration Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Text Decoration</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.textDecoration" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Text Style Utilities -->
+            <div class="utility-section">
+                <h3 class="utility-title">Text Styles</h3>
+                <div class="utility-grid">
+                    <div *ngFor="let util of utilityClasses.textStyle" class="utility-example">
+                        <div class="class-name">.{{util}}</div>
+                        <div class="class-demo" [class]="util">
+                            {{sampleText}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Responsive Typography Demo -->
+        <section class="font-section">
+            <h2 class="section-title">📱 Responsive Typography Demo</h2>
+            <p class="section-description">These text sizes will scale responsively on different screen sizes.</p>
+
+            <div class="responsive-demo">
+                <div class="responsive-text text-5xl">Responsive Text 5XL</div>
+                <div class="responsive-text text-4xl">Responsive Text 4XL</div>
+                <div class="responsive-text text-3xl">Responsive Text 3XL</div>
+                <div class="responsive-text text-2xl">Responsive Text 2XL</div>
+                <div class="responsive-text text-xl">Responsive Text XL</div>
+            </div>
+        </section>
+    </div>
+</div>

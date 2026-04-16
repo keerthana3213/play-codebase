@@ -1,0 +1,26 @@
+<div class="custom-dialog" [attr.id]="id ? 'aava-custom-' + id : null" [ngClass]="[variant, size, bottomBorder ? 'has-bottom-border' : '']" [ngStyle]="customStyles">
+    <div class="icon-container" *ngIf="showIcon && (icon || variant !== 'default')">
+        <aava-icon [iconName]="variantIcon" [iconSize]="iconSize" [iconColor]="variantIconColor" aria-hidden="true">
+        </aava-icon>
+    </div>
+
+    <h3 class="popup-title" [ngClass]="variant" id="popup-title" *ngIf="showTitle && title">
+        {{ title }}
+    </h3>
+
+    <p class="inline-text" *ngIf="showMessage && message" [innerHTML]="message">
+    </p>
+
+    <div class="custom-content" *ngIf="customContent" [innerHTML]="customContent">
+    </div>
+
+    <!-- Slot for projected content -->
+    <ng-content></ng-content>
+
+    <div class="dialog-actions" *ngIf="buttons && buttons.length > 0">
+        <aava-button *ngFor="let button of buttons; trackBy: trackByButton" [label]="button.label"
+            [variant]="button.variant || 'secondary'" size="sm" [disabled]="button.disabled || false"
+            (userClick)="onButtonClick(button)">
+        </aava-button>
+    </div>
+</div>

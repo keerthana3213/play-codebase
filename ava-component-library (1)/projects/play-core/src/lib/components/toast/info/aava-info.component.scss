@@ -1,0 +1,209 @@
+/* Info Toast Component - Uses only _toast.css token variables */
+
+.ava-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--toast-gap);
+  padding: var(--toast-padding);
+  border-radius: var(--toast-border-radius);
+  box-shadow: var(--toast-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100px);
+  opacity: 0;
+  max-width: 100%;
+  min-width: var(--toast-min-width);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-family-body);
+
+  &.ava-toast-show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Override min-width when custom width is set */
+  &[style*="width"] {
+    min-width: unset;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+.ava-toast-info {
+  background: var(--toast-info-background);
+  color: var(--toast-color-text);
+  border-color: var(--toast-info-background);
+}
+
+.ava-toast-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: var(--toast-margin);
+}
+
+.ava-toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ava-toast-title {
+  font: var(--toast-title-font);
+  color: var(--toast-title-color);
+  font-weight: var(--toast-title-weight);
+  line-height: var(--toast-title-line-height);
+  margin-bottom: var(--toast-title-margin-bottom);
+}
+
+.ava-toast-message {
+  font: var(--toast-title-font);
+  color: var(--toast-message-color);
+  font-weight: var(--toast-message-weight);
+  line-height: var(--toast-title-line-height);
+  margin-bottom: var(--toast-gap);
+}
+
+.ava-toast-actions {
+  margin-top: var(--global-spacing-2);
+}
+
+.ava-toast-close {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  flex-shrink: 0;
+  margin-top: var(--global-spacing-1);
+}
+
+.ava-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  animation: toast-progress linear;
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}
+
+.toast-wrapper {
+  margin-bottom: var(--toast-margin-bottom);
+  pointer-events: auto;
+  z-index: 99999;
+}
+
+.toast {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  background: var(--toast-color-text);
+  border-radius: var(--toast-border-radius-sm);
+  overflow: hidden;
+  box-shadow: var(--toast-box-shadow);
+  gap: var(--toast-gap);
+  font-family: var(--toast-font-family);
+  width: var(--toast-width);
+  padding: var(--toast-padding-default);
+  font-size: var(--toast-font-size-medium);
+  /* Default size */
+}
+
+/* Icon */
+.toast .toast-icon {
+  color: var(--toast-color-text);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: var(--toast-icon-size-medium);
+  height: var(--toast-icon-size-medium);
+}
+
+/* Text Content */
+.toast-text {
+  flex: 1;
+}
+
+.toast-title {
+  font-weight: var(--toast-title-weight);
+  color: var(--toast-color-black);
+}
+
+.toast-message {
+  color: var(--toast-color-gray);
+}
+
+/* Close Button */
+.toast-close {
+  background: none;
+  border: none;
+  color: var(--toast-color-black);
+  font-size: var(--toast-title-font-size);
+  cursor: pointer;
+}
+
+/* Size Variants */
+.toast.large,
+.toast.lg {
+  padding: var(--toast-padding-large);
+  font-size: var(--toast-font-size-large);
+}
+
+.toast.large .toast-icon,
+.toast.lg .toast-icon {
+  width: var(--toast-icon-size-large);
+  height: var(--toast-icon-size-large);
+}
+
+.toast.medium,
+.toast.md {
+  padding: var(--toast-padding-medium);
+  font-size: var(--toast-font-size-medium);
+}
+
+.toast.medium .toast-icon,
+.toast.md .toast-icon {
+  width: var(--toast-icon-size-medium);
+  height: var(--toast-icon-size-medium);
+}
+
+.toast.small,
+.toast.sm {
+  padding: var(--toast-padding-small);
+  font-size: var(--toast-font-size-small);
+}
+
+.toast.small .toast-icon,
+.toast.sm .toast-icon {
+  width: var(--toast-icon-size-small);
+  height: var(--toast-icon-size-small);
+}
+
+/* Info Variant */
+.info-toast .toast-icon {
+  background-color: var(--toast-color-info);
+}
+
+/* Progress Bar */
+.toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: var(--toast-progress-height);
+  background: var(--toast-color-info);
+  width: 100%;
+  animation: toast-progress linear;
+}

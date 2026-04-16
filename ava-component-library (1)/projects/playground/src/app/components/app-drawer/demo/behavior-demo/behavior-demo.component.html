@@ -1,0 +1,470 @@
+<div class="behavior-demo">
+  <div class="demo-header">
+    <h3>Behavior Options</h3>
+    <p>Customize drawer behavior with various interaction options.</p>
+  </div>
+
+  <div class="demo-content">
+    <div class="behavior-section">
+      <h4>🎛️ Drawer Behavior Control Properties</h4>
+      <p>
+        Control how your drawer behaves with these input properties. Each
+        property has a specific purpose and use case.
+      </p>
+
+      <div class="behavior-grid">
+        <!-- showOverlay Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>showOverlay</h5>
+            <span class="property-type">boolean = true</span>
+          </div>
+          <p class="property-description">
+            Controls whether to show the dark background overlay behind the
+            drawer.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="With Overlay"
+              variant="primary"
+              (click)="openDrawer('overlay-true')"
+            >
+            </aava-button>
+            <aava-button
+              label="No Overlay"
+              variant="secondary"
+              (click)="openDrawer('overlay-false')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[showOverlay]="true"</code> - Standard modal behavior<br />
+            <code>[showOverlay]="false"</code> - Non-modal sidebar
+          </div>
+        </div>
+
+        <!-- closeOnOverlayClick Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>closeOnOverlayClick</h5>
+            <span class="property-type">boolean = true</span>
+          </div>
+          <p class="property-description">
+            Controls whether clicking the overlay closes the drawer.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="Closeable"
+              variant="primary"
+              (click)="openDrawer('overlay-click-true')"
+            >
+            </aava-button>
+            <aava-button
+              label="Not Closeable"
+              variant="secondary"
+              (click)="openDrawer('overlay-click-false')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[closeOnOverlayClick]="true"</code> - Easy dismissal<br />
+            <code>[closeOnOverlayClick]="false"</code> - Prevent accidents
+          </div>
+        </div>
+
+        <!-- closeOnEscape Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>closeOnEscape</h5>
+            <span class="property-type">boolean = true</span>
+          </div>
+          <p class="property-description">
+            Controls whether pressing the Escape key closes the drawer.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="ESC Enabled"
+              variant="primary"
+              (click)="openDrawer('escape-true')"
+            >
+            </aava-button>
+            <aava-button
+              label="ESC Disabled"
+              variant="secondary"
+              (click)="openDrawer('escape-false')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[closeOnEscape]="true"</code> - Keyboard accessibility<br />
+            <code>[closeOnEscape]="false"</code> - Critical workflows
+          </div>
+        </div>
+
+        <!-- showCloseButton Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>showCloseButton</h5>
+            <span class="property-type">boolean = true</span>
+          </div>
+          <p class="property-description">
+            Controls whether to show the X close button in the header.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="With Button"
+              variant="primary"
+              (click)="openDrawer('close-button-true')"
+            >
+            </aava-button>
+            <aava-button
+              label="No Button"
+              variant="secondary"
+              (click)="openDrawer('close-button-false')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[showCloseButton]="true"</code> - Clear exit option<br />
+            <code>[showCloseButton]="false"</code> - Custom triggers
+          </div>
+        </div>
+
+        <!-- persistent Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>persistent</h5>
+            <span class="property-type">boolean = false</span>
+          </div>
+          <p class="property-description">
+            Makes the drawer "sticky" - cannot be closed by user actions.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="Normal"
+              variant="primary"
+              (click)="openDrawer('persistent-false')"
+            >
+            </aava-button>
+            <aava-button
+              label="Persistent"
+              variant="secondary"
+              (click)="openDrawer('persistent-true')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[persistent]="false"</code> - Normal behavior<br />
+            <code>[persistent]="true"</code> - Force interaction
+          </div>
+        </div>
+
+        <!-- animate Property -->
+        <div class="behavior-card">
+          <div class="property-header">
+            <h5>animate</h5>
+            <span class="property-type">boolean = true</span>
+          </div>
+          <p class="property-description">
+            Controls whether to use spring animation when opening/closing.
+          </p>
+          <div class="property-examples">
+            <aava-button
+              label="Animated"
+              variant="primary"
+              (click)="openDrawer('animate-true')"
+            >
+            </aava-button>
+            <aava-button
+              label="Instant"
+              variant="secondary"
+              (click)="openDrawer('animate-false')"
+            >
+            </aava-button>
+          </div>
+          <div class="code-snippet">
+            <code>[animate]="true"</code> - Smooth transitions<br />
+            <code>[animate]="false"</code> - Performance mode
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Behavior Property Drawer Examples -->
+
+    <!-- showOverlay Examples -->
+    <aava-drawer
+      [isOpen]="overlayTrueDrawerOpen"
+      [showOverlay]="true"
+      title="With Overlay"
+      subtitle="showOverlay = true (default)"
+      (closed)="closeDrawer('overlay-true')"
+    >
+      <div class="demo-content">
+        <h4>✅ Overlay Enabled</h4>
+        <p><code>[showOverlay]="true"</code></p>
+        <p>
+          Notice the dark background overlay that dims the page content. This is
+          the standard modal behavior that focuses attention on the drawer.
+        </p>
+        <ul>
+          <li>✅ Background is dimmed</li>
+          <li>✅ Page content is not interactive</li>
+          <li>✅ Focus is trapped in drawer</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="overlayFalseDrawerOpen"
+      [showOverlay]="false"
+      title="No Overlay"
+      subtitle="showOverlay = false"
+      (closed)="closeDrawer('overlay-false')"
+    >
+      <div class="demo-content">
+        <h4>❌ Overlay Disabled</h4>
+        <p><code>[showOverlay]="false"</code></p>
+        <p>
+          No background overlay - the page content remains visible and
+          interactive. Perfect for non-modal sidebars and panels.
+        </p>
+        <ul>
+          <li>✅ Background remains visible</li>
+          <li>✅ Page content stays interactive</li>
+          <li>✅ Great for navigation panels</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- closeOnOverlayClick Examples -->
+    <aava-drawer
+      [isOpen]="overlayClickTrueDrawerOpen"
+      [closeOnOverlayClick]="true"
+      title="Overlay Click Closes"
+      subtitle="closeOnOverlayClick = true (default)"
+      (closed)="closeDrawer('overlay-click-true')"
+    >
+      <div class="demo-content">
+        <h4>👆 Click Overlay to Close</h4>
+        <p><code>[closeOnOverlayClick]="true"</code></p>
+        <p>
+          Try clicking the dark background area to close this drawer. This is
+          standard modal behavior for easy dismissal.
+        </p>
+        <ul>
+          <li>✅ Quick and intuitive closing</li>
+          <li>✅ Standard user expectation</li>
+          <li>✅ Good for temporary content</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="overlayClickFalseDrawerOpen"
+      [closeOnOverlayClick]="false"
+      [closeOnEscape]="false"
+      title="Overlay Click Ignored"
+      subtitle="closeOnOverlayClick = false"
+      (closed)="closeDrawer('overlay-click-false')"
+    >
+      <div class="demo-content">
+        <h4>🚫 Overlay Click Disabled</h4>
+        <p><code>[closeOnOverlayClick]="false"</code></p>
+        <p>
+          Clicking the overlay won't close this drawer. Use the close button or
+          ESC key instead.
+        </p>
+        <ul>
+          <li>✅ Prevents accidental closing</li>
+          <li>✅ Good for important forms</li>
+          <li>✅ Forces intentional interaction</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- closeOnEscape Examples -->
+    <aava-drawer
+      [isOpen]="escapeTrueDrawerOpen"
+      [closeOnEscape]="true"
+      title="ESC Key Enabled"
+      subtitle="closeOnEscape = true (default)"
+      (closed)="closeDrawer('escape-true')"
+    >
+      <div class="demo-content">
+        <h4>⌨️ Press ESC to Close</h4>
+        <p><code>[closeOnEscape]="true"</code></p>
+        <p>
+          Try pressing the Escape key to close this drawer. This is standard
+          accessibility behavior for keyboard users.
+        </p>
+        <ul>
+          <li>✅ Keyboard accessibility</li>
+          <li>✅ Quick escape route</li>
+          <li>✅ Standard web behavior</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="escapeFalseDrawerOpen"
+      [closeOnEscape]="false"
+      title="ESC Key Disabled"
+      subtitle="closeOnEscape = false"
+      (closed)="closeDrawer('escape-false')"
+    >
+      <div class="demo-content">
+        <h4>🔒 ESC Key Ignored</h4>
+        <p><code>[closeOnEscape]="false"</code></p>
+        <p>
+          The Escape key won't close this drawer. Use the close button instead.
+        </p>
+        <ul>
+          <li>✅ Prevents accidental closing</li>
+          <li>✅ Good for critical workflows</li>
+          <li>✅ Forces completion</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- showCloseButton Examples -->
+    <aava-drawer
+      [isOpen]="closeButtonTrueDrawerOpen"
+      [showCloseButton]="true"
+      title="With Close Button"
+      subtitle="showCloseButton = true (default)"
+      (closed)="closeDrawer('close-button-true')"
+    >
+      <div class="demo-content">
+        <h4>❌ Close Button Visible</h4>
+        <p><code>[showCloseButton]="true"</code></p>
+        <p>
+          Notice the X button in the top-right corner. This provides a clear way
+          for users to close the drawer.
+        </p>
+        <ul>
+          <li>✅ Clear visual exit</li>
+          <li>✅ Familiar UI pattern</li>
+          <li>✅ Always accessible</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="closeButtonFalseDrawerOpen"
+      [showCloseButton]="false"
+      title="No Close Button"
+      subtitle="showCloseButton = false"
+      (closed)="closeDrawer('close-button-false')"
+    >
+      <div class="demo-content">
+        <h4>🚫 Close Button Hidden</h4>
+        <p><code>[showCloseButton]="false"</code></p>
+        <p>
+          No X button is shown in the header. Users must close via overlay
+          click, ESC key, or custom buttons.
+        </p>
+        <ul>
+          <li>✅ Clean header design</li>
+          <li>✅ Custom close triggers</li>
+          <li>✅ Guided workflows</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- persistent Examples -->
+    <aava-drawer
+      [isOpen]="persistentFalseDrawerOpen"
+      [persistent]="false"
+      title="Normal Drawer"
+      subtitle="persistent = false (default)"
+      (closed)="closeDrawer('persistent-false')"
+    >
+      <div class="demo-content">
+        <h4>✅ Normal Behavior</h4>
+        <p><code>[persistent]="false"</code></p>
+        <p>This drawer can be closed by multiple methods:</p>
+        <ul>
+          <li>✅ Clicking the overlay</li>
+          <li>✅ Pressing ESC key</li>
+          <li>✅ Clicking the close button</li>
+          <li>✅ Standard user-friendly behavior</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="persistentTrueDrawerOpen"
+      [persistent]="true"
+      title="Persistent Drawer"
+      subtitle="persistent = true - Must close programmatically"
+      [showCloseButton]="false"
+      (closed)="closeDrawer('persistent-true')"
+    >
+      <div class="demo-content">
+        <h4>🔒 Persistent Mode</h4>
+        <p><code>[persistent]="true"</code></p>
+        <p>This drawer ignores user attempts to close it:</p>
+        <ul>
+          <li>❌ Overlay clicks are ignored</li>
+          <li>❌ ESC key presses are ignored</li>
+          <li>✅ Only close button works</li>
+          <li>✅ Perfect for critical forms</li>
+        </ul>
+        <aava-button
+          label="Close Manually"
+          variant="primary"
+          (click)="closeDrawer('persistent-true')"
+        >
+        </aava-button>
+      </div>
+    </aava-drawer>
+
+    <!-- animate Examples -->
+    <aava-drawer
+      [isOpen]="animateTrueDrawerOpen"
+      [animate]="true"
+      title="With Animation"
+      subtitle="animate = true (default)"
+      (closed)="closeDrawer('animate-true')"
+    >
+      <div class="demo-content">
+        <h4>🌸 Smart Animate Spring</h4>
+        <p><code>[animate]="true"</code></p>
+        <p>
+          Notice the dynamic spring animation when this drawer opened. This
+          provides an engaging user experience.
+        </p>
+        <ul>
+          <li>✅ Bouncy spring motion</li>
+          <li>✅ Energetic feeling transitions</li>
+          <li>✅ Enhanced user experience</li>
+          <li>✅ Modern, lively polish</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <aava-drawer
+      [isOpen]="animateFalseDrawerOpen"
+      [animate]="false"
+      title="No Animation"
+      subtitle="animate = false"
+      (closed)="closeDrawer('animate-false')"
+    >
+      <div class="demo-content">
+        <h4>⚡ Instant Appearance</h4>
+        <p><code>[animate]="false"</code></p>
+        <p>
+          This drawer appeared instantly without animation. Better for
+          performance-critical applications.
+        </p>
+        <ul>
+          <li>✅ Instant response</li>
+          <li>✅ Better performance</li>
+          <li>✅ Reduced motion preference</li>
+          <li>✅ Accessibility friendly</li>
+        </ul>
+      </div>
+    </aava-drawer>
+  </div>
+</div>

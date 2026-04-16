@@ -1,0 +1,15 @@
+.layout{
+  display: flex;
+  width:500px;
+  flex-direction: column;
+  margin-left:500px;
+  gap:40px;
+}
+
+.example-group {
+  h4 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.1rem;
+  }
+}

@@ -1,0 +1,489 @@
+/* ===================================================================
+   AVA DRAWER COMPONENT STYLES
+
+   Uses Play+ Design System tokens from _base.css and _drawer.css
+   All styling references semantic tokens for consistent theming
+   =================================================================== */
+
+/* ===================================================================
+   SMOOTH SLIDE ANIMATIONS
+   =================================================================== */
+@keyframes slideFromRight {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromLeft {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromTop {
+  from {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideFromBottom {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Prevent body scroll when drawer is open */
+:global(body.aava-drawer-open) {
+  overflow: hidden;
+}
+
+/* ===================================================================
+   OVERLAY STYLES
+   =================================================================== */
+.aava-drawer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--dialog-overlay-background, rgba(0, 0, 0, 0.5));
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* ===================================================================
+   ANIMATION WRAPPER
+   =================================================================== */
+.aava-drawer__animation-wrapper {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===================================================================
+   DRAWER BASE STYLES
+   =================================================================== */
+.aava-drawer {
+  position: fixed;
+  background: var(--drawer-background);
+  border: var(--drawer-border);
+  box-shadow: var(--drawer-shadow);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  z-index: var(--drawer-z-index);
+
+  /* ===================================================================
+     POSITION VARIANTS
+     =================================================================== */
+
+  /* Right Position (Default) */
+  &--right {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    border-left: var(--drawer-border);
+    border-right: none;
+
+    &.aava-drawer--open {
+      .aava-drawer__animation-wrapper.aava-drawer--animated {
+        animation: slideFromRight 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+
+  /* Left Position */
+  &--left {
+    top: 0;
+    left: 0;
+    bottom: 0;
+    border-right: var(--drawer-border);
+    border-left: none;
+
+    &.aava-drawer--open {
+      .aava-drawer__animation-wrapper.aava-drawer--animated {
+        animation: slideFromLeft 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+
+  /* Top Position */
+  &--top {
+    top: 0;
+    left: 0;
+    right: 0;
+    border-bottom: var(--drawer-border);
+    border-top: none;
+
+    &.aava-drawer--open {
+      .aava-drawer__animation-wrapper.aava-drawer--animated {
+        animation: slideFromTop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+
+  /* Bottom Position */
+  &--bottom {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    border-top: var(--drawer-border);
+    border-bottom: none;
+
+    &.aava-drawer--open {
+      .aava-drawer__animation-wrapper.aava-drawer--animated {
+        animation: slideFromBottom 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+  }
+
+  /* ===================================================================
+     SIZE VARIANTS
+     =================================================================== */
+
+  /* Small Size */
+  &--sm {
+
+    &.aava-drawer--left,
+    &.aava-drawer--right {
+      width: var(--drawer-size-sm-width);
+      max-width: var(--drawer-size-sm-max-width);
+    }
+
+    &.aava-drawer--top,
+    &.aava-drawer--bottom {
+      height: var(--drawer-size-sm-max-width);
+      max-height: var(--drawer-size-sm-max-height);
+    }
+  }
+
+  /* Medium Size (Default) */
+  &--md {
+
+    &.aava-drawer--left,
+    &.aava-drawer--right {
+      width: var(--drawer-size-md-width);
+      max-width: var(--drawer-size-md-max-width);
+    }
+
+    &.aava-drawer--top,
+    &.aava-drawer--bottom {
+      height: var(--drawer-size-md-height);
+      max-height: var(--drawer-size-md-max-height);
+    }
+  }
+
+  /* Large Size */
+  &--lg {
+
+    &.aava-drawer--left,
+    &.aava-drawer--right {
+      width: var(--drawer-size-lg-width);
+      max-width: var(--drawer-size-lg-max-width);
+    }
+
+    &.aava-drawer--top,
+    &.aava-drawer--bottom {
+      height: var(--drawer-size-lg-height);
+      max-height: var(--drawer-size-lg-max-height);
+    }
+  }
+
+  /* Extra Large Size */
+  &--xl {
+
+    &.aava-drawer--left,
+    &.aava-drawer--right {
+      width: var(--drawer-size-xl-width);
+      max-width: var(--drawer-size-xl-max-width);
+    }
+
+    &.aava-drawer--top,
+    &.aava-drawer--bottom {
+      height: var(--drawer-size-xl-height);
+      max-height: var(--drawer-size-xl-max-height);
+    }
+  }
+
+  /* Full Size */
+  &--full {
+
+    &.aava-drawer--left,
+    &.aava-drawer--right {
+      width: var(--drawer-size-full-width);
+    }
+
+    &.aava-drawer--top,
+    &.aava-drawer--bottom {
+      height: var(--drawer-size-full-height);
+    }
+  }
+
+
+
+
+
+  /* No Animation */
+  &--none {
+    transition: none !important;
+
+    .aava-drawer__animation-wrapper {
+      animation: none !important;
+    }
+  }
+}
+
+/* ===================================================================
+   DRAWER CONTENT STRUCTURE
+   =================================================================== */
+.aava-drawer__content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ===================================================================
+   HEADER STYLES
+   =================================================================== */
+.aava-drawer__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding: var(--drawer-header-padding);
+  border-bottom: var(--drawer-header-border);
+  background: var(--drawer-header-background);
+  flex-shrink: 0;
+
+  /* Remove border when no title or subtitle */
+  &--no-border {
+    border-bottom: none;
+  }
+}
+
+.aava-drawer__header-content {
+  flex: 1;
+  min-width: 0;
+  /* Allows text truncation */
+}
+
+.aava-drawer__title-section {
+  margin-bottom: var(--global-spacing-2);
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.aava-drawer__title {
+  margin: 0;
+  font: var(--drawer-title-font);
+  color: var(--drawer-title-color);
+  font-weight: var(--drawer-title-weight);
+  line-height: var(--drawer-title-line-height);
+}
+
+.aava-drawer__subtitle {
+  margin: var(--drawer-subtitle-margin);
+  font: var(--drawer-subtitle-font);
+  color: var(--drawer-subtitle-color);
+  font-weight: var(--drawer-subtitle-weight);
+  line-height: var(--drawer-subtitle-line-height);
+}
+
+.aava-drawer__header-slot {
+  margin-top: var(--global-spacing-2);
+}
+
+.aava-drawer__close-section {
+  margin-left: var(--drawer-header-gap);
+  flex-shrink: 0;
+}
+
+/* Standalone Close Button (when header is hidden) */
+.aava-drawer__close-button-standalone {
+  display: flex;
+  justify-content: flex-end;
+  padding: var(--drawer-show-close-button-padding);
+  padding-bottom: 0;
+}
+
+
+/* ===================================================================
+   BODY STYLES
+   =================================================================== */
+.aava-drawer__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--drawer-body-vertical-padding) var(--drawer-body-padding);
+  background: var(--drawer-body-background);
+  color: var(--drawer-body-text-color);
+  -ms-overflow-style: none;
+
+  aava-button .button-label {
+    font-size: var(--drawer-body-button-label-font-size);
+    font-weight: var(--drawer-body-button-label-font-weight);
+  }
+}
+
+/* ===================================================================
+   FOOTER STYLES
+   =================================================================== */
+.aava-drawer__footer {
+  padding: var(--drawer-footer-padding);
+  border-top: var(--drawer-footer-border);
+  background: var(--drawer-footer-background);
+  flex-shrink: 0;
+}
+
+/* ===================================================================
+   RESIZE HANDLE STYLES
+   =================================================================== */
+.aava-drawer__resize-handle {
+  position: absolute;
+  background: transparent;
+  z-index: 10;
+
+  &:hover {
+    background: var(--color-brand-primary);
+    opacity: 0.3;
+  }
+
+  /* Right drawer resize handle */
+  &--right {
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: ew-resize;
+  }
+
+  /* Left drawer resize handle */
+  &--left {
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    cursor: ew-resize;
+  }
+
+  /* Top drawer resize handle */
+  &--top {
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    cursor: ns-resize;
+  }
+
+  /* Bottom drawer resize handle */
+  &--bottom {
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    cursor: ns-resize;
+  }
+}
+
+/* ===================================================================
+   RESPONSIVE DESIGN
+   =================================================================== */
+@media (max-width: var(--drawer-mobile-breakpoint)) {
+  .aava-drawer {
+
+    &--sm,
+    &--md,
+    &--lg,
+    &--xl {
+
+      &.aava-drawer--left,
+      &.aava-drawer--right {
+        width: var(--drawer-mobile-width);
+        max-width: var(--drawer-mobile-width);
+      }
+
+      &.aava-drawer--top,
+      &.aava-drawer--bottom {
+        height: var(--drawer-mobile-height);
+        max-height: var(--drawer-mobile-height);
+      }
+    }
+  }
+
+  .aava-drawer__header {
+    padding: var(--drawer-mobile-padding);
+  }
+
+  .aava-drawer__body {
+    padding: var(--drawer-mobile-padding);
+  }
+
+  .aava-drawer__footer {
+    padding: var(--drawer-mobile-padding);
+  }
+}
+
+/* ===================================================================
+   ACCESSIBILITY & REDUCED MOTION
+   =================================================================== */
+@media (prefers-reduced-motion: reduce) {
+
+  .aava-drawer,
+  .aava-drawer-overlay {
+    transition: none !important;
+  }
+}
+
+/* Focus management */
+.aava-drawer {
+  &:focus {
+    outline: none;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .aava-drawer {
+    border: 2px solid;
+  }
+
+  .aava-drawer__header {
+    border-bottom: 2px solid;
+  }
+
+  .aava-drawer__footer {
+    border-top: 2px solid;
+  }
+}

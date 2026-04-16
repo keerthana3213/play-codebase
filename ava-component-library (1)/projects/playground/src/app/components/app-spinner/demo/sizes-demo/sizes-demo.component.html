@@ -1,0 +1,12 @@
+<div class="demo-container">
+  <div class="demo-content">
+    <div class="demo-section">
+      <div class="size-row">
+        <div class="size-item" *ngFor="let size of spinnerSizes">
+          <aava-spinner type="linear-gradient" color="primary" [size]="size" [animation]="true"></aava-spinner>
+          <span class="size-label">{{ size | uppercase }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

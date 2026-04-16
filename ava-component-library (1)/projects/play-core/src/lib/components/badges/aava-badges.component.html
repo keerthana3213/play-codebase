@@ -1,0 +1,31 @@
+<div
+  [class]="badgeClasses"
+  [ngStyle]="customStyles"
+  [attr.id]="componentId"
+  role="status"
+  [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null"
+>
+  <!-- Dots variant - styled entirely by badge element -->
+  <ng-container *ngIf="isDots">
+  </ng-container>
+
+  <!-- Default variant with content -->
+  <ng-container *ngIf="hasContent">
+    <!-- Display aava-icon if iconName is provided and no count -->
+    <ng-container *ngIf="iconName && !count">
+      <aava-icon
+        class="badge__icon"
+        [iconName]="iconName"
+        [iconColor]="computedIconColor"
+        [iconSize]="computedIconSize"
+        [attr.aria-hidden]="'true'"
+      >
+      </aava-icon>
+    </ng-container>
+
+    <!-- Display count if provided -->
+    <span *ngIf="count !== undefined" class="badge__count" [attr.aria-hidden]="'true'">{{ displayCount }}</span>
+  </ng-container>
+</div>

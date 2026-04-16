@@ -1,0 +1,48 @@
+.feedback-dialog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--dialog-content-gap);
+    text-align: center;
+    background: var(--dialog-background);
+    border-radius: var(--dialog-border-radius);
+    overflow: hidden;
+
+    .icon-container {
+        text-align: center;
+        margin-bottom: var(--dialog-icon-margin-bottom);
+    }
+
+    .popup-title {
+        color: var(--dialog-heading-text);
+        margin: 0;
+        font-size: var(--dialog-heading-size);
+        font-weight: var(--dialog-title-font-weight);
+        line-height: var(--dialog-title-line-height-tight);
+
+        &.destructive {
+            color: var(--dialog-error-color);
+        }
+    }
+
+    .inline-text {
+        color: var(--dialog-black-color);
+        font-size: var(--dialog-md-title-font-size);
+        line-height: var(--dialog-text-line-height);
+        margin: 0;
+        max-width: var(--dialog-max-width);
+    }
+
+    .input-container {
+        width: 100%;
+    }
+
+    .dialog-actions {
+        display: flex;
+        gap: var(--dialog-content-gap);
+        margin-top: var(--dialog-actions-margin-top);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

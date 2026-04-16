@@ -1,0 +1,75 @@
+<div class="nested-table-wrapper">
+    <aava-table [expandOnColumns] = "['expand']" [dataSource]="dataSource" [displayedColumns]="selectdisplayedColumns" (toggleExpand)="onRowExpand($event)">
+        <ng-container aavaColumnDef="expand">
+            <th class="ex" *aavaHeaderCellDef></th>
+            <td class="ex" aava-cell *aavaCellDef="let element;let index = index;">
+                <aava-icon [cursor]="true" 
+                [iconName]="expandedRowIndex===index && isExpanded ?'chevron-down':'chevron-right'"
+                >
+                </aava-icon>
+            </td>
+        </ng-container>
+
+         <ng-container aavaColumnDef="select">
+            <th class="ex" *aavaHeaderCellDef></th>
+            <td class="ex" aava-cell *aavaCellDef="let element">
+                <aava-checkbox></aava-checkbox>
+            </td>
+        </ng-container>
+
+        <ng-container aavaColumnDef="name">
+            <th aava-cell *aavaHeaderCellDef>
+                Name</th>
+            <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+
+        <ng-container aavaColumnDef="department">
+            <th *aavaHeaderCellDef>Department</th>
+            <td aava-cell *aavaCellDef="let element">{{ element.department }}</td>
+        </ng-container>
+
+        <ng-container aavaColumnDef="position">
+            <th *aavaHeaderCellDef>Position</th>
+            <td aava-cell *aavaCellDef="let element"> {{ element.position }}</td>
+        </ng-container>
+
+        <ng-container aavaColumnDef="salary">
+            <th *aavaHeaderCellDef>Salary</th>
+            <td aava-cell *aavaCellDef="let element">{{ element.salary }}</td>
+        </ng-container>
+      
+
+        <tr aava-header-row *aavaHeaderRowDef="selectdisplayedColumns"></tr>
+        <tr aava-row *aavaRowDef="let row; columns: selectdisplayedColumns"></tr>
+
+        <ng-template aavaRowDetail let-row="row">
+            <ng-container *ngFor="let each of row.subordinates;let i =index">
+                <tr class="nested-row level-1" >
+                    <td class="ex level-1-td">  <aava-icon [cursor]="true"
+                    [iconName]="expandedRowIndex2===i && isExpanded2 ?'chevron-down':'chevron-right'" (click) ="isExpanded2=!isExpanded2"></aava-icon></td>
+                    <td><aava-checkbox></aava-checkbox></td>
+                    <td>{{ each.name }}</td>
+                    <td>{{ each.department }}</td>
+                    <td>{{each.position}}</td>
+                    <td>{{each.salary}}</td>
+                  
+                </tr>
+                 <ng-container *ngFor="let each1 of each.subordinates" >
+                    <tr class="nested-row level-2" [class.hide] = "!isExpanded2">
+                        <td></td>
+                        <td><aava-checkbox></aava-checkbox></td>
+                        <td>{{ each1.name }}</td>
+                        <td>{{ each1.department }}</td>
+                        <td>{{each1.position}}</td>
+                        <td>{{each1.salary}}</td>
+                   
+                </tr>
+                 </ng-container>
+
+            </ng-container>
+            
+            
+           
+        </ng-template>
+    </aava-table>
+</div>

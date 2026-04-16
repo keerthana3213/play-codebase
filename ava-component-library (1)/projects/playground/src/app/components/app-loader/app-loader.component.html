@@ -1,0 +1,59 @@
+<div class="documentation">
+    <header class="doc-header">
+        <h1>Loader</h1>
+        <p class="description">
+            A flexible container component for displaying loading states and content.
+        </p>
+    </header>
+
+    <div class="doc-sections">
+        <section class="doc-section" *ngFor="let section of sections; let i = index">
+            <div class="section-header" (click)="toggleCodeVisibility(i, $event)">
+                <h2>{{ section.title }}</h2>
+                <div class="description-container">
+                    <p>{{ section.description }}</p>
+                    <div class="code-toggle">
+                        <span>{{ section.showCode ? 'Hide Code' : 'Show Code' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example" *ngIf="section.showCode">
+                <div class="code-block">
+                    <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">Copy</button>
+                    <pre><code>{{ getExampleCode(section.title.toLowerCase()) }}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-preview"
+                style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--surface-border); border-radius: 8px;">
+                <ng-container [ngSwitch]="section.title">
+                    <ava-loader-basic-usage-demo *ngSwitchCase="'Basic Usage'"></ava-loader-basic-usage-demo>
+                </ng-container>
+            </div>
+        </section>
+
+        <section class="doc-section">
+            <h2>API Reference</h2>
+            <h3>Properties</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prop of apiProps">
+                        <td><code>{{ prop.name }}</code></td>
+                        <td><code>{{ prop.type }}</code></td>
+                        <td><code>{{ prop.default }}</code></td>
+                        <td>{{ prop.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>

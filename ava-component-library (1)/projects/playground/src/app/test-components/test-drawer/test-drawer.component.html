@@ -1,0 +1,81 @@
+<div class="test-drawer-container">
+  <div class="demo-section">
+    <aava-button label="Open Drawer" variant="primary" (click)="openAgentDetailsDrawer()">
+    </aava-button>
+  </div>
+
+  <aava-drawer [isOpen]="isAgentDetailsDrawerOpen" position="right" size="md" [showHeader]="false"
+    [showFooter]="false" [showCloseButton] = "false" (closed)="closeAgentDetailsDrawer()" class="agent-details-drawer">
+    <div class="component-card">
+      <div class="card-header">
+        <div class="header-content">
+          <div class="body-bold-default-400">{{ agentData.title }}</div>
+          <div class="body-regular-default-16-inter">{{ agentData.subtitle }}</div>
+        </div>
+        <aava-icon iconName="X" [iconSize]="24" iconColor="#6c757d" [cursor]="true"
+          (userClick)="closeAgentDetailsDrawer()" class="close-btn">
+        </aava-icon>
+      </div>
+
+      <aava-button label="Add to my list" variant="primary" [outlined]="true" iconName="List" iconPosition="left"
+        [pill]="true" (size)="'sm'" class="add-to-list-btn" (click)="onAddToList()" [height]="'36px'">
+      </aava-button>
+
+      <div class="tags-container">
+        <aava-tag *ngFor="let tag of agentData.tags" [label]="tag.label" [color]="tag.color" [variant]="tag.variant"
+          [pill]="false" [customStyle]="{'font-size': '14px','font-weight': '500'}" (clicked)="onTagClick(tag.label)">
+        </aava-tag>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-item">
+          <div class="body-medium-default-100-inter">Category</div>
+          <div class="value">
+            <aava-icon iconName="Code" [iconSize]="36"></aava-icon>
+          </div>
+          <div class="body-medium-default-100-inter">
+            {{ agentData.stats.category }}
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="body-medium-default-100-inter">Developed by</div>
+          <div class="value">
+            <aava-icon iconName="User" [iconSize]="36"></aava-icon>
+          </div>
+          <div class="body-medium-default-100-inter">
+            {{ agentData.stats.developedBy }}
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="body-medium-default-100-inter">Relevancy</div>
+          <div class="value body-medium-default-100-inter">
+            {{ agentData.stats.relevancy }}
+          </div>
+          <div class="body-medium-default-100-inter">
+            {{ agentData.stats.relevancyScore }}
+          </div>
+        </div>
+        <div class="stat-item">
+          <div class="body-medium-default-100-inter">Rating</div>
+          <div class="value body-medium-default-100-inter">
+            {{ agentData.stats.rating }}
+          </div>
+          <div class="body-medium-default-100-inter">
+            {{ agentData.stats.ratingOutOf }}
+          </div>
+        </div>
+      </div>
+
+      <div class="description-box">
+        <div class="body-bold-default-400">What it's for</div>
+        <div class="body-regular-default-100-inter">{{ agentData.whatItsFor }}</div>
+      </div>
+    </div>
+
+    <div slot="footer">
+        <aava-button label="Go to Playground" variant="primary" [width]="'100%'" class="action-btn"
+          (click)="onGoToPlayground()" [background]="goToPlaygroundButtonColor">
+        </aava-button>
+    </div>
+  </aava-drawer>
+</div>

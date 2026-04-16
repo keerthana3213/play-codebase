@@ -1,0 +1,50 @@
+.tree-ul {
+  list-style-type: none;
+  padding-left: 20px;
+  color: var(--tree-primary-color);
+ 
+  .tree-li {
+    cursor: pointer;
+ 
+    .node-container {
+      display: flex;
+      align-items: center;
+      padding: 4px 0;
+      margin: 5px;
+ 
+      .node-content {
+        display: flex;
+        align-items: center;
+        padding: 4px 8px;
+        border-radius: 4px;
+        transition: background-color 0.2s ease;
+        width: 300px;
+ 
+        .toggle-icon, .node-icon {
+          margin-right: 8px;
+          flex-shrink: 0;
+        }
+ 
+        .node-name {
+          margin-left: 0;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          flex: 1;
+        }
+      }
+ 
+      &.selected {
+        .node-content {
+          background-color: var(--tree-selected-background-color);
+          color: var(--tree-selected-text-color);
+ 
+          .node-name {
+            font-weight: 500;
+          }
+        }
+      }
+    }
+  }
+}
+ 

@@ -1,0 +1,31 @@
+<!-- Vertical Cards Row -->
+<div class="grid-container">
+  <div class="test-group" style="width: 320px; height: 400px;">
+    <aava-image-card [data]="verticalWithActions" (buttonClicked)="onButtonClick($event)"
+      (cardClick)="onCardClick()"></aava-image-card>
+  </div>
+  <div class="test-group" style="width: 320px; height: 340px;">
+    <aava-image-card [data]="verticalWithoutActions1" (cardClick)="onCardClick()"></aava-image-card>
+  </div>
+  <div class="test-group" style="width: 320px; height: 340px;">
+    <aava-image-card [data]="verticalWithoutActions3" (cardClick)="onCardClick()"></aava-image-card>
+  </div>
+  <div class="test-group stack" style="width: 564px; height: 400px;">
+    <aava-image-card [data]="horizontalWithoutActions4" (cardClick)="onCardClick()"></aava-image-card>
+    <aava-image-card [data]="horizontalWithoutActions2" (cardClick)="onCardClick()"></aava-image-card>
+  </div>
+</div>
+
+<!-- Horizontal Cards Row -->
+<div class="grid-container horizontal-row">
+  <div class="test-group" style="width: 487px; height: 200px;">
+    <aava-image-card [data]="horizontalWithActions" (buttonClicked)="onButtonClick($event)"
+      (cardClick)="onCardClick()"></aava-image-card>
+  </div>
+  <div class="test-group"></div>
+</div>
+
+
+  <div class="test-group" style="width: 284px; height: 400px;">
+<aava-image-card [data]="primaryCard" (cardClick)="onCardClick()" (buttonClicked)="onButtonClick($event)"></aava-image-card>
+  </div>

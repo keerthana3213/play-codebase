@@ -1,0 +1,57 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <div class="demo-column padl">
+      <aava-textbox label="Phone Number" placeholder="(123) 456-7890" [(ngModel)]="phoneValue" [mask]="maskPhone">
+      </aava-textbox>
+      <aava-textbox label="Date" placeholder="MM/DD/YYYY" [(ngModel)]="dateValue" [mask]="maskDate">
+      </aava-textbox>
+      <h6 class="mb-2 text-muted">Approach 2: Built-in Dropdown</h6>
+      <aava-textbox label="Phone Number (with Built-in Dropdown)" [placeholder]="currentCountryPlaceholder"
+        [(ngModel)]="countryPhoneValue" [mask]="currentCountryMask" [prefixDropdown]="true"
+        [prefixDropdownOptions]="countryOptions" [selectedPrefixOption]="selectedCountry"
+        (prefixDropdownSelect)="onCountrySelect($event)">
+      </aava-textbox>
+    </div>
+
+    <div class="demo-column padr">
+      <aava-textbox label="Currency" placeholder="0.00" [(ngModel)]="currencyValue" [mask]="maskCurrency"
+        [maskThousandSeparator]="thousand" [maskDecimalMarker]="decimal">
+        <span slot="prefix">$</span>
+      </aava-textbox>
+      <aava-textbox label="Custom Pattern (AA-0000)" placeholder="AB-1234" [(ngModel)]="customValue" [mask]="customMask"
+        [maskPatterns]="customPatterns">
+      </aava-textbox>
+      <h6 class="mb-2 text-muted">Approach 1: Using Slots (ng-content)</h6>
+      <aava-textbox label="Phone Number (with Custom Slot Dropdown)" [placeholder]="slotCurrentPlaceholder"
+        [(ngModel)]="slotCountryPhoneValue" [mask]="slotCurrentMask" (clickOutSide)="closeSlotDropdown()">
+        <!-- Custom dropdown projected into prefix slot -->
+        <div slot="prefix" class="custom-country-dropdown">
+          <div class="dropdown-trigger" (click)="toggleSlotDropdown()" tabindex="0" role="button"
+            [attr.aria-expanded]="slotIsDropdownOpen">
+            <span class="country-label">{{ slotSelectedCountry.label }}</span>
+            <svg class="chevron-icon" [class.open]="slotIsDropdownOpen" width="16" height="16" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+        <div slot="dropdown" class="custom-country-dropdown">
+          <div class="dropdown-menu" *ngIf="slotIsDropdownOpen" role="listbox" tabindex="-1">
+            <div *ngFor="let option of countryOptions" class="dropdown-item"
+              [class.selected]="option.value === slotSelectedCountryCode"
+              (click)="selectSlotCountry(option); $event.stopPropagation()" (keydown.enter)="
+                selectSlotCountry(option); $event.stopPropagation()
+              " (keydown.space)="
+                selectSlotCountry(option); $event.stopPropagation()
+              " tabindex="0" role="option" [attr.aria-selected]="option.value === slotSelectedCountryCode">
+              {{ option.label }}
+            </div>
+          </div>
+        </div>
+      </aava-textbox>
+
+
+
+
+    </div>
+  </div>

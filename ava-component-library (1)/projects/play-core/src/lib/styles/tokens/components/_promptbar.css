@@ -1,0 +1,21 @@
+/**
+ * Component: Promptbar
+ * Purpose: Promptbar component tokens for AI prompt input and file management
+ */
+
+:root {
+  /* Promptbar Base */
+  --promptbar-background-color: var(--global-background);
+  --promptbar-border-radius: var(--global-radius-md);
+  --promptbar-border: 2px solid #a5a5a5;
+  --promptbar-gap:var(--global-spacing-3);
+
+  --promptbar-thirdrow-padding:var(--global-spacing-2) var(--global-spacing-4);
+  --promptbar-rightside-icons-gap:var(--global-spacing-4);
+  --promptbar-leftside-icons-gap:var(--global-spacing-3);
+  --promptbar-secondrow-padding:var(--global-spacing-2) var(--global-spacing-4);
+  --promtbar-select-width:144px;
+  --promptbar-background-disabled:var(--textbox-background-disabled)
+
+
+}

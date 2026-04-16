@@ -1,0 +1,34 @@
+<div class="demo-section center-demo">
+  <div class="orientations-grid">
+    <div class="orientation-group">
+      <h4 style="color: var(--text-primary)">Vertical Layout (Default)</h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="vertical-radio"
+        orientation="vertical"
+        selectedValue="option2"
+        (selectedValueChange)="onSelectionChange('vertical', $event)"
+      >
+      </aava-radio-button>
+    </div>
+    <div class="orientation-group">
+      <h4 style="color: var(--text-primary)">Horizontal Layout</h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="horizontal-radio"
+        orientation="horizontal"
+        selectedValue="option3"
+        (selectedValueChange)="onSelectionChange('horizontal', $event)"
+      >
+      </aava-radio-button>
+    </div>
+  </div>
+</div>

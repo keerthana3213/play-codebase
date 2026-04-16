@@ -1,0 +1,125 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Properties</h3>
+    <p>All available input properties for the accordion component.</p>
+
+    <div class="api-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prop of apiProperties">
+            <td>
+              <code>{{ prop.name }}</code>
+            </td>
+            <td>
+              <code>{{ prop.type }}</code>
+            </td>
+            <td>
+              <code>{{ prop.default }}</code>
+            </td>
+            <td>{{ prop.required ? "Yes" : "No" }}</td>
+            <td>{{ prop.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Events</h3>
+    <p>Events emitted by the accordion component.</p>
+
+    <div class="api-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Type</th>
+            <th>Payload</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of apiEvents">
+            <td>
+              <code>{{ event.name }}</code>
+            </td>
+            <td>
+              <code>{{ event.type }}</code>
+            </td>
+            <td>
+              <code>{{ event.payload }}</code>
+            </td>
+            <td>{{ event.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Content Projection</h3>
+    <p>Content projection slots available in the accordion component.</p>
+
+    <div class="api-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Selector</th>
+            <th>Required</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let slot of apiContentProjection">
+            <td>
+              <code>{{ slot.selector }}</code>
+            </td>
+            <td>{{ slot.required ? "Yes" : "No" }}</td>
+            <td>{{ slot.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Usage Examples</h3>
+    <p>Common usage patterns and code examples for the accordion component.</p>
+
+    <div class="usage-examples">
+      <div class="example" *ngFor="let example of usageExamples">
+        <h4>{{ example.title }}</h4>
+        <pre><code>{{ example.code }}</code></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Interactive Example</h3>
+    <p>Try the accordion component with different configurations.</p>
+
+    <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" (click)="onAccordionToggle($event)">
+      <span header>API Reference Example</span>
+      <div content>
+        <p>
+          This accordion demonstrates the basic functionality described in the
+          API reference.
+        </p>
+        <p>
+          You can use this component with various combinations of the properties
+          listed above to create different accordion experiences.
+        </p>
+        <p>Check the browser console to see the click events being logged.</p>
+      </div>
+    </aava-accordion>
+  </div>
+</div>

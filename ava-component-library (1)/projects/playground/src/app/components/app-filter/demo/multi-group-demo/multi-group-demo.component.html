@@ -1,0 +1,18 @@
+<div class="demo-container">
+  <h2>Multi-Group Mode</h2>
+  <p>Advanced filter with multiple groups of options and different selection types.</p>
+
+    <h3>Multi-Group Filter with Action Buttons:</h3>
+    <div class="demo-example">
+    <aava-filter
+      label="Advanced Filter"
+      [filterGroups]="multiGroupFilters"
+      [showActionButtons]="true"
+      (clearAll)="onClearAll()"
+            [width]="250"
+
+      (apply)="onApply($event)">
+    </aava-filter>
+    </div>
+
+</div>

@@ -1,0 +1,158 @@
+<div class="documentation">
+  
+  <!-- Header -->
+  <header class="doc-header">
+    <h1>Navbar Component</h1>
+    <p class="description">
+      The Navbar component is used to display a navigation bar with tabs and icons. You can configure it in both light and dark themes, customize the tab names, and handle tab and icon click events.
+    </p>
+  </header>
+
+  <!-- Installation -->
+  <section class="doc-section">
+    <h2>Installation</h2>
+    <div class="code-block">
+      <pre><code>import {{ '{' }} NavbarComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+    </div>
+  </section>
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Light Theme Navbar -->
+            <ng-container *ngSwitchCase="'Light Theme Navbar'">
+              <awe-navbar
+                mode="light"
+                [leftTabs]="['Code', 'Preview', 'Logs']"
+                [rightIcons]="['awe_arrow_downward', 'awe_copy', 'awe_edit']"
+                layout="tabs-left"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)">
+              </awe-navbar>
+              <awe-navbar
+                mode="light"
+                [rightTabs]="['History']"
+                [leftIcons]="['awe_home', 'awe_dock_to_right']"
+                layout="tabs-left"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)">
+              </awe-navbar>
+            </ng-container>
+
+            <!-- Dark Theme Navbar -->
+            <ng-container *ngSwitchCase="'Dark Theme Navbar'">
+              <awe-navbar
+                mode="dark"
+                [leftTabs]="['Code', 'Preview', 'Logs']"
+                [rightIcons]="['awe_arrow_downward', 'awe_copy', 'awe_edit']"
+                layout="tabs-left"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)">
+              </awe-navbar>
+              <awe-navbar
+                mode="dark"
+                [rightTabs]="['History']"
+                [leftIcons]="['awe_home', 'awe_dock_to_right']"
+                layout="tabs-left"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)">
+              </awe-navbar>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Experience Studio Navbar'">
+              <awe-navbar
+                mode="light"
+                [leftTabs]="['Preview', 'Edit']"
+                [rightTabs]="['Export']"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)"
+              ></awe-navbar>
+              <awe-navbar
+                mode="dark"
+                [leftTabs]="['Preview', 'Edit']"
+                [rightTabs]="['Export']"
+                (tabClicked)="onTabClick($event)"
+                (iconClicked)="onIconClick($event)"
+              ></awe-navbar>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy" *ngIf="section.title!=='Available Icons'"></awe-icons>
+          </button>
+        </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Events -->
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td><code>{{ event.name }}</code></td>
+          <td><code>{{ event.type }}</code></td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

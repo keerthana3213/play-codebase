@@ -1,0 +1,22 @@
+.demo-container {
+  max-width: 870px;
+  min-height: 60vh;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  // align-items: center;
+  gap: 2rem;
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+    flex-wrap: wrap;
+  }
+}
+
+.badge-demo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

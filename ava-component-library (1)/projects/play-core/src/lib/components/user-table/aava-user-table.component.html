@@ -1,0 +1,495 @@
+<div class="user-table-wrapper" #tableRef [ngStyle]="customStyles" [attr.id]="id ? 'aava-user-table-' + id : null">
+  <!-- Skeleton Loading State -->
+  <aava-skeleton *ngIf="isLoading" [rows]="skeletonRows" skeletonType="table"
+    [columns]="columns.length"></aava-skeleton>
+
+  <!-- Table Content -->
+  <div *ngIf="!isLoading" class="table-wrapper" (scroll)="onTableScroll($event)" [style.max-height]="maxHeight"
+    [style.width]="maxWidth">
+    <table class="ava-user-table" [ngStyle]="customStyle.table">
+      <thead [ngStyle]="customStyle.thead">
+        <tr [ngStyle]="customStyle.headtr">
+          <!-- Expand/Collapse column header -->
+          <th *ngIf="hasExpandableRows" style="width: 0px"></th>
+          <th *ngIf="expandable" [ngStyle]="customStyle.th" class="expand-header"
+            style="width: 50px; text-align: center">
+            <div class="th-content">
+              <span class="header-label">{{expandText}}</span>
+            </div>
+          </th>
+
+          <ng-container *ngFor="let col of columns">
+            <th *ngIf="col.visible" [ngStyle]="getColumnThStyle(col)" [style.width]="col.width" [class.sortable]="col.sortable"
+              [class.filterable]="col.filterable" [class.sorted-asc]="
+                sortColumn === col.field && sortDirection === 'asc'
+              " [class.sorted-desc]="
+                sortColumn === col.field && sortDirection === 'desc'
+              " (mouseenter)="hoveredCol = col.field" (mouseleave)="hoveredCol = null"
+              (click)="col.sortable && isSortingEnabled ? onSort(col) : null">
+              <ng-container *ngIf="
+                  col.field === 'select' && showCheckbox && 
+                  !(enableCheckboxHighlight && !allowMultipleCheckboxSelection);
+                  else normalHeader
+                ">
+                <!-- Checkbox header - hide only when enableCheckboxHighlight=true AND allowMultipleCheckboxSelection=false -->
+                <aava-checkbox [isChecked]="parentChecked" [indeterminate]="indeterminate"
+                  (isCheckedChange)="onSelectAllChange($event)"></aava-checkbox>
+              </ng-container>
+
+              <ng-template #normalHeader>
+                <div class="th-content">
+                  <span class="header-label">{{ col.label }}</span>
+
+                  <!-- Sort Icon -->
+                  <aava-icon *ngIf="col.sortable && isSortingEnabled" [iconName]="
+                      sortColumn === col.field
+                        ? sortDirection === 'asc'
+                          ? sortAscIcon
+                          : sortDescIcon
+                        : sortDefaultIcon
+                    " [iconSize]="16" class="sort-icon"></aava-icon>
+                </div>
+
+                <!-- Filter Icon -->
+                <aava-icon *ngIf="
+                    col.filterable &&
+                    (col.defaultFilter ||
+                      col.customFilter ||
+                      useDefaultFilter ||
+                      useCustomFilter)
+                  " class="filter-icon" [iconName]="filterIcon" [class.active]="isAnyFilterActive(col.field)"
+                  [iconSize]="16" [iconColor]="
+                    isAnyFilterActive(col.field)
+                      ? col.activeFilterIconColor || activeFilterIconColor || ''
+                      : col.filterIconColor || filterIconColor || ''
+                  " title="Filter" (click)="onFilterIconClick($event, col)"></aava-icon>
+              </ng-template>
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
+
+      <tbody [ngStyle]="customStyle.tbody">
+        <ng-container *ngFor="
+            let row of paginatedData;
+            let rowIndex = index;
+            trackBy: trackByFn
+          ">
+          <!-- Main data row -->
+          <tr [ngStyle]="getRowStyle()" [class.expanded-above]="expandable && addClassAboveExpanded(rowIndex)"
+            [class.expanded-below]="expandable && addClassExpandedBelow(rowIndex)"
+            [class.expanded]="expandable && isRowExpanded(rowIndex, row)" 
+            [class.row-selected]="shouldShowSelectionBackground(row)"
+            (click)="handleRowClickSelection(row, $event)">
+            <!-- Expand/Collapse cell -->
+            <td *ngIf="expandable" [ngStyle]="customStyle.td" class="expand-cell"
+              style="text-align: center; " (click)="toggleRowExpansion(row,rowIndex)" 
+              [ngStyle]="{
+                  cursor: row?.isDisabledNestedIcon ? 'not-allowed' : 'pointer',
+                  'pointer-events': row?.isDisabledNestedIcon ? 'none' : 'auto'
+                }">
+              <aava-icon [disabled] = "row?.isDisabledNestedIcon" [iconName]="
+                  isRowExpanded(rowIndex, row) ? 'chevron-down' : 'chevron-right'
+                " [iconSize]="16" class="expand-icon" [class.expanded]="isRowExpanded(rowIndex, row)"
+                title="{{ isRowExpanded(rowIndex, row) ? 'Collapse' : 'Expand' }}"></aava-icon>
+               
+            </td>
+            <!-- Recursive  Nested Expand/Collapse Icon Cell -->
+            <td *ngIf="hasExpandableRows" class="expand-icon-cell" [style.padding-left.px]="10 + (row.depth || 0) * 6"
+              (click)="toggleExpand(row, rowIndex)">
+              <aava-icon *ngIf="row.children?.length > 0" class="expand-collapse-icon"
+                [iconName]="row.expanded ? 'chevron-down' : 'chevron-right'" [iconSize]="16"></aava-icon>
+            </td>
+
+            <ng-container *ngFor="let col of columns">
+              <td *ngIf="col.visible" [ngStyle]="getColumnTdStyle(col)" [style.width]="col.width" [ngClass]="{
+                  'actions-cell': col.field === 'actions',
+                  'clickable-cell': col.cellClick
+                }" (click)="col.cellClick ? onCellClick(row, col.field) : null">
+                <ng-container [ngSwitch]="col.field">
+                  <!-- Checkbox cell -->
+                  <ng-container *ngSwitchCase="'select'">
+                    <aava-checkbox
+                      [isChecked]="getCheckboxState(row, 'isSelected')"
+                      [disable]="getCheckboxState(row, 'disable')"
+                      (isCheckedChange)="onRowCheckboxChange(row, $event)"></aava-checkbox>
+                  </ng-container>
+
+                  <!--  Actions column -->
+                  <ng-container *ngSwitchCase="'actions'">
+                    <div class="actions-wrapper">
+                      <!-- Inline Action Buttons -->
+                      @for (entry of getInlineActions(row); track entry[0]) {
+                      <div class="action-icon" [title]="entry[1].label">
+                        <span class="dynamic-icon">
+                          @if (entry[1].icon) { @if (isUrl(entry[1].icon)) {
+                          <span [innerHTML]="getActionIconHtml(entry[1].icon)"></span>
+                          } @else {
+                          <aava-icon [iconName]="entry[1].icon!" [iconSize]="'16'" [cursor]="true" class="ava-icon"
+                            (userClick)="handleAction(row, entry[0])"></aava-icon>
+                          } }
+                        </span>
+                      </div>
+                      }
+
+                      <!-- Dropdown for overflow actions -->
+                      @if (shouldShowDropdown(row)) {
+                      <div class="dropdown">
+                        <aava-icon class="ava-icon" iconName="ellipsis-vertical" [iconSize]="16" [cursor]="true"
+                          (click)="toggleDropdown(row)"></aava-icon>
+
+                        @if (dropdownRow === row) {
+                        <div class="dropdown-menu" #dropdownMenu (mouseleave)="dropdownRow = null">
+                          @for (entry of getDropdownActions(row); track
+                          entry[0]) {
+                          <div class="dropdown-item" role="button" tabindex="0" (click)="handleAction(row, entry[0])">
+                            <span class="dropdown-icon">
+                              @if (entry[1].icon) { @if (isUrl(entry[1].icon)) {
+                              <span [innerHTML]="getActionIconHtml(entry[1].icon)"></span>
+                              } @else {
+                              <aava-icon [iconName]="entry[1].icon!" [iconSize]="'16'" [cursor]="true" class="ava-icon"
+                                (userClick)="handleAction(row, entry[0])"></aava-icon>
+                              } }
+                            </span>
+                            {{ entry[1].label }}
+                          </div>
+                          }
+                        </div>
+                        }
+                      </div>
+                      }
+                    </div>
+                  </ng-container>
+            
+
+                  <!-- Default cell -->
+                  <ng-container *ngSwitchDefault>
+                    <ng-container *ngIf="row[col.field]?.clickable; else normalText">
+                      <a href="javascript:void(0)" (click)="handleCellClick(row, col.field)" class="cell-link">
+                        <ng-container *ngIf="
+                            isObjectWithSubValue(row[col.field]);
+                            else clickableSimpleText
+                          ">
+                          <div class="cell-multiline" [ngStyle]="getColumnCellWrapperStyle(col)">
+                            <div class="line1" [ngStyle]="getLine1Style(col, row, col.field)">
+                              <ng-container *ngIf="
+                                  col.showAvatar && row[col.field]?.iconName
+                                ">
+                                <aava-avatars [size]="col.avatarOptions?.size || 'md'"
+                                  [shape]="col.avatarOptions?.shape || 'pill'" [initials]="
+                                    isImagePath(row[col.field]?.iconName)
+                                      ? ''
+                                      : row[col.field]?.iconName
+                                  " [imageUrl]="
+                                    isImagePath(row[col.field]?.iconName)
+                                      ? row[col.field]?.iconName
+                                      : ''
+                                  " [initialsColor]="
+                                    col.avatarOptions?.initialsColor ||
+                                    'var(--color-text-on-brand)'
+                                  " [initialsBackground]="
+                                    col.avatarOptions?.initialsBackground ||
+                                    'var(--color-brand-primary)'
+                                  "></aava-avatars>
+                              </ng-container>
+                              <ng-container *ngIf="
+                                  !col.showAvatar && row[col.field]?.iconName
+                                ">
+                                <ng-container *ngIf="
+                                    isUrl(row[col.field]?.iconName);
+                                    else renderAvaIconClickable
+                                  ">
+                                  <span class="dynamic-icon" [innerHTML]="
+                                      getIcon(row[col.field]?.iconName)
+                                    "></span>
+                                </ng-container>
+                                <ng-template #renderAvaIconClickable>
+                                   <aava-icon [iconColor]="row[col.field]?.iconColor" [iconName]="row[col.field]?.iconName" 
+                                [iconSize]="row[col.field]?.iconSize ? row[col.field]?.iconSize : rowIconSize"
+                                  [imgCustomStyle]="rowImageStyle" aria-hidden="true"></aava-icon>
+                                </ng-template>
+                              </ng-container>
+                              <ng-container *ngIf="col?.multiple; else normalStyle">
+                                  <div class="realm-tags">  
+                                    <div *ngFor="let tag of getValuesArray(row[col.field])">
+                                        <aava-tag class="a-tag"  type="badge" [label]="tag.value" color="custom" variant="filled" size="sm"
+                                        [ngStyle]="tag?.customStyle"></aava-tag>
+
+                                        <aava-tag class="a-tag" *ngIf="tag?.subValue" type="badge" [label]="tag?.subValue"
+                                        color="custom" variant="filled" size="sm"
+                                        [ngStyle]="tag?.customStyle">
+                                        </aava-tag>
+                                    </div>
+                                  </div>
+                              </ng-container>
+
+                              <ng-template #normalStyle>
+                                <span class="text-container" [ngStyle] = "row[col.field]?.customStyle">
+                                  <ng-container *ngIf="shouldShowTooltip(row, col); else noTooltip">
+                                    <span
+                                      class="value-text"
+                                      [ngStyle]="row[col.field]?.valueStyle"
+                                      tooltipType="simple"
+                                      tooltipTrigger="hover"
+                                      tooltipArrow="center"
+                                      [tooltipDescription]="getFullText(row, col.field)"         
+                                      [tooltipPosition]="getTooltipPosition(row, col)"
+                                    >
+                                      {{ getTruncatedText(row, col.field, getTooltipCount(row, col)) }} 
+                                    </span>
+
+                                    <span class="subvalue-text" [ngStyle]="row[col.field]?.subStyle" *ngIf="row[col.field]?.subValue">
+                                      {{ row[col.field].subValue }}
+                                    </span>
+                                  </ng-container>
+
+                                  <ng-template #noTooltip>
+                                    <span class="value-text" [ngStyle]="row[col.field]?.valueStyle">
+                                      {{ getTruncatedText(row, col.field, getTooltipCount(row, col)) }} 
+                                    </span>
+
+                                    <span class="subvalue-text" [ngStyle]="row[col.field]?.subStyle" *ngIf="row[col.field]?.subValue">
+                                      {{ row[col.field].subValue }}
+                                    </span>
+                                  </ng-template>
+                                </span>
+                              </ng-template>
+                            </div>
+                          </div>
+                        </ng-container>
+                        <ng-template #clickableSimpleText>
+                          <span>{{ getCellValue(row, col.field) }}</span>
+                        </ng-template>
+                      </a>
+                    </ng-container>
+
+                    <ng-template #normalText>
+                      <ng-container>
+                        <div class="cell-multiline" [ngStyle]="getColumnCellWrapperStyle(col)">
+                          <div class="line1" [ngStyle]="getLine1Style(col, row, col.field)">
+                            <ng-container *ngIf="col.showAvatar && row[col.field]?.iconName">
+                              <aava-avatars [size]="col.avatarOptions?.size || 'md'"
+                                [shape]="col.avatarOptions?.shape || 'pill'" [initials]="
+                                  isImagePath(row[col.field]?.iconName)
+                                    ? ''
+                                    : row[col.field]?.iconName
+                                " [imageUrl]="
+                                  isImagePath(row[col.field]?.iconName)
+                                    ? row[col.field]?.iconName
+                                    : ''
+                                " [initialsColor]="
+                                  col.avatarOptions?.initialsColor ||
+                                  'var(--color-text-on-brand)'
+                                " [initialsBackground]="
+                                  col.avatarOptions?.initialsBackground ||
+                                  'var(--color-brand-primary)'
+                                "></aava-avatars>
+                            </ng-container>
+                            <ng-container *ngIf="
+                                !col.showAvatar && row[col.field]?.iconName
+                              ">
+                              <ng-container *ngIf="
+                                  isUrl(row[col.field]?.iconName);
+                                  else renderAvaIconText
+                                ">
+                                <span class="dynamic-icon" [innerHTML]="
+                                    getIcon(row[col.field]?.iconName)
+                                  "></span>
+                              </ng-container>
+                              <ng-template #renderAvaIconText>
+                                <aava-icon [iconColor]="row[col.field]?.iconColor" [iconName]="row[col.field]?.iconName" 
+                                [iconSize]="row[col.field]?.iconSize ? row[col.field]?.iconSize : rowIconSize"
+                                  [imgCustomStyle]="rowImageStyle" aria-hidden="true"></aava-icon>
+                              </ng-template>
+                            </ng-container>
+
+                            <ng-container *ngIf="col?.multiple; else normalStyle">
+                              <div class="realm-tags">  
+                                <div *ngFor="let tag of getValuesArray(row[col.field])">
+                                    <aava-tag class="a-tag"  type="badge" [label]="tag.value" color="custom" variant="filled" size="sm"
+                                      [ngStyle]="tag?.customStyle"></aava-tag>
+
+                                    <aava-tag class="a-tag" *ngIf="tag?.subValue" type="badge" [label]="tag?.subValue"
+                                      color="custom" variant="filled" size="sm"
+                                      [ngStyle]="tag?.customStyle">
+                                </aava-tag>
+                                    </div>
+                              </div>
+                            </ng-container>
+
+                            <ng-template #normalStyle>
+                              <span class="text-container" [ngStyle] = "row[col.field]?.customStyle">
+                                <ng-container *ngIf="shouldShowTooltip(row, col); else noTooltip">
+                                  <span
+                                    class="value-text"
+                                    [ngStyle]="row[col.field]?.valueStyle"
+                                    tooltipType="simple"
+                                    tooltipTrigger="hover"
+                                    tooltipArrow="center"
+                                    [tooltipDescription]="getFullText(row, col.field)"         
+                                    [tooltipPosition]="getTooltipPosition(row, col)"
+                                  >
+                                    {{ getTruncatedText(row, col.field, getTooltipCount(row, col)) }}  
+                                  </span>
+
+                                  <span class="subvalue-text" [ngStyle]="row[col.field]?.subStyle" *ngIf="row[col.field]?.subValue">
+                                    {{ row[col.field].subValue }}
+                                  </span>
+                                </ng-container>
+
+                                <ng-template #noTooltip>
+                                  <span class="value-text" [ngStyle]="row[col.field]?.valueStyle">
+                                    {{ getTruncatedText(row, col.field, getTooltipCount(row, col)) }} 
+                                  </span>
+
+                                  <span class="subvalue-text" [ngStyle]="row[col.field]?.subStyle" *ngIf="row[col.field]?.subValue">
+                                    {{ row[col.field].subValue }}
+                                  </span>
+                                </ng-template>
+                              </span>
+                            </ng-template>
+                          </div>
+                        </div>
+                      </ng-container>
+                    </ng-template>
+                  </ng-container>
+                </ng-container>
+              </td>
+            </ng-container>
+          </tr>
+
+
+
+          <tr *ngIf="expandable && isRowExpanded(rowIndex, row)" class="nested-content-row nested-content-row{{instanceId}}"  [ngStyle]="customStyle.bodytr">
+            <td [attr.colspan]="getNestedContentColspan()" class="nested-content-cell" >
+              <div class="nested-content-wrapper">
+                <aava-user-table 
+                    [isLoading] = "row?.nestedTable?.isLoading? row?.nestedTable?.isLoading : false"
+                    [useDefaultFilter] = "row?.nestedTable?.useDefaultFilter? row?.nestedTable?.useDefaultFilter : false"
+                    [sortAscIcon] = "row?.nestedTable?.sortAscIcon? row?.nestedTable?.sortAscIcon : 'arrow-up'"
+                    [sortDescIcon] ="row?.nestedTable?.sortDescIcon? row?.nestedTable?.sortDescIcon : 'arrow-down'"
+                    [sortDefaultIcon] ="row?.nestedTable?.sortDefaultIcon? row?.nestedTable?.sortDefaultIcon : 'arrow-down-up'"
+                    [filterIcon] = "row?.nestedTable?.filterIcon? row?.nestedTable?.filterIcon : 'list-filter'"
+                    [activeFilterIconColor] = "row?.nestedTable?.activeFilterIconColor? row?.nestedTable?.activeFilterIconColor : ''"
+                    [filterIconColor] = "row?.nestedTable?.filterIconColor? row?.nestedTable?.filterIconColor : ''"
+                    [showCheckbox] =  "row?.nestedTable?.showCheckbox? row?.nestedTable?.showCheckbox : false"
+                    [useCustomFilter] =  "row?.nestedTable?.useCustomFilter? row?.nestedTable?.useCustomFilter : false"
+                    [rowImageStyle] =  "row?.nestedTable?.rowImageStyle? row?.nestedTable?.rowImageStyle : {}"
+                    [customStyle] = "row?.nestedTable?.customStyle?row?.nestedTable?.customStyle : {} " 
+                    [customStyles] =  "row?.nestedTable?.customStyles? row?.nestedTable?.customStyles : {}"
+                    [isSortingEnabled] = "row?.nestedTable?.isSortingEnabled? row?.nestedTable?.isSortingEnabled : false"
+                    [enablePagination] ="row?.nestedTable?.enablePagination? row?.nestedTable?.enablePagination : false"
+                    [rowsPerPageInput] = "row?.nestedTable?.rowsPerPageInput? row?.nestedTable?.rowsPerPageInput : 10"
+                    [lazyLoad] = "row?.nestedTable?.lazyLoad? row?.nestedTable?.lazyLoad : false"
+                    [lazyLoading] = "row?.nestedTable?.lazyLoading? row?.nestedTable?.lazyLoading : false"
+                    [expandable] = "row?.nestedTable?.expandable? row?.nestedTable?.expandable : false"
+                    [recursiveExpand] =  "row?.nestedTable?.recursiveExpand? row?.nestedTable?.recursiveExpand : false"
+                    [rowClick] = "row?.nestedTable?.rowClick? row?.nestedTable?.rowClick : false"
+                    [expandText] = "row?.nestedTable?.expandText? row?.nestedTable?.expandText : ''"
+                    [totalRow] = "row.nestedTable?.totalRow?row.nestedTable?.totalRow : []"
+                    [totalRowStyle] = "row.nestedTable?.totalRowStyle? row.nestedTable?.totalRowStyle : {}"
+                    [apiFiltering] = "row.nestedTable?.apiFiltering?row.nestedTable?.apiFiltering : false"
+
+
+
+                    [columns]="row?.nestedTable?.column" 
+                    [data]="row.nestedTable?.data" 
+                    [maxHeight]=row.nestedTable?.maxHeight 
+                    [maxWidth]="row.nestedTable?.maxWidth"
+                    [delegateSortingToParent] ="row.nestedTable?.delegateSortingToParent?row.nestedTable?.delegateSortingToParent : false"
+                    [skeletonRows] = "row.nestedTable?.skeletonRows?row.nestedTable?.skeletonRows : 6"
+                  
+                    (actionTriggered)="handleNestedAction($event)"
+                    (apiFilterChange)="handleNestedApiFilter($event)"
+                    (loadMore)="handleNestedMore($event)"
+                    (cellClick)="handleNestedTableCell($event)"
+                    (columnOrderChanged)="handleNestedColumnOrder($event)"
+                    (rowOrderChanged)="handleNestedRowOrder($event)"
+                    (selectedRowsChange)="handleNestedSelectedRows($event)"
+                    (sortChange)="handleNestedSort($event)"
+                    (rowClicked)="handleNestedRow($event)"
+                    (cellClicked)="handleNestedCell($event)"
+                    (rowExpand) = "handleNestedRowExpand($event)"
+                    >
+                </aava-user-table>
+              </div>
+            </td>
+          </tr>
+
+
+        </ng-container>
+
+        <tr class="total-row" [ngStyle]="totalRowStyle.tr" *ngIf="totalRow && totalRow.length >0">
+          <td *ngFor="let cell of totalRow" [attr.colspan]="cell.colspan || 1" [ngStyle]="cell.style">
+            {{ cell.value }}
+          </td>
+        </tr>
+      </tbody>
+      <!-- Lazy Loading Spinner Row -->
+      <tfoot *ngIf="lazyLoad && lazyLoading">
+        <tr class="lazy-loading-row">
+          <td [attr.colspan]="columns.length + (showCheckbox ? 1 : 0)">
+            <ng-content select="[lazy-loading-content]">
+              <!-- Default lazy loading content -->
+              <div class="lazy-loading-spinner">
+                <aava-spinner color="primary" size="md" type="linear-gradient" [animation]="true"></aava-spinner>
+              </div>
+            </ng-content>
+          </td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+
+  <!-- Default Filter Modal rendered outside table (per-column aware) -->
+  <div #filterModal class="default-filter-modal" [class.filter-dropdown-upward]="isFilterDropdownUpward" *ngIf="
+      openFilterMode === 'default' &&
+      openFilterField &&
+      defaultColumnFilters[openFilterField!]
+    " [style.left.px]="filterDropdownPosition?.x" [style.top.px]="filterDropdownPosition?.y">
+    <!-- <aava-dropdown [dropdownTitle]="getSelectedFilterLabel(openFilterField!)" [options]="defaultFilterConditions"
+      [(ngModel)]="defaultColumnFilters[openFilterField!].type"></aava-dropdown> -->
+    <!-- aava-select for testing - will replace dropdown -->
+    <aava-select [(ngModel)]="defaultColumnFilters[openFilterField!].type" placeholder="Select filter type">
+      <aava-select-option *ngFor="let condition of defaultFilterConditions" [value]="condition.value">
+        {{ condition.name }}
+      </aava-select-option>
+    </aava-select>
+    <aava-textbox *ngIf="!isFilterTypeEmpty(defaultColumnFilters[openFilterField!].type)" label=""
+      placeholder="Enter value" [(ngModel)]="defaultColumnFilters[openFilterField!].value"></aava-textbox>
+
+    <div class="filter-actions">
+      <aava-button label="Filter" variant="primary" size="sm" (userClick)="applyAndCloseFilter()"
+        pressedEffect="ripple"></aava-button>
+      <aava-button label="Clear" variant="secondary" size="sm" (userClick)="clearDefaultFilter()"
+        pressedEffect="ripple"></aava-button>
+    </div>
+  </div>
+  <!-- Custom filter (per-column aware) -->
+  <div class="default-filter-modal" [class.filter-dropdown-upward]="isFilterDropdownUpward"
+    *ngIf="openFilterMode === 'custom' && openFilterField" [style.left.px]="filterDropdownPosition?.x"
+    [style.top.px]="filterDropdownPosition?.y">
+    <!-- Select All (Parent Checkbox) -->
+    <div class="section-checkbox">
+      <aava-checkbox label="Select All" [isChecked]="isAllFilterSelected(openFilterField)"
+        [indeterminate]="isIndeterminate(openFilterField)"
+        (isCheckedChange)="toggleAllFilterValues(openFilterField, $event)"></aava-checkbox>
+
+      <!-- Individual (Child) Checkboxes -->
+      <ng-container *ngFor="let val of columnFilters[openFilterField]">
+        <aava-checkbox [label]="columnFilterLabels[openFilterField][val] || val"
+          [isChecked]="tempSelectedFilters[openFilterField].has(val)"
+          (isCheckedChange)="toggleFilterValue(openFilterField, val, $event)"></aava-checkbox>
+      </ng-container>
+    </div>
+    <div class="filter-actions">
+      <!-- Filter Button -->
+      <aava-button label="Filter" variant="primary" size="sm" (userClick)="updateFilter()"
+        pressedEffect="ripple"></aava-button>
+
+      <!-- Clear Button -->
+      <aava-button label="Reset" variant="secondary" size="sm" (userClick)="clearCustomFilter()"
+        pressedEffect="ripple"></aava-button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+export { BasicDemoComponent } from './basic-demo/basic-demo.component';
+export { RangeDemoComponent } from './range-demo/range-demo.component';
+export { AlwaysOpenDemoComponent } from './always-open-demo/always-open-demo.component';
+export { CustomizationDemoComponent } from './customization-demo/customization-demo.component';
+export { SurfaceEffectsDemoComponent } from './surface-effects-demo/surface-effects-demo.component';
+export { KeyboardNavigationDemoComponent } from './keyboard-navigation-demo/keyboard-navigation-demo.component';
+export { AccessibilityDemoComponent } from './accessibility-demo/accessibility-demo.component';
+export { FormsIntegrationDemoComponent } from './forms-integration-demo/forms-integration-demo.component';
+export { MinMaxDemoComponent } from './min-max-demo/min-max-demo.component';

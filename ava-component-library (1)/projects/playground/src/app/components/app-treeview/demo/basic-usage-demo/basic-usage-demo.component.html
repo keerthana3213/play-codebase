@@ -1,0 +1,17 @@
+<div class="basic-usage-demo">
+  <div class="demo-container">
+    <div class="tree-section">
+      <div class="tree-container">
+        <div *ngFor="let config of treeConfigs" class="tree-variant">
+          <aava-treeview
+            [nodes]="config.nodes"
+            [size]="config.size"
+            [iconPosition]="config.iconPosition"
+            (nodeSelect)="onNodeSelect(config, $event)"
+          >
+          </aava-treeview>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

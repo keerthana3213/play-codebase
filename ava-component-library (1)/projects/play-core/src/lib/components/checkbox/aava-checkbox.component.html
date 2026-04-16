@@ -1,0 +1,42 @@
+<!-- Hidden checkbox for form integration -->
+<input
+  type="checkbox"
+  [id]="inputId"
+  [name]="name"
+  [checked]="isChecked"
+  [disabled]="disable"
+  [required]="required"
+  class="sr-only c-sr-only"
+  (change)="toggleCheckbox()"
+/>
+
+<div class="ava-checkbox" [ngClass]="containerClasses" [ngStyle]="customStyles" [attr.id]="id ? 'aava-checkbox-' + id : null" (click)="toggleCheckbox()"
+  (keydown)="onKeyDown($event)" [tabindex]="disable ? -1 : 0" [attr.role]="'checkbox'"
+  [attr.aria-checked]="indeterminate ? 'mixed' : isChecked" [attr.aria-disabled]="disable"
+  [attr.aria-required]="required || null"
+  [attr.aria-labelledby]="ariaLabelledby || (label ? labelId : null)"
+  [attr.aria-label]="!ariaLabelledby && !label ? 'Checkbox' : null"
+  [attr.aria-describedby]="(hasError ? errorId : null) || ariaDescribedby || null">
+  <div class="checkbox" [ngClass]="checkboxClasses">
+    @if (showIcon) {
+    <svg class="checkbox-icon" viewBox="0 0 24 24" [attr.aria-hidden]="'true'">
+      @if (showCheckmark) {
+      <path class="checkmark-path" [class.unchecking]="isUnchecking" fill="none" stroke="currentColor" stroke-width="2"
+        stroke-linecap="round" stroke-linejoin="round" d="M5 12l5 5L20 7" />
+      }
+      @if (indeterminate) {
+      <rect class="indeterminate-rect" fill="currentColor" x="6" y="10" width="12" height="4" rx="2" />
+      }
+    </svg>
+    }
+  </div>
+  @if (label) {
+  <label [id]="labelId" [for]="inputId" class="checkbox-label" (click)="$event.stopPropagation()">{{ label }}</label>
+  }
+</div>
+<div [class]="inputClasses" *ngIf="hasError" [id]="errorId" class="aava-checkbox__error" role="alert"
+  aria-live="polite">
+  <aava-icon iconName="alert-circle" iconSize="14" class="aava-checkbox__error-icon" [cursor]="false" [disabled]="false"
+    iconColor="red"></aava-icon>
+  <span class="aava-checkbox__error-text">{{ error }}</span>
+</div>

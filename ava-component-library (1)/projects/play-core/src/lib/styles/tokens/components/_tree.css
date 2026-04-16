@@ -1,0 +1,40 @@
+:root {
+    --tree-primary-color: var(--color-text-primary);
+    --tree-selected-background-color: var(--color-brand-primary);
+    --tree-selected-text-color: var(--color-text-on-primary);
+    --tree-label-font-family: var(--global-font-family-body);
+
+    --tree-node-gap: 8px;
+
+    --tree-label-font-size-xs: var(--global-font-size-xs);
+    --tree-label-font-size-sm: var(--global-font-size-sm);
+    --tree-label-font-size-medium: var(--global-font-size-md);
+    --tree-label-font-size-lg: 1.125rem;
+    --tree-label-font-size-xl: var(--global-font-size-lg);
+
+    --tree-node-line-height-xs: 1rem;
+    --tree-node-line-height-medium: 1.25rem;
+    --tree-node-line-height-lg: 1.5rem;
+    --tree-node-line-height-xl: 1.75rem;
+
+    --tree-node-font-weight-xl: var(--global-font-weight-regular);
+
+    --tree-hover-color: var(--color-background-disabled);
+    --tree-selected-color: var(--color-background-disabled);
+
+    --tree-font-size-sm: var(--global-font-size-sm);
+    --tree-font-size-md: var(--global-font-size-md);
+    --tree-font-size-lg: var(--global-font-size-lg);
+
+    --tree-icon-size-xs: 0.75rem;
+    --tree-icon-size-sm: 1rem;
+    --tree-icon-size-md: 1.25rem;
+    --tree-icon-size-lg: 1.5rem;
+    --tree-icon-size-xl: 2rem;
+
+    --tree-node-height-xs: 1.75rem;
+    --tree-node-height-sm: 2.25rem;
+    --tree-node-height-md: 2.75rem;
+    --tree-node-height-lg: 3rem;
+    --tree-node-height-xl: 3.25rem;
+}

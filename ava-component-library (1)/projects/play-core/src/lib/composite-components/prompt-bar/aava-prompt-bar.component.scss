@@ -1,0 +1,96 @@
+.prompt-bar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--promptbar-gap);
+  border-radius: var(--promptbar-border-radius);
+  border:var(--promptbar-border);
+  background: var(--promptbar-background-color);
+}
+.third-row {
+  display: flex;
+  padding: var(--promptbar-thirdrow-padding);
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+}
+.left-side {
+  display: flex;
+  gap: var(--promptbar-leftside-icons-gap);
+  align-items: center;
+}
+.right-side {
+  display: flex;
+  gap: var(--promptbar-rightside-icons-gap);
+  align-items: center;
+}
+.second-row {
+  display: flex;
+  padding: var(--promptbar-secondrow-padding);
+  gap: var(--promptbar-gap);
+  overflow-x: auto;
+  align-items: center;
+
+}
+.select-container{
+  width:var(--promtbar-select-width);
+}
+.options{
+  display: flex;
+  justify-content: space-between;
+width:100%
+}
+
+/* Image preview styles */
+.image-preview-row {
+  display: flex;
+  padding: var(--promptbar-secondrow-padding);
+  gap: var(--promptbar-gap);
+  overflow-x: auto;
+  align-items: center;
+}
+
+.image-preview-container {
+  display: flex;
+  gap: var(--promptbar-gap);
+  align-items: center;
+}
+
+.image-preview-item {
+  position: relative;
+  cursor: pointer;
+
+  &:hover .image-overlay {
+    opacity: 1;
+  }
+}
+
+.preview-image {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--promptbar-border-radius);
+  border: 1px solid var(--promptbar-border);
+  object-fit: cover;
+  display: block;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.remove-icon {
+  color: balck;
+  background-color: white;
+  border-radius:30%;
+  width: 16px;
+  height: 16px;
+}
+

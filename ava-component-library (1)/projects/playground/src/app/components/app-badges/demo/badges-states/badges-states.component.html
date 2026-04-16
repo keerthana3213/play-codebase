@@ -1,0 +1,294 @@
+<div class="demo-section">
+  <div class="demo-header">
+    <h2>Badge States</h2>
+    <p>
+      Explore different badge states and their visual representations across
+      various sizes and variants.
+    </p>
+  </div>
+
+  <!-- ================== STATE OVERVIEW ================== -->
+  <div class="state-overview">
+    <h3>State Overview</h3>
+    <p>
+      Badge states define the color scheme and visual priority of the badge.
+      Each state has specific use cases and semantic meaning.
+    </p>
+
+    <div class="state-grid">
+      <div class="state-item high-priority">
+        <h4>High Priority</h4>
+        <p>
+          Used for critical alerts, errors, or urgent notifications that require
+          immediate attention.
+        </p>
+        <div class="state-examples">
+          <aava-badges state="high-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="high-priority" size="md" iconName="alert-triangle" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="high-priority" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-item medium-priority">
+        <h4>Medium Priority</h4>
+        <p>
+          Used for warnings, pending actions, or notifications that need
+          attention but aren't critical.
+        </p>
+        <div class="state-examples">
+          <aava-badges state="medium-priority" size="md" [count]="3"></aava-badges>
+          <aava-badges state="medium-priority" size="md" iconName="clock" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="medium-priority" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-item low-priority">
+        <h4>Low Priority</h4>
+        <p>
+          Used for success states, completed actions, or informational content
+          that's positive.
+        </p>
+        <div class="state-examples">
+          <aava-badges state="low-priority" size="md" [count]="12"></aava-badges>
+          <aava-badges state="low-priority" size="md" iconName="check-circle" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="low-priority" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-item neutral">
+        <h4>Neutral</h4>
+        <p>
+          Used for general information, default states, or content that doesn't
+          have specific priority.
+        </p>
+        <div class="state-examples">
+          <aava-badges state="neutral" size="md" [count]="8"></aava-badges>
+          <aava-badges state="neutral" size="md" iconName="info" iconColor="black" [iconSize]="12"></aava-badges>
+          <aava-badges state="neutral" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-item information">
+        <h4>Information</h4>
+        <p>
+          Used for informational content, help text, or general updates that
+          provide context.
+        </p>
+        <div class="state-examples">
+          <aava-badges state="information" size="md" [count]="15"></aava-badges>
+          <aava-badges state="information" size="md" iconName="help-circle" iconColor="black"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="information" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== SIZE COMPARISON ================== -->
+  <div class="size-comparison">
+    <h3>Size Comparison by State</h3>
+    <p>
+      See how each state looks across different sizes to understand the visual
+      hierarchy.
+    </p>
+
+    <div class="comparison-table">
+      <div class="table-header">
+        <div class="header-cell">State</div>
+        <div class="header-cell">XSmall</div>
+        <div class="header-cell">Small</div>
+        <div class="header-cell">Medium</div>
+        <div class="header-cell">Large</div>
+      </div>
+
+      <div class="table-row">
+        <div class="state-label">High Priority</div>
+        <div class="badge-cell">
+          <aava-badges state="high-priority" size="xs" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="high-priority" size="sm" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="high-priority" size="md" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="high-priority" size="lg" [count]="9"></aava-badges>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="state-label">Medium Priority</div>
+        <div class="badge-cell">
+          <aava-badges state="medium-priority" size="xs" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="medium-priority" size="sm" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="medium-priority" size="md" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="medium-priority" size="lg" [count]="9"></aava-badges>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="state-label">Low Priority</div>
+        <div class="badge-cell">
+          <aava-badges state="low-priority" size="xs" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="low-priority" size="sm" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="low-priority" size="md" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="low-priority" size="lg" [count]="9"></aava-badges>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="state-label">Neutral</div>
+        <div class="badge-cell">
+          <aava-badges state="neutral" size="xs" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="neutral" size="sm" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="neutral" size="md" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="neutral" size="lg" [count]="9"></aava-badges>
+        </div>
+      </div>
+
+      <div class="table-row">
+        <div class="state-label">Information</div>
+        <div class="badge-cell">
+          <aava-badges state="information" size="xs" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="information" size="sm" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="information" size="md" [count]="9"></aava-badges>
+        </div>
+        <div class="badge-cell">
+          <aava-badges state="information" size="lg" [count]="9"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== VARIANT COMPARISON ================== -->
+  <div class="variant-comparison">
+    <h3>Variant Comparison by State</h3>
+    <p>
+      Compare how different variants (count, icon, dots) look across various
+      states.
+    </p>
+
+    <div class="variant-grid">
+      <div class="variant-section">
+        <h4>Count Variant</h4>
+        <div class="variant-examples">
+          <aava-badges state="high-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="5"></aava-badges>
+          <aava-badges state="information" size="md" [count]="5"></aava-badges>
+        </div>
+      </div>
+
+      <div class="variant-section">
+        <h4>Icon Variant</h4>
+        <div class="variant-examples">
+          <aava-badges state="high-priority" size="md" iconName="alert-triangle" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="medium-priority" size="md" iconName="clock" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="low-priority" size="md" iconName="check-circle" iconColor="white"
+            [iconSize]="12"></aava-badges>
+          <aava-badges state="neutral" size="md" iconName="info" iconColor="black" [iconSize]="12"></aava-badges>
+          <aava-badges state="information" size="md" iconName="help-circle" iconColor="black"
+            [iconSize]="12"></aava-badges>
+        </div>
+      </div>
+
+      <div class="variant-section">
+        <h4>Dots Variant</h4>
+        <div class="variant-examples">
+          <aava-badges state="high-priority" size="md" variant="dots"></aava-badges>
+          <aava-badges state="medium-priority" size="md" variant="dots"></aava-badges>
+          <aava-badges state="low-priority" size="md" variant="dots"></aava-badges>
+          <aava-badges state="neutral" size="md" variant="dots"></aava-badges>
+          <aava-badges state="information" size="md" variant="dots"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== USAGE GUIDELINES ================== -->
+  <div class="usage-guidelines">
+    <h3>Usage Guidelines</h3>
+    <p>Best practices for choosing the right badge state for your use case.</p>
+
+    <div class="guidelines-grid">
+      <div class="guideline-item">
+        <h4>High Priority</h4>
+        <ul>
+          <li>Critical system errors or failures</li>
+          <li>Security alerts or breaches</li>
+          <li>Urgent user notifications</li>
+          <li>Payment failures or timeouts</li>
+        </ul>
+      </div>
+
+      <div class="guideline-item">
+        <h4>Medium Priority</h4>
+        <ul>
+          <li>Warning messages</li>
+          <li>Pending approvals or actions</li>
+          <li>System maintenance notices</li>
+          <li>Feature deprecation warnings</li>
+        </ul>
+      </div>
+
+      <div class="guideline-item">
+        <h4>Low Priority</h4>
+        <ul>
+          <li>Successful operations</li>
+          <li>Completed tasks or processes</li>
+          <li>Positive status indicators</li>
+          <li>Confirmation messages</li>
+        </ul>
+      </div>
+
+      <div class="guideline-item">
+        <h4>Neutral</h4>
+        <ul>
+          <li>General information</li>
+          <li>Default states</li>
+          <li>Non-critical updates</li>
+          <li>Background processes</li>
+        </ul>
+      </div>
+
+      <div class="guideline-item">
+        <h4>Information</h4>
+        <ul>
+          <li>Help text and tips</li>
+          <li>Feature announcements</li>
+          <li>Educational content</li>
+          <li>Contextual information</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

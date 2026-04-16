@@ -1,0 +1,9 @@
+<div class="surface-bg">
+    <div class="sur">
+        <div *ngFor="let f of fills">
+            <div class="s" *ngFor="let b of blurs" [class]="'surface--fill' + f + '--blur' + b">
+            </div>
+        </div>
+    </div>
+
+</div>

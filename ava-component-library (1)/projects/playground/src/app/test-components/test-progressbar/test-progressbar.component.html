@@ -1,0 +1,142 @@
+<div class="test-progressbar-container">
+    <!-- LINEAR SECTION -->
+    <div class="progress-section">
+        <h2>Linear Progress - Determinate</h2>
+
+        <!-- Small -->
+        <h3>Small</h3>
+        <div class="linear-row">
+            <aava-progressbar [percentage]="0" type="linear" mode="determinate" size="sm"
+                [showValue]="true"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="linear" mode="determinate" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="linear" mode="determinate" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="linear" mode="determinate" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="linear" mode="determinate" size="sm"></aava-progressbar>
+        </div>
+
+        <!-- Medium -->
+        <h3>Medium</h3>
+        <div class="linear-row">
+            <aava-progressbar [percentage]="0" type="linear" mode="determinate" size="md"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="linear" mode="determinate" size="md"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="linear" mode="determinate" size="md"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="linear" mode="determinate" size="md"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="linear" mode="determinate" size="md"
+                [showValue]="false"></aava-progressbar>
+        </div>
+
+        <!-- Large -->
+        <h3>Large</h3>
+        <div class="linear-row">
+            <aava-progressbar [percentage]="0" type="linear" mode="determinate" size="lg"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="linear" mode="determinate" size="lg"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="linear" mode="determinate" size="lg"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="linear" mode="determinate" size="lg"
+                [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="linear" mode="determinate" size="lg"
+                [showValue]="false"></aava-progressbar>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <h2>Linear Progress - Indeterminate</h2>
+        <div class="linear-row">
+            <aava-progressbar type="linear" mode="indeterminate" size="md"></aava-progressbar>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <h2>Linear Progress - Buffer</h2>
+        <div class="linear-row" style="display: flex; flex-direction: column; gap: 20px;">
+            <aava-progressbar [percentage]="45" [bufferValue]="60" type="linear" mode="buffer" size="md"
+                [showValue]="true" label="Streaming Video (45% played, 60% buffered)"></aava-progressbar>
+
+            <aava-progressbar [percentage]="50" [bufferValue]="80" type="linear" mode="buffer" size="md"
+                [showValue]="true" label="Downloading Update (50% installed, 80% downloaded)"></aava-progressbar>
+
+            <aava-progressbar [percentage]="10" [bufferValue]="90" type="linear" mode="buffer" size="md"
+                [showValue]="true" label="Fast Network (10% loaded, 90% buffered)"></aava-progressbar>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <h2>Linear Progress - Query</h2>
+        <div class="linear-row">
+            <aava-progressbar type="linear" mode="query" size="md"></aava-progressbar>
+        </div>
+    </div>
+
+    <!-- CIRCULAR SECTION -->
+    <div class="progress-section">
+        <h2>Circular Progress - Determinate</h2>
+
+        <!-- Small -->
+        <h3>Small</h3>
+        <div class="circular-row">
+            <aava-progressbar [percentage]="0" type="circular" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="circular" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="circular" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="circular" size="sm"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="circular" size="sm"></aava-progressbar>
+        </div>
+
+        <!-- Medium -->
+        <h3>Medium</h3>
+        <div class="circular-row">
+            <aava-progressbar [percentage]="0" type="circular" size="md"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="circular" size="md"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="circular" size="md"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="circular" size="md"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="circular" size="md"></aava-progressbar>
+        </div>
+
+        <!-- Large -->
+        <h3>Large</h3>
+        <div class="circular-row">
+            <aava-progressbar [percentage]="0" type="circular" size="lg" [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="25" type="circular" size="lg" [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="50" type="circular" size="lg" [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="75" type="circular" size="lg" [showValue]="false"></aava-progressbar>
+            <aava-progressbar [percentage]="100" type="circular" size="lg" [showValue]="false"></aava-progressbar>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <h2>Circular Progress - Indeterminate</h2>
+        <div class="circular-row">
+            <aava-progressbar type="circular" mode="indeterminate" size="sm"></aava-progressbar>
+            <aava-progressbar type="circular" mode="indeterminate" size="md"></aava-progressbar>
+            <aava-progressbar type="circular" mode="indeterminate" size="lg"></aava-progressbar>
+        </div>
+    </div>
+
+    <div class="progress-section">
+        <h2>Custom Colors</h2>
+        <h3>Linear</h3>
+        <div class="linear-row" style="display: flex; flex-direction: column; gap: 20px;">
+            <aava-progressbar [percentage]="50" [showValue]="false" type="linear" mode="determinate" size="md" color="red"
+                label="Determinate (Red)"></aava-progressbar>
+            <aava-progressbar type="linear" mode="indeterminate" size="md"
+                color="linear-gradient(to right, #ff00cc, #333399)" label="Indeterminate (Gradient)"></aava-progressbar>
+            <aava-progressbar [percentage]="60" [bufferValue]="90" type="linear" mode="buffer" size="md"
+                color="green"
+                label="Buffer (Green)" [showValue]="false" ></aava-progressbar>
+            <aava-progressbar type="linear" mode="query" size="md" color="orange"
+                label="Query (Orange)"></aava-progressbar>
+        </div>
+        <h3>Circular</h3>
+        <div class="circular-row">
+            <aava-progressbar [percentage]="75" type="circular" size="md" color="#FF5722"
+                label="Determinate (Deep Orange)"></aava-progressbar>
+            <aava-progressbar type="circular" mode="indeterminate" size="md" color="linear-gradient(to right, #ff00cc, #333399)"
+                label="Indeterminate (Gradient)"></aava-progressbar>
+        </div>
+    </div>
+</div>

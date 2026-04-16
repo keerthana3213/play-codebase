@@ -1,0 +1,15 @@
+<div class="container-reset-password">
+  <aava-reset-password
+    label="New Password"
+    confirmLabel="Confirm New Password"
+    placeholder="Enter strong password"
+    confirmPlaceholder="Re-enter password"
+    [rules]="passwordRules"
+    [showConfirmPassword]="true"
+    [showPasswordStrength]="true"
+    size="md"
+    (passwordChange)="onPasswordChange($event)"
+    (validationChange)="onValidationChange($event)"
+  >
+  </aava-reset-password>
+</div>

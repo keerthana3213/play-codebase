@@ -1,0 +1,85 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Normal State</h4>
+      <aava-file-upload
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Disabled State</h4>
+      <aava-file-upload
+        [disabled]="true"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Custom Styling</h4>
+      <aava-file-upload
+        componentTitle="Custom Colors"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        layout="tags"
+        [maxFiles]="3"
+        borderColor="green"
+        dividerColor="green"
+        [customStyles]="{'--fileupload-upload-area-default-border': '2px dashed #007bff'}"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Custom Button Variants</h4>
+      <aava-file-upload
+        componentTitle="Custom Buttons"
+        uploadButtonVariant="secondary"
+        deleteButtonVariant="danger"
+        layout="tags"
+        uploadButtonLabel="Choose Files"
+        deleteButtonLabel="Clear All"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)"
+        (deletedList)="onFilesDeleted($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Animation Enabled</h4>
+      <aava-file-upload
+        componentTitle="Animated Upload"
+        [enableAnimation]="true"
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Custom Icons</h4>
+      <aava-file-upload
+        componentTitle="Custom Icons"
+        uploadIconName="folder"
+        deleteIconName="trash-2"
+        tagIcon="x-circle"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="result" *ngIf="selectedFiles.length > 0">
+      <strong>Files Selected:</strong> {{selectedFiles.length}}
+    </div>
+
+    <div class="result" *ngIf="deletedFiles.length > 0">
+      <strong>Files Deleted:</strong> {{deletedFiles.length}}
+    </div>
+  </div>
+</div>

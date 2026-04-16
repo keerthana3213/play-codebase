@@ -1,0 +1,21 @@
+<div class="flyout-container" [ngStyle]="customStyles" [attr.id]="id ? 'aava-flyout-' + id : null">
+  <div class="flyout-overlay" 
+       *ngIf="isOpen && overlay" 
+       (click)="onOverlayClick()" 
+       [ngStyle]="customOverlayStyles"
+       role="presentation"
+       [attr.aria-hidden]="!isOpen">
+  </div>
+
+  <div *ngIf="isOpen">
+    <div #panel 
+         class="flyout-panel {{classNames}}" 
+         [ngStyle]="customPanelStyles"
+         role="dialog"
+         [attr.aria-modal]="'true'"
+         [attr.aria-labelledby]="panelLabelId || null"
+         [attr.aria-describedby]="panelDescriptionId || null">
+        <ng-content></ng-content>
+    </div>
+  </div>
+</div>

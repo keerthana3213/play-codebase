@@ -1,0 +1,487 @@
+
+<div class="timeline-demo-container">
+  <!-- Status Timeline Example -->
+  <section class="demo-section vertical-section">
+
+    <h2>Vertical Timeline Variations</h2>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Large Size - Left Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'32px'" [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Left Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'24px'" [size]="'md'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Left Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'20px'" [size]="'sm'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Left Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'16px'" [size]="'xs'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Large Size - Right Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'32px'" [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Right Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'24px'" [size]="'md'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Right Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'20px'" [size]="'sm'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Right Align</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'16px'" [size]="'xs'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Added disabled timeline section -->
+  <section class="demo-section vertical-section">
+    <h2>Disabled Timeline States</h2>
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Large Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'32px'" [size]="'lg'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'24px'" [size]="'md'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'20px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-left"
+          [iconCircleSize]="'16px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Large Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'32px'" [size]="'lg'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'24px'" [size]="'md'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'20px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'16px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section horizontal-section">
+    <h2>Horizontal Timeline Variations</h2>
+
+    <div class="timeline-stack">
+      <div class="timeline-item">
+        <h3>Large Size</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'32px'" [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'24px'" [size]="'md'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'20px'" [size]="'sm'">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>X-Small Size</h3>
+        <aava-timeline [events]="orderTrackingEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'16px'" [size]="'xs'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <section class="demo-section horizontal-section">
+    <h2>Horizontal Timeline - Disabled States</h2>
+    <div class="timeline-stack">
+      <div class="timeline-item">
+        <h3>Large Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'32px'" [size]="'lg'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'24px'" [size]="'md'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'20px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Disabled</h3>
+        <aava-timeline [events]="disabledEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'16px'" [size]="'xs'" [disabled]="true">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Alignment Examples - Vertical -->
+  <section class="demo-section vertical-section">
+    <h2>Vertical Timeline Variations</h2>
+
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Large Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'32px'"
+          [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'24px'"
+          [size]="'md'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'20px'"
+          [size]="'xs'">
+        </aava-timeline>
+      </div>
+
+
+      <div class="timeline-item">
+        <h3>X-Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'16px'"
+          [size]="'xs'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Large Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'32px'"
+          [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'24px'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'20px'"
+          [size]="'xs'">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>X-Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'16px'"
+          [size]="'xs'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Text Alignment Examples - Horizontal -->
+  <section class="demo-section horizontal-section">
+    <h2>Horizontal Timeline Variations</h2>
+
+    <div class="timeline-stack">
+      <div class="timeline-item">
+        <h3>Large Size</h3>
+        <aava-timeline [events]="horizontalEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'32px'" [size]="'lg'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size</h3>
+        <aava-timeline [events]="horizontalEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'24px'" [size]="'md'">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>Small Size</h3>
+        <aava-timeline [events]="horizontalEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'20px'" [size]="'sm'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size</h3>
+        <aava-timeline [events]="horizontalEvents" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'16px'" [size]="'xs'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+    <section class="demo-section vertical-section">
+    <h2>Vertical Timeline Hill Variations</h2>
+
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Large Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'32px'"
+          [size]="'lg'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'24px'"
+          [size]="'md'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'20px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <!-- Vertical fill example -->
+      <div class="timeline-item">
+        <h3>X-Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'16px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Large Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'32px'"
+          [size]="'lg'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'24px'"
+        [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'20px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>X-Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'16px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Fill example -->
+  <section class="demo-section horizontal-section">
+    <h2>Horizontal Timeline Fill Variations</h2>
+
+    <div class="timeline-stack">
+      <div class="timeline-item">
+        <h3>Large Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'32px'" [size]="'lg'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'24px'" [size]="'md'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>Small Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'20px'" [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'16px'" [size]="'xs'" [iconCircleBgColor]="'#E91E63'">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+   <section class="demo-section vertical-section">
+    <h2>Vertical Timeline Hill Variations Disabled State</h2>
+
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Large Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'32px'"
+          [size]="'lg'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'24px'"
+          [size]="'md'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'20px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <!-- Vertical fill example -->
+      <div class="timeline-item">
+        <h3>X-Small Size - Left Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-left" [iconCircleSize]="'16px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Large Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'32px'"
+          [size]="'lg'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'24px'"
+        [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'20px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>X-Small Size - Right Align</h3>
+        <aava-timeline [events]="basicEvents2" orientation="vertical" textAlign="zigzag-right" [iconCircleSize]="'16px'"
+          [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+
+  <!-- Horizontal Fill example -->
+  <section class="demo-section horizontal-section">
+    <h2>Horizontal Timeline Fill Variations Disabled state</h2>
+
+    <div class="timeline-stack">
+      <div class="timeline-item">
+        <h3>Large Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'32px'" [size]="'lg'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>Medium Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'24px'" [size]="'md'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+      <div class="timeline-item">
+        <h3>Small Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'20px'" [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+
+      <div class="timeline-item">
+        <h3>X-Small Size</h3>
+        <aava-timeline [events]="horizontalEvents2" orientation="horizontal" textAlign="zigzag-down"
+          [iconCircleSize]="'16px'" [size]="'xs'" [iconCircleBgColor]="'#E91E63'" [disabled]="true">
+        </aava-timeline>
+      </div>
+    </div>
+  </section>
+</div>
+
+<div style="padding-left:50px;margin:50px;width:350px">
+  <aava-timeline [events]="axos" alignment="left" orientation="vertical" textAlign="zigzag-right"
+          [iconCircleSize]="'32px'" [size]="'lg'">
+        </aava-timeline>
+</div>

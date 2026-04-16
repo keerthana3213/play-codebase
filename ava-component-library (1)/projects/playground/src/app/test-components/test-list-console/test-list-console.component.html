@@ -1,0 +1,19 @@
+<div class="test-list-container">
+    <div>
+        <aava-list>
+            <aava-list-items [customStyles]="{'height':'90px'}" *ngFor="let item of items; let i = index"
+                [hoverBorder]="true" [hoverBg]="true" [outline]="true" [selected]="isItemSelected(i)"
+                (itemClick)="onItemClick(i)" class="test-list-card">
+                <div class="list-content style1">
+                    <div class="head">
+                        <aava-icon [iconName]="item.iconName"
+                            [iconColor]="isItemSelected(i) ? 'var(--color-brand-primary)' : 'var(--icon-color)'"
+                            iconSize="14"></aava-icon>
+                        <span class="test-list-title">{{item.heading}}</span>
+                    </div>
+                    <div class="description"> {{item.subHeading}} </div>
+                </div>
+            </aava-list-items>
+        </aava-list>
+    </div>
+</div>

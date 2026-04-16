@@ -1,0 +1,171 @@
+/**
+ * Component: Tags
+ * Purpose: Tags component tokens for categorization and labeling
+ */
+
+:root {
+
+
+  /* Tags Variants: Filled */
+  --tags-filled-background: var(--global-color-gray-50);
+  --tags-filled-text: var(--global-color-gray-900);
+  --tags-filled-border: 1.5px solid var(--global-color-gray-50);
+
+  --tags-filled-primary-background: var(--color-surface-interactive-default);
+  --tags-filled-primary-text: var(--color-text-on-brand);
+  --tags-filled-primary-border: 1.5px solid var(--color-border-interactive);
+
+  --tags-filled-success-background: var(--color-background-success);
+  --tags-filled-success-text: var(--color-text-on-brand);
+  --tags-filled-success-border: 1.5px solid var(--color-border-success);
+
+  --tags-filled-warning-background: var(--color-background-warning);
+  --tags-filled-warning-text: var(--color-text-on-brand);
+  --tags-filled-warning-border: 1.5px solid var(--color-border-warning);
+
+  --tags-filled-error-background: var(--color-background-error);
+  --tags-filled-error-text: var(--color-text-on-brand);
+  --tags-filled-error-border: 1.5px solid var(--color-border-error);
+
+  --tags-filled-info-background: var(--color-background-info);
+  --tags-filled-info-text: var(--color-text-on-brand);
+  --tags-filled-info-border: 1.5px solid var(--color-border-info);
+
+  --tags-filled-custom-background: var(--color-background-custom);
+  --tags-filled-custom-text: var(--color-text-custom);
+  --tags-filled-custom-border: 1.5px solid var(--color-border-custom);
+
+  /* Tags Variants: Outlined */
+  --tags-outlined-background: transparent;
+  --tags-outlined-text: var(--global-color-gray-600);
+  --tags-outlined-border: 1.5px solid var(--global-color-gray-300);
+
+  --tags-outlined-primary-text: var(--color-surface-interactive-default);
+  --tags-outlined-primary-border: 1.5px solid var(--color-border-interactive);
+
+  --tags-outlined-success-text: var(--color-text-success);
+  --tags-outlined-success-border: 1.5px solid var(--color-border-success);
+
+  --tags-outlined-warning-text: var(--color-text-warning);
+  --tags-outlined-warning-border: 1.5px solid var(--color-border-warning);
+
+  --tags-outlined-error-text: var(--color-text-error);
+  --tags-outlined-error-border: 1.5px solid var(--color-border-error);
+
+  --tags-outlined-info-text: var(--color-text-info);
+  --tags-outlined-info-border: 1.5px solid var(--color-border-info);
+
+  --tags-outlined-custom-text: var(--color-text-custom);
+  --tags-outlined-custom-border: 1.5px solid var(--color-border-custom);
+
+  /* Tags States */
+  --tags-focus-background: var(--color-background-primary);
+  --tags-focus-text: var(--color-text-primary);
+  --tags-focus-border: 2px solid var(--color-border-focus);
+  --tags-focus-outline: none;
+
+  --tags-disabled-background: var(--global-color-gray-100);
+  --tags-disabled-text: var(--global-color-gray-400);
+  --tags-disabled-border: 1.5px solid var(--global-color-gray-200);
+  --tags-disabled-cursor: not-allowed;
+
+
+
+  /* Tags Removable */
+  --tags-removable-button-background: transparent;
+  --tags-removable-button-text: var(--global-color-black);
+  --tags-removable-button-size: var(--global-icon-size-xs);
+  --tags-removable-button-border-radius: var(--global-radius-circle);
+  --tags-removable-button-padding: var(--global-spacing-1);
+
+  --tags-removable-button-active-background: var(--color-surface-subtle);
+  --tags-removable-button-active-text: var(--global-color-black);
+
+
+
+  /* Tag Pill Variant */
+  --tags-pill-border-radius: 9999px;
+
+  /* Tag Avatar */
+  --tags-avatar-bg: var(--avatar-background, var(--global-color-gray-50));
+  --tags-avatar-initials-bg: var(--avatar-fallback-background, var(--color-background-disabled));
+  --tags-avatar-initials-color: var(--avatar-text-color, var(--color-text-primary));
+  --tags-avatar-size: var(--global-avatar-size, 1.3em);
+  --tags-avatar-font-size: var(--global-avatar-font-size, 0.7em);
+  --tags-avatar-margin: var(--global-avatar-margin, 0.4em);
+
+  /* Tag Custom Color Support */
+  --tag-custom-bg: var(--tags-filled-custom-background);
+  --tag-custom-color: var(--tags-filled-custom-text);
+  --tag-custom-border: var(--tags-filled-custom-border);
+
+  /* Tag Sizes - Typography and Spacing */
+  --tags-xs-font-family: var(--global-font-family-body);
+  --tags-xs-font-size: 10px;
+  /* No exact match in base.css, keep static */
+  --tags-xs-font-weight: var(--global-font-weight-medium);
+  --tags-xs-line-height: 12px;
+  /* No exact match in base.css, keep static */
+  --tags-xs-padding: 2px 4px;
+  --tags-xs-border-radius: 4px;
+
+  --tags-sm-font-family: var(--global-font-family-body);
+  --tags-sm-font-size: var(--global-font-size-xs);
+  /* 12px */
+  --tags-sm-font-weight: var(--global-font-weight-medium);
+  --tags-sm-line-height: 20px;
+  /* No exact match in base.css, keep static */
+  --tags-sm-padding: 2px 6px;
+  --tags-sm-border-radius: 4px;
+
+  --tags-md-font-family: var(--global-font-family-body);
+  --tags-md-font-size: var(--global-font-size-sm);
+  /* 14px */
+  --tags-md-font-weight: var(--global-font-weight-medium);
+  --tags-md-line-height: 20px;
+  /* No exact match in base.css, keep static */
+  --tags-md-padding: 2px 8px;
+  --tags-md-border-radius: 6px;
+
+  --tags-lg-font-family: var(--global-font-family-body);
+  --tags-lg-font-size: var(--global-font-size-md);
+  /* 16px */
+  --tags-lg-font-weight: var(--global-font-weight-medium);
+  --tags-lg-line-height: 20px;
+  /* No exact match in base.css, keep static */
+  --tags-lg-padding: 4px 10px;
+  --tags-lg-border-radius: 6px;
+
+  --tags-xl-font-family: var(--global-font-family-body);
+  --tags-xl-font-size: 18px;
+  /* No exact match in base.css, keep static */
+  --tags-xl-font-weight: var(--global-font-weight-medium);
+  --tags-xl-line-height: 24px;
+  /* No exact match in base.css, keep static */
+  --tags-xl-padding: 4px 12px;
+  --tags-xl-border-radius: 8px;
+
+  /* Icon Gaps by Size and Position */
+  --tags-icon-gap: 4px;
+  /* Default fallback */
+
+  /* Right Icon Gaps */
+  --tags-xl-right-icon-gap: 8px;
+  --tags-lg-right-icon-gap: 6px;
+  --tags-md-right-icon-gap: 6px;
+  --tags-sm-right-icon-gap: 4px;
+  --tags-xs-right-icon-gap: 4px;
+
+  /* Left Icon Gaps */
+  --tags-xl-left-icon-gap: 4px;
+  --tags-lg-left-icon-gap: 4px;
+  --tags-md-left-icon-gap: 4px;
+  --tags-sm-left-icon-gap: 2px;
+  --tags-xs-left-icon-gap: 2px;
+
+  /* Avatar Colors */
+  --tags-avatar-color: var(--color-text-primary);
+
+  /* Remove Button Colors */
+  --tags-remove-button-disabled-color: var(--global-color-gray-400);
+}

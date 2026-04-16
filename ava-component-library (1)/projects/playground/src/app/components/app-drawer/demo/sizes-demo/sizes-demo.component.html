@@ -1,0 +1,139 @@
+<div class="sizes-demo">
+  <div class="demo-content">
+    <div class="button-group">
+      <aava-button
+        label="Small"
+        (click)="openDrawer('small')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Medium"
+        (click)="openDrawer('medium')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Large"
+        (click)="openDrawer('large')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Extra Large"
+        (click)="openDrawer('extra-large')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Full Size"
+        (click)="openDrawer('full')"
+        variant="secondary"
+      >
+      </aava-button>
+    </div>
+
+    <!-- Small Size -->
+    <aava-drawer
+      [isOpen]="smallDrawerOpen"
+      size="sm"
+      title="Small Drawer"
+      (closed)="closeDrawer('small')"
+    >
+      <div class="drawer-content">
+        <h4>Small Size (320px)</h4>
+        <p>This is a small drawer perfect for simple forms or quick actions.</p>
+        <ul>
+          <li>Width: 320px</li>
+          <li>Height: 200px (for top/bottom)</li>
+          <li>Perfect for simple forms</li>
+          <li>Quick actions and notifications</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Medium Size (Default) -->
+    <aava-drawer
+      [isOpen]="mediumDrawerOpen"
+      size="md"
+      title="Medium Drawer"
+      (closed)="closeDrawer('medium')"
+    >
+      <div class="drawer-content">
+        <h4>Medium Size (480px)</h4>
+        <p>
+          This is a medium drawer - the default size, good for most use cases.
+        </p>
+        <ul>
+          <li>Width: 480px</li>
+          <li>Height: 300px (for top/bottom)</li>
+          <li>Default size</li>
+          <li>Good for most use cases</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Large Size -->
+    <aava-drawer
+      [isOpen]="largeDrawerOpen"
+      size="lg"
+      title="Large Drawer"
+      (closed)="closeDrawer('large')"
+    >
+      <div class="drawer-content">
+        <h4>Large Size (640px)</h4>
+        <p>This is a large drawer great for detailed forms or content.</p>
+        <ul>
+          <li>Width: 640px</li>
+          <li>Height: 400px (for top/bottom)</li>
+          <li>Great for detailed forms</li>
+          <li>Content-heavy interfaces</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Extra Large Size -->
+    <aava-drawer
+      [isOpen]="extraLargeDrawerOpen"
+      size="xl"
+      title="Extra Large Drawer"
+      (closed)="closeDrawer('extra-large')"
+    >
+      <div class="drawer-content">
+        <h4>Extra Large Size (800px)</h4>
+        <p>
+          This is an extra large drawer for complex interfaces or detailed
+          views.
+        </p>
+        <ul>
+          <li>Width: 800px</li>
+          <li>Height: 500px (for top/bottom)</li>
+          <li>Complex interfaces</li>
+          <li>Detailed views and dashboards</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Full Size -->
+    <aava-drawer
+      [isOpen]="fullDrawerOpen"
+      size="full"
+      title="Full Size Drawer"
+      (closed)="closeDrawer('full')"
+    >
+      <div class="drawer-content">
+        <h4>Full Size (100% viewport)</h4>
+        <p>
+          This drawer takes up the full viewport - essentially a full-screen
+          modal experience.
+        </p>
+        <ul>
+          <li>Width: 100% viewport</li>
+          <li>Height: 100% viewport</li>
+          <li>Full-screen modal experience</li>
+          <li>Immersive content display</li>
+        </ul>
+      </div>
+    </aava-drawer>
+  </div>
+</div>

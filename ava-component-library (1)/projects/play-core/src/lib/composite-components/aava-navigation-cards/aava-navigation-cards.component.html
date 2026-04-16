@@ -1,0 +1,37 @@
+<div class="navigation-cards-container" id="navigation-cards-container" *ngIf="isVisible && config.cards.length"
+  [style.top.px]="position.top" #cardsContainer>
+  <aava-default-card class="main-container">
+    <div class="cards-container">
+      <div class="panel-heading" *ngIf="config.heading">
+        {{ config.heading }}
+      </div>
+      <div class="cards-grid">
+        <div *ngFor="let card of config.cards; let i = index" class="navigation-card-wrapper">
+          <div class="navigation-card" [id]="'navigation-card-' + i" 
+            tabindex="0"
+            role="button"
+            [attr.aria-label]="card.title + (card.description ? ': ' + card.description : '')"
+            (click)="onCardClick(card)"
+            (keydown)="onCardKeyDown($event, card, i)"
+            (mouseenter)="onCardHover(card.id)" 
+            (mouseleave)="onCardLeave()">
+            <div class="card-image">
+              <img *ngIf="card.image" [src]="card.image" alt="" class="card-icon card-icon-default"
+                [class.faded]="hoveredCardId === card.id && card.hoverImage" />
+              <img *ngIf="card.hoverImage" [src]="card.hoverImage" alt="" class="card-icon card-icon-hover"
+                [class.visible]="hoveredCardId === card.id" />
+            </div>
+            <div class="card-content">
+              <div class="title">
+                {{ card.title }}
+              </div>
+              <div class="description" *ngIf="card.description">
+                {{ card.description }}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </aava-default-card>
+</div>

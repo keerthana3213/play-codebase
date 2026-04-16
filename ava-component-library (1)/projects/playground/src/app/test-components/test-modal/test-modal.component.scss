@@ -1,0 +1,31 @@
+.t-container {
+  padding: 20px;
+}
+
+.con {
+  margin-bottom: 30px;
+}
+
+.col-12 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+h2 {
+  margin-bottom: 15px;
+  color: #333;
+}
+
+::ng-deep .dialog-footer aava-button .button-label {
+  height: 20px;
+  width: 42px;
+
+}
+
+::ng-deep aava-textbox .ava-textbox__label {
+
+  width: 144px;
+  height: 24px;
+
+}

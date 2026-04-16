@@ -1,0 +1,404 @@
+.matrix-demo {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: "Inter", sans-serif;
+}
+
+#size-tabs {
+  /* Target the tabs host element (it has both classes on the same element) */
+  .size-tabs-container.ava-tabs {
+    background: none !important;
+    border: none !important;
+  }
+
+  /* Remove background/border/padding from the inner container of tabs */
+  .size-tabs-container ::ng-deep .ava-tabs__container {
+    background: none !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding: 0;
+  background-color: transparent;
+  background: none !important;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+}
+
+.theme-toggle {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  .toggle-btn {
+    background: #f1f5f9;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: #e2e8f0;
+      transform: translateY(-1px);
+    }
+
+    &.active {
+      background: #1e293b;
+      color: white;
+      border-color: #1e293b;
+    }
+  }
+}
+
+.legend-section {
+  margin-bottom: 3rem;
+
+  .legend-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .legend-item {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 1.5rem;
+    border-left: 4px solid #3b82f6;
+
+    h3 {
+      margin: 0 0 1rem 0;
+      color: #1e293b;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    ul {
+      margin: 0;
+      padding-left: 1.5rem;
+
+      li {
+        margin-bottom: 0.5rem;
+        color: #475569;
+
+        strong {
+          color: #1e293b;
+        }
+      }
+    }
+  }
+}
+
+.matrix-table-container {
+  margin-bottom: 4rem;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 2rem;
+  }
+}
+
+.size-tabs {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+
+  .size-tabs-container {
+    // Ensure the tabs component is properly centered
+    display: flex;
+    justify-content: center;
+
+    /* Style the tabs host element directly */
+    &.ava-tabs {
+      margin: 0;
+      background: none;
+      border: transparent !important; // Make main tabs border transparent
+    }
+
+    // Custom styling for button variant tabs (navigation-only)
+    .size-tabs-container ::ng-deep .ava-tabs__list-wrapper {
+      background: #f8fafc;
+      border-radius: 8px;
+      padding: 4px;
+      border: 1px solid #e2e8f0;
+    }
+
+    // Hide content panels since we're using navigation-only tabs
+    .size-tabs-container ::ng-deep .ava-tabs__content {
+      display: none;
+    }
+
+    .size-tabs-container ::ng-deep .ava-tabs__tab {
+      border-radius: 6px;
+      transition: all 0.2s ease;
+      margin: 0 2px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background: #e2e8f0;
+      }
+
+      &--active {
+        background: #3b82f6;
+        color: white;
+
+        &:hover {
+          background: #2563eb;
+        }
+      }
+    }
+  }
+}
+
+.matrix-grid {
+  border: 2px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.matrix-header {
+  display: grid;
+  grid-template-columns: 150px repeat(3, 1fr);
+  background: #1e293b;
+  color: white;
+
+  .mode-header,
+  .fill-header {
+    padding: 1rem;
+    font-weight: 600;
+    text-align: center;
+    border-right: 1px solid #374151;
+
+    &:last-child {
+      border-right: none;
+    }
+  }
+}
+
+.matrix-row {
+  display: grid;
+  grid-template-columns: 150px repeat(3, 1fr);
+  border-bottom: 1px solid #e2e8f0;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .mode-label {
+    background: #f8fafc;
+    padding: 1rem;
+    font-weight: 600;
+    color: #1e293b;
+    border-right: 1px solid #e2e8f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .button-cell {
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-right: 1px solid #e2e8f0;
+    min-height: 80px;
+
+    &:last-child {
+      border-right: none;
+    }
+
+    .matrix-button {
+      margin: 0;
+    }
+
+    .unavailable {
+      color: #ef4444;
+      font-weight: 600;
+      font-size: 0.875rem;
+      text-align: center;
+    }
+  }
+}
+
+.variant-showcase {
+  margin-top: 4rem;
+
+  h2 {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #1e293b;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #64748b;
+    margin-bottom: 2rem;
+  }
+}
+
+.variant-selection {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+
+  .config-btn {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:hover:not(:disabled) {
+      border-color: #3b82f6;
+      background: #eff6ff;
+    }
+
+    &.active {
+      background: #3b82f6;
+      color: white;
+      border-color: #3b82f6;
+    }
+
+    &:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      background: #f1f5f9;
+    }
+  }
+}
+
+.variants-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+
+  .variant-item {
+    background: white;
+    border: 2px solid #e2e8f0;
+    border-radius: 12px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.2s ease;
+
+    &:hover {
+      border-color: #3b82f6;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    }
+
+    .variant-label {
+      display: block;
+      font-weight: 600;
+      color: #1e293b;
+      margin-bottom: 1rem;
+      text-transform: capitalize;
+    }
+
+    .unavailable {
+      color: #ef4444;
+      font-weight: 600;
+      font-size: 0.875rem;
+    }
+  }
+}
+
+// Dark theme support
+[data-theme="dark"] {
+  .matrix-demo {
+    background: #0f172a;
+    color: white;
+  }
+
+  .demo-header h1 {
+    color: white;
+  }
+
+  .legend-item {
+    background: #1e293b;
+    color: white;
+
+    h3 {
+      color: white;
+    }
+
+    li {
+      color: #cbd5e1;
+
+      strong {
+        color: white;
+      }
+    }
+  }
+
+  .matrix-grid {
+    background: #1e293b;
+    border-color: #374151;
+  }
+
+  .matrix-row {
+    border-color: #374151;
+
+    .mode-label {
+      background: #374151;
+      color: white;
+      border-color: #4b5563;
+    }
+
+    .button-cell {
+      border-color: #374151;
+    }
+  }
+
+  .variant-item {
+    background: #1e293b;
+    border-color: #374151;
+    color: white;
+
+    .variant-label {
+      color: white;
+    }
+  }
+
+  // Dark theme support for tabs with transparent borders
+}

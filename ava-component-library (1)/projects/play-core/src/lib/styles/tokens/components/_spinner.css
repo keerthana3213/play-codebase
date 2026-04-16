@@ -1,0 +1,89 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Spinner Component Tokens
+ *
+ * Component-specific semantic tokens for spinner/loading elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for spinner styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Spinner Base --- */
+  --spinner-size: 40px;
+  --spinner-border-width: 4px;
+  --spinner-border-radius: 50%;
+  --spinner-animation: spin 1s linear infinite;
+  --spinner-animation-duration: 1s;
+  --spinner-animation-timing: linear;
+  --spinner-animation-iteration: infinite;
+
+  /* --- Spinner Track --- */
+  --spinner-track-background: var(--color-surface-subtle);
+  --spinner-track-border: var(--spinner-border-width) solid var(--spinner-track-background);
+  --spinner-track-border-radius: var(--spinner-border-radius);
+
+  /* --- Spinner Fill --- */
+  --spinner-fill-border: var(--spinner-border-width) solid var(--color-brand-primary);
+  --spinner-fill-border-radius: 10px;
+  --spinner-fill-border-top-color: transparent;
+  --spinner-fill-border-right-color: transparent;
+
+  /* --- Spinner Text --- */
+  --spinner-text-font: var(--font-body-2);
+  --spinner-text-color: var(--color-text-secondary);
+  --spinner-text-weight: var(--global-font-weight-regular);
+  --spinner-text-line-height: var(--global-line-height-default);
+  --spinner-text-fill: var(--color-text-secondary);
+  /* --spinner-text-color-dark: var(--color-text-primary); */
+  /* --- Spinner Sizes --- */
+  --spinner-size-sm: 24px;
+  --spinner-size-sm-border: 2px;
+  --spinner-size-sm-text: var(--font-caption);
+
+  --spinner-size-md: 40px;
+  --spinner-size-md-border: 4px;
+  --spinner-size-md-text: var(--font-body-2);
+
+  --spinner-size-lg: 64px;
+  --spinner-size-lg-border: 6px;
+  --spinner-size-lg-text: var(--font-body-1);
+
+  --spinner-size-xl: 96px;
+  --spinner-size-xl-border: 8px;
+  --spinner-size-xl-text: var(--font-heading-3);
+
+  /* --- Spinner Variants --- */
+  --spinner-primary-fill: var(--color-brand-primary);
+  --spinner-primary-track: var(--color-surface-subtle);
+
+  --spinner-secondary-fill: var(--global-color-royal-blue-500);
+  --spinner-secondary-track: rgba(22, 129, 255, 0.25);
+
+  --spinner-success-fill: var(--global-color-green-500);
+  --spinner-success-track: var(--color-surface-subtle);
+
+  --spinner-warning-fill: var(--global-color-yellow-500);
+  --spinner-warning-track: var(--color-surface-subtle);
+
+  --spinner-error-fill: var(--global-color-red-500);
+  --spinner-error-track: var(--color-surface-subtle);
+
+  /* --- Spinner Overlay --- */
+  --spinner-overlay-background: rgba(255, 255, 255, 0.8);
+  --spinner-overlay-background-dark: rgba(0, 0, 0, 0.8);
+  --spinner-overlay-z-index: 9999;
+  --spinner-overlay-display: flex;
+  --spinner-overlay-align-items: center;
+  --spinner-overlay-justify-content: center;
+
+  /* --- Spinner Container --- */
+  --spinner-container-gap: var(--global-spacing-3);
+  --spinner-container-flex-direction: column;
+  --spinner-container-align-items: center;
+  --spinner-container-justify-content: center;
+
+  --spinner-mask-layer: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+  --spinner-padding: 1rem;
+
+}

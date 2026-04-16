@@ -1,0 +1,88 @@
+.loading-dialog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--dialog-content-gap);
+    text-align: center;
+    background: var(--dialog-background);
+    border-radius: var(--dialog-border-radius);
+    overflow: hidden;
+
+    .spinner-container {
+        text-align: center;
+        margin-bottom: var(--dialog-icon-margin-bottom);
+    }
+
+    .spinner {
+        width: var(--dialog-spinner-size);
+        height: var(--dialog-spinner-size);
+        border: var(--dialog-icon-border-width) solid var(--dialog-spinner-border-color);
+        border-top: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+        0% {
+            transform: rotate(0deg);
+        }
+
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+    .popup-title {
+        color: var(--dialog-heading-text);
+        margin: 0;
+        font-size: var(--dialog-heading-size);
+        font-weight: var(--dialog-title-font-weight);
+        line-height: var(--dialog-title-line-height-tight);
+    }
+
+    .inline-text {
+        color: var(--dialog-black-color);
+        font-size: var(--dialog-md-title-font-size);
+        line-height: var(--dialog-text-line-height);
+        margin: 0;
+        max-width: var(--dialog-max-width);
+    }
+
+    .progress-container {
+        width: 100%;
+        max-width: var(--dialog-progress-max-width);
+        display: flex;
+        flex-direction: column;
+        gap: var(--dialog-content-gap);
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: var(--dialog-icon-margin-bottom);
+        background-color: var(--dialog-spinner-border-color);
+        border-radius: var(--dialog-icon-border-width);
+        overflow: hidden;
+    }
+
+    .progress-fill {
+        height: 100%;
+        background-color: var(--dialog-primary-color);
+        transition: width 0.3s ease;
+        border-radius: var(--dialog-icon-border-width);
+    }
+
+    .progress-text {
+        font-size: var(--dialog-lg-text-font-size);
+        color: var(--dialog-black-color);
+        text-align: center;
+    }
+
+    .dialog-actions {
+        display: flex;
+        gap: var(--dialog-content-gap);
+        margin-top: var(--dialog-actions-margin-top);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+}

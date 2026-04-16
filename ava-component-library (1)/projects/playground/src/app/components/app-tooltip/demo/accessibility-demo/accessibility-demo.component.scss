@@ -1,0 +1,258 @@
+ .demo-container {
+   max-width: 1000px;
+   margin: 0 auto;
+   padding: 2rem;
+ }
+
+ .demo-description {
+   color: #666;
+   margin-bottom: 30px;
+   font-size: 16px;
+ }
+
+ .demo-section {
+   margin-bottom: 40px;
+ }
+
+ .demo-section h3 {
+   color: #333;
+   margin-bottom: 20px;
+   font-size: 18px;
+ }
+
+ .instruction {
+   color: #666;
+   font-style: italic;
+   margin-bottom: 1rem;
+   padding: 0.75rem;
+   background-color: #e3f2fd;
+   border-radius: 6px;
+   border-left: 4px solid #2196f3;
+ }
+
+ .keyboard-demo,
+ .aria-demo,
+ .contrast-demo,
+ .focus-demo {
+   padding: 1.5rem;
+   background-color: #f8f9fa;
+   border-radius: 8px;
+   border-left: 4px solid #007bff;
+ }
+
+ .keyboard-elements,
+ .aria-elements,
+ .focus-elements {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+   align-items: end;
+ }
+
+ .accessible-button {
+   padding: 8px 16px;
+   background-color: #007bff;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 14px;
+   display: flex;
+   align-items: center;
+   gap: 0.5rem;
+ }
+
+ .accessible-button:focus {
+   outline: 2px solid #0056b3;
+   outline-offset: 2px;
+ }
+
+ .form-field {
+   display: flex;
+   flex-direction: column;
+   gap: 0.25rem;
+ }
+
+ .form-field label {
+   font-size: 14px;
+   font-weight: 500;
+   color: #333;
+ }
+
+ .accessible-input {
+   padding: 8px 12px;
+   border: 2px solid #dee2e6;
+   border-radius: 4px;
+   font-size: 14px;
+ }
+
+ .accessible-input:focus {
+   outline: none;
+   border-color: #007bff;
+   box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+ }
+
+ .accessibility-options {
+   display: flex;
+   gap: 2rem;
+   margin-bottom: 1.5rem;
+   flex-wrap: wrap;
+ }
+
+ .contrast-examples {
+   display: flex;
+   gap: 1rem;
+   flex-wrap: wrap;
+ }
+
+ .contrast-examples.high-contrast {
+   filter: contrast(150%) brightness(110%);
+ }
+
+ .focus-button {
+   padding: 12px 20px;
+   background-color: #6c757d;
+   color: white;
+   border: none;
+   border-radius: 4px;
+   cursor: pointer;
+   font-size: 14px;
+   transition: background-color 0.2s ease;
+ }
+
+ .focus-button:focus {
+   outline: 3px solid #007bff;
+   outline-offset: 2px;
+   background-color: #5a6268;
+ }
+
+ .focus-button:hover {
+   background-color: #5a6268;
+ }
+
+ .reduce-motion * {
+   animation-duration: 0.01ms !important;
+   animation-iteration-count: 1 !important;
+   transition-duration: 0.01ms !important;
+ }
+
+ .checklist {
+   display: grid;
+   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+   gap: 0.75rem;
+ }
+
+ .checklist-item {
+   display: flex;
+   align-items: center;
+   gap: 0.75rem;
+   padding: 0.75rem;
+   background-color: #e8f5e8;
+   border-radius: 6px;
+   border-left: 4px solid #4caf50;
+ }
+
+ .checkmark {
+   font-size: 16px;
+   color: #4caf50;
+   font-weight: bold;
+ }
+
+ .best-practices {
+   display: grid;
+   grid-template-columns: 1fr 1fr;
+   gap: 2rem;
+ }
+
+ .practice-card {
+   padding: 1.5rem;
+   border-radius: 8px;
+   border-left: 4px solid;
+ }
+
+ .practice-card:first-child {
+   background-color: #e8f5e8;
+   border-left-color: #4caf50;
+ }
+
+ .practice-card:last-child {
+   background-color: #ffebee;
+   border-left-color: #f44336;
+ }
+
+ .practice-card h4 {
+   margin: 0 0 1rem 0;
+   color: #333;
+   font-size: 16px;
+ }
+
+ .practice-card ul {
+   margin: 0;
+   padding-left: 1.5rem;
+   color: #666;
+ }
+
+ .practice-card li {
+   margin-bottom: 0.5rem;
+   line-height: 1.4;
+ }
+
+ .code-example {
+   background-color: #f8f9fa;
+   padding: 20px;
+   border-radius: 8px;
+   border-left: 4px solid #007bff;
+ }
+
+ .code-example h3 {
+   margin-top: 0;
+   color: #333;
+ }
+
+ pre {
+   background-color: #2d3748;
+   color: #e2e8f0;
+   padding: 16px;
+   border-radius: 6px;
+   overflow-x: auto;
+   margin: 0;
+ }
+
+ code {
+   font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+   font-size: 14px;
+ }
+
+ @media (max-width: 768px) {
+
+   .keyboard-elements,
+   .aria-elements,
+   .focus-elements,
+   .contrast-examples {
+     flex-direction: column;
+     align-items: stretch;
+   }
+
+   .best-practices {
+     grid-template-columns: 1fr;
+   }
+
+   .accessibility-options {
+     flex-direction: column;
+     gap: 1rem;
+   }
+ }
+
+ @media (prefers-contrast: high) {
+   .demo-container {
+     filter: contrast(150%);
+   }
+ }
+
+ @media (prefers-reduced-motion: reduce) {
+   .reduce-motion * {
+     animation-duration: 0.01ms !important;
+     animation-iteration-count: 1 !important;
+     transition-duration: 0.01ms !important;
+   }
+ }

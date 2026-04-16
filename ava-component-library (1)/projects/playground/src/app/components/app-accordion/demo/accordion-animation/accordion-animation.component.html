@@ -1,0 +1,143 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Animation Comparison</h3>
+    <p>
+      Compare animated vs non-animated accordions to see the difference in user
+      experience.
+    </p>
+
+    <div class="animation-comparison">
+      <aava-accordion *ngFor="let example of animationExamples" [animation]="example.animation"
+        iconClosed="chevron-down" iconOpen="chevron-up" (click)="onAccordionToggle($event)">
+        <span header>{{ example.title }}</span>
+        <div content>
+          <p>
+            <strong>{{ example.description }}</strong>
+          </p>
+          <p>{{ example.content }}</p>
+        </div>
+      </aava-accordion>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Animation Performance</h3>
+    <p>
+      Learn about the technical implementation and performance optimizations.
+    </p>
+
+    <aava-accordion [animation]="true" iconClosed="chevron-down" iconOpen="chevron-up"
+      (click)="onAccordionToggle($event)">
+      <span header>Technical Details</span>
+      <div content>
+        <div [innerHTML]="performanceContent"></div>
+      </div>
+    </aava-accordion>
+  </div>
+
+  <div class="demo-section">
+    <h3>Icon Rotation Animation</h3>
+    <p>Icons smoothly rotate during accordion expansion and collapse.</p>
+
+    <aava-accordion [animation]="true" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+      (click)="onAccordionToggle($event)">
+      <span header>Watch Icon Rotation</span>
+      <div content>
+        <p>
+          Notice how the chevron icon smoothly rotates 180 degrees when you
+          expand or collapse this accordion.
+        </p>
+        <p>
+          The icon rotation is synchronized with the content height animation
+          for a cohesive visual experience.
+        </p>
+        <p>
+          This rotation provides clear visual feedback about the accordion's
+          current state and enhances the overall user experience.
+        </p>
+      </div>
+    </aava-accordion>
+  </div>
+
+  <div class="demo-section">
+    <h3>Multiple Animated Accordions</h3>
+    <p>See how multiple accordions work together with smooth animations.</p>
+
+    <div class="multiple-accordions">
+      <aava-accordion [animation]="true" iconClosed="chevron-down" iconOpen="chevron-up"
+        (click)="onAccordionToggle($event)">
+        <span header>First Accordion</span>
+        <div content>
+          <p>
+            This is the first accordion in a series. Each accordion maintains
+            its own animation state independently.
+          </p>
+          <p>
+            You can open multiple accordions simultaneously and each will
+            animate smoothly.
+          </p>
+        </div>
+      </aava-accordion>
+
+      <aava-accordion [animation]="true" iconClosed="chevron-down" iconOpen="chevron-up"
+        (click)="onAccordionToggle($event)">
+        <span header>Second Accordion</span>
+        <div content>
+          <p>
+            This is the second accordion. Notice how the animations don't
+            interfere with each other.
+          </p>
+          <p>
+            The height calculations are performed independently for each
+            accordion instance.
+          </p>
+        </div>
+      </aava-accordion>
+
+      <aava-accordion [animation]="true" iconClosed="chevron-down" iconOpen="chevron-up"
+        (click)="onAccordionToggle($event)">
+        <span header>Third Accordion</span>
+        <div content>
+          <p>
+            This is the third accordion. All accordions can be open
+            simultaneously with smooth animations.
+          </p>
+          <p>
+            The performance remains smooth even with multiple animated
+            accordions on the same page.
+          </p>
+        </div>
+      </aava-accordion>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Animation Best Practices</h3>
+    <p>
+      Guidelines for using accordion animations effectively in your
+      applications.
+    </p>
+
+    <div class="best-practices">
+      <div class="practice-item">
+        <h4>✅ When to Use Animations</h4>
+        <ul>
+          <li>Most user interfaces and web applications</li>
+          <li>When you want to provide smooth visual feedback</li>
+          <li>For content that benefits from gradual revelation</li>
+          <li>When building modern, polished user experiences</li>
+        </ul>
+      </div>
+
+      <div class="practice-item">
+        <h4>❌ When to Disable Animations</h4>
+        <ul>
+          <li>Performance-critical applications</li>
+          <li>When users prefer reduced motion</li>
+          <li>For frequently toggled content</li>
+          <li>When building minimalist interfaces</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

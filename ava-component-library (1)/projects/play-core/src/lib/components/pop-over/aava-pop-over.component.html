@@ -1,0 +1,122 @@
+<div #popoverW class="popover-wrapper" [class.show]="visible" 
+  [attr.id]="id ? 'aava-popover-' + id : null"
+  [ngClass]="[config.arrow, config.position]" [attr.data-arrow]="config.arrow"
+  [attr.data-position]="config.position" [ngStyle]="customStyles">
+  <div #popover class="popover stretch">
+    <div class="popover-content">
+      <!-- Header -->
+      <div *ngIf="currentData?.header" class="popover-header">
+        {{ currentData?.header }}
+      </div>
+
+      <!-- Description -->
+      <div *ngIf="currentData?.description" class="popover-description">
+        {{ currentData?.description }}
+      </div>
+
+      <!-- Footer with different variants -->
+      <div *ngIf="(data && data.length > 1) || config.showLearnMore" class="popover-footer">
+
+        <!-- Variant 1: Learn More only (single page) -->
+        <div *ngIf="data.length === 1 && config.showLearnMore" class="footer-learn-more-only">
+          <button
+            class="popover-learn-more-btn"
+            (click)="learnMore($event)">
+            Learn More
+          </button>
+        </div>
+
+        <!-- Variant 2: Buttons only (showButtons = true) -->
+        <div *ngIf="data.length > 1 && config.showButtons && !config.showPagination" class="footer-buttons-only">
+          <button
+            class="popover-nav-btn"
+            [disabled]="!hasPrevious"
+            (click)="previous($event)">
+            Prev
+          </button>
+          <button
+            class="popover-nav-btn"
+            [disabled]="!hasNext"
+            (click)="next($event)">
+            Next
+          </button>
+        </div>
+
+        <!-- Variant 3: Pagination + Buttons (showPagination = true, showButtons = true) -->
+        <div *ngIf="data.length > 1 && config.showPagination && config.showButtons" class="footer-pagination-buttons">
+          <div class="pagination-info">
+            {{ currentPage }}
+          </div>
+          <div class="navigation-buttons">
+            <button
+              class="popover-nav-btn"
+              [disabled]="!hasPrevious"
+              (click)="previous($event)">
+              Prev
+            </button>
+            <button
+              class="popover-nav-btn"
+              [disabled]="!hasNext"
+              (click)="next($event)">
+              Next
+            </button>
+          </div>
+        </div>
+
+        <!-- Variant 4: Skip + Icon navigation (showSkip = true, showIcon = true) -->
+        <div *ngIf="data.length > 1 && config.showSkip && config.showIcon" class="footer-skip-icon">
+          <button
+            class="popover-skip-btn"
+            (click)="skip($event)">
+            Skip
+          </button>
+          <div class="icon-navigation">
+            <button
+              class="popover-icon-btn"
+              [disabled]="!hasPrevious"
+              (click)="previous($event)">
+              <aava-icon
+                iconName="ChevronLeft"
+                [iconSize]="12"
+                [iconColor]="!hasPrevious ? 'rgba(var(--rgb-brand-primary), 0.4)' : 'rgb(var(--rgb-brand-primary))'">
+              </aava-icon>
+            </button>
+            <span class="pagination-info">{{ currentPage }}</span>
+            <button
+              class="popover-icon-btn"
+              [disabled]="!hasNext"
+              (click)="next($event)">
+              <aava-icon
+                iconName="ChevronRight"
+                [iconSize]="12"
+                [iconColor]="!hasNext ? 'rgba(var(--rgb-brand-primary), 0.4)' : 'rgb(var(--rgb-brand-primary))'">
+              </aava-icon>
+            </button>
+          </div>
+        </div>
+
+        <!-- Default: Pagination only (backward compatibility) -->
+        <div *ngIf="data.length > 1 && !config.showButtons && !config.showSkip && !config.showIcon" class="footer-default">
+          <div class="pagination-info">
+            {{ currentPage }}
+          </div>
+          <div class="navigation-buttons">
+            <button
+              class="popover-nav-btn"
+              [disabled]="!hasPrevious"
+              (click)="previous($event)">
+              Prev
+            </button>
+            <button
+              class="popover-nav-btn"
+              [disabled]="!hasNext"
+              (click)="next($event)">
+              Next
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

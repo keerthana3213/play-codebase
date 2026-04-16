@@ -1,0 +1,69 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Slider Component Tokens
+ *
+ * Component-specific semantic tokens for slider elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for slider styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Slider Input (for input type) --- */
+
+  --slider-input-padding: 8px;
+  --slider-input-border-radius: var(--global-radius-sm);
+  --slider-input-border: 1px solid var(--global-color-gray-300);
+  --slider-input-background: var(--global-background);
+  --slider-input-font-size: var(--slider-label-font-size-md);
+  --slider-input-font-weight: var(--slider-label-weight-md);
+  --slider-input-font-family: var(--slider-label-font-family);
+  --slider-input-color: var(--slider-value-color);
+  --slider-input-transition: var(--slider-transition);
+  /* --slider-input-color: #3b3f46; */
+  --slider-container-padding: 4px var(--global-spacing-3);
+  --slider-input-focus-border-color: var(--color-brand-primary);
+  --slider-input-hover-border-color: var(--global-color-gray-400);
+  --slider-input-disabled-background: var(--color-surface-disabled);
+  --slider-input-disabled-border-color: var(--color-border-disabled);
+
+  --slider-container-height: 48px;
+  --slider-container-gap: var(--global-spacing-3);
+  --slider-input-gap: var(--global-spacing-3);
+  --slider-size-sm-track-height: var(--global-spacing-1);
+  --slider-size-sm-thumb-size: 20px;
+  --slider-label-font-size-sm: var(--global-font-size-md);
+  --slider-label-weight-sm: var(--global-font-weight-semibold);
+  --slider-size-md-thumb-size: var(--global-spacing-5);
+
+  --slider-size-md-track-height: var(--global-spacing-1);
+  --slider-label-font-size-md: var(--global-font-size-xs);
+  --slider-label-weight-md: var(--global-font-weight-medium);
+  --slider-track-height: 4px;
+  --slider-track-background: var(--color-surface-subtle);
+  --slider-track-border-radius: var(--global-radius-sm);
+  --slider-cursor: pointer;
+  --slider-progress-background: var(--color-brand-primary);
+  --slider-progress-border-radius: var(--slider-track-height);
+  --slider-thumb-size: 20px;
+  --slider-thumb-border-radius: 50%;
+  --slider-thumb-inner-background: var(--global-background);
+  --slider-focus-ring: var(--accessibility-focus-ring-width) var(--accessibility-focus-ring-style) var(--accessibility-focus-ring-color);
+  --slider-thumb-shadow: var(--global-elevation-01);
+  --slider-thumb-shadow-hover: var(--global-elevation-02);
+  --slider-focus-ring-offset: var(--accessibility-focus-ring-offset);
+  --slider-handle-icon-width: var(--global-spacing-5);
+  --slider-handle-icon-height: var(--global-spacing-5);
+  --slider-tooltip-margin: var(--global-spacing-1);
+  --slider-tooltip-padding: var(--global-spacing-2);
+  --slider-value-color: var(--color-text-primary);
+  --slider-tooltip-border-radius: 2px;
+  --slider-label-font-family: var(--global-font-family-body);
+  --slider-label-line-height: 22px;
+  --slider-mark-background: var(--color-border-default);
+  --slider-input-width: 48px;
+  --slider-input-height: 28px;
+  --slider-value-color-disabled: var(--color-text-disabled);
+  --slider-disabled-color: var(--color-background-disabled);
+  --slider-disabled-rail-background: var(--color-background-disabled);
+}

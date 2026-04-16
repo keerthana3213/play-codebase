@@ -1,0 +1,30 @@
+.center-demo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  max-width: 870px;
+  margin-top: 0;
+}
+
+.demo-examples {
+  display: flex;
+  gap: 2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.example-group {
+  display: flex;
+  gap:40px;
+  flex: 1;
+  min-width: 300px;
+}
+
+.example-group aava-select {
+  margin-bottom: 1rem;
+}

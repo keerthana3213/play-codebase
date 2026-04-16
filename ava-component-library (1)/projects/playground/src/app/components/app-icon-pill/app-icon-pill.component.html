@@ -1,0 +1,133 @@
+<div class="documentation">
+  <!-- Header -->
+  <header class="doc-header">
+    <h1>Icon Pill Component</h1>
+    <p class="description">
+      The Icon Pill component provides interactive pill-style dropdowns with icons. Commonly used for selecting technology stacks or design libraries.
+    </p>
+  </header>
+
+  <!-- Installation -->
+  <section class="doc-section">
+    <h2>Installation</h2>
+    <div class="code-block">
+      <pre><code>import {{ '{' }} IconPillTechComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+    </div>
+  </section>
+
+  <!-- Demo Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Tech Selection'">
+              <awe-icon-pill
+                [options]="techOptions"
+                [selectedOption]="selectedTech"
+                (selectionChange)="onTechSelected($event)">
+              </awe-icon-pill>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Design Library Selection'">
+              <awe-icon-pill
+                [options]="designOptions"
+                [selectedOption]="selectedDesign"
+                (selectionChange)="onDesignSelected($event)">
+              </awe-icon-pill>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy"></awe-icons>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Code for interface -->
+
+  <div class="doc-section api-reference">
+    <h2>IconOption Interface</h2>
+    <pre><code>
+      interface IconOption {{ '{' }}
+        name: string;     // Display name
+        icon: string;     // Icon name or path
+        value: string;    // Value identifier
+        isLocalSvg?: boolean;  // Whether to render from local SVG file
+      {{ '}' }}
+    </code></pre>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>options</code></td>
+          <td><code>IconOption[]</code></td>
+          <td>—</td>
+          <td>Array of icon options displayed in the dropdown.</td>
+        </tr>
+        <tr>
+          <td><code>selectedOption</code></td>
+          <td><code>IconOption</code></td>
+          <td>First item in list</td>
+          <td>The currently selected icon option.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>selectionChange</code></td>
+          <td><code>EventEmitter&lt;IconOption&gt;</code></td>
+          <td>Emitted when an icon option is selected from the dropdown.</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

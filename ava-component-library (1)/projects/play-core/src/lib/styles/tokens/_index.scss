@@ -1,0 +1,48 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Token Index
+ *
+ * This file imports all design tokens in the correct order to establish
+ * the token hierarchy as defined by the design token manifesto.
+ *
+ * Order of imports:
+ * 1. Base tokens (global + semantic)
+ * 2. Component tokens (semantic)
+ * 3. Theme tokens (overrides)
+ * =========================================================================
+ */
+
+/* ==========================================================================
+   1. BASE TOKENS (Foundation Layer)
+   ========================================================================== */
+@use "./_base.css";
+
+/* ==========================================================================
+   2. COMPONENT TOKENS (Semantic Layer)
+   ========================================================================== */
+@use "./components/index";
+
+/* ==========================================================================
+   3. THEME TOKENS (Override Layer)
+   ========================================================================== */
+
+/* Default Category */
+// @use "./themes/default";
+@use "./themes/light";
+// @use "./themes/modern-vibrant";
+
+/* Dark Category */
+@use "./themes/dark";
+// @use "./themes/console";
+
+@use "./themes/surface";
+
+/* ACME Category */
+// @use "./themes/acme";
+// @use "./themes/enterprise";
+// @use "./themes/corporate";
+
+/* ==========================================================================
+   4. ACCESSIBILITY TOKENS (High Contrast Mode)
+   ========================================================================== */
+// @use "./themes/high-contrast";

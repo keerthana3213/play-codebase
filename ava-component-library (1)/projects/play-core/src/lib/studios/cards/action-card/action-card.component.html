@@ -1,0 +1,16 @@
+<aava-default-card class="action-card" [customStyles]="cardCustomStyles" [cardStyles]="data.cardStyles || {}">
+    <div class="action-card-content" *ngIf="hasContent">
+        <!-- Icon with circular background -->
+        <div class="action-card-icon-container" *ngIf="data.icon">
+            <div class="action-card-icon-circle" [ngStyle]="iconBackgroundStyles">
+                <aava-icon [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+            </div>
+        </div>
+
+        <!-- Title with custom styling -->
+        <div class="action-card-title" *ngIf="data.title" [ngStyle]="textStyles">
+            {{ data.title }}
+        </div>
+    </div>
+</aava-default-card>

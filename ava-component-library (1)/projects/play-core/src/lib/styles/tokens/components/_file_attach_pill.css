@@ -1,0 +1,99 @@
+/**
+ * =========================================================================
+ * Play+ Design System: File Attach Pill Component Tokens
+ *
+ * Component-specific semantic tokens for file-attach-pill elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for file-attach-pill styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- File Attach Pill Base --- */
+  --file-attach-pill-background: transparent;
+  --file-attach-pill-border: none;
+  --file-attach-pill-border-radius: var(--global-radius-sm);
+  --file-attach-pill-cursor: pointer;
+  --file-attach-pill-outline: none;
+
+
+  /* --- File Attach Pill Dimensions --- */
+  --file-attach-pill-padding: var(--global-spacing-2);
+  --file-attach-pill-gap: var(--global-spacing-2);
+
+  /* --- File Attach Pill Typography --- */
+  --file-attach-pill-text-color: var(--color-text-primary);
+  --file-attach-pill-text-font-size: var(--global-font-size-xs);
+  --file-attach-pill-text-font-weight: var(--global-font-weight-medium);
+  --file-attach-pill-text-margin: 0 var(--global-spacing-1);
+
+  /* --- File Attach Pill Icon --- */
+  --file-attach-pill-icon-wrapper-size: var(--global-icon-size-lg);
+  --file-attach-pill-icon-border-radius: var(--global-spacing-1);
+
+  /* --- File Attach Pill Arrow --- */
+  --file-attach-pill-arrow-size: var(--global-icon-size-sm);
+  --file-attach-pill-arrow-opacity-hidden: 0;
+  --file-attach-pill-arrow-opacity-visible: 1;
+  --file-attach-pill-arrow-transform-hidden: translateX(-10px);
+  --file-attach-pill-arrow-transform-visible: translateX(0);
+
+  /* --- File Attach Pill Transitions --- */
+  --file-attach-pill-transition-width:  var(--global-motion-duration-standard) ease;
+  --file-attach-pill-transition-shadow:  var(--global-motion-duration-swift) ease;
+  --file-attach-pill-transition-border: border var(--global-motion-duration-swift) ease;
+  --file-attach-pill-transition-arrow:  var(--global-motion-duration-standard) ease, transform var(--global-motion-duration-standard) ease;
+
+  /* --- File Attach Pill Dropdown Base --- */
+  --file-attach-pill-dropdown-background: var(--color-background-primary);
+  --file-attach-pill-dropdown-border-radius: var(--global-radius-sm);
+  --file-attach-pill-dropdown-shadow: var(--global-elevation-02);
+  --file-attach-pill-dropdown-position-offset: var(--global-spacing-2);
+
+  /* --- File Attach Pill Dropdown States --- */
+  --file-attach-pill-dropdown-opacity-hidden: 0;
+  --file-attach-pill-dropdown-opacity-visible: 1;
+  --file-attach-pill-dropdown-visibility-hidden: hidden;
+  --file-attach-pill-dropdown-visibility-visible: visible;
+  --file-attach-pill-dropdown-transform-hidden: translateY(10px);
+  --file-attach-pill-dropdown-transform-visible: translateY(0);
+
+  /* --- File Attach Pill Dropdown Transitions --- */
+  --file-attach-pill-dropdown-transition: opacity var(--global-motion-duration-standard) ease, 
+                                          visibility var(--global-motion-duration-standard) ease, 
+                                          transform var(--global-motion-duration-standard) ease;
+
+  /* --- File Attach Pill Dropdown Item Base --- */
+  --file-attach-pill-dropdown-item-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --file-attach-pill-dropdown-item-cursor: pointer;
+  --file-attach-pill-dropdown-item-gap: var(--global-spacing-2);
+
+  /* --- File Attach Pill Dropdown Item States --- */
+  --file-attach-pill-dropdown-item-background: transparent;
+  --file-attach-pill-dropdown-item-background-hover: var(--color-surface-subtle-hover);
+
+  /* --- File Attach Pill Dropdown Item Typography --- */
+  --file-attach-pill-dropdown-item-text-color: var(--color-text-primary);
+  --file-attach-pill-dropdown-item-font-size: var(--global-font-size-sm);
+  --file-attach-pill-dropdown-item-font-weight: var(--global-font-weight-medium);
+
+  /* --- File Attach Pill Dropdown Item Icon --- */
+  --file-attach-pill-dropdown-item-icon-size: var(--global-icon-size-md);
+  --file-attach-pill-dropdown-item-icon-border-radius: var(--global-spacing-1);
+
+  /* --- File Attach Pill Dropdown Item Divider --- */
+  --file-attach-pill-dropdown-item-divider-color: var(--color-border-subtle);
+  --file-attach-pill-dropdown-item-divider-height: 1px;
+  --file-attach-pill-dropdown-item-divider-margin: 0 var(--global-spacing-4);
+
+  /* --- File Attach Pill Dropdown Item Border Radius --- */
+  --file-attach-pill-dropdown-item-border-radius-first: var(--global-radius-sm) var(--global-radius-sm) 0 0;
+  --file-attach-pill-dropdown-item-border-radius-last: 0 0 var(--global-radius-sm) var(--global-radius-sm);
+
+  /* --- File Attach Pill Dropdown Item Transitions --- */
+  --file-attach-pill-dropdown-item-transition:  var(--global-motion-duration-swift) ease;
+
+  /* --- File Attach Pill Focus States --- */
+  --file-attach-pill-focus-outline: var(--accessibility-focus-ring-width) var(--accessibility-focus-ring-style) var(--accessibility-focus-ring-color);
+  --file-attach-pill-focus-outline-offset: var(--accessibility-focus-ring-offset);
+}

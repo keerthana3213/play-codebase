@@ -1,0 +1,191 @@
+<div class="spinner-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Spinner Component</h1>
+            <p class="description">
+              A versatile spinner component that supports multiple types, sizes,
+              colors, and animations. Built with accessibility and user
+              experience in mind.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/spinners/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/spinners/types" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Types</span>
+              </a>
+              <a routerLink="/spinners/sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="/spinners/colors" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Colors</span>
+              </a>
+              <a routerLink="/spinners/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>
+            Fundamental spinner examples with different progress indices and
+            animations
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                Progress Indicators
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="sm" [animation]="true"></aava-spinner>
+              <aava-spinner type="blob" color="primary" size="sm" [animation]="true"></aava-spinner>
+
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spinner Types -->
+    <section class="demo-section types-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Spinner Types</h2>
+          <p>
+            Different spinner types provide visual variety for different use
+            cases
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="md" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="blob" color="primary" size="md" [animation]="true"></aava-spinner>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spinner Sizes -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Spinner Sizes</h2>
+          <p>
+            Available spinner sizes for different contexts and design
+            requirements
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="sm" [animation]="true"></aava-spinner>
+              <aava-spinner type="blob" color="success" size="sm" [animation]="true"></aava-spinner>
+
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="md" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="lg" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="xl" [animation]="true"></aava-spinner>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Spinner Colors -->
+    <section class="demo-section colors-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Spinner Colors</h2>
+          <p>
+            Semantic color variants to match your application's design system
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" size="md" color="primary" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" size="md" color="secondary" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" size="md" color="success" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" size="md" color="warning" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" size="md" color="danger" [animation]="true"></aava-spinner>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation Control -->
+    <section class="demo-section animation-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Animation Control</h2>
+          <p>Control spinner animation for different loading states</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="md" [animation]="true"></aava-spinner>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-spinner type="linear-gradient" color="primary" size="md" [animation]="false"></aava-spinner>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,118 @@
+:root {
+    /* Colors */
+    --timeline-line-color: var(--color-brand-primary);
+    --timeline-text-color: var(--color-text-secondary);
+    --timeline-title-color: var(--global-color-gray-800);
+    --timeline-description-color: var(--global-color-gray-600);
+    --timeline-time-color: var(--global-color-pink-500);
+    --timeline-unreached-color: var(--global-color-gray-300);
+
+    /* Typography - Font Families */
+    --timeline-title-font-family: var(--global-font-family-heading);
+    --timeline-text-font-family: var(--global-font-family-body);
+
+    /* Typography - Font Sizes */
+    --timeline-title-size-large: var(--global-font-size-xl);
+    --timeline-title-size-medium: var(--global-font-size-lg);
+    --timeline-title-size-small: var(--global-font-size-md);
+
+    --timeline-time-size-large: var(--global-font-size-md);
+    --timeline-time-size-medium: var(--global-font-size-sm);
+    --timeline-time-size-small: var(--global-font-size-xs);
+
+    --timeline-description-size-large: var(--global-font-size-md);
+    --timeline-description-size-medium: var(--global-font-size-sm);
+    --timeline-description-size-small: var(--global-font-size-xs);
+
+    /* Typography - Line Heights */
+    --timeline-title-line-height-large: var(--global-line-height-snug);
+    --timeline-title-line-height-medium: var(--global-line-height-snug);
+    --timeline-title-line-height-small: var(--global-line-height-snug);
+
+    /* Typography - Font Weights */
+    --timeline-title-font-weight-large: var(--global-font-weight-bold);
+    --timeline-title-font-weight-medium: var(--global-font-weight-semibold);
+    --timeline-title-font-weight-small: var(--global-font-weight-semibold);
+    --timeline-title-font-weight-x-small: var(--global-font-weight-semibold);
+
+    --timeline-time-font-weight: var(--global-font-weight-semibold);
+
+    /* Icon and Circle Properties */
+    --timeline-icon-bg-color: var(--rgb-white);
+
+    /* Circle container sizes */
+    --timeline-circle-size-large: 32px;
+    --timeline-circle-size-medium: 24px;
+    --timeline-circle-size-small: 20px;
+    --timeline-circle-size-x-small: 16px;
+
+    /* Icon sizes inside circles */
+    --timeline-icon-size-large: 24px;
+    --timeline-icon-size-medium: 20px;
+    --timeline-icon-size-small: 16px;
+    --timeline-icon-size-x-small: 12px;
+
+    /* Spacing */
+    --timeline-content-gap: var(--global-spacing-4);
+    --timeline-item-margin: var(--global-spacing-5);
+
+    /* Typography - Font Families */
+    --timeline-title-font-family: var(--global-font-family-heading);
+    --timeline-text-font-family: var(--global-font-family-body);
+
+    /* Typography - Font Sizes */
+    --timeline-title-size-large: var(--global-font-size-xl);
+    /* 24px */
+    --timeline-title-size-medium: var(--global-font-size-lg);
+    /* 20px */
+    --timeline-title-size-small: var(--global-font-size-md);
+    /* 16px */
+    --timeline-title-size-x-small: var(--global-font-size-sm);
+    /* 14px */
+
+
+    --timeline-time-size-large: var(--global-font-size-md);
+    /* 16px */
+    --timeline-time-size-medium: var(--global-font-size-sm);
+    /* 14px */
+    --timeline-time-size-small: var(--global-font-size-xs);
+    /* 12px */
+    --timeline-time-size-x-small: var(--global-font-size-xs);
+    /* 12px */
+
+    --timeline-description-size-large: var(--global-font-size-md);
+    /* 16px */
+    --timeline-description-size-medium: var(--global-font-size-sm);
+    /* 14px */
+    --timeline-description-size-small: var(--global-font-size-xs);
+    /* 12px */
+    --timeline-description-size-x-small: var(--global-font-size-xs);
+    /* 12px */
+
+    /* Typography - Line Heights */
+    --timeline-title-line-height-large: var(--global-line-height-snug);
+    /* 28px */
+    --timeline-title-line-height-medium: var(--global-line-height-snug);
+    /* 24px */
+    --timeline-title-line-height-small: var(--global-line-height-snug);
+    /* 20px */
+    --timeline-title-line-height-x-small: var(--global-line-height-normal);
+
+    /* Icon properties */
+    --timeline-icon-size: var(--glass-backdrop-blur);
+    --timeline-icon-bg-color: var(--rgb-white);
+    --timeline-icon-size-large: 32px;
+    --timeline-icon-size-medium: 24px;
+    --timeline-icon-size-small: 20px;
+    --timeline-icon-size-x-small: 16px;
+
+    /* Spacing */
+    --timeline-content-gap: var(--global-spacing-4);
+    --timeline-item-margin: var(--global-spacing-5);
+
+    /* Icon properties */
+    --timeline-icon-size: var(--glass-backdrop-blur);
+    --timeline-icon-bg-color: var(--rgb-white);
+     --timeline-border-radius:var(--global-radius-circle);
+    
+}

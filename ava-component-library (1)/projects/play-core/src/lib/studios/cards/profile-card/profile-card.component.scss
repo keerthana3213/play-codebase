@@ -1,0 +1,117 @@
+.profile-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+/* Header Section */
+.profile-card-header {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+}
+
+.profile-card-avatar {
+    flex-shrink: 0;
+}
+
+.profile-card-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+}
+
+.profile-card-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.profile-card-title {
+    color: var(--studios-profile-title-color);
+    font-family: var(--studios-profile-title-family);
+    font-size: var(--studios-profile-title-size);
+    font-weight: var(--studios-profile-title-weight);
+    line-height: var(--studios-profile-title-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.profile-card-menu-icon {
+    flex-shrink: 0;
+}
+
+.profile-card-subtitle {
+    color: var(--studios-profile-subtitle-color);
+    font-family: var(--studios-profile-subtitle-family);
+    font-size: var(--studios-profile-subtitle-size);
+    font-weight: var(--studios-profile-subtitle-weight);
+    line-height: var(--studios-profile-subtitle-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Stats Section */
+.profile-card-stats {
+    width: 100%;
+}
+
+.profile-card-stats-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.profile-card-stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    flex: 1;
+}
+
+.profile-card-stat-icon {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.profile-card-stat-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+}
+
+.profile-card-stat-value {
+    color: var(--studios-profile-stat-value-color);
+    font-family: var(--studios-profile-stat-value-family);
+    font-size: var(--studios-profile-stat-value-size);
+    font-weight: var(--studios-profile-stat-value-weight);
+    line-height: var(--studios-profile-stat-value-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.profile-card-stat-label {
+    color: var(--studios-profile-stat-label-color);
+    font-family: var(--studios-profile-stat-label-family);
+    font-size: var(--studios-profile-stat-label-size);
+    font-weight: var(--studios-profile-stat-label-weight);
+    line-height: var(--studios-profile-stat-label-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

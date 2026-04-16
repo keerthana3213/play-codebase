@@ -1,0 +1,634 @@
+$sidebar-border: var(--sidebar-border);
+$sidebar-bg: var(--sidebar-background);
+$header-bg: var(--sidebar-background);
+ $active-bg: var(--sidebar-item-active-bg);
+$active-text: var(--sidebar-text-active);
+$text-primary: var(--sidebar-text-primary);
+$text-secondary: var(--sidebar-text-secondary);
+$hover-bg: var(--sidebar-item-hover-bg);
+$transition: var(--sidebar-transition-duration) var(--sidebar-transition-timing);
+
+// Size-specific variables
+$sizes: (
+  small: (width: var(--sidebar-expanded-width-sm),
+    collapsed-width: var(--sidebar-collapsed-width-sm),
+    padding: 1.5rem,
+    header-padding: 1rem 0.75rem,
+    font-size: 12px,
+    icon-size: 13px),
+  medium: (width: var(--sidebar-expanded-width-md),
+    collapsed-width: var(--sidebar-collapsed-width-md),
+    padding: 1.5rem,
+    header-padding: 1.25rem 1rem,
+    font-size: 14px,
+    icon-size: 16px),
+  large: (width: var(--sidebar-expanded-width-lg),
+    collapsed-width: var(--sidebar-collapsed-width-lg),
+    padding: 1.5rem,
+    header-padding: 1.5rem 1.25rem,
+    font-size: 16px,
+    icon-size: 20px)
+);
+
+@function get-size($size, $property) {
+  @return map-get(map-get($sizes, $size), $property);
+}
+
+.ava-sidebar-container {
+  display: flex;
+  position: relative;
+  width: fit-content;
+
+  &.right-positioned {
+    flex-direction: row-reverse;
+  }
+
+  // Size-specific container styles
+  @each $size, $props in $sizes {
+    &.size-#{$size} {
+      .ava-sidebar {
+        font-size: get-size($size, font-size);
+      }
+    }
+  }
+}
+
+.ava-sidebar {
+  display: flex;
+  flex-direction: column;
+  background-color: $sidebar-bg;
+  border: none;
+  overflow: hidden;
+  transition: $transition;
+  position: relative;
+
+  // Size-specific styles
+  @each $size, $props in $sizes {
+    &.size-#{$size} {
+      .sidebar-content {
+        padding: get-size($size, padding);
+      }
+
+      .sidebar-header {
+        padding: get-size($size, header-padding);
+      }
+
+      .nav-icon {
+        width: get-size($size, icon-size);
+        height: get-size($size, icon-size);
+        font-size: get-size($size, icon-size);
+      }
+    }
+  }
+
+  &.collapsed {
+    .sidebar-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0.5rem;
+    }
+
+    .nav-item {
+      width: 40px;
+      height: 40px;
+      justify-content: center;
+      margin: 1rem 0.25rem;
+
+      .nav-link {
+        justify-content: center;
+        padding: 8px;
+      }
+    }
+
+    // Fix for collapsed footer
+    .sidebar-footer {
+      display: block !important;
+      border-top: 1px solid var(--sidebar-border);
+
+      
+      .user-profile {
+        display: flex !important;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 0.5rem;
+        
+        .user-avatar {
+          display: block !important;
+        }
+        
+        .user-info {
+          display: none !important;
+        }
+        
+        .user-actions {
+          // display: none !important;
+          cursor: pointer;
+        }
+      }
+      &:hover{
+        .user-profile{
+          background-color: none;
+        }
+      }
+    }
+  }
+
+  &.right-positioned {
+    border-left: $sidebar-border;
+    border-right: none;
+  }
+}
+
+// Header Styles
+.sidebar-header {
+  background-color: $header-bg;
+  // border-bottom: $sidebar-border;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-shrink: 0;
+
+  .brand-container {
+    display: flex;
+    align-items: star;
+    gap: 0.75rem;
+
+  }
+
+  .brand-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .logo-image {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    background-color: #000;
+    color: var(--sidebar-text-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  .brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .brand-title {
+    margin: 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: $text-primary;
+  }
+
+  .brand-subtitle {
+    margin: 0;
+    font-size: 12px;
+    color: $text-secondary;
+  }
+
+  .collapsed-header {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+
+    .collapsed-logo-image {
+      height: 40px;
+      width: auto;
+    }
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    padding: 0.5rem;
+  }
+}
+
+.ava-sidebar.collapsed .sidebar-header {
+  justify-content: center;
+  padding: 1rem 0.5rem;
+}
+
+// Search Styles (Large variant only)
+.sidebar-search {
+  padding: 0 1rem;
+  // border-bottom: $sidebar-border;
+
+  .search-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: 8px 12px 8px 36px;
+    border: 1px solid var(--sidebar-border);
+    border-radius: 6px;
+    font-size: 14px;
+    background-color: #f9fafb;
+    outline: none;
+    transition: $transition;
+
+    &:focus {
+      border-color: var($active-bg);
+      background-color: var(--sidebar-background);
+    }
+
+    &::placeholder {
+      color: $text-secondary;
+    }
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 12px;
+    color: $text-secondary;
+    pointer-events: none;
+  }
+}
+
+// Content Styles
+.sidebar-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: none;
+    border-radius: 2px;
+  }
+}
+
+// Navigation Styles
+.sidebar-nav {
+  .nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-item {
+    margin-bottom: 4px;
+    border-radius: 6px;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-bg;
+    }
+
+    &.active {
+      background-color: $active-bg;
+      color: $active-text;
+
+      .nav-link {
+        color: $active-text;
+      }
+
+      .nav-icon {
+        color: $active-text;
+      }
+    }
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    padding: 12px;
+    text-decoration: none;
+    color: $text-primary;
+    gap: 12px;
+    transition: $transition;
+    width: 100%;
+  }
+
+  .nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: $text-secondary;
+    transition: $transition;
+  }
+
+  .nav-text {
+    flex: 1;
+    font-weight: 500;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // .nav-badge {
+  //   // background-color: #dc2626;
+  //   // color: white;
+  //   font-size: 12px;
+  //   font-weight: 600;
+  //   padding: 2px 6px;
+  //   border-radius: 10px;
+  //   min-width: 18px;
+  //   text-align: center;
+  // }
+}
+
+  // Sub-menu stylesx
+  .sub-nav-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    margin-left: var(--sidebar-submenu-indent);
+    border-left:  2px solid var(--sidebar-border);
+    padding-left:  12px;
+    margin-top: 4px;
+  }
+
+  .sub-nav-item {
+    margin-bottom: 2px;
+    border-radius: 4px;
+    transition: $transition;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $hover-bg;
+    }
+
+    &.active {
+      background-color: $active-bg;
+      color: $active-text;
+
+      .sub-nav-link {
+        color: $active-text;
+      }
+
+      .sub-nav-icon {
+        color: $active-text;
+      }
+    }
+  }
+
+  .sub-nav-link {
+    display: flex;
+    align-items: center;
+    padding:  8px 12px;
+    text-decoration: none;
+    color: $text-primary;
+    gap: 10px;
+    transition: $transition;
+    width: 100%;
+    font-size: 14px;
+  }
+
+  .sub-nav-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--sidebar-icon-color, $text-secondary);
+    transition: $transition;
+  }
+
+  .sub-nav-text {
+    flex: 1;
+    font-weight: 400;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .sub-nav-badge {
+    background-color: var(--sidebar-submenu-badge-bg, #dc2626);
+    color: var(--sidebar-submenu-badge-text, white);
+    font-size: var(--sidebar-submenu-badge-font-size, 10px);
+    font-weight: 600;
+    padding: var(--sidebar-submenu-badge-padding, 1px 4px);
+    border-radius: var(--sidebar-submenu-badge-border-radius, 8px);
+    min-width: var(--sidebar-submenu-badge-min-width, 16px);
+    text-align: center;
+  }
+
+
+// Footer Styles
+.sidebar-footer {
+   border-top: 1px solid #b5b9be;
+   padding: 10px;
+  background-color: $sidebar-bg;
+  flex-shrink: 0;
+
+  .user-profile {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    gap: 12px;
+    cursor: pointer;
+    transition: $transition;
+
+    // &:hover {
+    //   background-color: $hover-bg;
+    // }
+  }
+
+  .user-avatar {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+  }
+
+  .avatar-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  .avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #3b82f6;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  .user-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .user-name {
+    font-weight: 600;
+    color: $text-primary;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    font-size: 14px;
+  }
+
+  .user-role {
+    color: $text-secondary;
+    font-size: 12px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .user-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .action-icon {
+    color: $text-secondary;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: $transition;
+
+    &:hover {
+      background-color: none;
+    }
+  }
+}
+
+// Collapsed Footer Styles - Updated to ensure avatar is always visible
+.ava-sidebar.collapsed .sidebar-footer {
+  display: block !important;
+  .user-profile {
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem 0.5rem;
+  }
+
+  .user-avatar {
+    width: 32px;
+    height: 32px;
+    display: block !important;
+  }
+
+  .avatar-placeholder {
+    font-size: 14px;
+  }
+  
+  .user-info {
+    display: none !important;
+  }
+  
+  .user-actions {
+    display: none !important;
+  }
+}
+
+// Outside Button Hover Area
+.ava-sidebar-container.outside-button .hover-area {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: var(--hover-area-width, 12px);
+  z-index: 10;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 8px;
+  transition: $transition;
+  opacity: 0;
+  pointer-events: auto;
+
+  .hover-area-content {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: $transition;
+  }
+
+  &.right-positioned {
+    right: var(--sidebar-width, 260px);
+  }
+
+  &.left-positioned {
+    left: var(--sidebar-width, 260px);
+  }
+
+  &:hover .hover-area-content {
+    opacity: 1;
+  }
+}
+
+.ava-sidebar-container.outside-button:hover .hover-area,
+.ava-sidebar-container.outside-button .hover-area:hover {
+  opacity: 1;
+  pointer-events: auto;
+
+  .hover-area-content {
+    opacity: 1;
+  }
+}
+
+.ava-sidebar-container.outside-button .ava-sidebar.collapsed~.hover-area {
+  &.left-positioned {
+    left: var(--collapsed-width, 56px);
+  }
+
+  &.right-positioned {
+    right: var(--collapsed-width, 56px);
+  }
+}
+
+// Responsive adjustments for different sizes
+.ava-sidebar-container.size-sm {
+  .sidebar-header .brand-title {
+    font-size: 12px;
+  }
+
+  .nav-link {
+    padding: 8px;
+    gap: 8px;
+  }
+
+  .user-profile {
+    padding: 0.75rem;
+  }
+}
+
+.ava-sidebar-container.size-lg {
+  .sidebar-header .brand-title {
+    font-size: 16px;
+  }
+
+  .nav-link {
+    padding: 14px;
+    gap: 14px;
+  }
+
+  .user-profile {
+    padding: 1.25rem;
+  }
+}

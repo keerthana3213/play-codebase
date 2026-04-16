@@ -1,0 +1,78 @@
+.confetti-showcase {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    // background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    font-family: 'Inter', sans-serif;
+    box-sizing: border-box;
+
+    h2 {
+        width: 100%;
+        color: #1e293b;
+        font-size: 2rem;
+        font-weight: 600;
+        text-align: center;
+        margin: 0 0 2rem 0;
+    }
+
+    h3 {
+        color: #334155;
+        font-size: 1.5rem;
+        font-weight: 500;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #e2e8f0;
+        padding-bottom: 0.5rem;
+    }
+
+    h4 {
+        color: #475569;
+        font-size: 1.2rem;
+        font-weight: 500;
+        margin-bottom: 1rem;
+    }
+
+    .confetti-examples,
+    .shapes-examples,
+    .extreme-examples {
+        margin-bottom: 3rem;
+    }
+
+    .example-section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        background: #f8fafc;
+        border-radius: 12px;
+        border: 1px solid #e2e8f0;
+    }
+
+    .button-row {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+    }
+
+    // Responsive design
+    @media (max-width: 768px) {
+        padding: 1rem;
+
+        .button-row {
+            flex-direction: column;
+            align-items: stretch;
+            gap: 1rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+        }
+    }
+}

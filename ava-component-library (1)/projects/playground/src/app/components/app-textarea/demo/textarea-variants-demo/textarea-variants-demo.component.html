@@ -1,0 +1,65 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <!-- Left Column -->
+    <div class="demo-column padl">
+        <h3 style="color: var(--color-text-primary)">Default Variant</h3>
+    <aava-textarea
+      [(ngModel)]="defaultValue"
+      placeholder="Default variant..."
+      variant="default"
+      [rows]="3"
+      (textareaChange)="onDefaultChange($event)"
+    ></aava-textarea>
+
+     <h3 style="color: var(--color-text-primary)">Primary Variant</h3>
+    <aava-textarea
+      [(ngModel)]="primaryValue"
+      placeholder="Primary variant..."
+      variant="primary"
+      [rows]="3"
+      (textareaChange)="onPrimaryChange($event)"
+    ></aava-textarea>
+
+     <h3 style="color: var(--color-text-primary)">Success Variant</h3>
+    <aava-textarea
+      [(ngModel)]="successValue"
+      placeholder="Success variant..."
+      variant="success"
+      [rows]="3"
+      (textareaChange)="onSuccessChange($event)"
+    ></aava-textarea>
+    </div>
+
+    <!-- Right Column -->
+    <div class="demo-column padr">
+      
+    <h3 style="color: var(--color-text-primary)">Error Variant</h3>
+    <aava-textarea
+      [(ngModel)]="errorValue"
+      placeholder="Error variant..."
+      variant="error"
+      [rows]="3"
+      (textareaChange)="onErrorChange($event)"
+    ></aava-textarea>
+    <h3 style="color: var(--color-text-primary)">Warning Variant</h3>
+    <aava-textarea
+      [(ngModel)]="warningValue"
+      placeholder="Warning variant..."
+      variant="warning"
+      [rows]="3"
+      (textareaChange)="onWarningChange($event)"
+    ></aava-textarea>
+    <h3 style="color: var(--color-text-primary)">Info Variant</h3>
+    <aava-textarea
+      [(ngModel)]="infoValue"
+      placeholder="Info variant..."
+      variant="info"
+      [rows]="3"
+      (textareaChange)="onInfoChange($event)"
+    ></aava-textarea>
+    </div>
+  </div>
+</div>
+
+
+ 

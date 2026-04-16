@@ -1,0 +1,20 @@
+<div class="feedback-dialog" [attr.id]="id ? 'aava-feedback-' + id : null" [ngStyle]="customStyles" [ngClass]="[bottomBorder ? 'has-bottom-border' : '', destructive ? 'destructive' : '']">
+    <h3 class="popup-title" id="popup-title" [ngClass]="{ 'destructive': destructive }">
+        {{ title }}
+    </h3>
+
+    <p class="inline-text" [innerHTML]="message"></p>
+    <div class="input-container">
+        <aava-textarea [label]="label" placeholder="Type here..." name="feedback" #feedbackText>
+        </aava-textarea>
+    </div>
+
+    <div class="dialog-actions">
+        <aava-button [label]="cancelButtonText" [variant]="cancelButtonVariant" size="md" (userClick)="onCancel()">
+        </aava-button>
+
+        <aava-button [label]="confirmButtonText" [variant]="effectiveConfirmVariant" size="md"
+            (userClick)="onConfirm()">
+        </aava-button>
+    </div>
+</div>

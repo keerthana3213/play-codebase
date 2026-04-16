@@ -1,0 +1,188 @@
+<div class="demo-container">
+  <div class="demo-description">
+    <h3>Search Bar Icons</h3>
+    <p>
+      Different icon configurations and customizations for the search bar
+      component.
+    </p>
+  </div>
+
+  <div class="icons-demo">
+    <div class="demo-section">
+      <h4>Default Icons</h4>
+      <p class="icon-description">
+        Standard search and send icons with default colors
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Default Icons"
+          placeholder="Search with default icons..."
+          (searchClick)="onSearch($event, 'default')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Custom Icon Colors</h4>
+      <p class="icon-description">Different colors for search and send icons</p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Custom Colors"
+          placeholder="Search with custom icon colors..."
+          searchIconColor="#6366f1"
+          sendIconColor="#8b5cf6"
+          (searchClick)="onSearch($event, 'custom-colors')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Matching Icon Colors</h4>
+      <p class="icon-description">
+        Both icons using the same color for consistency
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Matching Colors"
+          placeholder="Search with matching icon colors..."
+          searchIconColor="#059669"
+          sendIconColor="#059669"
+          (searchClick)="onSearch($event, 'matching')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Icon Color Combinations</h4>
+      <p class="icon-description">
+        Various color combinations for different use cases
+      </p>
+      <div class="icon-combinations">
+        <div class="icon-item">
+          <label for="blue-search">Blue Theme</label>
+          <aava-search-bar
+            id="blue-search"
+            placeholder="Blue theme"
+            searchIconColor="#3b82f6"
+            sendIconColor="#1d4ed8"
+            (searchClick)="onSearch($event, 'blue')"
+          ></aava-search-bar>
+        </div>
+        <div class="icon-item">
+          <label for="green-search">Green Theme</label>
+          <aava-search-bar
+            id="green-search"
+            placeholder="Green theme"
+            searchIconColor="#10b981"
+            sendIconColor="#047857"
+            (searchClick)="onSearch($event, 'green')"
+          ></aava-search-bar>
+        </div>
+        <div class="icon-item">
+          <label for="purple-search">Purple Theme</label>
+          <aava-search-bar
+            id="purple-search"
+            placeholder="Purple theme"
+            searchIconColor="#8b5cf6"
+            sendIconColor="#7c3aed"
+            (searchClick)="onSearch($event, 'purple')"
+          ></aava-search-bar>
+        </div>
+        <div class="icon-item">
+          <label for="orange-search">Orange Theme</label>
+          <aava-search-bar
+            id="orange-search"
+            placeholder="Orange theme"
+            searchIconColor="#f97316"
+            sendIconColor="#ea580c"
+            (searchClick)="onSearch($event, 'orange')"
+          ></aava-search-bar>
+        </div>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Accessibility Focus</h4>
+      <p class="icon-description">
+        High contrast colors for better accessibility
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="High Contrast"
+          placeholder="Search with high contrast icons..."
+          searchIconColor="#000000"
+          sendIconColor="#ffffff"
+          (searchClick)="onSearch($event, 'high-contrast')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Icon Size Variations</h4>
+      <p class="icon-description">
+        Icons scale with component size for proper proportions
+      </p>
+      <div class="size-variations">
+        <div class="size-item">
+          <label for="xs-search">Extra Small (16px icons)</label>
+          <aava-search-bar
+            id="xs-search"
+            placeholder="XS"
+            size="xs"
+            searchIconColor="#6b7280"
+            sendIconColor="#6b7280"
+            (searchClick)="onSearch($event, 'xs')"
+          ></aava-search-bar>
+        </div>
+        <div class="size-item">
+          <label for="md-search">Medium (20px icons)</label>
+          <aava-search-bar
+            id="md-search"
+            placeholder="MD"
+            size="md"
+            searchIconColor="#6b7280"
+            sendIconColor="#6b7280"
+            (searchClick)="onSearch($event, 'md')"
+          ></aava-search-bar>
+        </div>
+        <div class="size-item">
+          <label for="lg-search">Large (24px icons)</label>
+          <aava-search-bar
+            id="lg-search"
+            placeholder="LG"
+            size="lg"
+            searchIconColor="#6b7280"
+            sendIconColor="#6b7280"
+            (searchClick)="onSearch($event, 'lg')"
+          ></aava-search-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h4>Icon Features</h4>
+    <ul class="feature-list">
+      <li>
+        <strong>Dynamic Sizing:</strong> Icon sizes are computed based on
+        component size
+      </li>
+      <li>
+        <strong>Color Management:</strong> Handles disabled states with CSS
+        variable fallbacks
+      </li>
+      <li>
+        <strong>Interactive Elements:</strong> Send icon is clickable with
+        proper cursor styling
+      </li>
+      <li>
+        <strong>Accessibility:</strong> High contrast options for better
+        visibility
+      </li>
+    </ul>
+  </div>
+</div>

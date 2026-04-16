@@ -1,0 +1,56 @@
+<button
+  class="aava-icon-container"
+  [ngClass]="{ disabled: disabled, cursor: cursor }"
+  [attr.id]="id ? 'aava-icon-' + id : null"
+  [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-hidden]="isAriaHidden || null"
+  [attr.aria-disabled]="(disabled && cursor) || null"
+  [attr.tabindex]="(cursor && !disabled) ? '0' : '-1'"
+  (click)="handleClick($event)"
+  [ngStyle]="getIconStyles()">
+  <ng-container [ngSwitch]="iconType">
+    <lucide-icon
+      *ngSwitchCase="'name'"
+      [name]="iconName"
+      [size]="iconSize"
+      [color]="isHoverColor && isHover && !disabled ? hoverColor : computedColor"
+      [attr.aria-hidden]="isAriaHidden ? 'true' : null"
+      (mouseenter)="isHover = true"
+      (mouseleave)="isHover = false">
+    </lucide-icon>
+
+    <ng-container *ngSwitchCase="'svg'">
+      <span 
+        *ngIf="safeSvgContent()"
+        [style.width.px]="iconSize"
+        [style.height.px]="iconSize"
+        [style.color]="isHoverColor && isHover && !disabled ? hoverColor : computedColor"
+        [attr.aria-hidden]="isAriaHidden ? 'true' : null"
+        (mouseenter)="isHover = true"
+        (mouseleave)="isHover = false"
+        class="aava-icon-svg"
+        [innerHTML]="safeSvgContent()">
+      </span>
+    </ng-container>
+    
+
+    <img
+      *ngSwitchCase="'url'"
+      [style.width.px]="iconSize"
+      [style.height.px]="iconSize"
+      class="aava-icon-img"
+      [ngStyle]="imgCustomStyle"
+      [src]="iconUrl"
+      [attr.aria-hidden]="isAriaHidden ? 'true' : null"
+      [attr.alt]="computedAriaLabel || 'icon'"
+      (error)="onImageError()" />
+
+    <span
+      *ngSwitchCase="'unknown'"
+      class="aava-icon-missing"
+      [attr.aria-hidden]="'true'">
+    </span>
+  </ng-container>
+  
+</button>

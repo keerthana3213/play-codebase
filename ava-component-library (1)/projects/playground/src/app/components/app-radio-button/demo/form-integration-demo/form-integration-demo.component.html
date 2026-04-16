@@ -1,0 +1,43 @@
+<div class="demo-section center-demo">
+  <div class="forms-grid">
+    <h4>Reactive Form</h4>
+    <form [formGroup]="reactiveForm" (ngSubmit)="onReactiveSubmit()">
+      <div class="form-group">
+        <div class="form-field">
+          <label>Theme Selection:</label>
+          <aava-radio-button
+            formControlName="theme"
+            [options]="themeOptions"
+            name="theme-selection"
+            (selectedValueChange)="onReactiveThemeChange($event)"
+          ></aava-radio-button>
+        </div>
+        <div class="form-field">
+          <label>Size Preference:</label>
+          <aava-radio-button
+            formControlName="size"
+            [options]="sizeOptions"
+            name="size-selection"
+            (selectedValueChange)="onReactiveSizeChange($event)"
+          ></aava-radio-button>
+        </div>
+      </div>
+      <aava-button
+        label="Submit Form"
+        variant="primary"
+        [disabled]="!reactiveForm.valid"
+      >
+      </aava-button>
+      <div class="form-status">
+        <p><strong>Form Status:</strong> {{ reactiveForm.status }}</p>
+      </div>
+      <div *ngIf="showFormvalue">
+        <span>Form Value</span>
+        <pre>
+            {{ reactiveForm.value | json }}
+          </pre
+        >
+      </div>
+    </form>
+  </div>
+</div>

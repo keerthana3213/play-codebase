@@ -1,0 +1,77 @@
+<div class="ava-list-card-container">
+    <aava-default-card>
+        <!-- Main Heading -->
+        <div class="list-card-heading">
+            {{ data.heading }}
+        </div>
+
+        <!-- List Container with scroll -->
+        <div class="list-container">
+            <div class="list-items" *ngFor="let item of data.listItems; let i = index; let last = last">
+
+                <!-- List Item Row -->
+                <div class="list-item-row" [ngClass]="{
+                       'no-icon-no-button': !item.column1 && !item.column3?.button,
+                       'no-icon-has-button': !item.column1 && item.column3?.button,
+                       'has-icon-no-button': item.column1 && !item.column3?.button,
+                       'has-icon-has-button': item.column1 && item.column3?.button
+                     }">
+
+                    <!-- Column 1: Icon/Avatar -->
+                    <div class="column-1" *ngIf="item.column1">
+                        <!-- Avatar -->
+                        <aava-avatars *ngIf="item.column1.columnItem === 'avatar'"
+                            [size]="item.column1.columnItemProps.size || 'lg'"
+                            [shape]="item.column1.columnItemProps.shape || 'pill'"
+                            [imageUrl]="item.column1.columnItemProps.imageUrl || ''">
+                        </aava-avatars>
+
+                        <!-- Icon -->
+                        <aava-icon *ngIf="item.column1.columnItem === 'icon'"
+                            [iconName]="item.column1.columnItemProps.iconName || ''"
+                            [iconColor]="item.column1.columnItemProps.iconColor || '#a1a1a1'"
+                            [iconSize]="item.column1.columnItemProps.iconSize || 24">
+                        </aava-icon>
+                    </div>
+
+                    <!-- Column 2: Content -->
+                    <div class="column-2">
+                        <!-- Heading -->
+                        <div class="item-heading" *ngIf="item.column2?.heading">
+                            {{ item.column2?.heading }}
+                        </div>
+
+                        <!-- Description -->
+                        <div class="item-description" *ngIf="item.column2?.description">
+                            {{ item.column2?.description }}
+                        </div>
+
+                        <!-- Link -->
+                        <div class="item-link" *ngIf="item.column2?.link">
+                            <aava-link [label]="item.column2?.link?.text || ''"
+                                [href]="item.column2?.link?.href || item.column2?.link?.toLocation || '#'" size="sm"
+                                [color]="item.column2?.link?.color || ''"
+                                (click)="onLinkClick(item.column2?.link, item)">
+                            </aava-link>
+                        </div>
+                    </div>
+
+                    <!-- Column 3: Button -->
+                    <div class="column-3" *ngIf="item.column3?.button">
+                        <aava-button [label]="item.column3?.button?.text || ''"
+                            [variant]="item.column3?.button?.variant || 'primary'" size="xs" [clear]="true"
+                            [pill]="true" [style.color]="item.column3?.button?.color || ''"
+                            (userClick)="onButtonClick(item.column3?.button?.action, item)">
+                        </aava-button>
+
+                    </div>
+                </div>
+
+                <!-- Divider (except for last item) -->
+                <div class="divider-container" *ngIf="!last">
+                    <aava-dividers variant="solid" color="#9CA1AA"></aava-dividers>
+                </div>
+            </div>
+        </div>
+    </aava-default-card>
+</div>

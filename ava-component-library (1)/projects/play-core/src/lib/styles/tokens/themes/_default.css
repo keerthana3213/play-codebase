@@ -1,0 +1,114 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Default Theme
+ *
+ * Default theme with classic pink and blue color scheme.
+ * This is the base theme that other variants extend from.
+ * =========================================================================
+ */
+
+[data-theme="default"] {
+  /* --- Default Theme Color Overrides --- */
+  /* PRIMARY (Classic Pink) */
+  --color-brand-primary: var(--global-color-pink-500);
+  --color-brand-primary-hover: var(--global-color-pink-700);
+  --color-brand-primary-active: var(--global-color-pink-700);
+  --color-surface-interactive-primary: var(--global-color-pink-500);
+  --color-surface-interactive-primary-hover: var(--global-color-pink-700);
+  --color-surface-interactive-primary-active: var(--global-color-pink-700);
+  --color-border-primary: var(--global-color-pink-500);
+  --color-border-primary-hover: var(--global-color-pink-700);
+  --color-border-primary-active: var(--global-color-pink-700);
+  --color-text-primary: var(--global-color-gray-700);
+  --color-text-on-primary: var(--global-color-white);
+
+  /* SECONDARY (Classic Blue) */
+  --color-brand-secondary: var(--global-color-blue-500);
+  --color-brand-secondary-hover: var(--global-color-blue-700);
+  --color-brand-secondary-active: var(--global-color-blue-700);
+  --color-surface-interactive-secondary: var(--global-color-blue-100);
+  --color-surface-interactive-secondary-hover: var(--global-color-blue-500);
+  --color-surface-interactive-secondary-active: var(--global-color-blue-700);
+  --color-border-secondary: var(--global-color-blue-500);
+  --color-border-secondary-hover: var(--global-color-blue-700);
+  --color-border-secondary-active: var(--global-color-blue-700);
+  --color-text-secondary: var(--global-color-blue-500);
+  --color-text-on-secondary: var(--global-color-white);
+  --color-background-secondary: var(--global-color-blue-100);
+
+  /* INTERACTIVE ELEMENTS */
+  --color-text-placeholder: var(--global-color-gray-400);
+  --color-text-disabled: var(--global-color-gray-400);
+  --color-text-on-brand: var(--global-color-white);
+  --color-text-interactive: var(--global-color-pink-500);
+  --color-text-interactive-hover: var(--global-color-pink-700);
+  --color-text-success: var(--global-color-green-500);
+  --color-text-error: var(--global-color-red-500);
+  --color-background-primary: var(--global-color-white);
+  --color-background-disabled: var(--global-color-gray-100);
+  --color-surface-interactive-default: var(--global-color-pink-500);
+  --color-surface-interactive-hover: var(--global-color-pink-700);
+  --color-surface-interactive-active: var(--global-color-pink-700);
+  --color-surface-disabled: var(--global-color-gray-200);
+  --color-surface-subtle-hover: var(--global-color-gray-100);
+  --color-border-default: var(--global-color-gray-300);
+  --color-border-subtle: var(--global-color-gray-200);
+  --color-border-interactive: var(--global-color-pink-500);
+  --color-border-focus: var(--global-color-pink-500);
+  --color-border-error: var(--global-color-red-500);
+  --color-background-error: var(--global-color-red-500);
+
+  /* SEMANTIC COLORS */
+  --color-border-warning: var(--global-color-yellow-500);
+  --color-border-success: var(--global-color-green-500);
+  --color-border-info: var(--global-color-blue-500);
+  --color-border-error: var(--global-color-red-500);
+  --color-text-warning: var(--global-color-yellow-600);
+  --color-text-success: var(--global-color-green-600);
+  --color-text-info: var(--global-color-blue-500);
+  --color-text-error: var(--global-color-red-600);
+  --color-background-warning: var(--global-color-yellow-500);
+  --color-background-success: var(--global-color-green-500);
+  --color-background-info: var(--global-color-blue-500);
+  --color-background-error: var(--global-color-red-500);
+
+  /* GLASSMORPHISM */
+  --glass-backdrop-blur: 12px;
+  --glass-background-color: rgba(255, 255, 255, 0.6);
+  --glass-border-color: rgba(255, 255, 255, 0.3);
+  --glass-border-width: 1px;
+  --glass-elevation: var(--global-elevation-02);
+
+  /* RGB VALUES */
+  --rgb-brand-primary: 233, 30, 99;
+  --rgb-brand-secondary: 33, 150, 243;
+  --rgb-brand-tertiary: 37, 99, 235;
+  --rgb-brand-quaternary: 3, 189, 212;
+  --rgb-brand-quinary: 67, 189, 144;
+  --rgb-brand-senary: 250, 112, 154;
+  --rgb-violet: 124, 58, 237;
+  --rgb-royal-blue: 37, 99, 235;
+  --rgb-cyan: 3, 189, 212;
+  --rgb-spearmint: 67, 189, 144;
+  --rgb-rose: 250, 112, 154;
+  --rgb-white: 255, 255, 255;
+  --rgb-black: 0, 0, 0;
+  --rgb-neutral-100: 243, 244, 246;
+
+  /* EFFECT COLORS */
+  --effect-color-primary: var(--rgb-brand-primary);
+  --effect-color-secondary: var(--rgb-brand-secondary);
+  --effect-color-accent: var(--rgb-violet);
+  --effect-color-neutral: var(--rgb-black);
+  --effect-color-surface: var(--rgb-white);
+
+  /* GLASS SURFACE */
+  --glass-surface-color: var(--rgb-white);
+  --glass-variant-primary: var(--rgb-brand-primary);
+  --glass-variant-success: 76, 175, 80;
+  --glass-variant-warning: 255, 152, 0;
+  --glass-variant-danger: 244, 67, 54;
+  --glass-variant-info: 33, 150, 243;
+  --glass-variant-purple: 156, 39, 176;
+  --glass-variant-emerald: 16, 185, 129;
+}

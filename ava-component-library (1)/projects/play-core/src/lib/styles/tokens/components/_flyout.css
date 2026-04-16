@@ -1,0 +1,11 @@
+/**
+ * Component: Filter
+ * Purpose: Filter component tokens for page footers and navigation
+ */
+
+:root {
+    --flyout-background: var(--global-background);
+    --flyout-overlay-background: rgba(var(--global-color-gray-900) 0.05);
+    --flyout-box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    ;
+}

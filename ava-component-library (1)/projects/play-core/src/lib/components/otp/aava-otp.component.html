@@ -1,0 +1,66 @@
+<div [class]="wrapperClasses" [attr.id]="id ? 'aava-otp-' + id : null" [ngStyle]="customStyles">
+  <!-- Label -->
+  <label *ngIf="label" [for]="inputId" class="ava-otp__label">
+    {{ label }}
+  </label>
+
+  <!-- OTP Input Container -->
+  <div class="ava-otp__container" [attr.aria-describedby]="ariaDescribedBy || null">
+    <div class="ava-otp__inputs">
+      <div
+        *ngFor="let box of otpBoxes; let i = index"
+        class="ava-otp__box"
+        [class.ava-otp__box--focused]="currentIndex === i"
+        [class.ava-otp__box--filled]="otpValues[i]"
+      >
+        <input
+          #otpInput
+          [id]="i === 0 ? inputId : inputId + '-' + i"
+          [name]="name ? name + '-' + i : ''"
+          [type]="mask ? 'password' : 'text'"
+          [value]="otpValues[i]"
+          [disabled]="disabled"
+          [readonly]="readonly"
+          [autocomplete]="i === 0 ? autocomplete : 'off'"
+          [class]="inputClasses"
+          [attr.aria-invalid]="hasError"
+          [attr.aria-describedby]="i === 0 ? (ariaDescribedBy || null) : null"
+          [attr.aria-label]="'Digit ' + (i + 1) + ' of ' + length"
+          [attr.maxlength]="1"
+          [attr.inputmode]="'numeric'"
+          [attr.pattern]="'[0-9]*'"
+          (input)="onOtpInput($event, i)"
+          (keydown)="onOtpKeydown($event, i)"
+          (paste)="onOtpPaste($event, i)"
+          (focus)="onOtpFocus($event, i)"
+          (blur)="onOtpBlur($event)"
+        />
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="hasError" [id]="errorId" class="ava-otp__error" role="alert" aria-live="polite">
+    <aava-icon
+      iconName="alert-circle"
+      [iconSize]="16"
+      class="ava-otp__error-icon"
+      [cursor]="false"
+      [disabled]="false"
+      [iconColor]="'red'"
+    ></aava-icon>
+    <span class="ava-otp__error-text">{{ error }}</span>
+  </div>
+
+  <!-- Helper Message -->
+  <div *ngIf="hasHelper" [id]="helperId" class="ava-otp__helper">
+    <aava-icon
+      iconName="info"
+      [iconSize]="14"
+      class="ava-otp__helper-icon"
+      [cursor]="false"
+      [disabled]="false"
+    ></aava-icon>
+    <span class="ava-otp__helper-text">{{ helper }}</span>
+  </div>
+</div>

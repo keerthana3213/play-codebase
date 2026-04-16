@@ -1,0 +1,241 @@
+<div class="t-container" [formGroup]="form">
+  <h2>Test Select Flyout Component</h2>
+
+  <div class="test-section">
+    <h3>Simple Options (Level 1)</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Simple Options"
+        placeholder="Select a simple option..."
+        [options]="simpleOptions"
+        [searchable]="false"
+        [clearable]="true"
+        [required]="true"
+        size="md"
+        formControlName="simple"
+        (selectionChange)="onSimpleChange($event)"
+      ></aava-select-flyout>
+      <div class="error-message" *ngIf="getFieldError('simple')">
+        {{ getFieldError("simple") }}
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Two Level Options</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Two Level Options"
+        placeholder="Select from categories..."
+        [options]="twoLevelOptions"
+        [searchable]="true"
+        [clearable]="true"
+        [required]="true"
+        size="md"
+        formControlName="twoLevel"
+        (selectionChange)="onTwoLevelChange($event)"
+      ></aava-select-flyout>
+      <div class="error-message" *ngIf="getFieldError('twoLevel')">
+        {{ getFieldError("twoLevel") }}
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Three Level Options</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Three Level Options"
+        placeholder="Select from nested categories..."
+        [options]="threeLevelOptions"
+        [searchable]="true"
+        [clearable]="true"
+        [required]="true"
+        size="md"
+        formControlName="threeLevel"
+        (selectionChange)="onThreeLevelChange($event)"
+      ></aava-select-flyout>
+      <div class="error-message" *ngIf="getFieldError('threeLevel')">
+        {{ getFieldError("threeLevel") }}
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Mixed Options (1, 2, and 3 Levels)</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Mixed Options"
+        placeholder="Select from mixed options..."
+        [options]="mixedOptions"
+        [searchable]="true"
+        [clearable]="true"
+        [required]="true"
+        size="md"
+        formControlName="mixed"
+        (selectionChange)="onMixedChange($event)"
+      ></aava-select-flyout>
+      <div class="error-message" *ngIf="getFieldError('mixed')">
+        {{ getFieldError("mixed") }}
+      </div>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Searchable Only</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Searchable Options"
+        placeholder="Search and select..."
+        [options]="mixedOptions"
+        [searchable]="true"
+        [clearable]="false"
+        size="md"
+        formControlName="searchable"
+        (selectionChange)="onSearchableChange($event)"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Clearable Only</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Clearable Options"
+        placeholder="Select or clear..."
+        [options]="simpleOptions"
+        [searchable]="false"
+        [clearable]="true"
+        size="md"
+        formControlName="clearable"
+        (selectionChange)="onClearableChange($event)"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Different Sizes</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Extra Small"
+        placeholder="XS size..."
+        [options]="simpleOptions"
+        size="xs"
+      ></aava-select-flyout>
+    </div>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Small"
+        placeholder="SM size..."
+        [options]="simpleOptions"
+        size="sm"
+      ></aava-select-flyout>
+    </div>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Medium"
+        placeholder="MD size..."
+        [options]="simpleOptions"
+        size="md"
+      ></aava-select-flyout>
+    </div>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Large"
+        placeholder="LG size..."
+        [options]="simpleOptions"
+        size="lg"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Error States</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="With Error"
+        placeholder="This will show error..."
+        [options]="simpleOptions"
+        error="This field has an error"
+        size="md"
+        formControlName="error"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Disabled State</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Disabled"
+        placeholder="This is disabled..."
+        [options]="simpleOptions"
+        [disabled]="true"
+        size="md"
+        formControlName="disabled"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Custom Display Field</h3>
+    <div class="select-container">
+      <aava-select-flyout
+        label="Custom Display Field"
+        placeholder="Using custom field..."
+        [options]="simpleOptions"
+        displayField="label"
+        [searchable]="true"
+        [clearable]="true"
+        size="md"
+      ></aava-select-flyout>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Test Controls</h3>
+    <div class="button-container">
+      <aava-button
+        variant="secondary"
+        size="md"
+        (click)="triggerError()"
+        label="Trigger Error"
+      ></aava-button>
+      <aava-button
+        variant="secondary"
+        size="md"
+        (click)="clearError()"
+        label="Clear Error"
+      ></aava-button>
+    </div>
+  </div>
+
+  <div class="test-section">
+    <h3>Form Values</h3>
+    <div class="form-values">
+      <p>
+        <strong>Simple:</strong>
+        {{ form.get("simple")?.value || "Not selected" }}
+      </p>
+      <p>
+        <strong>Two Level:</strong>
+        {{ form.get("twoLevel")?.value || "Not selected" }}
+      </p>
+      <p>
+        <strong>Three Level:</strong>
+        {{ form.get("threeLevel")?.value || "Not selected" }}
+      </p>
+      <p>
+        <strong>Mixed:</strong> {{ form.get("mixed")?.value || "Not selected" }}
+      </p>
+      <p>
+        <strong>Searchable:</strong>
+        {{ form.get("searchable")?.value || "Not selected" }}
+      </p>
+      <p>
+        <strong>Clearable:</strong>
+        {{ form.get("clearable")?.value || "Not selected" }}
+      </p>
+    </div>
+  </div>
+</div>

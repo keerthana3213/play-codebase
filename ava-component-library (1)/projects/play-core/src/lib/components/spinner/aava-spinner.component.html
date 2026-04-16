@@ -1,0 +1,21 @@
+<div class="ava-spinner-container" [attr.id]="spinnerId" [ngStyle]="customStyles" role="status"
+  [attr.aria-label]="computedAriaLabel" [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null" [attr.aria-busy]="animation ? 'true' : null"
+  [attr.aria-live]="animation ? 'polite' : null">
+  <svg class="spinner animated" xmlns="http://www.w3.org/2000/svg" [attr.width]="sizePx" [attr.height]="sizePx"
+    viewBox="0 0 16 16" fill="none" [attr.aria-hidden]="isSvgAriaHidden ? 'true' : null">
+    <ellipse cx="7.99999" cy="7.99999" rx="5.84801" ry="5.84801" [attr.stroke]="colors" stroke-opacity="0.25"
+      stroke-width="1.4562" />
+    <path
+      d="M7.95951 2.15214C9.51046 2.14141 11.0022 2.74722 12.1064 3.83631C13.2107 4.92541 13.8371 6.40857 13.8479 7.95952"
+      [attr.stroke]="pathStroke" stroke-width="1.4562" stroke-linecap="round" stroke-dasharray="0.42 0.42" />
+
+    <defs>
+      <linearGradient [attr.id]="gradientId" x1="13.0486" y1="10.9514" x2="2.95138" y2="5.04864"
+        gradientUnits="userSpaceOnUse">
+        <stop [attr.stop-color]="colors" />
+        <stop offset="0.755208" [attr.stop-color]="colors" stop-opacity="0.01" />
+      </linearGradient>
+    </defs>
+  </svg>
+</div>

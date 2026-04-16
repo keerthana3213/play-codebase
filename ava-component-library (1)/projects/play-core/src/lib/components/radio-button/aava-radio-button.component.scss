@@ -1,0 +1,175 @@
+.radio-group {
+  display: flex;
+  gap: var(--radio-group-gap);
+  flex-direction: var(--radio-group-direction);
+
+  &[data-orientation="horizontal"] {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  &[data-orientation="vertical"] {
+    flex-direction: var(--radio-group-direction);
+    align-items: var(--radio-group-align-items);
+  }
+
+  // Focus styles for keyboard navigation
+  &:focus {
+    // outline: 2px solid var(--radio-focus-color, #3b82f6);
+    outline-offset: var(--radio-focus-outline-offset);
+    border-radius: var(--radio-focus-border-radius);
+  }
+}
+
+.radio-wrapper {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: var(--radio-cursor);
+
+  // Focused state for keyboard navigation
+  &.focused {
+    .custom-radio {
+      outline-offset: var(--radio-focus-outline-offset);
+    }
+
+    .radio-label {
+      color: var(--radio-focus-text-color, var(--radio-label-color));
+      font-weight: var(--radio-focus-font-weight);
+    }
+  }
+
+  .radio-input {
+    display: none;
+  }
+
+  .custom-radio {
+    display: inline-block;
+    position: relative;
+    background-color: var(--radio-checkmark-background);
+    border: var(--radio-checkmark-border);
+    border-radius: var(--radio-checkmark-border-radius);
+    flex-shrink: 0;
+    transition: box-shadow 0.3s, border-color 0.3s, background 0.3s;
+
+    &.disabled {
+      background-color: var(--radio-checkmark-background);
+      border: 2px solid var(--radio-label-color-disabled);
+      cursor: var(--radio-cursor-disabled);
+    }
+
+    &[data-size="sm"] {
+      width: var(--radio-size-sm);
+      height: var(--radio-size-sm);
+    }
+
+    &[data-size="md"] {
+      width: var(--radio-size-md);
+      height: var(--radio-size-md);
+    }
+
+    &[data-size="lg"] {
+      width: var(--radio-size-lg);
+      height: var(--radio-size-lg);
+    }
+
+    &.animated-shadow {
+      transition: box-shadow 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: var(--radio-animated-shadow);
+    }
+  }
+
+  .radio-dot {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--radio-dot-background);
+    border-radius: var(--radio-dot-border-radius);
+  }
+
+  &[data-size="sm"] .custom-radio {
+    width: var(--radio-size-sm);
+    height: var(--radio-size-sm);
+  }
+
+  &[data-size="sm"] .radio-dot {
+    width: var(--radio-size-sm-dot);
+    height: var(--radio-size-sm-dot);
+  }
+
+  &[data-size="md"] .custom-radio {
+    width: var(--radio-size-md);
+    height: var(--radio-size-md);
+  }
+
+  &[data-size="md"] .radio-dot {
+    width: var(--radio-size-md-dot);
+    height: var(--radio-size-md-dot);
+  }
+
+  &[data-size="lg"] .custom-radio {
+    width: var(--radio-size-lg);
+    height: var(--radio-size-lg);
+  }
+
+  &[data-size="lg"] .radio-dot {
+    width: var(--radio-size-lg-dot);
+    height: var(--radio-size-lg-dot);
+  }
+
+  .radio-label {
+    margin-left: var(--radio-label-margin-left);
+    color: var(--radio-label-color);
+    font: var(--radio-label-font);
+
+    &.disabled {
+      color: var(--radio-label-color-disabled);
+      cursor: var(--radio-label-cursor-disabled);
+    }
+  }
+
+  &[data-size="sm"] .radio-label {
+    font: var(--radio-size-sm-label);
+  }
+
+  &[data-size="md"] .radio-label {
+    font: var(--radio-size-md-label);
+  }
+
+  &[data-size="lg"] .radio-label {
+    font: var(--radio-size-lg-label);
+  }
+}
+
+// Add hover glow effect for the entire radio row (similar to checkbox)
+.radio-wrapper:hover .custom-radio {
+  box-shadow: 0 0 3px 1px color-mix(in srgb,
+      var(--radio-custom-glow-color, var(--radio-dot-background)) 60%,
+      transparent);
+  transition: box-shadow 0.2s ease;
+}
+
+// Add subtle bounce and scale effect on click
+.radio-wrapper:active .custom-radio {
+  transform: scale(0.9);
+  transition: transform 0.1s ease;
+}
+
+// Enhanced transition for smooth interactions
+.radio-wrapper .custom-radio {
+  transition: box-shadow 0.2s ease, transform 0.1s ease, border-color 0.3s,
+    background 0.3s;
+}
+
+// Ensure disabled state doesn't show hover effects
+.radio-wrapper.disabled:hover .custom-radio,
+.radio-wrapper .custom-radio.disabled:hover {
+  box-shadow: none;
+}
+
+.radio-wrapper.disabled:active .custom-radio,
+.radio-wrapper .custom-radio.disabled:active {
+  transform: none;
+}

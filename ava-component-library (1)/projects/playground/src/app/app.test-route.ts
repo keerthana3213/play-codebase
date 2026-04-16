@@ -1,0 +1,144 @@
+import { Routes } from '@angular/router';
+import { TestButtonComponent } from './test-components/test-button/test-button.component';
+import { TestTextboxComponent } from './test-components/test-textbox/test-textbox.component';
+import { TestCheckboxComponent } from './test-components/test-checkbox/test-checkbox.component';
+import { TestRadioButtonComponent } from './test-components/test-radio-button/test-radio-button.component';
+import { TestAvatarsComponent } from './test-components/test-avatars/test-avatars.component';
+import { TestToggleComponent } from './test-components/test-toggle/test-toggle.component';
+import { TestBadgesComponent } from './test-components/test-badges/test-badges.component';
+import { TestSliderComponent } from './test-components/test-slider/test-slider.component';
+import { TestSearchBarComponent } from './test-components/test-search-bar/test-search-bar.component';
+import { TestStatusBadgeComponent } from './test-components/test-status-badge/test-status-badge.component';
+import { TestDividersComponent } from './test-components/test-dividers/test-dividers.component';
+import { TestPaginationComponent } from './test-components/test-pagination/test-pagination.component';
+import { TestProgressbarComponent } from './test-components/test-progressbar/test-progressbar.component';
+import { TestTooltipComponent } from './test-components/test-tooltip/test-tooltip.component';
+import { TestSnackbarComponent } from './test-components/test-snackbar/test-snackbar.component';
+import { TestStepperComponent } from './test-components/test-stepper/test-stepper.component';
+import { TestToasterComponent } from './test-components/test-toaster/test-toaster.component';
+import { TestRatingComponent } from './test-components/test-rating/test-rating.component';
+import { TestOtpComponent } from './test-components/test-otp/test-otp.component';
+import { TestSpinnerComponent } from './test-components/test-spinner/test-spinner.component';
+import { TestTagsComponent } from './test-components/test-tags/test-tags.component';
+import { TestCalendarComponent } from './test-components/test-calendar/test-calendar.component';
+import { TestSelectComponent } from './test-components/test-select/test-select.component';
+import { TestSSOLoginComponent } from './test-components/test-sso-login/test-sso-login.component';
+import { TestTabsComponent } from './test-components/test-tabs/test-tabs.component';
+import { TestModalComponent } from './test-components/test-modal/test-modal.component';
+import { TestModalDemoComponent } from './test-components/test-modal-demo/test-modal.component';
+import { TestAccordionComponent } from './test-components/test-accordion/test-accordion.component';
+import { TestDialogComponent } from './test-components/test-dialog/test-dialog.component';
+import { TestListCardComponent } from './test-components/test-list-card/test-list-card.component';
+import { TestImgCardComponent } from './test-components/test-img-card/test-img-card.component';
+import { TestBasicCardComponent } from './test-components/test-basic-card/test-basic-card.component';
+import { TestTreeviewComponent } from './test-components/test-treeview/test-treeview.component';
+import { TestTimepickerComponent } from './test-components/test-timepicker/test-timepicker.component';
+import { TestHeaderComponent } from './test-components/test-header/test-header.component';
+import { TestHeaderDemoComponent } from './test-components/test-header-demo/test-header.component';
+
+import { TestTimelineComponent } from './test-components/test-timeline/test-timeline.component';
+import { TestCarouselComponent } from './test-components/test-carousel/test-carousel.component';
+
+import { TestDrawerComponent } from './test-components/test-drawer/test-drawer.component';
+import { TestTextareaComponent } from './test-components/test-textarea/test-textarea.component';
+import { TestBannerComponent } from './test-components/test-banner/test-banner.component';
+import { TestFileuploadComponent } from './test-components/test-fileupload/test-fileupload.component';
+import { TestFooterComponent } from './test-components/test-footer/test-footer.component';
+import { TestListComponent } from './test-components/test-list/test-list.component';
+import { TestCarouselDemoComponent } from './test-components/test-carousel-demo/test-carousel.component';
+import { TestSurfaceComponent } from './test-components/test-surface/test-surface.component';
+
+import { TestPromptBarComponent } from './test-components/test-prompt-bar/test-prompt-bar.component';
+import { TestPromptBarDemoComponent } from './test-components/test-prompt-bar-demo/test-prompt-bar.component';
+
+import { TestChatBubbleComponent } from './test-components/test-chat-bubble/test-chat-bubble.component';
+import { TestFlyoutComponent } from './test-components/test-flyout/test-flyout.component';
+import { TestFilterComponent } from './test-components/test-filter/test-filter.component';
+import { TestChatPanelComponent } from './test-components/test-chat-panel/test-chat-panel.component';
+import { TestConfettiComponent } from './test-components/test-confetti/test-confetti.component';
+import { TestCustomSidebarComponent } from './test-components/test-custom-sidebar/test-custom-sidebar.component';
+import { TestListConsoleComponent } from './test-components/test-list-console/test-list-console.component';
+import { TestACompComponent } from './test-components/test-a-comp/test-a-comp/test-a-comp.component';
+import { ConsoleCardsComponent } from './test-components/console-cards/console-cards.component';
+import { NestedWithDifferentColumnsComponent } from './test-components/test-table/nested-with-different-columns/nested-with-different-columns.component';
+import { TestTableComponent } from './test-components/test-table/test-table/test-table.component';
+import { TestFormControlComponent } from './test-components/test-form-control/test-form-control.component';
+import { TestBadgeDirectiveComponent } from './test-components/test-badge-directive/test-badge-directive.component';
+import { Animation1Component } from './test-animation/animation-1/animation-1.component';
+import { AnimationShowcaseComponent } from './test-animation/animation-showcase/animation-showcase.component';
+export const troutes: Routes = [
+  // Test component routes (alphabetical order)
+  { path: 'test-acomp', component: TestACompComponent },
+  { path: 'test-accordion', component: TestAccordionComponent },
+  { path: 'test-avatars', component: TestAvatarsComponent },
+  { path: 'test-badges', component: TestBadgesComponent },
+  { path: 'test-basic-card', component: TestBasicCardComponent },
+  { path: 'test-button', component: TestButtonComponent },
+  { path: 'test-checkbox', component: TestCheckboxComponent },
+  { path: 'test-alert', component: TestDialogComponent },
+  { path: 'test-dividers', component: TestDividersComponent },
+  { path: 'test-drawer', component: TestDrawerComponent },
+  { path: 'test-img-card', component: TestImgCardComponent },
+  { path: 'test-list-card', component: TestListCardComponent },
+  { path: 'test-modal', component: TestModalComponent },
+  { path: 'test-modal-demo', component: TestModalDemoComponent },
+  { path: 'test-otp', component: TestOtpComponent },
+  { path: 'test-pagination', component: TestPaginationComponent },
+  { path: 'test-progressbar', component: TestProgressbarComponent },
+  { path: 'test-radio-button', component: TestRadioButtonComponent },
+  { path: 'test-rating', component: TestRatingComponent },
+  { path: 'test-badges', component: TestBadgesComponent },
+  { path: 'test-slider', component: TestSliderComponent },
+  { path: 'test-pagination', component: TestPaginationComponent },
+  { path: 'test-search-bar', component: TestSearchBarComponent },
+  { path: 'test-spinner', component: TestSpinnerComponent },
+  { path: 'test-tags', component: TestTagsComponent },
+  { path: 'test-calendar', component: TestCalendarComponent },
+  { path: 'test-banner', component: TestBannerComponent },
+
+  { path: 'test-search-bar', component: TestSearchBarComponent },
+  { path: 'test-select', component: TestSelectComponent },
+  { path: 'test-slider', component: TestSliderComponent },
+  { path: 'test-snackbar', component: TestSnackbarComponent },
+  { path: 'test-spinner', component: TestSpinnerComponent },
+  { path: 'test-sso-login', component: TestSSOLoginComponent },
+  { path: 'test-status-badge', component: TestStatusBadgeComponent },
+  { path: 'test-stepper', component: TestStepperComponent },
+  { path: 'test-tabs', component: TestTabsComponent },
+  { path: 'test-tags', component: TestTagsComponent },
+  { path: 'test-textarea', component: TestTextareaComponent },
+  { path: 'test-textbox', component: TestTextboxComponent },
+  { path: 'test-toggle', component: TestToggleComponent },
+  { path: 'test-toaster', component: TestToasterComponent },
+  { path: 'test-tooltip', component: TestTooltipComponent },
+  { path: 'test-list', component: TestListComponent },
+  { path: 'test-treeview', component: TestTreeviewComponent },
+  { path: 'test-timepicker', component: TestTimepickerComponent },
+  { path: 'test-header', component: TestHeaderComponent },
+  { path: 'test-header-demo', component: TestHeaderDemoComponent },
+  { path: 'test-timeline', component: TestTimelineComponent },
+  { path: 'test-carousel', component: TestCarouselComponent },
+  { path: 'test-carousel-demo', component: TestCarouselDemoComponent },
+  { path: 'test-fileupload', component: TestFileuploadComponent },
+  { path: 'test-chat-bubble', component: TestChatBubbleComponent },
+  { path: 'test-footer', component: TestFooterComponent },
+  { path: 'test-surface', component: TestSurfaceComponent },
+  { path: 'test-prompt-bar', component: TestPromptBarComponent },
+  { path: 'test-prompt-bar-demo', component: TestPromptBarDemoComponent },
+  { path: 'test-flyout', component: TestFlyoutComponent },
+  { path: 'test-filter', component: TestFilterComponent },
+  { path: 'test-chat-panel', component: TestChatPanelComponent },
+  { path: 'test-list-console', component: TestListConsoleComponent },
+  { path: 'test-confetti', component: TestConfettiComponent },
+  { path: 'test-custom-sidebar', component: TestCustomSidebarComponent },
+  { path: 'test-console-cards', component: ConsoleCardsComponent },
+  { path: 'test-content-table', component: TestTableComponent },
+  { path: 'test-content-table-nested', component: NestedWithDifferentColumnsComponent },
+
+
+  { path: 'test-form', component: TestFormControlComponent },
+  { path: 'test-form', component: TestFormControlComponent },
+  { path: 'test-badge-directive', component: TestBadgeDirectiveComponent },
+  { path: 'test-ani-showcase', component: AnimationShowcaseComponent },
+  { path: 'test-ani', component: Animation1Component }
+];

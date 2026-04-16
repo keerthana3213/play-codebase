@@ -1,0 +1,73 @@
+<div class="table-tooltip-dialog">
+    <div class="dialog-header">
+        <h2>Table with Tooltips ({{ variant.toUpperCase() }})</h2>
+        <p class="description">Hover or click on cells to see tooltip examples</p>
+    </div>
+
+    <div class="dialog-content">
+        <aava-table [dataSource]="dataSource">
+            <!-- ID Column -->
+            <ng-container aavaColumnDef="id">
+                <th *aavaHeaderCellDef>ID</th>
+                <td aava-cell *aavaCellDef="let element">{{ element.id }}</td>
+            </ng-container>
+
+            <!-- Name Column with Top Tooltip -->
+            <ng-container aavaColumnDef="name">
+                <th *aavaHeaderCellDef>Name (Top Tooltip)</th>
+                <td aava-cell *aavaCellDef="let element">
+                    <span tooltipDescription="This is a top-positioned tooltip for {{ element.name }}"
+                        tooltipPosition="top" tooltipArrow="center" tooltipTrigger="hover" tooltipSize="md"
+                        class="tooltip-cell">
+                        {{ element.name }}
+                    </span>
+                </td>
+            </ng-container>
+
+            <!-- Description Column with Bottom Tooltip -->
+            <ng-container aavaColumnDef="description">
+                <th *aavaHeaderCellDef>Description (Bottom)</th>
+                <td aava-cell *aavaCellDef="let element">
+                    <span tooltipTitle="Description Details" tooltipDescription="{{ element.description }}"
+                        tooltipPosition="bottom" tooltipArrow="center" tooltipTrigger="hover" tooltipSize="lg"
+                        class="tooltip-cell">
+                        {{ element.shortDesc }}
+                    </span>
+                </td>
+            </ng-container>
+
+            <!-- Status Column with Left Tooltip -->
+            <ng-container aavaColumnDef="status">
+                <th *aavaHeaderCellDef>Status (Left)</th>
+                <td aava-cell *aavaCellDef="let element">
+                    <span tooltipDescription="Status: {{ element.status }} - Click to see more" tooltipPosition="left"
+                        tooltipArrow="center" tooltipTrigger="hover" tooltipSize="sm" class="tooltip-cell status-badge"
+                        [class.active]="element.status === 'Active'" [class.pending]="element.status === 'Pending'"
+                        [class.inactive]="element.status === 'Inactive'">
+                        {{ element.status }}
+                    </span>
+                </td>
+            </ng-container>
+
+            <!-- Actions Column with Right Tooltip (Click trigger) -->
+            <ng-container aavaColumnDef="actions">
+                <th *aavaHeaderCellDef>Actions (Right - Click)</th>
+                <td aava-cell *aavaCellDef="let element">
+                    <span tooltipTitle="Action Options"
+                        tooltipDescription="Click again to close. Available actions: Edit, Delete, View Details"
+                        tooltipPosition="right" tooltipArrow="start" tooltipTrigger="click" tooltipSize="md"
+                        class="tooltip-cell action-link">
+                        Click for Info
+                    </span>
+                </td>
+            </ng-container>
+
+            <tr aava-header-row *aavaHeaderRowDef="['id', 'name', 'description', 'status', 'actions']"></tr>
+            <tr aava-row *aavaRowDef="let row; columns: ['id', 'name', 'description', 'status', 'actions']"></tr>
+        </aava-table>
+    </div>
+
+    <div class="dialog-footer">
+        <aava-button label="Close" variant="secondary" (userClick)="close()"></aava-button>
+    </div>
+</div>

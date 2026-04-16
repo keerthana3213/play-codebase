@@ -1,0 +1,37 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Tooltip Component Tokens
+ *
+ * Component-specific semantic tokens for tooltip elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for tooltip styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Tooltip Base --- */
+  --tooltip-background: var(--color-background-primary);
+  --tooltip-background: var(--global-background);
+  --tooltip-text: var(--color-text-primary);
+  --tooltip-font: var(--font-body-2);
+  --tooltip-border-radius: var(--global-radius-sm);
+  --tooltip-shadow: var(--global-elevation-02);
+  --tooltip-padding: 8px 12px;
+  --tooltip-z-index: 999999;
+  /* --- Tooltip Title --- */
+  --tooltip-title-font-family: var(--global-font-family-body);
+  --tooltip-title-sm-font-size: var(--global-font-size-sm);
+  --tooltip-title-md-font-size: var(--global-font-size-md);
+  --tooltip-title-lg-font-size: var(--global-font-size-lg);
+  --tooltip-title-font-weight: var(--global-font-weight-semibold);
+  /* --- Tooltip Description --- */
+  --tooltip-description-sm-font-size: 10px;
+  --tooltip-description-md-font-size: 12px;
+  --tooltip-description-lg-font-size: 14px;
+  --tooltip-description-font-weight: var(--global-font-weight-medium);
+  /* --- Tooltip Icon --- */
+  --tooltip-icon-size: 12px;
+  --tooltip-icon-gap: 4px;
+  /* --- Tooltip Content Max Width --- */
+  --tooltip-content-max-width: 150px;
+}

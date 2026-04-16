@@ -1,0 +1,686 @@
+<div class="t-container">
+  <div class="each">
+    <p>Ng-content</p>
+    <form [formGroup]="form">
+      <div class="select-container">
+        <aava-select size="xl" [multiple]="true" label="Select Users" placeholder="Select users"
+          formControlName="users">
+          <div>
+            <aava-select-option *ngFor="let user of users" [value]="user.value"
+              (optionSelected)="onItemSelected($event)">
+              <aava-checkbox size="lg" [isChecked]="form.get('users')?.value?.includes(user.value)"></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </div>
+          <aava-select-option (click)="onOptionClick()" [noHover]="true">
+            <aava-icon iconSize="24" iconName="user" (click)="onTest()"></aava-icon>
+          </aava-select-option>
+        </aava-select>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="t-container">
+  <div class="each">
+    <div>
+      <p>Extra Large</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="xl" [multiple]="true" label="Select Users" placeholder="Select users"
+            formControlName="users">
+            <aava-select-option *ngFor="let user of users" [value]="user.value"
+              (optionSelected)="onItemSelected($event)">
+              <aava-checkbox size="lg" [isChecked]="form.get('users')?.value?.includes(user.value)"></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="select-container">fsdf
+        <aava-select size="xl" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value" (optionSelected)="onItemSelected($event)" [noSelected]="true" 
+            [noHover]="true">
+            <div class="option-row">
+              <div class="option-left">
+                <aava-avatars size="md" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="xl" [multiple]="true" label="Select User" placeholder="Select a user"
+            formControlName="users">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <div class="option-row">
+                <div class="option-left">
+                  <aava-checkbox size="lg" [isChecked]="form.get('users')?.value?.includes(user.value)"></aava-checkbox>
+                  <aava-avatars size="md" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                  {{ user.label }}
+                </div>
+                <aava-icon iconSize="24" iconName="user"></aava-icon>
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="select-container">
+        <aava-select size="xl" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+      <div class="select-container">
+        <aava-select size="xl" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+      <div class="select-container">
+        <aava-select size="xl" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+          <aava-select-option [disabled]="true">
+            <div class="option-row">
+              <div class="option-left">
+                option
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+    </div>
+    <div>
+      <p>Large</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="lg" [multiple]="true" label="Select Users" placeholder="Select users"
+            formControlName="users">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <aava-checkbox size="lg" [isChecked]="form.get('users')?.value?.includes(user.value)"></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="select-container">
+        <aava-select size="lg" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                <aava-avatars size="md" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="lg" [multiple]="true" label="Select User" placeholder="Select a user"
+            formControlName="users">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <div class="option-row">
+                <div class="option-left">
+                  <aava-checkbox size="lg" [isChecked]="form.get('users')?.value?.includes(user.value)"></aava-checkbox>
+                  <aava-avatars size="md" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                  {{ user.label }}
+                </div>
+                <aava-icon iconSize="24" iconName="user"></aava-icon>
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="select-container">
+        <aava-select size="lg" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+      <div class="select-container">
+        <aava-select size="lg" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+      <div class="select-container">
+        <aava-select size="lg" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+          <aava-select-option [disabled]="true">
+            <div class="option-row">
+              <div class="option-left">
+                option
+              </div>
+              <aava-icon iconSize="24" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+
+    </div>
+    <div>
+      <p>Medium</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="md" [multiple]="true" label="Select Users" placeholder="Select users"
+            formControlName="mediumUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <aava-checkbox size="md" [isChecked]="
+                  form.get('mediumUsers')?.value?.includes(user.value)
+                "></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="md" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                <aava-avatars size="sm" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="md" [multiple]="true" label="Select User" placeholder="Select a user"
+            formControlName="mediumUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <div class="option-row">
+                <div class="option-left">
+                  <aava-checkbox size="md" [isChecked]="
+                      form.get('mediumUsers')?.value?.includes(user.value)
+                    "></aava-checkbox>
+                  <aava-avatars size="sm" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                  {{ user.label }}
+                </div>
+                <aava-icon iconSize="20" iconName="user"></aava-icon>
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="md" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="md" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="md" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+    </div>
+    <div>
+      <p>Small</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="sm" [multiple]="true" label="Select Users" placeholder="Select users"
+            formControlName="smallUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <aava-checkbox size="md" [isChecked]="
+                  form.get('smallUsers')?.value?.includes(user.value)
+                "></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="sm" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                <aava-avatars size="xs" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="sm" [multiple]="true" label="Select User" placeholder="Select a user"
+            formControlName="smallUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <div class="option-row">
+                <div class="option-left">
+                  <aava-checkbox size="md" [isChecked]="
+                      form.get('smallUsers')?.value?.includes(user.value)
+                    "></aava-checkbox>
+                  <aava-avatars size="xs" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                  {{ user.label }}
+                </div>
+                <aava-icon iconSize="20" iconName="user"></aava-icon>
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="sm" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="sm" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="sm" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="20" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+    </div>
+    <div>
+      <p>Extra Small</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="xs" [multiple]="true" label="Select Users" placeholder="Select users"
+            formControlName="xsUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <aava-checkbox size="sm" [isChecked]="form.get('xsUsers')?.value?.includes(user.value)"></aava-checkbox>
+              {{ user.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="xs" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                <aava-avatars size="xs" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="16" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="xs" [multiple]="true" label="Select User" placeholder="Select a user"
+            formControlName="xsUsers">
+            <aava-select-option *ngFor="let user of users" [value]="user.value">
+              <div class="option-row">
+                <div class="option-left">
+                  <aava-checkbox size="sm" [isChecked]="
+                      form.get('xsUsers')?.value?.includes(user.value)
+                    "></aava-checkbox>
+                  <aava-avatars size="xs" shape="pill" [imageUrl]="sampleImageUrl" altText="User avatar"></aava-avatars>
+                  {{ user.label }}
+                </div>
+                <aava-icon iconSize="16" iconName="user"></aava-icon>
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+
+      <div class="select-container">
+        <aava-select size="xs" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="16" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="xs" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+
+      <div class="select-container">
+        <aava-select size="xs" label="Select User" placeholder="Select a user">
+          <aava-select-option *ngFor="let user of users" [value]="user.value">
+            <div class="option-row">
+              <div class="option-left">
+                {{ user.label }}
+              </div>
+              <aava-icon iconSize="16" iconName="user"></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+    </div>
+  </div>
+
+  <div class="each error-row">
+    <div>
+      <p>Extra Small</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="xs" label="Select Status" placeholder="Select a status" [required]="true"
+            [error]="getFieldError('status')" formControlName="status">
+            <aava-select-option *ngFor="let status of statusOptions" [value]="status.value">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <aava-icon iconSize="15" [iconName]="status.icon" [iconColor]="status.color"></aava-icon>
+                {{ status.label }}
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="mt-3">
+        <aava-button variant="secondary" label="Trigger Error" (click)="triggerError()"></aava-button>
+        <aava-button variant="success" label="Clear Error" (click)="clearError()"></aava-button>
+      </div>
+    </div>
+    <div>
+      <p>Small</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="sm" label="Select Status" placeholder="Select a status" [required]="true"
+            [error]="getFieldError('status')" formControlName="status">
+            <aava-select-option *ngFor="let status of statusOptions" [value]="status.value">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <aava-icon iconSize="15" [iconName]="status.icon" [iconColor]="status.color"></aava-icon>
+                {{ status.label }}
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="mt-3">
+        <aava-button variant="secondary" label="Trigger Error" (click)="triggerError()"></aava-button>
+        <aava-button variant="success" label="Clear Error" (click)="clearError()"></aava-button>
+      </div>
+    </div>
+
+    <div>
+      <p>Medium</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="md" label="Select Status" placeholder="Select a status" [required]="true"
+            [error]="getFieldError('status')" formControlName="status">
+            <aava-select-option *ngFor="let status of statusOptions" [value]="status.value">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <aava-icon iconSize="15" [iconName]="status.icon" [iconColor]="status.color"></aava-icon>
+                {{ status.label }}
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </form>
+      <div class="mt-3">
+        <aava-button variant="secondary" label="Trigger Error" (click)="triggerError()"></aava-button>
+        <aava-button variant="success" label="Clear Error" (click)="clearError()"></aava-button>
+      </div>
+    </div>
+
+    <div>
+      <p>Large111</p>
+      <form [formGroup]="form">
+        <div class="select-container">
+          <aava-select size="lg" label="Select Status" placeholder="Select a status" [required]="true"
+            [error]="getFieldError('status')" formControlName="status">
+            <aava-select-option *ngFor="let status of statusOptions" [value]="status.value">
+              <div style="display: flex; align-items: center; gap: 8px">
+                <aava-icon iconSize="15" [iconName]="status.icon" [iconColor]="status.color"></aava-icon>
+                {{ status.label }}
+              </div>
+            </aava-select-option>
+          </aava-select>
+        </div>
+        {{form.value | json}}
+      </form>
+      <div class="mt-3">
+        <aava-button variant="secondary" label="Trigger Error" (click)="triggerError()"></aava-button>
+        <aava-button variant="success" label="Clear Error" (click)="clearError()"></aava-button>
+      </div>
+    </div>
+
+
+    <div>
+      <h2>Value as object</h2>
+      <h3>Single Selection</h3>
+      <div>
+        <div class="select-container">
+          <aava-select size="xl" label="Select Fruit" placeholder="Select a fruit" (selectionChange)="f($event)">
+            <aava-select-option *ngFor="let f of fruits" [value]="f">
+              {{ f.label }}
+            </aava-select-option>
+
+          </aava-select>
+        </div>
+      </div>
+      <h4>Form Integration - Single Selection Value as Object</h4>
+      <form [formGroup]="valueAsObjectForm">
+        <div class="select-container">
+          <aava-select size="lg" label="Select Fruit" placeholder="Select a fruit" [required]="true"
+            formControlName="valueAsObject">
+            <aava-select-option *ngFor="let f of fruits" [value]="f">
+              {{ f.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+        <pre>{{this.valueAsObjectForm.value | json}}</pre>
+      </form>
+
+      <h3>Multiple Selection</h3>
+      <div>
+        <div class="select-container">
+          <aava-select size="xl" [multiple]="true" label="Select Fruits" placeholder="Select multiple fruits"
+            (selectionChange)="fo($event)">
+            <aava-select-option *ngFor="let f of fruits" [value]="f">
+              {{ f.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+      </div>
+
+      <h4>Form Integration - Multiple Selection Value as Object</h4>
+      <form [formGroup]="valueAsObjectForm">
+        <div class="select-container">
+          <aava-select size="lg" [multiple]="true" label="Select Fruits" placeholder="Select multiple fruits"
+            [required]="true" formControlName="multipleValueAsObject">
+            <aava-select-option *ngFor="let f of fruits" [value]="f">
+              <aava-checkbox size="lg" [isChecked]="isFruitSelected(f)"></aava-checkbox>
+              {{ f.label }}
+            </aava-select-option>
+          </aava-select>
+        </div>
+        <pre>{{this.valueAsObjectForm.get('multipleValueAsObject')?.value | json}}</pre>
+      </form>
+
+      <div class="mt-3">
+        <aava-button variant="secondary" label="Trigger Error" (click)="triggerError()"></aava-button>
+        <aava-button variant="success" label="Clear Error" (click)="clearError()"></aava-button>
+      </div>
+    </div>
+
+
+
+
+
+  </div>
+
+  <!-- OLD HIERARCHICAL EXAMPLES - COMMENTED OUT FOR NEW NESTED IMPLEMENTATION -->
+  <!-- <div class="each">
+        <div>
+            <p>Nested Select - Large</p>
+            <div class="select-container">
+                <aava-select size="lg" label="Select Product" placeholder="Choose a category and product"
+                    [parent]="true" [child]="true" [hierarchicalOptions]="categoryOptions"
+                    (itemSelected)="onItemSelected($event)">
+                </aava-select>
+            </div>
+            <form [formGroup]="form">
+                <div class="select-container">
+                    <aava-select size="lg" label="Select Location" placeholder="Choose a country and state"
+                        [parent]="true" [child]="true" [hierarchicalOptions]="locationOptions"
+                        formControlName="location">
+                    </aava-select>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <p>Nested Select - Medium</p>
+            <div class="select-container">
+                <aava-select size="md" label="Select Product" placeholder="Choose a category and product"
+                    [parent]="true" [child]="true" [hierarchicalOptions]="categoryOptions">
+                </aava-select>
+            </div>
+        </div>
+
+        <div>
+            <p>Nested Select - Small</p>
+            <div class="select-container">
+                <aava-select size="sm" label="Select Product" placeholder="Choose a category and product"
+                    [parent]="true" [child]="true" [hierarchicalOptions]="categoryOptions">
+                </aava-select>
+            </div>
+        </div>
+
+        <div>
+            <p>Nested Select - Extra Small</p>
+            <div class="select-container">
+                <aava-select size="xs" label="Select Product" placeholder="Choose a category and product"
+                    [parent]="true" [child]="true" [hierarchicalOptions]="categoryOptions">
+                </aava-select>
+            </div>
+        </div>
+    </div> -->
+
+  <div class="each">
+    <!-- NEW NESTED HIERARCHICAL IMPLEMENTATION -->
+    <div>
+      <form [formGroup]="form"></form>
+    </div>
+
+    <div>
+      <form [formGroup]="form"></form>
+    </div>
+
+    <div>
+      <form [formGroup]="form"></form>
+    </div>
+  </div>
+
+  <!-- Single Select Form Example -->
+  <div class="t-container" style="margin-top: 2rem; padding: 2rem; border: 2px solid #e0e0e0; border-radius: 8px;">
+    <h2 style="margin-bottom: 1rem;">Single Select Form Example</h2>
+    <form [formGroup]="form">
+      <div class="select-container" style="margin-bottom: 1rem;">
+        <aava-select size="lg" label="Select User" placeholder="Choose a user" formControlName="singleSelect">
+          <aava-select-option *ngFor="let user of users" [value]="user.value" (click)="oClick()">
+            {{ user.label }}
+          </aava-select-option>
+        </aava-select>
+      </div>
+      <div style="margin-top: 1rem;">
+        <aava-button size="md" variant="primary" (click)="printFormValue()">
+          Print Form Value
+        </aava-button>
+      </div>
+      <div *ngIf="form.get('singleSelect')?.value"
+        style="margin-top: 1rem; padding: 1rem; background: #f5f5f5; border-radius: 4px;">
+        <p><strong>Selected Value:</strong> {{ form.get('singleSelect')?.value }}</p>
+        <p><strong>Form Status:</strong> {{ form.status }}</p>
+      </div>
+    </form>
+  </div>
+</div>

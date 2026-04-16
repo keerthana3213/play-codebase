@@ -1,0 +1,196 @@
+<div
+  class="ava-text-card-container"
+  [style.width.px]="width > 0 ? width : null"
+>
+  <!-- Default Type -->
+  <ng-container *ngIf="type === 'default'">
+    <!-- card skeleton -->
+    <div
+      class="default skeleton"
+      *ngIf="isLoading; else actualCard"
+      [ngStyle]="{
+        '--skeleton-background': skeletonBackground,
+        '--skeleton-color': skeletonAnimationColor
+      }"
+    >
+      <aava-card>
+        <div header class="text-card-header">
+          <div class="icon-circle"><span></span><span></span></div>
+        </div>
+        <div content class="card-content"><span></span></div>
+        <div footer><span></span></div>
+      </aava-card>
+    </div>
+    <!-- actual card -->
+    <ng-template #actualCard>
+      <div class="default">
+        <aava-card>
+          <div header class="text-card-header">
+            <div class="icon-circle">
+              <aava-icon
+                iconColor="#fff"
+                [iconName]="iconName"
+                [iconSize]="24"
+              ></aava-icon>
+            </div>
+            <div>
+              <h3>{{ title }}</h3>
+            </div>
+          </div>
+
+          <div content>
+            <h1>{{ value }}</h1>
+          </div>
+
+          <div footer>
+            <p>{{ description }}</p>
+          </div>
+        </aava-card>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <!-- Create Type -->
+  <ng-container *ngIf="type === 'create'">
+    <!-- card skeleton -->
+    <div
+      class="create-type skeleton"
+      *ngIf="isLoading; else actualCard"
+      [ngStyle]="{
+        '--skeleton-background': skeletonBackground,
+        '--skeleton-color': skeletonAnimationColor
+      }"
+    >
+      <aava-card>
+        <div content class="card-content">
+          <div class="icon-container"></div>
+          <div><span></span></div>
+        </div>
+      </aava-card>
+    </div>
+    <!-- actual card -->
+    <ng-template #actualCard>
+      <div
+        class="create-type"
+        (click)="onCardClick()"
+        (keydown.enter)="onCardClick()"
+        (keydown.space)="onCardClick()"
+        tabindex="0"
+        role="button"
+      >
+        <aava-card>
+          <div content class="card-content">
+            <div class="icon-container">
+              <aava-icon
+                [iconName]="'plus'"
+                [iconColor]="iconColor"
+                [iconSize]="24"
+              ></aava-icon>
+            </div>
+            <div>
+              <h3>{{ title }}</h3>
+            </div>
+          </div>
+        </aava-card>
+      </div>
+    </ng-template>
+  </ng-container>
+
+  <!-- Prompt Type -->
+  <ng-container *ngIf="type === 'prompt'">
+    <!-- card skeleton -->
+    <div
+      class="prompt-type skeleton"
+      *ngIf="isLoading; else actualCard"
+      [ngStyle]="{
+        '--skeleton-background': skeletonBackground,
+        '--skeleton-color': skeletonAnimationColor
+      }"
+    >
+      <aava-card>
+        <div header class="text-card-header">
+          <div class="top-icons"><span></span><span></span></div>
+          <span></span><span></span>
+        </div>
+        <div content class="card-content">
+          <p class="description clamp-2-lines">
+            <span></span><span></span><span></span>
+          </p>
+        </div>
+        <div footer class="footer">
+          <div class="left-container"><span> </span><span> </span></div>
+          <div class="action-icon-container">
+            <span></span><span></span><span></span><span></span>
+          </div>
+        </div>
+      </aava-card>
+    </div>
+    <!-- actual card -->
+    <ng-template #actualCard>
+      <div
+        class="prompt-type"
+        (click)="onCardClick()"
+        (keydown.enter)="onCardClick()"
+        (keydown.space)="onCardClick()"
+        tabindex="0"
+        role="button"
+      >
+        <aava-card>
+          <div header class="text-card-header">
+            <div class="top-icons">
+              <span *ngFor="let icon of headerIcons">
+                <aava-icon
+                  [iconName]="icon.iconName"
+                  [iconColor]="icon?.iconColor || '#143681'"
+                  [iconSize]="15"
+                >
+                </aava-icon>
+                {{ icon.title }}
+              </span>
+            </div>
+            <h3 class="clamp-2-lines">
+              {{ title }}
+            </h3>
+          </div>
+
+          <div content class="card-content">
+            <p class="description clamp-2-lines">
+              {{ description }}
+            </p>
+          </div>
+
+          <div footer class="footer">
+            <div class="left-container">
+              <p *ngFor="let icon of footerIcons">
+                <span>
+                  <aava-icon
+                    [iconName]="icon.iconName"
+                    [iconSize]="10"
+                    [iconColor]="icon?.iconColor || '#1B3886'"
+                  >
+                  </aava-icon>
+                </span>
+                {{ icon.title }}
+              </p>
+            </div>
+            <div class="action-icon-container">
+              <ng-container *ngFor="let icon of iconList">
+                <span
+                  [ngClass]="{ 'play-icon-wrapper': icon?.name === 'play' }"
+                >
+                  <aava-icon
+                    (userClick)="iconClicked(icon)"
+                    [cursor]="icon?.cursor"
+                    [iconName]="icon?.iconName"
+                    [iconSize]="icon?.name === 'play' ? 15 : 20"
+                    iconColor="#6489BF"
+                  ></aava-icon>
+                </span>
+              </ng-container>
+            </div>
+          </div>
+        </aava-card>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>

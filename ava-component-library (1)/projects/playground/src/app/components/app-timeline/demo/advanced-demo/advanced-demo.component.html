@@ -1,0 +1,121 @@
+<div class="advanced-demo-container">
+  <div class="demo-header">
+    <h1>Advanced Timeline Demo</h1>
+    <p>Explore advanced timeline features including custom sorting, complex data, and enhanced customization.</p>
+  </div>
+
+  <div class="demo-content">
+    <div class="timeline-section">
+      <h2>Advanced Timeline with Custom Data</h2>
+      <p>This timeline demonstrates advanced features like custom event data, complex sorting, and enhanced styling.</p>
+      
+      <div class="timeline-container">
+        <aava-timeline
+          [events]="customSortedEvents"
+          [orientation]="'vertical'"
+          [size]="'md'"
+          [textAlign]="'zig-zag'"
+        ></aava-timeline>
+      </div>
+
+      <div class="sorting-controls">
+        <h3>Sorting Options</h3>
+        <div class="button-group">
+          <button class="sort-btn" (click)="sortByTime()">Sort by Time</button>
+          <button class="sort-btn" (click)="sortByStatus()">Sort by Status</button>
+          <button class="sort-btn" (click)="sortByTitle()">Sort by Title</button>
+          <button class="sort-btn reset-btn" (click)="resetSort()">Reset Order</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-details" *ngIf="selectedEvent">
+      <h3>Selected Event Details</h3>
+      <div class="event-card">
+        <div class="event-header">
+          <div class="event-icon" [style.background-color]="getStatusColor(selectedEvent.status)">
+            <i [class]="'icon-' + selectedEvent.iconName"></i>
+          </div>
+          <div class="event-info">
+            <h4>{{ selectedEvent.title }}</h4>
+            <p class="event-time">{{ selectedEvent.time }}</p>
+            <p class="event-description">{{ selectedEvent.description }}</p>
+          </div>
+        </div>
+        
+        <div class="event-data" *ngIf="selectedEvent.data">
+          <h5>Additional Data:</h5>
+          <pre><code>{{ getEventData(selectedEvent) }}</code></pre>
+        </div>
+
+        <div class="event-meta">
+          <span class="meta-item">
+            <strong>Status:</strong> 
+            <span class="status-badge" [style.background-color]="getStatusColor(selectedEvent.status)">
+              {{ selectedEvent.status }}
+            </span>
+          </span>
+          <span class="meta-item">
+            <strong>Year:</strong> {{ selectedEvent.year }}
+          </span>
+          <span class="meta-item">
+            <strong>Icon:</strong> {{ selectedEvent.iconName }}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="features-section">
+      <h3>Advanced Features Demonstrated</h3>
+      <div class="features-grid">
+        <div class="feature-card">
+          <h4>Custom Sorting</h4>
+          <p>Dynamic sorting by time, status, or title with real-time updates to the timeline display.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Complex Event Data</h4>
+          <p>Rich event objects with nested data structures, custom properties, and metadata.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Enhanced Styling</h4>
+          <p>Custom CSS classes, dynamic colors, and responsive design for different screen sizes.</p>
+        </div>
+        <div class="feature-card">
+          <h4>Interactive Controls</h4>
+          <p>User controls for manipulating timeline data and viewing detailed event information.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="code-example">
+      <h3>Code Example</h3>
+      <pre><code>// Advanced timeline with custom sorting
+const advancedEvents = [
+  {{ '{' }}
+    time: "9:00 AM",
+    title: "Project Planning",
+    description: "Initial project scope and requirements definition",
+    iconName: "target",
+    iconColor: "#4CAF50",
+    status: "completed",
+    data: {{ '{' }} priority: "high", team: "Planning", budget: "$50,000" {{ '}' }}
+  {{ '}' }},
+  // ... more events
+];
+
+// Custom sorting functions
+sortByTime() {{ '{' }}
+  this.customSortedEvents = [...this.advancedEvents].sort((a, b) => 
+    (a.time || '').localeCompare(b.time || '')
+  );
+{{ '}' }}
+
+sortByStatus() {{ '{' }}
+  const statusOrder = {{ '{' }} completed: 1, current: 2, pending: 3, unreached: 4 {{ '}' }};
+  this.customSortedEvents = [...this.advancedEvents].sort((a, b) => 
+    statusOrder[a.status] - statusOrder[b.status]
+  );
+{{ '}' }}</code></pre>
+    </div>
+  </div>
+</div>

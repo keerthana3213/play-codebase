@@ -1,0 +1,56 @@
+<div class="demo-table-wrapper"> 
+    <!-- Example: Table with sticky header and custom height -->
+    <aava-table 
+      #table  
+      [loading]="loading" 
+      [dataSource]="dataSource" 
+      [displayedColumns]="displayedColumns" 
+      [stickyHeader]="true"
+      [height]="300"
+      dataHandling="api" 
+      (filterChange)="onFilterChange($event)">
+        <ng-container aavaColumnDef="name"  [filterable]="true" >
+            <th *aavaHeaderCellDef>Name</th>
+            <td *aavaCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container aavaColumnDef="email" [filterable]="true">
+            <th *aavaHeaderCellDef>Email</th>
+            <td *aavaCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+        <ng-container aavaColumnDef="realm">
+            <th *aavaHeaderCellDef>Realm</th>
+            <td *aavaCellDef="let element">
+                <ng-container *ngFor="let r of element.realm">
+                    <aava-tag type='badge' size="sm" [label]="r" color="custom" [ngStyle]="{
+                        'background': 'var(--global-color-gray-100)',
+                        'border': '1px solid var(--table-border)',
+                        'border-radius': '20px',
+                        'margin-right':'3px',
+                        'padding-bottom': '2px'
+                        }">
+                    </aava-tag>
+                </ng-container>
+                <aava-tag type='badge' size="sm" label="3+" color="custom" [ngStyle]="{
+                        'background': 'var(--global-color-gray-100)',
+                        'border': '1px solid var(--table-border)',
+                        'border-radius': '20px',
+                        'margin-right':'3px',
+                        'padding-bottom': '2px'
+                        }">
+                </aava-tag>
+            </td>
+        </ng-container>
+        <ng-container aavaColumnDef="status" [filterable]="true">
+            <th *aavaHeaderCellDef>Status</th>
+            <td *aavaCellDef="let element">
+                <ng-container *ngFor="let r of element.status">
+                    <aava-tag type='badge' color="custom" [ngStyle]="getStatusColor(r)" size="md"
+                        [label]="r "></aava-tag>
+                </ng-container>
+            </td>
+        </ng-container>
+
+        <tr aava-header-row *aavaHeaderRowDef="displayedColumns"></tr>
+        <tr aava-row *aavaRowDef="let row; columns: displayedColumns"></tr>
+    </aava-table>
+</div>

@@ -1,0 +1,73 @@
+
+    <div class="example-group">
+      <h4>Start Icons Only</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with start icons"
+        [icons]="startIcons"
+      >
+      </aava-prompt-bar>
+      <br>
+      <h4>End Icons Only</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with end icons"
+        [icons]="endIcons"
+      >
+      </aava-prompt-bar>
+      <br>
+      <h4>Both Start and End Icons</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with both start and end icons"
+        [icons]="allIcons"
+      >
+      </aava-prompt-bar>
+      <br>
+      <h4>With Select Component</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with select component"
+        [icons]="allIcons"
+        [showSelection]="true"
+        [deviceOptions]="deviceOptions"
+        [selectWidth]="'200px'"
+        selectPlaceholder="Choose device"
+      >
+      </aava-prompt-bar>
+      <br>
+      <h4>ng-content with Icons</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with icons and custom content"
+        [icons]="allIcons"
+      >
+        <div class="custom-content-with-icons">
+          <button class="action-button" (click)="onCustomAction()">Custom Action</button>
+          <span class="status-text">Ready</span>
+        </div>
+      </aava-prompt-bar>
+      <br>
+      <h4>ng-content Only (No Icons)</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with only custom content"
+      >
+        <div class="custom-content-only">
+          <button class="primary-button" (click)="onSaveDraft()">Save Draft</button>
+          <button class="secondary-button" (click)="onClear()">Clear</button>
+          <button class="primary-button" (click)="onSendMessage()">Send Message</button>
+        </div>
+      </aava-prompt-bar>
+      <br>
+      <h4>Custom Third Row Content (ng-content)</h4>
+      <aava-prompt-bar
+        placeholder="Prompt bar with custom third row content"
+      >
+        <div class="custom-third-row">
+          <div class="custom-left">
+            <button class="custom-button">Custom Action</button>
+          </div>
+          <div class="custom-center">
+            <span class="custom-text">Custom Content</span>
+          </div>
+          <div class="custom-right">
+            <button class="custom-button">Send</button>
+          </div>
+        </div>
+      </aava-prompt-bar>
+    </div>

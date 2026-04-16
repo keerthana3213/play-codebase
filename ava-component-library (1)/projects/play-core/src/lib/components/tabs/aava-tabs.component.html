@@ -1,0 +1,424 @@
+<div
+ [attr.data-active] = "activeTabIndex"
+  class="ava-tabs__container"
+  [ngStyle]="customStyles"
+  [attr.id]="tabsContainerId"
+  [ngClass]="{
+    'ava-tabs__container--vertical': orientation === 'vertical',
+    'ava-tabs__container--bg': showTabsContainerBg,
+    'ava-tabs__container--pill': showTabsContainerBg && buttonShape === 'pill',
+    'ava-tabs__container-bg': showcontainerBg
+  }"
+>
+  <!-- Tab List Navigation -->
+  <div
+    class="ava-tabs__list-wrapper"
+    [class.ava-tabs__list-wrapper--scrollable]="scrollable"
+    [class.ava-tabs__list-wrapper--centered]="centeredTabs"
+    [class.ava-tabs__list-wrapper--full-width]="fullWidth"
+    [class.ava-tabs__list-wrapper--pill]="
+      variant === 'button' && buttonShape === 'pill'
+    "
+    [ngStyle]="tabRowWrapperStyles"
+    [ngClass]="{
+      'ava-tabs__list-wrapper--vertical': orientation === 'vertical'
+    }"
+  >
+    <!-- Tab Row Background (optional, for pill or custom bg) -->
+    <div
+      *ngIf="
+        (variant === 'button' && buttonShape === 'pill') ||
+        hasTabRowBackgroundStyles()
+      "
+      class="ava-tabs__tab-row-bg"
+      [class.ava-tabs__tab-row-bg--pill]="
+        variant === 'button' && buttonShape === 'pill'
+      "
+      [ngStyle]="tabRowBackgroundStyles"
+    ></div>
+    <!-- Left Scroll Button -->
+    <button
+      *ngIf="scrollable && canScrollLeft"
+      class="ava-tabs__scroll-btn ava-tabs__scroll-btn--left"
+      (click)="scrollLeft()"
+      [disabled]="disabled"
+      aria-label="Scroll tabs left"
+    >
+      <aava-icon
+        iconName="chevron-left"
+        [iconSize]="16"
+        iconColor="var(--tabs-scroll-btn-icon-color)"
+      ></aava-icon>
+    </button>
+
+    <!-- Scrollable Container -->
+    <div
+      #scrollContainer
+      class="ava-tabs__scroll-container"
+      (scroll)="onScroll()"
+      [class.ava-tabs__scroll-container--scrollable]="scrollable"
+    >
+      <!-- Tabs List -->
+      <div
+        #tabsList
+        class="ava-tabs__list"
+        role="tablist"
+        [attr.aria-label]="computedAriaLabel"
+        [attr.aria-labelledby]="ariaLabelledby || null"
+        [attr.aria-describedby]="ariaDescribedby || null"
+        [class.ava-tabs__list--full-width]="fullWidth"
+        [ngClass]="{ 'ava-tabs__list--vertical': orientation === 'vertical' }"
+      >
+        <!-- Visible Tabs -->
+        <button
+          [attr.data-active] = "activeTabId"
+          #tabButton
+          *ngFor="let tab of visibleTabs; trackBy: trackByTabId"
+          class="ava-tabs__tab"
+          [class.ava-tabs__tab--active]="isTabActive(tab)"
+          [class.ava-tabs__tab--activebg]="isTabActive(tab) && !removeDefaultAnimation"
+          [class.ava-tabs__tab--disabled]="tab.disabled || disabled"
+          [class.ava-tabs__tab--closeable]="tab.closeable && allowTabClose"
+          [class.ava-tabs__tab--with-icon]="tab.iconName"
+          [class.ava-tabs__tab--with-subtitle]="tab.subtitle"
+          [class.ava-tabs__tab--pill]="
+            variant === 'button' && buttonShape === 'pill'
+          "
+          [class.ava-tabs__tab--liquid-animating]="
+            variant === 'button' && liquidAnimatingTabId === tab.id
+          "
+          [class.ava-tabs__tab--liquid-ltr]="
+            variant === 'button' &&
+            ((liquidAnimatingTabId === tab.id &&
+              liquidAnimationDirection === 'ltr') ||
+              (liquidExitingTabId === tab.id && liquidExitDirection === 'ltr'))
+          "
+          [class.ava-tabs__tab--liquid-rtl]="
+            variant === 'button' &&
+            ((liquidAnimatingTabId === tab.id &&
+              liquidAnimationDirection === 'rtl') ||
+              (liquidExitingTabId === tab.id && liquidExitDirection === 'rtl'))
+          "
+          [class.ava-tabs__tab--liquid-exit-animating]="
+            variant === 'button' && liquidExitingTabId === tab.id
+          "
+          [class.ava-tabs__tab--custom-active-style]="
+            variant === 'button' &&
+            isTabActive(tab) &&
+            hasCustomActiveButtonTabStyles
+          "
+          [class.ava-tabs__tab--icon-only-square]="variant === 'iconOnlySquare'"
+          [class.ava-tabs__tab--icon-only-circle]="variant === 'iconOnlyCircle'"
+          [class.ava-tabs__tab--customizable-icon]="variant === 'iconEnhanced'"
+          [class.ava-tabs__tab--bordered]="bordered"
+          [attr.id]="getTabId(tab)"
+          [attr.aria-controls]="getPanelId(tab)"
+          [attr.aria-selected]="isTabActive(tab)"
+          [attr.tabindex]="isTabActive(tab) ? 0 : -1"
+          role="tab"
+          [disabled]="tab.disabled || disabled"
+          [tooltipTitle]="tab.tooltip?.title || ''"
+          [tooltipDescription]="tab.tooltip?.description || ''"
+          [tooltipType]="tab.tooltip?.type || 'simple'"
+          [tooltipArrow]="tab.tooltip?.arrow || 'center'"
+          [tooltipTrigger]="tab.tooltip?.trigger || 'hover'"
+          [tooltipPosition]="tab.tooltip?.position || 'top'"
+          [tooltipSize]="tab.tooltip?.size || 'md'"
+          [tooltipVariant]="tab.tooltip?.variant || 'default'"
+          [tooltipIcon]="tab.tooltip?.icon || ''"
+          [tooltipIconColor]="tab.tooltip?.iconColor || ''"
+          [tooltipWidth]="tab.tooltip?.width || 0"
+          [tooltipOffsetTop]="tab.tooltip?.offsetTop || 0"
+          [tooltipOffsetLeft]="tab.tooltip?.offsetLeft || 0"
+          (click)="
+            variant === 'button'
+              ? onTabClickWithAnimation(tab)
+              : onTabClick(tab)
+          "
+          (keydown)="onKeyDown($event, tab)"
+          [ngStyle]="
+            (variant === 'button' ||
+              variant === 'iconOnlySquare' ||
+              variant === 'iconOnlyCircle') &&
+            isTabActive(tab)
+              ? activeButtonTabStyles
+              : variant === 'iconEnhanced'
+              ? {
+                  'background-color': tab.backgroundColor || 'transparent',
+                  'border-color': isTabActive(tab) ? (tab.color || 'transparent') : 'transparent'
+                }
+              : null
+          "
+        >
+          <!-- Tab Content Wrapper -->
+          <div class="ava-tabs__tab-content">
+            <!-- Icon Only Variants -->
+            <ng-container
+              *ngIf="
+                variant === 'iconOnlySquare' || variant === 'iconOnlyCircle'
+              "
+            >
+              <aava-icon
+                *ngIf="tab.iconName"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="
+                  isTabActive(tab)
+                    ? 'var(--tabs-tab-active-color)'
+                    : 'var(--tabs-tab-color)'
+                "
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+            </ng-container>
+            <!-- Customizable Icon Variant -->
+            <ng-container *ngIf="variant === 'iconEnhanced'">
+              <aava-icon
+                *ngIf="tab.iconName"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="tab.color || 'currentColor'"
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+              <span
+                *ngIf="isTabActive(tab)"
+                class="ava-tabs__tab-label ava-tabs__tab-label--animated"
+                [ngStyle]="{ color: tab.color || 'currentColor' }"
+                >{{ tab.label }}</span
+              >
+            </ng-container>
+            <!-- Icon at start for other variants -->
+            <ng-container
+              *ngIf="
+                variant !== 'iconOnlySquare' &&
+                variant !== 'iconOnlyCircle' &&
+                variant !== 'iconEnhanced' &&
+                iconPosition === 'start'
+              "
+            >
+              <aava-icon
+                *ngIf="tab.iconName && variant === 'default'"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="
+                  isTabActive(tab)
+                    ? 'var(--tabs-tab-active-color)'
+                    : 'var(--tabs-tab-color)'
+                "
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+              <aava-icon
+                *ngIf="tab.iconName && variant === 'button'"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="'currentColor'"
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+            </ng-container>
+
+            <!-- Tab Text Content (not for iconOnlySquare or iconOnlyCircle) -->
+            <div
+              *ngIf="
+                variant !== 'iconOnlySquare' && variant !== 'iconOnlyCircle' && variant !== 'iconEnhanced'
+              "
+              class="ava-tabs__tab-text"
+            >
+              <!-- Main Label -->
+              <span class="ava-tabs__tab-label">{{ tab.label }}</span>
+              <!-- Subtitle -->
+              <span *ngIf="tab.subtitle" class="ava-tabs__tab-subtitle">{{
+                tab.subtitle
+              }}</span>
+            </div>
+
+            <!-- Icon at end for other variants -->
+            <ng-container
+              *ngIf="
+                variant !== 'iconOnlySquare' &&
+                variant !== 'iconOnlyCircle' &&
+                variant !== 'iconEnhanced' &&
+                iconPosition === 'end'
+              "
+            >
+              <aava-icon
+                *ngIf="tab.iconName && variant === 'default'"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="
+                  isTabActive(tab)
+                    ? 'var(--tabs-tab-active-color)'
+                    : 'var(--tabs-tab-color)'
+                "
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+              <aava-icon
+                *ngIf="tab.iconName && variant === 'button'"
+                class="ava-tabs__tab-icon"
+                [iconName]="tab.iconName"
+                [iconSize]="getIconSize()"
+                [iconColor]="'currentColor'"
+                [disabled]="tab.disabled || disabled"
+              ></aava-icon>
+            </ng-container>
+
+            <!-- Tab Badge (not for iconOnlySquare or iconOnlyCircle) -->
+            <span
+              *ngIf="
+                tab.badge &&
+                variant !== 'iconOnlySquare' &&
+                variant !== 'iconOnlyCircle' &&
+                variant !== 'iconEnhanced'
+              "
+              class="ava-tabs__tab-badge"
+              [ngStyle]="badgeStyles"
+              >{{ tab.badge }}</span
+            >
+
+            <!-- Close Button (not for iconOnlySquare or iconOnlyCircle) -->
+            <button
+              *ngIf="
+                tab.closeable &&
+                allowTabClose &&
+                variant !== 'iconOnlySquare' &&
+                variant !== 'iconOnlyCircle' &&
+                variant !== 'iconEnhanced'
+              "
+              class="ava-tabs__tab-close"
+              (click)="onTabClose(tab, $event)"
+              [disabled]="tab.disabled || disabled"
+              aria-label="Close tab"
+              tabindex="-1"
+            >
+              <aava-icon
+                iconName="x"
+                [iconSize]="14"
+                iconColor="var(--tabs-tab-color)"
+              ></aava-icon>
+            </button>
+          </div>
+        </button>
+
+        <!-- Moving Underline Indicator (Default Variant Only) -->
+        <div
+          *ngIf="variant === 'default' && orientation === 'horizontal'"
+          class="ava-tabs__moving-indicator"
+          [ngStyle]="{
+            left: underlineStyles.left,
+            width: underlineStyles.width,
+            opacity: underlineStyles.opacity
+          }"
+        ></div>
+
+        <!-- Dropdown Trigger (if there are hidden tabs) -->
+        <button
+          *ngIf="showDropdown && hiddenTabs.length > 0"
+          class="ava-tabs__dropdown-trigger"
+          [class.ava-tabs__dropdown-trigger--open]="isDropdownOpen"
+          (click)="toggleDropdown()"
+          [disabled]="disabled"
+          aria-label="Show more tabs"
+          [attr.aria-expanded]="isDropdownOpen"
+        >
+          <span class="ava-tabs__dropdown-trigger-text">More</span>
+          <aava-icon
+            iconName="chevron-down"
+            [iconSize]="16"
+            iconColor="var(--tabs-dropdown-arrow-color)"
+            class="ava-tabs__dropdown-arrow"
+            [class.ava-tabs__dropdown-arrow--rotated]="isDropdownOpen"
+          ></aava-icon>
+        </button>
+      </div>
+    </div>
+
+    <!-- Right Scroll Button -->
+    <button
+      *ngIf="scrollable && canScrollRight"
+      class="ava-tabs__scroll-btn ava-tabs__scroll-btn--right"
+      (click)="scrollRight()"
+      [disabled]="disabled"
+      aria-label="Scroll tabs right"
+    >
+      <aava-icon
+        iconName="chevron-right"
+        [iconSize]="16"
+        iconColor="var(--tabs-scroll-btn-icon-color)"
+      ></aava-icon>
+    </button>
+  </div>
+
+  <!-- Dropdown Menu -->
+  <div
+    *ngIf="showDropdown && hiddenTabs.length > 0 && isDropdownOpen"
+    class="ava-tabs__dropdown"
+    role="menu"
+  >
+    <button
+      *ngFor="let tab of hiddenTabs; trackBy: trackByTabId"
+      class="ava-tabs__dropdown-item"
+      [class.ava-tabs__dropdown-item--active]="isTabActive(tab)"
+      [class.ava-tabs__dropdown-item--disabled]="tab.disabled || disabled"
+      role="menuitem"
+      [disabled]="tab.disabled || disabled"
+      (click)="onTabClick(tab)"
+    >
+      <!-- Dropdown Item Icon -->
+      <aava-icon
+        *ngIf="tab.iconName"
+        [iconName]="tab.iconName"
+        [iconSize]="16"
+        iconColor="var(--tab-dropdown-item-color)"
+        class="ava-tabs__dropdown-item-icon"
+      ></aava-icon>
+
+      <!-- Dropdown Item Text -->
+      <div class="ava-tabs__dropdown-label-group">
+        <span class="ava-tabs__dropdown-label">{{ tab.label }}</span>
+        <span *ngIf="tab.subtitle" class="ava-tabs__dropdown-subtitle">{{
+          tab.subtitle
+        }}</span>
+      </div>
+
+      <!-- Dropdown Item Badge -->
+      <span
+        *ngIf="tab.badge"
+        class="ava-tabs__dropdown-badge"
+        [ngStyle]="badgeStyles"
+        >{{ tab.badge }}</span
+      >
+    </button>
+  </div>
+
+  <!-- Tab Content Panels -->
+  <div *ngIf="showContentPanels && activeTab" class="ava-tabs__content">
+    <div
+      *ngFor="let tab of tabs; trackBy: trackByTabId"
+      class="ava-tabs__panel"
+      [class.ava-tabs__panel--active]="isTabActive(tab)"
+      [class.ava-tabs__panel--hidden]="!isTabActive(tab)"
+      [attr.id]="getPanelId(tab)"
+      [attr.aria-labelledby]="getTabId(tab)"
+      role="tabpanel"
+      [hidden]="!isTabActive(tab)"
+      [style.display]="isTabActive(tab) ? 'block' : 'none'"
+    >
+      <!-- Tab Content -->
+      <div
+        *ngIf="isTabActive(tab)"
+        class="ava-tabs__panel-content"
+        [innerHTML]="tab.content"
+      ></div>
+
+      <!-- Projected Content -->
+      <ng-content
+        *ngIf="isTabActive(tab)"
+        [select]="getTabContentSelector(tab)"
+      >
+      </ng-content>
+    </div>
+  </div>
+</div>

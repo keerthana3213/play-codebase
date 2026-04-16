@@ -1,0 +1,294 @@
+<div class="button-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Card Component</h1>
+            <p class="description">
+              A versatile card component that supports multiple variants, .
+              Built with accessibility and user experience in mind.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/card/basic-usage" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="square" [iconSize]="24" iconColor="#007bff"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>Basic Usage</h4>
+                  <p>Simple cards with basic content structure</p>
+                </div>
+              </a>
+              <a routerLink="/card/with-header" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="type" [iconSize]="24" iconColor="#28a745"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>With Header</h4>
+                  <p>Cards with header sections for titles and metadata</p>
+                </div>
+              </a>
+              <a routerLink="/card/with-footer" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="info" [iconSize]="24" iconColor="#ffc107"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>With Footer</h4>
+                  <p>Cards with footer sections for additional information</p>
+                </div>
+              </a>
+              <a routerLink="/card/with-actions" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="mouse-pointer" [iconSize]="24" iconColor="#dc3545"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>With Actions</h4>
+                  <p>Cards with action buttons for user interactions</p>
+                </div>
+              </a>
+              <a routerLink="/card/complex" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="layers" [iconSize]="24" iconColor="#6f42c1"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>Complex Layout</h4>
+                  <p>
+                    Cards with all sections: header, content, footer, and
+                    actions
+                  </p>
+                </div>
+              </a>
+              <a routerLink="/card/product-card" class="nav-item">
+                <div class="nav-icon">
+                  <aava-icon iconName="layers" [iconSize]="24" iconColor="#6f42c1"></aava-icon>
+                </div>
+                <div class="nav-content">
+                  <h4>Product-Studio Card</h4>
+                  <p>
+                    This Card is used in Product Studio Brainstormer Understanding
+                  </p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+</div>
+
+<div class="pcard-wrapper documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Cards Component</h1>
+        <p class="description">
+          A versatile card component that supports multiple sizes, themes,
+          animations, and flexible content structure. Designed for creating
+          visually appealing and interactive card layouts.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <!---Section -->
+
+  <div class="doc-sections">
+    <section class="doc-section">
+      <div class="row">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>Feature Card</h2>
+          <p>
+            Cards are designed to highlight key features with prominent visuals.
+          </p>
+        </div>
+      </div>
+      <div class="code-example">
+        <div class="example-preview fe-card">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+           
+            </div>
+            <div class="col-12 col-md-4">
+            
+            </div>
+            <div class="col-12 col-md-4">
+             
+            </div>
+          </div>
+        </div>
+        <div class="example-preview fe-card">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+           
+            </div>
+            <div class="col-12 col-md-4">
+        
+            </div>
+            <div class="col-12 col-md-4">
+            
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+  <!-- 
+
+  <div class="doc-sections">
+    <section class="doc-section">
+      <div class="row">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>Advanced Card</h2>
+          <p>
+            Lorem ipsum dolor sit <br />adipisicing elit. Labore,
+            totam velit? Iure nemo dolor ?
+          </p>
+        </div>
+      </div>
+      <div class="code-example">
+        <div class="example-preview ad-card">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <ava-advanced-card>
+                <div header>
+                  <h3>Advanced Header 1</h3>
+                </div>
+                <div content>
+                  <p>
+                    Lorem ipsum dolor sit <br />adipisicing elit. Labore,
+                    totam velit? Iure nemo ?
+                  </p>
+                </div>
+                <div footer>
+                  <aava-button label="Read More" variant="primary" size="medium" state="default"
+                    visual='glass'></aava-button>
+                </div>
+              </ava-advanced-card>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <ava-advanced-card>
+                <div header>
+                  <h3>Advanced Header 2</h3>
+                </div>
+                <div content>
+                  <p>
+                    Lorem ipsum dolor sit <br />adipisicing elit. Labore,
+                    totam velit? Iure nemo ?
+                  </p>
+                </div>
+                <div footer>
+                  <aava-button label="Read More" variant="primary" size="medium" state="default"
+                    visual='glass'></aava-button>
+                </div>
+              </ava-advanced-card>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </div> -->
+
+  <div class="doc-sections">
+    <section class="doc-section">
+      <div class="row">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>Console Card</h2>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 
+  <div class="doc-sections">
+    <section class="doc-section">
+      <div class="row">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>Image Card</h2>
+
+        </div>
+      </div>
+      <div class="code-example">
+        <div class="example-preview">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto img-card">
+
+              <ava-image-card [imageUrl]="'assets/robot.png'" [name]="'Shouvik Mazumdar'" [title]="'Welcome, User 🚀'">
+              </ava-image-card>
+
+            </div>
+            <div class="col-12 col-sm-auto img-card">
+
+              <ava-image-card [imageUrl]="'assets/robot.png'" [name]="'Shouvik Mazumdar'" [title]="'Welcome, User 🚀'">
+              </ava-image-card>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+
+    </section>
+  </div> -->
+
+  <div class="doc-sections">
+    <section class="doc-section">
+      <div class="row">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>Ava Text Card</h2>
+          <p>
+            Lorem ipsum dolor sit <br />adipisicing elit. Labore, totam velit?
+            Iure nemo dolor ?
+          </p>
+        </div>
+      </div>
+      <div class="code-example">
+        <div class="example-preview-text text-card">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <aava-text-card [type]="'default'" [iconName]="'trending-up'" [title]="'Active Workflows'" [value]="70"
+                [description]="'Agents actively running'" [iconName]="'trending-up'">
+              </aava-text-card>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-text-card [title]="'Create Tool'" [iconName]="'plus'" [type]="'create'" iconColor="#144692">
+              </aava-text-card>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-text-card [title]="
+                  'User-Defined Tool Editing Test Case Functionality & This Is Long Title Example'
+                " [description]="
+                  'An agent is an autonomous or semi-autonomous system designed to perform tasks or make decisions on behalf of a user. This is very long description to showcase show more/less button '
+                " [iconName]="'plus'" [type]="'prompt'" name="Michael Scott" date="1/2/2025" [iconList]="iconList"
+                iconColor="#144692" [userCount]="120" (iconClick)="iconClick($event)" [headerIcons]="headerIcons"
+                [footerIcons]="footerIcons">
+              </aava-text-card>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

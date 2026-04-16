@@ -1,0 +1,294 @@
+<div class="otp-demo-container">
+  <div class="hero-section">
+    <h1>OTP Component</h1>
+    <p class="hero-description">
+      A secure and accessible One-Time Password input component with multiple variants, sizes, and features.
+      Perfect for authentication flows, verification processes, and secure form inputs.
+    </p>
+  </div>
+
+  <!-- Basic Usage -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2>Basic Usage</h2>
+      <p>Simple OTP input with default settings</p>
+    </div>
+    <div class="demo-content">
+      <div class="example-item">
+        <ava-otp
+          label="Verification Code"
+          variant="default"
+          [length]="6"
+          helper="Enter the 6-digit code sent to your email"
+          [(ngModel)]="otpDefault"
+          (complete)="onOtpComplete($event, 'default')"
+          (change)="onOtpChange($event, 'default')"
+        ></ava-otp>
+        <div class="value-display">Value: {{ otpDefault }}</div>
+        <button class="clear-btn" (click)="clearOtp('default')">Clear</button>
+      </div>
+    </div>
+    <div class="code-example">
+      <pre><code>{{ codeExamples.basic }}</code></pre>
+    </div>
+  </section>
+
+  <!-- Variant States -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2>Variant States</h2>
+      <p>Different visual states for various use cases</p>
+    </div>
+    <div class="demo-content">
+      <div class="variants-grid">
+        <!-- Default State -->
+        <div class="example-item">
+          <h4>Default</h4>
+          <ava-otp
+            label="Default OTP"
+            variant="default"
+            [length]="6"
+            [(ngModel)]="otpDefault"
+            (complete)="onOtpComplete($event, 'default')"
+          ></ava-otp>
+          <div class="value-display">{{ otpDefault }}</div>
+        </div>
+
+        <!-- Success State -->
+        <div class="example-item">
+          <h4>Success</h4>
+          <ava-otp
+            label="Success OTP"
+            variant="success"
+            [length]="6"
+            [(ngModel)]="otpSuccess"
+            (complete)="onOtpComplete($event, 'success')"
+          ></ava-otp>
+          <div class="value-display">{{ otpSuccess }}</div>
+        </div>
+
+        <!-- Error State -->
+        <div class="example-item">
+          <h4>Error</h4>
+          <ava-otp
+            label="Error OTP"
+            variant="error"
+            [length]="6"
+            error="Invalid verification code"
+            [(ngModel)]="otpError"
+            (complete)="onOtpComplete($event, 'error')"
+          ></ava-otp>
+          <div class="value-display">{{ otpError }}</div>
+        </div>
+
+        <!-- Warning State -->
+        <div class="example-item">
+          <h4>Warning</h4>
+          <ava-otp
+            label="Warning OTP"
+            variant="warning"
+            [length]="6"
+            helper="Code expires in 2 minutes"
+            [(ngModel)]="otpWarning"
+            (complete)="onOtpComplete($event, 'warning')"
+          ></ava-otp>
+          <div class="value-display">{{ otpWarning }}</div>
+        </div>
+
+        <!-- Info State -->
+        <div class="example-item">
+          <h4>Info</h4>
+          <!-- <ava-otp
+            label="Info OTP"
+            variant="info"
+            [length]="6"
+            helper="Check your SMS for the code"
+            [(ngModel)]="otpInfo"
+            (complete)="onOtpComplete($event, 'info')"
+          ></ava-otp> -->
+          <div class="value-display">{{ otpInfo }}</div>
+        </div>
+
+        <!-- Disabled State -->
+        <div class="example-item">
+          <h4>Disabled</h4>
+          <ava-otp
+            label="Disabled OTP"
+            variant="default"
+            [length]="6"
+            [disabled]="true"
+            value="123456"
+          ></ava-otp>
+          <div class="value-display">{{ otpDisabled }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="code-example">
+      <pre><code>{{ codeExamples.variants }}</code></pre>
+    </div>
+  </section>
+
+  <!-- Size Variants -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2>Size Variants</h2>
+      <p>Five different sizes to fit your design needs</p>
+    </div>
+    <div class="demo-content">
+      <div class="sizes-grid">
+        <div class="example-item">
+          <h4>Extra Small</h4>
+          <ava-otp
+            label="XS OTP"
+            size="xs"
+            [length]="6"
+            [(ngModel)]="otpXSmall"
+          ></ava-otp>
+          <div class="value-display">{{ otpXSmall }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Small</h4>
+          <ava-otp
+            label="Small OTP"
+            size="sm"
+            [length]="6"
+            [(ngModel)]="otpSmall"
+          ></ava-otp>
+          <div class="value-display">{{ otpSmall }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Medium</h4>
+          <ava-otp
+            label="Medium OTP"
+            size="md"
+            [length]="6"
+            [(ngModel)]="otpMedium"
+          ></ava-otp>
+          <div class="value-display">{{ otpMedium }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Large</h4>
+          <ava-otp
+            label="Large OTP"
+            size="lg"
+            [length]="6"
+            [(ngModel)]="otpLarge"
+          ></ava-otp>
+          <div class="value-display">{{ otpLarge }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Extra Large</h4>
+          <ava-otp
+            label="XL OTP"
+            size="xl"
+            [length]="6"
+            [(ngModel)]="otpXLarge"
+          ></ava-otp>
+          <div class="value-display">{{ otpXLarge }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="code-example">
+      <pre><code>{{ codeExamples.sizes }}</code></pre>
+    </div>
+  </section>
+
+  <!-- Different Lengths -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2>Different Lengths</h2>
+      <p>Configurable number of input boxes</p>
+    </div>
+    <div class="demo-content">
+      <div class="lengths-grid">
+        <div class="example-item">
+          <h4>4-Digit PIN</h4>
+          <ava-otp
+            label="4-Digit PIN"
+            [length]="4"
+            helper="Enter your 4-digit PIN"
+            [(ngModel)]="otp4Digit"
+          ></ava-otp>
+          <div class="value-display">{{ otp4Digit }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>6-Digit Code</h4>
+          <ava-otp
+            label="6-Digit Code"
+            [length]="6"
+            helper="Standard verification code"
+            [(ngModel)]="otp6Digit"
+          ></ava-otp>
+          <div class="value-display">{{ otp6Digit }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>8-Digit Code</h4>
+          <ava-otp
+            label="8-Digit Code"
+            [length]="8"
+            helper="Extended security code"
+            [(ngModel)]="otp8Digit"
+          ></ava-otp>
+          <div class="value-display">{{ otp8Digit }}</div>
+        </div>
+      </div>
+    </div>
+    <div class="code-example">
+      <pre><code>{{ codeExamples.lengths }}</code></pre>
+    </div>
+  </section>
+
+  <!-- Special Features -->
+  <section class="demo-section">
+    <div class="section-header">
+      <h2>Special Features</h2>
+      <p>Additional functionality and states</p>
+    </div>
+    <div class="demo-content">
+      <div class="features-grid">
+        <div class="example-item">
+          <h4>Masked Input</h4>
+          <ava-otp
+            label="Secure Code"
+            [length]="6"
+            [mask]="true"
+            helper="Characters are hidden for security"
+            [(ngModel)]="otpMasked"
+          ></ava-otp>
+          <div class="value-display">{{ otpMasked }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Readonly</h4>
+          <ava-otp
+            label="Readonly OTP"
+            [length]="6"
+            [readonly]="true"
+            value="654321"
+            helper="This field cannot be edited"
+          ></ava-otp>
+          <div class="value-display">{{ otpReadonly }}</div>
+        </div>
+
+        <div class="example-item">
+          <h4>Required Field</h4>
+          <!-- <ava-otp
+            label="Required OTP"
+            [length]="6"
+            [required]="true"
+            helper="This field is required"
+          ></ava-otp> -->
+        </div>
+      </div>
+    </div>
+    <div class="code-example">
+      <pre><code>{{ codeExamples.features }}</code></pre>
+    </div>
+  </section>
+</div>

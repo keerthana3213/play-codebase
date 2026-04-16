@@ -1,0 +1,27 @@
+.ava-text-card-wrapper {
+    transform: scaleX(1);
+    transition: transform 0.4s ease;
+    color: var(--color-text-primary);
+
+    h1 {
+        margin-top: 1rem;
+    }
+
+    .right {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        gap: 10px;
+    }
+
+    .left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &:hover {
+        transform: scaleX(1.02) scaleY(1.02)
+    }
+
+}

@@ -1,0 +1,114 @@
+ .center-demo {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 60vh;
+      }
+      .demo-section {
+        margin-bottom: 2rem;
+        padding: 2rem;
+        background: #fff;
+        border-radius: 8px;
+        max-width: 1000px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .description {
+        color: #666;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+      .api-sections {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+      }
+      .api-section {
+        background: #fff;
+        padding: 1.5rem;
+        border-radius: 8px;
+        border: 1px solid #e5e7eb;
+      }
+      .api-section h4 {
+        margin: 0 0 1rem 0;
+        color: #1f2937;
+        font-size: 1.1rem;
+      }
+      .api-table {
+        overflow-x: auto;
+      }
+      .api-table table {
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 0.9rem;
+      }
+      .api-table th,
+      .api-table td {
+        padding: 0.75rem;
+        text-align: left;
+        border-bottom: 1px solid #e5e7eb;
+      }
+      .api-table th {
+        background: #f9fafb;
+        font-weight: 600;
+        color: #374151;
+      }
+      .api-table td {
+        color: #6b7280;
+      }
+      .api-table code {
+        background: #f3f4f6;
+        padding: 0.125rem 0.25rem;
+        border-radius: 3px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.85rem;
+      }
+      .interface-code {
+        background: #f9fafb;
+        padding: 1rem;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+      }
+      .interface-code pre {
+        margin: 0;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.9rem;
+        line-height: 1.4;
+      }
+      .interface-code code {
+        color: #1f2937;
+      }
+      .css-properties {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 1.5rem;
+      }
+      .property-group {
+        padding: 1rem;
+        background: #f9fafb;
+        border-radius: 6px;
+        border: 1px solid #e5e7eb;
+      }
+      .property-group h5 {
+        margin: 0 0 0.75rem 0;
+        color: #1f2937;
+        font-size: 1rem;
+      }
+      .property-group ul {
+        margin: 0;
+        padding-left: 1.25rem;
+      }
+      .property-group li {
+        margin-bottom: 0.25rem;
+        line-height: 1.4;
+        font-size: 0.9rem;
+      }
+      .property-group code {
+        background: #f3f4f6;
+        padding: 0.125rem 0.25rem;
+        border-radius: 3px;
+        font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+        font-size: 0.85rem;
+        color: #1f2937;
+      }

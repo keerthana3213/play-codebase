@@ -1,0 +1,12 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <aava-textarea
+      [(ngModel)]="basicValue"
+      placeholder="Enter your text here..."
+      [rows]="4"
+      (textareaChange)="onBasicChange($event)"
+      [processing]="true"
+      variant="primary"
+    ></aava-textarea>
+  </div>
+</div>

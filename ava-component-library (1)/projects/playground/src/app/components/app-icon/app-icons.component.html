@@ -1,0 +1,55 @@
+<div class="documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Icon Component</h1>
+        <p class="description">
+          A versatile icon component that supports various icon sets, sizes,
+          colors, and states. Built with accessibility and user experience in
+          mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <div class="demo-navigation">
+    <h3>Demo Sections</h3>
+    <div class="nav-links">
+      <a routerLink="/icons/basic-usage" class="nav-link">Basic Usage</a>
+      <a routerLink="/icons/sizes" class="nav-link">Sizes</a>
+      <a routerLink="/icons/colors" class="nav-link">Colors</a>
+      <a routerLink="/icons/interactive" class="nav-link">Interactive</a>
+      <a routerLink="/icons/states" class="nav-link">States</a>
+      <a routerLink="/icons/accessibility" class="nav-link">Accessibility</a>
+    </div>
+  </div>
+
+  <div class="demo-content">
+    <router-outlet></router-outlet>
+  </div>
+
+
+  <div class="icons-grid">
+    <aava-icon [iconColor]="'green'" [iconSize]="20" [iconName]="'square-pen'"></aava-icon>
+    <aava-icon [iconColor]="'orange'" [iconSize]="30" [iconName]="'circle-check'"></aava-icon>
+    <aava-icon [cursor]="true" (userClick)="userClick($event)" [iconColor]="'blue'" [iconSize]="30"
+      [iconName]="'wifi'"></aava-icon>
+  </div>
+
+  <div class="icons-grid">
+    <aava-icon [disabled]="true" [iconSize]="20" [iconName]="'square-pen'"></aava-icon>
+    <aava-icon [disabled]="true" [iconSize]="30" [iconName]="'circle-check'"></aava-icon>
+    <aava-icon [disabled]="true" [iconSize]="30" [iconName]="'wifi'"></aava-icon>
+  </div>
+
+
+  <div class="icons-grid">
+    <aava-icon hoverColor="none" iconColor="yellow" [iconSize]="30" [iconName]="'circle-check'"></aava-icon>
+    <aava-icon [iconSize]="20" hoverColor="blue" iconColor='blue' [cursor]="true"
+      iconName='svg:<svg viewBox="0 0 24 24"><path d="M12 2L2 22h20L12 2z"/></svg>'></aava-icon>
+    <aava-icon [iconSize]="50" iconColor="red" iconName="url:assets/star-filled.svg"></aava-icon>
+  </div>
+</div>

@@ -1,0 +1,96 @@
+.breadcrumbs-demo {
+  max-width: var(--global-max-width-4xl, 1200px);
+  margin: 0 auto;
+  padding: var(--global-spacing-8, 3rem);
+  background-color: var(--color-background-primary, #ffffff);
+  min-height: 100vh;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: var(--global-spacing-8, 3rem);
+
+  h1 {
+    font-size: var(--global-font-size-4xl, 2.5rem);
+    font-weight: var(--global-font-weight-bold, 700);
+    margin: 0 0 var(--global-spacing-4, 1.5rem) 0;
+    color: var(--color-text-primary, #111827);
+  }
+
+  .description {
+    font-size: var(--global-font-size-xl, 1.25rem);
+    color: var(--color-text-secondary, #6b7280);
+    line-height: var(--global-line-height-relaxed, 1.625);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.demo-content {
+  margin-top: var(--global-spacing-8, 3rem);
+}
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: var(--global-spacing-6, 2rem);
+  margin-top: var(--global-spacing-6, 2rem);
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+    gap: var(--global-spacing-4, 1.5rem);
+  }
+}
+
+.demo-card {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--color-background-primary, #ffffff);
+  border: 1px solid var(--color-border-subtle, #e5e7eb);
+  border-radius: var(--global-radius-lg, 12px);
+  padding: var(--global-spacing-6, 2rem);
+  text-decoration: none;
+  color: inherit;
+  transition: all var(--global-motion-duration-standard, 0.15s)
+    var(--global-motion-easing-standard, ease);
+  box-shadow: var(--global-elevation-01, 0 1px 2px 0 rgba(0, 0, 0, 0.05));
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--global-elevation-03, 0 10px 15px -3px rgba(0, 0, 0, 0.1));
+    border-color: var(--color-border-default, #d1d5db);
+  }
+
+  &:focus {
+    outline: 2px solid var(--color-brand-primary, #3b82f6);
+    outline-offset: 2px;
+  }
+
+  .card-icon {
+    font-size: var(--global-font-size-3xl, 2rem);
+    margin-bottom: var(--global-spacing-4, 1.5rem);
+    text-align: center;
+  }
+
+  .card-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    h3 {
+      font-size: var(--global-font-size-xl, 1.25rem);
+      font-weight: var(--global-font-weight-semibold, 600);
+      margin: 0 0 var(--global-spacing-3, 1rem) 0;
+      color: var(--color-text-primary, #111827);
+    }
+
+    p {
+      font-size: var(--global-font-size-sm, 0.875rem);
+      color: var(--color-text-secondary, #6b7280);
+      line-height: var(--global-line-height-relaxed, 1.625);
+      margin: 0;
+      flex: 1;
+    }
+  }
+}

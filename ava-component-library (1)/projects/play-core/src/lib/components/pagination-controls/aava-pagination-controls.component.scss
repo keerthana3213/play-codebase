@@ -1,0 +1,69 @@
+.pagination-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .dots {
+    padding: var(--pagination-dots-padding);
+    color: var(--pagination-item-text);
+  }
+}
+
+
+.pagination-container.page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--pagination-container-gap);
+}
+
+// Compact modifier — works with all types, removes gap between buttons
+.compact .pagination {
+  gap: 0;
+}
+
+.page-label {
+  color: var(--pagination-page-label-color);
+  font-family: var(--pagination-page-label-font-family);
+  font-style: normal;
+  font-weight: var(--pagination-page-label-font-weight);
+  line-height: var(--pagination-page-label-line-height);
+  display: flex;
+  align-items: center;
+  gap: var(--pagination-page-label-gap);
+
+  .current-page-button {
+    display: inline-flex;
+  }
+}
+
+.pagination-container,
+.pagination {
+
+  .ava-button:disabled,
+  .ava-button.ava-button--disabled {
+    color: var(--button-disabled-color) !important;
+    cursor: var(--button-cursor-disabled) !important;
+    pointer-events: none !important;
+    transform: none !important;
+    box-shadow: none !important;
+
+    &.ava-button--clear,
+    &.ava-button--outlined {
+      background: transparent !important;
+      border-color: var(--button-secondary-disabled-border-color) !important;
+      color: var(--button-disabled-color) !important;
+    }
+
+    &.ava-button--clear {
+      border: none !important;
+    }
+  }
+}

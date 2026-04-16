@@ -1,0 +1,30 @@
+<div class="grid-demo-container">
+  <div class="demo-header">
+    <h1>Grid System</h1>
+    <p class="description">
+      A comprehensive CSS grid system based on Bootstrap's flexbox grid,
+      providing responsive layout classes for containers, rows, columns, and
+      flexbox utilities with breakpoint-specific behavior and advanced
+      positioning options.
+    </p>
+  </div>
+
+  <div class="demo-sections">
+    <div class="demo-section" *ngFor="let page of demoPages">
+      <div class="demo-card" [routerLink]="page.route">
+        <div class="card-icon">
+          <aava-icon [iconName]="page.icon" [iconSize]="24"></aava-icon>
+        </div>
+        <div class="card-content">
+          <h3>{{ page.title }}</h3>
+          <p>{{ page.description }}</p>
+        </div>
+        <div class="card-arrow">
+          <aava-icon iconName="chevron-right" [iconSize]="16"></aava-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<router-outlet></router-outlet>

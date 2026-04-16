@@ -1,0 +1,42 @@
+<div class="chat-container" [attr.id]="id ? 'aava-chat-bubble-' + id : null" [ngStyle]="customStyles">
+  <div *ngFor="let message of messages" class="message-wrapper" [ngClass]="message.sender">
+    <!-- Avatar -->
+    <aava-avatars [size]="avatarSize" shape="pill" [imageUrl]="message.avatar" altText="Avatar">
+    </aava-avatars>
+
+    <div class="message-content">
+      <div class="message-header">
+        <div class="sender-info">
+          <span class="sender-name">{{ message.senderName }}</span>
+          <span class="time">{{ message.time }}</span>
+        </div>
+      </div>
+
+      <!-- Message Bubble -->
+      <div class="message-bubble">
+        <div class="message-text">
+          {{ message.text }}
+        </div>
+
+        <!-- Icons for AI messages -->
+        <div class="message-icons" *ngIf="message.sender === 'ai'">
+          <aava-icon iconName="copy" [iconSize]="avatarSize === 'xxs' ? 16 : 24" iconColor="#D1D3D8" aria-label="Copy"
+            (click)="copyMessage(message.text)">
+          </aava-icon>
+          <aava-icon iconName="thumbs-up" [iconSize]="avatarSize === 'xxs' ? 16 : 24" iconColor="#D1D3D8"
+            aria-label="Like" (click)="reactToMessage('like')">
+          </aava-icon>
+          <aava-icon iconName="thumbs-down" [iconSize]="avatarSize === 'xxs' ? 16 : 24" iconColor="#D1D3D8"
+            aria-label="Dislike" (click)="reactToMessage('dislike')">
+          </aava-icon>
+          <aava-icon iconName="volume-2" [iconSize]="avatarSize === 'xxs' ? 16 : 24" iconColor="#D1D3D8"
+            aria-label="Volume" (click)="speakMessage(message.text)">
+          </aava-icon>
+          <aava-icon iconName="repeat" [iconSize]="avatarSize === 'xxs' ? 16 : 24" iconColor="#D1D3D8"
+            aria-label="Reply" (click)="replyToMessage()">
+          </aava-icon>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

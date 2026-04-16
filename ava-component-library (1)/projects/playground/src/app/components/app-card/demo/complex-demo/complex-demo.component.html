@@ -1,0 +1,416 @@
+<div class="complex-demo">
+  <div class="demo-header">
+    <h2>Complex Card Layouts</h2>
+    <p>
+      Advanced card layouts that combine multiple sections, interactive
+      elements, and rich content for sophisticated user interfaces.
+    </p>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-grid">
+      <!-- Analytics Dashboard Card -->
+      <div class="demo-item">
+        <h3>Analytics Dashboard</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="analytics-header">
+              <div class="header-info">
+                <aava-icon
+                  iconName="trending-up"
+                  [iconSize]="24"
+                  iconColor="#28a745"
+                ></aava-icon>
+                <h4>Revenue Analytics</h4>
+              </div>
+              <div class="header-actions">
+                <aava-button
+                  [iconName]="'refresh-cw'"
+                  [iconSize]="16"
+                  variant="secondary"
+                  size="sm"
+                  (click)="onDashboardAction('Refresh')"
+                >
+                </aava-button>
+                <aava-button
+                  [iconName]="'more-horizontal'"
+                  [iconSize]="16"
+                  variant="secondary"
+                  size="sm"
+                  (click)="onDashboardAction('More')"
+                >
+                </aava-button>
+              </div>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <div class="analytics-content">
+              <div class="metric-large">
+                <span class="metric-value">$47,892</span>
+                <span class="metric-change positive">+12.5%</span>
+              </div>
+              <div class="metrics-grid">
+                <div class="metric">
+                  <span class="metric-label">This Week</span>
+                  <span class="metric-number">$12,450</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Last Week</span>
+                  <span class="metric-number">$11,090</span>
+                </div>
+                <div class="metric">
+                  <span class="metric-label">Growth</span>
+                  <span class="metric-number positive">+12.3%</span>
+                </div>
+              </div>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="analytics-footer">
+              <span class="last-updated">Updated 5 min ago</span>
+              <aava-button
+                label="View Details"
+                variant="primary"
+                size="sm"
+                (click)="onAction('View Analytics')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Product Card -->
+      <div class="demo-item">
+        <h3>E-commerce Product</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="product-header">
+              <div class="product-badges">
+                  <aava-tag type='badge' color="error" size="md" label="Sale"></aava-tag>
+                  <aava-tag type='badge' color="success" size="md" label="Feature"></aava-tag>
+              </div>
+              <aava-button
+                [iconName]="'heart'"
+                [iconSize]="16"
+                variant="secondary"
+                size="sm"
+                (click)="onProductAction('Smartphone Pro', 'Wishlist')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <div class="product-content">
+              <div class="product-image-placeholder">
+                <aava-icon
+                  iconName="smartphone"
+                  [iconSize]="64"
+                  iconColor="#007bff"
+                ></aava-icon>
+              </div>
+              <h4>Smartphone Pro Max</h4>
+              <p>
+                Latest flagship smartphone with advanced camera, all-day
+                battery, and premium design.
+              </p>
+              <div class="product-features">
+                <div class="feature">
+                  <aava-icon
+                    iconName="camera"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>48MP Camera</span>
+                </div>
+                <div class="feature">
+                  <aava-icon
+                    iconName="battery"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>All-day Battery</span>
+                </div>
+                <div class="feature">
+                  <aava-icon
+                    iconName="wifi"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>5G Ready</span>
+                </div>
+              </div>
+              <div class="product-pricing">
+                <span class="original-price">$1,299</span>
+                <span class="sale-price">$999</span>
+                <span class="savings">Save $300</span>
+              </div>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="product-actions">
+              <aava-button
+                label="Add to Cart"
+                variant="primary"
+                size="sm"
+                (click)="onProductAction('Smartphone Pro', 'Add to Cart')"
+              >
+              </aava-button>
+              <aava-button
+                label="Quick View"
+                variant="secondary"
+                size="sm"
+                (click)="onProductAction('Smartphone Pro', 'Quick View')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Team Member Card -->
+      <div class="demo-item">
+        <h3>Team Member Profile</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="team-header">
+              <div class="member-avatar">
+                <aava-icon
+                  iconName="user"
+                  [iconSize]="32"
+                  iconColor="#ffffff"
+                ></aava-icon>
+              </div>
+              <div class="member-info">
+                <h4>Sarah Johnson</h4>
+                <p>Senior Frontend Developer</p>
+              </div>
+              <div class="member-status">
+                <aava-icon
+                  iconName="circle"
+                  [iconSize]="8"
+                  iconColor="#28a745"
+                ></aava-icon>
+                <span>Available</span>
+              </div>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <div class="team-content">
+              <div class="member-stats">
+                <div class="stat">
+                  <span class="stat-number">156</span>
+                  <span class="stat-label">Commits</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number">23</span>
+                  <span class="stat-label">PRs</span>
+                </div>
+                <div class="stat">
+                  <span class="stat-number">4.9</span>
+                  <span class="stat-label">Rating</span>
+                </div>
+              </div>
+              <div class="member-skills">
+                <aava-tag label="React" color="primary"></aava-tag>
+                <aava-tag label="TypeScript" color="info"></aava-tag>
+                <aava-tag label="Node.js" color="success"></aava-tag>
+              </div>
+              <p>
+                Passionate developer with 5+ years experience in modern web
+                technologies. Currently leading the UI/UX initiatives.
+              </p>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="team-actions">
+              <aava-button
+                label="Message"
+                variant="primary"
+                size="sm"
+                [iconName]="'message-circle'"
+                [iconSize]="14"
+                (click)="onAction('Message Sarah')"
+              >
+              </aava-button>
+              <aava-button
+                label="View Profile"
+                variant="secondary"
+                size="sm"
+                (click)="onAction('View Profile')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Project Status Card -->
+      <div class="demo-item">
+        <h3>Project Status</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="project-header">
+              <div class="project-info">
+                <h4>Website Redesign</h4>
+                 <aava-tag type='badge' color="warning" size="md" label="In Progress"></aava-tag>
+              </div>
+              <div class="project-meta">
+                <span class="due-date">Due: Dec 31</span>
+              </div>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <div class="project-content">
+              <div class="progress-section">
+                <div class="progress-header">
+                  <span>Overall Progress</span>
+                  <span class="progress-percent">73%</span>
+                </div>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 73%"></div>
+                </div>
+              </div>
+              <div class="project-phases">
+                <div class="phase completed">
+                  <aava-icon
+                    iconName="check-circle"
+                    [iconSize]="16"
+                    iconColor="#28a745"
+                  ></aava-icon>
+                  <span>Research & Planning</span>
+                </div>
+                <div class="phase completed">
+                  <aava-icon
+                    iconName="check-circle"
+                    [iconSize]="16"
+                    iconColor="#28a745"
+                  ></aava-icon>
+                  <span>Design Mockups</span>
+                </div>
+                <div class="phase active">
+                  <aava-icon
+                    iconName="clock"
+                    [iconSize]="16"
+                    iconColor="#ffc107"
+                  ></aava-icon>
+                  <span>Development</span>
+                </div>
+                <div class="phase">
+                  <aava-icon
+                    iconName="circle"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Testing & QA</span>
+                </div>
+              </div>
+              <div class="team-avatars">
+                <span class="team-label">Team:</span>
+                <div class="avatars">
+                  <div class="avatar">
+                    <aava-icon
+                      iconName="user"
+                      [iconSize]="16"
+                      iconColor="#ffffff"
+                    ></aava-icon>
+                  </div>
+                  <div class="avatar">
+                    <aava-icon
+                      iconName="user"
+                      [iconSize]="16"
+                      iconColor="#ffffff"
+                    ></aava-icon>
+                  </div>
+                  <div class="avatar">
+                    <aava-icon
+                      iconName="user"
+                      [iconSize]="16"
+                      iconColor="#ffffff"
+                    ></aava-icon>
+                  </div>
+                  <div class="avatar-count">+2</div>
+                </div>
+              </div>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="project-footer">
+              <div class="project-stats">
+                <div class="stat-small">
+                  <aava-icon
+                    iconName="calendar"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>15 days left</span>
+                </div>
+                <div class="stat-small">
+                  <aava-icon
+                    iconName="users"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>5 members</span>
+                </div>
+              </div>
+              <aava-button
+                label="View Project"
+                variant="primary"
+                size="sm"
+                (click)="onAction('View Project')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h3>Complex Layout Features</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <aava-icon
+          iconName="layers"
+          [iconSize]="24"
+          iconColor="#007bff"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Multi-Section Layout:</strong> Combine headers, content, and
+          footers with rich interactions
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon
+          iconName="chart-bar"
+          [iconSize]="24"
+          iconColor="#28a745"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Data Visualization:</strong> Display metrics, progress bars,
+          and statistical information
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon
+          iconName="users"
+          [iconSize]="24"
+          iconColor="#ffc107"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Rich Content:</strong> Include avatars, badges, tags, and
+          interactive elements
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon iconName="zap" [iconSize]="24" iconColor="#17a2b8"></aava-icon>
+        <div class="feature-content">
+          <strong>Action Integration:</strong> Multiple action buttons and
+          interactive workflows
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

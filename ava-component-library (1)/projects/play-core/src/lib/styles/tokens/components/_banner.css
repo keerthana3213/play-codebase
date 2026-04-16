@@ -1,0 +1,114 @@
+/**
+ * =================================================
+ * Banner Design Tokens (rem units)
+ * =================================================
+ */
+:root {
+    --banner-title: var(--font-heading-h3);
+    --banner-title-color: var(--color-text-primary);
+    --banner-desktop-min-height: 26.875rem;
+    /* 430px */
+    --banner-box-desktop-border-radius: 1rem;
+    /* 16px */
+    --banner-container-desktop-padding: 0.9375rem 1.0625rem 0.75rem 0.9375rem;
+    /* 15px 17px 12px 15px */
+    --banner-desktop-top: 2.5rem;
+    /* 40px */
+    --banner-desktop-left: 2.5rem;
+    /* 40px */
+    --banner-desktop-width: 47.875rem;
+    /* 766px */
+    --banner-tablet-min-height: 38.625rem;
+    /* 618px */
+    --banner-text-tablet-top: 3.3125rem;
+    /* 53px */
+    --banner-text-tablet-left: 2.9375rem;
+    /* 47px */
+    --banner-text-tablet-width: 35rem;
+    /* 560px */
+    --banner-text-tablet-height: auto;
+    --banner-mobile-min-height: 47.125rem;
+    /* 754px */
+    --banner-mobile-top: 2.1875rem;
+    /* 35px */
+    --banner-mobile-left: 1.5rem;
+    /* 24px */
+
+    /* Row Container */
+    --row-container-gap: 1rem;
+    /* 16px */
+    --row-container-padding: 1.25rem 2.75rem;
+    /* 20px 44px */
+    --row-container-mobile-padding: 1.25rem 0 0 1.25rem;
+    /* 20px 0 0 20px */
+    --row-container-border-radius: 0.375rem;
+    /* 6px */
+    --row-container-min-height: 5.5rem;
+    /* 88px */
+    --row-container-width: 100%;
+
+    /* Row Logo */
+    --row-logo-img-height: 2.5625rem;
+    /* 41px */
+    --row-logo-img-width: auto;
+    --row-logo-img-tablet-height: 2.25rem;
+    /* 36px */
+
+    /* Row Text */
+    --row-text-font-size: var(--global-font-size-xs);
+    --row-text-padding-left: 0.75rem;
+    /* 12px */
+    --row-text-padding-tablet: 0.625rem;
+    /* 10px */
+    --row-text-padding-mobile: 0.5rem;
+    /* 8px */
+
+    /* Row Actions */
+    --row-actions-gap-desktop: 2.5rem;
+    /* 40px */
+    --row-actions-gap-tablet: 0.5rem;
+    /* 8px */
+    --row-actions-gap-mobile: 0.25rem;
+    /* 4px */
+    --row-actions-padding-desktop: 1.875rem;
+    /* 30px */
+    --row-actions-padding-mobile: 0rem;
+    /* 0px */
+
+    /* Close Button */
+    --row-close-btn-margin-desktop: 0.5rem;
+    /* 8px */
+    --row-close-btn-margin-mobile: 0.375rem;
+    /* 6px */
+
+    /* Text container */
+    --row-text-conatiner-opacity: 0.9;
+    --banner-row-text-conatiner-gap: 0.625rem;
+    /* 10px */
+
+    /* Description */
+    --banner-row-desc-font-size: var(--global-font-size-md);
+    --banner-row-desc-line-height: 1.25rem;
+    /* 20px */
+    --banner-row-desc-font-weight: var(--global-font-weight-regular);
+
+    /* Font */
+    --banner-font-family: var(--global-font-family-body);
+
+    /* Mobile Logo */
+    --banner-row-variant-img-height: 1.25rem;
+    /* 20px */
+
+    /* Actions gap */
+    --banner-actions-gap-desktop: 2.5rem;
+    /* 40px */
+    --banner-actions-gap-tablet: 1.5rem;
+    /* 24px */
+    --banner-actions-gap-mobile: 0.5rem;
+    /* 8px */
+
+    /* Background */
+    --row-banner-background: var(--color-background-primary);
+
+    --row-banner-darktheme-background: var(--global-color-gray-900);
+}

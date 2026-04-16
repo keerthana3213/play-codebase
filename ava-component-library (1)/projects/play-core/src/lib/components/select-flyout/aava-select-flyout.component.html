@@ -1,0 +1,198 @@
+<div class="aava-select-flyout" [ngClass]="size" [class.disabled]="disabled" [attr.id]="id ? 'aava-select-flyout-' + id : null">
+  <!-- Label -->
+  <label
+    *ngIf="label"
+    [for]="id"
+    class="aava-select__label"
+    [class.aava-select__label--required]="required"
+  >
+    {{ label }}
+    <span *ngIf="required" class="aava-select__required">*</span>
+  </label>
+  <!-- Select Trigger -->
+  <div
+    #selectTrigger
+    class="aava-select-container"
+    [class.xs]="size === 'xs'"
+    [class.sm]="size === 'sm'"
+    [class.md]="size === 'md'"
+    [class.lg]="size === 'lg'"
+    [class.has-value]="hasValue"
+    [class.aava-select--error]="error || requiredError"
+    [class.disabled]="disabled"
+    [class.open]="isOpen"
+    [ngStyle]="customStyles.trigger"
+    (click)="toggleFlyout()"
+    (keydown.enter)="toggleFlyout()"
+    (keydown.space)="toggleFlyout()"
+    tabindex="0"
+    role="combobox"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-haspopup]="true"
+    [attr.aria-label]="placeholder"
+    [attr.aria-controls]="id + '-flyout'"
+  >
+    <!-- Selected Value or Placeholder -->
+    <div class="aava-select">
+      <aava-icon
+        *ngIf="selectedOption?.icon"
+        [iconName]="selectedOption!.icon || ''"
+        class="option-icon"
+      ></aava-icon>
+      <div
+        class="aava-select-placeholder"
+        [class.disabled]="disabled"
+        [class.has-value]="hasValue"
+        [class]="size"
+      >
+        {{ displayValue }}
+      </div>
+    </div>
+
+    <!-- Clear Button -->
+    <button
+      *ngIf="clearable && hasValue && !disabled"
+      class="clear-button"
+      (click)="clearSelection(); $event.stopPropagation()"
+      type="button"
+      aria-label="Clear selection"
+    >
+      <aava-icon iconName="X" [iconSize]="16"></aava-icon>
+    </button>
+
+    <!-- Dropdown Icon -->
+    <div class="aava-select-arrow">
+      <aava-icon
+        [iconName]="dropdownIcon"
+        [iconSize]="getIconSize"
+        [style.transform]="isOpen ? 'rotate(180deg)' : 'rotate(0deg)'"
+      ></aava-icon>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="error" class="aava-select__error" role="alert" aria-live="polite">
+    <aava-icon
+      iconName="alert-circle"
+      [iconSize]="16"
+      class="aava-select__error-icon"
+      [cursor]="false"
+      [disabled]="false"
+      [iconColor]="'red'"
+    ></aava-icon>
+    <span class="aava-select__error-text">{{ error }}</span>
+  </div>
+
+  <!-- Flyout with Options -->
+  <aava-flyout #flyout (close)="onFlyoutClose()">
+    <div class="flyout-content" [ngStyle]="customStyles.flyout">
+      <!-- Search Input -->
+      <div *ngIf="searchable" class="search-container">
+        <aava-icon
+          [iconName]="'search'"
+          [iconSize]="getIconSize"
+          class="search-icon"
+          iconColor="black"
+        ></aava-icon>
+        <input
+          type="text"
+          [placeholder]="searchPlaceholder"
+          [(ngModel)]="searchTerm"
+          class="search-input"
+          (click)="$event.stopPropagation()"
+        />
+      </div>
+
+      <!-- Options List -->
+      <div class="options-container">
+        <ng-container
+          *ngTemplateOutlet="
+            optionsTemplate;
+            context: { $implicit: filteredOptions, level: 0 }
+          "
+        >
+        </ng-container>
+
+        <!-- No Options Message -->
+        <div *ngIf="filteredOptions.length === 0" class="no-options">
+          <span *ngIf="searchTerm">No options match "{{ searchTerm }}"</span>
+          <span *ngIf="!searchTerm">No options available</span>
+        </div>
+      </div>
+    </div>
+  </aava-flyout>
+</div>
+
+<!-- Recursive Template for N-level Options -->
+<ng-template #optionsTemplate let-options let-level="level">
+  <div
+    *ngFor="let option of options; trackBy: trackByValue"
+    class="option-group"
+  >
+    <!-- Option Item -->
+    <div
+      class="option-item"
+      [class.disabled]="option.disabled"
+      [class.selected]="selectedOption?.value === option.value"
+      [class.parent-option]="hasChildren(option)"
+      [class.xs]="size === 'xs'"
+      [class.sm]="size === 'sm'"
+      [class.md]="size === 'md'"
+      [class.lg]="size === 'lg'"
+      [ngStyle]="
+        hasChildren(option) ? customStyles.parentOption : customStyles.option
+      "
+      [style.padding-left]="level > 0 ? level * 16 + 'px' : null"
+      (click)="selectOption(option)"
+      (keydown.enter)="selectOption(option)"
+      (keydown.space)="selectOption(option)"
+      tabindex="0"
+      role="option"
+      [attr.aria-selected]="selectedOption?.value === option.value"
+    >
+      <!-- Option Icon -->
+      <aava-icon
+        *ngIf="option.icon"
+        [iconName]="option.icon"
+        class="option-icon"
+      ></aava-icon>
+
+      <!-- Option Content -->
+      <div class="option-content">
+        <div class="option-label">
+          {{ option[displayField] || option.label }}
+        </div>
+      </div>
+
+      <!-- Expand/Collapse Chevron for Parent Options -->
+      <div
+        *ngIf="hasChildren(option)"
+        class="expand-chevron"
+        (click)="toggleCategory(option.value, $event)"
+        (keydown.enter)="toggleCategory(option.value, $event)"
+        (keydown.space)="toggleCategory(option.value, $event)"
+        tabindex="0"
+        role="button"
+        [attr.aria-expanded]="isCategoryExpanded(option.value)"
+        aria-label="Toggle category expansion"
+      >
+        <span class="chevron-icon">▶</span>
+      </div>
+    </div>
+
+    <!-- Recursive Children -->
+    <div
+      *ngIf="hasChildren(option)"
+      class="children-container"
+      [style.display]="isCategoryExpanded(option.value) ? 'block' : 'none'"
+    >
+      <ng-container
+        *ngTemplateOutlet="
+          optionsTemplate;
+          context: { $implicit: option.children, level: level + 1 }
+        "
+      >
+      </ng-container>
+    </div>
+  </div>
+</ng-template>

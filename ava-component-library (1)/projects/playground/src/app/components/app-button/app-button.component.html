@@ -1,0 +1,716 @@
+<div class="button-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Button Component</h1>
+            <p class="description">
+              A versatile button component that supports multiple variants,
+              states, sizes, icons, and loading states. Built with accessibility
+              and user experience in mind.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/button/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/button/variants" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Variants</span>
+              </a>
+              <a routerLink="/button/sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="/button/glass" class="nav-link">
+                <span class="nav-icon">🔮</span>
+                <span class="nav-text">Glass System</span>
+              </a>
+              <a routerLink="/button/hover-effects" class="nav-link">
+                <span class="nav-icon">✨</span>
+                <span class="nav-text">Hover Effects</span>
+              </a>
+              <a routerLink="/button/pressed-effects" class="nav-link">
+                <span class="nav-icon">👆</span>
+                <span class="nav-text">Pressed Effects</span>
+              </a>
+              <a routerLink="/button/icons" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Icons</span>
+              </a>
+              <a routerLink="/button/states" class="nav-link">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">States</span>
+              </a>
+              <a routerLink="/button/shapes" class="nav-link">
+                <span class="nav-icon">🔷</span>
+                <span class="nav-text">Shapes</span>
+              </a>
+              <a routerLink="/button/events" class="nav-link">
+                <span class="nav-icon">🔍</span>
+                <span class="nav-text">Events</span>
+              </a>
+              <a routerLink="/button/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+              <a routerLink="/button/matrix" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Complete Matrix</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Button Variants -->
+    <section class="demo-section variants-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Button Variants</h2>
+          <p>Complete collection of button variants</p>
+        </div>
+        <div class="demo-content">
+          <!-- Pill buttons (default style) -->
+          <div class="row g-3 mb-4">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                Pill Buttons (Default Style)
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Primary Glass"
+                variant="primary"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Secondary"
+                variant="secondary"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Success"
+                variant="success"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Warning"
+                variant="warning"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Danger"
+                variant="danger"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Info"
+                variant="info"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+          </div>
+
+          <!-- Pill buttons (SVG icon left/right) -->
+          <div class="row g-3 mb-4">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                Pill Buttons with SVG Icons (Left & Right)
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Download"
+                variant="primary"
+                [pill]="true"
+                iconPosition="left"
+              >
+                <span slot="icon-left" class="button-icon">
+                  <img
+                    src="assets/download.svg"
+                    alt="Download"
+                    width="20"
+                    height="20"
+                    style="display: inline-block; vertical-align: middle"
+                  />
+                </span>
+              </aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Upload"
+                variant="primary"
+                [pill]="true"
+                iconPosition="right"
+              >
+                <span slot="icon-right" class="button-icon">
+                  <img
+                    src="assets/upload.svg"
+                    alt="Upload"
+                    width="20"
+                    height="20"
+                    style="display: inline-block; vertical-align: middle"
+                  />
+                </span>
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Rectangular buttons (variant style) -->
+          <div class="row g-3">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                Rectangular Buttons (Variant Style)
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Primary"
+                variant="primary"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Secondary"
+                variant="secondary"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Success"
+                variant="success"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Warning"
+                variant="warning"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Danger"
+                variant="danger"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Info"
+                variant="info"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+          </div>
+
+          <!-- NEW: Outlined buttons demonstration -->
+          <div class="row g-3 mt-4">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                🆕 Outlined Buttons (All Variants) - Icons Auto-Match Text Color
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Primary"
+                variant="primary"
+                [outlined]="true"
+                [pill]="true"
+                iconName="star"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Success"
+                variant="success"
+                [outlined]="true"
+                [pill]="true"
+                iconName="check"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Warning"
+                variant="warning"
+                [outlined]="true"
+                [pill]="true"
+                iconName="alert-triangle"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Danger"
+                variant="danger"
+                [outlined]="true"
+                [pill]="true"
+                iconName="trash-2"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Info"
+                variant="info"
+                [outlined]="true"
+                [pill]="true"
+                iconName="info"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+          </div>
+
+          <!-- NEW: Clear buttons demonstration -->
+          <div class="row g-3 mt-4">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                🆕 Clear Buttons (All Variants) - Transparent Background, No
+                Border
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Primary"
+                variant="primary"
+                [clear]="true"
+                [pill]="true"
+                iconName="star"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Success"
+                variant="success"
+                [clear]="true"
+                [pill]="true"
+                iconName="check"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Warning"
+                variant="warning"
+                [clear]="true"
+                [pill]="true"
+                iconName="alert-triangle"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Danger"
+                variant="danger"
+                [clear]="true"
+                [pill]="true"
+                iconName="trash-2"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Info"
+                variant="info"
+                [clear]="true"
+                [pill]="true"
+                iconName="info"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+                pressedEffect="ripple"
+              ></aava-button>
+            </div>
+          </div>
+
+          <!-- NEW: Three-way comparison showing all fill types -->
+          <div class="row g-3 mt-4">
+            <div class="col-12">
+              <h4 style="color: #1e293b; margin-bottom: 1rem">
+                📍 Fill Comparison: Filled vs Outlined vs Clear
+              </h4>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Filled Primary"
+                variant="primary"
+                [pill]="true"
+                iconName="star"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Outlined Primary"
+                variant="primary"
+                [outlined]="true"
+                [pill]="true"
+                iconName="star"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Clear Primary"
+                variant="primary"
+                [clear]="true"
+                [pill]="true"
+                iconName="star"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Glass Intensity Variants -->
+    <section class="demo-section glass-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Glass Intensity Variants</h2>
+          <p>Different levels of glass morphism effects</p>
+        </div>
+        <div class="demo-content">
+          <div class="glass-demo-background">
+            <div class="row g-3">
+              <div class="col-12 col-sm-auto">
+                <aava-button
+                  label="Glass 50 (Medium)"
+                  glassVariant="glass-50"
+                  [pill]="true"
+                  (userClick)="onButtonClick($event)"
+                ></aava-button>
+              </div>
+              <div class="col-12 col-sm-auto">
+                <aava-button
+                  label="Glass 75 (Strong)"
+                  glassVariant="glass-75"
+                  [pill]="true"
+                  (userClick)="onButtonClick($event)"
+                ></aava-button>
+              </div>
+              <div class="col-12 col-sm-auto">
+                <aava-button
+                  label="Glass 100 (Max)"
+                  glassVariant="glass-100"
+                  [pill]="true"
+                  (userClick)="onButtonClick($event)"
+                ></aava-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interaction States -->
+    <section class="demo-section states-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Interaction States</h2>
+          <p>Different states for user feedback</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Default State"
+                variant="primary"
+                size="md"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Processing State"
+                variant="primary"
+                [processing]="true"
+                size="md"
+                [pill]="true"
+                iconName="loader"
+                iconColor="white"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Disabled State"
+                variant="primary"
+                [disabled]="true"
+                size="md"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Success Processing"
+                variant="success"
+                [processing]="true"
+                size="md"
+                [pill]="true"
+                iconName="check"
+                iconColor="white"
+                iconPosition="left"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Button Sizes -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Button Sizes</h2>
+          <p>Small, medium, and large button sizes</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Small Glass Button"
+                variant="primary"
+                size="sm"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Medium Glass Button"
+                variant="warning"
+                size="md"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Large Glass Button"
+                variant="success"
+                size="lg"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Hover Effects -->
+    <section class="demo-section hover-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Hover Effects</h2>
+          <p>Interactive hover animations and feedback</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Torch (Recommended)"
+                variant="primary"
+                hoverEffect="torch"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Glow Effect"
+                variant="warning"
+                hoverEffect="glow"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Tint Effect"
+                variant="success"
+                hoverEffect="tint"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Scale Effect"
+                variant="danger"
+                hoverEffect="scale"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pressed Effects -->
+    <section class="demo-section pressed-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Pressed Effects</h2>
+          <p>Click feedback animations and states</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Ripple (Recommended)"
+                variant="primary"
+                pressedEffect="ripple"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Inset Effect"
+                variant="warning"
+                pressedEffect="inset"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <!-- <div class="col-12 col-sm-auto">
+              <aava-button
+                label="Solid Effect"
+                variant="danger"
+                pressedEffect="solid"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Shape Modifiers -->
+    <section class="demo-section shapes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Shape Modifiers</h2>
+          <p>Icon-only buttons and special shapes</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                variant="success"
+                iconName="heart"
+                iconColor="white"
+                iconPosition="only"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                variant="danger"
+                iconName="x"
+                iconColor="white"
+                iconPosition="only"
+                size="sm"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-button
+                variant="info"
+                iconName="info"
+                iconColor="white"
+                iconPosition="only"
+                [pill]="true"
+                (userClick)="onButtonClick($event)"
+              ></aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

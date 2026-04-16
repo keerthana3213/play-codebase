@@ -1,0 +1,41 @@
+<div class="t-container">
+  <div>
+    <aava-radio-button [options]="small_dot" name="small_radio_buttons1" size="sm"
+      [selectedValue]="selectedValues['small_dot']"
+      (selectedValueChange)="onRadioChange('small_dot', $event)"></aava-radio-button>
+  </div>
+  <div>
+    <aava-radio-button [options]="medium_dot" name="medium_radio_buttons1"
+      [selectedValue]="selectedValues['medium_dot']" size="md"
+      (selectedValueChange)="onRadioChange('medium_dot', $event)"></aava-radio-button>
+  </div>
+  <div>
+    <aava-radio-button [options]="large_dot" name="large_radio_buttons1" [selectedValue]="selectedValues['large_dot']"
+      size="lg" (selectedValueChange)="onRadioChange('large_dot', $event)"></aava-radio-button>
+  </div>
+
+</div>
+<div class="t-container">
+  <div>
+    <aava-radio-button [options]="disabled" name="basic_radio_button" size="sm" orientation="vertical"
+      [selectedValue]="selectedValues['disabled']"
+      (selectedValueChange)="onRadioChange('disabled', $event)"></aava-radio-button>
+  </div>
+  <div>
+    <aava-radio-button [options]="disabled" name="basic_radio_button" size="md" orientation="vertical"
+      [selectedValue]="selectedValues['disabled']"
+      (selectedValueChange)="onRadioChange('disabled', $event)"></aava-radio-button>
+  </div>
+  <div>
+    <aava-radio-button [options]="disabled" name="basic_radio_button" size="lg" orientation="vertical"
+      [selectedValue]="selectedValues['disabled']"
+      (selectedValueChange)="onRadioChange('disabled', $event)"></aava-radio-button>
+  </div>
+</div>
+<div class="t-container">
+  <div>
+    <aava-radio-button [options]="no_label" name="no_label_radio" size="md"
+      [selectedValue]="selectedValues['no_label']"
+      (selectedValueChange)="onRadioChange('no_label', $event)"></aava-radio-button>
+  </div>
+</div>

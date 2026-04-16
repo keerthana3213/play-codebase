@@ -1,0 +1,170 @@
+<!-- <h2>Search Fields</h2>
+<section class="comp-container">
+<awe-search-fields 
+  [suggestions]="suggestions" 
+  (suggestionSelected)="onSuggestionSelected($event)">
+</awe-search-fields>
+</section> -->
+
+<!-- <awe-search-fields 
+  [placeholder]="'Search'" 
+  (search)="handleSearch($event)">
+</awe-search-fields> -->
+
+
+<!-- <div class="search_bar">
+<awe-search-fields 
+  [placeholder]="'Search'" 
+  (search)="handleSearch($event)">
+</awe-search-fields>
+</div> -->
+
+
+
+<!-- <div class="search-demo-container">
+  <awe-search-fields 
+    [placeholder]="'Search...'" 
+    (search)="handleSearch($event)">
+  </awe-search-fields>
+
+  <div class="results">
+    <div class="result-item" *ngFor="let item of filteredItems">
+      {{ item }}
+    </div>
+  </div>
+</div>
+
+<div>
+  <awe-search-fields 
+  [placeholder]="'Search...'" 
+  (search)="handleSearch($event)">
+</awe-search-fields>
+</div>
+ -->
+
+ <div class="documentation container">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Search Component</h1>
+        <p class="description">
+          A versatile search component that allows users to filter items based on a search query. Built with accessibility and user experience in mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Installation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} SearchFieldsComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section
+      *ngFor="let section of sections; let i = index"
+      class="doc-section"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Basic Usage'">
+  
+              <div class="search-demo-container">
+                <awe-search-fields
+                  [placeholder]="'Search...'"
+                  (search)="handleSearch($event)">
+                </awe-search-fields>
+                <div class="results">
+                  <div class="result-item" *ngFor="let item of filteredItems">
+                    {{ item }}
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+        
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy"></awe-icons>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section api-reference">
+        <h2>API Reference</h2>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prop of apiProps">
+              <td><code>{{ prop.name }}</code></td>
+              <td><code>{{ prop.type }}</code></td>
+              <td><code>{{ prop.default }}</code></td>
+              <td>{{ prop.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section class="doc-section">
+        <h2>Events</h2>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let event of events">
+              <td><code>{{ event.name }}</code></td>
+              <td><code>{{ event.type }}</code></td>
+              <td>{{ event.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+</div>

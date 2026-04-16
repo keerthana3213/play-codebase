@@ -1,0 +1,172 @@
+<div
+  class="slider-container"
+  [class.disabled]="disabled"
+  [class.dragging]="isDragging"
+  [class]="'slider-' + size"
+  [class.slider-input-type]="type === 'input'"
+  [attr.id]="componentId"
+  [ngStyle]="customStyles">
+  <div class="slider-wrapper">
+    <div
+      class="slider"
+      #sliderTrack
+      (mousedown)="onTrackClick($event)"
+      [attr.aria-label]="computedAriaLabel"
+      [attr.aria-labelledby]="ariaLabelledby || null"
+      [attr.aria-describedby]="ariaDescribedby || null">
+      <!-- Icon at start -->
+      <aava-icon
+        *ngIf="iconStart"
+        [disabled]="disabled"
+        [cursorName]="disabled ? 'not-allowed' : ''"
+        [iconName]="iconStart"
+        [ariaHidden]="true"
+        class="slider-icon slider-icon--start">
+      </aava-icon>
+
+      <!-- Fill bar -->
+      <div
+        class="slider-fill"
+        [style.left.%]="multiRange ? minPercentage : 0"
+        [style.width.%]="multiRange ? maxPercentage - minPercentage : percentage">
+      </div>
+
+      <!-- Single or Multi Handles -->
+      <ng-container *ngIf="!multiRange">
+        <div
+          class="slider-handle"
+          [style.left.%]="percentage"
+          [class.hover]="isHovered"
+          [class.dragging]="isDragging"
+          [attr.tabindex]="disabled ? '-1' : '0'"
+          role="slider"
+          [attr.aria-valuemin]="min"
+          [attr.aria-valuemax]="max"
+          [attr.aria-valuenow]="value"
+          [attr.aria-valuetext]="getComputedAriaValuetext(value)"
+          [attr.aria-disabled]="disabled || null"
+          (mousedown)="startDrag($event)"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+          (keydown)="onKeyDown($event)">
+          <div *ngIf="!disabled" class="handle-ring"></div>
+          <ng-container *ngIf="!handleIcon">
+            <div class="handle-core"></div>
+          </ng-container>
+          <aava-icon
+            *ngIf="handleIcon"
+            [disabled]="disabled"
+            [cursorName]="disabled ? 'not-allowed' : ''"
+            [iconName]="handleIcon"
+            [ariaHidden]="true"
+            class="slider-handle-icon">
+          </aava-icon>
+          <div class="slider-tooltip" *ngIf="showTooltip && type === 'default'">
+            {{ formatTooltip(value) }}
+          </div>
+        </div>
+      </ng-container>
+      <ng-container *ngIf="multiRange">
+        <!-- Min handle -->
+        <div
+          class="slider-handle"
+          [style.left.%]="minPercentage"
+          [class.hover]="isHovered && draggingHandle === 'min'"
+          [class.dragging]="isDragging && draggingHandle === 'min'"
+          [attr.tabindex]="disabled ? '-1' : '0'"
+          role="slider"
+          [attr.aria-valuemin]="min"
+          [attr.aria-valuemax]="maxValue - step"
+          [attr.aria-valuenow]="minValue"
+          [attr.aria-valuetext]="getComputedAriaValuetext(minValue)"
+          [attr.aria-disabled]="disabled || null"
+          [attr.aria-label]="ariaLabel ? ariaLabel + ' minimum' : 'Range minimum'"
+          (mousedown)="startDrag($event, 'min')"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+          (focus)="onMinHandleFocus()"
+          (blur)="onMinHandleBlur()"
+          (keydown)="onKeyDown($event, 'min')">
+          <div *ngIf="!disabled" class="handle-ring"></div>
+          <ng-container *ngIf="!handleIconStart">
+            <div class="handle-core"></div>
+          </ng-container>
+          <aava-icon
+            *ngIf="handleIconStart"
+            [disabled]="disabled"
+            [cursorName]="disabled ? 'not-allowed' : ''"
+            [iconName]="handleIconStart"
+            [ariaHidden]="true"
+            class="slider-handle-icon">
+          </aava-icon>
+          <div class="slider-tooltip" *ngIf="showTooltip && type === 'default'">
+            {{ formatTooltip(minValue) }}
+          </div>
+        </div>
+        <!-- Max handle -->
+        <div
+          class="slider-handle"
+          [style.left.%]="maxPercentage"
+          [class.hover]="isHovered && draggingHandle === 'max'"
+          [class.dragging]="isDragging && draggingHandle === 'max'"
+          [attr.tabindex]="disabled ? '-1' : '0'"
+          role="slider"
+          [attr.aria-valuemin]="minValue + step"
+          [attr.aria-valuemax]="max"
+          [attr.aria-valuenow]="maxValue"
+          [attr.aria-valuetext]="getComputedAriaValuetext(maxValue)"
+          [attr.aria-disabled]="disabled || null"
+          [attr.aria-label]="ariaLabel ? ariaLabel + ' maximum' : 'Range maximum'"
+          (mousedown)="startDrag($event, 'max')"
+          (mouseenter)="isHovered = true"
+          (mouseleave)="isHovered = false"
+          (focus)="onMaxHandleFocus()"
+          (blur)="onMaxHandleBlur()"
+          (keydown)="onKeyDown($event, 'max')">
+          <div *ngIf="!disabled" class="handle-ring"></div>
+          <ng-container *ngIf="!handleIconEnd">
+            <div class="handle-core"></div>
+          </ng-container>
+          <aava-icon
+            *ngIf="handleIconEnd"
+            [disabled]="disabled"
+            [cursorName]="disabled ? 'not-allowed' : ''"
+            [iconName]="handleIconEnd"
+            [ariaHidden]="true"
+            class="slider-handle-icon">
+          </aava-icon>
+          <div class="slider-tooltip" *ngIf="showTooltip && type === 'default'">
+            {{ formatTooltip(maxValue) }}
+          </div>
+        </div>
+      </ng-container>
+
+      <!-- Icon at end -->
+      <aava-icon
+        *ngIf="iconEnd"
+        [disabled]="disabled"
+        [cursorName]="disabled ? 'not-allowed' : ''"
+        [iconName]="iconEnd"
+        [ariaHidden]="true"
+        class="slider-icon slider-icon--end">
+      </aava-icon>
+    </div>
+  </div>
+
+  <!-- Input box for input type -->
+  <div class="slider-input-container" *ngIf="type === 'input'">
+    <input
+      [disabled]="disabled"
+      type="number"
+      class="slider-input"
+      [value]="value"
+      (input)="onInputChange($event)"
+      (blur)="onTouched()"
+      [min]="min"
+      [max]="max"
+      [step]="step"
+      [attr.aria-label]="computedAriaLabel"
+      [attr.aria-labelledby]="ariaLabelledby || null"
+      [attr.aria-describedby]="ariaDescribedby || null" />
+  </div>
+</div>

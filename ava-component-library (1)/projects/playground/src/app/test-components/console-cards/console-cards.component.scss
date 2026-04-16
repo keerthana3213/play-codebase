@@ -1,0 +1,128 @@
+// Console Cards Demo Styles
+
+.console-cards-demo {
+    padding: 24px;
+    background-color: skyblue;
+
+    h1 {
+        color: var(--Colors-Text-primary, #3B3F46);
+        font-family: Mulish;
+        font-size: 24px;
+        font-weight: 700;
+        margin-bottom: 24px;
+    }
+}
+
+.cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 24px;
+
+    aava-default-card {
+        min-height: 200px;
+    }
+}
+
+// Stats Cards Grid
+.stats-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    /* Firefox */
+    -ms-overflow-style: none;
+    /* Internet Explorer 10+ */
+}
+
+.stats-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Submission Cards Grid
+.submission-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.submission-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Summary Cards Grid
+.summary-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.summary-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Review Cards Grid
+.review-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.review-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Request Cards Grid
+.request-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.request-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Execution Cards Grid
+.execution-cards-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 16px 0;
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.execution-cards-grid::-webkit-scrollbar {
+    display: none;
+}
+
+// Empty State
+.empty-state {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    color: #616874;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: center;
+}

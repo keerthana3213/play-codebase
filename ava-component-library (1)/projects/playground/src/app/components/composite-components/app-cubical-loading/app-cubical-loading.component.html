@@ -1,0 +1,105 @@
+<div class="demo-container">
+  <h1>Carousel Component Demo</h1>
+  <div class="demo-header">
+    <h1>Cubical Loading Component</h1>
+    <p>A 3D animated cube loader with spinning and exploding effects</p>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/cubical-loading/basic" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/cubical-loading/solid" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Solid Colours</span>
+              </a>
+              <a routerLink="/cubical-loading/gradient" class="nav-link">
+                <span class="nav-icon">🌈</span>
+                <span class="nav-text">Gradient Backgrounds</span>
+              </a>
+              <a routerLink="/cubical-loading/custom" class="nav-link">
+                <span class="nav-icon"> 🧪</span>
+                <span class="nav-text">Custom Hex Colors</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>Basic Usage (Default Black)</h2>
+    <div class="demo-content">
+      <aava-cubical-loading></aava-cubical-loading>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>Solid Colors</h2>
+    <div class="demo-content multiple-loaders">
+      <div class="loader-demo">
+        <h4>Blue</h4>
+        <aava-cubical-loading background="blue"></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>Red</h4>
+        <aava-cubical-loading background="red"></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>Green</h4>
+        <aava-cubical-loading background="green"></aava-cubical-loading>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>Gradient Backgrounds</h2>
+    <div class="demo-content multiple-loaders">
+      <div class="loader-demo">
+        <h4>Purple Gradient</h4>
+        <aava-cubical-loading
+          background="linear-gradient(45deg, #667eea 0%, #764ba2 100%)"
+        ></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>Orange Gradient</h4>
+        <aava-cubical-loading
+          background="linear-gradient(45deg, #f093fb 0%, #f5576c 100%)"
+        ></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>Blue Gradient</h4>
+        <aava-cubical-loading
+          background="linear-gradient(45deg, #4facfe 0%, #00f2fe 100%)"
+        ></aava-cubical-loading>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h2>Custom Hex Colors</h2>
+    <div class="demo-content multiple-loaders">
+      <div class="loader-demo">
+        <h4>#FF6B6B</h4>
+        <aava-cubical-loading background="#FF6B6B"></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>#4ECDC4</h4>
+        <aava-cubical-loading background="#4ECDC4"></aava-cubical-loading>
+      </div>
+      <div class="loader-demo">
+        <h4>#45B7D1</h4>
+        <aava-cubical-loading background="#45B7D1"></aava-cubical-loading>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,105 @@
+<div
+  class="ava-stepper"
+  [attr.id]="stepperId"
+  [ngClass]="[orientation, size]"
+  [ngStyle]="customStyles"
+  role="group"
+  [attr.aria-label]="ariaLabel || null"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null">
+  <div class="step-wrapper" *ngFor="let step of steps; let i = index">
+    <div class="step-circle-wrapper">
+      <div
+        class="step-circle"
+        [attr.id]="getStepId(i)"
+        [ngClass]="{
+          active: i === visualCurrentStep,
+          completed: i < visualCurrentStep,
+          incomplete: i > visualCurrentStep,
+          disabled: isDisabled(i),
+          'animating-forward': isAnimating && animationDirection === 'forward' && i === currentAnimatingStep,
+          'animating-backward': isAnimating && animationDirection === 'backward' && i === currentAnimatingStep
+        }"
+        (click)="goToStep(i)"
+        [attr.tabindex]="interactive && !isDisabled(i) ? 0 : -1"
+        (keydown)="onKeyDown($event, i)"
+        role="button"
+        [attr.aria-label]="'Go to step ' + (i + 1) + ': ' + getStepLabel(step)"
+        [attr.aria-current]="i === visualCurrentStep ? 'step' : null"
+        [attr.aria-disabled]="isDisabled(i) || !interactive ? 'true' : null"
+        [attr.aria-posinset]="i + 1"
+        [attr.aria-setsize]="steps.length">
+        <!-- Icon variant: always show icon if provided (no checkmark overlay) -->
+        <ng-container *ngIf="stepVariant === 'icon' && getStepIcon(step)">
+          <aava-icon
+            [iconName]="getStepIcon(step) || ''"
+            [iconColor]="i <= visualCurrentStep ? iconColor : '#d1d5db'"
+            [iconSize]="iconSize"
+            [ariaHidden]="true">
+          </aava-icon>
+        </ng-container>
+        <!-- Completed: checkmark for default variant only -->
+        <aava-icon
+          *ngIf="
+            stepVariant !== 'icon' &&
+            (i < visualCurrentStep ||
+              (i === visualCurrentStep &&
+                visualCurrentStep === steps.length - 1))
+          "
+          iconName="circle-check"
+          [iconColor]="iconColor"
+          [iconSize]="iconSize"
+          [ariaHidden]="true">
+        </aava-icon>
+        <!-- Step number if not completed and not on last step, or fallback for icon variant -->
+        <span
+          *ngIf="
+            (stepVariant !== 'icon' &&
+              i >= visualCurrentStep &&
+              !(
+                i === visualCurrentStep &&
+                visualCurrentStep === steps.length - 1
+              )) ||
+            (stepVariant === 'icon' && !getStepIcon(step))
+          "
+          [attr.aria-hidden]="'true'">
+          {{ i + 1 }}
+        </span>
+      </div>
+      <!-- Connector line with progress animation -->
+      <div *ngIf="i < steps.length - 1" class="step-line-wrapper">
+        <div
+          class="step-line"
+          [ngClass]="{
+            completed: i < visualCurrentStep - 1,
+            'animating-forward': isAnimating && animationDirection === 'forward' && i === currentAnimatingStep - 1,
+            'animating-backward': isAnimating && animationDirection === 'backward' && i === currentAnimatingStep - 1,
+            incomplete: i >= visualCurrentStep
+          }"
+          [attr.aria-hidden]="'true'">
+        </div>
+        <!-- Animated progress dot for forward animation -->
+        <div
+          *ngIf="isAnimating && animationDirection === 'forward' && i === currentAnimatingStep - 1"
+          class="progress-dot forward"
+          [attr.aria-hidden]="'true'">
+        </div>
+        <!-- Animated progress dot for backward animation -->
+        <div
+          *ngIf="isAnimating && animationDirection === 'backward' && i === currentAnimatingStep - 1"
+          class="progress-dot backward"
+          [attr.aria-hidden]="'true'">
+        </div>
+      </div>
+    </div>
+    <div
+      *ngIf="showLabel"
+      class="step-label"
+      [ngClass]="{
+        active: i === visualCurrentStep,
+        completed: i < visualCurrentStep
+      }">
+      {{ getStepLabel(step) }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,209 @@
+<div class="theme-demo-container">
+  <div class="demo-header">
+    <h1>URL Theme Demo</h1>
+    <p>Test dynamic theme switching based on URL parameters</p>
+  </div>
+
+  <!-- Current State Display -->
+  <div class="current-state">
+    <h2>Current State</h2>
+    <div class="state-grid">
+      <div class="state-item">
+        <span class="label">Theme:</span>
+        <span class="value" [class]="currentTheme">{{ currentTheme }}</span>
+      </div>
+      <div class="state-item">
+        <span class="label">Personality:</span>
+        <span class="value">{{ currentPersonality }}</span>
+      </div>
+      <div class="state-item">
+        <span class="label">Current URL:</span>
+        <code class="url">{{ currentUrl }}</code>
+      </div>
+      <div class="state-item">
+        <span class="label">Has Theme in URL:</span>
+        <span class="value" [class.has-theme]="hasThemeInUrl">{{
+          hasThemeInUrl ? "Yes" : "No"
+        }}</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Theme Controls -->
+  <div class="controls-section">
+    <h2>Theme Controls</h2>
+    <div class="control-group">
+      <h3>Set Theme</h3>
+      <div class="button-group">
+        <button
+          class="theme-btn light"
+          [class.active]="currentTheme === 'light'"
+          (click)="setTheme('light')"
+        >
+          Light Theme
+        </button>
+        <button
+          class="theme-btn dark"
+          [class.active]="currentTheme === 'dark'"
+          (click)="setTheme('dark')"
+        >
+          Dark Theme
+        </button>
+        <button class="theme-btn toggle" (click)="toggleTheme()">
+          Toggle Theme
+        </button>
+        <button class="theme-btn system" (click)="resetToSystemTheme()">
+          System Theme
+        </button>
+      </div>
+    </div>
+
+    <div class="control-group">
+      <h3>Set Personality</h3>
+      <div class="button-group">
+        <button
+          class="personality-btn minimal"
+          [class.active]="currentPersonality === 'minimal'"
+          (click)="setPersonality('minimal')"
+        >
+          Minimal
+        </button>
+        <button
+          class="personality-btn professional"
+          [class.active]="currentPersonality === 'professional'"
+          (click)="setPersonality('professional')"
+        >
+          Professional
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation with Theme -->
+  <div class="navigation-section">
+    <h2>Navigate with Theme</h2>
+    <div class="control-group">
+      <h3>Navigate to Components</h3>
+      <div class="button-group">
+        <button class="nav-btn" (click)="navigateToButton()">
+          Button Demo (Current Theme)
+        </button>
+        <button class="nav-btn" (click)="navigateToButton('light')">
+          Button Demo (Light)
+        </button>
+        <button class="nav-btn" (click)="navigateToButton('dark')">
+          Button Demo (Dark)
+        </button>
+      </div>
+      <div class="button-group">
+        <button class="nav-btn" (click)="navigateToTabs()">
+          Tabs Demo (Current Theme)
+        </button>
+        <button class="nav-btn" (click)="navigateToTabs('light')">
+          Tabs Demo (Light)
+        </button>
+        <button class="nav-btn" (click)="navigateToTabs('dark')">
+          Tabs Demo (Dark)
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- URL Sharing -->
+  <div class="sharing-section">
+    <h2>URL Sharing</h2>
+    <div class="control-group">
+      <h3>Shareable URL</h3>
+      <div class="url-display">
+        <code class="shareable-url">{{ getShareableUrl() }}</code>
+        <button class="copy-btn" (click)="copyUrlToClipboard()">
+          Copy URL
+        </button>
+      </div>
+      <div class="button-group">
+        <button
+          class="clear-btn"
+          [disabled]="!hasThemeInUrl"
+          (click)="clearThemeFromUrl()"
+        >
+          Clear Theme from URL
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Test URLs -->
+  <div class="test-section">
+    <h2>Test URLs</h2>
+    <p>Try these URLs to test the theme switching:</p>
+    <div class="test-links">
+      <div class="test-link">
+        <code
+          >{{
+            window?.location?.origin || ""
+          }}/button/basic-usage?theme=dark</code
+        >
+        <a [href]="'/button/basic-usage?theme=dark'" target="_blank">Test</a>
+      </div>
+      <div class="test-link">
+        <code
+          >{{
+            window?.location?.origin || ""
+          }}/tabs/basic?theme=light&personality=professional</code
+        >
+        <a
+          [href]="'/tabs/basic?theme=light&personality=professional'"
+          target="_blank"
+          >Test</a
+        >
+      </div>
+      <div class="test-link">
+        <code
+          >{{
+            window?.location?.origin || ""
+          }}/theme-demo?theme=dark&personality=minimal</code
+        >
+        <a [href]="'/theme-demo?theme=dark&personality=minimal'" target="_blank"
+          >Test</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <!-- Documentation -->
+  <div class="docs-section">
+    <h2>How It Works</h2>
+    <div class="docs-content">
+      <h3>URL Parameters</h3>
+      <ul>
+        <li>
+          <strong>theme</strong>: 'light' | 'dark' - Controls the visual theme
+        </li>
+        <li>
+          <strong>personality</strong>: 'minimal' | 'professional' - Controls
+          the design personality
+        </li>
+      </ul>
+
+      <h3>Features</h3>
+      <ul>
+        <li>✅ Bidirectional URL ↔ Theme synchronization</li>
+        <li>✅ Deep linking with theme context</li>
+        <li>✅ Preserves other query parameters</li>
+        <li>✅ Automatic DOM attribute updates</li>
+        <li>✅ Observable-based reactive updates</li>
+        <li>✅ Shareable URLs with theme settings</li>
+      </ul>
+
+      <h3>Usage Examples</h3>
+      <pre><code>// Programmatic theme setting
+themeService.setTheme('dark');
+
+// Navigate with theme
+themeService.navigateWithTheme(['/button/basic-usage'], 'dark');
+
+// Get shareable URL
+const url = themeService.getUrlWithTheme('dark', 'professional');</code></pre>
+    </div>
+  </div>
+</div>

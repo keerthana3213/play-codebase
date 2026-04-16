@@ -1,0 +1,762 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Button Component SCSS
+ *
+ * ARCHITECTURE:
+ * - All buttons have glass effects by default
+ * - Variants control glass tint colors (primary=pink, warning=orange, etc.)
+ * - Glass intensity controlled via glass-10 through glass-100 classes
+ * - Clean separation of interaction states vs visual variants
+ * - Effects system integration (hover, pressed, processing, focus, disabled)
+ *
+ * PERFORMANCE: Button tokens are imported here (not globally) so they're only
+ * parsed when button component is used. This significantly improves DevTools
+ * performance by avoiding upfront CSS parsing of all tokens.
+ *
+ * THEMING: To override button tokens in styles.scss, you can override them directly
+ * in [data-theme="light"] or [data-theme="dark"] blocks. Since component tokens load
+ * when component is used (lazy), your overrides in styles.scss (which load early) may
+ * be overridden by component tokens. To ensure your overrides win, use more specific
+ * selectors or import tokens in styles.scss after main.scss.
+ * =========================================================================
+ */
+
+/* =======================
+   COMPONENT TOKEN IMPORTS
+   Import tokens here for on-demand parsing (only when component is used)
+   ======================= */
+@import '../../styles/tokens/components/_button.css';
+
+/* =======================
+   BUTTON BASE - ALL BUTTONS GET GLASS BY DEFAULT
+   ======================= */
+.aava-btn-wrapper{
+  display:inline-block;
+}
+.ava-button {
+  --button-torch-color: var(--button-default-torch-color);
+  // Base Layout & Typography
+  display: inline-flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  gap: var(--button-gap);
+
+  // Base Glass Effect - Applied to ALL buttons
+  backdrop-filter: var(--button-glass-default-backdrop-filter);
+  -webkit-backdrop-filter: var(--button-glass-default-backdrop-filter);
+  border: var(--button-glass-default-border);
+
+  // Default glass effect for all buttons (fallback using semantic tokens)
+  background: var(--button-glass-default-background);
+  // box-shadow: var(--button-glass-default-shadow);
+
+  // Base Properties
+  border-radius: var(--button-border-radius);
+  cursor: var(--button-cursor);
+  font-family: var(--button-font);
+  font-weight: var(--button-font-weight);
+  line-height: var(--button-line-height);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center; // Ensure consistent transform origin
+
+  // Overflow hidden for proper glass effects and ripple containment
+  overflow: hidden;
+  box-sizing: border-box;
+
+  // Text and icon inherit color
+  color: inherit;
+  text-decoration: none;
+  user-select: none;
+
+  // Z-index layering
+  z-index: 0;
+
+  /* =======================
+     BUTTON SIZES
+     ======================= */
+
+
+  &.xs {
+    padding: var(--button-size-xsm-padding);
+    font-size: var(--button-size-xsm-font);
+    height: var(--button-size-xsm-height);
+    min-width: var(--button-size-xsm-min-width);
+    letter-spacing: var(--button-size-xsm-letter-spacing);
+    border-radius: var(--button-size-xsm-border-radius);
+
+    .button-content {
+      gap: 4px
+    }
+  }
+
+  &.sm {
+    padding: var(--button-size-sm-padding);
+    font-size: var(--button-size-sm-font);
+    height: var(--button-size-sm-height);
+    min-width: var(--button-size-sm-min-width);
+    letter-spacing: var(--button-size-sm-letter-spacing);
+    border-radius: var(--button-size-sm-border-radius);
+
+    .button-content {
+      gap: 6px
+    }
+  }
+
+  &.md {
+    padding: var(--button-size-md-padding);
+    font-size: var(--button-size-md-font);
+    height: var(--button-size-md-height);
+    min-width: var(--button-size-md-min-width);
+    letter-spacing: var(--button-size-md-letter-spacing);
+    border-radius: var(--button-size-md-border-radius);
+
+    .button-content {
+      gap: 8px
+    }
+  }
+
+  &.lg {
+    padding: var(--button-size-lg-padding);
+    font-size: var(--button-size-lg-font);
+    height: var(--button-size-lg-height);
+    min-width: var(--button-size-lg-min-width);
+    border-radius: var(--button-size-lg-border-radius);
+
+    .button-content {
+      gap: 8px
+    }
+  }
+
+  &.xl {
+    padding: var(--button-size-xlg-padding);
+    font-size: var(--button-size-xlg-font-size);
+    height: var(--button-size-xlg-height);
+    min-width: var(--button-size-xlg-min-width);
+    border-radius: var(--button-size-xlg-border-radius);
+    letter-spacing: var(--button-size-xlg-letter-spacing);
+    line-height: var(--button-line-height);
+    border-radius: var(--button-size-xlg-border-radius);
+
+    .button-content {
+      gap: 8px
+    }
+
+  }
+
+  /* =======================
+     GLASS INTENSITY VARIANTS - Shared Properties Only
+     Background handled by variant-specific tokens above
+     ======================= */
+
+  // Glass-10: Barely visible glass with sophisticated effects
+  &.ava-button--glass-10 {
+    color: var(--button-text-on-color-primary);
+    backdrop-filter: var(--button-glass-10-backdrop-filter);
+    -webkit-backdrop-filter: var(--button-glass-10-backdrop-filter);
+    border: var(--button-glass-10-border);
+    // box-shadow: var(--button-glass-10-shadow);
+  }
+
+  // Glass-50: Medium glass intensity
+  &.ava-button--glass-50 {
+    color: var(--button-text-on-color-primary);
+    backdrop-filter: var(--button-glass-50-backdrop-filter);
+    -webkit-backdrop-filter: var(--button-glass-50-backdrop-filter);
+    border: var(--button-glass-50-border);
+    // box-shadow: var(--button-glass-50-shadow);
+  }
+
+  // Glass-75: Strong glass intensity
+  &.ava-button--glass-75 {
+    color: var(--button-text-on-color-primary);
+    backdrop-filter: var(--button-glass-75-backdrop-filter);
+    -webkit-backdrop-filter: var(--button-glass-75-backdrop-filter);
+    border: var(--button-glass-75-border);
+    // box-shadow: var(--button-glass-75-shadow);
+  }
+
+  // Glass-100: Maximum glass intensity
+  &.ava-button--glass-100 {
+    color: var(--button-text-on-color-primary);
+    backdrop-filter: var(--button-glass-100-backdrop-filter);
+    -webkit-backdrop-filter: var(--button-glass-100-backdrop-filter);
+    border: var(--button-glass-100-border);
+    // box-shadow: var(--button-glass-100-shadow);
+  }
+
+  /* =======================
+     GLASS TINT VARIANTS - Use Variant-Specific Gradients  
+     Each variant uses its own pre-computed gradient tokens
+     ======================= */
+
+  // Primary button - uses primary-specific gradients
+  &.primary {
+    border-color: var(--button-border-color-primary);
+    color: var(--button-text-on-color-primary);
+    --button-torch-color: var(--button-torch-color-primary);
+
+    &.ava-button--glass-10 {
+      background: var(--button-primary-glass-10-background);
+    }
+  }
+
+  // Secondary button - outlined style
+  &.secondary {
+    background: transparent;
+    border: var(--button-border-color-secondary);
+    color: var(--button-text-on-color-secondary);
+    --button-torch-color: 253, 230, 236;
+
+    // Remove glass backgrounds for outlined
+    &.ava-button--glass-10,
+    &.ava-button--glass-100 {
+      background: transparent;
+      box-shadow: none;
+    }
+
+    // Ensure focus is cleared when not focused
+    &:not(:hover):not(:focus-visible) {
+      box-shadow: none;
+    }
+  }
+
+  // Success button - uses success-specific gradients
+  &.success {
+    border-color: var(--button-border-color-success);
+    color: var(--button-text-on-color-success);
+    --button-torch-color: var(--button-torch-color-success);
+
+    &.ava-button--glass-10 {
+      background: var(--button-success-glass-10-background);
+    }
+  }
+
+  // Warning button - uses warning-specific gradients
+  &.warning {
+    border-color: var(--button-border-color-warning);
+    color: var(--button-text-on-color-warning);
+    --button-torch-color: var(--button-torch-color-warning);
+
+    &.ava-button--glass-10 {
+      background: var(--button-warning-glass-10-background);
+    }
+  }
+
+  // Danger button - uses danger-specific gradients
+  &.danger {
+    border-color: var(--button-border-color-danger);
+    color: var(--button-text-on-color-danger);
+    --button-torch-color: var(--button-torch-color-danger);
+
+    &.ava-button--glass-10 {
+      background: var(--button-danger-glass-10-background);
+    }
+  }
+
+  // Info button - uses info-specific gradients
+  &.info {
+    border-color: var(--button-border-color-info);
+    color: var(--button-text-on-color-info);
+    --button-torch-color: var(--button-torch-color-info);
+
+    &.ava-button--glass-10 {
+      background: var(--button-info-glass-10-background);
+    }
+  }
+
+  /* =======================
+     INTERACTION STATES
+     ======================= */
+
+  // Default Hover State - Only applies if no specific hover effect is set
+  &:hover:not(:disabled):not(.ava-button--disabled):not(.ava-button--hover-torch):not(.ava-button--hover-glow):not(.ava-button--hover-tint):not(.ava-button--hover-scale) {
+    transform: translateY(-1px) scale(1.02); // Subtle scale towards user
+  }
+
+  // Active/Pressed State
+  &:active:not(:disabled):not(.ava-button--disabled),
+  &.ava-button--active {
+    transform: scale(var(--button-active-scale, 0.98)); // Add fallback scale value
+  }
+
+  // Processing State
+  &.ava-button--processing-pulse {
+    animation: ava-button-processing-pulse var(--button-processing-pulse-duration) ease-in-out infinite;
+    cursor: wait; // Show wait cursor during processing
+    pointer-events: auto; // Ensure cursor shows even though clicks are prevented
+  }
+
+  // Focus State - Use box-shadow and outline for proper visibility (WCAG 2.4.7)
+  &:focus-visible:not(.ava-button--glass-50):not(.ava-button--glass-75):not(.ava-button--glass-100):not(.ava-button--outlined),
+  &.ava-button--focus-border:focus-visible:not(.ava-button--glass-50):not(.ava-button--glass-75):not(.ava-button--glass-100):not(.ava-button--outlined) {
+    outline: 2px solid rgba(var(--button-effect-color, var(--rgb-brand-primary)), 0.6);
+    outline-offset: 2px;
+    box-shadow: var(--button-glass-default-shadow),
+      0 0 0 2px rgba(var(--button-effect-color, var(--rgb-brand-primary)), 0.4),
+      inset 0 0 0 1px rgba(var(--button-effect-color, var(--rgb-brand-primary)), 0.2);
+  }
+
+  // Focus State for higher glass intensities - Only apply outline/shadow, no border changes
+  &:focus-visible.ava-button--glass-50:not(.ava-button--outlined),
+  &:focus-visible.ava-button--glass-75:not(.ava-button--outlined),
+  &:focus-visible.ava-button--glass-100:not(.ava-button--outlined),
+  &.ava-button--focus-border:focus-visible.ava-button--glass-50:not(.ava-button--outlined),
+  &.ava-button--focus-border:focus-visible.ava-button--glass-75:not(.ava-button--outlined),
+  &.ava-button--focus-border:focus-visible.ava-button--glass-100:not(.ava-button--outlined) {
+    outline: 2px solid rgba(var(--button-effect-color, var(--rgb-brand-primary)), 0.5);
+    outline-offset: 2px;
+    box-shadow: var(--button-glass-default-shadow),
+      0 0 0 2px rgba(var(--button-effect-color, var(--rgb-brand-primary)), 0.3);
+  }
+
+  // Disabled State
+  &:disabled,
+  &.ava-button--disabled {
+    //opacity: var(--button-disabled-opacity);
+    //filter: var(--button-disabled-filter);
+    cursor: var(--button-cursor-disabled);
+    color: var(--button-disabled-color);
+    &.ava-button--glass-10 {
+      background: var(--button-disabled-background);
+      &.secondary {
+        background: transparent;
+        border: 1px solid var(--button-secondary-disabled-border-color);
+        color: var(--button-disabled-color)
+      }
+    }
+
+    &:hover {
+      transform: none;
+      // box-shadow: var(--button-glass-default-shadow);
+    }
+  }
+
+  /* =======================
+     EFFECTS SYSTEM INTEGRATION - Enhanced with Smooth Transitions
+     ======================= */
+
+  // Hover Effects
+  &.ava-button--hover-torch {
+    // Set up for internal semicircular sunrise effect
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 2px; // Add margin for consistent spacing
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 120%;
+      height: 80%;
+      border-radius: 50%;
+      transform: translateX(-50%);
+      transition: opacity 0.8s cubic-bezier(0.25, 0.8, 0.25, 1),
+        filter 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+      z-index: 10;
+      opacity: 0;
+      pointer-events: none;
+      background: radial-gradient(ellipse at 50% 100%,
+          currentColor 0%,
+          rgba(255, 255, 255, 0.863) 20%,
+          rgba(255, 255, 255, 0.18) 40%,
+          rgba(255, 255, 255, 0.04) 80%,
+          transparent 100%);
+      filter: blur(16px) brightness(1.18) saturate(1.08);
+      mix-blend-mode: lighten;
+    }
+
+    &:hover:not(:disabled):not(.ava-button--disabled):not(:active) {
+      transform: scale(1.02); // Added subtle scale towards user
+
+      &::before {
+        opacity: 1;
+        filter: blur(18px) brightness(1.22) saturate(1.12);
+      }
+    }
+
+    // Ensure torch effect is turned off during active state
+    &:active:not(:disabled):not(.ava-button--disabled) {
+      &::before {
+        opacity: 0;
+        transition: opacity 0.2s ease-out;
+      }
+    }
+  }
+
+  &.ava-button--hover-glow {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 8px; // Extra margin for glow shadow effect
+
+    &:hover:not(:disabled):not(.ava-button--disabled) {
+      transform: translateY(-2px) scale(1.02); // Added subtle scale towards user
+      // box-shadow: 0 0 30px rgba(var(--button-effect-color), 0.5),
+      // 0 0 60px rgba(var(--button-effect-color), 0.2);
+    }
+  }
+
+  &.ava-button--hover-tint {
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    margin: 2px; // Add margin for consistent spacing
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(var(--button-effect-color), 0);
+      border-radius: inherit;
+      pointer-events: none;
+      transition: background 0.3s ease-out;
+    }
+
+    &:hover:not(:disabled):not(.ava-button--disabled) {
+      filter: brightness(1.15);
+      transform: translateY(-1px) scale(1.02); // Added subtle scale towards user
+
+      &::after {
+        background: rgba(var(--button-effect-color), 0.15);
+      }
+    }
+  }
+
+  &.ava-button--hover-scale {
+    transition: all 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    transform-origin: center center;
+    margin: 4px; // Add margin to prevent overlap during scale
+
+    &:hover:not(:disabled):not(.ava-button--disabled) {
+      transform: scale(1.05) translateY(-2px); // Reduced scale from 1.08 to 1.05
+    }
+  }
+
+  // Pressed Effects - Dynamic Multi-Ripple
+  &.ava-button--pressed-ripple {
+    position: relative;
+    overflow: hidden;
+    margin: 2px; // Add margin to prevent overlap
+
+    &:active:not(:disabled):not(.ava-button--disabled) {
+      transform: scale(0.98);
+      transition: transform 0.1s ease-out;
+    }
+  }
+
+  &.ava-button--pressed-inset {
+    margin: 2px; // Add margin to prevent overlap
+
+    &:active:not(:disabled):not(.ava-button--disabled) {
+      // box-shadow: inset 0 4px 8px rgba(var(--button-effect-color), 0.3),
+      // inset 0 0 12px rgba(var(--button-effect-color), 0.1);
+      transform: scale(0.97) translateY(1px);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+  }
+
+  &.ava-button--pressed-solid {
+    margin: 2px; // Add margin to prevent overlap
+
+    &:active:not(:disabled):not(.ava-button--disabled) {
+      background: rgb(var(--button-effect-color)) !important;
+      transform: scale(0.94);
+      transition: all 0.15s cubic-bezier(0.4, 0, 0.6, 1);
+    }
+  }
+
+  /* =======================
+     SHAPE MODIFIERS
+     ======================= */
+
+  &.ava-button--pill {
+    border-radius: 50px;
+  }
+
+  &.ava-button--outlined {
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border: 2px solid;
+
+    // Use variant-specific colors for outline and text
+    &.primary {
+      border-color: var(--button-border-color-primary-outline);
+      color: rgb(var(--rgb-brand-primary));
+      --button-effect-color: var(--rgb-brand-primary);
+    }
+
+    &.success {
+      border-color: var(--button-border-color-success);
+      color: rgb(var(--rgb-brand-success));
+      --button-effect-color: var(--rgb-brand-success);
+    }
+
+    &.warning {
+      border-color: var(--button-border-color-warning);
+      color: rgb(var(--rgb-brand-warning));
+      --button-effect-color: var(--rgb-brand-warning);
+    }
+
+    &.danger {
+      border-color: var(--button-border-color-danger);
+      color: rgb(var(--rgb-brand-danger));
+      --button-effect-color: var(--rgb-brand-danger);
+    }
+
+    &.info {
+      border-color: var(--button-border-color-info);
+      color: rgb(var(--rgb-brand-info));
+      --button-effect-color: var(--rgb-brand-info);
+    }
+
+    // Default variant (when no specific variant is set)
+    &:not(.primary):not(.success):not(.warning):not(.danger):not(.info) {
+      border-color: rgb(var(--rgb-brand-primary));
+      color: rgb(var(--rgb-brand-primary));
+      --button-effect-color: var(--rgb-brand-primary);
+    }
+
+    // Hover state for outlined buttons
+    &:hover:not(:disabled):not(.ava-button--disabled) {
+      background: rgba(var(--button-effect-color), 0.08) !important;
+      transform: translateY(-1px);
+    }
+
+    // Active state for outlined buttons
+    &:active:not(:disabled):not(.ava-button--disabled),
+    &.ava-button--active {
+      background: rgba(var(--button-effect-color), 0.12) !important;
+      transform: scale(0.98);
+    }
+
+    // Focus state for outlined buttons - visible focus indicator
+    &:focus-visible:not(:disabled):not(.ava-button--disabled) {
+      outline: 2px solid rgba(var(--button-effect-color), 0.6);
+      outline-offset: 2px;
+      box-shadow: 0 0 0 3px rgba(var(--button-effect-color), 0.15);
+    }
+
+    // Ensure focus is removed when button loses focus
+    &:not(:focus-visible) {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  &.ava-button--clear {
+    background: transparent !important;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+    box-shadow: none;
+    border: none;
+
+    // Use variant-specific colors for text (same as outlined)
+    &.primary {
+      color: rgb(var(--rgb-brand-primary));
+      --button-effect-color: var(--rgb-brand-primary);
+    }
+
+    &.success {
+      color: rgb(var(--rgb-brand-success));
+      --button-effect-color: var(--rgb-brand-success);
+    }
+
+    &.warning {
+      color: rgb(var(--rgb-brand-warning));
+      --button-effect-color: var(--rgb-brand-warning);
+    }
+
+    &.danger {
+      color: rgb(var(--rgb-brand-danger));
+      --button-effect-color: var(--rgb-brand-danger);
+    }
+
+    &.info {
+      color: rgb(var(--rgb-brand-info));
+      --button-effect-color: var(--rgb-brand-info);
+    }
+
+    // Default variant (when no specific variant is set)
+    &:not(.primary):not(.success):not(.warning):not(.danger):not(.info) {
+      color: rgb(var(--rgb-brand-primary));
+      --button-effect-color: var(--rgb-brand-primary);
+    }
+
+    // Hover state for clear buttons - subtle background tint
+    &:hover:not(:disabled):not(.ava-button--disabled) {
+      background: rgba(var(--button-effect-color), 0.05) !important;
+      transform: translateY(-1px);
+    }
+
+    // Active state for clear buttons
+    &:active:not(:disabled):not(.ava-button--disabled),
+    &.ava-button--active {
+      background: rgba(var(--button-effect-color), 0.08) !important;
+      transform: scale(0.98);
+    }
+
+    // Focus state for clear buttons - visible focus indicator
+    &:focus-visible:not(:disabled):not(.ava-button--disabled) {
+      outline: 2px solid rgba(var(--button-effect-color), 0.5);
+      outline-offset: 2px;
+      background: rgba(var(--button-effect-color), 0.05) !important;
+      box-shadow: 0 0 0 2px rgba(var(--button-effect-color), 0.1);
+    }
+
+    // Ensure focus is removed when button loses focus
+    &:not(:focus-visible):not(:hover):not(:active) {
+      outline: none;
+      background: transparent !important;
+      box-shadow: none;
+    }
+  }
+
+  &.ava-button--icon-only {
+    aspect-ratio: 1;
+    padding: var(--button-icon-padding);
+    min-width: auto;
+  }
+
+  /* =======================
+     CONTENT ELEMENTS
+     ======================= */
+
+  .button-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; // Center content horizontally to fix left-leaning text
+    gap: var(--global-spacing-2);
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .button-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--button-icon-color);
+  }
+
+  .button-label {
+    font-weight: inherit;
+    line-height: inherit;
+  }
+}
+
+/* =======================
+   PROCESSING ANIMATION
+   ======================= */
+
+@keyframes ava-button-processing-pulse {
+
+  0%,
+  100% {
+    box-shadow: var(--button-glass-default-shadow, var(--glass-25-shadow)),
+      0 0 0 0 rgba(var(--button-effect-color), 0);
+  }
+
+  50% {
+    box-shadow: var(--button-glass-default-shadow, var(--glass-25-shadow)),
+      0 0 0 8px rgba(var(--button-effect-color), 0.3);
+  }
+}
+
+/* =======================
+   RIPPLE ANIMATIONS
+   ======================= */
+
+%ripple-base {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  transform-origin: center;
+}
+
+.ava-button-ripple-1 {
+  @extend %ripple-base;
+  background-color: var(--ripple-color, rgba(255, 255, 255, 0.4));
+  opacity: 0.4;
+  animation: ava-button-ripple-animation-1 1.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ava-button-ripple-2 {
+  @extend %ripple-base;
+  background-color: var(--ripple-color, rgba(255, 255, 255, 0.3));
+  opacity: 0.3;
+  animation: ava-button-ripple-animation-2 1.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.ava-button-ripple-3 {
+  @extend %ripple-base;
+  background-color: var(--ripple-color, rgba(255, 255, 255, 0.2));
+  opacity: 0.2;
+  animation: ava-button-ripple-animation-3 1.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes ava-button-ripple-animation-1 {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0.4;
+  }
+
+  70% {
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(3.5);
+    opacity: 0;
+  }
+}
+
+@keyframes ava-button-ripple-animation-2 {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 0.3;
+  }
+
+  65% {
+    opacity: 0.15;
+  }
+
+  100% {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes ava-button-ripple-animation-3 {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+
+  30% {
+    opacity: 0.2;
+  }
+
+  60% {
+    opacity: 0.1;
+  }
+
+  100% {
+    transform: scale(4.5);
+    opacity: 0;
+  }
+}

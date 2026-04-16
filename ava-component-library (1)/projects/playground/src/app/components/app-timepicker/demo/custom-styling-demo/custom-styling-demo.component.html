@@ -1,0 +1,19 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-time-picker [customStyles]="darkStyles"> </aava-time-picker>
+      <div class="description">Dark Theme</div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker [customStyles]="blueStyles"> </aava-time-picker>
+      <div class="description">Blue Theme</div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker [customStyles]="greenStyles"> </aava-time-picker>
+      <div class="description">Green Theme</div>
+    </div>
+  </div>
+  <div class="result" *ngIf="selectedTime">
+    Selected Time: {{ selectedTime }}
+  </div>
+</div>

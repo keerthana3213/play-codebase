@@ -1,0 +1,30 @@
+.stats-card-header {
+    display: flex;
+    // align-items: center;
+    justify-content: center;
+    gap: 4px;
+    margin-bottom: 10px;
+}
+
+.stats-card-label {
+    color: var(--studios-stats-label-color);
+    text-align: center;
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-stats-label-size);
+    font-style: normal;
+    font-weight: var(--studios-stats-label-weight);
+    line-height: var(--studios-stats-label-line-height);
+    /* 100% */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.stats-card-value {
+    text-align: center;
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-stats-value-size);
+    font-style: normal;
+    font-weight: var(--studios-stats-value-weight);
+    line-height: normal;
+}

@@ -1,0 +1,176 @@
+<div class="demo-section center-demo">
+  <h3>API Reference</h3>
+  <p class="description">
+    Complete API documentation for the radio button component including inputs,
+    outputs, and interfaces.
+  </p>
+
+  <div class="api-sections">
+    <div class="api-section">
+      <h4>Inputs</h4>
+      <div class="api-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>options</code></td>
+              <td><code>RadioOption[]</code></td>
+              <td><code>[]</code></td>
+              <td>Array of radio button options</td>
+            </tr>
+            <tr>
+              <td><code>name</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>HTML name attribute for the radio group</td>
+            </tr>
+            <tr>
+              <td><code>selectedValue</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>Currently selected option value</td>
+            </tr>
+            <tr>
+              <td><code>size</code></td>
+              <td><code>'small' | 'medium' | 'large'</code></td>
+              <td><code>'medium'</code></td>
+              <td>Size of radio buttons</td>
+            </tr>
+            <tr>
+              <td><code>orientation</code></td>
+              <td><code>'horizontal' | 'vertical'</code></td>
+              <td><code>'vertical'</code></td>
+              <td>Layout orientation</td>
+            </tr>
+            <tr>
+              <td><code>color</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>Custom color for radio button and glow</td>
+            </tr>
+            <tr>
+              <td><code>labelColor</code></td>
+              <td><code>string</code></td>
+              <td><code>''</code></td>
+              <td>Custom color for option labels</td>
+            </tr>
+            <tr>
+              <td><code>radio</code></td>
+              <td><code>'dot' | 'none'</code></td>
+              <td><code>'dot'</code></td>
+              <td>Whether to show the inner dot</td>
+            </tr>
+            <tr>
+              <td><code>animation</code></td>
+              <td><code>'none' | 'shadow'</code></td>
+              <td><code>'none'</code></td>
+              <td>Animation effect for selection</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="api-section">
+      <h4>Outputs</h4>
+      <div class="api-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>selectedValueChange</code></td>
+              <td><code>EventEmitter&lt;string&gt;</code></td>
+              <td>Emitted when selection changes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="api-section">
+      <h4>RadioOption Interface</h4>
+      <div class="interface-code">
+        <pre><code>interface RadioOption {{ '{' }}
+   label: string;     // Display text for the option
+   value: string;     // Value when selected
+   disabled?: boolean; // Whether option is disabled (optional)
+{{ '}' }}</code></pre>
+      </div>
+    </div>
+
+    <div class="api-section">
+      <h4>CSS Custom Properties</h4>
+      <div class="css-properties">
+        <div class="property-group">
+          <h5>Group Layout</h5>
+          <ul>
+            <li><code>--radio-group-gap</code></li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h5>Radio Button Styling</h5>
+          <ul>
+            <li><code>--radio-checkmark-background</code></li>
+            <li><code>--radio-checkmark-border</code></li>
+            <li><code>--radio-checkmark-border-radius</code></li>
+            <li><code>--radio-checkmark-background-disabled</code></li>
+            <li><code>--radio-checkmark-border-disabled</code></li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h5>Dot Styling</h5>
+          <ul>
+            <li><code>--radio-dot-background</code></li>
+            <li><code>--radio-dot-border-radius</code></li>
+            <li><code>--radio-dot-background-disabled</code></li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h5>Label Styling</h5>
+          <ul>
+            <li><code>--radio-label-color</code></li>
+            <li><code>--radio-label-font</code></li>
+            <li><code>--radio-label-margin-left</code></li>
+            <li><code>--radio-label-color-disabled</code></li>
+            <li><code>--radio-label-cursor-disabled</code></li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h5>Size Variants</h5>
+          <ul>
+            <li><code>--radio-size-sm</code></li>
+            <li><code>--radio-size-md</code></li>
+            <li><code>--radio-size-lg</code></li>
+            <li><code>--radio-size-sm-dot</code></li>
+            <li><code>--radio-size-md-dot</code></li>
+            <li><code>--radio-size-lg-dot</code></li>
+            <li><code>--radio-size-sm-label</code></li>
+            <li><code>--radio-size-md-label</code></li>
+            <li><code>--radio-size-lg-label</code></li>
+          </ul>
+        </div>
+        <div class="property-group">
+          <h5>Interaction</h5>
+          <ul>
+            <li><code>--radio-cursor</code></li>
+            <li><code>--radio-cursor-disabled</code></li>
+            <li><code>--radio-custom-glow-color</code></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

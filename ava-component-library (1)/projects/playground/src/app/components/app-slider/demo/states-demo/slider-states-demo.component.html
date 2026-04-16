@@ -1,0 +1,22 @@
+<div class="slider-section">
+  <div>
+    <aava-slider [value]="50" [min]="0" [max]="100"> </aava-slider>
+    <h4>Normal State</h4>
+  </div>
+
+  <div>
+    <aava-slider [value]="50" [min]="0" [max]="100" [disabled]="true">
+    </aava-slider>
+    <h4>Disabled State</h4>
+  </div>
+
+  <div>
+    <aava-slider type="input" [value]="75" [min]="0" [max]="100"> </aava-slider>
+    <h4>Input Variant</h4>
+  </div>
+  <div>
+    <aava-slider [value]="50" [min]="0" [max]="100" [showTooltip]="false">
+    </aava-slider>
+    <h4>Without Tooltip</h4>
+  </div>
+</div>

@@ -1,0 +1,120 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Accessibility Features</h3>
+    <p>
+      Explore the built-in accessibility features of the accordion component.
+    </p>
+
+    <div class="accessibility-examples">
+      <aava-accordion *ngFor="let example of accessibilityExamples" iconClosed="chevron-down" iconOpen="chevron-up"
+        (click)="onAccordionToggle($event)">
+        <span header>{{ example.title }}</span>
+        <div content>
+          <p>
+            <strong>{{ example.description }}</strong>
+          </p>
+          <p>{{ example.content }}</p>
+        </div>
+      </aava-accordion>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Accessibility Best Practices</h3>
+    <p>
+      Learn about the accessibility standards and features implemented in the
+      accordion component.
+    </p>
+
+    <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" (click)="onAccordionToggle($event)">
+      <span header>Implementation Details</span>
+      <div content>
+        <div [innerHTML]="bestPracticesContent"></div>
+      </div>
+    </aava-accordion>
+  </div>
+
+  <div class="demo-section">
+    <h3>Testing Accessibility</h3>
+    <p>Try these accessibility testing methods with the accordion component.</p>
+
+    <div class="testing-methods">
+      <div class="testing-method">
+        <h4>🔍 Visual Testing</h4>
+        <ul>
+          <li>Tab through the accordions to see focus indicators</li>
+          <li>Use Enter and Space keys to toggle accordions</li>
+          <li>Check that focus remains visible during interactions</li>
+        </ul>
+      </div>
+
+      <div class="testing-method">
+        <h4>🎧 Screen Reader Testing</h4>
+        <ul>
+          <li>Use a screen reader to navigate the accordions</li>
+          <li>Verify that ARIA states are announced correctly</li>
+          <li>Check that content is properly described</li>
+        </ul>
+      </div>
+
+      <div class="testing-method">
+        <h4>⌨️ Keyboard Testing</h4>
+        <ul>
+          <li>Navigate using only Tab, Enter, and Space keys</li>
+          <li>Ensure all functionality is accessible via keyboard</li>
+          <li>Verify logical tab order and focus management</li>
+        </ul>
+      </div>
+
+      <div class="testing-method">
+        <h4>🎨 Color Contrast Testing</h4>
+        <ul>
+          <li>Use browser dev tools to check color contrast ratios</li>
+          <li>Verify text meets WCAG AA standards (4.5:1)</li>
+          <li>Test with high contrast mode enabled</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>WCAG Compliance</h3>
+    <p>The accordion component is designed to meet WCAG 2.1 AA standards.</p>
+
+    <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" (click)="onAccordionToggle($event)">
+      <span header>WCAG 2.1 AA Compliance</span>
+      <div content>
+        <h4>Success Criteria Met</h4>
+        <ul>
+          <li>
+            <strong>1.3.1 Info and Relationships:</strong> Semantic structure
+            and ARIA attributes
+          </li>
+          <li>
+            <strong>1.4.3 Contrast (Minimum):</strong> Meets 4.5:1 contrast
+            ratio
+          </li>
+          <li>
+            <strong>2.1.1 Keyboard:</strong> All functionality accessible via
+            keyboard
+          </li>
+          <li>
+            <strong>2.1.2 No Keyboard Trap:</strong> Focus can be moved away
+            from component
+          </li>
+          <li>
+            <strong>2.4.3 Focus Order:</strong> Logical tab order maintained
+          </li>
+          <li>
+            <strong>2.4.7 Focus Visible:</strong> Clear focus indicators
+            provided
+          </li>
+          <li>
+            <strong>4.1.2 Name, Role, Value:</strong> Proper ARIA attributes and
+            roles
+          </li>
+        </ul>
+      </div>
+    </aava-accordion>
+  </div>
+</div>

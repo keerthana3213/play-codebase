@@ -1,0 +1,16 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Inline Layout (Legacy)</h4>
+      <aava-file-upload
+        componentTitle="Upload Documents"
+        [showUploadButton]="false"
+        layout="default"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        [maxFileSize]="5242880"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,25 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="avatar-examples">
+      <div class="avatar-group" *ngFor="let example of avatarExamples">
+        <div class="tag-examples">
+          <aava-tag
+            *ngFor="let tag of example.tags"
+            [label]="tag.label"
+            [avatar]="tag.avatar"
+            [icon]="tag.icon ?? undefined"
+            [iconPosition]="tag.iconPosition ?? 'start'"
+            (clicked)="onTagClick(tag.label)"
+            tabindex="0"
+            role="button"
+            [attr.aria-label]="tag.label + ' tag'"
+            [pill]="true"
+            [variant]="'outlined'"
+            [size]="'lg'"
+          >
+          </aava-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

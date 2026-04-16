@@ -1,0 +1,27 @@
+.list-card-demo {
+  padding: 2rem;
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    color: #666;
+    margin-bottom: 2rem;
+  }
+
+  .demo-section {
+    max-width: 600px;
+  }
+
+  .note {
+    color: #666;
+    font-style: italic;
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    border-left: 4px solid #007bff;
+  }
+}

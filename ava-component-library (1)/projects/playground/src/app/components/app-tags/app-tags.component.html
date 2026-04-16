@@ -1,0 +1,125 @@
+<div class="demo-container">
+  <div class="demo-header">
+    <h1>Tag Component</h1>
+    <p>
+      A modern, accessible, and highly customizable tag/chip component for
+      displaying labels, categories, status information, and actionable items.
+      Features multiple color variants, sizes, icons, avatars, and interactive
+      capabilities.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <h3>Demo Sections</h3>
+    <div class="nav-links">
+      <a routerLink="/tags/basic-usage" class="nav-link">Basic Usage</a>
+      <a routerLink="/tags/colors" class="nav-link">Colors</a>
+      <a routerLink="/tags/variants" class="nav-link">Variants</a>
+      <a routerLink="/tags/sizes" class="nav-link">Sizes</a>
+      <a routerLink="/tags/icons" class="nav-link">Icons</a>
+      <a routerLink="/tags/avatars" class="nav-link">Avatars</a>
+      <a routerLink="/tags/interactive" class="nav-link">Interactive</a>
+      <a routerLink="/tags/accessibility" class="nav-link">Accessibility</a>
+      <a routerLink="/tags/api" class="nav-link">API Reference</a>
+    </div>
+  </div>
+
+  <!-- Original content - retain for backward compatibility -->
+  <div class="original-content">
+    <div class="demo-section">
+      <h3>Filled Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of filledTags" [label]="tag.label" [color]="tag.color ?? 'default'"
+          [variant]="tag.variant ?? 'filled'" [size]="tag.size ?? 'md'" [pill]="tag.pill ?? false"
+          [disabled]="tag.disabled ?? false" [icon]="tag.icon" [iconPosition]="tag.iconPosition ?? 'start'"
+          [iconColor]="tag.iconColor" [avatar]="tag.avatar" [customStyle]="tag.customStyle"
+          [customClass]="tag.customClass" [removable]="tag.removable ?? false" (removed)="onRemove(tag.label)"
+          (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Outlined Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of outlinedTags" [label]="tag.label" [color]="tag.color ?? 'default'"
+          [variant]="tag.variant ?? 'outlined'" [icon]="tag.icon" [iconColor]="tag.iconColor"
+          [customStyle]="tag.customStyle" (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Removable Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of removableTags" [label]="tag.label" [color]="tag.color ?? 'primary'"
+          [avatar]="tag.avatar" [removable]="tag.removable ?? true" (removed)="onRemove(tag.label)"
+          (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Pill Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of pillTags" [label]="tag.label" [color]="tag.color ?? 'primary'"
+          [variant]="tag.variant ?? 'filled'" [pill]="tag.pill ?? true" [icon]="tag.icon" [iconColor]="tag.iconColor"
+          (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Disabled Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of disabledTags" [label]="tag.label" [color]="tag.color ?? 'default'"
+          [disabled]="tag.disabled ?? true" [removable]="tag.removable ?? false" (removed)="onRemove(tag.label)"
+          (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Clickable Tags</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of clickableTags" [label]="tag.label" [color]="tag.color ?? 'primary'"
+          [icon]="tag.icon" [iconPosition]="tag.iconPosition ?? 'start'" [iconColor]="tag.iconColor"
+          (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Size Variants</h3>
+      <div class="tag-group">
+        <aava-tag *ngFor="let tag of sizeTags" [label]="tag.label" [color]="tag.color ?? 'primary'"
+          [size]="tag.size ?? 'md'" (clicked)="onClick(tag.label)"></aava-tag>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .aava-tags-demo {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+
+  .aava-tags-demo h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .aava-tags-demo section {
+    margin-bottom: 2.5rem;
+  }
+
+  .aava-tags-demo h2 {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #444;
+  }
+
+  .tag-demo-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+</style>

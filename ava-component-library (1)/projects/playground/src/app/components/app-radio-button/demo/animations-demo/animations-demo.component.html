@@ -1,0 +1,98 @@
+<div class="demo-section center-demo">
+  <h3>Animations</h3>
+  <p class="description">
+    Interactive animation effects to enhance user feedback and engagement.
+  </p>
+
+  <div class="animations-grid">
+    <div class="animation-group">
+      <h4>No Animation (Default)</h4>
+      <p class="animation-description">
+        Standard radio button without animation effects for simple interactions.
+      </p>
+      <aava-radio-button
+        [options]="animationOptions"
+        name="no-animation"
+        animation="none"
+        [(selectedValue)]="noAnimationValue"
+        (selectedValueChange)="onSelectionChange('no-animation', $event)"
+      ></aava-radio-button>
+    </div>
+
+    <div class="animation-group">
+      <h4>Shadow Animation</h4>
+      <p class="animation-description">
+        Animated shadow effect on selection with smooth cubic-bezier transition.
+      </p>
+      <aava-radio-button
+        [options]="animationOptions"
+        name="shadow-animation"
+        animation="shadow"
+        [(selectedValue)]="shadowAnimationValue"
+        (selectedValueChange)="onSelectionChange('shadow-animation', $event)"
+      ></aava-radio-button>
+    </div>
+
+    <div class="animation-group">
+      <h4>Custom Color with Shadow</h4>
+      <p class="animation-description">
+        Shadow animation combined with custom colors for enhanced visual
+        feedback.
+      </p>
+      <aava-radio-button
+        [options]="animationOptions"
+        name="custom-shadow"
+        animation="shadow"
+        color="#3498db"
+        [(selectedValue)]="customShadowValue"
+        (selectedValueChange)="onSelectionChange('custom-shadow', $event)"
+      ></aava-radio-button>
+    </div>
+  </div>
+
+  <div class="animation-info">
+    <h4>Animation Details</h4>
+    <div class="info-grid">
+      <div class="info-item">
+        <h5>Shadow Animation</h5>
+        <ul>
+          <li>Appears when radio button is selected</li>
+          <li>Smooth cubic-bezier transition (0.34, 1.56, 0.64, 1)</li>
+          <li>Adds depth and visual emphasis</li>
+          <li>Subtle bounce effect for delightful interaction</li>
+        </ul>
+      </div>
+      <div class="info-item">
+        <h5>Additional Effects</h5>
+        <ul>
+          <li><strong>Hover glow</strong> - Soft glow effect on mouse hover</li>
+          <li>
+            <strong>Click scale</strong> - Brief scale animation on selection
+          </li>
+          <li>
+            <strong>Smooth transitions</strong> - All state changes animated
+            smoothly
+          </li>
+        </ul>
+      </div>
+      <div class="info-item">
+        <h5>Animation Features</h5>
+        <ul>
+          <li>
+            <strong>Performance optimized</strong> - Uses CSS transforms for
+            smooth animations
+          </li>
+          <li>
+            <strong>Accessible</strong> - Respects user motion preferences
+          </li>
+          <li>
+            <strong>Customizable</strong> - Works with custom colors and sizes
+          </li>
+          <li>
+            <strong>Cross-browser</strong> - Consistent behavior across browsers
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

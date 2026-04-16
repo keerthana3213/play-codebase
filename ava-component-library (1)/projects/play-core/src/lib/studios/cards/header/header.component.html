@@ -1,0 +1,47 @@
+<div class="header-container">
+    <!-- Left side: Headings -->
+    <div class="header-left">
+        <!-- Primary heading -->
+        <h1 *ngIf="data.primaryHeading" class="header-primary-heading">
+            {{ data.primaryHeading }}
+        </h1>
+
+        <!-- Secondary heading -->
+        <h2 *ngIf="data.secondaryHeading" class="header-secondary-heading"
+            [class.header-secondary-heading--no-primary]="!data.primaryHeading">
+            {{ data.secondaryHeading }}
+        </h2>
+    </div>
+
+    <!-- Right side: Tabs, Buttons, or Number/Text -->
+    <div class="header-right" *ngIf="data.tabs || data.buttons || data.numberText">
+        <!-- Tabs -->
+        <div *ngIf="data.tabs && data.tabs.length > 0" class="header-tabs">
+            <aava-tabs [tabs]="data.tabs" [activeTabId]="activeTabId" variant="button" size="xs"
+                [showContentPanels]="false" (tabChange)="onTabChange($event)" [customStyles]="{background: 'rgba(255, 255, 255, 0.60)'}">
+            </aava-tabs>
+        </div>
+
+        <!-- Buttons -->
+        <div *ngIf="data.buttons && data.buttons.length > 0 && !data.tabs" class="header-buttons">
+            <aava-button *ngFor="let button of data.buttons"
+                [label]="button.label"
+                [variant]="button.variant || 'secondary'"
+                size="sm"
+                [disabled]="button.disabled || false"
+                (userClick)="onButtonClick(button)">
+            </aava-button>
+        </div>
+
+        <!-- Number and Text -->
+        <div *ngIf="data.numberText && !data.tabs && !data.buttons" class="header-number-text">
+            <span class="header-number"
+                [style.color]="data.numberText.numberColor || 'var(--Colors-Text-secondary, #616874)'">
+                {{ data.numberText.number }}
+            </span>
+            <span class="header-text">
+                {{ data.numberText.text }}
+            </span>
+        </div>
+    </div>
+</div>

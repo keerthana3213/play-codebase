@@ -1,0 +1,60 @@
+/**
+ * Popover Component Tokens
+ * Based on tooltip tokens but optimized for larger content with pagination
+ */
+
+:root {
+  /* --- Popover Base --- */
+  --popover-background: var(--color-background-primary);
+  --popover-text: var(--color-text-primary);
+  --popover-font: var(--font-body-2);
+  --popover-border-radius: var(--global-radius-sm);
+  --popover-shadow: var(--global-elevation-03);
+  --popover-padding: 8px 12px;
+  --popover-max-width: 150px;
+  --popover-z-index: 1000;
+  --popover-border-color: var(--color-border-default);
+
+  /* --- Popover Arrow --- */
+  --popover-arrow-color: var(--popover-background);
+  --popover-arrow-border-width: 6px;
+  --popover-arrow-border-width-inner: 5px;
+  --popover-arrow-border-shadow: rgba(0, 0, 0, 0.1);
+
+  /* --- Popover Content --- */
+  --popover-content-gap: 6px;
+
+  /* --- Popover Header --- */
+  --popover-header-color: var(--color-text-primary);
+  --popover-header-font-family: var(--font-family-body);
+  --popover-header-font-size: var(--global-font-size-md);
+  --popover-header-font-weight: var(--global-font-weight-bold);
+  --popover-header-line-height: var(--global-line-height-tight);
+
+  /* --- Popover Description --- */
+  --popover-description-color: var(--color-text-primary);
+  --popover-description-font-family: var(--font-family-body);
+  --popover-description-font-size: var(--global-font-size-xs);
+  --popover-description-font-weight: var(--global-font-weight-regular);
+  --popover-description-line-height: var(--global-line-height-normal);
+
+  /* --- Popover Footer --- */
+  --popover-footer-margin-top: 12px;
+
+  /* --- Popover Pagination --- */
+  --popover-pagination-color: var(--color-brand-primary);
+  --popover-pagination-font-family: var(--font-family-body);
+  --popover-pagination-font-size: var(--global-font-size-xs);
+  --popover-pagination-font-weight: var(--global-font-weight-regular);
+  --popover-pagination-line-height: var(--global-line-height-normal);
+
+  /* --- Popover Navigation Buttons --- */
+  --popover-button-gap: 8px;
+  --popover-button-width: 26px;
+  --popover-button-height: 16px;
+
+  /* --- Popover Hover Effects --- */
+  --popover-hover-background: rgba(var(--rgb-brand-primary), 0.1);
+  --popover-hover-border-radius: 2px;
+  --popover-disabled-opacity: 0.4;
+}

@@ -1,0 +1,134 @@
+<div class="fileupload-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>File Upload Component</h1>
+            <p class="description">
+              A comprehensive file upload component with multiple layout variants,
+              drag-and-drop support, file validation, and preview functionality for
+              building robust file upload interfaces.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/app-fileupload/basic-usage" class="nav-link">
+                <span class="nav-icon">📁</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/app-fileupload/layout-variants" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Layout Variants</span>
+              </a>
+              <a routerLink="/app-fileupload/size-variants" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Size Variants</span>
+              </a>
+              <a routerLink="/app-fileupload/validation" class="nav-link">
+                <span class="nav-icon">✅</span>
+                <span class="nav-text">File Validation</span>
+              </a>
+              <a routerLink="/app-fileupload/single-multiple" class="nav-link">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Single vs Multiple</span>
+              </a>
+              <a routerLink="/app-fileupload/states" class="nav-link">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">States & Customization</span>
+              </a>
+              <a routerLink="/app-fileupload/preview-layout" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Preview Layouts</span>
+              </a>
+              <a routerLink="/app-fileupload/advanced-features" class="nav-link">
+                <span class="nav-icon">🔧</span>
+                <span class="nav-text">Advanced Features</span>
+              </a>
+              <a routerLink="/app-fileupload/icon-customization" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Icon Customization</span>
+              </a>
+              <a routerLink="/app-fileupload/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>Simple file upload with default layout</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-8">
+              <aava-file-upload
+                componentTitle="Upload Files"
+                [allowedFormats]="allowedFormats"
+                [maxFiles]="5"
+                (selectedList)="onFileChange($event)">
+              </aava-file-upload>
+              <div class="result" *ngIf="showcaseFiles.length > 0">
+                <strong>Files Selected:</strong> {{showcaseFiles.length}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Layout Variants -->
+    <section class="demo-section layout-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Layout Variants</h2>
+          <p>Different layout options for various use cases</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <h4>Icon Layout</h4>
+              <aava-file-upload
+                layout="icon"
+                componentTitle="Drag & Drop Files"
+                [allowedFormats]="allowedFormats"
+                [maxFiles]="3">
+              </aava-file-upload>
+            </div>
+            <div class="col-12 col-md-6">
+              <h4>List Layout</h4>
+              <aava-file-upload
+                layout="list"
+                componentTitle="Select Files"
+                [allowedFormats]="allowedFormats"
+                [maxFiles]="3">
+              </aava-file-upload>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

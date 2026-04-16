@@ -1,0 +1,71 @@
+    <div class="tabs-demo-wrapper">
+      <!-- Extra Large Size -->
+      <div class="demo-section">
+        <aava-tabs
+          [tabs]="buttonTabs"
+          variant="button"
+          buttonShape="rounded"
+          size="xl"
+          [bordered]="true"
+          [activeTabId]="activeTabIds.xl"
+          (tabChange)="activeTabIds.xl = $event.id"
+          [showContentPanels]="false"
+        ></aava-tabs>
+      </div>
+
+      <!-- Large Size -->
+      <div class="demo-section">
+        <aava-tabs
+          [tabs]="buttonTabs"
+          variant="button"
+          buttonShape="rounded"
+          size="lg"
+          [bordered]="true"
+          [activeTabId]="activeTabIds.lg"
+          (tabChange)="activeTabIds.lg = $event.id"
+          [showContentPanels]="false"
+        ></aava-tabs>
+      </div>
+
+      <!-- Medium Size (Default) -->
+      <div class="demo-section">
+        <aava-tabs
+          [tabs]="buttonTabs"
+          variant="button"
+          buttonShape="rounded"
+          size="md"
+          [bordered]="true"
+          [activeTabId]="activeTabIds.md"
+          (tabChange)="activeTabIds.md = $event.id"
+          [showContentPanels]="false"
+        ></aava-tabs>
+      </div>
+
+      <!-- Small Size -->
+      <div class="demo-section">
+        <aava-tabs
+          [tabs]="buttonTabs"
+          variant="button"
+          buttonShape="rounded"
+          size="sm"
+          [bordered]="true"
+          [activeTabId]="activeTabIds.sm"
+          (tabChange)="activeTabIds.sm = $event.id"
+          [showContentPanels]="false"
+        ></aava-tabs>
+      </div>
+
+      <!-- Extra Small Size -->
+      <div class="demo-section">
+        <aava-tabs
+          [tabs]="buttonTabs"
+          variant="button"
+          buttonShape="rounded"
+          size="xs"
+          [bordered]="true"
+          [activeTabId]="activeTabIds.xs"
+          (tabChange)="activeTabIds.xs = $event.id"
+          [showContentPanels]="false"
+        ></aava-tabs>
+      </div>
+  `

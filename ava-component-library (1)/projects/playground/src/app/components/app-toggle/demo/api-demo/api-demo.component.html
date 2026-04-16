@@ -1,0 +1,39 @@
+<div class="demo-section center-demo">
+  <h3>Toggle API Reference</h3>
+  
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Input Properties</h4>
+      <div class="api-table">
+        <div class="api-header">
+          <span class="api-name">Property</span>
+          <span class="api-type">Type</span>
+          <span class="api-default">Default</span>
+          <span class="api-description">Description</span>
+        </div>
+        <div *ngFor="let prop of inputProperties" class="api-row">
+          <span class="api-name">{{ prop.name }}</span>
+          <span class="api-type">{{ prop.type }}</span>
+          <span class="api-default">{{ prop.default }}</span>
+          <span class="api-description">{{ prop.description }}</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="example-group">
+      <h4>Output Events</h4>
+      <div class="api-table">
+        <div class="api-header">
+          <span class="api-name">Event</span>
+          <span class="api-type">Type</span>
+          <span class="api-description">Description</span>
+        </div>
+        <div *ngFor="let event of outputEvents" class="api-row">
+          <span class="api-name">{{ event.name }}</span>
+          <span class="api-type">{{ event.type }}</span>
+          <span class="api-description">{{ event.description }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

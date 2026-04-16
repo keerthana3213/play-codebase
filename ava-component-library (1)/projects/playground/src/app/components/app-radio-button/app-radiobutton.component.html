@@ -1,0 +1,260 @@
+<div class="documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Radio Button Component</h1>
+        <p class="description">
+          A versatile radio button component that supports multiple
+          configurations, including disabled states, animations, and custom
+          styling. Built with accessibility and user experience in mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Demo Navigation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Components</h2>
+        <div class="demo-navigation">
+          <a routerLink="basic-usage" class="demo-link">
+            <h4>Basic Usage</h4>
+            <p>
+              Simple radio button group implementation with default settings
+            </p>
+          </a>
+          <a routerLink="orientations" class="demo-link">
+            <h4>Orientations</h4>
+            <p>Horizontal and vertical layout options</p>
+          </a>
+          <a routerLink="sizes" class="demo-link">
+            <h4>Sizes</h4>
+            <p>Small, medium, and large size variants</p>
+          </a>
+          <a routerLink="custom-colors" class="demo-link">
+            <h4>Custom Colors</h4>
+            <p>Color customization for radio buttons and labels</p>
+          </a>
+          <a routerLink="animations" class="demo-link">
+            <h4>Animations</h4>
+            <p>Interactive animation effects and transitions</p>
+          </a>
+          <a routerLink="states" class="demo-link">
+            <h4>States</h4>
+            <p>Different states including disabled options</p>
+          </a>
+          <a routerLink="form-integration" class="demo-link">
+            <h4>Form Integration</h4>
+            <p>Reactive and template-driven forms integration</p>
+          </a>
+          <a routerLink="api" class="demo-link">
+            <h4>API Reference</h4>
+            <p>Complete API documentation and interfaces</p>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Installation -->
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section
+      *ngFor="let section of sections; let i = index"
+      class="doc-section"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div
+                class="code-toggle"
+                (click)="toggleCodeVisibility(i, $event)"
+              >
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <!-- <aava-icon [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'"
+                  iconColor="action"></aava-icon> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <aava-radio-button
+                    [options]="basic"
+                    name="basic_radio_button"
+                    size="md"
+                    orientation="vertical"
+                    [selectedValue]="selectedValues['basic']"
+                    (selectedValueChange)="onRadioChange('basic', $event)"
+                  ></aava-radio-button>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Orientation -->
+            <ng-container *ngSwitchCase="'Orientation'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <h3>Vertical Layout</h3>
+                  <aava-radio-button
+                    [options]="vertical"
+                    name="vertical_radio_buttons"
+                    size="md"
+                    orientation="vertical"
+                    [selectedValue]="selectedValues['vertical']"
+                    (selectedValueChange)="onRadioChange('vertical', $event)"
+                  ></aava-radio-button>
+                </div>
+                <div class="col-12">
+                  <h3>Horizontal Layout</h3>
+                  <aava-radio-button
+                    [options]="horizontal"
+                    name="horizontal_radio_buttons"
+                    size="md"
+                    orientation="horizontal"
+                    [selectedValue]="selectedValues['horizontal']"
+                    (selectedValueChange)="onRadioChange('horizontal', $event)"
+                  ></aava-radio-button>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Size Variants -->
+            <ng-container *ngSwitchCase="'Size Variants'">
+              <div class="radio-group">
+                <div class="row1">
+                  <div>
+                    <h4>Large Size</h4>
+                    <aava-radio-button
+                      [options]="large_dot"
+                      name="large_radio_buttons1"
+                      [selectedValue]="selectedValues['large_dot']"
+                      size="lg"
+                      (selectedValueChange)="onRadioChange('large_dot', $event)"
+                    ></aava-radio-button>
+                  </div>
+                  <div>
+                    <h4>Medium Size</h4>
+                    <aava-radio-button
+                      [options]="medium_dot"
+                      name="medium_radio_buttons1"
+                      [selectedValue]="selectedValues['medium_dot']"
+                      size="md"
+                      (selectedValueChange)="
+                        onRadioChange('medium_dot', $event)
+                      "
+                    ></aava-radio-button>
+                  </div>
+                  <div>
+                    <h4>Small Size</h4>
+                    <aava-radio-button
+                      [options]="small_dot"
+                      name="small_radio_buttons1"
+                      size="sm"
+                      [selectedValue]="selectedValues['small_dot']"
+                      (selectedValueChange)="onRadioChange('small_dot', $event)"
+                    ></aava-radio-button>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Radio Button Variants -->
+            <ng-container *ngSwitchCase="'Radio Button Variants'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <h3>Disabled Options</h3>
+                  <aava-radio-button
+                    [options]="disabled"
+                    name="basic_radio_button"
+                    size="md"
+                    orientation="vertical"
+                    [selectedValue]="selectedValues['disabled']"
+                    (selectedValueChange)="onRadioChange('disabled', $event)"
+                  ></aava-radio-button>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button
+            class="copy-button"
+            (click)="copyCode(section.title.toLowerCase())"
+          >
+            <aava-icon iconName="awe_copy"></aava-icon>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Events -->
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>selectionChange</code></td>
+          <td><code>EventEmitter&lt;string&gt;</code></td>
+          <td>Emitted when a radio button is selected</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

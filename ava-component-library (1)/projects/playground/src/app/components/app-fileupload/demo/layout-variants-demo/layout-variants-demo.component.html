@@ -1,0 +1,69 @@
+
+<div class="layout">
+    <div class="example-group">
+      <h4>Default Layout</h4>
+      <aava-file-upload
+        layout="default"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png','txt']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)"
+      >
+      </aava-file-upload>
+      <p>Single file with left-side positioning</p>
+      <aava-file-upload
+        singleFileSelectionPosition="left"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Icon Layout</h4>
+      <aava-file-upload
+        layout="icon"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)"
+      >
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>List Layout</h4>
+      <aava-file-upload
+        layout="list"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)"
+      >
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Tags Layout</h4>
+      <aava-file-upload
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)"
+      >
+      </aava-file-upload>
+    </div>
+    <div class="example-group">
+      <h4>Table Layout</h4>
+      <aava-file-upload
+        (selectedList)="onFilesChanged($event, 'advanced')"
+        (deletedList)="onDeletedFiles($event)"
+        [allowedFormats]="allowedFormats"
+        layout="icon"
+        [maxFileSize]="maxFileSize"
+        uploaderId="advanced"
+        deleteIconPosition="right"
+        deleteIconName="trash"
+        deleteButtonSize="sm"
+        previewLayout="table"
+        [previewData]="previewData"
+      >
+      </aava-file-upload>
+    </div>
+</div>

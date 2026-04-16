@@ -1,0 +1,85 @@
+<div class="demo-container">
+  <h2>Advanced Filters</h2>
+  <p>Complex filter scenarios with action buttons, icons, and dynamic options.</p>
+
+ <div class="demo-example">
+  <div class="size">
+    <aava-filter
+      label="Status"
+      size="md"
+      [options]="advancedOptions"
+      selectionType="checkbox"
+      icon="list-filter"
+      [showSelectionCount]="true"
+      [allowMultipleSelection]="true"
+      (selectionChange)="onSelectionChange($event)">
+    </aava-filter>
+  </div>
+
+  <div class="size">
+    <aava-filter
+      label="Status"
+      size="md"
+      [options]="statusOptions"
+      selectionType="radio"
+      icon="file-text"
+      (selectionChange)="onSelectionChange($event)">
+    </aava-filter>
+  </div>
+
+  <div class="size">
+    <aava-filter
+      label="Sort"
+      size="md"
+      [options]="labelOnlyOptions"
+      selectionType="none"
+      icon="trending-up"
+      (selectionChange)="onSelectionChange($event)">
+    </aava-filter>
+  </div>
+
+  <div class="size">
+    <aava-filter
+      label="Priority"
+      size="md"
+      [options]="priorityOptions"
+      selectionType="checkbox"
+      icon="circle-alert"
+      [showSelectionCount]="true"
+      [allowMultipleSelection]="true"
+      (selectionChange)="onSelectionChange($event)">
+    </aava-filter>
+  </div>
+
+  <div class="size">
+    <aava-filter
+      label="Advanced"
+      size="md"
+      [options]="advancedOptions"
+      selectionType="checkbox"
+      icon="SlidersHorizontal"
+      [showActionButtons]="true"
+      [showSelectionCount]="true"
+      [allowMultipleSelection]="true"
+      (selectionChange)="onSelectionChange($event)"
+      (clearAll)="onClearAll()"
+      (apply)="onApply($event)">
+    </aava-filter>
+  </div>
+
+  <div class="size-lg">
+    <aava-filter
+      label="Filters"
+      size="lg"
+      [filterGroups]="multiGroupFilters"
+      icon="settings"
+      iconColor="#10b981"
+      [showActionButtons]="true"
+      [showSelectionCount]="true"
+      (selectionChange)="onSelectionChange($event)"
+      (clearAll)="onClearAll()"
+      (apply)="onApply($event)">
+    </aava-filter>
+  </div>
+
+  </div>

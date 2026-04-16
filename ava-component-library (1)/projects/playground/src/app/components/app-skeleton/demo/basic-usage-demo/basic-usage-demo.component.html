@@ -1,0 +1,11 @@
+<div class="basic-usage-demo">
+  <div class="demo-content">
+    <div class="skeleton-examples">
+      <div *ngFor="let config of skeletonConfigs" class="skeleton-item">
+        <aava-skeleton [width]="config.width" [height]="config.height" [shape]="config.shape"
+          [animation]="config.animation"></aava-skeleton>
+        <p class="description">{{ config.description }}</p>
+      </div>
+    </div>
+  </div>
+</div>

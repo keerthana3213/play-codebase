@@ -1,0 +1,53 @@
+<div class="nested-demo">
+  <div class="demo-header">
+    <a routerLink="/app-grid" class="back-button">
+      <aava-icon name="arrow-left" size="16"></aava-icon>
+      <span>Back to Grid</span>
+    </a>
+    <h1>Nested Grids</h1>
+    <p>Create complex layouts by nesting grids inside other grids.</p>
+  </div>
+
+  <div class="demo-content">
+    <ava-grid-demo-card
+      title="Basic Nested Grid"
+      description="Place a row with columns inside another column to create a nested grid."
+    >
+      <div class="row">
+        <div class="col-8 demo-col">
+          <p>.col-8</p>
+          <div class="row">
+            <div class="col-6 demo-col-nested">.col-6</div>
+            <div class="col-6 demo-col-nested">.col-6</div>
+          </div>
+        </div>
+        <div class="col-4 demo-col">
+          <p>.col-4</p>
+        </div>
+      </div>
+    </ava-grid-demo-card>
+
+    <ava-grid-demo-card
+      title="Multi-Level Nesting"
+      description="You can nest grids multiple levels deep to create even more complex layouts."
+    >
+      <div class="row">
+        <div class="col-12 demo-col">
+          <p>Level 1: .col-12</p>
+          <div class="row">
+            <div class="col-6 demo-col-nested">
+              <p>Level 2: .col-6</p>
+              <div class="row">
+                <div class="col-4 demo-col-nested-2">Level 3: .col-4</div>
+                <div class="col-8 demo-col-nested-2">Level 3: .col-8</div>
+              </div>
+            </div>
+            <div class="col-6 demo-col-nested">
+              <p>Level 2: .col-6</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ava-grid-demo-card>
+  </div>
+</div>

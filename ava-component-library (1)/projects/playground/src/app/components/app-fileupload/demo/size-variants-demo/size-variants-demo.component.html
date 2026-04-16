@@ -1,0 +1,80 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Extra Small (xs)</h4>
+      <aava-file-upload
+        componentTitle="XS Upload"
+        size="xs"
+        uploadButtonSize="xs"
+        deleteButtonSize="xs"
+        [allowedFormats]="['pdf', 'doc', 'jpg']"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Small (sm)</h4>
+      <aava-file-upload
+        componentTitle="Small Upload"
+        size="sm"
+        uploadButtonSize="sm"
+        deleteButtonSize="sm"
+        [allowedFormats]="['pdf', 'doc', 'jpg']"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Medium (md)</h4>
+      <aava-file-upload
+        componentTitle="Medium Upload"
+        size="md"
+        uploadButtonSize="md"
+        deleteButtonSize="md"
+        [allowedFormats]="['pdf', 'doc', 'jpg']"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Large (lg)</h4>
+      <aava-file-upload
+        componentTitle="Large Upload"
+        size="lg"
+        uploadButtonSize="lg"
+        deleteButtonSize="lg"
+        [allowedFormats]="['pdf', 'doc', 'jpg']"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Extra Large (xl)</h4>
+      <aava-file-upload
+        componentTitle="XL Upload"
+        size="xl"
+        uploadButtonSize="xl"
+        deleteButtonSize="xl"
+        [allowedFormats]="['pdf', 'doc', 'jpg']"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+      </div>
+      <div class="example-group">
+      <h4>Tags Layout with xs button size</h4>
+       <aava-file-upload
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        uploadButtonSize="xs"
+        deleteButtonSize="xs"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+          </div>
+  </div>
+</div>
+

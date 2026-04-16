@@ -1,0 +1,20 @@
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 16px; 
+  
+}
+
+.demo-column {
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  &.padl{
+    padding-right: 0;
+  }
+
+  aava-textbox{
+    margin-bottom: 20px;
+  }
+}

@@ -1,0 +1,83 @@
+<aava-default-card
+    [customStyles]="{
+        'border-radius': '12px',
+        border: '1px solid #FDFDFD',
+        background: 'rgba(255, 255, 255, 0.50)',
+        'box-shadow': 'none',
+        padding: '16px'
+    }">
+    <div class="profile-card-container">
+        <!-- Header Section -->
+        <div class="profile-card-header">
+            <!-- Avatar -->
+            <div class="profile-card-avatar">
+                <aava-avatars
+                    [imageUrl]="data.avatarUrl || ''"
+                    [initials]="data.initials || ''"
+                    [initialsBackground]="data.initialsBackground || ''"
+                    [initialsColor]="data.initialsColor || ''"
+                    [size]="'xl'"
+                    [imageStyles]="{ width: '64px', height: '64px' }">
+                </aava-avatars>
+            </div>
+
+            <!-- Title and Subtitle -->
+            <div class="profile-card-info">
+                <div class="profile-card-title-row">
+                    <span class="profile-card-title">{{ data.title }}</span>
+                    <aava-icon
+                        *ngIf="data.menuIcon"
+                        [iconName]="data.menuIcon"
+                        [iconSize]="16"
+                        class="profile-card-menu-icon">
+                    </aava-icon>
+                </div>
+                
+                <div class="profile-card-subtitle">
+                    {{ data.subtitle }}
+                </div>
+            </div>
+        </div>
+
+        <!-- Stats Section -->
+        <div class="profile-card-stats">
+            <aava-default-card
+                [customStyles]="{
+                    'border-radius': '8px',
+                    border: '1px solid #F0F1F2',
+                    background: 'rgba(255, 255, 255, 0.90)',
+                    'box-shadow': 'none',
+                    padding: '16px'
+                }">
+                <div class="profile-card-stats-container">
+                    <ng-container *ngFor="let stat of data.stats; let i = index">
+                        <!-- Stat Item -->
+                        <div class="profile-card-stat-item">
+                            <div class="profile-card-stat-icon" 
+                                 [style.background-color]="stat.iconBackgroundColor">
+                                <aava-icon
+                                    [iconName]="stat.icon"
+                                    [iconSize]="24"
+                                    [iconColor]="stat.iconColor">
+                                </aava-icon>
+                            </div>
+                            
+                            <div class="profile-card-stat-content">
+                                <div class="profile-card-stat-value">{{ stat.value }}</div>
+                                <div class="profile-card-stat-label">{{ stat.label }}</div>
+                            </div>
+                        </div>
+
+                        <!-- Divider (between stats) -->
+                        <aava-dividers
+                            *ngIf="i < data.stats.length - 1"
+                            [orientation]="'vertical'"
+                            [color]="'#D1D3D8'"
+                            [customStyles]="{ width: '1px', height: '90px', 'min-height': '0' }">
+                        </aava-dividers>
+                    </ng-container>
+                </div>
+            </aava-default-card>
+        </div>
+    </div>
+</aava-default-card>

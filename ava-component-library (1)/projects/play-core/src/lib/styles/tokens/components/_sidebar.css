@@ -1,0 +1,6 @@
+:root {
+    --sidebar-border: 1px solid var(--color-border-default);
+    --sidebar-top-position: 0.5rem;
+    --sidebar-right-position: 0.5rem;
+    --sidebar-collapsed-margin-top: 0.5rem;
+}

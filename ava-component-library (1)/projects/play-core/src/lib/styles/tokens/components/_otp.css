@@ -1,0 +1,173 @@
+/**
+ * =========================================================================
+ * Play+ Design System: OTP Component Tokens
+ *
+ * Component-specific semantic tokens for OTP (One-Time Password) elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for OTP styling.
+ *
+ * STRUCTURE:
+ * - OTP boxes have glass effects by default
+ * - Variants control glass tint colors (default, success, error, warning)
+ * - Size variants control dimensions and font sizes
+ * - Clean separation of interaction states vs visual variants
+ * =========================================================================
+ */
+
+:root {
+  /* =======================
+     OTP BASE PROPERTIES
+     ======================= */
+  --otp-font-weight: var(--global-font-weight-medium);
+  --otp-line-height: var(--global-spacing-5);
+  --otp-font-family:var(--global-font-family-body);
+  --otp-border-radius: var(--global-radius-sm);
+  --otp-transition: var(--motion-pattern-fade);
+  --otp-cursor: pointer;
+  --otp-cursor-disabled: not-allowed;
+  --otp-gap: var(--global-spacing-3);
+  --otp-text-color:var(--color-text-secondary);
+  --otp-container-gap:4px;
+
+  /* =======================
+     OTP BOX SIZES
+     ======================= */
+
+  /* Extra Small */
+  --otp-size-xs-width: 28px;
+  --otp-size-xs-height: 28px;
+  --otp-size-xs-font: var(--global-font-size-xs);
+  --otp-size-xs-border-radius: var(--global-spacing-2);
+
+  /* Small */
+  --otp-size-sm-width: 36px;
+  --otp-size-sm-height: 36px;
+  --otp-size-sm-font: var(--global-font-size-sm);
+  --otp-size-sm-border-radius: var(--global-radius-sm);
+
+  /* Medium */
+  --otp-size-md-width: 44px;
+  --otp-size-md-height: 44px;
+  --otp-size-md-font: var(--global-font-size-md);
+  --otp-size-md-border-radius:  var(--global-radius-sm);
+
+  /* Large */
+  --otp-size-lg-width:48px;
+  --otp-size-lg-height: 48px;
+  --otp-size-lg-font:18px;
+  --otp-size-lg-border-radius: var(--global-radius-sm);
+
+  /* Extra Large */
+  --otp-size-xl-width: 52px;
+  --otp-size-xl-height: 52px;
+  --otp-size-xl-font: var(--global-font-size-lg);
+  --otp-size-xl-border-radius:  var(--global-radius-sm);
+
+  /* =======================
+     OTP GLASS EFFECTS
+     ======================= */
+  --otp-default-background: var(--global-color-white);
+  --otp-glass-default-blur: var(--glass-backdrop-blur);
+  --otp-glass-default-border: var(--glass-50-border);
+  --otp-glass-default-shadow: var(--glass-elevation);
+
+  /* =======================
+     OTP VARIANT COLORS
+     ======================= */
+
+  /* Default variant */
+  --otp-variant-default-background: var(--color-background-primary);
+  --otp-variant-default-border: var(--color-border-default);
+  --otp-variant-default-text: var(--color-text-primary);
+  --otp-variant-default-focus-border-color:var(--color-brand-primary);
+
+  /* Success variant */
+  --otp-variant-success-background: var(--color-background-primary);
+  --otp-variant-success-border: var(--global-color-green-600);
+  --otp-variant-success-text: var(--color-text-primary);
+  --otp-variant-success-focus-border: var(--color-border-success);
+
+  /* Error variant */
+  --otp-variant-error-background: var(--color-background-primary);
+  --otp-variant-error-border: var(--global-color-red-600);
+  --otp-variant-error-text: var(--color-text-primary);
+  --otp-variant-error-focus-border: var(--color-border-error);
+
+  /* Warning variant */
+  --otp-variant-warning-background: var(--color-background-primary);
+  --otp-variant-warning-border: var(--color-border-warning);
+  --otp-variant-warning-text: var(--color-text-primary);
+  --otp-variant-warning-focus-border: var(--color-border-warning);
+
+  /* Info variant */
+  --otp-variant-info-background: var(--color-background-primary);
+  --otp-variant-info-border: var(--color-border-info);
+  --otp-variant-info-text: var(--color-text-primary);
+  --otp-variant-info-focus-border: var(--color-border-info);
+
+  /* =======================
+     OTP INTERACTION STATES
+     ======================= */
+
+  /* Hover States */
+  --otp-hover-opacity-boost: 1.2;
+  --otp-hover-border-boost: 1.5;
+
+  /* Active/Pressed States */
+  --otp-active-opacity-reduce: 0.9;
+  --otp-active-scale: 0.98;
+
+  /* Focus States */
+  --otp-focus-border-width: 2px;
+  --otp-focus-outline-offset: 2px;
+
+  /* Disabled States */
+  --otp-disabled-opacity: 0.5;
+  --otp-disabled-background: var(--color-background-disabled);
+  --otp-disabled-border: var(--color-border-disabled);
+  --otp-disabled-text:var(--color-border-disabled);
+
+  /* =======================
+     OTP LABEL PROPERTIES
+     ======================= */
+  --otp-label-color: var(--color-text-secondary);
+  --otp-label-font-size: 1rem;
+  --otp-label-margin: 4px;
+  --otp-label-font-weight:var(--global-font-weight-regular);
+  --otp-label-line-height: 20px;
+
+  /* =======================
+     OTP ERROR/HELPER PROPERTIES
+     ======================= */
+  --otp-error-color: var(--color-text-error);
+  --otp-error-margin: var(--global-spacing-2);
+  --otp-error-gap: 4px;
+
+  --otp-helper-color: var(--color-text-tertiary);
+  --otp-helper-margin: var(--global-spacing-2);
+  --otp-helper-gap: 4px;
+
+  /* =======================
+     OTP ERROR/HELPER FONT SIZES BY SIZE
+     ======================= */
+
+  /* Extra Small */
+  --otp-size-xs-error-font: 10px;
+  --otp-size-xs-helper-font: 10px;
+
+  /* Small */
+  --otp-size-sm-error-font: var(--global-font-size-xs);
+  --otp-size-sm-helper-font: var(--global-font-size-xs);
+
+  /* Medium */
+  --otp-size-md-error-font: var(--global-font-size-xs);
+  --otp-size-md-helper-font: var(--global-font-size-xs);
+
+  /* Large */
+  --otp-size-lg-error-font: var(--global-font-size-xs);
+  --otp-size-lg-helper-font: var(--global-font-size-xs);
+
+  /* Extra Large */
+  --otp-size-xl-error-font: var(--global-font-size-sm);
+  --otp-size-xl-helper-font: var(--global-font-size-sm);
+}

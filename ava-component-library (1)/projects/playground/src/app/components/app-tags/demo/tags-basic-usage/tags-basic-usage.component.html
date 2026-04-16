@@ -1,0 +1,29 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="basic-examples">
+      <div class="example-item" *ngFor="let example of basicExamples">
+        <div class="tag-demo">
+          <aava-tag
+            *ngFor="let tag of example.tags"
+            [label]="tag.label"
+            [color]="tag.color ?? 'default'"
+            [variant]="tag.variant ?? 'filled'"
+            [size]="tag.size ?? 'lg'"
+            [icon]="tag.icon"
+            [iconPosition]="tag.iconPosition ?? 'start'"
+            [iconColor]="tag.iconColor"
+            [customStyle]="tag.customStyle"
+            (clicked)="onTagClick(tag.label)"
+            [removable]="tag.removable ?? false"
+            tabindex="0"
+            role="button"
+            [pill]="tag.pill ?? false"
+            [attr.aria-label]="tag.label + ' tag'"
+            [type]="'tag'"
+          >
+          </aava-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

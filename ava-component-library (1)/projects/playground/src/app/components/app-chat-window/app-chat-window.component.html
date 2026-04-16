@@ -1,0 +1,11 @@
+<div class="chat-window-demo">
+  <aava-chat-window
+    [messages]="messages()"
+    [placeholder]="placeholder"
+    [disabled]="disabled"
+    [rows]="rows"
+    [icons]="chatIcons"
+    (messageSent)="onMessageSent($event)"
+    (iconClicked)="onIconClick($event)">
+  </aava-chat-window>
+</div>

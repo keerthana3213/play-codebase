@@ -1,0 +1,22 @@
+.t-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    padding-top: 150px;
+    padding-left: 150px;
+    background: yellow;
+}
+
+.con {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.col-12 {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-wrap: wrap;
+}

@@ -1,0 +1,168 @@
+<div class="demo-container">
+  <h2>Tooltip Accessibility</h2>
+  <p class="demo-description">
+    Tooltip follows accessibility best practices with keyboard navigation,
+    proper ARIA attributes, screen reader support, focus management, and
+    high contrast support.
+  </p>
+
+  <div class="demo-section">
+    <h3>Keyboard Navigation</h3>
+    <div class="keyboard-demo">
+      <p class="instruction">
+        Use Tab key to navigate through these elements and see tooltips
+        appear on focus:
+      </p>
+      <div class="keyboard-elements">
+
+
+        <aava-textbox label="Username" placeholder="Enter username"
+          tooltipDescription="This tooltip appears when the input receives focus" tooltipTrigger="click"
+          tooltipPosition="right" tooltipArrow="center">
+        </aava-textbox>
+
+
+
+        <aava-textbox label="Email" placeholder="Enter email" type="email"
+          tooltipDescription="We'll use this email for important notifications" tooltipTrigger="click"
+          tooltipPosition="right">
+        </aava-textbox>
+
+        <aava-button label="Submit" variant="primary" size="md"
+          tooltipDescription="Submit the form data (Keyboard: Enter or Space)" tooltipTrigger="click"
+          tooltipPosition="top">
+        </aava-button>
+
+
+        <aava-button label="Cancel" variant="secondary" size="md"
+          tooltipDescription="This tooltip appears on click and stays until you click elsewhere" tooltipTrigger="click">
+        </aava-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>ARIA Attributes & Screen Reader Support</h3>
+    <div class="aria-demo">
+      <p class="instruction">
+        These elements have proper ARIA attributes for screen readers:
+      </p>
+      <div class="aria-elements">
+        <button class="accessible-button" tooltipDescription="This button has proper ARIA labeling and description"
+          tooltipTrigger="focus" tooltipPosition="top" aria-label="Save document" aria-describedby="save-tooltip">
+          💾 Save
+        </button>
+
+        <button class="accessible-button"
+          tooltipDescription="Delete permanently removes the item - this action cannot be undone" tooltipTrigger="focus"
+          tooltipPosition="top" aria-label="Delete item" aria-describedby="delete-tooltip">
+          🗑️ Delete
+        </button>
+
+        <div class="form-field">
+          <label for="accessible-input">Required Field</label>
+          <input id="accessible-input" type="text" class="accessible-input" aria-required="true"
+            aria-describedby="field-help"
+            tooltipDescription="This field is required and must contain at least 5 characters" tooltipTrigger="focus"
+            tooltipPosition="right" placeholder="Minimum 5 characters" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Focus Management</h3>
+    <div class="focus-demo">
+      <p class="instruction">
+        Focus management ensures tooltips don't interfere with navigation:
+      </p>
+      <div class="focus-elements">
+        <button class="focus-button" tooltipDescription="Focus remains on this button while tooltip is visible"
+          tooltipTrigger="focus" tooltipPosition="top">
+          Focus stays here
+        </button>
+
+        <button class="focus-button" tooltipDescription="Tab to move focus to next element" tooltipTrigger="focus"
+          tooltipPosition="top">
+          Tab continues here
+        </button>
+
+        <button class="focus-button" tooltipDescription="Shift+Tab moves focus backward" tooltipTrigger="focus"
+          tooltipPosition="top">
+          And continues here
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Accessibility Checklist</h3>
+    <div class="checklist">
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Keyboard accessible (focus trigger)</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Proper ARIA attributes (aria-describedby, role)</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Screen reader compatible</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Focus management maintained</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>High contrast support</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Reduced motion support</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Color contrast compliance</span>
+      </div>
+      <div class="checklist-item">
+        <span class="checkmark">✅</span>
+        <span>Touch-friendly on mobile</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Best Practices</h3>
+    <div class="best-practices">
+      <div class="practice-card">
+        <h4>Do</h4>
+        <ul>
+          <li>Use focus trigger for form elements</li>
+          <li>Provide alternative ways to access information</li>
+          <li>Keep tooltip content concise</li>
+          <li>Test with screen readers</li>
+          <li>Support keyboard navigation</li>
+          <li>Respect user motion preferences</li>
+        </ul>
+      </div>
+      <div class="practice-card">
+        <h4>Don't</h4>
+        <ul>
+          <li>Put critical information only in tooltips</li>
+          <li>Use hover-only tooltips for important content</li>
+          <li>Make tooltips too long or complex</li>
+          <li>Ignore high contrast mode</li>
+          <li>Prevent focus from moving naturally</li>
+          <li>Force animations on users who prefer reduced motion</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-example">
+    <h3>Code Example</h3>
+    <pre><code>{{ codeExample }}</code></pre>
+  </div>
+</div>

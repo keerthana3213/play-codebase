@@ -1,0 +1,38 @@
+<div class="demo-section">
+    <div class="demo-description">
+        <h3>Custom Templates</h3>
+        <p>
+            Create custom option templates for complex data display and enhanced
+            user experience.
+        </p>
+    </div>
+
+    <div class="demo-container">
+        <aava-autocomplete [options]="options" placeholder="Search for programming languages..."
+            label="Select a language" helper="Choose a programming language with detailed information"
+            [optionTemplate]="customTemplate"  ></aava-autocomplete>
+    </div>
+</div>
+
+<!-- Custom Template -->
+<ng-template #customTemplate let-option>
+    <div class="custom-option">
+        <div class="option-header">
+            <div class="option-icon">
+                <aava-icon [iconName]="option.icon"></aava-icon>
+            </div>
+            <div class="option-main">
+                <div class="option-title">{{ option.label }}</div>
+                <div class="option-description">{{ option.description }}</div>
+            </div>
+            <div class="option-meta">
+                <div class="popularity-badge" [style.background]="getPopularityColor(option.popularity)">
+                    {{ option.popularity }}%
+                </div>
+            </div>
+        </div>
+        <div class="option-footer">
+            <span class="year-badge">Since {{ option.year }}</span>
+        </div>
+    </div>
+</ng-template>

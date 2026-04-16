@@ -1,0 +1,43 @@
+<div class="accordion-container">
+  <aava-accordion
+    type="default"
+    iconClosed="chevron-down"
+    iconOpen="chevron-up"
+    iconPosition="left"
+    (panelToggled)="onAccordionToggle($event)"
+    size="sm"
+  >
+    <span header>Small Accordion</span>
+    <div content>
+      <p>This accordion uses the small size variant.</p>
+    </div>
+  </aava-accordion>
+
+  <aava-accordion
+    type="default"
+    iconClosed="chevron-down"
+    iconOpen="chevron-up"
+    iconPosition="left"
+    (panelToggled)="onAccordionToggle($event)"
+    size="md"
+  >
+    <span header>Medium Accordion</span>
+    <div content>
+      <p>This accordion uses the medium size variant.</p>
+    </div>
+  </aava-accordion>
+
+  <aava-accordion
+    type="default"
+    iconClosed="chevron-down"
+    iconOpen="chevron-up"
+    iconPosition="left"
+    (panelToggled)="onAccordionToggle($event)"
+    size="lg"
+  >
+    <span header>Large Accordion</span>
+    <div content>
+      <p>This accordion uses the large size variant.</p>
+    </div>
+  </aava-accordion>
+</div>

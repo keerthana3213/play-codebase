@@ -1,0 +1,58 @@
+<div class="t-container">
+    <div class="checkbox-grid">
+        <aava-checkbox variant="default" size="sm"></aava-checkbox>
+        <aava-checkbox variant="default" size="md"></aava-checkbox>
+        <aava-checkbox variant="default" size="lg"></aava-checkbox>
+
+        <aava-checkbox variant="default" size="sm" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="md" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="lg" [isChecked]="true"></aava-checkbox>
+
+        <aava-checkbox variant="default" size="sm" [indeterminate]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="md" [indeterminate]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="lg" [indeterminate]="true"></aava-checkbox>
+
+        <aava-checkbox variant="with-bg" size="sm"></aava-checkbox>
+        <aava-checkbox variant="with-bg" size="md"></aava-checkbox>
+        <aava-checkbox variant="with-bg" size="lg"></aava-checkbox>
+
+        <aava-checkbox variant="with-bg" size="sm" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="with-bg" size="md" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="with-bg" size="lg" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="animated" size="sm"></aava-checkbox>
+        <aava-checkbox variant="animated" size="md"></aava-checkbox>
+        <aava-checkbox variant="animated" size="lg"></aava-checkbox>
+        <aava-checkbox variant="animated" size="sm" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="animated" size="md" [isChecked]="true"></aava-checkbox>
+        <aava-checkbox variant="animated" size="lg" [isChecked]="true"></aava-checkbox>
+    </div>
+
+    <div class="checkbox-list">
+        <h3>Label Font Size Examples</h3>
+        <aava-checkbox variant="default" size="sm" label="Small checkbox with 12px label"></aava-checkbox>
+        <aava-checkbox variant="default" size="md" label="Medium checkbox with 14px label"></aava-checkbox>
+        <aava-checkbox variant="default" size="lg" label="Large checkbox with 16px label"></aava-checkbox>
+
+        <h3>Disabled Examples</h3>
+        <aava-checkbox variant="default" size="sm" label="Small disabled" [disable]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="md" label="Medium disabled" [disable]="true"></aava-checkbox>
+        <aava-checkbox variant="default" size="lg" label="Large disabled" [disable]="true"></aava-checkbox>
+    </div>
+
+    <div style="margin-top:25px">
+        <form [formGroup]="form">
+            <aava-checkbox error="Field is mandatory" formControlName="chk1" label="Accept Terms1"
+                [isChecked]="form.value.chk1"></aava-checkbox>
+            <aava-checkbox class="wb" variant="with-bg" formControlName="chk2" label="Accept Terms2"
+                [isChecked]="form.value.chk2"></aava-checkbox>
+
+
+        </form>
+
+        <button (click)="pf()">Path Form</button>
+        <button (click)="pc()">Path Control1</button>
+        <pre>
+            {{form.value | json}}
+        </pre>
+    </div>
+</div>

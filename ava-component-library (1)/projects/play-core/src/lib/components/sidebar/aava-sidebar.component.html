@@ -1,0 +1,26 @@
+<div class="ava-sidebar-container" [ngStyle]="customStyles" [attr.id]="id ? 'aava-sidebar-' + id : null">
+  <div
+    class="ava-sidebar"
+    [style.width]="sidebarWidth"
+    [style.height]="height"
+    [class.collapsed]="collapsed"
+  >
+    <ng-content></ng-content>
+  </div>
+
+  <div
+    class="header-controls"
+    *ngIf="showCollapseButton"
+    [class.collapsed]="collapsed"
+    [ngStyle]="toggleCustomStyles"
+    [style.top.px]="getOffsetTop()"
+  >
+    <aava-button
+      iconName="chevron-left"
+      iconPosition="only"
+      variant="secondary"
+      size="sm"
+      (click)="toggleCollapse()"
+    ></aava-button>
+  </div>
+</div>

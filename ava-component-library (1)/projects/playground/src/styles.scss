@@ -1,0 +1,492 @@
+// @use '../../@aava/play-core/src/lib/styles/global/index' as theme;
+// @use '../../@aava/play-core/src/lib/styles/theme/config' as config;
+
+@use "../../play-core/src/lib/styles/main.scss";
+@use "./appstyle.scss";
+// // Include the button theme mixin globally (optional)
+//////////////////play ground style
+///
+///
+/// // Import animate.css directly for reliable loading
+@import "animate.css/animate.min.css";
+
+html,
+body {
+  font-size: 16px !important;
+}
+
+/* Global Badge Component Styles */
+ava-badges {
+  display: inline-block;
+  margin: 0.25rem;
+  cursor: pointer;
+
+  &:focus {
+    outline: 2px solid var(--primary-color, #3b82f6);
+    outline-offset: 2px;
+  }
+
+  /* Ensure badge content is visible */
+  .badge {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    border-radius: 1000px;
+    font-weight: 600;
+    font-family: system-ui, -apple-system, sans-serif;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .badge__count {
+    font-weight: 600;
+    text-align: center;
+    white-space: nowrap;
+    line-height: 1;
+  }
+}
+
+/* Demo Container Improvements */
+.demo-container {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: var(--text-primary, #1e293b);
+}
+
+/* Badge Demo Specific Styles */
+.badge-demo,
+.badge-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60px;
+  padding: 1rem;
+  // background: var(--surface, #ffffff);
+  border-radius: 6px;
+  // border: 1px solid var(--surface-border, #e2e8f0);
+  margin: 0.5rem 0;
+}
+
+/* Header */
+.doc-header {
+  h1 {
+    text-align: left;
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+  }
+}
+
+/* Sections */
+.doc-sections {
+  margin-top: 4rem;
+
+  .example-preview {
+    padding: 50px 25px;
+  }
+}
+
+.doc-section {
+  margin-bottom: 1rem;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+}
+
+/* Section header with toggle */
+.section-header {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  cursor: pointer;
+  padding: 1rem;
+  background-color: var(--surface);
+  border-radius: var(--border-radius);
+
+  h2 {
+    margin-bottom: 0.5rem;
+  }
+
+  .description-container {
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .code-toggle {
+    font-size: 0.75rem;
+    color: var(--icons-action);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-weight: var(--font-font-weight-medium);
+    font-family: var(--font-font-family-heading);
+
+    &:hover {
+      text-decoration: underline;
+    }
+
+    span {
+      margin-right: 0.5rem;
+    }
+  }
+
+  h1 {
+    font-size: 1.5rem !important;
+    font-weight: 600;
+    color: #212529 !important;
+    margin-bottom: 1rem;
+  }
+
+  h2 {
+    font-size: 1rem !important;
+    font-weight: 600;
+    color: #212529;
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 0.75rem !important;
+    color: #212529;
+  }
+
+  .example-preview {
+    border-radius: 5px !important;
+    border: 1px solid #cccccc !important;
+  }
+}
+
+/* CSS Variables for consistent theming */
+// :root {
+//   --text-primary: #1e293b;
+//   --text-secondary: #64748b;
+//   --surface: #ffffff;
+//   --surface-ground: #f8fafc;
+//   --surface-border: #e2e8f0;
+//   --primary-color: #3b82f6;
+//   --success-color: #10b981;
+//   --warning-color: #f59e0b;
+//   --danger-color: #ef4444;
+//   --info-color: #06b6d4;
+// }
+
+// [data-theme="light"] {
+//   /* --- Light Theme Color Overrides --- */
+//   /* PRIMARY (Vibrant Pink) */
+//   --global-color-blue-500: #2563EB;
+//   --global-color-blue-700: #308666;
+//   --global-color-blue-900: #0F2A63;
+
+//   --global-color-aqua-500: #03BDD4;
+//   --global-color-aqua-700: #028697;
+//   --global-color-aqua-900: #014F59;
+
+//   --color-brand-primary: var(--global-color-blue-500);
+//   --color-brand-primary-hover: var(--global-color-blue-700);
+//   --color-brand-primary-active: var(--global-color-blue-900);
+//   --color-surface-interactive-primary: var(--global-color-blue-500);
+//   --color-surface-interactive-primary-hover: var(--global-color-blue-700);
+//   --color-surface-interactive-primary-active: var(--global-color-blue-500);
+//   --color-border-primary: var(--global-color-blue-500);
+//   --color-border-primary-hover: var(--global-color-blue-700);
+//   --color-border-primary-active: var(--global-color-blue-900);
+//   --color-text-primary: var(--global-color-gray-700); //this color is not defined
+//   --color-text-on-primary: var(--global-color-white);
+
+//   /* SECONDARY (Light Blue) */
+//   --color-brand-secondary: var(--global-color-aqua-500);
+//   --color-brand-secondary-hover: var(--global-color-aqua-700);
+//   --color-brand-secondary-active: var(--global-color-aqua-900);
+//   --color-surface-interactive-secondary: var(--global-color-aqua-500);
+//   --color-surface-interactive-secondary-hover: var(--global-color-aqua-700);
+//   --color-surface-interactive-secondary-active: var(--global-color-aqua-900);
+//   --color-border-secondary: var(--global-color-aqua-500);
+//   --color-border-secondary-hover: var(--global-color-aqua-500);
+//   --color-border-secondary-active: var(--global-color-aqua-500);
+//   --color-text-secondary: var(--global-color-aqua-500); // need to pick
+//   --color-text-on-secondary: var(--global-color-blue-500);
+//   --color-background-secondary: var(--global-color-blue-100); //we are not using this color
+
+//   /* BUTTONS, TABS, TAGS: Use these tokens for all secondary/primary states */
+//   --color-text-placeholder: var(--global-color-gray-400);
+//   --color-text-disabled: var(--global-color-gray-400);
+//   --color-text-on-brand: var(--global-color-white);
+//   --color-text-interactive: var(--global-color-blue-500);
+//   --color-text-interactive-hover: var(--global-color-blue-700);
+//   --color-text-success: var(--global-color-green-500);
+//   --color-text-error: var(--global-color-red-500);
+//   --color-background-primary: var(--global-color-white);
+//   --color-background-disabled: var(--global-color-gray-100);
+//   --color-surface-interactive-default: var(--global-color-blue-500);
+//   --color-surface-interactive-hover: var(--global-color-blue-700);
+//   --color-surface-interactive-active: var(--global-color-blue-700);
+//   --color-surface-disabled: var(--global-color-gray-200);
+//   --color-surface-subtle-hover: var(--global-color-gray-100);
+//   --color-border-default: var(--global-color-gray-300);
+//   --color-border-subtle: var(--global-color-gray-200);
+//   --color-border-interactive: var(--global-color-blue-500);
+//   --color-border-focus: var(--global-color-blue-500);
+//   --color-border-error: var(--global-color-red-500);
+//   --color-background-error: var(--global-color-red-500);
+//   /* Semantic Border Colors */
+//   --color-border-warning: var(--global-color-yellow-500);
+//   --color-border-success: var(--global-color-green-500);
+//   --color-border-info: var(--global-color-blue-info-500);
+
+//   /* Semantic Text Colors */
+//   --color-text-warning: var(--global-color-yellow-600);
+//   --color-text-success: var(--global-color-green-600);
+//   --color-text-info: var(--global-color-blue-info-500);
+
+//   /* Semantic Background Colors */
+//   --color-background-warning: var(--global-color-yellow-500);
+//   --color-background-success: var(--global-color-green-500);
+//   --color-background-info: var(--global-color-blue-info-500);
+
+//   /* --- Light Theme Glassmorphism --- */
+//   --glass-backdrop-blur: 12px;
+//   --glass-background-color: rgba(255, 255, 255, 0.25);
+//   --glass-border-color: rgba(255, 255, 255, 0.3);
+//   --glass-border-width: 1px;
+//   --glass-elevation: var(--global-elevation-02);
+
+//   /* =======================
+//      LIGHT THEME: RGB OVERRIDES
+//      Extract RGB values from light theme semantic colors
+//      ======================= */
+//   --rgb-brand-primary: 37, 99, 235;
+//   /* From #e91e63 */
+//   --rgb-brand-secondary: 3, 189, 212;
+//   /* From #9c27b0 */
+//   --rgb-brand-tertiary: 37, 99, 235;
+//   /* From #2563eb */
+//   --rgb-brand-quaternary: 3, 189, 212;
+//   /* From #03bdd4 */
+//   --rgb-brand-quinary: 67, 189, 144;
+//   /* From #43bd90 */
+//   --rgb-brand-senary: 250, 112, 154;
+//   /* From #fa709a */
+//   --rgb-violet: 124, 58, 237;
+//   /* From #7c3aed */
+//   --rgb-royal-blue: 37, 99, 235;
+//   /* From #2563eb */
+//   --rgb-cyan: 3, 189, 212;
+//   /* From #03bdd4 */
+//   --rgb-spearmint: 67, 189, 144;
+//   /* From #43bd90 */
+//   --rgb-rose: 250, 112, 154;
+//   /* From #fa709a */
+//   --rgb-white: 255, 255, 255;
+//   /* From #ffffff */
+//   --rgb-black: 0, 0, 0;
+//   /* From #000000 */
+//   --rgb-neutral-100: 243, 244, 246;
+//   /* From #f3f4f6 */
+
+//   /* =======================
+//      LIGHT THEME: EFFECT COLOR OVERRIDES
+//      Override all effect colors for proper light theme adaptation
+//      ======================= */
+//   --effect-color-primary: var(--rgb-brand-primary);
+//   /* Pink - consistent with light theme */
+//   --effect-color-secondary: var(--rgb-brand-secondary);
+//   /* Blue instead of purple in light */
+//   --effect-color-accent: var(--rgb-violet);
+//   /* Violet accent - keep consistent */
+//   --effect-color-neutral: var(--rgb-black);
+//   /* Black shadows work well on light bg */
+//   --effect-color-surface: var(--rgb-white);
+//   /* White glass/shimmer on light bg */
+
+//   /* =======================
+//      LIGHT THEME: PERSONALITY OVERRIDES
+//      Only override personality tokens that need light theme adjustments
+//      ======================= */
+//   /* Most personalities use base values, only override if light theme needs different intensity */
+//   /* Base personalities work well for light theme, no overrides needed currently */
+
+//   /* =======================
+//      LIGHT THEME: SEMANTIC COMPONENT TOKENS
+//      Theme-aware component-specific tokens using the metaphor system
+//      ======================= */
+
+//   /* Glass Metaphor (Theme-Aware) */
+//   --surface-glass-bg: rgba(var(--effect-color-surface), 0.15);
+//   --surface-glass-border: rgba(var(--effect-color-surface), 0.7);
+//   --surface-glass-shadow: rgba(var(--effect-color-surface), 0.18);
+
+//   /* Light Metaphor (Theme-Aware) */
+//   --color-light-glow: rgba(var(--effect-color-primary), 0.45);
+//   --color-light-glow-focus: rgba(var(--effect-color-primary), 0.65);
+//   --color-light-shadow: rgba(var(--effect-color-accent), 0.1);
+//   --color-light-border: var(--color-brand-primary);
+//   --color-light-border-focus: var(--color-brand-secondary);
+
+//   /* Liquid Metaphor (Theme-Aware) */
+//   --color-liquid-shimmer-start: var(--color-brand-secondary);
+//   --color-liquid-shimmer-end: var(--color-brand-primary);
+
+//   /* =======================
+//      LIGHT THEME: SOPHISTICATED GLASS CHAINING
+//      Override glass surface colors for light theme variants
+//      ======================= */
+
+//   /* Light theme glass surface - keep default white */
+//   --glass-surface-color: var(--rgb-white);
+
+//   /* Light theme variant glass colors */
+//   --glass-variant-primary: var(--rgb-brand-primary);
+//   --glass-variant-success: 76, 175, 80;
+//   --glass-variant-warning: 255, 152, 0;
+//   --glass-variant-danger: 244, 67, 54;
+//   --glass-variant-info: 33, 150, 243;
+
+//   /* Custom variant example - Add new colors here */
+//   --glass-variant-purple: 156, 39, 176;
+//   /* Custom purple variant */
+//   --glass-variant-emerald: 16, 185, 129;
+//   /* Custom emerald variant */
+
+//   /* Light theme effect color adjustments */
+//   --effect-color-neutral: var(--rgb-black);
+//   /* Black shadows work on light bg */
+//   --effect-color-surface: var(--rgb-white);
+//   /* White highlights on light bg */
+// }
+
+[data-theme="light"] .fileupload-bg {
+  background: #f5f5f5 !important;
+}
+
+[data-theme="dark"] .fileupload-bg {}
+
+.user-table-wrapper {
+  .table-wrapper {
+
+    .expanded {
+      td:first-child {
+        border-bottom-left-radius: 8px;
+        border-left: 1px solid var(--table-border);
+      }
+
+      td:last-child {
+        border-bottom-right-radius: 8px;
+        border-right: 1px solid var(--table-border);
+      }
+
+    }
+
+    .expanded-below {
+      td:first-child {
+        border-top-left-radius: 8px;
+        border-left: 1px solid var(--table-border);
+      }
+
+      td:last-child {
+        border-top-right-radius: 8px;
+        border-right: 1px solid var(--table-border);
+      }
+
+    }
+
+    tr.expanded-above {
+      border-left: 1px solid var(--table-border);
+    }
+
+    tr.expanded-below {
+      border-left: 1px solid var(--table-border);
+
+      td {
+        border-top: 1px solid var(--table-border);
+      }
+    }
+
+    thead {
+      th {
+        border-top: 1px solid var(--table-border);
+
+        &:first-child {
+          border-left: 1px solid var(--table-border);
+          border-top-left-radius: 8px;
+        }
+
+        &:last-child {
+          border-right: 1px solid var(--table-border);
+          border-top-right-radius: 8px;
+
+        }
+      }
+    }
+
+    tbody {
+      tr {
+        .nested-content-cell {
+          border-bottom: none;
+
+        }
+
+        &.nested-content-row {
+          td {
+            border-left: none;
+
+            &:first-child {
+              border-left: none;
+              border-right: none;
+            }
+            &:last-child {
+            border-right: none;
+          }
+          }
+        }
+
+        td {
+          &:first-child {
+            border-left: 1px solid var(--table-border);
+          }
+
+          &:last-child {
+            border-right: 1px solid var(--table-border);
+          }
+
+          border-bottom: 1px solid var(--table-border);
+        }
+      }
+      .total-row{
+          border-bottom: none !important;
+      }
+       
+    }
+    
+
+    .nested-content-wrapper {
+      thead {
+        th {
+          border-top: none;
+          border-left: none;
+           position:unset !important;
+          border-right: none;;
+        }
+      }
+     
+    }
+
+  }
+}

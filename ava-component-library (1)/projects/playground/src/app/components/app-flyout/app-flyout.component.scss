@@ -1,0 +1,94 @@
+:host {
+    display: block;
+    width: 100%;
+}
+
+.documentation {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.doc-header {
+    margin-bottom: 3rem;
+
+    h1 {
+        font-size: 2.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .description {
+        font-size: 1.2rem;
+        color: var(--text-secondary);
+    }
+}
+
+.doc-sections {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+}
+
+.section-header {
+    cursor: pointer;
+
+    h2 {
+        font-size: 1.8rem;
+        margin-bottom: 0.5rem;
+    }
+}
+
+.code-toggle {
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+}
+
+.code-block {
+    background: #1e1e1e;
+    color: #d4d4d4;
+    padding: 1rem;
+    border-radius: 8px;
+    position: relative;
+    margin: 1rem 0;
+
+    pre {
+        margin: 0;
+    }
+
+    .copy-button {
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+    }
+}
+
+.api-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 1rem;
+
+    th,
+    td {
+        padding: 1rem;
+        text-align: left;
+        border-bottom: 1px solid var(--surface-border);
+    }
+
+    th {
+        background: var(--surface-hover);
+        font-weight: 600;
+    }
+
+    code {
+        background: var(--surface-hover);
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+    }
+}
+
+/* Ensure flyout-container is relative for correct positioning in demos */
+.flyout-container {
+    position: relative;
+    display: inline-block;
+}

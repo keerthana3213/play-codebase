@@ -1,0 +1,16 @@
+.test-footer-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  background: #000000;
+}
+
+.footer-test-title {
+  .title {
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,86 @@
+.sidebar-demo {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  overflow: auto;
+}
+
+.demo-header-content {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  background: transparent;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  position: relative;
+  height: 60px;
+}
+
+.demo-header-content::before {
+  content: '';
+  position: absolute;
+  left: -1.5rem;
+  right: -50px;
+  top: 0;
+  bottom: 0;
+  background: transparent;
+  z-index: -1;
+}
+
+.demo-content {
+  padding: 1rem;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 0.5rem;
+  position: relative;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.nav-item:hover {
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(6px) scale(1.02);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-color: rgba(102, 126, 234, 0.4);
+}
+
+.nav-item.active {
+  background: rgba(102, 126, 234, 0.1);
+  border-left: 4px solid #667eea;
+  padding-left: calc(1rem - 4px);
+}
+
+.nav-item.active span {
+  color: #667eea;
+  font-weight: 600;
+}
+
+.nav-item.active ava-icon {
+  color: #667eea;
+}
+
+.nav-item span {
+  font-size: 0.95rem;
+  color: #2d3748;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-item ava-icon {
+  color: #718096;
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  transition: color 0.3s ease;
+}

@@ -1,0 +1,30 @@
+.mar-10 {
+    margin: 10px;
+}
+
+.surface-strength {
+    margin-left: 50px;
+    margin-top: 10px;
+}
+
+.divider-group {
+    display: flex;
+    margin: 5px;
+}
+.divider-group1 {
+    width: 325px;
+}
+.divider-group2{
+    width: 286px;
+}
+
+
+span {
+    color: var(--color-text-primary);
+}
+.form{
+    aava-datepicker {
+        display: block;
+        margin-top: 20px;
+    }
+}

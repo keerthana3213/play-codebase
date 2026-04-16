@@ -1,0 +1,15 @@
+<div class="custom-styling-demo">
+  <div class="demo-content">
+    <div class="custom-grid">
+      <div *ngFor="let config of customConfigs" class="custom-item">
+        <div class="custom-preview">
+          <aava-skeleton [width]="config.width" [height]="config.height" [shape]="config.shape"
+            [animation]="config.animation" [backgroundColor]="config.backgroundColor"></aava-skeleton>
+        </div>
+        <div class="custom-info">
+          <h4>{{ config.description }}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

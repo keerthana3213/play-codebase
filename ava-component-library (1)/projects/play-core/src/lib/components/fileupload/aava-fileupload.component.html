@@ -1,0 +1,336 @@
+<div [class.disabled-wrapper]="disabled" [attr.id]="id ? 'aava-fileupload-' + id : null">
+  <!-- Default Layout  -->
+  <div *ngIf="layout === 'default'">
+    <div class="default-upload-container" [ngStyle]="customStyles">
+      <div class="file-name-display" [ngClass]="'file-name-display--' + size"
+        *ngIf="singleFileSelectionPosition === 'left'">
+        <span>{{
+          uploadedFiles.length > 0
+          ? uploadedFiles[0].file.name
+          : previewData && previewData.length > 0? previewData[0].fileName : "No file selected"
+          }}</span>
+        
+      </div>
+      <aava-button [variant]="uploadButtonVariant" [label]="uploadButtonLabel" [size]="uploadButtonSize"
+        (click)="openFileSelector()" [iconPosition]="uploadIconPosition" [iconName]="uploadIconName"
+        [disabled]="disabled">
+      </aava-button> 
+      <div class="file-name-display" [ngClass]="'file-name-display--' + size"
+        *ngIf="singleFileSelectionPosition === 'right'">
+        <span>{{
+          uploadedFiles.length > 0
+          ? uploadedFiles[0].file.name
+           : previewData && previewData.length > 0? previewData[0].fileName : "No file selected"
+          }}</span>
+        <aava-icon [disabled]="disabled" *ngIf="uploadedFiles.length > 0" iconName="X" [iconSize]="16"
+          [disabled]="disabled" [class.delete-icon]="!disabled" (click)="removeFile(0)"></aava-icon>
+      </div>
+      <input [id]="'fileInput-' + uniqueId" type="file" (change)="onFileSelected($event)"
+        [attr.accept]="allowAccepted()" hidden #fileInput [attr.multiple]="layout !== 'default' ? '' : null" />
+
+    </div>
+    <div class="error-wrapper">
+      @if (error) {
+      <div class="error-message" role="alert">
+        {{ error }}
+      </div>
+      }
+
+
+
+    </div>
+  </div>
+
+
+  <!-- Featured List Uploader Layout -->
+  <div *ngIf="layout === 'list'" class="list-upload-container" [ngStyle]="customStyles">
+    <div class="upload-button-wrapper">
+      <aava-button [variant]="uploadButtonVariant" [label]="uploadButtonLabel" [size]="uploadButtonSize"
+        (click)="openFileSelector()" [iconPosition]="uploadIconPosition" [iconName]="uploadIconName"
+        [disabled]="disabled">
+      </aava-button>
+    </div>
+    <div class="file-list-wrapper" *ngIf="uploadedFiles.length > 0 || previewData && previewData.length > 0">
+      <div class="file-list-item" *ngFor="let file of uploadedFiles; let i = index">
+        <span class="file-icon-list">
+          <aava-icon iconName="paperclip" [iconSize]="24"></aava-icon>
+        </span>
+        <span class="file-name">{{ file.file.name }}</span>
+        <span [class.delete-icon]="!disabled" (click)="removeFile(i)">
+          <aava-icon [disabled]="disabled" iconName="trash" [iconSize]="24"
+            iconColor="var(--fileupload-delete-icon-color)"></aava-icon>
+        </span>
+      </div>
+
+      <div class="file-list-item" *ngFor="let file of previewData; let i = index">
+        <span class="file-icon-list">
+          <aava-icon iconName="paperclip" [iconSize]="24"></aava-icon>
+        </span>
+        <span class="file-name">{{ file.fileName }}</span>
+        <span [class.delete-icon]="!disabled" (click)="removePreviewFile(i)">
+          <aava-icon *ngIf="file?.canDelete" [disabled]="disabled || (file?.disabled?true:false)" iconName="trash"
+            [iconSize]="24" iconColor="var(--fileupload-delete-icon-color)"></aava-icon>
+        </span>
+      </div>
+    </div>
+    <input [id]="'fileInput-' + uniqueId" type="file" (change)="onFileSelected($event)" [attr.accept]="allowAccepted()"
+      hidden #fileInput multiple />
+    <div class="error-wrapper">
+      @if (error) {
+      <div class="error-message" role="alert">
+        {{ error }}
+      </div>
+      }
+
+
+
+    </div>
+  </div>
+
+  <!-- File Uploader Tags Layout -->
+  <div *ngIf="layout === 'tags'" [ngStyle]="customStyles" class="featured-tags-container"
+    (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+    <div class="header">
+      <h3 class="title">Files ({{ uploadedFiles.length }})</h3>
+      <div class="actions">
+        <aava-button [variant]="uploadButtonVariant" [label]="uploadButtonLabel" [size]="uploadButtonSize"
+          (click)="openFileSelector()" [iconPosition]="uploadIconPosition" [iconName]="uploadIconName"
+          [disabled]="disabled">
+        </aava-button>
+        <aava-button [variant]="deleteButtonVariant" [label]="deleteButtonLabel" [size]="deleteButtonSize"
+          [disabled]="disabled || uploadedFiles.length === 0" (click)="resetUpload()"
+          [iconPosition]="deleteIconPosition" [iconName]="deleteIconName">
+        </aava-button>
+      </div>
+    </div>
+    <aava-dividers variant="solid" orientation="horizontal" [color]="dividerColor"></aava-dividers>
+    <ng-container *ngIf="
+      uploadedFiles.length > 0 || (previewData && previewData.length > 0)
+      else noFiles
+    ">
+      <div class="files-grid">
+        <div *ngFor="let file of uploadedFiles; let i = index" class="file-tag-wrapper">
+          <aava-tag [disabled]="disabled" [label]="truncateFileName(file.file.name, 100, ellipses)" variant="outlined"
+            color="default" [icon]="tagIcon" iconPosition="end" (removed)="removeFile(i)" [removable]="true"
+            class="file-tag" size="lg"></aava-tag>
+        </div>
+        <div *ngFor="let item of previewData;let i = index" class="file-tag-wrapper">
+          <aava-tag [disabled]="disabled || (item?.disabled?true:false)"
+            [label]="truncateFileName(item.fileName, 100, ellipses)" variant="outlined" color="default" class="file-tag"
+            size="lg" [removable]="item?.canDelete?true:false" (removed)="removePreviewFile(i)"></aava-tag>
+        </div>
+      </div>
+    </ng-container>
+    <ng-template #noFiles>
+      <div class="empty-state">
+        <p class="supported-formats-text">{{ supportedFormatLabel }}</p>
+        <p class="upload-tip" *ngIf="allowedFormatsList.length > 0">
+          Upload only {{ allowedFormatsList.join(", ") }} file
+        </p>
+      </div>
+    </ng-template>
+    <input [id]="'fileInput-' + uniqueId" type="file" (change)="onFileSelected($event)" [attr.accept]="allowAccepted()"
+      hidden #fileInput multiple />
+    <div class="error-wrapper">
+      @if (error) {
+      <div class="error-message" role="alert">
+        {{ error }}
+      </div>
+      }
+    </div>
+  </div>
+
+  <!-- File Uploader Icon Layout -->
+  <div *ngIf="layout === 'icon'" class="advanced-container" [ngStyle]="customStyles">
+    <div class="left-box">
+      <div class="upload-container new" role="dialog" [attr.aria-labelledby]="'upload-title-' + uniqueId"
+        [attr.aria-describedby]="'upload-desc-' + uniqueId" (dragover)="onDragOver($event)" (drop)="onDrop($event)">
+        <div class="file-upload-header">
+          <div class="file-upload-header-title" [id]="'upload-title-' + uniqueId"></div>
+        </div>
+        <div class="upload-area" [style.border]="border" [attr.for]="'fileInput-' + uniqueId"
+          [attr.aria-label]="'Click here to upload a file'">
+          <input [id]="'fileInput-' + uniqueId" type="file" (change)="onFileSelected($event)"
+            [attr.accept]="allowAccepted()" [attr.aria-describedby]="'file-input-desc-' + uniqueId" hidden #fileInput />
+          <div class="upload-placeholder">
+            <div class="new-variant-supported-formats">
+              <p class="supported-formats-text" [id]="'upload-desc-' + uniqueId">
+                {{ supportedFormatLabel }}
+              </p>
+              <p *ngIf="allowedFormatsList.length > 0"class="file-formats">
+                Upload only {{ allowedFormatsList.join(", ") }} file
+              </p>
+            </div>
+            <div class="upload-button-container">
+              <aava-button [variant]="uploadButtonVariant" [label]="uploadButtonLabel" [size]="uploadButtonSize"
+                [iconPosition]="uploadIconPosition" [iconName]="uploadIconName" (click)="openFileSelector()"
+                [disabled]="disabled"></aava-button>
+            </div>
+          </div>
+        </div>
+        <div class="error-wrapper">
+          @if (error) {
+          <div class="error-message" role="alert">
+            {{ error }}
+          </div>
+          }
+        </div>
+      </div>
+    </div>
+    <div class="right-box">
+      <div class="file-review-container">
+        <div class="header">
+          <h3>Files ({{ uploadedFiles.length }})</h3>
+          <div class="actions" *ngIf="uploadedFiles.length > 0">
+            <aava-button [variant]="deleteButtonVariant" [label]="deleteButtonLabel" [size]="deleteButtonSize"
+              [disabled]="disabled || uploadedFiles.length === 0" (click)="resetUpload()"
+              [iconPosition]="deleteIconPosition" [iconName]="deleteIconName">
+            </aava-button>
+          </div>
+        </div>
+        <aava-dividers variant="solid" orientation="horizontal" [color]="dividerColor"></aava-dividers>
+
+        <!-- Default Variant -->
+        <div *ngIf="previewLayout === 'default'">
+          <div *ngIf="uploadedFiles && uploadedFiles.length > 0 || (previewData && previewData.length > 0)">
+            <div *ngFor="let item of uploadedFiles" class="file-review-item" [style.border-color]="
+              item.file.name
+                ? getFileColor(getFileExtension(item.file.name))
+                : ''
+            ">
+              <div class="file-icon">
+                <span [style.background-color]="
+                  item.file.name
+                    ? getFileColor(getFileExtension(item.file.name))
+                    : ''
+                ">
+                  {{ item.file.name ? getFileExtension(item.file.name) : "" }}
+                </span>
+                <label>{{
+                  truncateFileName(item.file.name, 100, ellipses)
+                  }}</label>
+              </div>
+              <div class="file-actions">
+                <aava-icon [disabled]="disabled" *ngIf="item.canDelete" iconName="trash"
+                  iconColor="var(--fileupload-delete-icon-color)" [iconSize]="24" style="cursor: pointer"
+                  aria-label="Delete file" [class.delete-icon]="!disabled" (click)="removeNewFile(item)">
+                </aava-icon>
+              </div>
+            </div>
+            <div *ngFor="let item of previewData; let i=index" class="file-review-item" [style.border-color]="
+            item.fileName
+              ? getFileColor(getFileExtension(item.fileName))
+              : ''
+          ">
+              <div class="file-icon">
+                <span [style.background-color]="
+                item.fileName
+                  ? getFileColor(getFileExtension(item.fileName))
+                  : ''
+              ">
+                  {{ item.fileName ? getFileExtension(item.fileName) : "" }}
+                </span>
+                <label>{{
+                  truncateFileName(item.fileName, 100, ellipses)
+                  }}</label>
+              </div>
+              <div class="file-actions">
+                <aava-icon [disabled]="disabled || (item?.disabled?true:false)" *ngIf="item?.canDelete" iconName="trash"
+                  iconColor="var(--fileupload-delete-icon-color)" [iconSize]="24" style="cursor: pointer"
+                  aria-label="Delete file" [class.delete-icon]="!disabled" (click)="removePreviewFile(i)">
+                </aava-icon>
+              </div>
+            </div>
+          </div>
+          <div class="no-files-placeholder"
+            *ngIf="(!uploadedFiles || uploadedFiles.length === 0) && (!previewData || previewData.length === 0)">
+            <p>{{ componentTitle }}</p>
+          </div>
+        </div>
+
+        <!-- Table Variant -->
+        <div *ngIf="previewLayout === 'table'">
+          <div class="file-table-wrapper" [style.height.px]="previewLayoutHeight ? previewLayoutHeight : null">
+            <table class="file-table" [style.border-color]="borderColor" *ngIf="
+              (uploadedFiles && uploadedFiles.length > 0) ||
+              (previewData && previewData.length > 0)
+            ">
+              <thead>
+                <tr [style.border-color]="borderColor">
+                  <th *ngFor="let col of tableColumns" [hidden]="col.visible === false">
+                    {{ col.label }}
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let item of uploadedFiles">
+                  <td *ngFor="let col of tableColumns" [hidden]="col.visible === false" class="cell-text">
+                    <ng-container [ngSwitch]="col.key">
+                      <ng-container *ngSwitchCase="'fileName'">
+                        {{ truncateFileName(item.file.name, 100, ellipses) }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'fileSize'">
+                        {{
+                        item.file.size
+                        ? (item.file.size / 1024 | number : "1.0-2") + " KB"
+                        : "-"
+                        }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'fileType'">
+                        {{ item.file.type }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'retrieveType'">
+                        {{ item.retrieveType || "-" }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'uploadDate'">
+                        {{ item?.uploadDate || "-" }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'actions'">
+                        <aava-icon [disabled]="disabled" *ngIf="item.canDelete" iconName="trash"
+                          iconColor="var(--fileupload-delete-icon-color)" [iconSize]="16" style="cursor: pointer"
+                          (click)="removeNewFile(item)"></aava-icon>
+                      </ng-container>
+                    </ng-container>
+                  </td>
+                </tr>
+                <tr *ngFor="let item of previewData; let i = index">
+                  <td *ngFor="let col of tableColumns" [hidden]="col.visible === false">
+                    <ng-container [ngSwitch]="col.key">
+                      <ng-container *ngSwitchCase="'fileName'">
+                        {{ truncateFileName(item.fileName, 100, ellipses) }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'fileSize'">
+                        {{ item?.fileSize || "-" }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'fileType'">
+                        {{ item?.fileType }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'retrieveType'">
+                        {{ item?.retrieveType || "-" }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'uploadDate'">
+                        {{ item?.uploadDate || "-" }}
+                      </ng-container>
+                      <ng-container *ngSwitchCase="'actions'">
+                        <aava-icon [disabled]="disabled || (item?.disabled?true:false)" *ngIf="item.canDelete"
+                          iconName="trash" iconColor="var(--fileupload-delete-icon-color)" [iconSize]="16"
+                          style="cursor: pointer" (click)="removePreviewFile(i)"></aava-icon>
+                      </ng-container>
+                    </ng-container>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="no-files-placeholder" *ngIf="
+            previewData &&
+            previewData.length === 0 &&
+            uploadedFiles.length === 0
+          ">
+            <p>{{ componentTitle }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

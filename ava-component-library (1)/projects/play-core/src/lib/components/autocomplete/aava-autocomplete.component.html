@@ -1,0 +1,56 @@
+<div class="ava-autocomplete" [class.ava-autocomplete--full-width]="fullWidth" [attr.id]="id ? 'aava-autocomplete-' + id : null" [ngStyle]="customStyles">
+  <aava-textbox #textboxRef [label]="label" [placeholder]="placeholder" [error]="error" [size] = "size" [helper]="helper"
+    [disabled]="disabled" [readonly]="readonly" [required]="required" [fullWidth]="fullWidth" [value]="query"
+    (input)="onInput($event)" (focus)="onFocus()" (blur)="onBlur()"
+    (textboxChange)="onInput($event)" (keydown)="onKeydown($event)" [attr.aria-autocomplete]="'list'"
+    [attr.aria-controls]="dropdownId" [attr.aria-expanded]="showDropdown" [attr.aria-activedescendant]="activeDescendantId"
+    [attr.aria-label]="ariaLabel" [attr.aria-labelledby]="ariaLabelledby" [attr.aria-describedby]="ariaDescribedby"
+    autocomplete="off" (iconEndClick)="!startIcon && clearable && query ? onClear() : null">
+    <aava-icon *ngIf="startIcon" slot="icon-start" [iconName]="startIcon" [iconColor]="startIconColor"
+      [iconSize]="startIconSize"></aava-icon>
+    <aava-icon *ngIf="showCloseButton" slot="icon-end" [iconName]="'X'" [cursor]="true" [iconSize]="16"
+      (click)="onClear()"></aava-icon>
+  </aava-textbox>
+
+  <!-- Multi-select tags using aava-tag -->
+  <div *ngIf="multi && selectedOptions.length" class="ava-autocomplete__chips">
+    <aava-tag *ngFor="let opt of selectedOptions; trackBy: trackByValue" [label]="opt.label"
+      [color]="tagColor ?? 'default'" [variant]="tagVariant ?? 'filled'" [size]="tagSize ?? 'sm'"
+      [pill]="tagPill ?? false" [removable]="tagRemovable ?? true" [disabled]="tagDisabled ?? false" [icon]="tagIcon"
+      [iconPosition]="tagIconPosition ?? 'start'" [avatar]="tagAvatar" [customStyle]="tagCustomStyle"
+      [customClass]="tagCustomClass" [iconColor]="tagIconColor" (removed)="removeSelectedOption(opt)"></aava-tag>
+  </div>
+
+  <!-- Dropdown: JSON mode (styled by autocomplete) -->
+  <div class="ava-autocomplete__dropdown" *ngIf="contentType === 'json' && showDropdown" [attr.id]="dropdownId"
+    role="listbox" [attr.aria-label]="label || placeholder">
+    <div *ngIf="loading || loadingState" class="ava-autocomplete__loading">
+      Loading...
+    </div>
+    <div *ngIf="!loading && !loadingState && !filteredOptions.length" class="ava-autocomplete__empty">
+      {{ noResultsText }}
+    </div>
+    <ul *ngIf="filteredOptions.length" class="ava-autocomplete__options-ul">
+      <li [ngClass] = "size" *ngFor="
+          let option of filteredOptions;
+          let i = index;
+          trackBy: trackByValue
+        " class="ava-autocomplete__option" [class.ava-autocomplete__option--highlighted]="i === highlightedIndex"
+        [id]="getOptionId(i)" role="option" [attr.aria-selected]="i === highlightedIndex"
+        (mousedown)="onOptionClick(option)">
+        <ng-container *ngIf="optionTemplate; else defaultOption">
+          <ng-container *ngTemplateOutlet="optionTemplate; context: { $implicit: option }"></ng-container>
+        </ng-container>
+        <ng-template #defaultOption>
+          <span *ngIf="option.icon" class="ava-autocomplete__option-icon"><aava-icon
+              [iconName]="option.icon"></aava-icon></span>
+          <span class="ava-autocomplete__option-label">{{ option.label }}</span>
+        </ng-template>
+      </li>
+    </ul>
+  </div>
+  <!-- Dropdown: Normal mode (user controls content via ng-content) -->
+  <div class="ava-autocomplete__dropdown" *ngIf="contentType === 'normal' && showDropdown && !hideFlyout">
+    <ng-content></ng-content>
+  </div>
+</div>

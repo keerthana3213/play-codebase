@@ -1,0 +1,82 @@
+<div class="demo-section">
+    <div class="demo-description">
+        <h3>Form Integration</h3>
+        <p>
+            Seamless integration with Angular reactive forms and template-driven
+            forms.
+        </p>
+    </div>
+
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" class="demo-form">
+        <div class="form-row">
+            <div class="form-field">
+                <aava-autocomplete formControlName="validationType" [options]="validationOptions"
+                    placeholder="Select validation type..." [closeButton]="true" label="Validation Type"
+                    helper="Choose a validation type for the form" [required]="true"
+                    error="Please select a validation type"></aava-autocomplete>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <aava-autocomplete formControlName="email" [closeButton]="true" [options]="emailOptions"
+                    placeholder="Enter email..." label="Email Address" helper="Enter a valid email address"
+                    [required]="true" [error]="getFieldError('email')"></aava-autocomplete>
+            </div>
+        </div>
+
+        <div class="form-row">
+            <div class="form-field">
+                <aava-autocomplete formControlName="phone" [options]="phoneOptions" [closeButton]="true"
+                    placeholder="Enter phone number..." label="Phone Number" helper="Enter a valid phone number"
+                    [error]="getFieldError('phone')"></aava-autocomplete>
+            </div>
+        </div>
+
+        <div class="form-actions">
+            <button type="submit" class="submit-btn" [disabled]="form.invalid">
+                Submit Form
+            </button>
+            <button type="button" class="reset-btn" (click)="resetForm()">
+                Reset Form
+            </button>
+        </div>
+    </form>
+
+    <div class="demo-output" *ngIf="formSubmitted">
+        <h4>Form Submission:</h4>
+        <div class="output-item">
+            <strong>Form Valid:</strong> {{ form.valid ? 'Yes' : 'No' }}
+        </div>
+        <div class="output-item">
+            <strong>Form Values:</strong>
+            <pre>{{ form.value | json }}</pre>
+        </div>
+        <div class="output-item" *ngIf="form.errors">
+            <strong>Form Errors:</strong>
+            <pre>{{ form.errors | json }}</pre>
+        </div>
+    </div>
+
+    <div class="features-list">
+        <h4>Form Features:</h4>
+        <ul>
+            <li>
+                <strong>ControlValueAccessor:</strong> Full Angular form integration
+            </li>
+            <li>
+                <strong>Validation Support:</strong> Works with form validators
+            </li>
+            <li>
+                <strong>Error Display:</strong> Automatic error message display
+            </li>
+            <li>
+                <strong>Required Fields:</strong> Support for required field
+                validation
+            </li>
+            <li>
+                <strong>Disabled States:</strong> Proper disabled state handling
+            </li>
+        </ul>
+    </div>
+</div>

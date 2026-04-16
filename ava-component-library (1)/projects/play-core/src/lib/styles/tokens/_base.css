@@ -1,0 +1,1017 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Base Tokens (_base.scss)
+ *
+ * This file is the foundational layer of the Play+ Design System.
+ * It contains two core tiers of design tokens:
+ *
+ * 1. Global Tokens:
+ * The raw, context-agnostic primitive values of the system (the palette).
+ * These should never be used directly in component styling.
+ *
+ * 2. Semantic Tokens:--color-text-error
+ * The contextual design decisions that give purpose to global tokens.
+ * This layer creates the default theme and is consumed by components.
+ *
+ * This file directly implements the token manifesto.
+ * =========================================================================
+ */
+
+:root {
+  /*
+  ==========================================================================
+  1. GLOBAL TOKENS (The Raw Palette)
+  ==========================================================================
+  */
+
+  /* --- Global Palette: Base Brand (Default Theme) --- */
+
+  /* Pink Color Scale */
+  --global-color-pink-50: #FDE9EF;
+  --global-color-pink-100: #F8B9CF;
+  --global-color-pink-200: #F598B7;
+  --global-color-pink-300: #F06896;
+  --global-color-pink-400: #ED4B82;
+  --global-color-pink-500: #E91E63;
+  --global-color-pink-600: #D41B5A;
+  --global-color-pink-700: #A51546;
+  --global-color-pink-800: #801136;
+  --global-color-pink-900: #620D2A;
+
+  /* Blue Color Scale */
+  --global-color-blue-50: #E9EFFD;
+  --global-color-blue-100: #BBCFF9;
+  --global-color-blue-200: #9AB7F6;
+  --global-color-blue-300: #6C96F2;
+  --global-color-blue-400: #5082EF;
+  --global-color-blue-500: #2563EB;
+  --global-color-blue-600: #215AD6;
+  --global-color-blue-700: #1A46A7;
+  --global-color-blue-800: #143681;
+  --global-color-blue-900: #0F2A63;
+
+  /* Pulse blue Scale */
+  --global-color-pulse-blue-50: #E6F3FF;
+  --global-color-pulse-blue-100: #B0D9FF;
+  --global-color-pulse-blue-200: #8AC6FF;
+  --global-color-pulse-blue-300: #54ADFF;
+  --global-color-pulse-blue-400: #339DFF;
+  --global-color-pulse-blue-500: #0084FF;
+  --global-color-pulse-blue-600: #0078E8;
+  --global-color-pulse-blue-700: #005EB5;
+  --global-color-pulse-blue-800: #00498C;
+  --global-color-pulse-blue-900: #00376B;
+
+
+  /* Deep Purple Color Scale */
+  --global-color-deep-purple-50: #F0EBF8;
+  --global-color-deep-purple-100: #D0C2E9;
+  --global-color-deep-purple-200: #B9A4DE;
+  --global-color-deep-purple-300: #997BCF;
+  --global-color-deep-purple-400: #8561C5;
+  --global-color-deep-purple-500: #673AB7;
+  --global-color-deep-purple-600: #5E35A7;
+  --global-color-deep-purple-700: #492982;
+  --global-color-deep-purple-800: #392065;
+  --global-color-deep-purple-900: #2B184D;
+
+  /* Violet Color Scale */
+  --global-color-violet-50: #F2EBFD;
+  --global-color-violet-100: #D6C2F9;
+  --global-color-violet-200: #C3A4F7;
+  --global-color-violet-300: #A77BF3;
+  --global-color-violet-400: #A77BF3;
+  --global-color-violet-500: #7C3AED;
+  --global-color-violet-600: #7C3AED;
+  --global-color-violet-700: #7C3AED;
+  --global-color-violet-800: #442082;
+  --global-color-violet-900: #341864;
+
+  /* Royal Blue Color Scale */
+  --global-color-royal-blue-50: #E9EFFD;
+  --global-color-royal-blue-100: #BBCFF9;
+  --global-color-royal-blue-200: #9AB7F6;
+  --global-color-royal-blue-300: #6C96F2;
+  --global-color-royal-blue-400: #5082EF;
+  --global-color-royal-blue-500: #2563EB;
+  --global-color-royal-blue-600: #215AD6;
+  --global-color-royal-blue-700: #1A46A7;
+  --global-color-royal-blue-800: #143681;
+  --global-color-royal-blue-900: #143681;
+
+  /* Cyan Color Scale */
+  --global-color-cyan-50: #ecfeff;
+  --global-color-cyan-100: #cffafe;
+  --global-color-cyan-200: #a5f3fc;
+  --global-color-cyan-300: #67e8f9;
+  --global-color-cyan-400: #22d3ee;
+  --global-color-cyan-500: #03bdd4;
+  --global-color-cyan-600: #0891b2;
+  --global-color-cyan-700: #028697;
+  --global-color-cyan-800: #155e75;
+  --global-color-cyan-900: #164e63;
+
+  /* Spearmint Color Scale */
+  --global-color-spearmint-50: #f0fdfa;
+  --global-color-spearmint-100: #ccfbf1;
+  --global-color-spearmint-200: #99f6e4;
+  --global-color-spearmint-300: #5eead4;
+  --global-color-spearmint-400: #2dd4bf;
+  --global-color-spearmint-500: #43bd90;
+  --global-color-spearmint-600: #3ba77c;
+  --global-color-spearmint-700: #308666;
+  --global-color-spearmint-800: #276749;
+  --global-color-spearmint-900: #1f5540;
+
+  /* Rose Color Scale */
+  --global-color-rose-50: #FFF1F5;
+  --global-color-rose-100: #FDD3E0;
+  --global-color-rose-200: #FDBDD1;
+  --global-color-rose-300: #FC9FBB;
+  --global-color-rose-400: #FB8DAE;
+  --global-color-rose-500: #FA709A;
+  --global-color-rose-600: #E4668C;
+  --global-color-rose-700: #B2506D;
+  --global-color-rose-800: #8A3E55;
+  --global-color-rose-900: #692F41;
+
+  /* Marigold Color Scale */
+  --global-color-marigold-50: #FFFCEC;
+  --global-color-marigold-100: #FFF6C3;
+  --global-color-marigold-200: #FFF1A7;
+  --global-color-marigold-300: #FEEB7E;
+  --global-color-marigold-400: #FEE765;
+  --global-color-marigold-500: #FEE140;
+  --global-color-marigold-600: #E7CD39;
+  --global-color-marigold-700: #B4A02D;
+  --global-color-marigold-800: #8C7C23;
+  --global-color-marigold-900: #6B5F1A;
+
+
+  /* Amber Color Scale */
+  --global-color-amber-50: #fffbf0;
+  --global-color-amber-100: #fef7e0;
+  --global-color-amber-200: #fedea3;
+  --global-color-amber-300: #fcd34d;
+  --global-color-amber-400: #fbbf24;
+  --global-color-amber-500: #f59e0b;
+  --global-color-amber-600: #d97706;
+  --global-color-amber-700: #b45309;
+  --global-color-amber-800: #92400e;
+  --global-color-amber-900: #78350f;
+
+  --global-color-white: #FDFDFD;
+  --global-color-black: #1e1e1e;
+
+
+  /* --- Global Palette: Neutral --- */
+  --global-color-gray-50: #F0F1F2;
+  --global-color-gray-100: #D1D3D8;
+  --global-color-gray-200: #DDDEC5;
+  --global-color-gray-300: #9CA1AA;
+  --global-color-gray-400: #898E99;
+  --global-color-gray-500: #6B7280;
+  --global-color-gray-600: #616874;
+  --global-color-gray-700: #4C515B;
+  --global-color-gray-800: #3B3F46;
+  --global-color-gray-900: #2D3036;
+
+  /* --- Global Palette: Feedback --- */
+  --global-color-green-50: #E6F5F0;
+  --global-color-green-100: #B2DED1;
+  --global-color-green-200: #8CCFBA;
+  --global-color-green-300: #58B99B;
+  --global-color-green-400: #37AB87;
+  --global-color-green-500: #059669;
+  --global-color-green-600: #058960;
+  --global-color-green-700: #046B4B;
+  --global-color-green-800: #03533A;
+  --global-color-green-900: #023F2C;
+
+  --global-color-red-50: #FCE9E9;
+  --global-color-red-100: #F4BCBC;
+  --global-color-red-200: #EF9B9B;
+  --global-color-red-300: #E86E6E;
+  --global-color-red-400: #E86E6E;
+  --global-color-red-500: #E86E6E;
+  --global-color-red-600: #C82323;
+  --global-color-red-700: #9C1B1B;
+  --global-color-red-800: #791515;
+  --global-color-red-900: #5C1010;
+
+
+  --global-color-yellow-50: #FBF1E6;
+  --global-color-yellow-100: #F3D5B2;
+  --global-color-yellow-200: #EEC08C;
+  --global-color-yellow-300: #E6A458;
+  --global-color-yellow-400: #E19238;
+  --global-color-yellow-500: #D97706;
+  --global-color-yellow-600: #C56C05;
+  --global-color-yellow-700: #9A5404;
+  --global-color-yellow-800: #774103;
+  --global-color-yellow-900: #5B3203;
+
+  --global-color-info-50: #E6F4F7;
+  --global-color-info-100: #B2DDE7;
+  --global-color-info-200: #8DCCDC;
+  --global-color-info-300: #5AB5CB;
+  --global-color-info-400: #5AB5CB;
+  --global-color-info-500: #0891B2;
+  --global-color-info-600: #0784A2;
+  --global-color-info-700: #06677E;
+  --global-color-info-800: #06677E;
+  --global-color-info-900: #033D4B;
+
+  /* --- Global Typography: Font Families --- */
+  --global-font-family-display: "PP Neue Machina", sans-serif;
+  --global-font-family-heading: "Mulish", sans-serif;
+  --global-font-family-body: "Inter", sans-serif;
+
+  /* --- Global Typography: Font Weights --- */
+  --global-font-weight-regular: 400;
+  --global-font-weight-medium: 500;
+  --global-font-weight-semibold: 600;
+  --global-font-weight-bold: 700;
+
+  /* --- Global Typography: Font Sizes --- */
+  --global-font-size-xs: 0.75rem;
+  --global-font-size-sm: 0.875rem;
+  --global-font-size-md: 1rem;
+  --global-font-size-lg: 1.25rem;
+  --global-font-size-xl: 1.5rem;
+  --global-font-size-xxl: 2rem;
+  --global-font-size-xxxl: 3rem;
+
+  /* --- Global Typography: Line Heights --- */
+  --global-line-height-none: 1;
+  --global-line-height-tight: 1.2;
+  --global-line-height-snug: 1.375;
+  --global-line-height-normal: 1.5;
+  --global-line-height-relaxed: 1.625;
+  --global-line-height-loose: 1.75;
+  --global-line-height-extra-loose: 2;
+  --global-letter-spacing: 0.01em;
+
+  /* --- Global Spacing --- */
+  --global-spacing-0: 0rem;
+  --global-spacing-1: 0.25rem;
+  --global-spacing-2: 0.5rem;
+  --global-spacing-3: 0.75rem;
+  --global-spacing-4: 1rem;
+  --global-spacing-5: 1.5rem;
+  --global-spacing-6: 2rem;
+  --global-spacing-7: 3rem;
+  --global-spacing-8: 4rem;
+  --global-spacing-9: 2rem;
+  --global-spacing-10: 2.25rem;
+  --global-spacing-11: 2.5rem;
+  --global-spacing-12: 3rem;
+  --global-spacing-13: 3.5rem;
+  --global-spacing-14: 4rem;
+  --global-spacing-15: 4.5rem;
+  --global-spacing-negative-4: -0.25rem;
+  --global-spacing-negative-8: -0.5rem;
+
+  /* --- Global Radius --- */
+  --global-radius-sm: 0.5rem;
+  --global-radius-md: 0.75rem;
+  --global-radius-lg: 1.5rem;
+  --global-radius-xl: 0.75rem;
+  --global-radius-2xl: 1rem;
+  --global-radius-pill: 9999px;
+  --global-radius-circle: 50%;
+  --global-radius-none: 0;
+
+  /* --- Global Iconography --- */
+  --global-icon-size-sm: 16px;
+  --global-icon-size-md: 20px;
+  --global-icon-size-lg: 24px;
+  --global-icon-size-xl: 32px;
+
+  /* --- Global Elevation & Motion --- */
+  --global-elevation-01: 0px 2px 4px rgba(0, 0, 0, 0.08);
+  --global-elevation-02: 0px 4px 12px rgba(0, 0, 0, 0.1);
+  --global-elevation-03: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --global-elevation-04: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --global-elevation-05: 0px 25px 50px -12px rgba(0, 0, 0, 0.25);
+  --global-elevation-06: 0 0 10px 10px rgba(0.1, 0.1, 0.1, 0.1);
+  --global-motion-duration-swift: 150ms;
+  --global-motion-duration-standard: 300ms;
+  --global-motion-duration-emphasis: 450ms;
+  --global-motion-duration-fast: 150ms;
+  --global-motion-duration-slow: 500ms;
+  --global-motion-easing-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --global-motion-easing-enter: cubic-bezier(0, 0, 0.2, 1);
+  --global-motion-easing-exit: cubic-bezier(0.4, 0, 1, 1);
+
+  /* --- Global Grid & Layout --- */
+  --global-column: 0.75rem;
+  --global-gutter: 1.5rem;
+  --global-margin: 4.5rem;
+  --global-stroke: 0.125rem;
+
+  /* --- Global Elevation Fill Light --- */
+  --global-elevation-light-fill-30: linear-gradient(102deg,
+      rgba(240, 240, 245, 0.24) 2.05%,
+      rgba(240, 240, 245, 0.24) 100%);
+  --global-elevation-light-fill-60: linear-gradient(102deg,
+      rgba(240, 240, 245, 0.48) 2.05%,
+      rgba(240, 240, 245, 0.48) 100%);
+  --global-elevation-light-fill-90: linear-gradient(102deg,
+      rgba(240, 240, 245, 0.72) 2.05%,
+      rgba(240, 240, 245, 0.72) 100%);
+
+  /* --- Global Elevation Fill Dark --- */
+  --global-elevation-dark-fill-30: linear-gradient(102deg,
+      rgba(20, 27, 31, 0.12) 2.05%,
+      rgba(20, 27, 31, 0.12) 100%);
+  --global-elevation-dark-fill-60: linear-gradient(102deg,
+      rgba(20, 27, 31, 0.24) 2.05%,
+      rgba(20, 27, 31, 0.24) 100%);
+  --global-elevation-dark-fill-90: linear-gradient(102deg,
+      rgba(20, 27, 31, 0.36) 2.05%,
+      rgba(20, 27, 31, 0.36) 100%);
+
+  /* --- Global Elevation Stroke Light --- */
+  --global-elevation-light-stroke-30: #f0f0f5;
+  --global-elevation-light-stroke-60: #f0f0f5;
+  --global-elevation-light-stroke-90: #f0f0f5;
+
+  /* --- Global Elevation Stroke Dark --- */
+  --global-elevation-dark-stroke-30: #f0f0f5;
+  --global-elevation-dark-stroke-60: #f0f0f5;
+  --global-elevation-dark-stroke-90: #fff;
+
+  /* --- Global Glassmorphic Effects --- */
+  --global-glassmorphic-light-30: 0px 2px 4px 0px rgba(0, 0, 0, 0.16),
+    0px 4px 24px 0px rgba(20, 22, 31, 0.16);
+  --global-glassmorphic-light-60: 0px 2px 4px 0px rgba(0, 0, 0, 0.16),
+    0px 4px 24px 0px rgba(20, 22, 31, 0.16);
+  --global-glassmorphic-light-90: 0px 2px 4px 0px rgba(0, 0, 0, 0.16),
+    0px 4px 24px 0px rgba(20, 22, 31, 0.16);
+  --global-glassmorphic-blur-30: blur(15px);
+  --global-glassmorphic-blur-60: blur(30px);
+  --global-glassmorphic-blur-90: blur(45px);
+
+  /* =======================
+     PLAY+ METAPHOR MATRIX - BASE PRIMITIVES
+     ======================= */
+
+  /* LEGACY GLASS TOKENS REMOVED - Consolidated to sophisticated glass system */
+
+  /* LEGACY GLASS PRIMITIVE TOKENS REMOVED - Consolidated to sophisticated glass system */
+
+  /* --- Metaphor Primitive: Light Shadow Distances --- */
+  --light-distance-0: 0;
+  --light-distance-10: 2px 4px;
+  --light-distance-25: 4px 8px;
+  --light-distance-50: 8px 16px;
+  --light-distance-75: 12px 24px;
+  --light-distance-100: 16px 32px;
+
+  /* --- Metaphor Primitive: Light Glow Distances --- */
+  --light-glow-distance-0: 0;
+  --light-glow-distance-10: 4px;
+  --light-glow-distance-25: 8px;
+  --light-glow-distance-50: 16px;
+  --light-glow-distance-75: 24px;
+  --light-glow-distance-100: 32px;
+
+  /* --- Metaphor Primitive: Light Alpha Values --- */
+  --light-alpha-0: 0;
+  --light-alpha-10: 0.1;
+  --light-alpha-25: 0.2;
+  --light-alpha-50: 0.3;
+  --light-alpha-75: 0.4;
+  --light-alpha-100: 0.5;
+
+  /* --- Metaphor Primitive: Liquid Timing Functions --- */
+  --liquid-timing-0: linear;
+  --liquid-timing-10: cubic-bezier(0.25, 0.1, 0.25, 1);
+  --liquid-timing-25: cubic-bezier(0.4, 0, 0.2, 1);
+  --liquid-timing-50: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --liquid-timing-75: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --liquid-timing-100: cubic-bezier(0.86, 0, 0.07, 1);
+
+  /* --- Metaphor Primitive: Liquid Duration Values --- */
+  --liquid-duration-0: 0ms;
+  --liquid-duration-10: 100ms;
+  --liquid-duration-25: 200ms;
+  --liquid-duration-50: 300ms;
+  --liquid-duration-75: 500ms;
+  --liquid-duration-100: 800ms;
+
+  /* --- Metaphor Primitive: Transform Scale Values --- */
+  --transform-scale-0: 1;
+  --transform-scale-10: 1.01;
+  --transform-scale-25: 1.02;
+  --transform-scale-50: 1.03;
+  --transform-scale-75: 1.05;
+  --transform-scale-100: 1.08;
+
+  /* --- Metaphor Primitive: Transform Rotate Values --- */
+  --transform-rotate-0: 0deg;
+  --transform-rotate-10: 1deg;
+  --transform-rotate-25: 2deg;
+  --transform-rotate-50: 3deg;
+  --transform-rotate-75: 5deg;
+  --transform-rotate-100: 8deg;
+
+  /* --- Metaphor Primitive: Transform Translate Values --- */
+  --transform-translate-0: 0;
+  --transform-translate-10: 1px;
+  --transform-translate-25: 2px;
+  --transform-translate-50: 3px;
+  --transform-translate-75: 4px;
+  --transform-translate-100: 6px;
+
+  /*
+  ==========================================================================
+  2. SEMANTIC TOKENS (The Design Decisions - Out of box theme)
+  ==========================================================================
+  */
+
+  /* --- Semantic Colors --- */
+  --global-background: var(--global-color-white);
+  --scrollbar-color: var(--global-color-gray-400);
+  --color-brand-primary: var(--global-color-pink-500);
+  --color-brand-secondary: var(--global-color-purple-500);
+  --color-brand-tertiary: var(--global-color-royal-blue-500);
+  --color-brand-quaternary: var(--global-color-cyan-500);
+  --color-brand-quinary: var(--global-color-spearmint-500);
+  --color-brand-senary: var(--global-color-rose-500);
+
+  --color-brand-primary-hover: var(--global-color-pink-700);
+  --color-brand-primary-active: var(--global-color-pink-700);
+  --color-brand-secondary-hover: var(--global-color-violet-700);
+  --color-brand-secondary-active: var(--global-color-violet-700);
+  --color-brand-tertiary-hover: var(--global-color-royal-blue-700);
+  --color-brand-tertiary-active: var(--global-color-royal-blue-700);
+  --color-brand-quaternary-hover: var(--global-color-cyan-700);
+  --color-brand-quaternary-active: var(--global-color-cyan-700);
+  --color-brand-quinary-hover: var(--global-color-spearmint-700);
+  --color-brand-quinary-active: var(--global-color-spearmint-700);
+  --color-brand-senary-hover: var(--global-color-rose-700);
+  --color-brand-senary-active: var(--global-color-rose-700);
+
+  --color-text-primary: var(--global-color-gray-900);
+  --color-text-secondary: var(--global-color-gray-600);
+  --color-text-placeholder: var(--global-color-gray-400);
+  --color-text-disabled: var(--global-color-gray-400);
+  --color-text-on-brand: var(--global-color-white);
+  --color-text-interactive: var(--global-color-pink-500);
+  --color-text-interactive-hover: var(--global-color-pink-700);
+  --color-text-tertiary: var(--global-color-royal-blue-500);
+  --color-text-tertiary-hover: var(--global-color-royal-blue-700);
+  --color-text-quaternary: var(--global-color-cyan-500);
+  --color-text-quaternary-hover: var(--global-color-cyan-700);
+  --color-text-quinary: var(--global-color-spearmint-500);
+  --color-text-quinary-hover: var(--global-color-spearmint-700);
+  --color-text-senary: var(--global-color-rose-500);
+  --color-text-senary-hover: var(--global-color-rose-700);
+
+  --color-text-success: var(--global-color-green-500);
+  --color-text-error: var(--global-color-red-500);
+  --color-background-primary: var(--global-color-white);
+  --color-background-secondary: var(--global-color-gray-50);
+  --color-background-disabled: var(--global-color-gray-100);
+  --color-surface-interactive-default: var(--global-color-pink-500);
+  --color-surface-interactive-hover: var(--global-color-pink-700);
+  --color-surface-interactive-active: var(--global-color-pink-700);
+  --color-surface-tertiary-default: var(--global-color-royal-blue-500);
+  --color-surface-tertiary-hover: var(--global-color-royal-blue-700);
+  --color-surface-tertiary-active: var(--global-color-royal-blue-700);
+  --color-surface-quaternary-default: var(--global-color-cyan-500);
+  --color-surface-quaternary-hover: var(--global-color-cyan-700);
+  --color-surface-quaternary-active: var(--global-color-cyan-700);
+  --color-surface-quinary-default: var(--global-color-spearmint-500);
+  --color-surface-quinary-hover: var(--global-color-spearmint-700);
+  --color-surface-quinary-active: var(--global-color-spearmint-700);
+  --color-surface-senary-default: var(--global-color-rose-500);
+  --color-surface-senary-hover: var(--global-color-rose-700);
+  --color-surface-senary-active: var(--global-color-rose-700);
+  --color-surface-disabled: var(--global-color-gray-200);
+  --color-surface-subtle: var(--global-color-gray-100);
+  --color-surface-subtle-hover: var(--global-color-gray-100);
+  --color-surface-subtle-active: var(--global-color-gray-200);
+  --color-border-default: var(--global-color-gray-300);
+  --color-border-subtle: var(--global-color-gray-200);
+  --color-border-interactive: var(--global-color-pink-500);
+  --color-border-focus: var(--global-color-pink-500);
+  --color-border-tertiary: var(--global-color-royal-blue-500);
+  --color-border-quaternary: var(--global-color-cyan-500);
+  --color-border-quinary: var(--global-color-spearmint-500);
+  --color-border-senary: var(--global-color-rose-500);
+  --color-border-error: var(--global-color-red-500);
+  --color-border-disabled: var(--global-color-gray-100);
+
+  /* Semantic Border Colors */
+  --color-border-warning: var(--global-color-yellow-500);
+  --color-border-success: var(--global-color-green-500);
+  --color-border-info: var(--global-color-blue-info-500);
+
+  /* --- Semantic Typography --- */
+  --font-family-display: var(--global-font-family-display);
+  --font-family-heading: var(--global-font-family-heading);
+  --font-family-body: var(--global-font-family-body);
+  --font-body-1: var(--global-font-weight-regular) var(--global-font-size-md) / var(--global-line-height-normal) var(--font-family-body);
+  --font-body-2: var(--global-font-weight-regular) var(--global-font-size-sm) / var(--global-line-height-normal) var(--font-family-body);
+  --font-label: var(--global-font-weight-medium) var(--global-font-size-xs) / var(--global-line-height-tight) var(--font-family-body);
+  --font-heading-h1: var(--global-font-weight-bold) var(--global-font-size-xxxl) / var(--global-line-height-tight) var(--font-family-heading);
+  --font-heading-h2: var(--global-font-weight-bold) var(--global-font-size-xxl) / var(--global-line-height-tight) var(--font-family-heading);
+  --font-heading-h3: var(--global-font-weight-semibold) var(--global-font-size-xl) / var(--global-line-height-tight) var(--font-family-heading);
+  --font-heading-h4: var(--global-font-weight-semibold) var(--global-font-size-lg) / var(--global-line-height-tight) var(--font-family-heading);
+  --font-heading-h5: var(--global-font-weight-semibold) var(--global-font-size-md) / var(--global-line-height-tight) var(--font-family-heading);
+  --font-heading-h6: var(--global-font-weight-semibold) var(--global-font-size-sm) / var(--global-line-height-tight) var(--font-family-heading);
+
+  /* --- Semantic Motion Patterns --- */
+  --motion-pattern-fade: var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+  --motion-pattern-slide: var(--global-motion-duration-standard) var(--global-motion-easing-enter);
+  --motion-pattern-pop: var(--global-motion-duration-emphasis) var(--global-motion-easing-standard);
+
+  /* --- Semantic Layout --- */
+  --layout-max-width: 1440px;
+  --layout-gutter-default: var(--global-spacing-4);
+  --layout-margin-mobile: var(--global-spacing-4);
+  --layout-margin-desktop: var(--global-spacing-6);
+
+  /* --- Semantic Iconography --- */
+  --icon-size-sm: var(--global-icon-size-sm);
+  --icon-size-md: var(--global-icon-size-md);
+  --icon-size-lg: var(--global-icon-size-lg);
+  --icon-size-xl: var(--global-icon-size-xl);
+
+  /* --- Semantic Content --- */
+  --content-line-measure: 75ch;
+  --content-paragraph-spacing: var(--global-spacing-4);
+
+  /* --- Semantic Accessibility --- */
+  --accessibility-focus-ring-color: var(--color-border-focus);
+  --accessibility-focus-ring-style: solid;
+  --accessibility-focus-ring-width: 2px;
+  --accessibility-focus-ring-offset: 2px;
+
+  /* --- Semantic Glassmorphism --- */
+  --glass-backdrop-blur: 12px;
+  --glass-background-color: rgba(255, 255, 255, 0.25);
+  --glass-border-color: rgba(255, 255, 255, 0.3);
+  --glass-border-width: 1px;
+  --glass-elevation: var(--global-elevation-02);
+
+  /* =======================
+     PLAY+ METAPHOR EFFECTS - Built from Primitives
+     ======================= */
+
+  /* --- RGB Color Extraction from Semantic Tokens --- */
+  --rgb-brand-primary: 233, 30, 99;
+  /* From #e91e63 */
+  --rgb-brand-secondary: 156, 39, 176;
+  /* From #9c27b0 */
+  --rgb-brand-tertiary: 37, 99, 235;
+  /* From #2563eb */
+  --rgb-brand-quaternary: 3, 189, 212;
+  /* From #03bdd4 */
+  --rgb-brand-quinary: 67, 189, 144;
+  /* From #43bd90 */
+  --rgb-brand-senary: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-violet: 124, 58, 237;
+  /* From #7c3aed */
+  --rgb-royal-blue: 37, 99, 235;
+  /* From #2563eb */
+  --rgb-cyan: 3, 189, 212;
+  /* From #03bdd4 */
+  --rgb-spearmint: 67, 189, 144;
+  /* From #43bd90 */
+  --rgb-rose: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-white: 255, 255, 255;
+  /* From #ffffff */
+  --rgb-black: 0, 0, 0;
+  /* From #000000 */
+
+  /* --- RGB Color Extraction for Semantic Colors --- */
+  --rgb-brand-success: 76, 175, 80;
+  /* From #4caf50 */
+  --rgb-brand-warning: 255, 152, 0;
+  /* From #ff9800 */
+  --rgb-brand-danger: 244, 67, 54;
+  /* From #f44336 */
+  --rgb-brand-info: 33, 150, 243;
+  /* From #2196f3 */
+  --rgb-brand-error: 244, 67, 54;
+  /* From #f44336 */
+  --rgb-brand-disabled: 209, 211, 216;
+
+  /* --- EFFECT COLORS (For interaction states) --- */
+
+  /* --- Theme-Aware Effect Colors (Use Existing Semantic Tokens) --- */
+  /* Primary effect color - uses interactive brand color */
+  --effect-color-primary: var(--rgb-brand-primary);
+
+  /* Secondary effect color - uses secondary brand color */
+  --effect-color-secondary: var(--rgb-brand-secondary);
+
+  /* Accent effect color - uses violet for variety */
+  --effect-color-accent: var(--rgb-violet);
+
+  /* Neutral effect colors - for ambient shadows */
+  --effect-color-neutral: var(--rgb-black);
+  --effect-color-surface: var(--rgb-white);
+
+  /* Glass Surface Color - Default to white, can be overridden for variants */
+  --glass-surface-color: var(--effect-color-surface);
+
+  /* === SOPHISTICATED GLASS EFFECTS === */
+  /* Multi-layer glass effects with proper depth and realism */
+
+  /* Glass 0 - Solid with depth */
+  --glass-0-gradient: linear-gradient(135deg,
+      rgba(var(--glass- -color), 0.8) 0%,
+      rgba(var(--glass-surface-color), 0.7) 25%,
+      rgba(var(--glass-surface-color), 0.6) 50%,
+      rgba(var(--glass-surface-color), 0.7) 75%,
+      rgba(var(--glass-surface-color), 0.8) 100%);
+  --glass-0-shadow: 0 8px 32px rgba(var(--effect-color-neutral), 0.15),
+    0 4px 16px rgba(var(--effect-color-neutral), 0.1),
+    inset 0 1px 0 rgba(var(--glass-surface-color), 0.9),
+    inset 0 -1px 0 rgba(var(--effect-color-neutral), 0.1);
+  --glass-0-border: 1px solid rgba(var(--glass-surface-color), 0.8);
+  --glass-0-blur: blur(4px);
+
+  /* Glass 10 - High opacity with elevation */
+  --glass-10-gradient: linear-gradient(180deg,
+      rgba(var(--glass-surface-color), 0.6) 0%,
+      rgba(var(--glass-surface-color), 0.5) 100%);
+  --glass-10-shadow: 0 10px 25px rgba(var(--effect-color-neutral), 0.15),
+    0 5px 15px rgba(var(--effect-color-neutral), 0.1);
+  --glass-10-border: 0px solid rgba(var(--glass-surface-color), 0.6);
+  --glass-10-blur: blur(12px);
+
+  /* Glass 25 - Medium opacity with clarity (Default) */
+  --glass-25-gradient: linear-gradient(180deg,
+      rgba(var(--glass-surface-color), 0.4) 0%,
+      rgba(var(--glass-surface-color), 0.3) 100%);
+  --glass-25-shadow: 0 8px 20px rgba(var(--effect-color-neutral), 0.12),
+    0 4px 10px rgba(var(--effect-color-neutral), 0.08);
+  --glass-25-border: 1px solid rgba(var(--glass-surface-color), 0.4);
+  --glass-25-blur: blur(8px);
+
+  /* Glass 50 - Balanced transparency */
+  --glass-50-gradient: rgba(255, 255, 255, 0.2);
+  --glass-50-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-50-border: 1px solid #d1d3d8;
+  --glass-50-blur: blur(3px);
+
+  /* Glass 75 - Strong transparency with layers */
+  --glass-75-gradient: rgba(255, 255, 255, 0.4);
+  --glass-75-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-75-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-75-blur: blur(15px);
+
+  /* Glass 100 - Maximum transparency */
+  --glass-100-gradient: rgba(255, 255, 255, 0.1);
+  --glass-100-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --glass-100-border: 1px solid rgba(255, 255, 255, 0.3);
+  --glass-100-blur: blur(20px);
+
+  /* === SOPHISTICATED HOVER EFFECTS === */
+  /* Global hover effect tokens - consistent across all components */
+
+  /* Hover.Torch - Radial glow from below */
+  --hover-torch-shadow: 0 12px 32px rgba(var(--effect-color-primary), 0.4),
+    0 0 48px rgba(var(--effect-color-primary), 0.3),
+    0 -6px 24px rgba(var(--effect-color-primary), 0.2);
+  --hover-torch-transform: translateY(-2px);
+
+  /* Hover.Glow - Soft outer glow */
+  --hover-glow-shadow: 0 6px 12px rgba(var(--effect-color-neutral), 0.15),
+    0 0 24px rgba(var(--effect-color-primary), 0.35);
+  --hover-glow-transform: translateY(-2px);
+
+  /* Hover.Tint - Bright overlay effect */
+  --hover-tint-overlay: rgba(209, 156, 219, 0.15);
+  --hover-tint-overlay: rgba(209, 156, 219, 0.15);
+  --hover-tint-brightness: brightness(1.15);
+
+  /* Hover.Scale - Slight zoom and elevation */
+  --hover-scale-transform: scale(1.05) translateY(-3px);
+  --hover-scale-shadow: 0 10px 30px rgba(var(--effect-color-neutral), 0.2),
+    0 0 30px rgba(var(--effect-color-primary), 0.2);
+
+  /* === SOPHISTICATED PRESSED EFFECTS === */
+  /* Global pressed effect tokens */
+
+  /* Pressed.Ripple - Outward ripple */
+  --pressed-ripple-transform: scale(0.96);
+  --pressed-ripple-shadow: 0 4px 8px rgba(var(--effect-color-neutral), 0.25),
+    0 0 0 12px rgba(var(--effect-color-primary), 0.2);
+  --pressed-ripple-duration: 0.15s;
+
+  /* Pressed.Scale - Shrink and bounce */
+  --pressed-scale-transform: scale(0.95);
+  --pressed-scale-duration: 0.15s;
+  --pressed-scale-timing: cubic-bezier(0.4, 0, 0.6, 1);
+
+  /* Pressed.Inset - Inset shadow for depression */
+  --pressed-inset-shadow: inset 0 2px 4px rgba(var(--effect-color-neutral), 0.2),
+    inset 0 0 8px rgba(var(--effect-color-neutral), 0.1);
+  --pressed-inset-transform: translateY(1px);
+
+  /* === SOPHISTICATED PROCESSING EFFECTS === */
+  /* Global processing effect tokens */
+
+  /* Processing.Pulse - Subtle shimmer */
+  --processing-pulse-glow: 0 0 24px rgba(var(--effect-color-primary), 0.5),
+    0 0 48px rgba(var(--effect-color-primary), 0.2);
+  --processing-pulse-duration: 2s;
+
+  /* Processing.Blur - Subtle blur overlay */
+  --processing-blur-filter: blur(1px);
+  --processing-blur-overlay: rgba(var(--glass-surface-color), 0.3);
+
+  /* === LIGHT EFFECTS (Focus & Feedback) === */
+
+  /* Glow Effects */
+  --glow-0: none;
+  --glow-10: 0 var(--light-distance-10) rgba(var(--effect-color-primary), var(--light-alpha-10));
+  --glow-25: 0 var(--light-distance-25) rgba(var(--effect-color-primary), var(--light-alpha-25));
+  --glow-50: 0 var(--light-distance-50) rgba(var(--effect-color-primary), var(--light-alpha-50));
+  --glow-75: 0 var(--light-distance-75) rgba(var(--effect-color-primary), var(--light-alpha-75));
+  --glow-100: 0 var(--light-distance-100) rgba(var(--effect-color-primary), var(--light-alpha-100));
+
+  /* Neon Glow Effects */
+  --neon-glow-0: none;
+  --neon-glow-10: 0 0 var(--light-glow-distance-10) rgba(var(--effect-color-primary), 0.3);
+  --neon-glow-25: 0 0 var(--light-glow-distance-25) rgba(var(--effect-color-primary), 0.5);
+  --neon-glow-50: 0 0 var(--light-glow-distance-50) rgba(var(--effect-color-primary), 0.7);
+  --neon-glow-75: 0 0 var(--light-glow-distance-75) rgba(var(--effect-color-primary), 0.8);
+  --neon-glow-100: 0 0 var(--light-glow-distance-100) rgba(var(--effect-color-primary), 1);
+
+  /* Ambient Effects */
+  --ambient-0: none;
+  --ambient-10: 0 1px 2px rgba(var(--effect-color-neutral), 0.05);
+  --ambient-25: 0 2px 4px rgba(var(--effect-color-neutral), 0.1);
+  --ambient-50: 0 4px 8px rgba(var(--effect-color-neutral), 0.15);
+  --ambient-75: 0 8px 16px rgba(var(--effect-color-neutral), 0.2);
+  --ambient-100: 0 12px 24px rgba(var(--effect-color-neutral), 0.25);
+
+  /* Shimmer Effects */
+  --shimmer-0: none;
+  --shimmer-10: translateX(var(--transform-translate-10));
+  --shimmer-25: translateX(var(--transform-translate-25));
+  --shimmer-50: translateX(var(--transform-translate-50));
+  --shimmer-75: translateX(var(--transform-translate-75));
+  --shimmer-100: translateX(var(--transform-translate-100));
+
+  /* Pulse Glow Effects */
+  --pulse-glow-0: none;
+  --pulse-glow-10: 0 0 6px rgba(var(--effect-color-primary), 0.2);
+  --pulse-glow-25: 0 0 12px rgba(var(--effect-color-primary), 0.3);
+  --pulse-glow-50: 0 0 20px rgba(var(--effect-color-primary), 0.4);
+  --pulse-glow-75: 0 0 28px rgba(var(--effect-color-primary), 0.5);
+  --pulse-glow-100: 0 0 36px rgba(var(--effect-color-primary), 0.6);
+
+  /* Diffuse Glow Effects */
+  --diffuse-glow-0: none;
+  --diffuse-glow-10: 0 4px 12px rgba(var(--effect-color-primary), 0.1);
+  --diffuse-glow-25: 0 6px 18px rgba(var(--effect-color-primary), 0.15);
+  --diffuse-glow-50: 0 8px 24px rgba(var(--effect-color-primary), 0.2);
+  --diffuse-glow-75: 0 12px 32px rgba(var(--effect-color-primary), 0.25);
+  --diffuse-glow-100: 0 16px 40px rgba(var(--effect-color-primary), 0.3);
+
+  /* Shine Effects */
+  --shine-0: brightness(1);
+  --shine-10: brightness(1.05);
+  --shine-25: brightness(1.1);
+  --shine-50: brightness(1.15);
+  --shine-75: brightness(1.2);
+  --shine-100: brightness(1.3);
+
+  /* Flicker Effects */
+  --flicker-0: none;
+  --flicker-10: 0 0 2px rgba(var(--effect-color-primary), 0.4);
+  --flicker-25: 0 0 4px rgba(var(--effect-color-primary), 0.5);
+  --flicker-50: 0 0 6px rgba(var(--effect-color-primary), 0.6);
+  --flicker-75: 0 0 8px rgba(var(--effect-color-primary), 0.7);
+  --flicker-100: 0 0 12px rgba(var(--effect-color-primary), 0.8);
+
+  /* Gradient Shimmer Effects */
+  --gradient-shimmer-0: linear-gradient(90deg,
+      transparent 0%,
+      transparent 100%);
+  --gradient-shimmer-10: linear-gradient(90deg,
+      transparent 0%,
+      rgba(var(--effect-color-surface), 0.1) 50%,
+      transparent 100%);
+  --gradient-shimmer-25: linear-gradient(90deg,
+      transparent 0%,
+      rgba(var(--effect-color-surface), 0.2) 50%,
+      transparent 100%);
+  --gradient-shimmer-50: linear-gradient(90deg,
+      transparent 0%,
+      rgba(var(--effect-color-surface), 0.3) 50%,
+      transparent 100%);
+  --gradient-shimmer-75: linear-gradient(90deg,
+      transparent 0%,
+      rgba(var(--effect-color-surface), 0.4) 50%,
+      transparent 100%);
+  --gradient-shimmer-100: linear-gradient(90deg,
+      transparent 0%,
+      rgba(var(--effect-color-surface), 0.5) 50%,
+      transparent 100%);
+
+  /* Border Glow Effects */
+  --border-glow-0: none;
+  --border-glow-10: inset 0 0 2px rgba(var(--effect-color-primary), 0.2);
+  --border-glow-25: inset 0 0 4px rgba(var(--effect-color-primary), 0.3);
+  --border-glow-50: inset 0 0 6px rgba(var(--effect-color-primary), 0.4);
+  --border-glow-75: inset 0 0 8px rgba(var(--effect-color-primary), 0.5);
+  --border-glow-100: inset 0 0 12px rgba(var(--effect-color-primary), 0.6);
+
+  /* Spotlight Effects */
+  --spotlight-0: none;
+  --spotlight-10: radial-gradient(circle at center,
+      rgba(var(--effect-color-primary), 0.1) 0%,
+      transparent 50%);
+  --spotlight-25: radial-gradient(circle at center,
+      rgba(var(--effect-color-primary), 0.15) 0%,
+      transparent 60%);
+  --spotlight-50: radial-gradient(circle at center,
+      rgba(var(--effect-color-primary), 0.2) 0%,
+      transparent 70%);
+  --spotlight-75: radial-gradient(circle at center,
+      rgba(var(--effect-color-primary), 0.25) 0%,
+      transparent 80%);
+  --spotlight-100: radial-gradient(circle at center,
+      rgba(var(--effect-color-primary), 0.3) 0%,
+      transparent 90%);
+
+  /* Multi-Layer Glow Effects */
+  --multi-glow-0: none;
+  --multi-glow-10: 0 0 4px rgba(var(--effect-color-primary), 0.2),
+    0 0 8px rgba(var(--effect-color-secondary), 0.1);
+  --multi-glow-25: 0 0 6px rgba(var(--effect-color-primary), 0.3),
+    0 0 12px rgba(var(--effect-color-secondary), 0.15);
+  --multi-glow-50: 0 0 8px rgba(var(--effect-color-primary), 0.4),
+    0 0 16px rgba(var(--effect-color-secondary), 0.2);
+  --multi-glow-75: 0 0 12px rgba(var(--effect-color-primary), 0.5),
+    0 0 24px rgba(var(--effect-color-secondary), 0.25);
+  --multi-glow-100: 0 0 16px rgba(var(--effect-color-primary), 0.6),
+    0 0 32px rgba(var(--effect-color-secondary), 0.3);
+
+  /* Halo Effects */
+  --halo-0: none;
+  --halo-10: 0 0 8px rgba(var(--effect-color-primary), 0.15);
+  --halo-25: 0 0 16px rgba(var(--effect-color-primary), 0.2);
+  --halo-50: 0 0 24px rgba(var(--effect-color-primary), 0.25);
+  --halo-75: 0 0 32px rgba(var(--effect-color-primary), 0.3);
+  --halo-100: 0 0 48px rgba(var(--effect-color-primary), 0.4);
+
+  /* Animated Pulse Effects - Token definitions only */
+  --pulse-animation-10: ava-pulse-glow 1.5s ease-in-out infinite;
+  --pulse-animation-25: ava-pulse-glow 1.2s ease-in-out infinite;
+  --pulse-animation-50: ava-pulse-glow-strong 1s ease-in-out infinite;
+  --pulse-animation-75: ava-pulse-glow-strong 0.8s ease-in-out infinite;
+  --pulse-animation-100: ava-pulse-glow-intense 0.6s ease-in-out infinite;
+
+  /* === LIQUID EFFECTS (Motion & Interaction) === */
+
+  /* Ripple Effects */
+  --ripple-0: scale(var(--transform-scale-0));
+  --ripple-10: scale(var(--transform-scale-10));
+  --ripple-25: scale(var(--transform-scale-25));
+  --ripple-50: scale(var(--transform-scale-50));
+  --ripple-75: scale(var(--transform-scale-75));
+  --ripple-100: scale(var(--transform-scale-100));
+
+  /* Elastic Effects */
+  --elastic-0: var(--liquid-timing-0);
+  --elastic-10: var(--liquid-timing-10);
+  --elastic-25: var(--liquid-timing-25);
+  --elastic-50: var(--liquid-timing-50);
+  --elastic-75: var(--liquid-timing-75);
+  --elastic-100: var(--liquid-timing-100);
+
+  /* Splash Effects */
+  --splash-0: scale(var(--transform-scale-0)) rotate(var(--transform-rotate-0));
+  --splash-10: scale(var(--transform-scale-10)) rotate(var(--transform-rotate-10));
+  --splash-25: scale(var(--transform-scale-25)) rotate(var(--transform-rotate-25));
+  --splash-50: scale(var(--transform-scale-50)) rotate(var(--transform-rotate-50));
+  --splash-75: scale(var(--transform-scale-75)) rotate(var(--transform-rotate-75));
+  --splash-100: scale(var(--transform-scale-100)) rotate(var(--transform-rotate-100));
+
+  /* Stretch Effects */
+  --stretch-0: scaleX(var(--transform-scale-0)) scaleY(var(--transform-scale-0));
+  --stretch-10: scaleX(1.01) scaleY(0.99);
+  --stretch-25: scaleX(1.02) scaleY(0.98);
+  --stretch-50: scaleX(1.03) scaleY(0.97);
+  --stretch-75: scaleX(1.05) scaleY(0.95);
+  --stretch-100: scaleX(1.08) scaleY(0.92);
+
+  /* Bounce Effects */
+  --bounce-0: var(--liquid-timing-25);
+  --bounce-10: cubic-bezier(0.68, -0.2, 0.265, 1.2);
+  --bounce-25: cubic-bezier(0.68, -0.35, 0.265, 1.35);
+  --bounce-50: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --bounce-75: cubic-bezier(0.68, -0.75, 0.265, 1.75);
+  --bounce-100: cubic-bezier(0.68, -1, 0.265, 2);
+
+  /* Wobble Effects */
+  --wobble-0: rotate(var(--transform-rotate-0));
+  --wobble-10: rotate(var(--transform-rotate-10));
+  --wobble-25: rotate(var(--transform-rotate-25));
+  --wobble-50: rotate(var(--transform-rotate-50));
+  --wobble-75: rotate(var(--transform-rotate-75));
+  --wobble-100: rotate(var(--transform-rotate-100));
+
+  /* Flow Effects */
+  --flow-0: translateX(var(--transform-translate-0));
+  --flow-10: translateX(var(--transform-translate-25));
+  --flow-25: translateX(var(--transform-translate-50));
+  --flow-50: translateX(var(--transform-translate-75));
+  --flow-75: translateX(var(--transform-translate-100));
+  --flow-100: translateX(calc(var(--transform-translate-100) * 2));
+
+  /* Pulse Scale Effects */
+  --pulse-scale-0: scale(var(--transform-scale-0));
+  --pulse-scale-10: scale(1.02);
+  --pulse-scale-25: scale(1.04);
+  --pulse-scale-50: scale(1.06);
+  --pulse-scale-75: scale(1.08);
+  --pulse-scale-100: scale(1.12);
+
+  /* Drift Effects */
+  --drift-0: translate(var(--transform-translate-0),
+      var(--transform-translate-0));
+  --drift-10: translate(var(--transform-translate-10),
+      calc(var(--transform-translate-10) * -0.5));
+  --drift-25: translate(var(--transform-translate-25),
+      calc(var(--transform-translate-25) * -0.5));
+  --drift-50: translate(var(--transform-translate-50),
+      calc(var(--transform-translate-50) * -0.5));
+  --drift-75: translate(var(--transform-translate-75),
+      calc(var(--transform-translate-75) * -0.5));
+  --drift-100: translate(var(--transform-translate-100),
+      calc(var(--transform-translate-100) * -0.5));
+
+  /* Swirl Effects */
+  --swirl-0: rotate(var(--transform-rotate-0)) scale(var(--transform-scale-0));
+  --swirl-10: rotate(var(--transform-rotate-25)) scale(var(--transform-scale-10));
+  --swirl-25: rotate(var(--transform-rotate-50)) scale(var(--transform-scale-25));
+  --swirl-50: rotate(var(--transform-rotate-75)) scale(var(--transform-scale-50));
+  --swirl-75: rotate(calc(var(--transform-rotate-100) + var(--transform-rotate-10))) scale(var(--transform-scale-75));
+  --swirl-100: rotate(calc(var(--transform-rotate-100) + var(--transform-rotate-50))) scale(calc(var(--transform-scale-75) + 0.01));
+
+  /* Morph Effects */
+  --morph-0: skew(var(--transform-rotate-0), var(--transform-rotate-0));
+  --morph-10: skew(var(--transform-rotate-10),
+      calc(var(--transform-rotate-10) * 0.5));
+  --morph-25: skew(var(--transform-rotate-25), var(--transform-rotate-10));
+  --morph-50: skew(var(--transform-rotate-50),
+      calc(var(--transform-rotate-50) * 0.5));
+  --morph-75: skew(var(--transform-rotate-75), var(--transform-rotate-25));
+  --morph-100: skew(calc(var(--transform-rotate-75) + var(--transform-rotate-10)),
+      var(--transform-rotate-50));
+
+  /* Wave Effects */
+  --wave-0: translateY(var(--transform-translate-0));
+  --wave-10: translateY(var(--transform-translate-10));
+  --wave-25: translateY(var(--transform-translate-25));
+  --wave-50: translateY(var(--transform-translate-50));
+  --wave-75: translateY(var(--transform-translate-75));
+  --wave-100: translateY(var(--transform-translate-100));
+
+  /* === GLASS ADDITIONAL PROPERTIES === */
+  /* Supporting properties for complete glassmorphism using semantic colors */
+
+  /* LEGACY GLASS BORDER AND SHADOW TOKENS REMOVED - Use sophisticated glass system */
+
+  /* LEGACY GLASS BACKDROP ALIASES REMOVED - Use sophisticated glass system directly */
+
+  /* === ELEVATION SYSTEM VARIABLES === */
+  /* Supporting variables for React glass variant box-shadow references */
+  --Elevation-03set-2X: 0px;
+  --Elevation-03set-2Y: 10px;
+  --Elevation-03set-2Blur: 15px;
+  --Elevation-03set-2Spread: -3px;
+  --Elevation-03set-2Color: rgba(var(--effect-color-neutral), 0.1);
+  --Elevation-03set-1X: 0px;
+  --Elevation-03set-1Y: 4px;
+  --Elevation-03set-1Blur: 6px;
+  --Elevation-03set-1Spread: -2px;
+  --Elevation-03set-1Color: rgba(var(--effect-color-neutral), 0.05);
+
+  --Elevation-03-set-1-X: var(--Elevation-03set-1X);
+  --Elevation-03-set-1-Y: var(--Elevation-03set-1Y);
+  --Elevation-03-set-1-Blur: var(--Elevation-03set-1Blur);
+  --Elevation-03-set-1-Spread: var(--Elevation-03set-1Spread);
+  --Elevation-03-set-1-Color: var(--Elevation-03set-1Color);
+  --Elevation-03-set-2-X: var(--Elevation-03set-2X);
+  --Elevation-03-set-2-Y: var(--Elevation-03set-2Y);
+  --Elevation-03-set-2-Blur: var(--Elevation-03set-2Blur);
+  --Elevation-03-set-2-Spread: var(--Elevation-03set-2Spread);
+  --Elevation-03-set-2-Color: var(--Elevation-03set-2Color);
+}

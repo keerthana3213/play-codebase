@@ -1,0 +1,87 @@
+/* Component: Tabs
+ * Purpose: Design tokens for Tabs component
+ */
+:root {
+  /* Additional size tokens for tabs (if not present) */
+  --tabs-size-xs-radius: 0.3rem;
+  --tabs-size-sm-radius: 0.5rem;
+  --tabs-size-md-radius: 0.6rem;
+  --tabs-size-lg-radius: 0.7rem;
+  --tabs-gap: 1rem;
+
+  /* Borders and Backgrounds */
+  --tabs-border: var(--tabs-border-color);
+  --tabs-background: var(--neutral-bg, rgba(240, 241, 242, 1));
+  --tabs-container-bg: var(--neutral-bg);
+  --tabs-label-color: var(--color-text-primary);
+  --tabs-text-color: var(--color-text-primary);
+
+  /* Tab Styles */
+  --tabs-list-padding: 0.5rem 0;
+  --tabs-tab-color: var(--color-text-primary);
+  --tabs-tab-inactive-color: var(--color-text-primary);
+  --tabs-tab-active-color: var(--color-brand-primary);
+
+  --tabs-tab-active-font-weight: 500;
+  --tabs-tab-disabled-color: var(--color-text-disabled);
+  --tabs-tab-font: 400 0.95rem/1.4 "Inter", sans-serif;
+  --tabs-tab-padding: 0.25rem 0.75rem;
+  --tabs-icon-gap: 0.5rem;
+  --tabs-icon-size: 1.5rem;
+  --tabs-underline-height: 2px;
+  --tabs-underline-color: var(--color-brand-primary);
+  --tabs-content-margin: var(--global-spacing-8, 2rem);
+  --tabs-content-font: var(--font-body-1, 400 1rem/1.5 "Inter", sans-serif);
+  --tabs-content-color: var(--color-text-primary);
+  --tabs-font-size: 1rem;
+  --tabs-padding: 1rem;
+
+  /* Button Variant */
+  --tabs-button-radius: var(--global-radius-md, 6px);
+  --tabs-button-border: var(--tabs-border-color);
+  --tabs-button-bg: transparent;
+  --tabs-button-shadow: none;
+  --tabs-button-active-bg: var(--global-color-pink-50);
+    --tabs-active-border-color:var( --tabs-button-active-bg);
+  --tabs-button-active-color: var(--color-brand-primary);
+  --tabs-button-active-shadow: 0 2px 8px 0 rgba(var(--rgb-brand-primary), 0.08);
+  --tabs-button-inactive-color: var(--color-text-inactive-tab-button);
+  --tabs-button-hover-bg: var(--color-background-secondary);
+  --tabs-button-hover-border: var(--color-border-subtle);
+  --tabs-button-hover-color: var(--color-text-primary);
+  --tabs-button-disabled-bg: transparent;
+  --tabs-button-disabled-border: var(--color-border-subtle);
+  --tabs-button-disabled-color: var(--color-text-disabled);
+
+  /* Icon Variant */
+  --tabs-icon-radius: var(--global-radius-lg, 8px);
+  --tabs-icon-bg: transparent;
+  --tabs-icon-border: transparent;
+  --tabs-icon-shadow: none;
+  --tabs-icon-active-bg: var(--global-color-white);
+  --tabs-icon-active-border: var(--color-brand-primary);
+  --tabs-icon-active-shadow: 0 2px 8px 0 rgba(var(--rgb-brand-primary), 0.08);
+  --tabs-icon-hover-bg: var(--color-background-secondary);
+  --tabs-icon-hover-border: var(--color-border-subtle);
+  --tabs-icon-disabled-bg: transparent;
+  --tabs-icon-disabled-border: var(--color-border-subtle);
+
+  /* Scroll Buttons */
+  --tabs-scroll-btn-bg: rgba(255, 255, 255, 0.85);
+  --tabs-scroll-btn-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --tabs-scroll-btn-hover-bg: var(--tabs-scroll-hover-bg-color);
+  --tabs-scroll-btn-hover-shadow: 0 4px 12px rgba(0, 0, 0, 0.14);
+  --tabs-scroll-btn-disabled-bg: rgba(255, 255, 255, 0.7);
+  --tabs-scroll-btn-icon-color: var(--tabs-scroll-icon-color);
+
+  /* Dropdown */
+  --tabs-dropdown-arrow-active-color: var(--color-brand-primary);
+  --tabs-dropdown-bg: var(--global-color-white);
+  --tabs-dropdown-radius: var(--global-radius-lg, 8px);
+  --tabs-dropdown-shadow: 0 8px 24px 0 rgba(0, 0, 0, 0.1);
+  --tabs-dropdown-item-bg: none;
+  --tabs-dropdown-item-color: var(--color-text-secondary);
+  --tabs-dropdown-item-radius: var(--global-radius-md, 4px);
+  --tabs-dropdown-item-hover-bg: var(--color-background-secondary);
+  --tabs-dropdown-item-hover-color: var(--color-brand-primary);
+}

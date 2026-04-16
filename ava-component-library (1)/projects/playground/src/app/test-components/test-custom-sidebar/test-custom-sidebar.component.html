@@ -1,0 +1,64 @@
+<div class="demo-section">
+  <aava-custom-sidebar
+    class="large"
+    [class.collapsed]="isLargeCollapsed"
+    [logoUrl]="logoUrl"
+    [logoAlt]="'Ascendion Logo'"
+    [logoUrl_collapsed]="logoUrl_collapsed"
+    [logoAltCollapsed]="'Ascendion Logo Collapsed'"
+    [avatarUrl]="avatarUrl"
+    [avatarAlt]="'User Avatar'"
+    [userName]="'John Doe'"
+    [profileText]="'View Profile'"
+    [items]="sidebarItems"
+    (itemClick)="onSidebarItemClick($event)"
+    (collapseToggle)="onSidebarCollapse($event, 'lg')"
+    (searchChanged)="onSidebarSearch($event)"
+    size="lg"
+    toggleButtonSize="md"
+    searchIconSize="sm"
+  >
+  </aava-custom-sidebar>
+
+  <aava-custom-sidebar
+    class="medium"
+    [class.collapsed]="isMediumCollapsed"
+    [logoUrl]="logoUrl"
+    [logoAlt]="'Ascendion Logo'"
+    [logoUrl_collapsed]="logoUrl_collapsed"
+    [logoAltCollapsed]="'Ascendion Logo Collapsed'"
+    [avatarUrl]="avatarUrl"
+    [avatarAlt]="'User Avatar'"
+    [userName]="'John Doe'"
+    [profileText]="'View Profile'"
+    [items]="sidebarItems"
+    (itemClick)="onSidebarItemClick($event)"
+    (collapseToggle)="onSidebarCollapse($event, 'md')"
+    (searchChanged)="onSidebarSearch($event)"
+    size="md"
+    toggleButtonSize="sm"
+    searchIconSize="sm"
+  >
+  </aava-custom-sidebar>
+
+  <aava-custom-sidebar
+    class="small"
+    [class.collapsed]="isSmallCollapsed"
+    [logoUrl]="logoUrl"
+    [logoAlt]="'Ascendion Logo'"
+    [logoUrl_collapsed]="logoUrl_collapsed"
+    [logoAltCollapsed]="'Ascendion Logo Collapsed'"
+    [avatarUrl]="avatarUrl"
+    [avatarAlt]="'User Avatar'"
+    [userName]="'John Doe'"
+    [profileText]="'View Profile'"
+    [items]="sidebarItems"
+    (itemClick)="onSidebarItemClick($event)"
+    (collapseToggle)="onSidebarCollapse($event, 'sm')"
+    (searchChanged)="onSidebarSearch($event)"
+    size="sm"
+    toggleButtonSize="xs"
+    searchIconSize="xs"
+  >
+  </aava-custom-sidebar>
+</div>

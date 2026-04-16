@@ -1,0 +1,126 @@
+.timeline-demo {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--ava-text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--ava-text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .demo-navigation {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+
+    .nav-card {
+      background: var(--ava-surface-primary);
+      border: 1px solid var(--ava-border-primary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        border-color: var(--ava-primary);
+      }
+
+      h3 {
+        color: var(--ava-text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: var(--ava-text-secondary);
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+  }
+
+  .component-showcase {
+    background: var(--ava-surface-secondary);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    h2 {
+      color: var(--ava-text-primary);
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+    }
+
+    p {
+      color: var(--ava-text-secondary);
+      margin-bottom: 2rem;
+      font-size: 1rem;
+    }
+
+    .showcase-container {
+      margin-bottom: 2rem;
+      padding: 1rem;
+      background: var(--ava-surface-primary);
+      border-radius: 8px;
+      border: 1px solid var(--ava-border-primary);
+    }
+
+    .showcase-status {
+      background: var(--ava-surface-primary);
+      border: 1px solid var(--ava-border-primary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-top: 1rem;
+
+      h3 {
+        color: var(--ava-text-primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      p {
+        color: var(--ava-text-secondary);
+        margin-bottom: 0.5rem;
+        font-size: 0.95rem;
+
+        strong {
+          color: var(--ava-text-primary);
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .timeline-demo {
+    padding: 1rem;
+
+    .demo-navigation {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .component-showcase {
+      padding: 1.5rem;
+    }
+  }
+}

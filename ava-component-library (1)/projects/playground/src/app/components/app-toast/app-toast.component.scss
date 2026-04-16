@@ -1,0 +1,319 @@
+:host {
+  display: block;
+  width: 100%;
+}
+
+/* Main layout */
+.documentation {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  width: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--color-text-primary);
+
+  @media (max-width: 768px) {
+    padding: 1rem;
+  }
+}
+
+/* Header */
+.doc-header {
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--color-text-secondary);
+  }
+}
+
+/* Sections */
+.doc-section {
+  margin-bottom: 3rem;
+
+  h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-border-default);
+    padding-bottom: 0.5rem;
+  }
+
+  h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+}
+
+/* Demo Container */
+.demo-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--color-background-secondary) 0%, var(--color-background-tertiary) 100%);
+  border-radius: var(--global-radius-lg);
+  border: 1px solid var(--color-border-default);
+  box-shadow: var(--global-elevation-02);
+}
+
+.control-group {
+  background: var(--color-background-primary);
+  padding: 1.5rem;
+  border-radius: var(--global-radius-md);
+  box-shadow: var(--global-elevation-02);
+  border: 1px solid var(--color-border-subtle);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-background-brand) 0%, var(--color-background-brand-hover) 100%);
+    border-radius: var(--global-radius-md) var(--global-radius-md) 0 0;
+  }
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--global-elevation-03);
+  }
+
+  h3 {
+    margin-bottom: 1rem;
+    color: var(--color-text-primary);
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+
+    &::before {
+      content: '✨';
+      font-size: 1rem;
+    }
+  }
+}
+
+.control-row {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 0.75rem;
+  flex-wrap: wrap;
+  align-items: center;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  ava-button {
+    flex: 1;
+    min-width: 120px;
+  }
+}
+
+/* Removed old button styles - now using ava-button components */
+
+/* Form Controls */
+.form-control {
+  padding: 0.75rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--global-radius-md);
+  font-size: 0.9rem;
+  transition: border-color 0.3s ease;
+  width: 100%;
+  font-family: inherit;
+  background: var(--color-background-primary);
+  color: var(--color-text-primary);
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-border-interactive);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  }
+}
+
+/* Code blocks */
+.code-block {
+  position: relative;
+  border-radius: var(--global-radius-md);
+  margin-top: 1rem;
+  border: 1px solid var(--color-border-default);
+  background: var(--color-background-secondary);
+
+  pre {
+    margin: 0;
+    padding: 1.5rem;
+    border-radius: var(--global-radius-md);
+    overflow-x: auto;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
+
+    code {
+      color: var(--color-text-primary);
+      background: none;
+    }
+  }
+
+  .copy-button {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    padding: 0.5rem 1rem;
+    background: var(--color-background-brand);
+    color: var(--color-text-on-brand);
+    border: none;
+    border-radius: var(--global-radius-sm);
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s ease;
+
+    &:hover {
+      background: var(--color-background-brand-hover);
+    }
+  }
+}
+
+/* API table */
+.api-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background: var(--color-background-primary);
+  border-radius: var(--global-radius-md);
+  overflow: hidden;
+  box-shadow: var(--global-elevation-01);
+
+  th,
+  td {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--color-border-subtle);
+  }
+
+  th {
+    background: var(--color-background-secondary);
+    font-weight: 600;
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+  }
+
+  td {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+
+    code {
+      background: var(--color-background-secondary);
+      padding: 0.25rem 0.5rem;
+      border-radius: var(--global-radius-sm);
+      font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+      font-size: 0.8rem;
+      color: var(--color-text-primary);
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* Example sections */
+.example-section {
+  margin-bottom: 2rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--global-radius-md);
+  overflow: hidden;
+}
+
+.section-header {
+  padding: 1.5rem;
+  background: var(--color-background-secondary);
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  &:hover {
+    background: var(--color-background-tertiary);
+  }
+
+  h3 {
+    margin: 0;
+    font-size: 1.2rem;
+  }
+
+  p {
+    margin: 0.5rem 0 0 0;
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+  }
+}
+
+.toggle-code-btn {
+  background: var(--color-background-brand);
+  color: var(--color-text-on-brand);
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--global-radius-sm);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--color-background-brand-hover);
+  }
+}
+
+.code-example {
+  &.expanded {
+    border-top: 1px solid var(--color-border-default);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .demo-container {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .control-row {
+    flex-direction: column;
+
+    .btn {
+      min-width: auto;
+    }
+  }
+
+  .section-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .api-table {
+    font-size: 0.8rem;
+
+    th,
+    td {
+      padding: 0.75rem 0.5rem;
+    }
+  }
+}

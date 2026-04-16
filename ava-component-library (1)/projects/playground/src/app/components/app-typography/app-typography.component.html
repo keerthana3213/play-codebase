@@ -1,0 +1,212 @@
+<div class="documentation container">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Typography Components</h1>
+        <p class="description">
+          A versatile set of typography components designed to enhance the readability and aesthetics of your application.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} HeadingComponent, BodyTextComponent, InlineElementComponent, CaptionComponent, LabelsComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Heading'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h1" type="bold">Heading 1 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h1" type="regular">Heading 1 Regular</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h2" type="bold">Heading 2 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h2" type="regular">Heading 2 Regular</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h3" type="bold">Heading 3 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h3" type="regular">Heading 3 Regular</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h4" type="bold">Heading 4 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h4" type="regular">Heading 4 Regular</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h5" type="bold">Heading 5 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h5" type="regular">Heading 5 Regular</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h6" type="bold">Heading 6 Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="h6" type="regular">Heading 6 Regular</awe-heading>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Display'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="display" type="bold">Display Bold</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="display" type="regular">Display Regular</awe-heading>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Subtitle'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="s1" type="regular">Subtitle 1</awe-heading>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-heading variant="s2" type="regular">Subtitle 2</awe-heading>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Body'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-body-text type="body-test">This is Body Text.</awe-body-text>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Inline Text Elements'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <p>This is Inline text elements</p>
+                  <p>
+                    Here is a
+                    <awe-inline-element label="Hyperlink" inputId="link">
+                      <a href="https://google.co.in" class="link">useful link</a>
+                    </awe-inline-element>
+                    to explore more details.
+                  </p>
+                  <p>
+                    You can style text like this:
+                    <awe-inline-element label="Styled Text" inputId="styled-text">
+                      <span class="styled-span">important styled text</span>
+                    </awe-inline-element>
+                    for better emphasis.
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Caption'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-caption label="Captions Text" inputId="caption" ariaLabel="caption"></awe-caption>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Labels'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-labels type="label">Label: Name</awe-labels>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-labels type="label">Label: Age</awe-labels>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <awe-labels type="label">Label: DOB</awe-labels>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Button'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-body-text type="body-test">Add Button text</awe-body-text>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'List'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <awe-body-text type="body-test">Add list</awe-body-text>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy" *ngIf="section.title!=='Available Icons'"></awe-icons>
+          </button>
+        </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

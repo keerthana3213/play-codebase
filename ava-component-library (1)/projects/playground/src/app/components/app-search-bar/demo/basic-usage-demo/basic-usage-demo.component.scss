@@ -1,0 +1,108 @@
+      .demo-container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 2rem;
+        margin-top: 3rem;
+        text-align: center;
+      }
+
+      .demo-description {
+        margin-bottom: 2rem;
+      }
+
+      .demo-description h3 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 24px;
+      }
+
+      .demo-description p {
+        color: #666;
+        font-size: 16px;
+        line-height: 1.5;
+      }
+
+      .search-demo {
+        margin-bottom: 2rem;
+      }
+
+      .demo-section {
+        text-align: center;
+      }
+
+      .demo-section h4 {
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .section-description {
+        color: #666;
+        font-size: 14px;
+        margin-bottom: 1.5rem;
+        font-style: italic;
+      }
+
+      .search-example {
+        margin-bottom: 1.5rem;
+        justify-content: center;
+      }
+
+      .search-result {
+        padding: 1rem;
+        border-radius: 6px;
+        border-left: 4px solid #2196f3;
+        text-align: left;
+        margin-top: 1rem;
+      }
+
+      .search-result p {
+        margin: 0;
+        color: #333;
+      }
+
+      .search-info {
+        padding: 1rem;
+        background-color: #f3e5f5;
+        border-radius: 6px;
+        border-left: 4px solid #9c27b0;
+        text-align: left;
+        margin-top: 1rem;
+      }
+
+      .search-info p {
+        margin: 0.5rem 0;
+        color: #333;
+      }
+
+      .info-section {
+        padding: 1.5rem;
+        background-color: #e3f2fd;
+        border-radius: 8px;
+        border-left: 4px solid #2196f3;
+        text-align: left;
+      }
+
+
+      .info-section h4 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 18px;
+        font-weight: 500;
+      }
+
+      .feature-list {
+        margin: 0;
+        padding-left: 1.5rem;
+        color: #666;
+        line-height: 1.6;
+      }
+
+      .feature-list li {
+        margin-bottom: 0.5rem;
+      }
+
+      .feature-list strong {
+        color: #333;
+      }

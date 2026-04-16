@@ -1,0 +1,31 @@
+
+
+.char-count {
+  margin-top: 10px;
+  padding: 8px 12px;
+  border: 1px solid #dee2e6;
+  background-color: var(--surface-secondary);
+  font-size: 14px;
+  color: var(--color-text-secondary);
+  text-align: right;
+}
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 16px; /* space between columns */
+  
+}
+
+.demo-column {
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* space between textareas */
+  &.padl{
+    padding-right: 0;
+  }
+
+  aava-textarea{
+    margin-bottom: 20px;
+  }
+}

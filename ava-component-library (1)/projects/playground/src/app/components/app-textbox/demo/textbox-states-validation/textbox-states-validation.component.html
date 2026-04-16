@@ -1,0 +1,18 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <div class="demo-column padl">
+      <h3 style="color: var(--color-text-primary)">With Helper Text</h3>
+      <aava-textbox [(ngModel)]="helperValue" label="Comments" placeholder="Share your thoughts..."
+        helper="Please provide detailed feedback to help us improve our service."
+        (textboxChange)="onHelperChange($event)"></aava-textbox>
+      <h3 style="color: var(--color-text-primary)">Required Field</h3>
+      <aava-textbox [(ngModel)]="requiredValue" label="Required Field" placeholder="This field is required..."
+        [required]="true" (textboxChange)="onRequiredChange($event)"></aava-textbox>
+    </div>
+
+    <div class="demo-column padr">
+      <h3 style="color: var(--color-text-primary)">With Error State</h3>
+      <aava-textbox [(ngModel)]="errorStateValue" label="Email" placeholder="Enter your email..."
+        error="Please enter a valid email address." (textboxChange)="onErrorChange($event)"></aava-textbox>
+    </div>
+  </div>

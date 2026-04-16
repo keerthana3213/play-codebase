@@ -1,0 +1,207 @@
+<div class="container" style="padding: 20px;">
+  <!-- Example 1 -->
+  <div class="row" style="margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+    <div class="col-12">
+      <h2>Example 1: Default No Data Label</h2>
+      <div class="table-container">
+        <!-- Passing empty data to force empty state -->
+        <aava-table [dataSource]="[]" [displayedColumns]="['id', 'name']">
+          <ng-container aavaColumnDef="id">
+            <th *aavaHeaderCellDef> ID </th>
+            <td *aavaCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+          <ng-container aavaColumnDef="name">
+            <th *aavaHeaderCellDef> Name </th>
+            <td *aavaCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Header Row -->
+          <tr *aavaHeaderRowDef="['id', 'name']"></tr>
+          <!-- Data Row -->
+          <tr *aavaRowDef="let row; columns: ['id', 'name']"></tr>
+
+        </aava-table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Example 2 -->
+  <div class="row" style="margin-bottom: 30px; border: 1px solid #ddd; padding: 15px; border-radius: 8px;">
+    <div class="col-12">
+      <h2>Example 2: Custom Content (Image + Button)</h2>
+      <div class="table-container">
+        <aava-table [dataSource]="[]" [displayedColumns]="['id', 'name']">
+          <ng-container aavaColumnDef="id">
+            <th *aavaHeaderCellDef> ID </th>
+            <td *aavaCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+          <ng-container aavaColumnDef="name">
+            <th *aavaHeaderCellDef> Name </th>
+            <td *aavaCellDef="let element"> {{element.name}} </td>
+          </ng-container>
+
+          <!-- Header Row -->
+          <tr *aavaHeaderRowDef="['id', 'name']"></tr>
+          <!-- Data Row -->
+          <tr *aavaRowDef="let row; columns: ['id', 'name']"></tr>
+
+          <!-- CUSTOM NO DATA ROW -->
+          <tr *aavaNoDataRow>
+            <td colspan="2" style="text-align: center; padding: 40px; background: #f9f9f9;">
+              <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-8867280-7265556.png"
+                  alt="No Data" style="width: 150px; height: auto;">
+                <h3 style="margin: 0; color: #666;">Whoops! No Data Found</h3>
+                <p style="color: #999;">Try adjusting your filters.</p>
+                <aava-button size="sm" label="Refresh Data" variant="primary"></aava-button>
+              </div>
+            </td>
+          </tr>
+        </aava-table>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 
+<div class="table-container">
+  <h2>Sample Data</h2>
+  <aava-table
+    [columns]="table1Columns"
+    [data]="table1Data">
+  </aava-table>
+</div>
+
+
+<div class="table-container">
+<h2>Product Data</h2>
+  <aava-table
+    [columns]="table2Columns"
+    [data]="table2Data">
+  </aava-table>
+  </div>
+
+
+<div class="table-container">
+  <h2>Order Data</h2>
+  <aava-table
+    [columns]="orderColumns"
+    [data]="orderData">
+  </aava-table>
+</div>
+ -->
+
+<!-- <div class="documentation container"> -->
+<!-- Header -->
+<div class="row">
+  <div class="col-12">
+    <header class="doc-header">
+      <h1>Table Component</h1>
+      <p class="description">
+        A versatile table component that displays data in a structured format
+        with sortable columns and customizable content. Built with accessibility
+        and user experience in mind.
+      </p>
+    </header>
+  </div>
+</div>
+
+<!-- Installation -->
+
+<!-- Documentation Sections -->
+<div class="doc-sections">
+  <section *ngFor="let section of sections; let i = index" class="doc-section">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-header" tabindex="0" role="button">
+          <h2>{{ section.title }}</h2>
+          <div class="description-container">
+            <p>{{ section.description }}</p>
+            <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+              <span *ngIf="!section.showCode">View Code</span>
+              <span *ngIf="section.showCode">Hide Code</span>
+              <!-- <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons> -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Code Example -->
+    <div class="code-example" [class.expanded]="section.showCode">
+      <div class="example-preview">
+        <ng-container [ngSwitch]="section.title">
+          <!-- <div class="table-container">
+            <h2>Sample Data</h2>
+            <aava-table [columns]="table1Columns" [data]="table1Data">
+            </aava-table>
+          </div>
+          <div class="table-container">
+            <h2>Product Data</h2>
+            <aava-table [columns]="table2Columns" [data]="table2Data">
+            </aava-table>
+          </div> -->
+          <!-- <div class="table-container">
+            <h2>Order Data</h2>
+            <aava-table [columns]="orderColumns" [data]="orderData">
+            </aava-table>
+          </div> -->
+          <aava-button label="Delete" (click)="delete()" variant="primary"></aava-button>
+          <div class="table-container">
+
+            <h2>User Table</h2>
+            <aava-skeleton *ngIf="isLoading" [rows]="pageSize" skeletonType="table"
+              [columns]="columnData.length"></aava-skeleton>
+            <aava-user-table *ngIf="!isLoading" [maxHeight]="'600px'" [maxWidth]="'100%'" [columns]="columnData"
+              [data]="rowData" [sortAscIcon]="'move-up'" [sortDescIcon]="'move-down'" [useDefaultFilter]="true"
+              [useCustomFilter]="false" [showCheckbox]="true" [filterIcon]="'list-filter'" [customStyle]="tableStyle"
+              [isSortingEnabled]="true" [lazyLoad]="true" [rowIconSize]="'40'" [rowImageStyle]="rowImgStyle"
+              [rowClick]="true" [enableRowHighlight]="true" [enableCheckboxHighlight]="false"
+              [allowMultipleSelection]="false" [allowMultipleCheckboxSelection]="false" [apiFiltering]="true"
+              [activeFilterIconColor]="'#16a34a'" [filterIconColor]="'#6b7280'"
+              (apiFilterChange)="onApiFilterChange($event)" (loadMore)="onLoadMore($event)"
+              (cellClick)="onTableCellClick($event)" (actionTriggered)="onActionFromTable($event)"
+              (columnOrderChanged)="handleColumnOrderChange($event)" (rowOrderChanged)="handleRowOrderChange($event)"
+              (selectedRowsChange)="onSelectedRowsChanged($event)" (sortChange)="onSortChanged($event)"
+              (rowClicked)="handleRowClick($event)" (cellClicked)="onCellClicked($event)">
+            </aava-user-table>
+          </div>
+
+        </ng-container>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- API Reference -->
+<div class="row">
+  <div class="col-12">
+    <section class="doc-section api-reference">
+      <h2>API Reference</h2>
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prop of apiProps">
+            <td>
+              <code>{{ prop.name }}</code>
+            </td>
+            <td>
+              <code>{{ prop.type }}</code>
+            </td>
+            <td>
+              <code>{{ prop.default }}</code>
+            </td>
+            <td>{{ prop.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+</div>

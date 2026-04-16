@@ -1,0 +1,424 @@
+<div class="login-demo">
+  <div class="demo-header">
+    <h2>Login Component</h2>
+    <p>
+      A comprehensive login component with customizable themes, layouts, social
+      login options, and form validation.
+    </p>
+  </div>
+
+  <!-- Configuration Controls -->
+  <div class="controls-card">
+    <aava-card>
+      <div header>
+        <h3>Configuration Controls</h3>
+      </div>
+      <div content>
+        <div class="controls-grid">
+          <!-- Theme Controls -->
+          <div class="control-group">
+            <h4>Theme</h4>
+            <div class="button-group">
+              <aava-button
+                *ngFor="let theme of themes"
+                (click)="changeTheme(theme.value)"
+                [variant]="
+                  config.theme === theme.value ? 'primary' : 'secondary'
+                "
+                size="sm"
+                [label]="theme.label"
+              >
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Layout Controls -->
+          <div class="control-group">
+            <h4>Layout</h4>
+            <div class="button-group">
+              <aava-button
+                *ngFor="let layout of layouts"
+                (click)="changeLayout(layout.value)"
+                [variant]="
+                  config.layout === layout.value ? 'primary' : 'secondary'
+                "
+                size="sm"
+                [label]="layout.label"
+              >
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Section Toggles -->
+          <div class="control-group">
+            <h4>Display Sections</h4>
+            <div class="toggle-group">
+              <aava-button
+                (click)="toggleSection('showLogo')"
+                [variant]="config.showLogo ? 'success' : 'secondary'"
+                size="sm"
+                [label]="config.showLogo ? 'Logo: On' : 'Logo: Off'"
+                [iconName]="config.showLogo ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showTitle')"
+                [variant]="config.showTitle ? 'success' : 'secondary'"
+                size="sm"
+                [label]="config.showTitle ? 'Title: On' : 'Title: Off'"
+                [iconName]="config.showTitle ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showSubtitle')"
+                [variant]="config.showSubtitle ? 'success' : 'secondary'"
+                size="sm"
+                [label]="config.showSubtitle ? 'Subtitle: On' : 'Subtitle: Off'"
+                [iconName]="config.showSubtitle ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showRememberMe')"
+                [variant]="config.showRememberMe ? 'success' : 'secondary'"
+                size="sm"
+                [label]="
+                  config.showRememberMe ? 'Remember Me: On' : 'Remember Me: Off'
+                "
+                [iconName]="config.showRememberMe ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showForgotPassword')"
+                [variant]="config.showForgotPassword ? 'success' : 'secondary'"
+                size="sm"
+                [label]="
+                  config.showForgotPassword
+                    ? 'Forgot Password: On'
+                    : 'Forgot Password: Off'
+                "
+                [iconName]="config.showForgotPassword ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showSignUp')"
+                [variant]="config.showSignUp ? 'success' : 'secondary'"
+                size="sm"
+                [label]="config.showSignUp ? 'Sign Up: On' : 'Sign Up: Off'"
+                [iconName]="config.showSignUp ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showSocialLogin')"
+                [variant]="config.showSocialLogin ? 'success' : 'secondary'"
+                size="sm"
+                [label]="
+                  config.showSocialLogin
+                    ? 'Social Login: On'
+                    : 'Social Login: Off'
+                "
+                [iconName]="config.showSocialLogin ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleSection('showDivider')"
+                [variant]="config.showDivider ? 'success' : 'secondary'"
+                size="sm"
+                [label]="config.showDivider ? 'Divider: On' : 'Divider: Off'"
+                [iconName]="config.showDivider ? 'check' : 'x'"
+                [iconSize]="12"
+              >
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- State Controls -->
+          <div class="control-group">
+            <h4>Component States</h4>
+            <div class="button-group">
+              <aava-button
+                (click)="toggleLoading()"
+                [variant]="loading ? 'warning' : 'primary'"
+                size="sm"
+                [label]="loading ? 'Stop Loading' : 'Start Loading'"
+                [iconName]="loading ? 'pause' : 'play'"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <aava-button
+                (click)="toggleDisabled()"
+                [variant]="disabled ? 'success' : 'secondary'"
+                size="sm"
+                [label]="disabled ? 'Enable' : 'Disable'"
+                [iconName]="disabled ? 'unlock' : 'lock'"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <aava-button
+                (click)="setError()"
+                variant="danger"
+                size="sm"
+                label="Set Error"
+                iconName="alert-triangle"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <aava-button
+                (click)="clearError()"
+                variant="info"
+                size="sm"
+                label="Clear Error"
+                iconName="x-circle"
+                [iconSize]="14"
+              >
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Social Providers -->
+          <div class="control-group">
+            <h4>Social Providers</h4>
+            <div class="providers-group">
+              <aava-button
+                (click)="addSocialProvider()"
+                variant="success"
+                size="sm"
+                label="Add Provider"
+                iconName="plus"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <div class="providers-list">
+                <div
+                  *ngFor="let provider of config.socialProviders"
+                  class="provider-item"
+                >
+                  <aava-icon
+                    [iconName]="provider.icon"
+                    [iconSize]="16"
+                    [style.color]="provider.color"
+                  ></aava-icon>
+                  <span>{{ provider.name }}</span>
+                  <aava-button
+                    (click)="removeSocialProvider(provider.id)"
+                    variant="danger"
+                    size="sm"
+                    label="Remove"
+                    iconName="trash-2"
+                    [iconSize]="12"
+                  >
+                  </aava-button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Validation Rules -->
+          <div class="control-group">
+            <h4>Validation Rules</h4>
+            <div class="validation-group">
+              <div class="validation-item">
+                <label for="minPasswordLength"
+                  >Min Password Length:
+                  {{ config.validationRules?.minPasswordLength }}</label
+                >
+                <input
+                  id="minPasswordLength"
+                  type="range"
+                  [min]="4"
+                  [max]="16"
+                  [value]="config.validationRules?.minPasswordLength || 8"
+                  (input)="changeMinPasswordLength($event)"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Demo Actions -->
+          <div class="control-group">
+            <h4>Demo Actions</h4>
+            <div class="button-group">
+              <aava-button
+                (click)="fillDemoCredentials()"
+                variant="info"
+                size="sm"
+                label="Show Demo Credentials"
+                iconName="info"
+                [iconSize]="14"
+              >
+              </aava-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Login Component Demo -->
+  <div class="demo-section">
+    <aava-card>
+      <div header>
+        <h3>Interactive Login Form</h3>
+        <p>Try different configurations and test the login functionality</p>
+      </div>
+      <div content>
+        <aava-login
+          [config]="config"
+          [loading]="loading"
+          [disabled]="disabled"
+          [errorMessage]="errorMessage"
+          (login)="onLogin($event)"
+          (socialLogin)="onSocialLogin($event)"
+          (forgotPassword)="onForgotPassword($event)"
+          (signUp)="onSignUp()"
+          (loginEvent)="onLoginEvent($event)"
+        >
+        </aava-login>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Event Log -->
+  <div class="event-log-card" *ngIf="lastEvent">
+    <aava-card>
+      <div header>
+        <h3>Event Log</h3>
+        <p>Real-time events from the login component</p>
+      </div>
+      <div content>
+        <div class="event-content">
+          <pre>{{ lastEvent | json }}</pre>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Features Card -->
+  <div class="features-card">
+    <aava-card>
+      <div header>
+        <h3>Features Demonstrated</h3>
+        <p>Comprehensive list of capabilities</p>
+      </div>
+      <div content>
+        <div class="features-grid">
+          <div class="feature-item">
+            <aava-icon
+              iconName="user"
+              [iconSize]="20"
+              iconColor="#007bff"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>User Authentication:</strong> Email and password login
+              with validation
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="shield"
+              [iconSize]="20"
+              iconColor="#28a745"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Form Validation:</strong> Real-time validation with custom
+              error messages
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="eye"
+              [iconSize]="20"
+              iconColor="#ffc107"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Password Toggle:</strong> Show/hide password functionality
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="share-2"
+              [iconSize]="20"
+              iconColor="#17a2b8"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Social Login:</strong> Multiple social provider
+              integration
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="palette"
+              [iconSize]="20"
+              iconColor="#6f42c1"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Multiple Themes:</strong> Default, minimal, modern, and
+              professional themes
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="layout"
+              [iconSize]="20"
+              iconColor="#fd7e14"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Layout Options:</strong> Centered, left-aligned, and split
+              layouts
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="settings"
+              [iconSize]="20"
+              iconColor="#e83e8c"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Customizable:</strong> Configurable sections, labels, and
+              validation rules
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="smartphone"
+              [iconSize]="20"
+              iconColor="#6c757d"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Responsive Design:</strong> Adapts to different screen
+              sizes and devices
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="zap"
+              [iconSize]="20"
+              iconColor="#dc3545"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Event Handling:</strong> Comprehensive event system for
+              all interactions
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon
+              iconName="check-circle"
+              [iconSize]="20"
+              iconColor="#20c997"
+            ></aava-icon>
+            <div class="feature-content">
+              <strong>Accessibility:</strong> ARIA labels, keyboard navigation,
+              and screen reader support
+            </div>
+          </div>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+</div>

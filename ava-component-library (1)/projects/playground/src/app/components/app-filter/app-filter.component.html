@@ -1,0 +1,436 @@
+<div class="filter-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Filter Component</h1>
+            <p class="description">
+              A versatile filter component that supports single and multiple selection,
+              multiple filter groups, different selection types (checkbox/radio), and
+              flexible customization. Perfect for product filtering, search refinement,
+              and advanced data filtering scenarios.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="single-group" class="nav-link">
+                <span class="nav-icon">📦</span>
+                <span class="nav-text">Single Group</span>
+              </a>
+              <a routerLink="multi-group" class="nav-link">
+                <span class="nav-icon">📊</span>
+                <span class="nav-text">Multi-Group</span>
+              </a>
+              <a routerLink="sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="advanced-filters" class="nav-link">
+                <span class="nav-icon">⚙️</span>
+                <span class="nav-text">Advanced</span>
+              </a>
+              <a routerLink="api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>Simple filter with checkbox selection for categories</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-filter
+                label="Categories"
+                [options]="categories"
+                selectionType="checkbox"
+                (selectionChange)="onFilterSelectionChange($event)">
+              </aava-filter>
+              <div class="mt-3">
+                <strong>Selected Categories:</strong> {{ getSelectedCount(categories) }} / {{ categories.length }}
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="info-box">
+                <h4>What you see here:</h4>
+                <ul>
+                  <li>Simple single-group filter</li>
+                  <li>Checkbox selection type</li>
+                  <li>Basic category options</li>
+                  <li>Selection counter in demo</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Single-Group Mode -->
+    <section class="demo-section single-group-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Single-Group Mode</h2>
+          <p>Filter with one group of options and different selection types</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="example-box">
+                <h5>Checkbox Selection</h5>
+                <aava-filter
+                  label="Price Ranges"
+                  [options]="priceRanges"
+                  selectionType="checkbox"
+                  [showSelectionCount]="true"
+                  (selectionChange)="onFilterSelectionChange($event)">
+                </aava-filter>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="example-box">
+                <h5>Radio Button Selection</h5>
+                <aava-filter
+                  label="Ratings"
+                  [options]="ratings"
+                  selectionType="radio"
+                  (selectionChange)="onFilterSelectionChange($event)">
+                </aava-filter>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="info-box">
+                <h4>Selection Types:</h4>
+                <ul>
+                  <li><strong>Checkbox:</strong> Multiple selections allowed</li>
+                  <li><strong>Radio:</strong> Single selection only</li>
+                  <li><strong>None:</strong> Display only, no selection</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-Group Mode -->
+    <section class="demo-section multi-group-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Multi-Group Mode</h2>
+          <p>Advanced filter with multiple groups and different selection types per group</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-filter
+                label="Advanced Filter"
+                [filterGroups]="multiGroupFilters"
+                [showActionButtons]="true"
+                [showSelectionCount]="true"
+                (selectionChange)="onFilterSelectionChange($event)"
+                (clearAll)="onFilterClearAll()"
+                (apply)="onFilterApply($event)">
+              </aava-filter>
+              <div class="mt-3">
+                <strong>Total Selected:</strong> {{ getSelectedCountFromGroups(multiGroupFilters) }}
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="info-box">
+                <h4>Multi-Group Features:</h4>
+                <ul>
+                  <li>Multiple filter groups</li>
+                  <li>Different selection types per group</li>
+                  <li>Category (checkbox) - multiple selections</li>
+                  <li>Price Range (radio) - single selection</li>
+                  <li>Availability (radio) - single selection</li>
+                  <li>Clear All & Apply buttons</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Size Variants -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Size Variants</h2>
+          <p>Different sizes for various use cases and layouts</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <aava-filter
+                size="xs"
+                label="XS Filter"
+                [options]="categories"
+                selectionType="checkbox">
+              </aava-filter>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-filter
+                size="sm"
+                label="SM Filter"
+                [options]="categories"
+                selectionType="checkbox">
+              </aava-filter>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-filter
+                size="md"
+                label="MD Filter"
+                [options]="categories"
+                selectionType="checkbox">
+              </aava-filter>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-filter
+                size="lg"
+                label="LG Filter"
+                [options]="categories"
+                selectionType="checkbox">
+              </aava-filter>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-filter
+                size="xl"
+                label="XL Filter"
+                [options]="categories"
+                selectionType="checkbox">
+              </aava-filter>
+            </div>
+          </div>
+          <div class="row mt-4">
+            <div class="col-12">
+              <div class="info-box">
+                <h4>Size Options:</h4>
+                <ul class="size-list">
+                  <li><strong>xs (Extra Small):</strong> Compact filters for limited space</li>
+                  <li><strong>sm (Small):</strong> Smaller interface elements</li>
+                  <li><strong>md (Medium):</strong> Default, balanced size</li>
+                  <li><strong>lg (Large):</strong> Larger text and controls</li>
+                  <li><strong>xl (Extra Large):</strong> Maximum visibility and touch-friendly</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Selection Types -->
+    <section class="demo-section selection-types-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Selection Types</h2>
+          <p>Different selection mechanisms for various filtering scenarios</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <div class="example-box">
+                <h5>Checkbox (Multiple)</h5>
+                <p class="small-text">Allow users to select multiple options</p>
+                <aava-filter
+                  label="Checkbox Filter"
+                  [options]="categories"
+                  selectionType="checkbox"
+                  [showSelectionCount]="true"
+                  (selectionChange)="onFilterSelectionChange($event)">
+                </aava-filter>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="example-box">
+                <h5>Radio Button (Single)</h5>
+                <p class="small-text">Allow users to select only one option</p>
+                <aava-filter
+                  label="Radio Filter"
+                  [options]="priceRanges"
+                  selectionType="radio"
+                  (selectionChange)="onFilterSelectionChange($event)">
+                </aava-filter>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <div class="example-box">
+                <h5>Display Only (None)</h5>
+                <p class="small-text">Show options without selection capability</p>
+                <aava-filter
+                  label="Display Filter"
+                  [options]="ratings"
+                  selectionType="none">
+                </aava-filter>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Advanced Filters -->
+    <section class="demo-section advanced-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Advanced Filters</h2>
+          <p>Complex filter scenarios with action buttons and custom configurations</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <div class="example-box">
+                <h5>With Action Buttons</h5>
+                <aava-filter
+                  label="Products"
+                  [filterGroups]="multiGroupFilters"
+                  [showActionButtons]="true"
+                  [showSelectionCount]="true"
+                  (selectionChange)="onFilterSelectionChange($event)"
+                  (clearAll)="onFilterClearAll()"
+                  (apply)="onFilterApply($event)">
+                </aava-filter>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <div class="info-box">
+                <h4>Advanced Features:</h4>
+                <ul>
+                  <li>Multiple filter groups with different selection types</li>
+                  <li>Action buttons (Clear All & Apply)</li>
+                  <li>Selection count display on button</li>
+                  <li>Event emitters for selection/apply/clear</li>
+                  <li>Custom icons and colors</li>
+                  <li>Responsive flyout layout</li>
+                  <li>Keyboard navigation support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference Section -->
+  <section class="demo-section api-section">
+    <div class="container">
+      <div class="section-header">
+        <h2>API Reference</h2>
+        <p>Complete documentation of all Filter Component properties and events</p>
+      </div>
+      <div class="demo-content">
+        <div class="row">
+          <div class="col-12">
+            <div class="api-table-wrapper">
+              <table class="api-table">
+                <thead>
+                  <tr>
+                    <th>Property</th>
+                    <th>Type</th>
+                    <th>Default</th>
+                    <th>Description</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let prop of apiProps">
+                    <td class="prop-name"><code>{{ prop.name }}</code></td>
+                    <td class="prop-type"><code>{{ prop.type }}</code></td>
+                    <td class="prop-default"><code>{{ prop.default }}</code></td>
+                    <td class="prop-description">{{ prop.description }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Events Section -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4>Output Events</h4>
+            <div class="events-grid">
+              <div class="event-card">
+                <h5>selectionChange</h5>
+                <p><code>&#64;Output() selectionChange: EventEmitter&lt;AavaFilterOption[]&gt;</code></p>
+                <p class="description">Emitted when filter selection changes</p>
+              </div>
+              <div class="event-card">
+                <h5>clearAll</h5>
+                <p><code>&#64;Output() clearAll: EventEmitter&lt;void&gt;</code></p>
+                <p class="description">Emitted when Clear All button is clicked</p>
+              </div>
+              <div class="event-card">
+                <h5>apply</h5>
+                <p><code>&#64;Output() apply: EventEmitter&lt;AavaFilterOption[]&gt;</code></p>
+                <p class="description">Emitted when Apply button is clicked</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Interfaces Section -->
+        <div class="row mt-4">
+          <div class="col-12">
+            <h4>Type Definitions</h4>
+            <div class="code-block">
+              <pre><code>// Single filter option
+interface AavaFilterOption {{'{'}
+  id: string | number;
+  label: string;
+  value: any;
+  selected?: boolean;
+  icon?: string;
+{{'}'}
+
+// Filter group for multi-group mode
+interface AavaFilterGroup {{'{'}
+  title: string;
+  selectionType: SelectionType;
+  options: AavaFilterOption[];
+{{'}'}
+
+// Selection type options
+type SelectionType = 'checkbox' | 'radio' | 'none';
+
+// Filter size options
+type FilterSize = 'xs' | 'sm' | 'md' | 'lg' | 'xl';</code></pre>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

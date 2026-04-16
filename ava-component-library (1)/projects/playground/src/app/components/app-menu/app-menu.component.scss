@@ -1,0 +1,128 @@
+.menu-demo {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 1rem;
+  }
+
+  p {
+    font-size: 1.1rem;
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+}
+
+.demo-section {
+  margin-bottom: 4rem;
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--global-radius-lg);
+  padding: 2rem;
+  background: var(--color-background-primary);
+
+  h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: var(--color-text-secondary);
+    margin-bottom: 2rem;
+    font-size: 0.95rem;
+  }
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 1.5rem 0 1rem 0;
+  }
+}
+
+.demo-container {
+  position: relative;
+  display: inline-block;
+}
+
+// Custom styling for active state on demo buttons
+ava-button.active {
+  // The ava-button component will handle its own hover/focus states
+  // We can add custom active state styling here if needed
+  opacity: 0.8;
+}
+
+.code-example {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-default);
+  border-radius: var(--global-radius-md);
+  padding: 1.5rem;
+  margin: 1rem 0;
+
+  pre {
+    margin: 0;
+    overflow-x: auto;
+
+    code {
+      font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+      font-size: 0.85rem;
+      line-height: 1.6;
+      color: var(--color-text-primary);
+      white-space: pre;
+    }
+  }
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+
+  li {
+    background: var(--color-background-secondary);
+    padding: 1rem;
+    border-radius: var(--global-radius-sm);
+    border-left: 4px solid var(--color-surface-primary);
+    font-size: 0.9rem;
+    color: var(--color-text-primary);
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: translateX(4px);
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .menu-demo {
+    padding: 1rem;
+  }
+
+  .demo-header h1 {
+    font-size: 2rem;
+  }
+
+  .demo-section {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .features-list {
+    grid-template-columns: 1fr;
+  }
+}

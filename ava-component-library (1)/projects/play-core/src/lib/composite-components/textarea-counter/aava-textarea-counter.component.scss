@@ -1,0 +1,14 @@
+.counter-error-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--color-text-primary);
+  font-size:var(--textbox-md-label-font-size);
+}
+.counter-text {
+  margin-left: 0;
+  
+  &.align-right {
+    margin-left: auto;
+  }
+}

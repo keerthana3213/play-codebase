@@ -1,0 +1,48 @@
+<div class="variants-timeline-demo">
+  <div class="demo-content">
+    <div class="timeline-grid">
+      <div class="timeline-item">
+        <h3>Left Aligned</h3>
+        <div class="timeline-wrapper">
+          <aava-timeline
+            [events]="alignmentEvents"
+            [size]="'lg'"
+            [orientation]="'vertical'"
+            [textAlign]="'zigzag-left'"
+            [iconCircleSize]="'40px'"
+            [iconCircleBgColor]="'#fff'"
+            [iconCircleBorderColor]="'#ccc'"
+          ></aava-timeline>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <h3>Right Aligned</h3>
+        <div class="timeline-wrapper">
+          <aava-timeline
+            [events]="alignmentEvents"
+            [size]="'lg'"
+            [orientation]="'vertical'"
+            [textAlign]="'zigzag-right'"
+            [iconCircleSize]="'40px'"
+            [iconCircleBgColor]="'#fff'"
+            [iconCircleBorderColor]="'#ccc'"
+          ></aava-timeline>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <h3>Zigzag Pattern</h3>
+        <div class="timeline-wrapper">
+          <aava-timeline
+            [events]="alignmentEvents"
+            [size]="'lg'"
+            [orientation]="'vertical'"
+            [textAlign]="'zig-zag'"
+            [iconCircleSize]="'40px'"
+            [iconCircleBgColor]="'#fff'"
+            [iconCircleBorderColor]="'#ccc'"
+          ></aava-timeline>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

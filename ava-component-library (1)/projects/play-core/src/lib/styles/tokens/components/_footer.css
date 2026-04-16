@@ -1,0 +1,137 @@
+/**
+ * Component: Footer
+ * Purpose: Footer component tokens for page footers and navigation
+ */
+
+:root {
+  /* Footer Base */
+  --footer-background: var(--color-background-primary);
+  --footer-border-top: 1px solid var(--color-border-subtle);
+  --footer-padding: var(--global-spacing-6);
+  --footer-font-family: var(--font-family-body);
+  --footer-font-family-secondary: var(--font-family-heading);
+
+  /* Footer Typography */
+  --footer-text-color: var(--color-text-primary);
+  --footer-text-font: var(--font-body-1);
+  --footer-text-size: var(--global-font-size-md);
+  --footer-text-weight: var(--global-font-weight-regular);
+  --footer-text-line-height: var(--global-line-height-normal);
+
+  --footer-subtitle-color: var(--color-text-secondary);
+  --footer-subtitle-font: var(--font-heading-h5);
+  --footer-subtitle-size: calc(var(--global-font-size-md) - (var(--global-font-size-md) * 0.25));
+  --footer-subtitle-weight: var(--global-font-weight-regular);
+  --footer-subtitle-line-height: var(--global-line-height-normal);
+
+  /* Footer Side Variant */
+  --footer-side-background: var(--color-background-primary);
+  --footer-side-padding: var(--global-spacing-4);
+  --footer-side-border-top: 1px solid var(--color-border-subtle);
+
+  --footer-side-text-color: var(--color-text-primary);
+  --footer-side-text-font: var(--font-body-1);
+  --footer-side-text-size: var(--global-font-size-md);
+  --footer-side-text-weight: var(--global-font-weight-regular);
+  --footer-side-text-line-height: var(--global-line-height-normal);
+
+  /* Footer Top Variant */
+  --footer-top-background: var(--color-background-primary);
+  --footer-top-padding: var(--global-spacing-6);
+  --footer-top-border-top: 1px solid var(--color-border-subtle);
+
+  --footer-top-content-padding: var(--global-spacing-4);
+  --footer-top-content-gap: var(--global-spacing-6);
+
+  /* Footer Columns */
+  --footer-columns-gap: var(--global-spacing-6);
+  --footer-column-padding: var(--global-spacing-2);
+  --footer-column-min-width: 12rem;
+
+  --footer-column-title-color: var(--color-text-secondary);
+  --footer-column-title-font: var(--font-heading-h5);
+  --footer-column-title-size: calc(var(--global-font-size-md) - (var(--global-font-size-md) * 0.25));
+  --footer-column-title-weight: var(--global-font-weight-regular);
+  --footer-column-title-line-height: var(--global-line-height-normal);
+  --footer-column-title-margin: 0 0 var(--global-spacing-3) 0;
+
+  --footer-column-text-color: var(--color-text-primary);
+  --footer-column-text-font: var(--font-body-1);
+  --footer-column-text-size: var(--global-font-size-md);
+  --footer-column-text-weight: var(--global-font-weight-regular);
+  --footer-column-text-line-height: var(--global-line-height-normal);
+  --footer-column-text-margin: 0 0 var(--global-spacing-2) 0;
+
+  /* Footer Links */
+  --footer-link-color: var(--color-text-interactive);
+  --footer-link-font: var(--font-body-1);
+  --footer-link-size: var(--global-font-size-md);
+  --footer-link-weight: var(--global-font-weight-regular);
+  --footer-link-line-height: var(--global-line-height-normal);
+  --footer-link-text-decoration: none;
+  --footer-link-transition: color var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+
+  --footer-link-hover-color: var(--color-text-interactive-hover);
+  --footer-link-hover-text-decoration: underline;
+
+  --footer-link-active-color: var(--color-text-interactive-hover);
+  --footer-link-active-text-decoration: underline;
+
+  --footer-link-focus-color: var(--color-text-interactive);
+  --footer-link-focus-outline: 2px solid var(--accessibility-focus-ring-color);
+  --footer-link-focus-outline-offset: 0.125rem;
+
+  /* Footer Social */
+  --footer-social-gap: var(--global-spacing-3);
+  --footer-social-icon-size: var(--global-icon-size-md);
+  --footer-social-icon-color: var(--color-text-secondary);
+  --footer-social-icon-hover-color: var(--color-text-primary);
+
+  /* Footer Copyright */
+  --footer-copyright-color: var(--color-text-secondary);
+  --footer-copyright-font: var(--font-body-2);
+  --footer-copyright-size: var(--global-font-size-sm);
+  --footer-copyright-weight: var(--global-font-weight-regular);
+  --footer-copyright-line-height: var(--global-line-height-normal);
+  --footer-copyright-padding: var(--global-spacing-4);
+  --footer-copyright-border-top: 1px solid var(--color-border-subtle);
+  --footer-copyright-text-align: center;
+
+  /* Footer Sizes */
+  --footer-size-sm-padding: var(--global-spacing-4);
+  --footer-size-sm-text-size: var(--global-font-size-sm);
+  --footer-size-sm-subtitle-size: calc(var(--global-font-size-sm) - (var(--global-font-size-sm) * 0.25));
+
+  --footer-size-md-padding: var(--global-spacing-6);
+  --footer-size-md-text-size: var(--global-font-size-md);
+  --footer-size-md-subtitle-size: calc(var(--global-font-size-md) - (var(--global-font-size-md) * 0.25));
+
+  --footer-size-lg-padding: var(--global-spacing-8);
+  --footer-size-lg-text-size: var(--global-font-size-lg);
+  --footer-size-lg-subtitle-size: calc(var(--global-font-size-lg) - (var(--global-font-size-lg) * 0.25));
+
+  /* Footer Variants */
+  --footer-variant-default-background: var(--color-background-primary);
+  --footer-variant-default-border: 1px solid var(--color-border-subtle);
+
+  --footer-variant-contained-background: var(--color-background-secondary);
+  --footer-variant-contained-border: 1px solid var(--color-border-default);
+
+  --footer-variant-elevated-background: var(--color-background-primary);
+  --footer-variant-elevated-border: none;
+  --footer-variant-elevated-shadow: var(--global-elevation-01);
+  --footer-variant-grey-background: var(--global-color-gray-300);
+  /* Footer Responsive */
+  --footer-responsive-breakpoint: 768px;
+  --footer-responsive-columns: 1;
+  --footer-responsive-gap: var(--global-spacing-4);
+  --footer-responsive-padding: var(--global-spacing-4);
+
+  /* Footer Dark Variant */
+  --footer-dark-background: var(--global-color-gray-900);
+  --footer-dark-text: var(--global-color-white);
+  --footer-dark-subtitle: var(--global-color-gray-300);
+  --footer-dark-border: 1px solid var(--global-color-gray-700);
+  --footer-dark-link: var(--global-color-gray-300);
+  --footer-dark-link-hover: var(--global-color-white);
+}

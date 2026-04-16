@@ -1,0 +1,45 @@
+.aava-icon-container {
+
+
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+
+  lucide-icon {
+    align-items: center;
+    display: flex;
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  .aava-icon-svg {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    flex-shrink: 0;
+
+    svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      fill: currentColor;
+      color: currentColor;
+      
+     
+      
+    
+    }
+  }
+
+  &.cursor {
+    cursor: pointer;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+}

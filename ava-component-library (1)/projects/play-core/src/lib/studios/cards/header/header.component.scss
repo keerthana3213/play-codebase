@@ -1,0 +1,104 @@
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    flex: 1;
+    min-width: 0; // Allow truncation
+}
+
+.header-primary-heading {
+    color: var(--studios-header-primary-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-header-primary-size);
+    font-style: normal;
+    font-weight: var(--studios-header-primary-weight);
+    line-height: var(--studios-header-primary-line-height);
+    margin: 0;
+
+    // Truncate to single line
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-secondary-heading {
+    color: var(--studios-header-secondary-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-header-secondary-size);
+    font-style: normal;
+    font-weight: var(--studios-header-secondary-weight);
+    line-height: var(--studios-header-secondary-line-height);
+    /* 114.286% */
+    margin: 0;
+
+    // Truncate to single line
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    // When no primary heading, remove the gap
+    &--no-primary {
+        margin-top: 0;
+    }
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    margin-left: 16px; // Add some space between left and right sections
+}
+
+.header-number-text {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    // Truncate container if needed
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.header-number {
+    // Color is set dynamically via [style.color] binding
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-header-number-size);
+    font-style: normal;
+    font-weight: var(--studios-header-number-weight);
+    line-height: normal;
+    flex-shrink: 0;
+}
+
+.header-text {
+    color: var(--studios-header-text-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-header-number-size);
+    font-style: normal;
+    font-weight: var(--studios-header-number-weight);
+    line-height: normal;
+
+    // Allow text to truncate
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+}
+
+.header-buttons {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+
+    aava-button {
+        flex-shrink: 0;
+    }
+}

@@ -1,0 +1,95 @@
+.confirmation-dialog {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1;
+    gap: var(--dialog-content-gap);
+    text-align: center;
+
+    .icon-container {
+        text-align: center;
+        margin-bottom: var(--dialog-icon-margin-bottom);
+    }
+
+    .popup-title {
+        color: var(--dialog-text-color);
+        font-family: var(--dialog-text-font-family);
+        font-size: var(--dialog-md-title-font-size);
+        font-style: normal;
+        font-weight: var(--dialog-text-font-weight);
+        line-height: var(--dialog-title-line-height-tight);
+        text-align: center;
+        margin: 0;
+
+        &.destructive {
+            color: var(--dialog-error-color);
+        }
+    }
+
+    .inline-text {
+        color: var(--dialog-text-color);
+        font-family: var(--dialog-text-font-family);
+        font-size: var(--dialog-md-text-font-size);
+        font-style: normal;
+        font-weight: var(--dialog-text-font-weight);
+        line-height: var(--dialog-text-line-height);
+        margin: 0;
+        margin-top: var(--dialog-icon-border-width);
+        max-width: var(--dialog-max-width);
+        text-align: center;
+    }
+
+    .dialog-actions {
+        display: flex;
+        gap: var(--dialog-content-gap);
+        margin-top: var(--dialog-actions-margin-top);
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    // Large variant
+    &.lg {
+        width: var(--dialog-lg-width);
+
+        .popup-title {
+            font-size: var(--dialog-md-title-font-size);
+            line-height: var(--dialog-title-line-height-tight);
+        }
+
+        .inline-text {
+            font-size: var(--dialog-lg-text-font-size);
+            line-height: var(--dialog-text-line-height);
+        }
+    }
+
+    // Medium variant
+    &.md {
+        width: var(--dialog-md-width);
+
+        .popup-title {
+            font-size: var(--dialog-md-title-font-size);
+            line-height: var(--dialog-title-line-height-tight);
+        }
+
+        .inline-text {
+            font-size: var(--dialog-md-text-font-size);
+            line-height: var(--dialog-text-line-height);
+        }
+    }
+
+    // Small variant
+    &.sm {
+        width: var(--dialog-sm-width);
+
+        .popup-title {
+            font-size: var(--dialog-md-text-font-size);
+            font-weight: var(--dialog-title-font-weight);
+            line-height: var(--dialog-title-line-height-tight);
+        }
+
+        .inline-text {
+            font-size: var(--dialog-sm-text-font-size);
+            line-height: var(--dialog-sm-text-line-height);
+        }
+    }
+}

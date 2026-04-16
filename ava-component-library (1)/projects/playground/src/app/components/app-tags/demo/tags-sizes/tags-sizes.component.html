@@ -1,0 +1,23 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="comparison-examples">
+      <div class="comparison-group" *ngFor="let group of sizeComparison">
+        <div class="size-comparison">
+          <aava-tag
+            *ngFor="let tag of group.tags"
+            [label]="tag.label"
+            [size]="tag.size"
+            [color]="tag.color"
+            [icon]="tag.icon"
+            [iconPosition]="'start'"
+            (clicked)="onTagClick(tag.label)"
+            tabindex="0"
+            role="button"
+            [attr.aria-label]="tag.label + ' ' + tag.size + ' tag'"
+          >
+          </aava-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

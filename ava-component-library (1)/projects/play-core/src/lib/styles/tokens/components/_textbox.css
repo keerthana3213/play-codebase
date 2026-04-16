@@ -1,0 +1,337 @@
+/* Component: Textbox
+ * Purpose: Design tokens for Textbox component
+ */
+:root {
+        --textbox-gap: var(--global-spacing-1);
+        --textbox-gap-xs: var(--global-spacing-1);
+        --textbox-gap-sm: var(--global-spacing-1);
+        --textbox-gap-md: var(--global-spacing-1);
+        --textbox-gap-lg: var(--global-spacing-1);
+        --textbox-gap-xl: var(--global-spacing-1);
+        --textbox-background-primary: var(--global-background);
+
+        /* Label */
+        --textbox-label-font: var(--font-label);
+        --textbox-label-color: var(--color-text-primary);
+
+        --textbox-required-color: var(--color-text-error);
+        --textbox-input-color: var(--color-text-primary);
+
+        /* Container */
+        --textbox-background: var(--app-surface);
+        --textbox-border-radius: var(--global-radius-sm);
+        --textbox-background-disabled: var(--color-background-disabled);
+        --textbox-border-disabled-color: var(--color-border-disabled);
+        --textbox-background-readonly: var(--color-background-subtle);
+        --textbox-border-readonly-color: var(--color-border-subtle);
+
+        /* Variants */
+        --textbox-border-primary-color: var(--color-border-primary);
+        --textbox-border-success-color: var(--color-border-success);
+        --textbox-border-error-color: var(--color-border-error);
+        --textbox-border-warning-color: var(--color-border-warning);
+        --textbox-border-info-color: var(--color-border-info);
+
+        /* Input */
+        --textbox-input-font: var(--font-body-1);
+        --textbox-placeholder-color: var(--color-text-placeholder);
+        --textbox-input-disabled-color: var(--color-text-disabled);
+        --textbox-input-readonly-color: var(--color-text-secondary);
+
+        /* Input Sizes */
+
+        /*extra Large*/
+        --textbox-input-xl-padding: var(--global-font-size-sm) var(--global-font-size-lg);
+        --textbox-input-xl-font-size: var(--global-icon-size-md);
+        --textbox-input-xl-height: 52px;
+        --textbox-input-xl-font-weight: var(--global-font-weight-regular);
+
+        --textbox-xl-border-radius: var(--global-radius-md);
+        --textbox-xl-error-font-size: var(--global-font-size-sm);
+        /*label*/
+        --textbox-xl-label-font-size: var(--global-icon-size-sm);
+        --textbox-xl-label-weight: var(--global-font-weight-regular);
+        /*****************Large***********************************/
+        /**/
+        --textbox-input-lg-padding: var(--global-spacing-3) var(--global-spacing-4);
+        --textbox-input-lg-font-size: 18px;
+        --textbox-input-lg-height: var(--global-spacing-7);
+        --textbox-input-lg-font-weight: var(--global-font-weight-regular);
+
+        --textbox-lg-border-radius: var(--global-radius-sm);
+        --textbox-lg-error-font-size: var(--global-font-size-xs);
+        /*label*/
+        --textbox-lg-label-font-size: var(--global-font-size-sm);
+        --textbox-lg-label-weight: var(--global-font-weight-regular);
+        /*****************Medium***********************************/
+        --textbox-input-md-padding: var(--global-spacing-3) var(--global-spacing-3);
+        --textbox-input-md-font-size: var(--global-icon-size-sm);
+        --textbox-input-md-height: 44px;
+        --textbox-input-md-font-weight: var(--global-font-weight-regular);
+
+        --textbox-md-border-radius: var(--global-radius-sm);
+        --textbox-md-error-font-size: var(--global-font-size-xs);
+        /*label*/
+        --textbox-md-label-font-size: var(--global-font-size-sm);
+        --textbox-md-label-weight: var(--global-font-weight-regular);
+        /***************Small*************************************/
+        --textbox-input-sm-padding: var(--global-spacing-2) var(--global-spacing-3);
+        --textbox-input-sm-font-size: var(--global-font-size-sm);
+        --textbox-input-sm-height: 36px;
+        --textbox-input-sm-font-weight: var(--global-font-weight-regular);
+
+        --textbox-sm-border-radius: 0.375rem;
+        --textbox-sm-error-font-size: var(--global-font-size-xs);
+
+
+        /*label*/
+        --textbox-sm-label-font-size: var(--global-font-size-xs);
+        --textbox-sm-label-weight: var(--global-font-weight-regular);
+        /***************Extra Small*************************************/
+        --textbox-input-xs-padding: 0.375rem var(--global-spacing-2);
+        --textbox-input-xs-font-size: var(--global-font-size-xs);
+        --textbox-input-xs-height: 28px;
+        --textbox-input-xs-font-weight: var(--global-font-weight-regular);
+
+        --textbox-xs-border-radius: var(--global-spacing-1);
+        --textbox-xs-error-font-size: 0.625rem;
+
+        /*label*/
+        --textbox-xs-label-font-size: 10px;
+        --textbox-xs-label-weight: var(--global-font-weight-regular);
+
+
+
+
+
+
+
+
+
+
+        /* Input with Icons */
+        --textbox-input-icon-padding-start: 2.5rem;
+        --textbox-input-icon-padding-end: 2.5rem;
+
+        /* Icons */
+        --textbox-icon-color: var(--color-text-secondary);
+        --textbox-icon-focus-color: var(--color-text-primary);
+        --textbox-icon-disabled-color: var(--color-text-disabled);
+        --textbox-icon-position-start: var(--global-spacing-3);
+        --textbox-icon-position-end: var(--global-spacing-3);
+        --textbox-icon-active-opacity: 0.7;
+
+        /* Prefix/Suffix */
+        --textbox-affix-padding: 0 var(--global-spacing-3);
+        --textbox-affix-color: var(--color-text-secondary);
+        --textbox-affix-font-size: var(--global-font-size-sm);
+        --textbox-affix-background: var(--color-background-subtle);
+        --textbox-affix-border-radius: 0;
+        --textbox-affix-disabled-color: var(--color-text-disabled);
+        --textbox-affix-disabled-background: var(--color-background-disabled);
+
+        /* Error */
+        --textbox-error-gap: var(--global-spacing-1);
+        --textbox-error-color: var(--color-text-error);
+
+        /* Helper */
+        --textbox-helper-gap: var(--global-spacing-1);
+        --textbox-helper-color: var(--color-text-secondary);
+        --textbox-helper-font-size: var(--global-font-size-sm);
+
+        /* Helper Size Variants */
+        --textbox-xs-helper-font-size: 0.625rem;
+        --textbox-sm-helper-font-size: var(--global-font-size-xs);
+        --textbox-md-helper-font-size: var(--global-font-size-xs);
+        --textbox-lg-helper-font-size: var(--global-font-size-xs);
+        --textbox-xl-helper-font-size: var(--global-font-size-sm);
+
+        /* Additional Font Properties */
+        --textbox-font-family: var(--global-font-family-body);
+        --textbox-font-weight-light: 300;
+        --textbox-font-weight-normal: var(--global-font-weight-regular);
+        --textbox-font-weight-medium: var(--global-font-weight-medium);
+        --textbox-font-weight-semibold: var(--global-font-weight-semibold);
+        --textbox-font-weight-bold: var(--global-font-weight-bold);
+
+        /* Textarea */
+        --textbox-textarea-min-height: var(--global-spacing-6);
+        --textbox-textarea-min-height-xs: var(--global-spacing-6);
+        --textbox-textarea-min-height-sm: var(--global-spacing-12);
+        --textbox-textarea-min-height-md: var(--global-spacing-6);
+        --textbox-textarea-min-height-lg: 7rem;
+        --textbox-textarea-min-height-xl: var(--global-spacing-14);
+
+        /* Textarea Container */
+        --textbox-textarea-container-padding: var(--global-spacing-3) var(--global-spacing-2);
+
+        /* Textarea Error/Helper Icons */
+        --textbox-textarea-icon-margin-top: var(--global-spacing-1);
+
+        /* Textarea Hover Colors */
+        --textbox-textarea-hover-primary: rgba(var(--effect-color-primary), 1);
+        --textbox-textarea-hover-border-width: var(--glass-border-width);
+
+        /* Textarea Focus Colors */
+        --textbox-textarea-focus-primary: rgb(var(--effect-color-primary));
+        --textbox-textarea-focus-primary-alpha: rgba(var(--effect-color-primary),
+                        0.2);
+
+        /* Textarea Brand Colors for Processing */
+        --textbox-textarea-brand-primary: rgba(var(--rgb-brand-primary), 1);
+        --textbox-textarea-brand-success: rgba(var(--rgb-brand-success), 1);
+        --textbox-textarea-brand-warning: rgba(var(--rgb-brand-warning), 1);
+        --textbox-textarea-brand-error: rgba(var(--rgb-brand-error), 1);
+        --textbox-textarea-brand-info: rgba(var(--rgb-brand-info), 1);
+
+        /* Textarea Brand Colors with Alpha for Focus */
+        --textbox-textarea-brand-primary-alpha: rgba(var(--rgb-brand-primary), 0.2);
+        --textbox-textarea-brand-success-alpha: rgba(var(--rgb-brand-success), 0.2);
+        --textbox-textarea-brand-warning-alpha: rgba(var(--rgb-brand-warning), 0.2);
+        --textbox-textarea-brand-error-alpha: rgba(var(--rgb-brand-error), 0.2);
+        --textbox-textarea-brand-info-alpha: rgba(var(--rgb-brand-info), 0.2);
+
+        /* Textarea Processing Animation Colors */
+        --textbox-textarea-processing-primary-alpha-light: rgba(var(--rgb-brand-primary),
+                        0.4);
+        --textbox-textarea-processing-primary-alpha-strong: rgba(var(--rgb-brand-primary),
+                        0.6);
+        --textbox-textarea-processing-success-alpha-light: rgba(var(--rgb-brand-success),
+                        0.4);
+        --textbox-textarea-processing-success-alpha-strong: rgba(var(--rgb-brand-success),
+                        0.6);
+        --textbox-textarea-processing-warning-alpha-light: rgba(var(--rgb-brand-warning),
+                        0.4);
+        --textbox-textarea-processing-warning-alpha-strong: rgba(var(--rgb-brand-warning),
+                        0.6);
+        --textbox-textarea-processing-error-alpha-light: rgba(var(--rgb-brand-error),
+                        0.4);
+        --textbox-textarea-processing-error-alpha-strong: rgba(var(--rgb-brand-error),
+                        0.6);
+        --textbox-textarea-processing-info-alpha-light: rgba(var(--rgb-brand-info),
+                        0.4);
+        --textbox-textarea-processing-info-alpha-strong: rgba(var(--rgb-brand-info),
+                        0.6);
+
+        /* Icon Spacing Variants */
+        --textbox-icon-spacing-compact-padding-start: 2.25rem;
+        --textbox-icon-spacing-compact-padding-end: 2.25rem;
+        --textbox-icon-spacing-normal-padding-start: 2.5rem;
+        --textbox-icon-spacing-normal-padding-end: 2.5rem;
+        --textbox-icon-spacing-relaxed-padding-start: 3rem;
+        --textbox-icon-spacing-relaxed-padding-end: 3rem;
+
+        /* Icon Separator */
+        --textbox-separator-width: var(--global-stroke);
+        --textbox-separator-height: 60%;
+        --textbox-separator-background: var(--color-border-default);
+        --textbox-separator-background-focused: rgba(var(--effect-color-primary),
+                        0.6);
+        --textbox-separator-background-disabled: var(--textbox-border-disabled-color);
+        --textbox-separator-opacity-disabled: 0.3;
+        --textbox-separator-margin: var(--global-spacing-3);
+        --textbox-separator-transition: background-color var(--global-motion-duration-standard);
+
+        /* Affix Spacing Variants */
+        --textbox-affix-margin-compact: var(--global-spacing-1);
+        --textbox-affix-margin-normal: var(--global-spacing-1);
+        --textbox-affix-margin-relaxed: var(--global-spacing-1);
+
+        /* =======================
+     TEXTBOX: SOPHISTICATED SEMANTIC TOKENS
+     Chaining from _base.css → _light.css → _textbox.css (this file) → component.scss
+     Using sophisticated glass effects with variant color support
+     ======================= */
+
+        /* Textbox Default States - Using sophisticated glass from base tokens */
+        --textbox-glass-default-background: var(--glass-25-gradient);
+        --textbox-glass-default-shadow: var(--glass-25-shadow);
+        --textbox-glass-default-border: var(--glass-25-border);
+        --textbox-glass-default-blur: var(--glass-25-blur);
+
+        /* Textbox Pressed Effects - Chaining global pressed effects */
+        --textbox-pressed-effect: var(--pressed-ripple-shadow);
+        --textbox-pressed-transform: var(--pressed-ripple-transform);
+
+        /* Motion & Timing - Using global standards */
+        --textbox-transition: background var(--global-motion-duration-standard),
+                border-color var(--global-motion-duration-standard),
+                box-shadow var(--global-motion-duration-standard),
+                transform var(--global-motion-duration-swift);
+
+        /* =======================
+     TEXTBOX: VARIANT-SPECIFIC OVERRIDES
+     Each variant overrides glass-surface-color to change the glass tint
+     ======================= */
+
+        /* Textbox Variant Glass Colors - Maps to light theme variants */
+        --textbox-variant-default: var(--glass-surface-color);
+        --textbox-variant-primary: var(--glass-variant-primary);
+        --textbox-variant-success: var(--glass-variant-success);
+        --textbox-variant-warning: var(--glass-variant-warning);
+        --textbox-variant-danger: var(--glass-variant-danger);
+        --textbox-variant-info: var(--glass-variant-info);
+
+        /* Static Values from SCSS - Converted to CSS Variable */
+        --textbox-disabled-grey-background: rgba(156, 163, 175, 0.3);
+        --textbox-disabled-grey-border: rgba(156, 163, 175, 0.5);
+        --textbox-icon-separator-icon-size: var(--global-icon-size-lg);
+        --textbox-icon-separator-spacing: 0.5rem;
+        --textbox-icon-separator-additional-padding: 1.25rem;
+        --textbox-icon-separator-end-padding: 0.5rem;
+        --textbox-glass-background-color: #fff;
+        --textbox-focus-border-width: var(--glass-border-width);
+        --textbox-hover-border-width: var(--glass-border-width);
+        --textbox-hover-border-width-alt: var(--glass-border-width);
+        --textbox-shimmer-text-shadow: 0 0 8px rgba(var(--textbox-effect-color-primary), 0.3);
+
+        /* Variables from base.css - Localized to textbox */
+        --textbox-effect-color-primary: var(--rgb-brand-primary);
+        --textbox-global-spacing-1: var(--global-spacing-1);
+        --textbox-processing-border-width: var(--processing-border-width);
+
+        /* Glass variants - from base.css */
+        --textbox-glass-10-gradient: var(--glass-10-gradient);
+        --textbox-glass-10-blur: var(--glass-10-blur);
+        --textbox-glass-10-border: var(--glass-10-border);
+        --textbox-glass-10-shadow: var(--glass-10-shadow);
+        --textbox-glass-50-blur: var(--glass-50-blur);
+        --textbox-glass-50-border: var(--glass-50-border);
+        --textbox-glass-50-shadow: var(--glass-50-shadow);
+
+        /* Brand colors - from base.css */
+        --textbox-rgb-brand-primary: var(--rgb-brand-primary);
+        --textbox-glass-variant-primary: var(--glass-variant-primary);
+        --textbox-glass-variant-success: var(--glass-variant-success);
+        --textbox-glass-variant-warning: var(--glass-variant-warning);
+        --textbox-glass-variant-danger: var(--glass-variant-danger);
+        --textbox-glass-variant-info: var(--glass-variant-info);
+
+        /* Processing gradient colors */
+        --textbox-processing-gradient-colors: #e91e63, #fee140, #ff9800, #047857,
+                #ff9800, #fee140, #e91e63, #e91e63;
+        --textbox-processing-gradient: linear-gradient(60deg,
+                        var(--textbox-processing-gradient-colors));
+
+        /* Phone variant specific tokens - only what's not already available */
+        --textbox-country-name-font-weight: 500;
+
+        /* OTP variant specific tokens */
+        --textbox-otp-gap: 10px;
+        --textbox-otp-box-size: var(--global-spacing-7);
+        --textbox-otp-box-size-sm: 40px;
+        --textbox-otp-box-size-lg: 56px;
+        --textbox-otp-font-size: var(--global-font-size-md);
+        --textbox-otp-font-size-sm: var(--global-font-size-md);
+        --textbox-otp-font-size-lg: var(--global-font-size-lg);
+        --textbox-otp-font-weight: 600;
+
+        /* OTP border styles - consistent with textbox variants */
+        --textbox-otp-border-width: var(--glass-border-width);
+        --textbox-otp-border-width-focused: var(--accessibility-focus-ring-width);
+        --textbox-otp-border-color: var(--color-border-default);
+        --textbox-otp-border-color-hover: var(--color-border-hover);
+        --textbox-otp-border-color-focused: var(--textbox-border-primary-color);
+        --textbox-otp-border-color-error: var(--textbox-border-error-color);
+        --textbox-otp-border-color-disabled: var(--textbox-border-disabled-color);
+}

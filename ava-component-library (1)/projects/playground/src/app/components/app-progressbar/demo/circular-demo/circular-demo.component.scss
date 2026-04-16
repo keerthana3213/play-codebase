@@ -1,0 +1,132 @@
+// =============================================================================
+// CIRCULAR PROGRESS DEMO STYLES
+// =============================================================================
+
+.demo-page {
+  min-height: 100vh;
+  // background: var(--color-background-primary);
+  background-color: var(--global-background);
+  padding: 2rem;
+}
+
+.demo-header {
+  text-align: center;
+  margin-bottom: 3rem;
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 1rem 0;
+    color: var(--color-text-primary);
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--color-text-secondary);
+    margin: 0;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+}
+
+.demo-content {
+  max-width: 890px;
+  margin: 0 auto;
+}
+
+.container {
+  margin-top: 2rem;
+  width: 100%;
+}
+
+.demo-section {
+  margin-bottom: 4rem;
+
+  h2 {
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+    color: var(--color-text-primary);
+  }
+
+  p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 2rem 0;
+    line-height: 1.6;
+  }
+}
+
+.progress-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.progress-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.code-example {
+  background: var(--color-background-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: 12px;
+  padding: 2rem;
+  overflow-x: auto;
+
+  pre {
+    margin: 0;
+    font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--color-text-primary);
+  }
+
+  code {
+    background: none;
+    padding: 0;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .demo-page {
+    padding: 1rem;
+  }
+
+  .demo-header {
+    margin-bottom: 2rem;
+
+    h1 {
+      font-size: 2rem;
+    }
+
+    p {
+      font-size: 1rem;
+    }
+  }
+
+  .progress-grid {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 1rem;
+  }
+
+  .progress-item {
+    padding: 1rem;
+  }
+
+  .demo-section {
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 1.5rem;
+    }
+  }
+}

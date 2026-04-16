@@ -1,0 +1,541 @@
+<div class="test-accordion-container">
+    <div class="accordion-grid">
+        <div class="accordion-section basic-variants">
+
+            <div class="section-title">Size Variants</div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    (panelToggled)="onAccordionToggle($event)" size="lg">
+                    <span header>Left Icon Position</span>
+                    <div content>
+                        <p>
+                            This is the default accordion type with expandable icons positioned on
+                            the left side.
+                            It provides a clean, traditional accordion experience with smooth
+                            animations.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    (click)="onAccordionToggle($event)" size="md">
+                    <span header>Left Icon Position</span>
+                    <div content>
+                        <p>
+                            This is the default accordion type with expandable icons positioned on
+                            the left side.
+                        </p>
+                        <p>
+                            It provides a clean, traditional accordion experience with smooth
+                            animations.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    (click)="onAccordionToggle($event)" size="sm">
+                    <span header>Left Icon Position</span>
+                    <div content>
+                        <p>
+                            This is the default accordion type with expandable icons positioned on
+                            the left side.
+                        </p>
+                        <p>
+                            It provides a clean, traditional accordion experience with smooth
+                            animations.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+                    (click)="onAccordionToggle($event)" size="lg">
+                    <span header>Right Icon Position</span>
+                    <div content>
+                        <p>
+                            This accordion has icons positioned on the right side for a different
+                            visual layout.
+                        </p>
+                        <p>
+                            Perfect for layouts where you want the icons to be more prominent
+                            on the right.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+                    (click)="onAccordionToggle($event)" size="md">
+                    <span header>Right Icon Position</span>
+                    <div content>
+                        <p>
+                            This accordion has icons positioned on the right side for a different
+                            visual layout.
+                        </p>
+                        <p>
+                            Perfect for layouts where you want the icons to be more prominent
+                            on the right.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+                    (click)="onAccordionToggle($event)" size="sm">
+                    <span header>Right Icon Position</span>
+                    <div content>
+                        <p>
+                            This accordion has icons positioned on the right side for a different
+                            visual layout.
+                        </p>
+                        <p>
+                            Perfect for layouts where you want the icons to be more prominent
+                            on the right.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    [withoutBox]="true" (click)="onAccordionToggle($event)" size="lg">
+                    <span header>Without Box Styling</span>
+                    <div content>
+                        <p>
+                            This accordion variant removes the box styling for a cleaner,
+                            borderless appearance.
+                        </p>
+                        <p>
+                            Ideal for minimalist designs or when you want the content to blend
+                            seamlessly with the background.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    [withoutBox]="true" (click)="onAccordionToggle($event)" size="md">
+                    <span header>Without Box Styling</span>
+                    <div content>
+                        <p>
+                            This accordion variant removes the box styling for a cleaner,
+                            borderless appearance.
+                        </p>
+                        <p>
+                            Ideal for minimalist designs or when you want the content to blend
+                            seamlessly with the background.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    [withoutBox]="true" (click)="onAccordionToggle($event)" size="sm">
+                    <span header>Without Box Styling</span>
+                    <div content>
+                        <p>
+                            This accordion variant removes the box styling for a cleaner,
+                            borderless appearance.
+                        </p>
+                        <p>
+                            Ideal for minimalist designs or when you want the content to blend
+                            seamlessly with the background.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" size="lg">
+                    <div header>
+                        <div style="display: flex; align-items: center; gap: 8px">
+                            <span style="font-size: 20px">📊</span>
+                            <span>Analytics Dashboard</span>
+                        </div>
+                    </div>
+                    <div content>
+                        <div class="dashboard-content">
+                            <h5>Dashboard Content</h5>
+                            <p>Rich content with custom styling and layout. This demonstrates how accordions can contain
+                                complex UI elements.</p>
+                            <button class="btn">View Details</button>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" size="md">
+                    <div header>
+                        <div style="display: flex; align-items: center; gap: 8px">
+                            <span style="font-size: 20px">📊</span>
+                            <span>Analytics Dashboard</span>
+                        </div>
+                    </div>
+                    <div content>
+                        <div class="dashboard-content">
+                            <h5>Dashboard Content</h5>
+                            <p>Rich content with custom styling and layout. This demonstrates how accordions can contain
+                                complex UI elements.</p>
+                            <button class="btn">View Details</button>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" size="sm">
+                    <div header>
+                        <div style="display: flex; align-items: center; gap: 8px">
+                            <span style="font-size: 20px">📊</span>
+                            <span>Analytics Dashboard</span>
+                        </div>
+                    </div>
+                    <div content>
+                        <div class="dashboard-content">
+                            <h5>Dashboard Content</h5>
+                            <p>Rich content with custom styling and layout. This demonstrates how accordions can contain
+                                complex UI elements.</p>
+                            <button class="btn">View Details</button>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="section-title">Basic Variants</div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    (click)="onAccordionToggle($event)">
+                    <span header>Left Icon Position</span>
+                    <div content>
+                        <p>
+                            This is the default accordion type with expandable icons positioned on
+                            the left side.
+                        </p>
+                        <p>
+                            It provides a clean, traditional accordion experience with smooth
+                            animations.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+                    (click)="onAccordionToggle($event)">
+                    <span header>Right Icon Position</span>
+                    <div content>
+                        <p>
+                            This accordion has icons positioned on the right side for a different
+                            visual layout.
+                        </p>
+                        <p>
+                            Perfect for layouts where you want the icons to be more prominent
+                            on the right.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+                    [withoutBox]="true" (click)="onAccordionToggle($event)">
+                    <span header>Without Box Styling</span>
+                    <div content>
+                        <p>
+                            This accordion variant removes the box styling for a cleaner,
+                            borderless appearance.
+                        </p>
+                        <p>
+                            Ideal for minimalist designs or when you want the content to blend
+                            seamlessly with the background.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="section-title">Icon Variants</div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion type="titleIcon" titleIcon="settings" iconClosed="chevron-down" iconOpen="chevron-up"
+                    (click)="onAccordionToggle($event)">
+                    <span header>Settings Panel</span>
+                    <div content>
+                        <div class="settings-content" [innerHTML]="settingsContent"></div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-right" iconOpen="chevron-down" iconPosition="left">
+                    <span header>Traditional Chevron Icons</span>
+                    <div content>
+                        <p>Traditional chevron icons with left positioning for a classic accordion feel.</p>
+                        <p>This pattern is widely recognized and provides clear visual feedback.</p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-right" iconOpen="chevron-down" iconPosition="right">
+                    <span header>Right Chevron Icons</span>
+                    <div content>
+                        <p>Chevron icons positioned on the right side for alternative layouts.</p>
+                        <p>Useful when you want to maintain visual consistency with other right-aligned elements.</p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="plus" iconOpen="minus" iconPosition="right">
+                    <span header>Plus/Minus Icons</span>
+                    <div content>
+                        <p>
+                            Using plus and minus icons for clear expand/collapse indication.
+                        </p>
+                        <p>
+                            These icons are intuitive and provide immediate visual feedback about
+                            the accordion's state.
+                        </p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="section-title">Rich Content Examples</div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right">
+                    <div header>
+                        <div style="display: flex; align-items: center; gap: 5px;">
+                            <aava-checkbox></aava-checkbox>
+                            <aava-avatars size="xs" shape="pill" [imageUrl]="sampleImageUrl"></aava-avatars>
+                            <span>Simple Example</span>
+                        </div>
+                    </div>
+                    <div content>
+                                <span>Header example</span>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up">
+                    <div header>
+                        <div style="display: flex; align-items: center; gap: 8px">
+                            <span style="font-size: 20px">📊</span>
+                            <span>Analytics Dashboard</span>
+                        </div>
+                    </div>
+                    <div content>
+                        <div class="dashboard-content">
+                            <h5>Dashboard Content</h5>
+                            <p>Rich content with custom styling and layout. This demonstrates how accordions can contain
+                                complex UI elements.</p>
+                            <button class="btn">View Details</button>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up">
+                    <div header class="rich-header-content">
+                        <h4>Rich Header Content</h4>
+                        <small>
+                            With subtitle and description
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+
+                        </small>
+                    </div>
+                    <div content>
+                        <p>Support for complex header content including:</p>
+                        <ul>
+                            <li>Multiple text elements</li>
+                            <li>Different font sizes</li>
+                            <li>Color variations</li>
+                            <li>Rich formatting</li>
+                            <li>Custom styling</li>
+                        </ul>
+                        <p>This makes accordions perfect for displaying hierarchical information with context.</p>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="section-title">Select Inside Accordion (Overflow Test)</div>
+
+            <div class="accordion-wrapper overflow-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left">
+                    <span header>Select Component Test with Overflow</span>
+                    <div content class="accordion-content-overflow">
+                        <form [formGroup]="form">
+                            <div style="padding: 1rem;">
+                                <h4 style="margin-bottom: 1rem;">Single Select</h4>
+                                <aava-select 
+                                    size="lg" 
+                                    label="Select User" 
+                                    placeholder="Choose a user"
+                                    formControlName="accordionSelect"
+                                    (valueChange)="onSelectChange($event)">
+                                    <aava-select-option *ngFor="let user of users" [value]="user.value">
+                                        {{ user.label }}
+                                    </aava-select-option>
+                                </aava-select>
+                            </div>
+
+                            <div style="padding: 1rem; margin-top: 1rem;">
+                                <h4 style="margin-bottom: 1rem;">Multiple Select</h4>
+                                <aava-select 
+                                    size="lg" 
+                                    [multiple]="true"
+                                    label="Select Multiple Users" 
+                                    placeholder="Choose multiple users"
+                                    formControlName="accordionMultipleSelect"
+                                    (valueChange)="onSelectChange($event)">
+                                    <aava-select-option *ngFor="let user of users" [value]="user.value">
+                                        {{ user.label }}
+                                    </aava-select-option>
+                                </aava-select>
+                            </div>
+
+                            <div style="padding: 1rem; margin-top: 1rem;">
+                                <p><strong>Selected Value:</strong> {{ form.get('accordionSelect')?.value || 'None' }}</p>
+                                <p><strong>Multiple Selected:</strong> {{ form.get('accordionMultipleSelect')?.value?.length || 0 }} items</p>
+                            </div>
+
+                            <!-- Scrollable content for testing -->
+                            <div style="padding: 1rem; margin-top: 2rem; max-height: 300px; overflow-y: auto; border: 1px solid #e0e0e0; border-radius: 8px; background: #f9f9f9;">
+                                <h5 style="margin-bottom: 1rem;">Scrollable Content Section</h5>
+                                <p>This section has vertical scrolling to test dropdown behavior with scrollable content.</p>
+                                <p *ngFor="let i of scrollItems" style="padding: 0.5rem 0; border-bottom: 1px solid #e0e0e0;">
+                                    Scrollable item {{ i }}: Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                                    Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                </p>
+                                <p style="margin-top: 1rem; padding: 1rem; background: #fff; border-radius: 4px;">
+                                    <strong>Test Instructions:</strong> Scroll this content and then open the select dropdown above. 
+                                    The dropdown should appear correctly above all content.
+                                </p>
+                            </div>
+                        </form>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper overflow-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right">
+                    <span header>Select with Long Content (Horizontal Scroll Test)</span>
+                    <div content class="accordion-content-overflow">
+                        <div style="padding: 1rem; min-width: 800px;">
+                            <p style="margin-bottom: 1rem;">
+                                This accordion body has overflow-x: auto to test if the select dropdown panel 
+                                works correctly when the content is wider than the container.
+                            </p>
+                            <form [formGroup]="form">
+                                <aava-select 
+                                    size="lg" 
+                                    label="Select User" 
+                                    placeholder="Choose a user"
+                                    formControlName="accordionSelect">
+                                    <aava-select-option *ngFor="let user of users" [value]="user.value">
+                                        {{ user.label }}
+                                    </aava-select-option>
+                                </aava-select>
+                            </form>
+                            <div style="margin-top: 2rem; padding: 2rem; background: #f5f5f5; border-radius: 8px;">
+                                <p>This is additional content to make the container wider and test horizontal scrolling behavior.</p>
+                                <p>The select dropdown should still appear correctly above other content even with overflow enabled.</p>
+                            </div>
+                            <!-- Additional wide content for horizontal scrolling -->
+                            <div style="margin-top: 2rem; display: flex; gap: 2rem; padding: 1rem; background: #fff; border: 1px solid #e0e0e0; border-radius: 8px;">
+                                <div style="min-width: 200px; padding: 1rem; background: #f0f0f0; border-radius: 4px;">
+                                    <h6>Column 1</h6>
+                                    <p>Wide content block to force horizontal scrolling.</p>
+                                </div>
+                                <div style="min-width: 200px; padding: 1rem; background: #f0f0f0; border-radius: 4px;">
+                                    <h6>Column 2</h6>
+                                    <p>More content to extend the width.</p>
+                                </div>
+                                <div style="min-width: 200px; padding: 1rem; background: #f0f0f0; border-radius: 4px;">
+                                    <h6>Column 3</h6>
+                                    <p>Even more content for testing.</p>
+                                </div>
+                                <div style="min-width: 200px; padding: 1rem; background: #f0f0f0; border-radius: 4px;">
+                                    <h6>Column 4</h6>
+                                    <p>Additional column to ensure scrolling.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+
+            <div class="accordion-wrapper overflow-wrapper">
+                <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left">
+                    <span header>Select with Both Vertical and Horizontal Scroll</span>
+                    <div content class="accordion-content-overflow">
+                        <div style="padding: 1rem; min-width: 800px; max-height: 400px; overflow: auto;">
+                            <p style="margin-bottom: 1rem;">
+                                This accordion has both horizontal and vertical scrolling to thoroughly test 
+                                the select dropdown positioning in complex overflow scenarios.
+                            </p>
+                            <form [formGroup]="form">
+                                <aava-select 
+                                    size="lg" 
+                                    label="Select User" 
+                                    placeholder="Choose a user"
+                                    formControlName="accordionSelect">
+                                    <aava-select-option *ngFor="let user of users" [value]="user.value">
+                                        {{ user.label }}
+                                    </aava-select-option>
+                                </aava-select>
+                            </form>
+                            
+                            <!-- Wide table for horizontal scroll -->
+                            <div style="margin-top: 2rem; overflow-x: auto;">
+                                <table style="min-width: 1000px; width: 100%; border-collapse: collapse;">
+                                    <thead>
+                                        <tr style="background: #f5f5f5;">
+                                            <th style="padding: 0.75rem; border: 1px solid #ddd; text-align: left;">Name</th>
+                                            <th style="padding: 0.75rem; border: 1px solid #ddd; text-align: left;">Email</th>
+                                            <th style="padding: 0.75rem; border: 1px solid #ddd; text-align: left;">Role</th>
+                                            <th style="padding: 0.75rem; border: 1px solid #ddd; text-align: left;">Department</th>
+                                            <th style="padding: 0.75rem; border: 1px solid #ddd; text-align: left;">Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr *ngFor="let i of tableRows">
+                                            <td style="padding: 0.75rem; border: 1px solid #ddd;">User {{ i }}</td>
+                                            <td style="padding: 0.75rem; border: 1px solid #ddd;">user{{ i }}&#64;example.com</td>
+                                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Developer</td>
+                                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Engineering</td>
+                                            <td style="padding: 0.75rem; border: 1px solid #ddd;">Active</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Additional vertical content -->
+                            <div style="margin-top: 2rem; padding: 1rem; background: #f9f9f9; border-radius: 8px;">
+                                <h5>Additional Content Below</h5>
+                                <p *ngFor="let i of contentParagraphs" style="margin: 0.5rem 0;">
+                                    Content paragraph {{ i }}: This content extends vertically to test vertical scrolling 
+                                    while also having horizontal scroll from the table above.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </aava-accordion>
+            </div>
+        </div>
+    </div>
+</div>

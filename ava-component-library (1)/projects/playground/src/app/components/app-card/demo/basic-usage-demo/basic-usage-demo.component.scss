@@ -1,0 +1,327 @@
+.basic-usage-demo {
+  padding: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+      background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: var(--color-text-secondary);
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .demo-section {
+    margin-bottom: 4rem;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+
+    .demo-grid {
+      display: flex;
+      justify-content: center;
+      width: 100%;
+      max-width: 500px;
+
+      @media (max-width: 768px) {
+        max-width: 100%;
+      }
+    }
+
+    .demo-item {
+      h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--color-text-primary);
+        margin-bottom: 1rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid var(--primary-color);
+      }
+
+      aava-default-card {
+        display: block;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        // &:hover {
+        //   transform: translateY(-4px);
+        //   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+        // }
+
+        &.interactive-card {
+          cursor: pointer;
+
+          // &:hover {
+          //   transform: translateY(-6px);
+          //   box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2);
+          // }
+        }
+      }
+
+      // Header Styling
+      aava-card-header {
+        .header-with-icon {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+
+          h4 {
+            margin: 0;
+            color: var(--color-text-primary);
+            font-weight: 600;
+          }
+        }
+
+        .header-with-badge {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h4 {
+            margin: 0;
+            color: var(--color-text-primary);
+            font-weight: 600;
+          }
+        }
+
+        .product-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          h4 {
+            margin: 0;
+            color: var(--color-text-primary);
+            font-weight: 600;
+          }
+        }
+
+        .profile-header {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .avatar-placeholder {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+          }
+
+          .profile-info {
+            h4 {
+              margin: 0 0 0.25rem 0;
+              color: var(--color-text-primary);
+              font-weight: 600;
+            }
+
+            p {
+              margin: 0;
+              color: var(--color-text-secondary);
+              font-size: 0.875rem;
+            }
+          }
+        }
+
+        .status-header {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+
+          h4 {
+            margin: 0;
+            color: var(--color-text-primary);
+            font-weight: 600;
+          }
+        }
+      }
+
+      // Content Styling
+      aava-card-content {
+        .product-content {
+          text-align: center;
+
+          .product-icon {
+            margin-bottom: 1rem;
+          }
+
+          p {
+            margin-bottom: 1.5rem;
+            color: var(--color-text-secondary);
+            line-height: 1.6;
+          }
+
+          .price-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 1rem;
+
+            .original-price {
+              text-decoration: line-through;
+              color: var(--color-text-secondary);
+              font-size: 0.875rem;
+            }
+
+            .sale-price {
+              color: var(--success-color);
+              font-size: 1.25rem;
+              font-weight: 600;
+            }
+          }
+        }
+
+        .profile-stats {
+          display: flex;
+          justify-content: space-around;
+          text-align: center;
+
+          .stat-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .stat-number {
+              font-size: 1.5rem;
+              font-weight: 700;
+              color: var(--primary-color);
+            }
+
+            .stat-label {
+              font-size: 0.875rem;
+              color: var(--color-text-secondary);
+            }
+          }
+        }
+
+        .status-content {
+          p {
+            margin-bottom: 1rem;
+            color: var(--color-text-primary);
+          }
+
+          .status-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+
+            .status-item {
+              display: flex;
+              align-items: center;
+              gap: 0.5rem;
+
+              span {
+                color: var(--color-text-secondary);
+                font-size: 0.875rem;
+              }
+            }
+          }
+        }
+      }
+
+      // Footer Styling
+      aava-card-footer {
+        .footer-info {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .meta-info {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+
+            span {
+              font-size: 0.875rem;
+              color: var(--color-text-secondary);
+            }
+          }
+        }
+
+        .action-buttons {
+          display: flex;
+          gap: 0.75rem;
+          justify-content: center;
+        }
+
+        .profile-actions {
+          display: flex;
+          gap: 0.75rem;
+          justify-content: center;
+        }
+
+        .status-footer {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .last-updated {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+          }
+        }
+      }
+    }
+  }
+
+  .features-section {
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: var(--color-text-primary);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+
+      .feature-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 1rem;
+        padding: 1.5rem;
+        background: var(--surface-secondary);
+        border-radius: 12px;
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+
+        // &:hover {
+        //   transform: translateY(-2px);
+        //   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+        // }
+
+        .feature-content {
+          strong {
+            color: var(--color-text-primary);
+            display: block;
+            margin-bottom: 0.25rem;
+          }
+
+          color: var(--color-text-secondary);
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

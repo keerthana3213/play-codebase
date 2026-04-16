@@ -1,0 +1,106 @@
+<div class="positions-demo">
+  <div class="demo-content">
+    <div class="button-group">
+      <aava-button
+        label="Right Drawer"
+        (click)="openDrawer('right')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Left Drawer"
+        (click)="openDrawer('left')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Top Drawer"
+        (click)="openDrawer('top')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Bottom Drawer"
+        (click)="openDrawer('bottom')"
+        variant="secondary"
+      >
+      </aava-button>
+    </div>
+
+    <!-- Right Position (Default) -->
+    <aava-drawer
+      [isOpen]="rightDrawerOpen"
+      position="right"
+      title="Right Drawer"
+      (closed)="closeDrawer('right')"
+    >
+      <div class="drawer-content">
+        <h4>Right Position</h4>
+        <p>This drawer slides in from the right side.</p>
+        <p>This is the default position for drawers.</p>
+        <ul>
+          <li>Perfect for forms and detail panels</li>
+          <li>Common pattern for editing content</li>
+          <li>Good for mobile-first designs</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Left Position -->
+    <aava-drawer
+      [isOpen]="leftDrawerOpen"
+      position="left"
+      title="Left Drawer"
+      (closed)="closeDrawer('left')"
+    >
+      <div class="drawer-content">
+        <h4>Left Position</h4>
+        <p>This drawer slides in from the left side.</p>
+        <p>Perfect for navigation menus and sidebars.</p>
+        <ul>
+          <li>Traditional navigation pattern</li>
+          <li>Good for hierarchical menus</li>
+          <li>Familiar to users</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Top Position -->
+    <aava-drawer
+      [isOpen]="topDrawerOpen"
+      position="top"
+      title="Top Drawer"
+      (closed)="closeDrawer('top')"
+    >
+      <div class="drawer-content">
+        <h4>Top Position</h4>
+        <p>This drawer slides in from the top.</p>
+        <p>Great for notifications or quick actions.</p>
+        <ul>
+          <li>Perfect for notifications</li>
+          <li>Good for search interfaces</li>
+          <li>Quick access to tools</li>
+        </ul>
+      </div>
+    </aava-drawer>
+
+    <!-- Bottom Position -->
+    <aava-drawer
+      [isOpen]="bottomDrawerOpen"
+      position="bottom"
+      title="Bottom Drawer"
+      (closed)="closeDrawer('bottom')"
+    >
+      <div class="drawer-content">
+        <h4>Bottom Position</h4>
+        <p>This drawer slides in from the bottom.</p>
+        <p>Ideal for mobile-first designs and action sheets.</p>
+        <ul>
+          <li>Mobile-friendly pattern</li>
+          <li>Good for action sheets</li>
+          <li>Thumb-friendly interaction</li>
+        </ul>
+      </div>
+    </aava-drawer>
+  </div>
+</div>

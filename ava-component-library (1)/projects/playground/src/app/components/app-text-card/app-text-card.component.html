@@ -1,0 +1,45 @@
+<div class="text-card-demo">
+  <h2>Text Card Component</h2>
+  <p>
+    This component demonstrates different types of text cards: default, create,
+    and prompt.
+  </p>
+
+  <div class="demo-section">
+    <h3>Default Card</h3>
+    <aava-text-card
+      type="default"
+      [title]="defaultCardData.title"
+      [value]="defaultCardData.value"
+      [description]="defaultCardData.description"
+      [iconName]="defaultCardData.iconName"
+    >
+    </aava-text-card>
+  </div>
+
+  <div class="demo-section">
+    <h3>Create Card</h3>
+    <aava-text-card
+      type="create"
+      [title]="createCardData.title"
+      [iconColor]="createCardData.iconColor"
+      (cardClick)="onCardClick()"
+    >
+    </aava-text-card>
+  </div>
+
+  <div class="demo-section">
+    <h3>Prompt Card</h3>
+    <aava-text-card
+      type="prompt"
+      [title]="promptCardData.title"
+      [description]="promptCardData.description"
+      [headerIcons]="promptCardData.headerIcons"
+      [footerIcons]="promptCardData.footerIcons"
+      [iconList]="promptCardData.iconList"
+      (cardClick)="onCardClick()"
+      (iconClick)="iconClicked($event)"
+    >
+    </aava-text-card>
+  </div>
+</div>

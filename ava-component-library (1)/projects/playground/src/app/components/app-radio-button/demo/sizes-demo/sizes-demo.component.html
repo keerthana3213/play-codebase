@@ -1,0 +1,53 @@
+<div class="demo-section center-demo">
+  <div class="sizes-grid">
+    <div class="size-group">
+      <h4 style="color: var(--text-primary)" class="size-title">Small Size</h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="small-radio"
+        size="sm"
+        selectedValue="option1"
+        (selectedValueChange)="onSelectionChange('small', $event)"
+      >
+      </aava-radio-button>
+    </div>
+
+    <div class="size-group">
+      <h4 style="color: var(--text-primary)" class="size-title">
+        Medium Size (Default)
+      </h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="medium-radio"
+        size="md"
+        selectedValue="option2"
+        (selectedValueChange)="onSelectionChange('medium', $event)"
+      >
+      </aava-radio-button>
+    </div>
+
+    <div class="size-group">
+      <h4 style="color: var(--text-primary)" class="size-title">Large Size</h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="large-radio"
+        size="lg"
+        selectedValue="option3"
+        (selectedValueChange)="onSelectionChange('large', $event)"
+      >
+      </aava-radio-button>
+    </div>
+  </div>
+</div>

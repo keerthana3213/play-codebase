@@ -1,0 +1,45 @@
+<div #tooltipW class="tooltip-wrapper" [class.show]="visible" [attr.id]="tooltipId" [attr.role]="'tooltip'" [attr.aria-hidden]="!visible" [ngStyle]="customStyles"
+  [ngClass]="[config.type, config.arrow, config.size, config.position, config.variant]" [attr.data-arrow]="config.arrow"
+  [attr.data-position]="config.position">
+  <div #tooltip class="tooltip">
+    <div>
+      <!-- Title and Description Content -->
+      <div *ngIf="config?.title && config?.title?.trim() !== ''" class="tooltip-title">
+        <aava-icon
+          *ngIf="config?.icon"
+          [iconName]="config.icon || ''"
+          [iconColor]="config.iconColor || '#000'"
+          [iconSize]="12"
+          class="tooltip-icon">
+        </aava-icon>
+        <span class="tooltip-title-text">{{ config.title }}</span>
+      </div>
+      <div *ngIf="config?.description && config?.description?.trim() !== ''" class="tooltip-description"
+           [class.has-title-with-icon]="config.title && config.title.trim() !== '' && config.icon"
+           [class.has-icon-only]="(!config.title || config.title.trim() === '') && config.icon">
+        <aava-icon
+          *ngIf="config?.icon && (!config?.title || config?.title?.trim() === '')"
+          [iconName]="config.icon || '' "
+          [iconColor]="config.iconColor || '#000'"
+          iconSize="12"
+          class="tooltip-icon">
+        </aava-icon>
+        <span class="tooltip-description-text"  [innerHTML]="sanitizeHTML(config.description)"></span>
+      </div>
+      <!-- Fallback for simple text content -->
+      <div
+        *ngIf="(!config?.title || config?.title?.trim() === '') && (!config?.description || config?.description?.trim() === '')"
+        class="tooltip-description"
+        [class.has-icon-only]="config.icon">
+        <aava-icon
+          *ngIf="config && config?.icon"
+          [iconName]="config.icon || '' "
+          [iconColor]="config.iconColor || '#000'"
+          iconSize="12"
+          class="tooltip-icon">
+        </aava-icon>
+        <span class="tooltip-description-text">{{ config.description }}</span>
+      </div>
+    </div>
+  </div>
+</div>

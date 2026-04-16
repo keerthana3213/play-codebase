@@ -1,0 +1,121 @@
+.demo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.demo-description {
+  margin-bottom: 2rem;
+}
+
+.demo-description h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 24px;
+}
+
+.demo-description p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.half-star-demo {
+  margin-bottom: 2rem;
+}
+
+.demo-section {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+
+.demo-section h4 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.instruction {
+  color: #666;
+  font-size: 14px;
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+.rating-display {
+  margin-top: 1.5rem;
+}
+
+.rating-display p {
+  margin: 0.5rem 0;
+  font-size: 16px;
+}
+
+.rating-text {
+  color: #007bff;
+  font-weight: 500;
+}
+
+.examples-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.example-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+}
+
+.example-label {
+  font-size: 14px;
+  color: #666;
+  font-weight: 500;
+}
+
+.rating-controls {
+  display: flex;
+  gap: 0.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.control-btn {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.control-btn:hover {
+  background-color: #5a6268;
+}
+
+.reset-btn {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reset-btn:hover {
+  background-color: #c82333;
+}

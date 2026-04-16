@@ -1,0 +1,73 @@
+// Chat message SCSS variables
+$user-message-bg: #f3f4f6;
+$user-message-text: #111827;
+$user-message-timestamp: #9ca3af;
+$bot-message-bg: #f3f4f6;
+$bot-message-text: #111827;
+$bot-message-timestamp: #9ca3af;
+
+:host {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100vw;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.chat-window-demo {
+  width: 800px;
+  height: 600px;
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: var(--border-radius-xl, 16px);
+  overflow: hidden;
+  // Removed background color, added border for visibility on both light and dark backgrounds
+  border: 1px solid #e5e7eb;
+  background: transparent;
+
+  ava-chat-window {
+    height: 100%;
+    width: 100%;
+    display: block;
+
+    // Apply custom colors to chat messages
+    ::ng-deep {
+      .message-wrapper {
+        &.user-message {
+          .message-card {
+            .aava-default-card {
+              background: $user-message-bg !important;
+              border-radius: 18px 18px 4px 18px !important;
+
+              .message-text {
+                color: $user-message-text !important;
+              }
+
+              .message-timestamp {
+                color: $user-message-timestamp !important;
+              }
+            }
+          }
+        }
+
+        &.bot-message {
+          .message-card {
+            .aava-default-card {
+              background: $bot-message-bg !important;
+              border-radius: 18px 18px 18px 4px !important;
+
+              .message-text {
+                color: $bot-message-text !important;
+              }
+
+              .message-timestamp {
+                color: $bot-message-timestamp !important;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

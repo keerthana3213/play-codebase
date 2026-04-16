@@ -1,0 +1,13 @@
+<div class="demo-container">
+  <aava-icon
+    *ngFor="let example of stateExamples"
+    [iconName]="example.name"
+    [iconSize]="24"
+    iconColor="#374151"
+    [disabled]="example.disabled"
+    [cursor]="example.cursor"
+    [attr.aria-label]="example.label"
+    (userClick)="onIconClick($event, example.label)"
+  >
+  </aava-icon>
+</div>

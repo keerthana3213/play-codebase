@@ -1,0 +1,77 @@
+:root {
+  /* Avatar Base */
+  --avatar-size-us: 20px;
+  --avatar-size-xs: 24px;
+  --avatar-size-sm: 36px;
+  --avatar-size-md: 44px;
+  --avatar-size-lg: 48px;
+  --avatar-size-xl: 52px;
+  --avatar-size-ul: 80px;
+
+  /* Avatar Border */
+  --avatar-border-radius: var(--global-radius-circle);
+
+  /* Avatar Status Badge */
+  --avatar-status-font-size: 10px;
+  --avatar-status-color: var(--color-text-primary);
+  --avatar-status-font-weight: var(--global-font-weight-semibold);
+  --avatar-status-font-family: var(--global-font-family-heading);
+  --avatar-status-font-size-lg: var(--global-font-size-lg);
+  --avatar-status-line-height-lg: var(--global-spacing-5);
+  --avatar-status-line-height-md: 20px;
+  --avatar-status-line-height-sm: 20px;
+
+  --avatar-status-font-size-md: var(--global-font-size-md);
+  --avatar-status-font-size-sm: var(--global-font-size-sm);
+
+  /* Avatar Profile Text */
+  --avatar-profile-color: var(--color-text-secondary);
+  --avatar-profile-font-family: var(--global-font-family-body);
+  --avatar-profile-font-weight: var(--global-font-weight-regular);
+  --avatar-profile-font-size-lg: var(--global-font-size-sm);
+  --avatar-profile-font-size-md: var(--global-font-size-xs);
+  --avatar-profile-font-size-sm: 0.625rem;
+  --avatar-profile-line-height-lg: 20px;
+  --avatar-profile-line-height-md: var(--global-spacing-4);
+  --avatar-profile-line-height-sm: var(--global-spacing-3);
+  --avatar-profile-margin: var(--global-spacing-1);
+
+  /* Avatar Additional Text */
+  --avatar-additional-color: var(--color-text-secondary);
+  --avatar-additional-font-family: var(--global-font-family-body);
+  --avatar-additional-font-weight: var(--global-font-weight-medium);
+  --avatar-additional-font-size-lg: var(--global-font-size-xs);
+  --avatar-additional-font-size-md: 10px;
+  --avatar-additional-font-size-sm: 8px;
+  --avatar-additional-line-height-lg: var(--global-spacing-4);
+  --avatar-additional-line-height-md: var(--global-spacing-3);
+  --avatar-additional-line-height-sm: var(--global-spacing-3);
+  --avatar-additional-margin: 2px;
+
+  /* Avatar Group */
+  --avatar-padding: var(--global-spacing-2);
+  --avatar-container-gap: var(--global-spacing-2);
+
+  /* Avatar Wrapper Gaps by Size */
+  --avatar-wrapper-gap-ul: 10px; /* Ultra large */
+  --avatar-wrapper-gap-xl: 8px; /* Extra large */
+  --avatar-wrapper-gap-lg: 6px; /* Large */
+  --avatar-wrapper-gap-md: 4px; /* Medium */
+  --avatar-wrapper-gap-sm: 2px; /* Small */
+  --avatar-wrapper-gap-xs: 2px; /* Extra small */
+  --avatar-wrapper-gap-us: 2px; /* Ultra small */
+
+  --avatar-border-radius-sm: var(--global-spacing-2);
+  --avatar-border-radius-md: var(--global-spacing-2);
+  --avatar-border-radius-lg: var(--global-spacing-3);
+  --avatar-border-radius-xl: var(--global-spacing-3);
+  --avatar-border-radius-ul: var(--global-spacing-3);
+
+  --avatar-border-radius-xs: 6px;
+  --avatar-border-radius-us: 6px;
+
+  --avatar-badge-poisition: -8px;
+
+  --avatar-aspect-ratio: 1/1;
+  --avatar-flex-shrink: 0;
+}

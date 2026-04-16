@@ -1,0 +1,15 @@
+<div class="sidebar-demo">
+  <aava-sidebar [collapsedWidth]="collapsedSidebarWidth()" [showCollapseButton]="true" [buttonVariant]="'inside'"
+    [isCollapsed]="isCollapsed()" [position]="'left'" (collapseToggle)="onCollapseToggle($event)">
+    <div class="demo-header-content">
+      <span class="header-title"></span>
+    </div>
+
+    <ul slot="content" class="demo-content">
+      <li *ngFor="let item of menuItems" [class.active]="item.active" class="nav-item">
+        <aava-icon [iconName]="item.icon"></aava-icon>
+        <span *ngIf="!isCollapsed()">{{ item.label }}</span>
+      </li>
+    </ul>
+  </aava-sidebar>
+</div>

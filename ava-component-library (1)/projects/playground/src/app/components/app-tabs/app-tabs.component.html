@@ -1,0 +1,614 @@
+<div class="tabs-demo-container">
+  <div class="demo-header">
+    <h1>Tabs Component Demo</h1>
+    <p>
+      Comprehensive showcase of the AVA Tabs component with all variants and
+      features.
+    </p>
+  </div>
+
+  <!-- Demos Navigation -->
+  <section class="demo-section">
+    <h2>Tabs Demos</h2>
+    <nav class="demo-nav">
+      <ul>
+        <li><a routerLink="/tabs/basic">Basic Usage</a></li>
+        <li><a routerLink="/tabs/variants">Variants</a></li>
+        <li><a routerLink="/tabs/sizes">Sizes</a></li>
+        <li><a routerLink="/tabs/icons">Tabs with Icons</a></li>
+        <li><a routerLink="/tabs/badges">Tabs with Badges</a></li>
+        <li><a routerLink="/tabs/closeable">Closeable Tabs</a></li>
+        <li><a routerLink="/tabs/scrollable">Scrollable Tabs</a></li>
+        <li><a routerLink="/tabs/dropdown">Dropdown Tabs</a></li>
+        <li><a routerLink="/tabs/vertical">Vertical Tabs</a></li>
+        <li><a routerLink="/tabs/custom-styles">Custom Styles</a></li>
+      </ul>
+    </nav>
+  </section>
+  <router-outlet></router-outlet>
+
+  <!-- Basic Default Tabs -->
+  <section class="demo-section">
+    <h2>Default Tabs</h2>
+    <p>Basic tabs with underline indicator, icons, and content.</p>
+
+    <aava-tabs
+      [tabs]="basicTabs"
+      [activeTabId]="activeTabIds.basic"
+      variant="default"
+      (tabChange)="onTabChange($event, 'basic')"
+      ariaLabel="Basic navigation tabs"
+    ></aava-tabs>
+  </section>
+
+  <!-- Button Variant -->
+  <section class="demo-section">
+    <h2>Button Variant</h2>
+    <p>Tabs styled as buttons with background and borders.</p>
+
+    <aava-tabs
+      [tabs]="buttonTabs"
+      [activeTabId]="activeTabIds.button"
+      variant="button"
+      [showcontainerBg]="true"
+      (tabChange)="onTabChange($event, 'button')"
+      ariaLabel="Button style tabs"
+    ></aava-tabs>
+  </section>
+
+  <!-- Button Variant with Custom Active Styles -->
+  <section class="demo-section">
+    <h2>Button Variant (Custom Active Styles)</h2>
+    <p>
+      Button variant with custom styles applied to the active tab using
+      <code>activeButtonTabStyles</code> prop.
+    </p>
+    <aava-tabs
+      [tabs]="buttonTabs"
+      [activeTabId]="activeTabIds.button"
+      variant="button"
+      [activeButtonTabStyles]="customActiveButtonTabStyles"
+      (tabChange)="onTabChange($event, 'button')"
+      ariaLabel="Button style tabs with custom active styles"
+    ></aava-tabs>
+  </section>
+
+  <!-- Button Variant (Pill Shape) -->
+  <section class="demo-section">
+    <h2>Button Variant (Pill Shape)</h2>
+    <p>
+      Button variant with pill-shaped tabs using
+      <code>buttonShape="pill"</code>.
+    </p>
+    <aava-tabs
+      [tabs]="buttonTabs"
+      [activeTabId]="activeTabIds.button"
+      variant="button"
+      buttonShape="pill"
+      (tabChange)="onTabChange($event, 'button')"
+      ariaLabel="Button style tabs with pill shape"
+    ></aava-tabs>
+  </section>
+
+  <!-- Icon Variant -->
+  <section class="demo-section">
+    <h2>Icon-Only Variant</h2>
+    <p>Compact tabs showing only icons, perfect for toolbars.</p>
+    <div class="icon-demo">
+      <h3>Icon Only with Square shape</h3>
+      <aava-tabs
+        [tabs]="iconTabs"
+        [activeTabId]="activeTabIds.icon"
+        variant="iconOnlySquare"
+        size="sm"
+        (tabChange)="onTabChange($event, 'icon')"
+        ariaLabel="Icon-only tabs"
+      ></aava-tabs>
+    </div>
+    <div class="icon-demo">
+      <h3>Icon Only with Circle shape</h3>
+      <aava-tabs
+        [tabs]="iconTabs"
+        [activeTabId]="activeTabIds.icon"
+        variant="iconOnlyCircle"
+        size="sm"
+        [bordered]="true"
+        (tabChange)="onTabChange($event, 'icon')"
+        ariaLabel="Icon-only tabs"
+      ></aava-tabs>
+    </div>
+  </section>
+
+  <!-- Advanced Tabs with All Features -->
+  <section class="demo-section">
+    <h2>Advanced Tabs</h2>
+    <p>Tabs with subtitles, badges, close buttons, and disabled states.</p>
+
+    <aava-tabs
+      [tabs]="advancedTabs"
+      [activeTabId]="activeTabIds.advanced"
+      variant="default"
+      [allowTabClose]="true"
+      (tabChange)="onTabChange($event, 'advanced')"
+      (tabClose)="onTabClose($event, 'advanced')"
+      ariaLabel="Advanced feature tabs"
+    ></aava-tabs>
+  </section>
+
+  <!-- Custom Badge Styles -->
+  <section class="demo-section">
+    <h2>EXAMPLE FOR AXOS</h2>
+    <p>
+      AXOS EXAMPLE
+      <code>badgeStyles</code> input property.
+    </p>
+
+    <aava-tabs
+      [tabs]="axosAdvancedTabs"
+      [activeTabId]="activeTabIds.axos"
+      variant="default"
+      [badgeStyles]="customBadgeStyles"
+      (tabChange)="onTabChange($event, 'axos')"
+      ariaLabel="Tabs with custom badge styles"
+    ></aava-tabs>
+  </section>
+
+  <!-- Size Variants -->
+  <section class="demo-section">
+    <h2>Size Variants</h2>
+    <div class="size-demo">
+      <h3>Extra Small Size</h3>
+      <aava-tabs
+        [tabs]="ButtonTabs.slice(0, 3)"
+        activeTabId="overview"
+        variant="button"
+        size="xs"
+        ariaLabel="Small tabs"
+      ></aava-tabs>
+    </div>
+    <div class="size-demo">
+      <h3>Small Size</h3>
+      <aava-tabs
+        [tabs]="ButtonTabs.slice(0, 3)"
+        activeTabId="overview"
+        variant="button"
+        size="sm"
+        ariaLabel="Small tabs"
+      ></aava-tabs>
+    </div>
+
+    <div class="size-demo">
+      <h3>Medium Size (Default)</h3>
+      <aava-tabs
+        [tabs]="ButtonTabs.slice(0, 3)"
+        activeTabId="overview"
+        variant="button"
+        size="md"
+        ariaLabel="Medium tabs"
+      ></aava-tabs>
+    </div>
+
+    <div class="size-demo">
+      <h3>Large Size</h3>
+      <aava-tabs
+        [tabs]="buttonTabs.slice(0, 3)"
+        activeTabId="overview"
+        variant="button"
+        size="lg"
+        ariaLabel="Large tabs"
+      ></aava-tabs>
+    </div>
+
+    <div class="size-demo">
+      <h3>Extra Large Size</h3>
+      <aava-tabs
+        [tabs]="buttonTabs.slice(0, 3)"
+        activeTabId="overview"
+        variant="button"
+        size="xl"
+        ariaLabel="Large tabs"
+      ></aava-tabs>
+    </div>
+  </section>
+
+  <!-- Scrollable Tabs with Dropdown -->
+  <section class="demo-section-dropdown">
+    <h2>Scrollable Tabs with Dropdown</h2>
+    <p>
+      When you have many tabs, enable scrolling and dropdown for hidden tabs.
+    </p>
+
+    <aava-tabs
+      [tabs]="manyTabs"
+      [activeTabId]="activeTabIds.scrollable"
+      variant="default"
+      [scrollable]="true"
+      [showDropdown]="true"
+      [maxVisibleTabs]="6"
+      [allowTabClose]="true"
+      (tabChange)="onTabChange($event, 'scrollable')"
+      (tabClose)="onTabClose($event, 'scrollable')"
+      (dropdownToggle)="onDropdownToggle($event, 'scrollable')"
+      ariaLabel="Scrollable tabs with dropdown"
+    ></aava-tabs>
+  </section>
+
+  <!-- Scrollable Tabs (No Dropdown) -->
+  <section class="demo-section">
+    <h2>Scrollable Tabs (No Dropdown)</h2>
+    <p>
+      When there are too many tabs to fit, the tab row becomes horizontally
+      scrollable. No dropdown is used; all tabs remain accessible by scrolling.
+    </p>
+    <div style="max-width: 500px; overflow-x: auto">
+      <aava-tabs
+        [tabs]="manyTabs"
+        [activeTabId]="activeTabIds.scrollable"
+        variant="default"
+        [scrollable]="true"
+        [showDropdown]="false"
+        [allowTabClose]="true"
+        (tabChange)="onTabChange($event, 'scrollable')"
+        (tabClose)="onTabClose($event, 'scrollable')"
+        ariaLabel="Scrollable tabs without dropdown"
+        style="min-width: 700px"
+      ></aava-tabs>
+    </div>
+  </section>
+
+  <!-- Layout Options -->
+  <section class="demo-section">
+    <h2>Layout Options</h2>
+
+    <div class="layout-demo">
+      <h3>Centered Tabs</h3>
+      <aava-tabs
+        [tabs]="basicTabs.slice(0, 3)"
+        activeTabId="home"
+        variant="default"
+        [centeredTabs]="true"
+        ariaLabel="Centered tabs"
+      ></aava-tabs>
+    </div>
+
+    <div class="layout-demo">
+      <h3>Full Width Tabs</h3>
+      <aava-tabs
+        [tabs]="buttonTabs.slice(0, 4)"
+        activeTabId="overview"
+        variant="button"
+        [fullWidth]="true"
+        ariaLabel="Full width tabs"
+      ></aava-tabs>
+    </div>
+  </section>
+
+  <!-- Disabled State -->
+  <section class="demo-section">
+    <h2>Disabled State</h2>
+    <p>Entire tabs component can be disabled.</p>
+
+    <aava-tabs
+      [tabs]="basicTabs.slice(0, 3)"
+      activeTabId="home"
+      variant="default"
+      [disabled]="true"
+      ariaLabel="Disabled tabs"
+    ></aava-tabs>
+  </section>
+
+  <!-- Custom Content with Projection -->
+  <!-- <section class="demo-section">
+    <h2>Custom Content Projection</h2>
+    <p>Use Angular content projection for complex tab content.</p>
+
+    <aava-tabs
+      [tabs]="[
+        { id: 'form', label: 'Form Example' },
+        { id: 'chart', label: 'Chart Example' },
+        { id: 'table', label: 'Table Example' }
+      ]"
+      activeTabId="form"
+      variant="default"
+      ariaLabel="Custom content tabs"
+    >
+      <div data-tab-id="form" class="custom-content">
+        <h3>Sample Form</h3>
+        <form class="demo-form">
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Enter your name" />
+          </div>
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Enter your email" />
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+
+      <div data-tab-id="chart" class="custom-content">
+        <h3>Chart Placeholder</h3>
+        <div class="chart-placeholder">
+          <p>📊 Chart would be rendered here</p>
+          <div class="mock-chart">
+            <div class="bar" style="height: 60%"></div>
+            <div class="bar" style="height: 80%"></div>
+            <div class="bar" style="height: 40%"></div>
+            <div class="bar" style="height: 90%"></div>
+            <div class="bar" style="height: 70%"></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-tab-id="table" class="custom-content">
+        <h3>Sample Table</h3>
+        <table class="demo-table">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>John Doe</td>
+              <td>Developer</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td>Jane Smith</td>
+              <td>Designer</td>
+              <td>Active</td>
+            </tr>
+            <tr>
+              <td>Bob Johnson</td>
+              <td>Manager</td>
+              <td>Inactive</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </aava-tabs>
+  </section> -->
+
+  <!-- Custom Tab Row Wrapper & Background (Pill) -->
+  <section class="demo-section">
+    <h2>Custom Tab Row (Pill Shape & Gradient Background)</h2>
+    <p>
+      The tab row and its background can be fully customized using the
+      <code>tabRowWrapperStyles</code> and
+      <code>tabRowBackgroundStyles</code> props. This example shows a
+      pill-shaped row with a gradient background.
+    </p>
+    <aava-tabs
+      [tabs]="buttonTabs"
+      [activeTabId]="activeTabIds.button"
+      variant="button"
+      buttonShape="pill"
+      [tabRowWrapperStyles]="pillTabRowWrapperStyles"
+      [tabRowBackgroundStyles]="pillTabRowBackgroundStyles"
+      (tabChange)="onTabChange($event, 'button')"
+      ariaLabel="Custom pill tab row"
+    ></aava-tabs>
+  </section>
+
+  <!-- Custom Tab Row Wrapper & Background (Colored) -->
+  <section class="demo-section">
+    <h2>Custom Tab Row (Colored & Rounded)</h2>
+    <p>
+      You can also apply a colored background and rounded corners to the tab row
+      for a different look.
+    </p>
+    <aava-tabs
+      [tabs]="buttonTabs"
+      [activeTabId]="activeTabIds.button"
+      variant="button"
+      [tabRowWrapperStyles]="coloredTabRowWrapperStyles"
+      [tabRowBackgroundStyles]="coloredTabRowBackgroundStyles"
+      (tabChange)="onTabChange($event, 'button')"
+      ariaLabel="Custom colored tab row"
+    ></aava-tabs>
+  </section>
+
+  <!-- Navigation-Only Tabs (No Content Panels) -->
+  <section class="demo-section">
+    <h2>Navigation-Only Tabs</h2>
+    <p>
+      Use <code>showContentPanels="false"</code> for pure navigation tabs
+      without content panels. Perfect for navigation bars, menus, or when
+      content is handled elsewhere.
+    </p>
+
+    <h4>Default Navigation Tabs</h4>
+    <aava-tabs
+      [tabs]="navigationTabs"
+      activeTabId="nav-home"
+      variant="default"
+      [showContentPanels]="false"
+      (tabChange)="onTabChange($event, 'navigation')"
+      ariaLabel="Navigation tabs"
+    ></aava-tabs>
+
+    <h4>Button Navigation Tabs</h4>
+    <aava-tabs
+      [tabs]="navigationTabs"
+      activeTabId="nav-home"
+      variant="button"
+      [showContentPanels]="false"
+      (tabChange)="onTabChange($event, 'navigation')"
+      ariaLabel="Button navigation tabs"
+    ></aava-tabs>
+
+    <h4>Button Navigation Tabs (Pill Shape)</h4>
+    <aava-tabs
+      [tabs]="navigationTabs"
+      activeTabId="nav-home"
+      variant="button"
+      buttonShape="pill"
+      [showContentPanels]="false"
+      (tabChange)="onTabChange($event, 'navigation')"
+      ariaLabel="Pill navigation tabs"
+    ></aava-tabs>
+  </section>
+
+  <!-- Vertical Tabs Demo -->
+  <section class="demo-section">
+    <h2>Vertical Tabs</h2>
+    <p>
+      Use <code>orientation="vertical"</code> for a vertical tab layout. All
+      features and variants are supported.
+    </p>
+    <div
+      style="display: flex; gap: 2rem; align-items: flex-start; flex-wrap: wrap"
+    >
+      <div>
+        <h4>Default Vertical Tabs</h4>
+        <aava-tabs
+          [tabs]="buttonTabs"
+          activeTabId="overview"
+          variant="default"
+          orientation="vertical"
+          style="min-width: 260px; height: 320px"
+          ariaLabel="Vertical default tabs"
+        ></aava-tabs>
+      </div>
+      <div>
+        <h4>Button Vertical Tabs</h4>
+        <aava-tabs
+          [tabs]="buttonTabs"
+          activeTabId="overview"
+          variant="button"
+          orientation="vertical"
+          style="min-width: 260px; height: 320px"
+          ariaLabel="Vertical button tabs"
+        ></aava-tabs>
+      </div>
+      <div>
+        <h4>Pill Button Vertical Tabs</h4>
+        <aava-tabs
+          [tabs]="buttonTabs"
+          activeTabId="overview"
+          variant="button"
+          buttonShape="pill"
+          orientation="vertical"
+          style="min-width: 260px; height: 320px"
+          ariaLabel="Vertical pill button tabs"
+        ></aava-tabs>
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Handling Demo -->
+  <section class="demo-section">
+    <h2>Event Handling</h2>
+    <p>Open browser console to see event outputs when interacting with tabs.</p>
+
+    <div class="event-info">
+      <h4>Available Events:</h4>
+      <ul>
+        <li><strong>tabChange:</strong> Emitted when a tab is selected</li>
+        <li>
+          <strong>tabClose:</strong> Emitted when a closeable tab is closed
+        </li>
+        <li>
+          <strong>dropdownToggle:</strong> Emitted when dropdown is
+          opened/closed
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- Props Documentation -->
+  <section class="demo-section">
+    <h2>Component Properties</h2>
+
+    <div class="props-table">
+      <table class="demo-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>tabs</td>
+            <td>TabItem[]</td>
+            <td>[]</td>
+            <td>Array of tab items to display</td>
+          </tr>
+          <tr>
+            <td>activeTabId</td>
+            <td>string</td>
+            <td>''</td>
+            <td>ID of the currently active tab</td>
+          </tr>
+          <tr>
+            <td>variant</td>
+            <td>'default' | 'button' | 'iconOnlySquare' | 'iconOnlyCircle'</td>
+            <td>'default'</td>
+            <td>Visual style variant</td>
+          </tr>
+          <tr>
+            <td>bordered</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>border enable and disabling</td>
+          </tr>
+          <tr>
+            <td>size</td>
+            <td>'xs' | 'sm' | 'md' | 'lg' | 'xl'</td>
+            <td>'md'</td>
+            <td>Size of the tabs</td>
+          </tr>
+          <tr>
+            <td>disabled</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Disable all tabs</td>
+          </tr>
+          <tr>
+            <td>scrollable</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Enable horizontal scrolling</td>
+          </tr>
+          <tr>
+            <td>showDropdown</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Show dropdown for hidden tabs</td>
+          </tr>
+          <tr>
+            <td>maxVisibleTabs</td>
+            <td>number</td>
+            <td>5</td>
+            <td>Maximum visible tabs before dropdown</td>
+          </tr>
+          <tr>
+            <td>allowTabClose</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Allow closing tabs with close button</td>
+          </tr>
+          <tr>
+            <td>centeredTabs</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Center align the tab list</td>
+          </tr>
+          <tr>
+            <td>fullWidth</td>
+            <td>boolean</td>
+            <td>false</td>
+            <td>Make tabs fill full width</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,68 @@
+/**
+ * Component: Dialog
+ * Purpose: Dialog component tokens for modal dialogs and overlays
+ */
+
+:root {
+  /* dialog Black color */
+  --dialog-black-color: var(--color-text-primary);
+  /* dialog Overlay */
+  --dialog-overlay-background: rgba(30, 30, 30, 0.40);
+  --dialog-backdrop-blur: 12px;
+
+  /* dialog Header */
+  --dialog-heading-text: var(--color-text-primary);
+  --dialog-heading-size: var(--global-font-size-lg);
+
+  /* =========================================================================
+   * SHARED DIALOG TOKENS (All States: Success, Error, Warning, Info)
+   * ========================================================================= */
+
+  /* --- Shared Dialog Base --- */
+  --dialog-background: var(--global-background);
+  --dialog-border-radius: var(--global-radius-md);
+  --dialog-shadow: var(--global-elevation-03);
+  /* --- Shared Dialog Content --- */
+  --dialog-content-gap: var(--global-spacing-3);
+  --dialog-content-padding: var(--global-spacing-4);
+  /* --- Shared Dialog Icon --- */
+  --dialog-icon-border-width: var(--global-spacing-1);
+  /* --- Shared Dialog State Colors --- */
+  --dialog-success-color: var(--color-text-success);
+  --dialog-error-color: var(--color-text-error);
+  --dialog-warning-color: var(--color-text-warning);
+  --dialog-info-color: var(--color-text-info);
+  --dialog-primary-color: var(--color-brand-primary);
+  /* --- Shared Dialog Typography --- */
+  --dialog-text-font-family: var(--global-font-family-body);
+  --dialog-title-font-weight: var(--global-font-weight-semibold);
+  --dialog-title-line-height-tight: var(--global-line-height-tight);
+  --dialog-text-color: var(--color-text-primary);
+  --dialog-text-font-weight: var(--global-font-weight-regular);
+  --dialog-text-line-height: var(--global-line-height-normal);
+  /* --- Shared Dialog Actions --- */
+  --dialog-actions-margin-top: var(--global-spacing-5);
+  /* --- Shared Dialog Content Spacing --- */
+  --dialog-icon-margin-bottom: var(--global-spacing-2);
+  --dialog-max-width: 400px;
+  /* --- Shared Dialog Loading/Spinner --- */
+  --dialog-spinner-size: 50px;
+  --dialog-spinner-border-color: var(--color-background-subtle);
+  /* --- Shared Dialog Progress Bar --- */
+  --dialog-progress-max-width: 300px;
+  /* --- Shared Dialog Size: Large (400px) --- */
+  --dialog-lg-width: 400px;
+  --dialog-lg-icon-size: var(--global-icon-size-xl);
+  --dialog-md-title-font-size: var(--global-font-size-md);
+  --dialog-lg-text-font-size: var(--global-font-size-sm);
+  /* --- Shared Dialog Size: Medium (327px) --- */
+  --dialog-md-width: 327px;
+  --dialog-md-icon-size: var(--global-icon-size-lg);
+  --dialog-md-text-font-size: var(--global-font-size-xs);
+  /* --- Shared Dialog Size: Small (270px) --- */
+  --dialog-sm-width: 270px;
+  --dialog-sm-icon-size: var(--global-icon-size-md);
+  --dialog-sm-text-font-size: 0.625rem;
+  --dialog-sm-text-line-height: 0.75rem;
+  --dialog-backdrop-background: rgba(0, 0, 0, 0.3);
+}

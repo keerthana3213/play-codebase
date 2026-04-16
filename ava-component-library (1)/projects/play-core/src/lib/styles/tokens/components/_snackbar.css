@@ -1,0 +1,48 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Toast Component Tokens
+ *
+ * Component-specific semantic tokens for toast notification elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for toast styling.
+ * =========================================================================
+ */
+
+:root {
+    /*-- font--*/
+    --snackbar-font-family: var(--global-font-family-body);
+    --snackbar-size-sm-font: var(--global-icon-size-sm);
+    --snackbar-size-md-font: var(--global-icon-size-md);
+    --snackbar-size-lg-font: var(--global-icon-size-lg);
+
+    --snackbar-success-color: var(--global-color-green-600);
+    --snackbar-warning-color: var(--global-color-marigold-600);
+    --snackbar-error-color: var(--global-color-red-600);
+    --snackbar-info-color: var(--global-color-cyan-600);
+
+    --snackbar-font-weight-regular: var(--global-font-weight-regular);
+    --snackbar-font-weight-semibold: var(--global-font-weight-semibold);
+
+    --snackbar-subtitle-color: var(--global-color-gray-700);
+    --snackbar-title-color: var(--global-color-gray-800);
+
+    --snackbar-radius-sm: var(--global-radius-sm);
+    --snackbar-shadowbox: var(--global-elevation-01);
+
+    --snackbar-padding-small: 0.5rem 0.75rem;
+    --snackbar-padding-medium: 0.75rem 1rem;
+    --snackbar-padding-large: 1rem 1.25rem;
+    --snackbar-padding-default: 0.5rem 1rem;
+    --snackbar-btn-font-sm: 0.78125rem;
+    --snackbar-padding-small-btn: 0.25rem 0.625rem;
+    --snackbar-btn-font-md: 0.84375rem;
+    --snackbar-padding-md-btn: 0.5rem 0.75rem;
+    --snackbar-btn-font-large: 0.90625rem;
+    --snackbar-font-small: 0.75rem;
+    --snackbar-font-medium: 0.8125rem;
+    --snackbar-font-large: 0.875rem;
+    --snackbar-font-large-title: 0.96875rem;
+    --snackbar-font-title: 0.90625rem;
+    --snackbar-font-subtitle: 0.8125rem;
+    --snackbar-padding-wrapper: 0 16px;
+}

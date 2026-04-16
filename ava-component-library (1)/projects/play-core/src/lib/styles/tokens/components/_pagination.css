@@ -1,0 +1,15 @@
+/**
+ * Component: Pagination
+ * Purpose: Pagination component tokens for navigation between pages
+ */
+
+:root {
+  --pagination-page-label-font-family: var(--global-font-family-body);
+  --pagination-page-label-font-weight: var(--global-font-weight-semibold);
+  --pagination-page-label-line-height: var(--global-spacing-4);
+  --pagination-page-label-gap: var(--global-spacing-2);
+  --pagination-container-gap: var(--global-spacing-3);
+  --pagination-page-label-color: var(--color-text-primary);
+  --pagination-dots-padding: var(--global-spacing-2);
+  --pagination-item-text: var(--color-text-primary);
+}

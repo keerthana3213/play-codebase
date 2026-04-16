@@ -1,0 +1,124 @@
+<div class="nav-bar-demo">
+  <div class="demo-header">
+    <h1>Navigation Bar Component Demo</h1>
+    <p>
+      Showcase of the <strong>ava-nav-bar</strong> composite component using
+      content projection for maximum flexibility.
+    </p>
+  </div>
+
+  <!-- Demo Navigation -->
+  <div class="demo-section">
+    <h2>Demo Pages</h2>
+    <p>Explore different nav-bar demonstrations and use cases</p>
+
+    <div class="demo-links">
+      <aava-button
+        variant="primary"
+        size="md"
+        label="Basic Usage Demo"
+        (userClick)="navigateToDemo('/nav-bar/basic-usage')"
+      >
+      </aava-button>
+    </div>
+  </div>
+
+  <!-- Usage Example -->
+  <div class="demo-section">
+    <h2>Usage Example</h2>
+    <div class="code-example">
+      <pre><code>&lt;ava-nav-bar [containerStyles]="navBarStyles"&gt;
+  &lt;aava-button 
+    label="Dashboard" 
+    variant="primary" 
+    [pill]="true"
+    iconName="layout-dashboard"
+    iconPosition="left"
+    [customStyles]="defaultButtonStyles"
+    class="nav-item"
+  &gt;&lt;/aava-button&gt;
+  
+  &lt;aava-button 
+    label="Libraries" 
+    variant="primary" 
+    [pill]="true"
+    iconName="book"
+    iconPosition="left"
+    [customStyles]="activeButtonStyles"
+    class="nav-item nav-item--active"
+  &gt;&lt;/aava-button&gt;
+  
+  &lt;!-- Can even use custom elements --&gt;
+  &lt;a href="/about" class="custom-nav-link"&gt;About&lt;/a&gt;
+&lt;/ava-nav-bar&gt;</code></pre>
+    </div>
+
+    <h3>Container Styling</h3>
+    <div class="code-example">
+      <pre><code>// Container styling interface
+interface NavBarContainerStyles &#123;
+  background?: string;
+  padding?: string;
+  borderRadius?: string;
+  boxShadow?: string;
+  border?: string;
+  gap?: string;
+  outerGlow?: boolean;
+  outerGlowColor?: string;
+  outerGlowIntensity?: string;
+  width?: string;
+  height?: string;
+  backdropFilter?: string;
+&#125;
+
+// Example usage
+const navBarStyles: NavBarContainerStyles = &#123;
+  background: 'rgba(255, 255, 255, 0.95)',
+  borderRadius: '50px',
+  padding: '8px',
+  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.1)',
+  backdropFilter: 'blur(10px)',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  gap: '8px',
+  outerGlow: true,
+  outerGlowColor: 'rgba(59, 130, 246, 0.3)',
+  outerGlowIntensity: '20px'
+&#125;;</code></pre>
+    </div>
+  </div>
+
+  <!-- Features -->
+  <div class="demo-section">
+    <h2>Features</h2>
+    <ul class="features-list">
+      <li>✅ Content projection for ultimate flexibility</li>
+      <li>✅ Use any component (aava-button, custom buttons, links, etc.)</li>
+      <li>✅ Direct control over each nav item's styling</li>
+      <li>✅ Container styling via containerStyles prop</li>
+      <li>✅ Responsive design for mobile devices</li>
+      <li>✅ Theme-aware styling with CSS variables</li>
+      <li>✅ Clean separation of concerns</li>
+      <li>✅ No complex prop configurations</li>
+      <li>✅ Easy to customize and extend</li>
+      <li>✅ Composable with any content</li>
+    </ul>
+  </div>
+
+  <!-- Composition Architecture -->
+  <div class="demo-section">
+    <h2>Component Composition</h2>
+    <div class="composition-diagram">
+      <div class="component-box composite">
+        <h4>ava-nav-bar</h4>
+        <p>Container Component</p>
+      </div>
+      <div class="uses-arrow">Projects ↓</div>
+      <div class="atomic-components">
+        <div class="component-box atomic">
+          <h4>Any Content</h4>
+          <p>Buttons, Links, Custom Elements</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

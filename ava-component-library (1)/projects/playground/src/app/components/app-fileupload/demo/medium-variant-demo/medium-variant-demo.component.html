@@ -1,0 +1,10 @@
+<div class="medium-variant-demo">
+  <div class="demo-container">
+    <div class="upload-section">
+      <aava-file-upload [enableAnimation]="true" [singleFileMode]="false" [maxFiles]="8"
+        [componentTitle]="'Upload Files'" [supportedFormatLabel]="'Supported file formats'" [maxFileSize]="15728640"
+        [showUploadButton]="true" layout="list" [allowedFormats]="allowedFormats" uploaderId="medium-variant-uploader"
+        (selectedList)="onSelectedList($event)"></aava-file-upload>
+    </div>
+  </div>
+</div>

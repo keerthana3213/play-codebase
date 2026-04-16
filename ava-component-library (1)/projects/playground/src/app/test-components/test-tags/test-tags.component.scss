@@ -1,0 +1,33 @@
+.tags-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: flex-start;
+  max-width: 800px;
+
+  h3 {
+    margin: 20px 0 10px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 5px;
+  }
+
+  h4 {
+    margin: 10px 0 5px 0;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    min-width: 150px;
+  }
+}
+
+.size-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 8px;
+}

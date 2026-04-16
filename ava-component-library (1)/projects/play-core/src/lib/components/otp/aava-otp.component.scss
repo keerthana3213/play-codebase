@@ -1,0 +1,314 @@
+/* =======================
+   AVA OTP - ONE-TIME PASSWORD INPUT
+   Implements glass effects and design system tokens
+   ======================= */
+
+.ava-otp {
+  display: flex;
+  flex-direction: column;
+  gap: var(--otp-container-gap);
+  width: 100%;
+
+  /* =======================
+     LABEL STYLES
+     ======================= */
+  .ava-otp__label {
+    display: block;
+    color: var(--otp-label-color);
+    font-family: var(--otp-font-family);
+    font-size: var(--otp-label-font-size);
+    font-style: normal;
+    font-weight: var(--otp-label-font-weight);
+    line-height: var(--otp-label-line-height);
+  }
+
+  /* =======================
+     CONTAINER STYLES
+     ======================= */
+  .ava-otp__container {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .ava-otp__inputs {
+    display: flex;
+    gap: var(--otp-gap);
+    align-items: center;
+  }
+
+  /* =======================
+     OTP BOX STYLES
+     ======================= */
+  .ava-otp__box {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    // Glass effect background
+    background: var(--otp-default-background);
+    border: var(--otp-glass-default-border);
+    border-radius: var(--otp-border-radius);
+    transition: var(--otp-transition);
+    cursor: var(--otp-cursor);
+
+  }
+
+  &--default:not(.ava-otp--disabled) {
+    .ava-otp__box:hover {
+      border-color: var(--otp-variant-default-focus-border-color);
+    }
+
+    .ava-otp__box--focused {
+      border-color: var(--otp-variant-default-focus-border-color);
+    }
+  }
+
+  /* =======================
+     INPUT STYLES
+     ======================= */
+  .ava-otp__input {
+    width: 100%;
+    height: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    text-align: center;
+    padding: 0px;
+
+    font-weight: var(--otp-font-weight);
+    font-family: var(--otp-font-family);
+    line-height: var(--otp-line-height);
+    color: var(--otp-text-color);
+    caret-color: var(
+      --otp-variant-default-focus-border
+    ); 
+
+    &:disabled {
+      border: var(--otp-disabled-border);
+      cursor: var(--otp-cursor-disabled);
+    }
+
+    &:readonly {
+      cursor: default;
+    }
+
+    // Remove number input spinners
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+  }
+
+  /* =======================
+     SIZE VARIANTS
+     ======================= */
+  &--xs {
+    .ava-otp__box {
+      width: var(--otp-size-xs-width);
+      height: var(--otp-size-xs-height);
+      border-radius: var(--otp-size-xs-border-radius);
+    }
+
+    .ava-otp__input {
+      font-size: var(--otp-size-xs-font);
+    }
+  }
+
+  &--sm {
+    .ava-otp__box {
+      width: var(--otp-size-sm-width);
+      height: var(--otp-size-sm-height);
+      border-radius: var(--otp-size-sm-border-radius);
+    }
+
+    .ava-otp__input {
+      font-size: var(--otp-size-sm-font);
+    }
+  }
+
+  &--md {
+    .ava-otp__box {
+      width: var(--otp-size-md-width);
+      height: var(--otp-size-md-height);
+      border-radius: var(--otp-size-md-border-radius);
+    }
+
+    .ava-otp__input {
+      font-size: var(--otp-size-md-font);
+    }
+  }
+
+  &--lg {
+    .ava-otp__box {
+      width: var(--otp-size-lg-width);
+      height: var(--otp-size-lg-height);
+      border-radius: var(--otp-size-lg-border-radius);
+    }
+
+    .ava-otp__input {
+      font-size: var(--otp-size-lg-font);
+    }
+  }
+
+  &--xl {
+    .ava-otp__box {
+      width: var(--otp-size-xl-width);
+      height: var(--otp-size-xl-height);
+      border-radius: var(--otp-size-xl-border-radius);
+    }
+
+    .ava-otp__input {
+      font-size: var(--otp-size-xl-font);
+    }
+  }
+
+  /* =======================
+     VARIANT STYLES
+     ======================= */
+  &--success {
+    .ava-otp__box {
+      border-color: var(--otp-variant-success-border);
+    }
+
+    .ava-otp__input {
+      caret-color: var(--otp-variant-success-focus-border);
+    }
+  }
+
+  &--error {
+    .ava-otp__box {
+      border-color: var(--otp-variant-error-border);
+    }
+
+    .ava-otp__input {
+      caret-color: var(--otp-variant-error-focus-border);
+    }
+  }
+
+  &--warning {
+    .ava-otp__box {
+      border-color: var(--otp-variant-warning-border);
+    }
+    .ava-otp__input {
+      caret-color: var(--otp-variant-warning-focus-border);
+    }
+  }
+
+  /* =======================
+     STATE STYLES
+     ======================= */
+  &--disabled {
+    .ava-otp__box {
+      opacity: var(--otp-disabled-opacity);
+      border-color: var(--otp-disabled-border);
+      cursor: var(--otp-cursor-disabled);
+    }
+
+    .ava-otp__input {
+      color: var(--otp-disabled-text);
+      cursor: var(--otp-cursor-disabled);
+    }
+  }
+
+  &--readonly {
+    .ava-otp__box {
+      cursor: default;
+    }
+
+    .ava-otp__input {
+      cursor: default;
+    }
+  }
+
+  /* =======================
+     ERROR AND HELPER STYLES
+     ======================= */
+  .ava-otp__error {
+    display: flex;
+    align-items: center;
+    gap: var(--otp-error-gap);
+    color: var(--otp-error-color);
+
+    .ava-otp__error-icon {
+      flex-shrink: 0;
+    }
+
+    .ava-otp__error-text {
+      flex: 1;
+    }
+  }
+
+  .ava-otp__helper {
+    display: flex;
+    align-items: center;
+    gap: var(--otp-helper-gap);
+    color: var(--otp-helper-color);
+
+    .ava-otp__helper-icon {
+      flex-shrink: 0;
+    }
+
+    .ava-otp__helper-text {
+      flex: 1;
+    }
+  }
+
+  /* =======================
+     SIZE-SPECIFIC ERROR/HELPER FONT SIZES
+     ======================= */
+  &--xs {
+    .ava-otp__error {
+      font-size: var(--otp-size-xs-error-font);
+    }
+
+    .ava-otp__helper {
+      font-size: var(--otp-size-xs-helper-font);
+    }
+  }
+
+  &--sm {
+    .ava-otp__error {
+      font-size: var(--otp-size-sm-error-font);
+    }
+
+    .ava-otp__helper {
+      font-size: var(--otp-size-sm-helper-font);
+    }
+  }
+
+  &--md {
+    .ava-otp__error {
+      font-size: var(--otp-size-md-error-font);
+      margin-top: var(--otp-error-gap);
+    }
+
+    .ava-otp__helper {
+      font-size: var(--otp-size-md-helper-font);
+    }
+  }
+
+  &--lg {
+    .ava-otp__error {
+      font-size: var(--otp-size-lg-error-font);
+      margin-top: var(--otp-error-gap);
+    }
+
+    .ava-otp__helper {
+      font-size: var(--otp-size-lg-helper-font);
+    }
+  }
+
+  &--xl {
+    .ava-otp__error {
+      font-size: var(--otp-size-xl-error-font);
+      margin-top: var(--otp-error-gap);
+    }
+
+    .ava-otp__helper {
+      font-size: var(--otp-size-xl-helper-font);
+    }
+  }
+}

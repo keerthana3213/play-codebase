@@ -1,0 +1,87 @@
+<div class="documentation">
+    <header class="doc-header">
+        <h1>File Attach Pill</h1>
+        <p class="description">
+            A compact, expandable component for file attachment actions with dropdown options.
+        </p>
+    </header>
+
+    <div class="doc-sections">
+        <!-- Examples Sections -->
+        <section class="doc-section" *ngFor="let section of sections; let i = index">
+            <div class="section-header" (click)="toggleCodeVisibility(i, $event)">
+                <h2>{{ section.title }}</h2>
+                <div class="description-container">
+                    <p>{{ section.description }}</p>
+                    <div class="code-toggle">
+                        <span>{{ section.showCode ? 'Hide Code' : 'Show Code' }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="code-example" *ngIf="section.showCode">
+                <div class="code-block">
+                    <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">Copy</button>
+                    <pre><code>{{ getExampleCode(section.title.toLowerCase()) }}</code></pre>
+                </div>
+            </div>
+
+            <div class="example-preview"
+                style="margin-top: 1.5rem; padding: 1.5rem; border: 1px solid var(--surface-border); border-radius: 8px;">
+                <ng-container [ngSwitch]="section.title">
+                    <ava-file-attach-pill-basic-usage-demo
+                        *ngSwitchCase="'Basic Usage'"></ava-file-attach-pill-basic-usage-demo>
+                    <ava-file-attach-pill-mixed-icons-demo
+                        *ngSwitchCase="'Mixed Icon Types'"></ava-file-attach-pill-mixed-icons-demo>
+                    <ava-file-attach-pill-custom-main-icon-demo
+                        *ngSwitchCase="'Custom Main Icon'"></ava-file-attach-pill-custom-main-icon-demo>
+                    <ava-file-attach-pill-theme-demo *ngSwitchCase="'Theme Support'"></ava-file-attach-pill-theme-demo>
+                    <ava-file-attach-pill-sizes-demo
+                        *ngSwitchCase="'Different Icon Sizes'"></ava-file-attach-pill-sizes-demo>
+                </ng-container>
+            </div>
+        </section>
+
+        <!-- API Section -->
+        <section class="doc-section">
+            <h2>API Reference</h2>
+            <h3>Properties</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Default</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let prop of apiProps">
+                        <td><code>{{ prop.name }}</code></td>
+                        <td><code>{{ prop.type }}</code></td>
+                        <td><code>{{ prop.default }}</code></td>
+                        <td>{{ prop.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3 style="margin-top: 2rem;">Events</h3>
+            <table class="api-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Type</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let event of events">
+                        <td><code>{{ event.name }}</code></td>
+                        <td><code>{{ event.type }}</code></td>
+                        <td>{{ event.description }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</div>

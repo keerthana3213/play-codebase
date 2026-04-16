@@ -1,0 +1,136 @@
+<div 
+  class="time-picker-container" 
+  [ngStyle]="customStyles" 
+  [ngClass]="'size-' + size" 
+  [attr.id]="timePickerId"
+  [attr.aria-label]="ariaLabel || null"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null"
+  role="group"
+  [attr.aria-expanded]="isFocused ? 'true' : 'false'">
+  <div class="time-picker-input">
+    <div 
+      class="time-display" 
+      *ngIf="!isFocused" 
+      (click)="onDisplayClick($event)"
+      (keydown.enter)="onDisplayClick($event)"
+      (keydown.space)="onDisplayClick($event)"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="ariaLabel || 'Select time'"
+      [attr.aria-live]="'polite'">
+      {{ displayTime }}
+    </div>
+
+
+
+    <!-- Scrolling time picker interface -->
+    <div 
+      class="time-scroll-container" 
+      *ngIf="isFocused"
+      role="group"
+      [attr.aria-label]="ariaLabel || 'Time picker'"
+      [attr.aria-live]="'polite'">
+      <!-- Inline input overlay for scroll mode -->
+      <div class="inline-input-overlay" *ngIf="showInlineInput"
+           [style.top.px]="inlineInputPosition.top"
+           [style.left.px]="inlineInputPosition.left"
+           [style.width.px]="inlineInputPosition.width">
+        <input
+          type="text"
+          class="inline-scroll-input"
+          [value]="inlineInputValue"
+          (input)="onInlineInputChange($event)"
+          (keydown)="onInlineInputKeyPress($event)"
+          (blur)="onInlineInputBlur()"
+          [placeholder]="inlineInputType === 'hours' ? 'HH' : inlineInputType === 'minutes' ? 'MM' : 'AM/PM'"
+          maxlength="2">
+      </div>
+
+      <!-- Hours scroll -->
+      <div class="time-scroll-column">
+        <div class="scroll-area" #hoursScroll (scroll)="onScrollEvent($event, 'hours')">
+          <div
+            *ngFor="let hour of hoursList"
+            class="time-item"
+            [class.selected]="hour === centeredHour && hour !== ''"
+            [class.padding-item]="hour === ''"
+            [class.hidden-item]="showInlineInput && inlineInputType === 'hours' && hour === clickedItemValue"
+            (click)="hour !== '' ? onTimeItemClick($event, 'hours', hour) : null"
+            (keydown.enter)="hour !== '' ? onTimeItemClick($event, 'hours', hour) : null"
+            (keydown.space)="hour !== '' ? onTimeItemClick($event, 'hours', hour) : null"
+            [tabindex]="hour !== '' ? '0' : '-1'"
+            role="option"
+            [attr.aria-selected]="hour === centeredHour && hour !== '' ? 'true' : 'false'"
+            [attr.aria-label]="hour !== '' ? 'Hour ' + hour : null"
+            [style.cursor]="hour !== '' ? 'pointer' : 'default'">
+            {{ hour }}
+          </div>
+        </div>
+      </div>
+
+      <span class="separator">:</span>
+
+      <!-- Minutes scroll -->
+      <div class="time-scroll-column">
+        <div class="scroll-area" #minutesScroll (scroll)="onScrollEvent($event, 'minutes')">
+          <div
+            *ngFor="let minute of minutesList"
+            class="time-item"
+            [class.selected]="minute === centeredMinute && minute !== ''"
+            [class.padding-item]="minute === ''"
+            [class.hidden-item]="showInlineInput && inlineInputType === 'minutes' && minute === clickedItemValue"
+            (click)="minute !== '' ? onTimeItemClick($event, 'minutes', minute) : null"
+            (keydown.enter)="minute !== '' ? onTimeItemClick($event, 'minutes', minute) : null"
+            (keydown.space)="minute !== '' ? onTimeItemClick($event, 'minutes', minute) : null"
+            [tabindex]="minute !== '' ? '0' : '-1'"
+            role="option"
+            [attr.aria-selected]="minute === centeredMinute && minute !== '' ? 'true' : 'false'"
+            [attr.aria-label]="minute !== '' ? 'Minute ' + minute : null"
+            [style.cursor]="minute !== '' ? 'pointer' : 'default'">
+            {{ minute }}
+          </div>
+        </div>
+      </div>
+
+      <!-- Period scroll -->
+      <div class="time-scroll-column period-column">
+        <div class="scroll-area" #periodScroll (scroll)="onScrollEvent($event, 'period')">
+          <div
+            *ngFor="let p of periodList"
+            class="time-item"
+            [class.selected]="p === centeredPeriod && p !== ''"
+            [class.padding-item]="p === ''"
+            [class.hidden-item]="showInlineInput && inlineInputType === 'period' && p === clickedItemValue"
+            (click)="p !== '' ? onTimeItemClick($event, 'period', p) : null"
+            (keydown.enter)="p !== '' ? onTimeItemClick($event, 'period', p) : null"
+            (keydown.space)="p !== '' ? onTimeItemClick($event, 'period', p) : null"
+            [tabindex]="p !== '' ? '0' : '-1'"
+            role="option"
+            [attr.aria-selected]="p === centeredPeriod && p !== '' ? 'true' : 'false'"
+            [attr.aria-label]="p !== '' ? 'Period ' + p : null"
+            [style.cursor]="p !== '' ? 'pointer' : 'default'">
+            {{ p }}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div 
+      class="icon-wrapper" 
+      (click)="onIconClick($event)" 
+      (keydown.enter)="onIconClick($event)"
+      (keydown.space)="onIconClick($event)"
+      tabindex="0"
+      role="button"
+      [attr.aria-label]="'Open time picker'"
+      [attr.aria-expanded]="isFocused ? 'true' : 'false'">
+      <aava-icon 
+        [iconName]="'clock'" 
+        [iconColor]="getIconColor" 
+        [iconSize]="computedIconSize"
+        [ariaHidden]="true">
+      </aava-icon>
+    </div>
+  </div>
+</div>

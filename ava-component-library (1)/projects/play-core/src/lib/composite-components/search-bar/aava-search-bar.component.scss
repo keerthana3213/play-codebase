@@ -1,0 +1,112 @@
+.suggestions-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  min-height: 100px;
+}
+
+.no-results-message {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  color: var(--select-item-color);
+  font: var(--select-item-font);
+  text-align: center;
+}
+
+.suggestions-list {
+  display: flex;
+  flex-direction: column;
+  background: var(--select-menu-background);
+  border-radius: var(--select-menu-border-radius);
+  padding: var(--select-options-padding) 0;
+  gap: var(--select-options-gap);
+  max-height: 200px;
+  overflow-y: auto;
+  .suggestion-item {
+    display: flex;
+    align-items: center;
+    padding: var(--select-option-padding);
+    cursor: pointer;
+    transition: var(--select-item-transition);
+    font: var(--select-item-font);
+    color: var(--select-item-color);
+    background: var(--select-item-background);
+    gap: var(--select-option-gap);
+    font-weight: var(--select-options-font-weight);
+    box-sizing: border-box;
+    margin: 0;
+
+    .suggestion-icon {
+      flex-shrink: 0;
+    }
+
+    .suggestion-label {
+      flex: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    &:hover,
+    &:focus {
+      background: var(--select-item-background-hover);
+      color: var(--select-item-text-hover);
+    }
+  }
+}
+
+// Size-responsive styling for suggestions
+.ava-search-bar {
+  &.xl {
+    .suggestions-list {
+      .suggestion-item {
+        font-size: var(--select-xl-font-size);
+        padding: var(--select-xl-padding);
+        height: var(--select-xl-height);
+      }
+    }
+  }
+
+  &.lg {
+    .suggestions-list {
+      .suggestion-item {
+        font-size: var(--select-lg-font-size);
+        padding: var(--select-lg-padding);
+        height: var(--select-lg-height);
+      }
+    }
+  }
+
+  &.md {
+    .suggestions-list {
+      .suggestion-item {
+        font-size: var(--select-md-font-size);
+        padding: var(--select-md-padding);
+        height: var(--select-md-height);
+      }
+    }
+  }
+
+  &.sm {
+    .suggestions-list {
+      .suggestion-item {
+        font-size: var(--select-sm-font-size);
+        padding: var(--select-sm-padding);
+        height: var(--select-sm-height);
+      }
+    }
+  }
+
+  &.xs {
+    .suggestions-list {
+      .suggestion-item {
+        font-size: var(--select-xs-font-size);
+        padding: var(--select-xs-padding);
+        height: var(--select-xs-height);
+      }
+    }
+  }
+}

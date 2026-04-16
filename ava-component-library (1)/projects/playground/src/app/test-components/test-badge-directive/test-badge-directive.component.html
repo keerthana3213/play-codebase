@@ -1,0 +1,321 @@
+<div style="padding: 20px;">
+  <h2 style="margin-bottom: 10px;">Badge Directive Examples</h2>
+
+  <!-- Text with Badges -->
+  <h3 style="margin-bottom: 10px;">Text with Badges</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="4"
+       [aavaBadgePosition]="'after'">
+      Text with count badge
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="99"
+       [aavaBadgePosition]="'before'">
+      Text with before badge
+    </p>
+  </div>
+
+  <!-- Icon with Badges -->
+  <h3 style="margin-bottom: 10px;">Icon with Badges</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+    <aava-icon
+      iconName="Bell"
+      [iconSize]="24"
+      aavaBadge
+      [aavaBadgeSize]="'sm'"
+      [aavaBadgeCount]="3"
+      [aavaBadgeState]="'high-priority'">
+    </aava-icon>
+
+    <aava-icon
+      iconName="User"
+      [iconSize]="24"
+      aavaBadge
+      [aavaBadgeSize]="'md'"
+      [aavaBadgeState]="'online'">
+    </aava-icon>
+  </div>
+
+  <!-- Overlay Examples -->
+  <h3 style="margin-bottom: 10px;">Overlay Examples</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="8"
+       [aavaBadgeOverlap]="true">
+      Overlapping badge
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="8"
+       [aavaBadgeOverlap]="false">
+      Non-overlapping badge
+    </p>
+  </div>
+
+  <!-- Hidden Badge Examples -->
+  <h3 style="margin-bottom: 10px;">Hidden Badge Examples</h3>
+  <div style="margin-bottom: 20px;">
+    <div style="display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+      <!-- Always visible badge -->
+      <aava-button
+        label="Always Visible"
+        variant="secondary"
+        aavaBadge
+        [aavaBadgeSize]="'md'"
+        [aavaBadgeCount]="5"
+        [aavaBadgeState]="'high-priority'"
+        [aavaBadgeHidden]="false">
+      </aava-button>
+
+      <!-- Always hidden badge -->
+      <aava-button
+        label="Always Hidden"
+        variant="secondary"
+        aavaBadge
+        [aavaBadgeSize]="'md'"
+        [aavaBadgeCount]="3"
+        [aavaBadgeState]="'information'"
+        [aavaBadgeHidden]="true">
+      </aava-button>
+
+      <!-- Toggle button for hidden badge -->
+      <aava-button
+        [label]="hiddenBadgeVisible ? 'Hide Badge' : 'Show Badge'"
+        variant="primary"
+        (click)="toggleHiddenBadge()">
+      </aava-button>
+    </div>
+
+    <!-- Toggleable hidden badge example -->
+    <div style="display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+      <aava-button
+        label="Toggleable Badge"
+        variant="secondary"
+        aavaBadge
+        [aavaBadgeSize]="'md'"
+        [aavaBadgeCount]="7"
+        [aavaBadgeState]="'medium-priority'"
+        [aavaBadgeHidden]="!hiddenBadgeVisible">
+      </aava-button>
+
+      <span style="color: #666; font-size: 14px;">
+        Badge is currently: {{ hiddenBadgeVisible ? 'Visible' : 'Hidden' }}
+      </span>
+    </div>
+  </div>
+
+  <!-- Clickable Badge Examples -->
+  <h3 style="margin-bottom: 10px;">Clickable Badge Examples</h3>
+  <div style="margin-bottom: 20px;">
+    <div style="display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+      <!-- Clickable button that toggles its own badge -->
+      <aava-button
+        label="Click to Toggle Badge"
+        variant="primary"
+        aavaBadge
+        [aavaBadgeSize]="'md'"
+        [aavaBadgeCount]="9"
+        [aavaBadgeState]="'high-priority'"
+        [aavaBadgeHidden]="!clickableBadgeVisible"
+        (click)="toggleClickableBadge()">
+      </aava-button>
+
+      <span style="color: #666; font-size: 14px;">
+        Click the button to {{ clickableBadgeVisible ? 'remove' : 'add' }} the badge
+      </span>
+    </div>
+
+    <!-- Additional clickable examples with different components -->
+    <div style="display: flex; gap: 20px; margin-bottom: 15px; flex-wrap: wrap; align-items: center;">
+      <aava-icon
+        iconName="Bell"
+        [iconSize]="24"
+        aavaBadge
+        [aavaBadgeSize]="'sm'"
+        [aavaBadgeCount]="clickableBadgeVisible ? 2 : undefined"
+        [aavaBadgeState]="'information'"
+        [aavaBadgeHidden]="!clickableBadgeVisible"
+        style="cursor: pointer;"
+        (click)="toggleClickableBadge()">
+      </aava-icon>
+
+      <p style="cursor: pointer; margin: 0;"
+         aavaBadge
+         [aavaBadgeSize]="'md'"
+         [aavaBadgeState]="'online'"
+         [aavaBadgeHidden]="!clickableBadgeVisible"
+         (click)="toggleClickableBadge()">
+        Click me to toggle badge
+      </p>
+    </div>
+  </div>
+
+  <!-- All Sizes -->
+  <h3 style="margin-bottom: 10px;">All Sizes</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+    <p aavaBadge
+       [aavaBadgeSize]="'sm'"
+       [aavaBadgeCount]="1">
+      Small badge
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="12">
+      Medium badge
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'lg'"
+       [aavaBadgeCount]="99">
+      Large badge
+    </p>
+  </div>
+
+  <!-- With Count vs Without Count -->
+  <h3 style="margin-bottom: 10px;">With Count vs Without Count</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="15">
+      With count (15)
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'">
+      Without count (dot)
+    </p>
+  </div>
+
+  <!-- Different States -->
+  <h3 style="margin-bottom: 10px;">Different States</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="1"
+       [aavaBadgeState]="'high-priority'">
+      High Priority
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="2"
+       [aavaBadgeState]="'medium-priority'">
+      Medium Priority
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="3"
+       [aavaBadgeState]="'low-priority'">
+      Low Priority
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="4"
+       [aavaBadgeState]="'neutral'">
+      Neutral
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="5"
+       [aavaBadgeState]="'information'">
+      Information
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeState]="'online'">
+      Online
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeState]="'offline'">
+      Offline
+    </p>
+  </div>
+
+  <!-- Different Positions -->
+  <h3 style="margin-bottom: 10px;">Different Positions</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap;">
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="7"
+       [aavaBadgePosition]="'before'">
+      Before position
+    </p>
+
+    <p aavaBadge
+       [aavaBadgeSize]="'md'"
+       [aavaBadgeCount]="8"
+       [aavaBadgePosition]="'after'">
+      After position
+    </p>
+  </div>
+
+  <!-- Complex Examples -->
+  <h3 style="margin-bottom: 10px;">Complex Examples</h3>
+  <div style="display: flex; gap: 20px; margin-bottom: 20px; flex-wrap: wrap; align-items: center;">
+    <aava-button
+      label="Cart"
+      variant="primary"
+      aavaBadge
+      [aavaBadgeSize]="'sm'"
+      [aavaBadgeCount]="cartItems"
+      [aavaBadgeState]="'high-priority'"
+      [aavaBadgePosition]="'after'">
+    </aava-button>
+
+    <aava-icon
+      iconName="Settings"
+      [iconSize]="32"
+      aavaBadge
+      [aavaBadgeSize]="'md'"
+      [aavaBadgeState]="'information'"
+      [aavaBadgePosition]="'before'"
+      [aavaBadgeOverlap]="false">
+    </aava-icon>
+
+    <div style="padding: 10px; border: 1px solid #ccc; border-radius: 4px;"
+         aavaBadge
+         [aavaBadgeSize]="'md'"
+         [aavaBadgeCount]="newMessages"
+         [aavaBadgeState]="'medium-priority'">
+      Message Container
+    </div>
+  </div>
+
+  <!-- Inline Badge Examples -->
+  <h3 style="margin-bottom: 10px;">Inline Badge Examples</h3>
+  <div style="margin-bottom: 2px;">
+    <div style="margin-bottom: 1px;">
+      <p
+        aavaBadge
+        [aavaBadgeState]="'online'"
+        [aavaBadgeSize]="'md'"
+        [aavaBadgePosition]="'before'"
+        [aavaBadgeInline]="true">
+        Alex Johnson is available
+      </p>
+    </div>
+    <div style="margin-bottom: 1px;">
+      <p
+        aavaBadge
+        [aavaBadgeState]="'online'"
+        [aavaBadgeSize]="'md'"
+        [aavaBadgePosition]="'after'"
+        [aavaBadgeInline]="true">
+        Alex Johnson is available
+      </p>
+    </div>
+  </div>
+</div>

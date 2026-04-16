@@ -1,0 +1,139 @@
+.showcase-container {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    font-family: 'Inter', sans-serif;
+    color: #1f2937;
+    --tabs-button-active-bg: var(--button-primary-glass-10-background);
+    --tabs-button-active-color: white;
+}
+
+.hero-section {
+    text-align: center;
+    margin-bottom: 4rem;
+
+    h1 {
+        font-size: 3rem;
+        font-weight: 800;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #6366f1 0%, #a855f7 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+
+    p {
+        font-size: 1.25rem;
+        color: #6b7280;
+        max-width: 600px;
+        margin: 0 auto 2rem;
+    }
+}
+
+.philosophy-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.philosophy-card {
+    padding: 2rem;
+    border-radius: 1rem;
+    background: #fff;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    border: 1px solid #f3f4f6;
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        font-weight: 700;
+    }
+
+    p {
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    &.glass {
+        border-left: 4px solid #60a5fa;
+    }
+
+    &.liquid {
+        border-left: 4px solid #a78bfa;
+    }
+
+    &.light {
+        border-left: 4px solid #f472b6;
+    }
+}
+
+.demo-section {
+    margin-bottom: 4rem;
+
+    h2 {
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #f3f4f6;
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        color: #6b7280;
+        margin-bottom: 2rem;
+        font-size: 1.1rem;
+    }
+
+    .demo-grid {
+        display: flex;
+        gap: 3rem;
+        flex-wrap: wrap;
+        padding: 3rem;
+        background: #f9fafb;
+        border-radius: 1rem;
+        border: 1px dashed #e5e7eb;
+        align-items: flex-start;
+    }
+
+    .showcase-group {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .row {
+            display: flex;
+            gap: 1rem;
+        }
+    }
+
+    .showcase-item {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .label {
+        font-size: 0.875rem;
+        color: #9ca3af;
+        font-family: monospace;
+        margin-top: 0.5rem;
+    }
+}
+
+.code-snippet {
+    background: #1f2937;
+    color: #f3f4f6;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-family: monospace;
+    font-size: 0.875rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+}

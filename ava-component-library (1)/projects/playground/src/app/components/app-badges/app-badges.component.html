@@ -1,0 +1,233 @@
+<div class="demo-container">
+  <div class="demo-header">
+    <h1>Badge Component</h1>
+    <p>
+      A smart notification badge component for displaying counts, status
+      indicators, and priority levels with intelligent number formatting and
+      accessibility features.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <h3>Demo Sections</h3>
+    <div class="nav-links">
+      <a routerLink="/badges/basic-usage" class="nav-link">Basic Usage</a>
+      <a routerLink="/badges/sizes" class="nav-link">Sizes</a>
+      <a routerLink="/badges/variants" class="nav-link">Variants</a>
+      <a routerLink="/badges/states" class="nav-link">States</a>
+      <a routerLink="/badges/counts" class="nav-link">Smart Counts</a>
+      <a routerLink="/badges/icons" class="nav-link">Icons</a>
+      <a routerLink="/badges/interactive" class="nav-link">Interactive</a>
+      <a routerLink="/badges/combinations" class="nav-link">Combinations</a>
+      <a routerLink="/badges/accessibility" class="nav-link">Accessibility</a>
+      <a routerLink="/badges/api" class="nav-link">API Reference</a>
+    </div>
+  </div>
+
+  <div class="demo-content">
+    <router-outlet></router-outlet>
+  </div>
+
+  <!-- Original Comprehensive Content -->
+  <div class="doc-sections">
+    <div class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="section-header" (click)="toggleCodeVisibility(i, $event)"
+        (keydown.enter)="toggleCodeVisibility(i, $event)" (keydown.space)="toggleCodeVisibility(i, $event)" tabindex="0"
+        role="button" [attr.aria-expanded]="section.showCode" [attr.aria-controls]="'section-' + i">
+        <h2>{{ section.title }}</h2>
+        <div class="description-container">
+          <p>{{ section.description }}</p>
+          <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)"
+            (keydown.enter)="toggleCodeVisibility(i, $event)" (keydown.space)="toggleCodeVisibility(i, $event)"
+            tabindex="0" role="button" [attr.aria-label]="
+              (section.showCode ? 'Hide' : 'Show') +
+              ' code for ' +
+              section.title
+            ">
+            <span>{{ section.showCode ? "Hide" : "Show" }} Code</span>
+            <aava-icon iconName="{{ section.showCode ? 'chevron-up' : 'chevron-down' }}"></aava-icon>
+          </div>
+        </div>
+      </div>
+
+      <!-- Badge Examples - Always Visible -->
+      <div class="example-preview">
+        <!-- Large Size Badges -->
+        <section class="comp-container" *ngIf="section.title === 'Large Size Badges'">
+          <aava-badges state="information" size="lg" [count]="9">
+          </aava-badges>
+          <aava-badges state="information" size="lg" [count]="10"></aava-badges>
+          <aava-badges state="information" size="lg" [count]="100"></aava-badges>
+        </section>
+
+        <!-- Medium Size Badges -->
+        <section class="comp-container" *ngIf="section.title === 'Medium Size Badges'">
+          <aava-badges state="low-priority" size="md" [count]="9"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="10"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="100"></aava-badges>
+        </section>
+
+        <!-- Small Size Badges -->
+        <section class="comp-container" *ngIf="section.title === 'Small Size Badges'">
+          <aava-badges state="medium-priority" size="sm" [count]="9"></aava-badges>
+          <aava-badges state="medium-priority" size="sm" [count]="10"></aava-badges>
+          <aava-badges state="medium-priority" size="sm" [count]="100"></aava-badges>
+        </section>
+
+        <!-- Badges with Icons -->
+        <section class="comp-container" *ngIf="section.title === 'Badges with Icons'">
+          <aava-badges state="high-priority" size="lg" iconName="Mail" iconColor="white" [iconSize]="12"></aava-badges>
+          <aava-badges state="high-priority" size="md" iconName="wifi" iconColor="white" [iconSize]="12"></aava-badges>
+          <aava-badges state="high-priority" size="sm" iconName="user" iconColor="white" [iconSize]="12"></aava-badges>
+        </section>
+
+        <!-- Badges with Text -->
+        <section class="comp-container" *ngIf="section.title === 'Badges with Text'">
+          <aava-badges state="high-priority" size="lg" [count]="3"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="15"></aava-badges>
+          <aava-badges state="low-priority" size="sm" [count]="999"></aava-badges>
+        </section>
+
+        <!-- Types of Badges -->
+        <section class="comp-container" *ngIf="section.title === 'Types of Badges'">
+          <div class="demo-section">
+            <h4>High Priority</h4>
+            <div class="badge-row">
+              <aava-badges state="high-priority" size="lg" [count]="9"></aava-badges>
+              <aava-badges state="high-priority" size="md" [count]="9"></aava-badges>
+              <aava-badges state="high-priority" size="sm" [count]="9"></aava-badges>
+              <aava-badges state="high-priority" size="xs" [count]="9"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <h4>Medium Priority</h4>
+            <div class="badge-row">
+              <aava-badges state="medium-priority" size="lg" [count]="9"></aava-badges>
+              <aava-badges state="medium-priority" size="md" [count]="9"></aava-badges>
+              <aava-badges state="medium-priority" size="sm" [count]="9"></aava-badges>
+              <aava-badges state="medium-priority" size="xs" [count]="9"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <h4>Low Priority</h4>
+            <div class="badge-row">
+              <aava-badges state="low-priority" size="lg" [count]="9"></aava-badges>
+              <aava-badges state="low-priority" size="md" [count]="9"></aava-badges>
+              <aava-badges state="low-priority" size="sm" [count]="9"></aava-badges>
+              <aava-badges state="low-priority" size="xs" [count]="9"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <h4>Neutral</h4>
+            <div class="badge-row">
+              <aava-badges state="neutral" size="lg" [count]="9"></aava-badges>
+              <aava-badges state="neutral" size="md" [count]="9"></aava-badges>
+              <aava-badges state="neutral" size="sm" [count]="9"></aava-badges>
+              <aava-badges state="neutral" size="xs" [count]="9"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <h4>Information</h4>
+            <div class="badge-row">
+              <aava-badges state="information" size="lg" [count]="9"></aava-badges>
+              <aava-badges state="information" size="md" [count]="9"></aava-badges>
+              <aava-badges state="information" size="sm" [count]="9"></aava-badges>
+              <aava-badges state="information" size="xs" [count]="9"></aava-badges>
+            </div>
+          </div>
+        </section>
+
+        <section class="comp-container" *ngIf="section.title === 'Dot Badges'">
+          <div class="demo-section">
+            <div class="badge-row">
+              <aava-badges state="high-priority" size="lg" variant="dots"></aava-badges>
+              <aava-badges state="high-priority" size="md" variant="dots"></aava-badges>
+              <aava-badges state="high-priority" size="sm" variant="dots"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <div class="badge-row">
+              <aava-badges state="medium-priority" size="lg" variant="dots"></aava-badges>
+              <aava-badges state="medium-priority" size="md" variant="dots"></aava-badges>
+              <aava-badges state="medium-priority" size="sm" variant="dots"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <div class="badge-row">
+              <aava-badges state="low-priority" size="lg" variant="dots"></aava-badges>
+              <aava-badges state="low-priority" size="md" variant="dots"></aava-badges>
+              <aava-badges state="low-priority" size="sm" variant="dots"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <div class="badge-row">
+              <aava-badges state="neutral" size="lg" variant="dots"></aava-badges>
+              <aava-badges state="neutral" size="md" variant="dots"></aava-badges>
+              <aava-badges state="neutral" size="sm" variant="dots"></aava-badges>
+            </div>
+          </div>
+          <div class="demo-section">
+            <div class="badge-row">
+              <aava-badges state="information" size="lg" variant="dots"></aava-badges>
+              <aava-badges state="information" size="md" variant="dots"></aava-badges>
+              <aava-badges state="information" size="sm" variant="dots"></aava-badges>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- Code Examples - Collapsible -->
+      <div class="code-example" *ngIf="section.showCode" [id]="'section-' + i">
+        <div class="code-block">
+          <button class="copy-button" (click)="copyCode(section.title)"
+            [attr.aria-label]="'Copy code for ' + section.title">
+            <aava-icon iconName="copy"></aava-icon>
+          </button>
+          <pre><code>{{ getBadgeCode(section.title) }}</code></pre>
+        </div>
+      </div>
+    </div>
+
+    <!-- API Documentation -->
+    <div class="doc-section">
+      <div class="section-header">
+        <h2>API Reference</h2>
+        <div class="description-container">
+          <p>
+            Complete list of properties and their descriptions for the Badge
+            component.
+          </p>
+        </div>
+      </div>
+
+      <div class="code-example">
+        <div class="example-preview">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prop of apiProps">
+                <td>
+                  <code>{{ prop.name }}</code>
+                </td>
+                <td>
+                  <code>{{ prop.type }}</code>
+                </td>
+                <td>
+                  <code>{{ prop.default }}</code>
+                </td>
+                <td>{{ prop.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

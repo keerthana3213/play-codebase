@@ -1,0 +1,92 @@
+@if (type === 'circular') {
+<div #progressContainer class="progress-container" [attr.id]="componentId" [ngStyle]="customStyles"
+  [attr.data-size]="size" role="progressbar"
+  [attr.aria-valuenow]="mode === 'determinate' || mode === 'buffer' ? percentage : null"
+  [attr.aria-valuemin]="mode === 'determinate' || mode === 'buffer' ? '0' : null"
+  [attr.aria-valuemax]="mode === 'determinate' || mode === 'buffer' ? '100' : null"
+  [attr.aria-valuetext]="computedAriaValuetext" [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null" [attr.aria-describedby]="ariaDescribedby || null"
+  [attr.aria-busy]="mode === 'indeterminate' || mode === 'query' ? 'true' : null">
+  <svg [attr.width]="svgSize" [attr.height]="svgSize" [attr.viewBox]="'0 0 100 100'">
+    <defs>
+      <!-- fallback gradient to use when no custom gradient specified -->
+      <linearGradient [attr.id]="gradientId" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop offset="0%" [attr.stop-color]="'var(--progress-gradient-start)'" />
+        <stop offset="100%" [attr.stop-color]="'var(--progress-gradient-end)'" />
+      </linearGradient>
+
+      <!-- Custom gradient built from parseGradient() -->
+      <linearGradient *ngIf="isGradient" [attr.id]="'customGradient-' + progressId" x1="0%" y1="0%" x2="100%" y2="0%">
+        <stop *ngFor="let stop of gradientStops" [attr.offset]="stop.offset" [attr.stop-color]="stop.color" />
+      </linearGradient>
+    </defs>
+
+    <!-- Background circle -->
+    <circle class="progress-background" cx="50" cy="50" [attr.r]="radius" [attr.stroke-width]="strokeWidth" fill="none"
+      [attr.aria-hidden]="'true'"></circle>
+
+    <!-- Rotating group (start position controlled by rotationAngle) -->
+    <g [attr.transform]="'rotate(' + rotationAngle + ' 50 50)'">
+      <!-- prefer customGradient when available, else choose explicit color or default gradient -->
+      <circle class="progress-bar" cx="50" cy="50" [attr.r]="radius" [attr.stroke-width]="strokeWidth" fill="none"
+        [attr.id]="progressId"
+        [attr.stroke]="circularStroke"
+        [attr.stroke-dasharray]="currentDashArray"
+        [class.indeterminate]="mode === 'indeterminate'" [class.query]="mode === 'query'"
+        [style.opacity]="(mode === 'indeterminate' || mode === 'query') ? 1 : (percentage === 0 ? 0 : 1)"
+        [attr.aria-hidden]="'true'"></circle>
+    </g>
+
+    <!-- Centered percentage text inside the circle (only when value should be shown) -->
+    @if (showValue && (mode === 'determinate' || mode === 'buffer')) {
+    <text x="50" y="50" text-anchor="middle" dy="6" transform="translate(0, 2)" class="progress-text"
+      [attr.aria-hidden]="'true'">
+      {{ percentage }}%
+    </text>
+    }
+  </svg>
+
+  @if (label) {
+  <div class="progress-label">{{ label }}</div>
+  }
+</div>
+}
+
+@if (type === 'linear') {
+<div #linearContainer class="linear-progress-container" [attr.id]="componentId + '-linear'" role="progressbar"
+  [attr.aria-valuenow]="mode === 'determinate' || mode === 'buffer' ? percentage : null"
+  [attr.aria-valuemin]="mode === 'determinate' || mode === 'buffer' ? '0' : null"
+  [attr.aria-valuemax]="mode === 'determinate' || mode === 'buffer' ? '100' : null"
+  [attr.aria-valuetext]="computedAriaValuetext" [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null" [attr.aria-describedby]="ariaDescribedby || null"
+  [attr.aria-busy]="mode === 'indeterminate' || mode === 'query' ? 'true' : null">
+  @if (label) {
+  <div class="progress-label">{{ label }}</div>
+  }
+
+  @if ((mode === 'determinate' || mode === 'buffer') && showValue) {
+  <div class="progress-percentage">{{ displayPercentage || percentage }}%</div>
+  }
+
+  <div class="linear-bar" [style.height.px]="linearHeight">
+    @if (mode === 'buffer') {
+    <div class="buffer-bar" [style.width.%]="displayBufferValue" [style.background]="linearGradientBackground"
+      [style.opacity]="0.25"></div>
+    }
+
+    @if (mode === 'determinate' || mode === 'buffer') {
+    <div class="linear-progress" [attr.id]="progressId" [style.width.%]="displayPercentage"
+      [style.background]="linearGradientBackground">
+    </div>
+    }
+
+    @if (mode === 'indeterminate' || mode === 'query') {
+    <div class="indeterminate-bar" [class.query]="mode === 'query'"
+      [style.--progress-linear-gradient]="color ? color : null"></div>
+    }
+  </div>
+</div>
+}
+@if (errorMessage) {
+<div class="progress-error" role="alert" aria-live="polite">{{ errorMessage }}</div>
+}

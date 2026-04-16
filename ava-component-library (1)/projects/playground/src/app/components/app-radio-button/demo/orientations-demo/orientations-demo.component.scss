@@ -1,0 +1,78 @@
+.center-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+.demo-section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  margin-top: 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+.description {
+  color: #666;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+.orientations-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+.orientation-group {
+  padding: 1.5rem;
+  padding-top: 0;
+  margin-top: 0;
+}
+.orientation-group h4 {
+  margin: 0 0 0.5rem 0;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+.orientation-description {
+  color: #6b7280;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+.orientation-info {
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid #e5e7eb;
+}
+.orientation-info h4 {
+  margin: 0 0 1rem 0;
+  color: #1f2937;
+  font-size: 1.1rem;
+}
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+.info-item {
+  padding: 1rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px solid #e5e7eb;
+}
+.info-item h5 {
+  margin: 0 0 0.75rem 0;
+  color: #1f2937;
+  font-size: 1rem;
+}
+.info-item ul {
+  margin: 0;
+  padding-left: 1.25rem;
+}
+.info-item li {
+  margin-bottom: 0.25rem;
+  line-height: 1.4;
+  font-size: 0.9rem;
+}

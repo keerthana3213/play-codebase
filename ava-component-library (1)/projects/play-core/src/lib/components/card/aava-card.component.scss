@@ -1,0 +1,46 @@
+.ava-card-container {
+  .ava-card {
+    width: 100%;
+    background-color: var(--global-background);
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid #e1e5e9;
+    overflow: hidden;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+
+    &:hover {
+      //   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+      transform: translateY(-2px);
+    }
+
+    .card-wrapper {
+      .card-header {
+        padding: 1rem 1.5rem;
+        border-bottom: 1px solid #e1e5e9;
+        background: #f8f9fa;
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      .card-content {
+        padding: 1.5rem;
+
+        &:empty {
+          display: none;
+        }
+      }
+
+      .card-footer {
+        padding: 1rem 1.5rem;
+        border-top: 1px solid #e1e5e9;
+        background: #f8f9fa;
+
+        &:empty {
+          display: none;
+        }
+      }
+    }
+  }
+}

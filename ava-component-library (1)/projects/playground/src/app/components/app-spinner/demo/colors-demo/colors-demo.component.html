@@ -1,0 +1,14 @@
+<div class="demo-container">
+  <div class="demo-content">
+    <div class="demo-section">
+      <div class="color-grid">
+        <div class="color-item" *ngFor="let color of spinnerColors">
+          <aava-spinner type="blob" [color]="color.name" size="lg" [animation]="true"></aava-spinner>
+          <span class="color-label">{{ color.name | titlecase }}</span>
+          <aava-spinner type="linear-gradient" [color]="color.name" size="lg" [animation]="true"></aava-spinner>
+          <span class="color-label">{{ color.name | titlecase }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

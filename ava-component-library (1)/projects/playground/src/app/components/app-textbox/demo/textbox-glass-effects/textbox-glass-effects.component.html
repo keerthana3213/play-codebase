@@ -1,0 +1,81 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Glass 10 (Recommended)</h3>
+    <p>Subtle glass effect for most use cases.</p>
+    <aava-textbox
+      [(ngModel)]="glass10Value"
+      label="Glass 10 (Recommended)"
+      placeholder="Subtle glass effect..."
+      glassVariant="glass-10"
+      (textboxChange)="onGlass10Change($event)"
+    ></aava-textbox>
+  </div>
+
+  <div class="demo-section">
+    <h3>Glass 50 (Medium)</h3>
+    <p>Medium glass intensity for emphasis.</p>
+    <aava-textbox
+      [(ngModel)]="glass50Value"
+      label="Glass 50 (Medium)"
+      placeholder="Medium glass intensity..."
+      glassVariant="glass-50"
+      (textboxChange)="onGlass50Change($event)"
+    ></aava-textbox>
+  </div>
+
+  <div class="demo-section">
+    <h3>Tint Hover Effect</h3>
+    <p>Subtle color tinting on hover (recommended).</p>
+    <aava-textbox
+      [(ngModel)]="tintValue"
+      label="Tint Hover Effect"
+      placeholder="Hover for tint effect..."
+      hoverEffect="tint"
+      (textboxChange)="onTintChange($event)"
+    ></aava-textbox>
+  </div>
+
+  <div class="demo-section">
+    <h3>Glow Hover Effect</h3>
+    <p>Outer glow effect on hover.</p>
+    <aava-textbox
+      [(ngModel)]="glowValue"
+      label="Glow Hover Effect"
+      placeholder="Hover for glow effect..."
+      hoverEffect="glow"
+      (textboxChange)="onGlowChange($event)"
+    ></aava-textbox>
+  </div>
+
+  <div class="demo-section">
+    <h3>Custom Styles</h3>
+    <p>Textbox with custom CSS properties override.</p>
+    <aava-textbox
+      [(ngModel)]="customStylesValue"
+      label="Custom Effects"
+      placeholder="Custom styling..."
+      glassVariant="glass-10"
+      hoverEffect="tint"
+      [customStyles]="{ '--effect-color-primary': '255, 100, 150' }"
+      (textboxChange)="onCustomStylesChange($event)"
+    ></aava-textbox>
+  </div>
+
+  <div class="demo-section glass-demo-background">
+    <h3>Glass Effects on Background</h3>
+    <p>Glass morphism effects on a colorful background.</p>
+    <div class="glass-examples">
+      <aava-textbox
+        label="Glass 10 on Background"
+        placeholder="Glass effect..."
+        glassVariant="glass-10"
+      ></aava-textbox>
+
+      <aava-textbox
+        label="Glass 50 on Background"
+        placeholder="Glass effect..."
+        glassVariant="glass-50"
+      ></aava-textbox>
+    </div>
+  </div>
+</div>

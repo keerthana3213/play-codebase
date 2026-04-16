@@ -1,0 +1,19 @@
+{
+    "extends": "./tsconfig.json",
+    "compilerOptions": {
+        "outDir": "./out-tsc/spec",
+        "types": [
+            "jasmine",
+            "node"
+        ]
+    },
+    "files": [
+        "src/test.ts"
+    ],
+    "include": [
+        "projects/play-core/**/*.spec.ts",
+        "projects/play-core/**/*.d.ts",
+        "src/**/*.spec.ts",
+        "src/**/*.d.ts"
+    ]
+}

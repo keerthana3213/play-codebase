@@ -1,0 +1,40 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Main Styles
+ *
+ * This file imports the design token system and provides
+ * global styles, font definitions, and utility classes.
+ * =========================================================================
+ */
+
+/* ==========================================================================
+   DESIGN TOKENS
+   ========================================================================== */
+@use "./tokens/index";
+@use "./grid.scss";
+@use "./padding.scss";
+@use "./typography.scss";
+/* ==========================================================================
+   GOOGLE FONTS (CDN)
+   ========================================================================== */
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,700;1,400&family=Mulish:ital,wght@0,400;0,700;1,400&display=swap");
+
+/* ==========================================================================
+   GLOBAL STYLES
+   ========================================================================== */
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-family-body);
+  font-size: 16px;
+  background-color: var(--color-background-primary);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

@@ -1,0 +1,236 @@
+<!-- TYPE: basic -->
+<ng-container *ngIf="type === 'basic'">
+  <div class="pagination-container" [class.compact]="compact" [attr.id]="id ? 'aava-pagination-' + id : null" [ngStyle]="customStyles">
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-left"
+      [iconPosition]="iconOnly ? 'only' : 'left'"
+      [iconColor]="iconColor"
+      variant="secondary"
+      [label]="iconOnly ? '' : 'Previous'"
+      (userClick)="prevPage()"
+      [disabled]="currentPage === 1"
+      [size]="size"
+    >
+    </aava-button>
+    <div class="pagination">
+    <ng-container *ngFor="let page of pages; trackBy: trackByPage">
+      <aava-button
+        [label]="page.toString()"
+        *ngIf="page !== '...'; else dots"
+        (userClick)="goToPage(page)"
+        [variant]="page === currentPage ? 'primary' : 'secondary'"
+        [outlined]="false"
+        [pill]="true"
+        [rounded]="true"
+        [size]="size"
+      ></aava-button>
+
+      <ng-template #dots>
+        <span class="dots">...</span>
+      </ng-template>
+    </ng-container>
+    </div>
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-right"
+      [iconPosition]="iconOnly ? 'only' : 'right'"
+      [iconColor]="iconColor"
+      [label]="iconOnly ? '' : 'Next'"
+      variant="secondary"
+      (userClick)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [size]="size"
+    >
+    </aava-button>
+  </div>
+</ng-container>
+
+<ng-container *ngIf="type === 'unfilled'">
+  <div class="pagination-container" [class.compact]="compact" [ngStyle]="customStyles">
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-left"
+      [iconPosition]="iconOnly ? 'only' : 'left'"
+      [iconColor]="iconColor"
+      variant="secondary"
+      [label]="iconOnly ? '' : 'Previous'"
+      (userClick)="prevPage()"
+      [disabled]="currentPage === 1"
+      [size]="size"
+      [clear]="true"
+    >
+    </aava-button>
+        <div class="pagination">
+
+    <ng-container *ngFor="let page of pages; trackBy: trackByPage">
+      <aava-button
+        [label]="page.toString()"
+        *ngIf="page !== '...'; else dots"
+        (userClick)="goToPage(page)"
+        [variant]="page === currentPage ? 'secondary' : 'primary'"
+        [outlined]="false"
+        [pill]="true"
+        [rounded]="true"
+        [size]="size"
+        [clear]="page !== currentPage"
+      ></aava-button>
+
+      <ng-template #dots>
+        <span class="dots">...</span>
+      </ng-template>
+    </ng-container>
+        </div>
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-right"
+      [iconPosition]="iconOnly ? 'only' : 'right'"
+      [iconColor]="iconColor"
+      [label]="iconOnly ? '' : 'Next'"
+      variant="secondary"
+      (userClick)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [size]="size"
+      [clear]="true"
+    >
+    </aava-button>
+  </div>
+</ng-container>
+
+<!-- TYPE: basicunfilled -->
+<ng-container *ngIf="type === 'basicunfilled'">
+  <div class="pagination-container" [class.compact]="compact" [ngStyle]="customStyles">
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-left"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      variant="secondary"
+      (userClick)="prevPage()"
+      [disabled]="currentPage === 1"
+      [size]="size"
+      [pill]="true"
+    >
+    </aava-button>
+        <div class="pagination">
+
+    <ng-container *ngFor="let page of pages; trackBy: trackByPage">
+      <aava-button
+        [label]="page.toString()"
+        *ngIf="page !== '...'; else dots"
+        (userClick)="goToPage(page)"
+        [variant]="page === currentPage ? 'primary' : 'secondary'"
+        [outlined]="false"
+        [pill]="true"
+        [rounded]="true"
+        [size]="size"
+      ></aava-button>
+
+      <ng-template #dots>
+        <span class="dots">...</span>
+      </ng-template>
+    </ng-container>
+        </div>
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-right"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      variant="secondary"
+      (userClick)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [size]="size"
+      [pill]="true"
+
+    >
+    </aava-button>
+  </div>
+</ng-container>
+
+<!-- TYPE: pageinfo -->
+<ng-container *ngIf="type === 'pageinfo'">
+  <div class="pagination" [class.compact]="compact" [ngStyle]="customStyles">
+    <aava-button
+      *ngIf="showNavigationButtons"
+      class="prev"
+      iconName="chevron-left"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      variant="secondary"
+      [label]="iconOnly ? '' : 'Previous'"
+      (userClick)="prevPage()"
+      [pill]="true"
+      [size]="size"
+        [clear]="true"
+
+      [disabled]="currentPage === 1"
+    >
+    </aava-button>
+
+    <div class="page-label" [style.font-size]="getFontSize()">
+      Page
+      <aava-button
+        [label]="currentPage.toString()"
+        variant="secondary"
+        [outlined]="false"
+        [pill]="true"
+        [rounded]="true"
+        [size]="size"
+        [clear]="true"
+      ></aava-button>
+      of {{ totalPages }}
+    </div>
+
+    <aava-button
+      *ngIf="showNavigationButtons"
+      class="prev"
+      iconName="chevron-right"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      [label]="iconOnly ? '' : 'Next'"
+      variant="secondary"
+      (userClick)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [clear]="true"
+      [pill]="true"
+      [size]="size"
+    >
+    </aava-button>
+  </div>
+</ng-container>
+
+<!-- TYPE: pageinfofilled -->
+<ng-container *ngIf="type === 'pageinfofilled'">
+  <div class="pagination" [class.compact]="compact" [ngStyle]="customStyles">
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-left"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      variant="secondary"
+      (userClick)="prevPage()"
+      [disabled]="currentPage === 1"
+      [size]="size"
+      [pill]="true"
+    >
+    </aava-button>
+
+    <div class="page-label" [style.font-size]="getFontSize()">
+      {{currentPage}}
+      / {{ totalPages }}
+    </div>
+
+    <aava-button
+      *ngIf="showNavigationButtons"
+      iconName="chevron-right"
+      iconPosition="only"
+      [iconColor]="iconColor"
+      variant="secondary"
+      (userClick)="nextPage()"
+      [disabled]="currentPage === totalPages"
+      [size]="size"
+      [pill]="true"
+    >
+    </aava-button>
+  </div>
+</ng-container>

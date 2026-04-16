@@ -1,0 +1,160 @@
+<div (clickOutside)="onClickOutside()" [class]="wrapperClasses" [ngClass]="requiredError ? 'ava-textbox--error' : ''"
+  [attr.id]="id ? 'aava-textbox-' + id : null">
+  <!-- Label -->
+  <label *ngIf="label" [for]="inputId" class="ava-textbox__label" [class.ava-textbox__label--required]="required">
+    {{ label }}
+    <span *ngIf="required" class="ava-textbox__required" aria-hidden="true">*</span>
+  </label>
+
+  <!-- Input Container (only for non-OTP) -->
+  <div class="ava-textbox__container" [ngStyle]="computedStyles">
+    <!-- Phone variant country prefix (start position) -->
+    <div *ngIf="hasKindLabel && labelPosition === 'start'" class="ava-label-prefix ava-textbox__label-prefix--start">
+      <span *ngIf="inputKindLabel" class="ava-textbox__label-name">{{
+        inputKindLabel
+        }}</span>
+      <aava-icon *ngIf="isPhone || isCurrency" iconName="chevron-down" [iconSize]="labelIconSize"
+        class="ava-textbox__label-arrow">
+      </aava-icon>
+      <aava-icon *ngIf="isEmail" iconName="mail" [iconSize]="labelIconSize" class="ava-textbox__label-email">
+      </aava-icon>
+      <aava-icon *ngIf="isPassword" iconName="eye-off" [iconSize]="labelIconSize" class="ava-textbox__label-password">
+      </aava-icon>
+    </div>
+
+    <!-- Prefix Slot -->
+    <div class="ava-textbox__prefix" #prefixContainer [class.ava-textbox__prefix--dropdown]="prefixDropdown">
+      <!-- Prefix Dropdown -->
+      <div *ngIf="prefixDropdown" class="ava-textbox__prefix-dropdown" (click)="togglePrefixDropdown($event)"
+        (keydown.enter)="togglePrefixDropdown($event)" (keydown.space)="togglePrefixDropdown($event)" tabindex="0"
+        role="button" [attr.aria-expanded]="isPrefixDropdownOpen" [attr.aria-label]="'Select prefix option'">
+        <span class="ava-textbox__dropdown-label">{{
+          selectedPrefixOption?.label || "Select"
+          }}</span>
+        <aava-icon iconName="chevron-down" [iconSize]="16" class="ava-textbox__dropdown-icon"
+          [class.ava-textbox__dropdown-icon--open]="isPrefixDropdownOpen"></aava-icon>
+      </div>
+
+      <!-- Regular Prefix Content -->
+      <ng-content select="[slot=prefix]"></ng-content>
+    </div>
+
+    <!-- Start Projected Icons (before input/textarea) -->
+    <div class="ava-textbox__icons ava-textbox__icons--start" #iconStartContainer (click)="onIconStartClick($event)"
+      (keydown)="onIconKeydown($event, 'start')" tabindex="0" role="button" [attr.aria-label]="'Icon action'">
+      <ng-content select="[slot=icon-start]"></ng-content>
+    </div>
+
+    <!-- Icon Separator (start) -->
+    <div *ngIf="iconSeparator && hasProjectedStartIcon"
+      class="ava-textbox__icon-separator ava-textbox__icon-separator--start"></div>
+
+
+    <!-- Regular Input Field (masked only when mask provided) -->
+    <ng-container *ngIf="mask; else plainInput">
+      <input #maskedInput [id]="inputId" [name]="name" [type]="type" [placeholder]="placeholder" [ngModel]="value"
+        (ngModelChange)="onInputModelChange()" [disabled]="disabled" [readonly]="readonly" [required]="required"
+        [attr.maxlength]="maxlength" [attr.minlength]="minlength" [autocomplete]="autocomplete" [class]="inputClasses"
+        [attr.aria-invalid]="hasError" [attr.aria-labelledby]="ariaLabelledby || null"
+        [attr.aria-describedby]="ariaDescribedBy || null" (input)="onInput($event)" (focus)="onFocus($event)"
+        (blur)="onBlur($event)" (change)="onChange_($event)" [mask]="mask" [prefix]="maskPrefix ?? ''"
+        [suffix]="maskSuffix ?? ''" [dropSpecialCharacters]="maskDropSpecialCharacters ?? null"
+        [showMaskTyped]="maskShowMaskTyped ?? null" [thousandSeparator]="maskThousandSeparator ?? ''"
+        [decimalMarker]="maskDecimalMarker ?? '.'" [patterns]="$any(maskPatterns)" [validation]="maskValidation ?? null"
+        [allowNegativeNumbers]="maskAllowNegativeNumbers ?? null" [leadZeroDateTime]="maskLeadZeroDateTime ?? null" />
+    </ng-container>
+    <ng-template #plainInput>
+      <input #plainInput [id]="inputId" [name]="name" [type]="type" [placeholder]="placeholder" [value]="value"
+        [disabled]="disabled" [readonly]="readonly" [required]="required" [attr.maxlength]="maxlength"
+        [attr.minlength]="minlength" [autocomplete]="autocomplete" [class]="inputClasses" [ngStyle]="customStyles"
+        [attr.aria-invalid]="hasError" [attr.aria-labelledby]="ariaLabelledby || null"
+        [attr.aria-describedby]="ariaDescribedBy || null" (input)="onInput($event)" (focus)="onFocus($event)"
+        (blur)="onBlur($event)" (change)="onChange_($event)" />
+    </ng-template>
+
+    <!-- Icon Separator (end) -->
+    <div *ngIf="iconSeparator && hasProjectedEndIcon"
+      class="ava-textbox__icon-separator ava-textbox__icon-separator--end"></div>
+
+    <!-- End Projected Icons (before input/textarea) -->
+    <div class="ava-textbox__icons ava-textbox__icons--end" #iconEndContainer (click)="onIconEndClick($event)"
+      (keydown)="onIconKeydown($event, 'end')"  role="button" [attr.aria-label]="'Icon action'">
+      <ng-content select="[slot=icon-end]"></ng-content>
+    </div>
+
+    <!-- Suffix Slot -->
+    <div class="ava-textbox__suffix" #suffixContainer>
+      <!-- Suffix Dropdown -->
+      <div *ngIf="suffixDropdown" class="ava-textbox__suffix-dropdown" (click)="toggleSuffixDropdown($event)"
+        (keydown.enter)="toggleSuffixDropdown($event)" (keydown.space)="toggleSuffixDropdown($event)" tabindex="0"
+        role="button" [attr.aria-expanded]="isSuffixDropdownOpen" [attr.aria-label]="'Select suffix option'">
+        <span class="ava-textbox__dropdown-label">{{
+          selectedSuffixOption?.label || "Select"
+          }}</span>
+        <aava-icon iconName="chevron-down" [iconSize]="16" class="ava-textbox__dropdown-icon"
+          [class.ava-textbox__dropdown-icon--open]="isSuffixDropdownOpen"></aava-icon>
+
+        <!-- Dropdown Menu -->
+      </div>
+
+      <!-- Regular Suffix Content -->
+      <div class="suffix-wrapper">
+        <ng-content select="[slot=suffix]"></ng-content>
+      </div>
+    </div>
+
+    <!-- Phone variant country prefix (end position) -->
+    <div *ngIf="hasKindLabel && labelPosition === 'end'"
+      class="ava-label-prefix ava-textbox__label-prefix ava-textbox__label-prefix--end"
+      (click)="togglePasswordVisibility()" tabindex="0" role="button" (keydown.enter)="togglePasswordVisibility()"
+      (keydown.space)="togglePasswordVisibility()">
+      <span class="ava-textbox__label-name">{{ inputKindLabel }} </span>
+      <aava-icon *ngIf="isPhone || isCurrency" iconName="chevron-down" [iconSize]="labelIconSize"
+        class="ava-textbox__label-arrow">
+      </aava-icon>
+      <aava-icon *ngIf="isPassword" [iconName]="showPassword ? 'eye' : 'eye-off'" [iconSize]="labelIconSize"
+        class="ava-textbox__label-password">
+      </aava-icon>
+    </div>
+  </div>
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu-wrapper">
+    <div *ngIf="isPrefixDropdownOpen" class="ava-textbox__dropdown-menu" (click)="$event.stopPropagation()"
+      (keydown)="$event.stopPropagation()" tabindex="-1" role="listbox">
+      <div *ngFor="let option of prefixDropdownOptions" class="ava-textbox__dropdown-option"
+        [class.ava-textbox__dropdown-option--selected]="
+          selectedPrefixOption?.value === option.value
+        " (click)="selectPrefixOption(option, $event)" (keydown.enter)="selectPrefixOption(option, $event)"
+        (keydown.space)="selectPrefixOption(option, $event)" tabindex="0" role="option"
+        [attr.aria-selected]="selectedPrefixOption?.value === option.value">
+        {{ option.label }}
+      </div>
+    </div>
+    <div *ngIf="isSuffixDropdownOpen" class="ava-textbox__dropdown-menu ava-textbox__dropdown-menu--suffix"
+      (click)="$event.stopPropagation()" (keydown)="$event.stopPropagation()" tabindex="-1" role="listbox">
+      <div *ngFor="let option of suffixDropdownOptions" class="ava-textbox__dropdown-option"
+        [class.ava-textbox__dropdown-option--selected]="
+          selectedSuffixOption?.value === option.value
+        " (click)="selectSuffixOption(option, $event)" (keydown.enter)="selectSuffixOption(option, $event)"
+        (keydown.space)="selectSuffixOption(option, $event)" tabindex="0" role="option"
+        [attr.aria-selected]="selectedSuffixOption?.value === option.value">
+        {{ option.label }}
+      </div>
+    </div>
+    <ng-content select="[slot=dropdown]"></ng-content>
+  </div>
+
+  <!-- Error Message -->
+  <div *ngIf="hasError" [id]="errorId" class="ava-textbox__error" role="alert" aria-live="polite">
+    <aava-icon iconName="alert-circle" [iconSize]="16" class="ava-textbox__error-icon" [cursor]="false"
+      [disabled]="false" [iconColor]="'red'"></aava-icon>
+    <span class="ava-textbox__error-text">{{ error }}</span>
+  </div>
+
+  <!-- Helper Message -->
+  <div *ngIf="hasHelper" [id]="helperId" class="ava-textbox__helper">
+    <aava-icon iconName="info" [iconSize]="14" class="ava-textbox__helper-icon" [cursor]="false"
+      [disabled]="false"></aava-icon>
+    <span class="ava-textbox__helper-text">{{ helper }}</span>
+  </div>
+</div>

@@ -1,0 +1,10 @@
+<div class="tree-container">
+  <aava-tree
+    [data]="treeDataWithSnackbar"
+    selectionMode="single"
+    [selectedNodes]="selectedNodes"
+    (selectionChange)="onSelectionChange($event)"
+    (nodeClick)="onNodeClickWithSnackbar($event)"
+  >
+  </aava-tree>
+</div>

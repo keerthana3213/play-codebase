@@ -1,0 +1,74 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    margin: auto;
+    background: white;
+}
+
+.section {
+    padding: 30px;
+    text-align: center;
+    font-size: 1.2rem;
+    background-color: #fff;
+    position: relative;
+
+    label {
+        margin-bottom: 10px;
+        float: left;
+        font-weight: bold;
+
+    }
+
+    .demo-container {
+        padding: 2rem;
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+
+
+
+
+    .time-picker-wrapper {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 1.5rem;
+        padding: 1rem;
+    }
+
+
+
+}
+
+.section:not(:last-of-type) aava-time-picker {
+    display: block;
+    width: 208px;
+    margin: 0 auto;
+}
+
+.section:not(:last-child)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 2%;
+    width: 93%;
+    height: 1px;
+    background-color: #ccc;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 600px) {
+    .block {
+        font-size: 1rem;
+        padding: 20px;
+    }
+}

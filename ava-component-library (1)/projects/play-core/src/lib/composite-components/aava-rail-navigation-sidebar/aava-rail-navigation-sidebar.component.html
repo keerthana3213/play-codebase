@@ -1,0 +1,166 @@
+<div class="sidebar-container" [ngStyle]="computedStyles">
+  <!-- Top Section: Header and Main Menu -->
+  <div class="sidebar-top">
+    <!-- Header Section: Fixed Icon -->
+    <div class="sidebar-section sidebar-header" *ngIf="config.headerIcon">
+      <div class="header-icon-item" [class.disabled]="config.headerIcon.isDisabled" (click)="onHeaderIconClick()"
+        (keydown.enter)="onHeaderIconClick()" (keydown.space)="onHeaderIconClick()"
+     tabindex="0" role="button">
+        <div class="header-icon">
+          <aava-icon [iconName]="
+              formatIconName(
+                config.headerIcon.iconName,
+                config.headerIcon.iconType
+              )
+            " [iconSize]="config.headerIcon.iconSize || 60" [iconColor]="defaultIconColor"></aava-icon>
+        </div>
+        <span class="header-label" *ngIf="config.headerIcon.label">{{
+          config.headerIcon.label
+          }}</span>
+      </div>
+    </div>
+
+    <!-- Main Navigation Menu -->
+    <div class="sidebar-section sidebar-middle">
+      <nav class="navigation-menu">
+        <div class="menu-item" *ngFor="let item of config.menuItems" [attr.data-item-id]="item.id"
+          [class.disabled]="item.isDisabled" [class.selected]="item.isSelected" (click)="onMenuItemClick(item, $event)"
+          (keydown.enter)="onMenuItemClick(item, $event)" (keydown.space)="onMenuItemClick(item, $event)"
+          [tooltipTitle]="item.tooltip || ''" tooltipPosition="right" tabindex="0" role="button">
+          <div class="menu-icon" [class.selected]="item.isSelected">
+            <aava-icon [iconName]="getMenuItemIconName(item)" [iconSize]="20"
+              [iconColor]="item.isSelected ? selectedIconColor : defaultIconColor"></aava-icon>
+          </div>
+          <span class="menu-label">{{ item.label }}</span>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <!-- Bottom Section: Sub-Menu Items, Secondary Avatar and Profile -->
+  <div class="sidebar-section sidebar-bottom">
+    <!-- Sub-Menu Items -->
+    <div class="sub-menu-items" *ngIf="config.subMenuItems?.length">
+      <div class="sub-menu-item" *ngFor="let item of config.subMenuItems" [class.disabled]="item.isDisabled"
+        (click)="onSubMenuItemClick(item)" (keydown.enter)="onSubMenuItemClick(item)"
+        (keydown.space)="onSubMenuItemClick(item)" [tooltipTitle]="item.tooltip || ''" tooltipPosition="right"
+       role="button" >
+        <div class="sub-menu-icon" [class.selected]="item.isSelected" tabindex="0"  >
+          <aava-icon [iconName]="formatIconName(item.iconName, item.iconType)" [iconSize]="18"
+            [iconColor]="item.isSelected ? selectedIconColor : defaultIconColor"></aava-icon>
+        </div>
+        <span class="sub-menu-label">{{ item.label }}</span>
+      </div>
+    </div>
+
+    <!-- Secondary Avatar (above profile) -->
+    <aava-avatars class="secondary-avatar" [class.disabled]="config.secondaryAvatar.isDisabled" size="sm" shape="pill"
+      [imageUrl]="safeSecondaryAvatar.imageUrl || ''" [initials]="safeSecondaryAvatar.initials || ''"
+      [initialsBackground]="safeSecondaryAvatar.initialsBackground || ''"
+      [initialsColor]="safeSecondaryAvatar.initialsColor || ''" (click)="onSecondaryAvatarClick()"
+      (keydown.enter)="onSecondaryAvatarClick()" (keydown.space)="onSecondaryAvatarClick()"
+      [tooltipTitle]="config.secondaryAvatar.tooltip || ''" tooltipPosition="right" tabindex="0" role="button"
+      *ngIf="config.secondaryAvatar"></aava-avatars>
+
+    <!-- Profile Section (Avatar + Menu) -->
+    <div class="profile-section">
+      <!-- Profile Menu (when expanded) -->
+      <div *ngIf="showProfileMenu && config.profile?.profileMenu?.length" class="profile-menu-expanded">
+        <div class="profile-menu-items">
+          <div *ngFor="let item of config.profile?.profileMenu" class="profile-menu-item-container">
+            <!-- Submenu items (slide up above the trigger) -->
+            <div *ngIf="
+                item.isToggle &&
+                item.subMenuItems?.length &&
+                isToggleItemOpen(item.id)
+              " class="profile-submenu-slideup">
+              <div *ngFor="let subItem of getAvailableSubMenuItems(item)" class="profile-submenu-item"
+                [class.disabled]="subItem.isDisabled" (click)="onProfileSubMenuItemClick(item, subItem)"
+                (keydown.enter)="onProfileSubMenuItemClick(item, subItem)"
+                (keydown.space)="onProfileSubMenuItemClick(item, subItem)" [tooltipTitle]="subItem.tooltip || ''"
+                tooltipPosition="right" tabindex="0" role="button">
+                <div class="profile-submenu-icon">
+                  <aava-icon [iconName]="
+                      formatIconName(subItem.iconName, subItem.iconType)
+                    " [iconSize]="18" iconColor="var(--color-text-primary)"></aava-icon>
+                </div>
+                <span class="profile-submenu-label">{{ subItem.label }}</span>
+              </div>
+            </div>
+
+            <!-- Main menu item (trigger at bottom) -->
+            <div class="profile-menu-item" [class.destructive]="item.isDestructive" [class.disabled]="item.isDisabled"
+              [class.toggle-open]="item.isToggle && isToggleItemOpen(item.id)"
+              (click)="onProfileMenuItemClick(item, $event)" (keydown.enter)="onProfileMenuItemClick(item, $event)"
+              (keydown.space)="onProfileMenuItemClick(item, $event)" [tooltipTitle]="item.tooltip || ''"
+              tooltipPosition="right" tabindex="0" role="button">
+              <div class="profile-menu-icon">
+                <aava-icon [iconName]="formatIconName(item.iconName, item.iconType)" [iconSize]="18" [iconColor]="
+                    item.isDestructive ? '#dc3545' : 'var(--color-text-primary)'
+                  "></aava-icon>
+              </div>
+              <span class="profile-menu-label">{{ item.label }}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Profile Avatar -->
+      <aava-avatars class="profile-avatar" [class.disabled]="config.profile?.isDisabled" [size]="profileAvatarSize"
+        shape="pill" [imageUrl]="safeProfile.imageUrl || ''" [initials]="safeProfile.initials || ''"
+        [initialsBackground]="safeProfile.initialsBackground || ''" [initialsColor]="safeProfile.initialsColor || ''"
+        (click)="onProfileClick()" (keydown.enter)="onProfileClick()" (keydown.space)="onProfileClick()"
+        [tooltipTitle]="config.profile?.tooltip || ''" tooltipPosition="right" tabindex="0"
+        role="button"></aava-avatars>
+    </div>
+  </div>
+</div>
+
+<!-- Navigation Cards -->
+<aava-navigation-cards [config]="studioConfig" [position]="studioPosition" [isVisible]="isStudioVisible"
+  (cardClick)="onStudioCardClick($event)" (closeRequested)="onCardsCloseRequested()">
+</aava-navigation-cards>
+
+<!-- Secondary Avatar Flyout Container (outside sidebar) -->
+<div *ngIf="showSecondaryAvatarFlyout" class="secondary-avatar-flyout-container">
+  <div class="secondary-avatar-flyout-content">
+    <div class="secondary-avatar-flyout-header">
+      <aava-icon [iconName]="safeFlyoutConfig.iconName || 'alert-triangle'" [iconSize]="safeFlyoutConfig.iconSize || 16"
+        [iconColor]="safeFlyoutConfig.iconColor || '#f59e0b'"></aava-icon>
+      <h3 class="secondary-avatar-flyout-title">{{ safeFlyoutConfig.title }}</h3>
+    </div>
+    <div class="secondary-avatar-flyout-body">
+      <p class="secondary-avatar-flyout-description">{{ safeFlyoutConfig.description }}</p>
+      <p class="secondary-avatar-flyout-details">
+        {{ safeFlyoutConfig.details }}
+      </p>
+      <p class="secondary-avatar-flyout-collaboration">
+        {{ safeFlyoutConfig.collaboration }}
+      </p>
+    </div>
+    <div class="secondary-avatar-flyout-actions">
+      <aava-button class="secondary-avatar-change-btn" [variant]="safeFlyoutConfig.buttonVariant || 'primary'"
+        [size]="safeFlyoutConfig.buttonSize || 'xs'" width="100%"
+        [label]="safeFlyoutConfig.buttonLabel || 'Change Realm'" (userClick)="onSecondaryAvatarChangeClick()"
+        (keydown.enter)="onSecondaryAvatarChangeClick()" (keydown.space)="onSecondaryAvatarChangeClick()">
+      </aava-button>
+    </div>
+  </div>
+</div>
+
+<!-- Language Flyout Container (outside sidebar) -->
+<div *ngIf="showLanguageFlyout" class="language-flyout-container">
+  <aava-select [showSearch]="true" [expanded]="true" size="md" label="Select Language" placeholder="Select language"
+    (selectionChange)="onLanguageSelectValue($event)" [ngClass]="'language-selector'">
+    <aava-select-option *ngFor="let item of languageMenuItems" [value]="item.id" [selected]="!!item.isSelected">
+      <div class="language-option-row">
+        <div class="option-label">
+          <aava-icon [iconName]="item.iconName" [iconSize]="16"></aava-icon>
+          <span>{{ item.label }}</span>
+        </div>
+        <aava-icon *ngIf="item.isSelected" iconName="Check" [iconSize]="16" class="check-icon">
+        </aava-icon>
+      </div>
+    </aava-select-option>
+  </aava-select>
+</div>

@@ -1,0 +1,381 @@
+:host {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+}
+
+.tooltip-wrapper {
+  position: absolute;
+  opacity: 0;
+  z-index: 9999;
+  --arrow-top-position: 50%;
+  --arrow-left-position: 50%;
+  pointer-events: auto; // Ensure tooltip can receive mouse events
+
+  &.sm {
+    .tooltip-title-text {
+      font-size: var(--tooltip-title-sm-font-size);
+    }
+
+    .tooltip-description-text {
+      font-size: var(--tooltip-description-sm-font-size);
+    }
+  }
+
+  &.md {
+    .tooltip-title-text {
+      font-size: var(--tooltip-title-md-font-size);
+    }
+
+    .tooltip-description-text {
+      font-size: var(--tooltip-description-md-font-size);
+    }
+  }
+
+  &.lg {
+    .tooltip-title-text {
+      font-size: var(--tooltip-title-lg-font-size);
+    }
+
+    .tooltip-description-text {
+      font-size: var(--tooltip-description-lg-font-size);
+    }
+  }
+
+
+
+  .tooltip {
+    background: var(--tooltip-background);
+    color: var(--tooltip-text);
+    font-family: var(--tooltip-font);
+    padding: var(--tooltip-padding);
+    border-radius: var(--tooltip-border-radius);
+    white-space: nowrap;
+    //max-width: 300px;
+    opacity: 1;
+    z-index: var(--tooltip-z-index);
+    box-shadow: var(--tooltip-shadow);
+
+    .tooltip-title {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--tooltip-icon-gap);
+      // max-width: var(--tooltip-content-max-width);
+      margin-bottom: 4px;
+
+      .tooltip-icon {
+        flex-shrink: 0;
+        margin-top: 2px;
+      }
+
+      .tooltip-title-text {
+        color: var(--tooltip-text);
+        font-family: var(--tooltip-title-font-family);
+        font-size: var(--tooltip-title-font-size);
+        font-style: normal;
+        font-weight: var(--tooltip-title-font-weight);
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        line-height: 1.2;
+      }
+    }
+
+    .tooltip-description {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--tooltip-icon-gap);
+      //max-width: var(--tooltip-content-max-width);
+      margin-left: 0;
+      /* Default: no margin */
+
+      /* Only add margin when there's a title with icon (to align with title text) */
+      &.has-title-with-icon {
+        margin-left: calc(var(--tooltip-icon-size) + var(--tooltip-icon-gap));
+      }
+
+      /* When description has icon but no title, no margin needed */
+      &.has-icon-only {
+        margin-left: 0;
+      }
+
+      .tooltip-icon {
+        flex-shrink: 0;
+        margin-top: 0;
+        margin-left: 0;
+        /* Default: no margin */
+        align-self: flex-start;
+        line-height: 1;
+        vertical-align: top !important;
+
+        svg {
+          vertical-align: top !important;
+        }
+      }
+
+      /* Only pull icon back when there's a title with icon (to align with title icon) */
+      &.has-title-with-icon .tooltip-icon {
+        margin-left: calc(-1 * (var(--tooltip-icon-size) + var(--tooltip-icon-gap)));
+      }
+
+      .tooltip-description-text {
+        color: var(--tooltip-text);
+        font-family: var(--tooltip-title-font-family);
+        font-style: normal;
+        font-weight: var(--tooltip-description-font-weight);
+        line-height: 1.4;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+      }
+    }
+  }
+
+  &.top {
+    .tooltip {
+      transform-origin: bottom center;
+      transform: scaleY(0);
+      animation: tooltip-stretch-in-place 0.7s ease-out forwards;
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: var(--arrow-left-position, 50%);
+        border-style: solid;
+        z-index: 1;
+      }
+
+      &::after {
+        top: calc(100% - 1px);
+        border-width: 5px;
+        border-color: var(--tooltip-background) transparent transparent transparent;
+        z-index: 1;
+      }
+    }
+
+    // Apply transform only for center positioning (percentage values)
+    &.center {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    // Remove transform for start and end positions to place arrows at actual corners
+    &.start,
+    &.end {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: none;
+        }
+      }
+    }
+
+    // All arrow positioning is now handled dynamically via CSS custom properties
+
+
+
+  }
+
+  &.right {
+    .tooltip {
+      transform-origin: left center;
+      transform: scaleX(0);
+      animation: tooltip-stretch-in-place-left 0.7s ease-out forwards;
+
+      &::before,
+      &::after {
+        // content: "";
+        position: absolute;
+        top: var(--arrow-top-position, 50%) !important;
+        border-style: solid;
+        z-index: 1;
+      }
+
+
+      &::after {
+        content: "";
+        left: -9.6px;
+        border-width: 5px;
+        border-color: transparent var(--tooltip-background) transparent transparent;
+        z-index: 1;
+      }
+    }
+
+    // Apply transform only for center positioning (percentage values)
+    &.center {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    // Remove transform for start and end positions to place arrows at actual ends
+    &.start,
+    &.end {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: none;
+        }
+      }
+    }
+
+    // All arrow positioning is now handled dynamically via CSS custom properties
+
+
+  }
+
+  &.left {
+    .tooltip {
+      transform-origin: right center;
+      transform: scaleX(0);
+      animation: tooltip-stretch-in-place-left 0.7s ease-out forwards;
+
+      &::after {
+        content: "";
+        position: absolute;
+        top: var(--arrow-top-position, 50%) !important;
+        border-style: solid;
+        z-index: 1;
+      }
+
+
+      &::after {
+        right: -9px;
+        border-width: 5px;
+        border-color: transparent transparent transparent var(--tooltip-background);
+        z-index: 1;
+      }
+    }
+
+    // Apply transform only for center positioning (percentage values)
+    &.center {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: translateY(-50%);
+        }
+      }
+    }
+
+    // Remove transform for start and end positions to place arrows at actual ends
+    &.start,
+    &.end {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: none;
+        }
+      }
+    }
+
+    // All arrow positioning is now handled dynamically via CSS custom properties
+
+
+
+  }
+
+  &.bottom {
+    .tooltip {
+      transform-origin: bottom center;
+      transform: scaleY(0);
+      animation: tooltip-stretch-in-place 0.7s ease-out forwards;
+
+      &::after {
+        content: "";
+        left: var(--arrow-left-position, 50%);
+        position: absolute;
+        border-style: solid;
+        z-index: 1;
+      }
+
+      &::after {
+        top: -9.4px;
+        border-width: 5px;
+        border-color: transparent transparent var(--tooltip-background) transparent;
+      }
+    }
+
+    // Apply transform only for center positioning (percentage values)
+    &.center {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: translateX(-50%);
+        }
+      }
+    }
+
+    // Remove transform for start and end positions to place arrows at actual corners
+    &.start,
+    &.end {
+      .tooltip {
+
+        &::before,
+        &::after {
+          transform: none;
+        }
+      }
+    }
+
+    // All arrow positioning is now handled dynamically via CSS custom properties
+
+  }
+}
+
+
+@keyframes tooltip-stretch-in-place {
+  0% {
+    transform: scaleY(0);
+    opacity: 0;
+  }
+
+  30% {
+    transform: scaleY(1.2);
+    opacity: 0.5;
+  }
+
+  60% {
+    transform: scaleY(0.95);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scaleY(1);
+    opacity: 1;
+  }
+}
+
+@keyframes tooltip-stretch-in-place-left {
+  0% {
+    transform: scaleX(0);
+    opacity: 0;
+  }
+
+  30% {
+    transform: scaleX(1.2);
+    opacity: 0.5;
+  }
+
+  60% {
+    transform: scaleX(0.95);
+    opacity: 0.8;
+  }
+
+  100% {
+    transform: scaleX(1);
+    opacity: 1;
+  }
+}

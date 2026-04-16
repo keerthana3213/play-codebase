@@ -1,0 +1,82 @@
+<div
+  class="file-attach-pill-container"
+  [ngStyle]="customStyles"
+  (mouseenter)="onMouseEnter()"
+  (mouseleave)="onMouseLeave()"
+>
+  <button
+    class="file-attach-pill"
+    [class.expanded]="isHovered()"
+    (click)="toggleDropdown($event)"
+    [attr.aria-label]="mainText"
+    [attr.aria-expanded]="isDropdownOpen()"
+    [attr.aria-haspopup]="true"
+  >
+    <span class="icon-wrapper">
+      <!-- Use aava-icon library -->
+      <aava-icon 
+        *ngIf="!isCustomIcon()"
+        [iconName]="mainIcon" 
+        [iconColor]="iconColor"
+        [iconSize]="iconSize">
+      </aava-icon>
+      
+      <!-- Use custom icon (URL/path) -->
+      <img 
+        *ngIf="isCustomIcon()"
+        [src]="mainIcon" 
+        [alt]="mainText"
+        [style.width.px]="iconSize"
+        [style.height.px]="iconSize"
+        class="custom-icon">
+    </span>
+    
+    <span class="text" *ngIf="isHovered()">{{ mainText }}</span>
+    
+    <span class="arrow" *ngIf="isHovered()">
+      <aava-icon 
+        [iconName]="'Upload'" 
+        [iconColor]="iconColor"
+        [iconSize]="16">
+      </aava-icon>
+    </span>
+  </button>
+
+  <div
+    class="dropdown"
+    [class.show]="isDropdownOpen()"
+    role="menu"
+    (mouseenter)="onDropdownMouseEnter()"
+    (mouseleave)="onDropdownMouseLeave()"
+  >
+    <div
+      *ngFor="let option of options; trackBy: trackByOptionValue"
+      class="dropdown-item"
+      role="menuitem"
+      tabindex="0"
+      (click)="selectOption(option, $event)"
+      (keydown.enter)="selectOption(option, $event)"
+      (keydown.space)="selectOption(option, $event)"
+    >
+      <span class="dropdown-item-text">{{ option.name }}</span>
+      <span class="dropdown-item-icon">
+        <!-- Use aava-icon library -->
+        <aava-icon 
+          *ngIf="!isCustomIcon(option)"
+          [iconName]="option.icon" 
+          [iconColor]="iconColor"
+          [iconSize]="iconSize">
+        </aava-icon>
+        
+        <!-- Use custom icon (URL/path) -->
+        <img 
+          *ngIf="isCustomIcon(option)"
+          [src]="option.icon" 
+          [alt]="option.name"
+          [style.width.px]="iconSize"
+          [style.height.px]="iconSize"
+          class="custom-icon">
+      </span>
+    </div>
+  </div>
+</div>

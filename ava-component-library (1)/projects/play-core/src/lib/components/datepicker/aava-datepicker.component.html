@@ -1,0 +1,116 @@
+<div #datePicker class="date-picker" [attr.id]="id ? 'aava-datepicker-' + id : null" [ngStyle]="customStyles"
+  [class.open]="isOpen" [class.always-open]="alwaysOpen" [ngClass]="calendarSize">
+  <div class="input-wrapper" *ngIf="!hideInput">
+    <div *ngIf="disabled" class="disabled-wrapper" [ngClass]="'d-' + calendarSize"></div>
+    <div class="input-group-date">
+      <aava-textbox [label]="label" [placeholder]="dynamicPlaceholder" [size]="calendarSize" [(ngModel)]="date"
+        [required]="required" [mask]="maskDate" [disabled]="disabled" [error]="isOpen ? '' : error" [value]="'date'"
+        (blur)="dateBlur($event)">
+        <button slot="suffix" class="input-btn calendar-btn" (click)="toggle()" 
+          (mouseenter)="calendarIconHover = true" (mouseleave)="calendarIconHover = false"
+          [attr.aria-expanded]="isOpen" 
+          [attr.aria-label]="isOpen ? (isRange ? 'Close date range picker' : 'Close date picker') : (isRange ? 'Open date range picker' : 'Open date picker')"
+          [attr.aria-haspopup]="'dialog'"
+          [attr.aria-controls]="calendarPopupId"
+          #toggleButton>
+          <aava-icon iconName="CalendarDays" [iconSize]="16"
+            [iconColor]="calendarIconHover ? 'white' : 'grey'" [attr.aria-hidden]="'true'"></aava-icon>
+        </button>
+      </aava-textbox>
+
+    </div>
+  </div>
+
+  <!-- Calendar Popup -->
+  <div class="calendar-popup" [class.embedded]="alwaysOpen" [class.popup-top]="actualVerticalPosition === 'top'"
+    [class.popup-bottom]="actualVerticalPosition === 'bottom'" [class.popup-left]="actualHorizontalPosition === 'left'"
+    [class.popup-right]="actualHorizontalPosition === 'right'" *ngIf="isOpen" (click)="$event.stopPropagation()"
+    (keydown)="onCalendarKeyDown($event)" [ngClass]="CalendarClasses" role="dialog" [attr.id]="calendarPopupId"
+    [attr.aria-label]="isRange ? 'Date range picker' : 'Date picker'" [attr.aria-modal]="!alwaysOpen"
+    [attr.aria-live]="alwaysOpen ? 'polite' : null">
+    <!-- Navigation Header -->
+    <header class="calendar-header">
+      <div class="month-year-display" [attr.id]="monthYearLabelId">
+        <button class="month-selector" [class.selected]="selectedNavigation === 'month'"
+          (click)="selectNavigation('month')" (keydown)="onMonthYearKeyDown($event, 'month')"
+          [attr.aria-label]="'Select month: ' + monthNames[currentMonth]"
+          [attr.aria-pressed]="selectedNavigation === 'month'" tabindex="0">
+          {{ monthNames[currentMonth] }}
+        </button>
+        <button class="year-selector" [class.selected]="selectedNavigation === 'year'"
+          (click)="selectNavigation('year')" (keydown)="onMonthYearKeyDown($event, 'year')"
+          [attr.aria-label]="'Select year: ' + currentYear" [attr.aria-pressed]="selectedNavigation === 'year'"
+          tabindex="0">
+          {{ currentYear }}
+        </button>
+      </div>
+      <div class="nav-controls">
+        <button class="nav-btn" (click)="navigate(-1)" [attr.aria-label]="getNavLabel(-1)" [disabled]="!canNavigateLeft"
+          (mouseenter)="navBtnLeftHover = true" (mouseleave)="navBtnLeftHover = false">
+          <aava-icon iconName="ChevronLeft" [iconSize]="20"
+            [iconColor]="!canNavigateLeft ? '#ccc' : (navBtnLeftHover ? navIconHoverColor : navIconColor)"
+            [attr.aria-hidden]="'true'"></aava-icon>
+        </button>
+        <button class="nav-btn" (click)="navigate(1)" [attr.aria-label]="getNavLabel(1)" [disabled]="!canNavigateRight"
+          (mouseenter)="navBtnRightHover = true" (mouseleave)="navBtnRightHover = false">
+          <aava-icon iconName="ChevronRight" [iconSize]="20"
+            [iconColor]="!canNavigateRight ? '#ccc' : (navBtnRightHover ? navIconHoverColor : navIconColor)"
+            [attr.aria-hidden]="'true'"></aava-icon>
+        </button>
+      </div>
+    </header>
+    <div class="month-year-wrapper " [ngClass]="calendarSize" *ngIf="popupActive === 'month'" role="listbox" [attr.aria-label]="'Select month'">
+      <div class="content month-wrapper">
+        <button *ngFor="let month of monthNames; let i = index" 
+          [ngClass]="{ 'm-active': currentMonth === i }"
+          (click)="selectMonth(month)"
+          (keydown)="onMonthYearSelectKeyDown($event, 'month', month)"
+          [attr.aria-label]="'Select ' + month"
+          [attr.aria-selected]="currentMonth === i"
+          role="option"
+          tabindex="0">
+          {{ month | slice:0:3 }}
+        </button>
+      </div>
+    </div>
+
+    <div class="month-year-wrapper year-wrapper" [ngClass]="calendarSize" *ngIf="popupActive === 'year'" role="listbox" [attr.aria-label]="'Select year'">
+      <div class="content y4">
+        <button *ngFor="let year of years" 
+          [ngClass]="{ 'm-active': currentYear === year }" 
+          (click)="selectYear(year)"
+          (keydown)="onMonthYearSelectKeyDown($event, 'year', year.toString())"
+          [attr.aria-label]="'Select year ' + year"
+          [attr.aria-selected]="currentYear === year"
+          role="option"
+          tabindex="0">
+          {{ year }}
+        </button>
+      </div>
+    </div>
+
+    <!-- Calendar Grid -->
+    <div class="calendar-grid" *ngIf="popupActive === 'day'" [attr.aria-labelledby]="monthYearLabelId">
+      <div class="weekdays" role="row">
+        <span *ngFor="let day of weekDays" class="weekday" role="columnheader">{{ day }}</span>
+      </div>
+      <div class="days" role="grid" 
+        [attr.aria-activedescendant]="focusedDayIndex !== null ? (_uniqueId + '-day-' + focusedDayIndex) : null">
+        <button *ngFor="let day of calendarDays; trackBy: trackByDate; let i = index" class="day"
+          [ngClass]="getDayClasses(day) + (selectorShape === 'circle' ? ' circle-selector' : '')"
+          [attr.id]="_uniqueId + '-day-' + i"
+          [disabled]="day.isDisabled" [attr.aria-label]="getDayAriaLabel(day)" 
+          [attr.aria-selected]="day.isSelected"
+          [attr.aria-disabled]="day.isDisabled" 
+          [attr.aria-current]="day.isToday ? 'date' : null"
+          role="gridcell" (click)="selectDate(day.date)"
+          (keydown)="onDayKeyDown($event, day, i)" [attr.tabindex]="focusedDayIndex === i ? '0' : '-1'"
+          (mouseenter)="onDayHover(day.date)" (mouseleave)="onDayLeave()">
+          {{ day.date.getDate() }}
+        </button>
+      </div>
+    </div>
+
+  </div>
+
+</div>

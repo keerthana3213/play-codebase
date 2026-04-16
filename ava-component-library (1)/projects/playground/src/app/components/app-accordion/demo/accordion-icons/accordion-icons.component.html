@@ -1,0 +1,18 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="icon-grid">
+      <aava-accordion *ngFor="let config of iconConfigs" [iconClosed]="config.closed" [iconOpen]="config.open"
+        [iconPosition]="config.position" (click)="onAccordionToggle($event)" [expanded]="config.expanded ?? false">
+        <span header>{{ config.name }}</span>
+        <div content>
+          <p>{{ config.description }}</p>
+          <p>
+            This accordion uses <strong>{{ config.closed }}</strong> for closed
+            state and <strong>{{ config.open }}</strong> for open state,
+            positioned on the <strong>{{ config.position }}</strong>.
+          </p>
+        </div>
+      </aava-accordion>
+    </div>
+  </div>
+</div>

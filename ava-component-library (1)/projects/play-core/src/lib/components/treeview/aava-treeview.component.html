@@ -1,0 +1,55 @@
+<ul class="tree" [ngClass]="[size, 'icon-' + iconPosition]" *ngIf="nodes?.length" role="tree" [attr.id]="id ? 'aava-treeview-' + id : null"
+    [attr.aria-labelledby
+    [attr.aria-label]="'Tree View'" [ngStyle]="customStyles">
+    <ng-container *ngFor="let node of nodes">
+        <li [style.padding-left.px]="calculateIndent(node.level)" role="treeitem"
+            [attr.aria-expanded]="node.children?.length ? !!node.expanded : null"
+            [attr.aria-selected]="!!node.selected">
+
+            <div class="tree-node" [class.selected]="node.selected" (click)="selectNode(node)" [ngClass]="iconPosition"
+                tabindex="0" (keydown.enter)="selectNode(node)" (keydown)="handleKeyDown($event, node)">
+
+                <!-- LEFT ICON POSITION -->
+                <ng-container *ngIf="iconPosition === 'left'">
+                    <span class="toggle" *ngIf="node.children?.length"
+                        (click)="toggleExpand(node); $event.stopPropagation()" role="button"
+                        [attr.aria-label]="node.expanded ? 'Collapse ' + node.name : 'Expand ' + node.name"
+                        tabindex="-1">
+                        <aava-icon [iconSize]="getIconSize()"
+                            [iconName]="node.expanded ? 'chevron-down' : 'chevron-right'"></aava-icon>
+                    </span>
+
+                    <aava-icon [iconSize]="getIconSize()" *ngIf="node.icon"
+                        [iconName]="node.expanded && node.icon === 'folder' ? 'folder-open' : node.icon"
+                        aria-hidden="true">
+                    </aava-icon>
+
+                    <span class="label">{{ node.name }}</span>
+                </ng-container>
+
+                <!-- RIGHT ICON POSITION -->
+                <ng-container *ngIf="iconPosition === 'right'">
+                    <aava-icon [iconSize]="getIconSize()" *ngIf="node.icon"
+                        [iconName]="node.expanded && node.icon === 'folder' ? 'folder-open' : node.icon"
+                        aria-hidden="true">
+                    </aava-icon>
+
+                    <span class="label">{{ node.name }}</span>
+
+                    <span class="toggle" *ngIf="node.children?.length"
+                        (click)="toggleExpand(node); $event.stopPropagation()" role="button"
+                        [attr.aria-label]="node.expanded ? 'Collapse ' + node.name : 'Expand ' + node.name"
+                        tabindex="-1">
+                        <aava-icon [iconSize]="getIconSize()"
+                            [iconName]="node.expanded ? 'chevron-down' : 'chevron-right'"></aava-icon>
+                    </span>
+                </ng-container>
+            </div>
+
+            <!-- Recursive Tree -->
+            <aava-treeview *ngIf="node.expanded && node.children?.length" [nodes]="node.children || []" [size]="size"
+                [iconPosition]="iconPosition" [level]="(node.level ?? 0) + 1" (nodeSelect)="nodeSelect.emit($event)">
+            </aava-treeview>
+        </li>
+    </ng-container>
+</ul>

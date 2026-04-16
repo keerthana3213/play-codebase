@@ -1,0 +1,114 @@
+<div class="login-container" [class.theme-minimal]="config.theme === 'minimal'"
+  [class.theme-modern]="config.theme === 'modern'" [class.theme-professional]="config.theme === 'professional'"
+  [class.layout-centered]="config.layout === 'centered'" [class.layout-left-aligned]="config.layout === 'left-aligned'"
+  [class.layout-split]="config.layout === 'split'" [class.loading]="loading" [class.disabled]="disabled">
+  <aava-card>
+    <div header class="login-header">
+      <!-- Logo -->
+      <div *ngIf="config.showLogo && config.logo" class="logo-section">
+        <img [src]="config.logo" [alt]="config.title" class="logo" />
+      </div>
+
+      <!-- Title and Subtitle -->
+      <div class="header-content">
+        <h1 *ngIf="config.showTitle" class="login-title">
+          {{ config.title || "Welcome Back" }}
+        </h1>
+        <p *ngIf="config.showSubtitle" class="login-subtitle">
+          {{ config.subtitle || "Sign in to your account to continue" }}
+        </p>
+      </div>
+    </div>
+
+    <div content class="login-content">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+        <!-- Error Message -->
+        <div *ngIf="errorMessage" class="error-message" (click)="clearError()" (keydown.enter)="clearError()"
+          (keydown.space)="clearError()" tabindex="0" role="button" [attr.aria-label]="'Clear error message'">
+          <aava-icon iconName="alert-circle" [iconSize]="16" iconColor="#dc3545"></aava-icon>
+          <span>{{ errorMessage }}</span>
+          <aava-icon iconName="x" [iconSize]="14" iconColor="#dc3545" class="close-icon"></aava-icon>
+        </div>
+
+        <!-- Email Field -->
+        <div class="form-field">
+          <aava-textbox label="Email" type="email" [placeholder]="config.emailPlaceholder || 'Enter your email'"
+            [value]="email?.value || ''" [required]="true" [error]="submitted ? emailError : ''"
+            [disabled]="loading || disabled" (textboxChange)="onEmailChange($event)"
+            (blur)="email?.markAsTouched()">
+          </aava-textbox>
+        </div>
+
+        <!-- Password Field -->
+        <div class="form-field">
+          <aava-textbox label="Password" [type]="showPassword ? 'text' : 'password'"
+            [placeholder]="config.passwordPlaceholder || 'Enter your password'" [value]="password?.value || ''"
+            [required]="true" [error]="submitted ? passwordError : ''" [disabled]="loading || disabled"
+            [minlength]="config.validationRules?.minPasswordLength || 6" (textboxChange)="onPasswordChange($event)"
+            (blur)="password?.markAsTouched()">
+          </aava-textbox>
+
+          <!-- Password Toggle -->
+          <button *ngIf="config.showPasswordToggle" type="button" class="password-toggle"
+            (click)="togglePasswordVisibility()" [disabled]="loading || disabled"
+            [attr.aria-label]="showPassword ? 'Hide password' : 'Show password'">
+            <aava-icon [iconName]="showPassword ? 'eye-off' : 'eye'" [iconSize]="16" iconColor="#6c757d"></aava-icon>
+          </button>
+        </div>
+
+        <!-- Remember Me & Forgot Password -->
+        <div class="form-options">
+          <div *ngIf="config.showRememberMe" class="remember-me">
+            <aava-checkbox [label]="config.rememberMeLabel || 'Remember me'"
+              (checkboxChange)="onRememberMeChange($event)">
+            </aava-checkbox>
+          </div>
+
+          <div *ngIf="config.showForgotPassword" class="forgot-password">
+            <aava-link [label]="config.forgotPasswordLabel || 'Forgot password?'" (linkClick)="onForgotPassword()">
+            </aava-link>
+          </div>
+        </div>
+
+        <!-- Login Button -->
+        <div class="form-actions">
+          <aava-button type="submit" variant="primary" size="lg" [label]="
+              loading
+                ? config.loadingText || 'Signing in...'
+                : config.loginButtonLabel || 'Sign In'
+            " [disabled]="!isFormValid" iconName="log-in" [iconSize]="16" class="login-button">
+          </aava-button>
+        </div>
+      </form>
+
+      <!-- Divider -->
+      <aava-dividers *ngIf="
+          config.showDivider &&
+          config.showSocialLogin &&
+          config.socialProviders?.length
+        " variant="dashed" color="#e9ecef" class="login-divider">
+      </aava-dividers>
+
+      <!-- Social Login -->
+      <div *ngIf="config.showSocialLogin && config.socialProviders?.length" class="social-login">
+        <p class="social-login-text">Or continue with</p>
+        <div class="social-providers">
+          <aava-button *ngFor="
+              let provider of config.socialProviders;
+              trackBy: trackByProvider
+            " (click)="onSocialLogin(provider)" variant="secondary" size="md" [label]="provider.name"
+            [iconName]="provider.icon" [iconSize]="16" [disabled]="loading || disabled"
+            [style.--provider-color]="provider.color" class="social-provider-button">
+          </aava-button>
+        </div>
+      </div>
+
+      <!-- Sign Up Link -->
+      <div *ngIf="config.showSignUp" class="sign-up-section">
+        <aava-link [label]="config.signUpLabel || 'Don\'t have an account? Sign up'" (linkClick)="onSignUp()"
+          class="sign-up-link">
+        </aava-link>
+      </div>
+    </div>
+  </aava-card>
+</div>

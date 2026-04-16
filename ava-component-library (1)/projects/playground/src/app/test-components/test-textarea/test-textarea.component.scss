@@ -1,0 +1,32 @@
+.t-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.t-container h2 {
+  margin: 0 0 20px 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 600;
+}
+
+.each {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.each p {
+  font-weight: bold;
+  margin: 0 0 8px 0;
+  font-size: 16px;
+  color: #333;
+}
+
+.each > div {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}

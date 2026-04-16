@@ -1,0 +1,71 @@
+<div class="row g-3 mb-4 d-flex container-fluid  align-items-stretch">
+    <!-- Problem Cards -->
+    <div class="col-12 col-md-6 p-1">
+        <div class="d-flex flex-column gap-3">
+            <!-- Cards with data -->
+            <div>
+                <aava-product-card [applyHeaderPadding]="false" [applyBodyPadding]="false"  cardClass="understanding-card h-100">
+                    <!-- Header Content -->
+                    <div ava-card-header-content class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-icon d-flex align-items-center justify-content-center">
+                                <img [src]="problemIcon" alt="card-icon" class="icon-img">
+                            </div>
+                            <h3 class="card-title mb-0">Problem</h3>
+                        </div>
+
+                        <!-- <aava-icon slot="icon-start" iconName="" iconColor="#000"></aava-icon> -->
+
+                    </div>
+                    <!-- Body Content -->
+                    <div class="card-body-content">
+                        <div class="line-list">
+                            <div class="line-item py-1">
+                                <ul class="p-2">
+                                    <li> App development and maintenance</li>
+                                    <li>Cloud storage (for all those dreamy naps)</li>
+                                    <li>Marketing (especially targeting tired people)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aava-product-card>
+            </div>
+        </div>
+    </div>
+    <!-- Solution Cards -->
+    <div class="col-12 col-md-6 p-1">
+        <div class="d-flex flex-column gap-3">
+            <!-- Cards with data -->
+            <div>
+                <aava-product-card [applyHeaderPadding]="true" [applyBodyPadding]="true" cardClass="understanding-card h-100">
+                    <!-- Header Content -->
+                    <div ava-card-header-content class="d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-2">
+                            <div class="card-icon d-flex align-items-center justify-content-center">
+                                <img [src]="problemIcon" alt="card-icon" class="icon-img">
+                            </div>
+                            <h3 class="card-title mb-0">Solution</h3>
+                        </div>
+
+                        <!-- <aava-icon slot="icon-start" iconName="ellipsis-vertical" iconColor="#000"></aava-icon> -->
+
+                    </div>
+
+                    <!-- Body Content -->
+                    <div class="card-body-content">
+                        <div class="line-list">
+                            <div class="line-item py-1">
+                                <ul class="p-2">
+                                    <li>App development and maintenance</li>
+                                    <li>Cloud storage (for all those dreamy naps)</li>
+                                    <li>Marketing (especially targeting tired people)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </aava-product-card>
+            </div>
+        </div>
+    </div>
+</div>

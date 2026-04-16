@@ -1,0 +1,99 @@
+<div class="t-container">
+  <div class="con">
+    <div class="col-12 col-sm-auto">
+      <aava-otp label="XL" variant="default" size="xl" [length]="6"></aava-otp>
+      <aava-otp label="XL" variant="success" size="xl" [length]="6"></aava-otp>
+      <aava-otp
+        label="XL"
+        variant="error"
+        size="xl"
+        [length]="6"
+        error="Error message comes here"
+      ></aava-otp>
+
+      <aava-otp label="XL" variant="default" size="xl" [disabled]="true" [length]="6"></aava-otp>
+
+
+    </div>
+  </div>
+
+  <div class="con">
+    <div class="col-12 col-sm-auto">
+    <aava-otp label="LG" variant="default" size="lg" [length]="6"></aava-otp>
+      <aava-otp label="LG" variant="success" size="lg" [length]="6"></aava-otp>
+      <aava-otp
+        label="LG"
+        variant="error"
+        size="lg"
+        [length]="6"
+        error="Error message comes here"
+      ></aava-otp>
+            <aava-otp label="XL" variant="default" size="lg" [disabled]="true" [length]="6"></aava-otp>
+
+    </div>
+  </div>
+
+  <div class="con">
+    <div class="col-12 col-sm-auto">
+     <aava-otp label="MD" variant="default" size="md" [length]="6"></aava-otp>
+      <aava-otp label="MD" variant="success" size="md" [length]="6"></aava-otp>
+      <aava-otp
+        label="MD"
+        variant="error"
+        size="md"
+        [length]="6"
+        error="Error message comes here"
+      ></aava-otp>
+            <aava-otp label="MD" variant="default" size="md" [disabled]="true" [length]="6"></aava-otp>
+
+    </div>
+  </div>
+
+  <div class="con">
+    <div class="col-12 col-sm-auto">
+      <aava-otp label="SM" variant="default" size="sm" [length]="6"></aava-otp>
+      <aava-otp label="SM" variant="success" size="sm" [length]="6"></aava-otp>
+      <aava-otp
+        label="SM"
+        variant="error"
+        size="sm"
+        [length]="6"
+        error="Error message comes here"
+      ></aava-otp>
+            <aava-otp label="SM" variant="default" size="sm" [disabled]="true" [length]="6"></aava-otp>
+
+    </div>
+  </div>
+
+    <div class="con">
+    <div class="col-12 col-sm-auto">
+      <aava-otp label="XS" variant="default" size="xs" [length]="6"></aava-otp>
+      <aava-otp label="XS" variant="success" size="xs" [length]="6"></aava-otp>
+      <aava-otp
+        label="XS"
+        variant="error"
+        size="xs"
+        [length]="6"
+        error="Error message comes here"
+      ></aava-otp>
+      <aava-otp label="XS" variant="default" size="xs" [disabled]="true" [length]="6"></aava-otp>
+
+    </div>
+  </div>
+
+  <!-- Auto-Disable Demo -->
+  <div class="con">
+    <div class="col-12 col-sm-auto">
+      <aava-otp
+        #autoDisableOtp
+        label="Auto-Disable OTP"
+        variant="default"
+        size="md"
+        [length]="6"
+        [disabled]="isAutoDisableOtpDisabled"
+        (complete)="onOtpComplete($event, 'auto-disable')"
+        helper="Will auto-disable when completed"
+      ></aava-otp>
+    </div>
+  </div>
+</div>

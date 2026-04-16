@@ -1,0 +1,45 @@
+<div class="animations-demo">
+  <div class="demo-header">
+    <h2>Animations</h2>
+    <p>
+      Choose between wave and pulse animations for different loading effects.
+    </p>
+  </div>
+
+  <div class="demo-content">
+    <div class="animations-grid">
+      <div *ngFor="let config of animationConfigs" class="animation-item">
+        <div class="animation-preview">
+          <aava-skeleton [width]="config.width" [height]="config.height" [shape]="config.shape"
+            [animation]="config.animation"></aava-skeleton>
+        </div>
+        <div class="animation-info">
+          <h4>{{ config.animation | titlecase }}</h4>
+          <p>{{ config.description }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-info">
+    <h3>Animation Types</h3>
+    <ul>
+      <li>
+        <strong>Wave:</strong> Smooth shimmer effect that moves across the
+        skeleton
+      </li>
+      <li>
+        <strong>Pulse:</strong> Gentle fade in/out effect for subtle loading
+        states
+      </li>
+    </ul>
+
+    <h3>Code Example</h3>
+    <pre><code>&lt;ava-skeleton
+  width="200px"
+  height="20px"
+  shape="rectangle"
+  animation="wave"
+&gt;&lt;/ava-skeleton&gt;</code></pre>
+  </div>
+</div>

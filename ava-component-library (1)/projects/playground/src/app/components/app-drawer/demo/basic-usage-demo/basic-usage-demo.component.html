@@ -1,0 +1,39 @@
+<div class="basic-usage-demo">
+  <div class="demo-content">
+    <aava-button label="Open Drawer" variant="primary" (click)="openDrawer()">
+    </aava-button>
+
+    <aava-drawer
+      [isOpen]="isDrawerOpen"
+      title="Basic Drawer"
+      subtitle="This is a simple drawer example"
+      (opened)="onDrawerOpened()"
+      (closed)="onDrawerClosed()"
+      (closed)="closeDrawer()"
+    >
+      <div class="drawer-content">
+        <h4>Welcome to the Drawer!</h4>
+        <p>This is a basic drawer component with default settings:</p>
+        <ul>
+          <li>Position: Right (default)</li>
+          <li>Size: Medium (default)</li>
+          <li>Overlay: Enabled</li>
+          <li>Animations: Enabled</li>
+        </ul>
+        <p>You can close this drawer by:</p>
+        <ul>
+          <li>Clicking the X button</li>
+          <li>Clicking the overlay</li>
+          <li>Pressing the Escape key</li>
+        </ul>
+      </div>
+
+      <div slot="footer">
+        <aava-button label="Close" variant="secondary" (click)="closeDrawer()">
+        </aava-button>
+        <aava-button label="Save" variant="primary" (click)="closeDrawer()">
+        </aava-button>
+      </div>
+    </aava-drawer>
+  </div>
+</div>

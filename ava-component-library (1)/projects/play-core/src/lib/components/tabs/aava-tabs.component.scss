@@ -1,0 +1,1052 @@
+/* ========================================================================
+   AVA TABS COMPONENT - SIMPLIFIED
+   
+   Uses semantic design tokens from:
+   - _tabs.css (component-specific tokens)
+   - _light.css (theme tokens) 
+   - _base.css (global semantic tokens)
+   ======================================================================== */
+
+.ava-tabs {
+  width: 100%;
+  color: var(--color-text-primary);
+
+  /* === CONTAINER === */
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: var(--tabs-gap);
+    background: transparent;
+    border-radius: var(--global-radius-sm);
+    border: none;
+    padding: 0;
+    box-shadow: none;
+
+    /* Tabs container background and padding only when flag is set */
+    &.ava-tabs__container--bg {
+      background: var(--tabs-container-bg) !important;
+      padding: 10px !important;
+      border: none !important;
+      box-shadow: none !important;
+      width: auto !important;
+      display: inline-flex !important;
+    }
+
+    &.ava-tabs__container--bg.ava-tabs__container--pill {
+      border-radius: 9999px !important;
+    }
+
+    /* New: Full container background and border using --neutral-bg */
+    &.ava-tabs__container-bg {
+      background: var(--neutral-bg, #f0f1f2) !important;
+      border: 1px solid var(--neutral-bg, #f0f1f2) !important;
+      border-radius: var(--global-radius-sm);
+      box-shadow: none;
+      padding: 10px;
+      width: auto !important;
+      display: inline-flex !important;
+    }
+  }
+
+  /* === LIST WRAPPER === */
+  &__list-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &--scrollable {
+      overflow: hidden;
+    }
+
+    &--centered {
+      justify-content: center;
+    }
+
+    &--full-width {
+      width: 100%;
+    }
+
+    &--pill {
+      border-radius: var(--global-radius-pill, 9999px);
+      overflow: visible;
+      z-index: 1;
+    }
+  }
+
+  /* === SCROLL CONTAINER === */
+  &__scroll-container {
+    flex: 1;
+    overflow: hidden;
+
+    &--scrollable {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+  }
+
+  /* === TABS LIST === */
+  &__list {
+    display: flex;
+    align-items: center;
+    min-width: max-content;
+    gap: 10px;
+
+    &--full-width {
+      width: 100%;
+
+      .ava-tabs__tab {
+        flex: 1;
+      }
+    }
+  }
+
+  /* === TAB BASE === */
+  &__tab {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font: var(--tabs-tab-font);
+    background: transparent;
+    border: none;
+    padding: var(--tabs-tab-padding);
+    cursor: pointer;
+    transition: color var(--global-motion-duration-swift) var(--global-motion-easing-standard),
+      border-color var(--global-motion-duration-swift) var(--global-motion-easing-standard),
+      box-shadow var(--global-motion-duration-swift) var(--global-motion-easing-standard),
+      opacity var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+    border-radius: 0;
+    white-space: nowrap;
+    user-select: none;
+
+    // &:focus {
+    //   outline: var(--accessibility-focus-ring-width)
+    //     var(--accessibility-focus-ring-style)
+    //     var(--accessibility-focus-ring-color);
+    //   outline-offset: var(--accessibility-focus-ring-offset);
+    // }
+
+    &--with-icon .ava-tabs__tab-content {
+      gap: var(--tabs-icon-gap);
+      color: var(--color-text-primary);
+    }
+
+    &--with-subtitle .ava-tabs__tab-text {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    &--closeable .ava-tabs__tab-content {
+      padding-right: var(--global-spacing-6);
+    }
+  }
+
+  /* === TAB CONTENT === */
+  &__tab-content {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+  }
+
+  &__tab-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    line-height: 1.2;
+    color: var(--tabs-text-color);
+  }
+
+  &__tab-label {
+    font-size: inherit;
+    font-weight: inherit;
+    color: var(--tabs-label-color);
+  }
+
+  &__tab-subtitle {
+    font-size: 0.875em;
+    opacity: 0.8;
+    margin-top: 2px;
+  }
+
+  &__tab-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__tab-badge {
+    background: var(--color-brand-primary);
+    color: var(--color-text-on-brand);
+    font-size: 0.75rem;
+    font-weight: var(--global-font-weight-medium);
+    padding: 2px 6px;
+    border-radius: var(--global-radius-pill);
+    min-width: 18px;
+    height: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: var(--global-spacing-1);
+  }
+
+  &__tab-close {
+    position: absolute;
+    right: -6px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 2px;
+    border-radius: var(--global-radius-sm);
+    opacity: 0.6;
+    transition: opacity var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+
+    &:hover {
+      opacity: 1;
+      background: var(--color-surface-subtle-hover);
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.3;
+    }
+  }
+
+  /* === TAB INDICATOR === */
+  &__tab-indicator {
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    right: 0;
+    height: var(--tabs-underline-height);
+    background: var(--tabs-underline-color);
+    border-radius: var(--tabs-underline-height);
+    transition: all var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  }
+
+  /* === MOVING UNDERLINE INDICATOR === */
+  &__moving-indicator {
+    position: absolute;
+    bottom: -6px;
+    height: var(--tabs-underline-height);
+    background: var(--tabs-underline-color);
+    border-radius: var(--tabs-underline-height);
+    transition: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    z-index: 1;
+    transform-origin: center;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit;
+      border-radius: inherit;
+      transform: scaleX(1);
+      transition: transform 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+  }
+
+  /* === SCROLL BUTTONS === */
+  &__scroll-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--tabs-scroll-btn-bg);
+    border: none;
+    border-radius: var(--global-radius-circle);
+    cursor: pointer;
+    box-shadow: var(--tabs-scroll-btn-shadow);
+    transition: all var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+    backdrop-filter: blur(8px);
+
+    &:hover:not(:disabled) {
+      background: var(--tabs-scroll-btn-hover-bg);
+      box-shadow: var(--tabs-scroll-btn-hover-shadow);
+    }
+
+    &:disabled {
+      background: var(--tabs-scroll-btn-disabled-bg);
+      cursor: not-allowed;
+      opacity: 0.5;
+    }
+
+    &--left {
+      margin-right: var(--global-spacing-2);
+    }
+
+    &--right {
+      margin-left: var(--global-spacing-2);
+    }
+  }
+
+  /* === DROPDOWN === */
+  &__dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: var(--global-spacing-1);
+    font: var(--tabs-tab-font);
+    color: var(--tabs-tab-color);
+    background: transparent;
+    border: none;
+    padding: var(--tabs-tab-padding);
+    cursor: pointer;
+    transition: all var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+
+    &:hover:not(:disabled) {
+      color: var(--tabs-tab-active-color);
+
+      .ava-tabs__dropdown-arrow {
+        color: var(--tabs-dropdown-arrow-active-color);
+      }
+    }
+
+    &--open {
+      color: var(--tabs-tab-active-color);
+
+      .ava-tabs__dropdown-arrow {
+        color: var(--tabs-dropdown-arrow-active-color);
+        transform: rotate(180deg);
+      }
+    }
+
+    &:disabled {
+      color: var(--tabs-tab-disabled-color);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__dropdown-trigger-text {
+    font-size: inherit;
+  }
+
+  &__dropdown-arrow {
+    transition: transform var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+
+    &--rotated {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    right: 23%;
+    background: var(--tabs-dropdown-bg);
+    border-radius: var(--tabs-dropdown-radius);
+    box-shadow: var(--tabs-dropdown-shadow);
+    padding: var(--global-spacing-2);
+    min-width: 200px;
+    z-index: 100;
+    animation: fadeInScale var(--global-motion-duration-standard) var(--global-motion-easing-enter);
+  }
+
+  &__dropdown-item {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    background: var(--tabs-dropdown-item-bg);
+    color: var(--color-text-primary);
+    border: none;
+    padding: var(--global-spacing-3) var(--global-spacing-4);
+    cursor: pointer;
+    border-radius: var(--tabs-dropdown-item-radius);
+    transition: all var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+    text-align: left;
+
+    &:hover:not(&--disabled) {
+      background: var(--tabs-dropdown-item-hover-bg);
+      color: var(--tabs-dropdown-item-hover-color);
+    }
+
+    &--active {
+      background: var(--tabs-dropdown-item-hover-bg);
+      color: var(--tabs-dropdown-item-hover-color);
+    }
+
+    &--disabled {
+      color: var(--tabs-tab-disabled-color);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  &__dropdown-item-icon {
+    margin-right: var(--global-spacing-3);
+  }
+
+  &__dropdown-badge {
+    background: var(--color-brand-primary);
+    color: var(--color-text-on-brand);
+    font-size: 0.75rem;
+    font-weight: var(--global-font-weight-medium);
+    padding: 2px 6px;
+    border-radius: var(--global-radius-pill);
+    margin-left: auto;
+  }
+
+  /* === CONTENT PANELS === */
+  &__content {
+    margin-top: var(--tabs-content-margin);
+  }
+
+  &__panel {
+    &--hidden {
+      display: none;
+    }
+
+    &--active {
+      // animation: fadeIn var(--global-motion-duration-standard)
+      //   var(--global-motion-easing-enter);
+    }
+  }
+
+  &__panel-content {
+    font: var(--tabs-content-font);
+    color: var(--tabs-content-color);
+    line-height: var(--global-line-height-normal);
+  }
+
+  /* === SIZE VARIANTS === */
+  &[data-size="xs"] .ava-tabs__tab {
+    height: 1.75rem;
+    font-size: var(--global-font-size-xs);
+    padding: calc(var(--global-spacing-1) + 0.125rem) var(--global-spacing-2);
+    border-radius: calc(var(--global-radius-sm) - 0.25rem);
+
+    &--with-icon .ava-tabs__tab-content {
+      gap: calc(var(--tabs-icon-gap) - 0.25rem);
+    }
+  }
+
+  &[data-size="sm"] .ava-tabs__tab {
+    height: 2.375rem;
+    font-size: var(--global-font-size-sm);
+    padding: calc(var(--global-spacing-2) + 0.125rem) var(--global-spacing-3);
+    border-radius: calc(var(--global-radius-sm) - 0.125rem);
+
+    &--with-icon .ava-tabs__tab-content {
+      gap: calc(var(--tabs-icon-gap) - 0.125rem);
+    }
+  }
+
+  &[data-size="md"] .ava-tabs__tab {
+    height: 2.75rem;
+    font-size: var(--global-font-size-md);
+    padding: var(--global-spacing-3) var(--global-spacing-4);
+    border-radius: var(--global-radius-sm);
+  }
+
+  &[data-size="lg"] .ava-tabs__tab {
+    height: 3rem;
+    font-size: calc(var(--global-font-size-lg) - 0.125rem);
+    padding: var(--global-spacing-3) calc(var(--global-spacing-4) + var(--global-spacing-1));
+    border-radius: var(--global-radius-sm);
+  }
+
+  &[data-size="xl"] .ava-tabs__tab {
+    height: 3.25rem;
+    font-size: calc(var(--global-font-size-xl) - 0.25rem);
+    padding: calc(var(--global-spacing-3) + 0.125rem) var(--global-spacing-5);
+    border-radius: var(--global-radius-sm);
+  }
+
+  /* Sync bordered variant with button variant for all sizes */
+  &[data-variant="button"] .ava-tabs__tab--bordered,
+  &[data-variant="button"] .ava-tabs__tab.ava-tabs__tab--bordered {
+    border: 1.5px solid var(--tabs-button-border);
+    /* Use same padding/font as size variant */
+  }
+
+  /* === COMPONENT STATES === */
+  &--disabled {
+    pointer-events: none;
+    opacity: 0.6;
+  }
+
+  &--scrollable .ava-tabs__list-wrapper {
+    max-width: 100%;
+  }
+}
+
+/* === TAB ROW BACKGROUND === */
+.ava-tabs__tab-row-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  background: transparent;
+  pointer-events: none;
+  transition: background var(--global-motion-duration-swift) var(--global-motion-easing-standard),
+    border-radius var(--global-motion-duration-swift) var(--global-motion-easing-standard);
+
+  &--pill {
+    background: var(--tabs-button-bg);
+    border-radius: var(--global-radius-pill, 9999px);
+    box-shadow: var(--tabs-button-shadow);
+  }
+}
+
+/* === VARIANT STYLES === */
+
+/* Default variant */
+.ava-tabs[data-variant="default"] {
+  .ava-tabs__tab {
+    color: var(--tabs-tab-inactive-color);
+
+    svg {
+      stroke: var(--tabs-tab-inactive-color) !important;
+    }
+
+    &--active {
+      color: var(--tabs-tab-active-color);
+      font-weight: var(--tabs-tab-active-font-weight);
+
+      svg {
+        stroke: var(--tabs-tab-active-color) !important;
+      }
+    }
+
+    &--disabled {
+      color: var(--tabs-tab-disabled-color);
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+
+  .ava-tabs__tab-icon {
+    color: currentColor;
+  }
+}
+
+/* Button variant */
+.ava-tabs[data-variant="button"] {
+  .ava-tabs__tab {
+    color: var(--tabs-button-border);
+    background: var(--tabs-button-bg);
+    box-shadow: var(--tabs-button-shadow);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+
+    svg {
+      stroke: var(--tabs-button-border) !important;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: var(--tabs-button-active-bg);
+      z-index: 0;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+      pointer-events: none;
+    }
+
+    // Direction classes
+    &.ava-tabs__tab--liquid-ltr::before {
+      transform-origin: left;
+    }
+
+    &.ava-tabs__tab--liquid-rtl::before {
+      transform-origin: right;
+    }
+
+    // Active tab (normal state) - only when not animating
+    &.ava-tabs__tab--active:not(.ava-tabs__tab--liquid-animating):not(.ava-tabs__tab--liquid-exit-animating)::before {
+      transform: scaleX(1);
+    }
+
+    // Entering tab animation (flows in) - force from 0 to 1
+    &.ava-tabs__tab--liquid-animating::before {
+      transform: scaleX(0); // Start from 0
+      animation: liquidEnter 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    // Exiting tab animation (flows out) - prevent default background
+    &.ava-tabs__tab--liquid-exit-animating {
+      background: none !important;
+      color: var(--tabs-button-border) !important;
+
+      svg {
+        stroke: var(--tabs-button-border) !important;
+      }
+    }
+
+    &.ava-tabs__tab--liquid-exit-animating.ava-tabs__tab--liquid-rtl::before {
+      transform-origin: left;
+      animation: liquidExitLTR 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    &.ava-tabs__tab--liquid-exit-animating.ava-tabs__tab--liquid-ltr::before {
+      transform-origin: right;
+      animation: liquidExitRTL 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+    }
+
+    // Ensure content is above the liquid
+    .ava-tabs__tab-content {
+      color: var(--color-text-primary);
+      position: relative;
+      z-index: 1;
+    }
+
+    // &:hover:not(&--disabled) {
+    // background: var(--tabs-button-hover-bg);
+    // border-color: var(--tabs-button-hover-border);
+    // box-shadow: var(--tabs-button-hover-shadow);
+    // }
+
+    &--active {
+      color: var(--tabs-button-active-color);
+
+      box-shadow: var(--tabs-button-active-shadow);
+
+      .ava-tabs__tab-label {
+        color: var(--tabs-button-active-color);
+      }
+
+      svg {
+        stroke: var(--tabs-button-active-color) !important;
+      }
+    }
+
+    &--activebg {
+      background: var(--tabs-button-active-bg);
+    }
+
+    &--disabled {
+      color: var(--tabs-button-disabled-color);
+      background: var(--tabs-button-disabled-bg);
+      border-color: var(--tabs-button-disabled-border);
+    }
+
+    &--pill {
+      border-radius: var(--global-radius-pill, 9999px) !important;
+      min-width: 64px;
+    }
+
+    /* ✅ New bordered modifier (applies only when flag is true) */
+    &--bordered {
+      border: 1px solid var(--tabs-button-border);
+
+      &.ava-tabs__tab--active {
+        border-color: var(--tabs-active-border-color)
+      }
+    }
+  }
+
+  .ava-tabs__tab-icon {
+    color: currentColor;
+  }
+
+  .ava-tabs__tab-indicator {
+    display: none;
+  }
+
+  .ava-tabs__tab--custom-active-style {
+    transition: none !important;
+    transform: none !important;
+
+    &::before {
+      animation: none !important;
+      transition: none !important;
+      transform: none !important;
+      background: none !important;
+      content: none !important;
+    }
+  }
+}
+
+/* === Icon Only Variant (Square via Padding) === */
+.ava-tabs[data-variant="iconOnlySquare"],
+.ava-tabs[data-variant="iconOnlyCircle"] {
+  .ava-tabs__tab {
+    background: var(--tabs-icon-bg, #fff);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: box-shadow 0.2s, border-color 0.2s;
+
+    /* === Icon === */
+    .ava-tabs__tab-icon {
+      color: var(--tabs-button-border);
+
+      svg {
+        stroke: var(--tabs-button-border);
+      }
+    }
+
+    /* === Active === */
+    &.ava-tabs__tab--active {
+      background: var(--tabs-button-active-bg);
+      color: var(--tabs-button-active-color);
+      border: none !important;
+
+      .ava-tabs__tab-icon {
+        color: var(--tabs-button-active-color);
+
+        svg {
+          stroke: var(--tabs-button-active-color);
+        }
+      }
+    }
+
+    /* === Bordered flag === */
+    &.ava-tabs__tab--bordered {
+      border: 2px solid var(--tabs-button-border);
+    }
+
+    /* === Disabled === */
+    &--disabled {
+      opacity: 0.5;
+      pointer-events: none;
+
+      .ava-tabs__tab-icon {
+        color: var(--tabs-tab-disabled-color);
+
+        svg {
+          stroke: var(--tabs-tab-disabled-color);
+        }
+      }
+    }
+  }
+
+  /* === Shape Variants === */
+  &[data-variant="iconOnlySquare"] .ava-tabs__tab {
+    border-radius: 8px;
+  }
+
+  &[data-variant="iconOnlyCircle"] .ava-tabs__tab {
+    border-radius: 50%;
+  }
+
+  /* === Hide underline & text === */
+  .ava-tabs__tab-indicator,
+  .ava-tabs__tab-text {
+    display: none;
+  }
+}
+
+/* === Size-based padding for icon-only variants === */
+.ava-tabs[data-variant="iconOnlySquare"][data-size="xs"] .ava-tabs__tab,
+.ava-tabs[data-variant="iconOnlyCircle"][data-size="xs"] .ava-tabs__tab {
+  padding: var(--global-spacing-2);
+}
+
+.ava-tabs[data-variant="iconOnlySquare"][data-size="sm"] .ava-tabs__tab,
+.ava-tabs[data-variant="iconOnlyCircle"][data-size="sm"] .ava-tabs__tab {
+  padding: calc(var(--global-spacing-2) + 0.125rem);
+}
+
+.ava-tabs[data-variant="iconOnlySquare"][data-size="md"] .ava-tabs__tab,
+.ava-tabs[data-variant="iconOnlyCircle"][data-size="md"] .ava-tabs__tab {
+  padding: var(--global-spacing-3);
+}
+
+.ava-tabs[data-variant="iconOnlySquare"][data-size="lg"] .ava-tabs__tab,
+.ava-tabs[data-variant="iconOnlyCircle"][data-size="lg"] .ava-tabs__tab {
+  padding: var(--global-spacing-3);
+}
+
+//iconEnhanced
+.ava-tabs[data-variant="iconEnhanced"] {
+  .ava-tabs__tab {
+    background: transparent;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    transition: all 0.6s ease;
+
+    /* Tab content wrapper */
+    .ava-tabs__tab-content {
+      gap: var(--tabs-icon-gap);
+      overflow: hidden;
+    }
+
+    /* Icon styling */
+    .ava-tabs__tab-icon {
+      flex-shrink: 0;
+      transition: transform 0.4s ease;
+    }
+
+    /* Label styling */
+    .ava-tabs__tab-label {
+      white-space: nowrap;
+      overflow: hidden;
+
+      &--animated {
+        animation: labelSlideIn 800ms ease forwards;
+      }
+    }
+
+    /* Active state */
+    &.ava-tabs__tab--active {
+      border-style: solid;
+
+      .ava-tabs__tab-icon {
+        transform: scale(1.1);
+      }
+    }
+
+    /* Disabled state */
+    &.ava-tabs__tab--disabled {
+      opacity: 0.4;
+      pointer-events: none;
+    }
+  }
+
+  /* Hide default underline indicator */
+  .ava-tabs__tab-indicator,
+  .ava-tabs__moving-indicator {
+    display: none;
+  }
+}
+
+/* Size-based styling for customizable icon variant - inherit padding from base sizes */
+.ava-tabs[data-variant="iconEnhanced"][data-size="xs"] .ava-tabs__tab {
+  .ava-tabs__tab-content {
+    gap: calc(var(--tabs-icon-gap) - 0.25rem);
+  }
+}
+
+.ava-tabs[data-variant="iconEnhanced"][data-size="sm"] .ava-tabs__tab {
+  .ava-tabs__tab-content {
+    gap: calc(var(--tabs-icon-gap) - 0.125rem);
+  }
+}
+
+/* Label slide-in animation */
+@keyframes labelSlideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-6px);
+    max-width: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+    max-width: 200px;
+  }
+}
+
+/* === VERTICAL ORIENTATION === */
+.ava-tabs--vertical {
+
+  .ava-tabs__container,
+  .ava-tabs__list-wrapper {
+    flex-direction: row !important;
+    align-items: flex-start;
+  }
+
+  .ava-tabs__list {
+    flex-direction: column !important;
+    min-width: unset;
+    min-height: 100%;
+    align-items: stretch;
+  }
+
+  .ava-tabs__tab {
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: var(--global-spacing-1);
+    margin-right: 0;
+  }
+
+  .ava-tabs__tab-indicator {
+    left: unset;
+    right: unset;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    height: 100%;
+    border-radius: 4px;
+    background: var(--tabs-underline-color);
+    position: absolute;
+    left: 0;
+    transition: all var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  }
+
+  .ava-tabs__content {
+    flex: 1;
+    margin-left: var(--global-spacing-6);
+    margin-top: 0;
+  }
+
+  /* === VERTICAL LIQUID ANIMATIONS === */
+  &[data-variant="button"] {
+    .ava-tabs__tab {
+
+      // Override horizontal animations for vertical layout
+      &.ava-tabs__tab--liquid-exit-animating.ava-tabs__tab--liquid-rtl::before {
+        transform-origin: top;
+        animation: liquidExitTTB 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      }
+
+      &.ava-tabs__tab--liquid-exit-animating.ava-tabs__tab--liquid-ltr::before {
+        transform-origin: bottom;
+        animation: liquidExitBTT 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      }
+
+      &.ava-tabs__tab--liquid-animating.ava-tabs__tab--liquid-ltr::before {
+        transform-origin: top;
+        animation: liquidEnterTTB 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      }
+
+      &.ava-tabs__tab--liquid-animating.ava-tabs__tab--liquid-rtl::before {
+        transform-origin: bottom;
+        animation: liquidEnterBTT 0.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+      }
+    }
+  }
+}
+
+/* === ANIMATIONS === */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    // transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Keyframe animation for entry - respects transform-origin
+@keyframes liquidEnter {
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// Keyframe animations for exit in both directions
+@keyframes liquidExitLTR {
+  0% {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+}
+
+@keyframes liquidExitRTL {
+  0% {
+    transform: scaleX(1);
+    transform-origin: right;
+  }
+
+  100% {
+    transform: scaleX(0);
+    transform-origin: right;
+  }
+}
+
+// Keyframe animations for vertical flow (top-to-bottom)
+@keyframes liquidEnterTTB {
+  from {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+
+  to {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+}
+
+@keyframes liquidExitTTB {
+  0% {
+    transform: scaleY(1);
+    transform-origin: top;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: top;
+  }
+}
+
+// Keyframe animations for vertical flow (bottom-to-top)
+@keyframes liquidEnterBTT {
+  from {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+
+  to {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+}
+
+@keyframes liquidExitBTT {
+  0% {
+    transform: scaleY(1);
+    transform-origin: bottom;
+  }
+
+  100% {
+    transform: scaleY(0);
+    transform-origin: bottom;
+  }
+}
+
+/* === RESPONSIVE === */
+@media (max-width: 768px) {
+  .ava-tabs {
+    &__tab {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+    }
+
+    &__scroll-btn {
+      width: 28px;
+      height: 28px;
+    }
+
+    &__dropdown {
+      left: 0;
+      right: 0;
+      min-width: auto;
+    }
+  }
+}

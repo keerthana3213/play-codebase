@@ -1,0 +1,68 @@
+<div class="doc-sections fileupload-bg">
+  <section *ngFor="let section of sections; let i = index" class="doc-section">
+    <div class="row">
+      <div class="col-12">
+        <ng-container [ngSwitch]="section.title">
+          <ng-container *ngSwitchCase="'Default Upload'">
+            <div class="row g-3 justify-content-center">
+              <div class="col-12 col-lg-6">
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'default')" [allowedFormats]="allowedFormats"
+                  [layout]="'default'" [maxFileSize]="maxFileSize" uploaderId="default" uploadIconPosition="right"
+                  uploadButtonLabel="Upload File" >
+                </aava-file-upload>
+
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'default')" [allowedFormats]="allowedFormats"
+                  [layout]="'default'" [maxFileSize]="maxFileSize" uploaderId="default" uploadIconPosition="right"
+                  uploadButtonLabel="Upload File" singleFileSelectionPosition='right' [previewData]="previewData" >
+                </aava-file-upload>
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'default')" [allowedFormats]="allowedFormats"
+                [layout]="'default'" [maxFileSize]="maxFileSize" uploaderId="default" uploadIconPosition="right"
+                uploadButtonLabel="Upload File" singleFileSelectionPosition='left' [previewData]="previewData" >
+              </aava-file-upload>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'Featured List'">
+            <div class="row g-3 justify-content-center">
+              <div class="col-12 col-lg-6">
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'featured-list')"
+                  [allowedFormats]="allowedFormats" layout="list" [maxFileSize]="maxFileSize"
+                  uploaderId="featured-list" [previewData]="previewData">
+                </aava-file-upload>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'Featured Tags'">
+            <div class="row g-3 justify-content-center">
+              <div class="col-12 col-lg-6">
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'featured-tags')"
+                  [allowedFormats]="allowedFormats" layout="tags" [maxFileSize]="maxFileSize" uploaderId="featured-tags"
+                  uploadButtonSize="xs" deleteButtonSize="xs" [previewData]="previewData" (deletedList)="onDeletedFiles($event)">
+                </aava-file-upload>
+              </div>
+            </div>
+          </ng-container>
+
+          <ng-container *ngSwitchCase="'Advanced'">
+            <div class="row g-3 justify-content-center">
+              <div class="col-12 col-lg-6">
+                <aava-file-upload (selectedList)="onFilesChanged($event, 'advanced')" [allowedFormats]="allowedFormats"
+                  layout="icon" [maxFileSize]="maxFileSize" uploaderId="advanced" deleteIconPosition="right"
+                  deleteIconName="trash" [showDuplicateError]="true" [previewData]="previewData">
+                </aava-file-upload>
+              </div>
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+    </div>
+  </section>
+
+  <aava-file-upload (selectedList)="onFilesChanged($event, 'advanced')" (deletedList)="onDeletedFiles($event)"
+    [allowedFormats]="allowedFormats" layout="icon" [maxFileSize]="maxFileSize" uploaderId="advanced"
+    deleteIconPosition="right" deleteIconName="trash" deleteButtonSize="sm" previewLayout="table"
+    [previewData]="previewData">
+  </aava-file-upload>
+</div>

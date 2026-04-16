@@ -1,0 +1,65 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Progress Component Tokens
+ *
+ * Component-specific semantic tokens for progress bar elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for progress styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Progress Base --- */
+  --progress-transition: var(--motion-pattern-fade);
+  --progress-animation-duration: var(--global-motion-duration-standard);
+  --progress-animation-easing: var(--global-motion-easing-enter);
+  --progress-background: var(--color-surface-subtle);
+  --progress-background-disabled: var(--color-surface-disabled);
+
+  /* --- Progress Gradients (Using Progress Colors) --- */
+  --progress-primary-color: var(--rgb-brand-primary);
+  --progress-gradient-start: rgb(var(--progress-primary-color));
+  --progress-gradient-end: rgba(var(--progress-primary-color), 0.5);
+  --progress-linear-gradient: linear-gradient(90deg, var(--progress-gradient-start) 0%, var(--progress-gradient-end) 100%);
+
+  /* --- Progress Text --- */
+  --progress-text-font: var(--font-body-2);
+  --progress-text-color: var(--color-text-primary);
+  --progress-background-color: var(--global-background);
+  --progress-text-weight: var(--global-font-weight-bold);
+  /* --progress-text-fill: var(--color-text-primary); */
+
+
+  /* --- Progress Label --- */
+  --progress-label-font: var(--font-body-2);
+  --progress-label-color: var(--color-text-secondary);
+  --progress-label-weight: var(--global-font-weight-regular);
+  --progress-label-line-height: var(--global-line-height-default);
+
+  /* --- Linear Progress --- */
+  --progress-linear-height: 8px;
+  --progress-linear-border-radius: var(--global-radius-sm);
+  --progress-linear-fill-transition: width var(--progress-animation-duration) var(--progress-animation-easing);
+
+  /* --- Progress Indeterminate --- */
+  --progress-indeterminate-animation: spin 1.5s linear infinite;
+
+  /* --- Progress Sizes --- */
+  --progress-size-sm-linear-height: 4px;
+  --progress-size-sm-circular-size: 88px;
+  --progress-size-sm-circular-stroke: 4px;
+  --progress-size-sm-text: var(--font-label);
+
+  --progress-size-md-linear-height: 8px;
+  --progress-size-md-circular-size: 160px;
+  --progress-size-md-circular-stroke: 12px;
+  --progress-size-md-text: var(--global-font-size-sm);
+
+  --progress-size-lg-linear-height: 12px;
+  --progress-size-lg-circular-size: 240px;
+  --progress-size-lg-circular-stroke: 16px;
+  --progress-size-lg-text: var(--global-font-size-md);
+  --progress-size-lg-text-font-weight: 800;
+  /* --- Progress Container --- */
+  --progress-container-gap: var(--global-spacing-3);
+}

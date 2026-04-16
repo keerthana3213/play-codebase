@@ -1,0 +1,175 @@
+/**
+ * Component: Calendar
+ * Purpose: Calendar component tokens for date selection and display
+ */
+
+:root {
+  /* Calendar Base */
+  --calendar-font-family: var(--font-family-body);
+  /* Calendar Input Button */
+  --calendar-input-btn-background: var(--color-surface-subtle);
+  --calendar-input-btn-hover-background: var(--color-brand-primary);
+  --calendar-input-btn-border-radius: var(--global-radius-sm);
+  --calendar-input-btn-margin: 8px;
+  --calendar-input-btn-icon-right: 1rem;
+  --calendar-input-btn-icon-padding: 0.375rem;
+
+  /* Calendar Navigation */
+  --calendar-nav-button-background: var(--color-brand-primary);
+  --calendar-nav-button-background-color: white;
+  --calendar-nav-button-border-radius: 50%;
+  --calendar-nav-button-height-width: 2.25rem;
+  --calendar-nav-button-padding: var(--calendar-size-sm-padding);
+  --calendar-nav-controls-gap-large: var(--calendar-size-sm-padding);
+  --calendar-nav-shadow: 0 0.0625rem 0.1875rem rgba(0, 0, 0, 0.1);
+  --calendar-nav-shadow-hover: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.15);
+
+  /* Calendar Month/Year Display */
+  --calendar-month-text: var(--color-text-primary);
+  --calendar-year-text: var(--color-text-primary);
+  --calendar-month-year-selected-color: var(--color-brand-primary);
+  --calendar-month-year-selector-padding: 0.5rem 0;
+  --calendar-month-year-gap: 0.75rem;
+
+  /* Calendar Disabled Overlay */
+  --calendar-disabled-overlay-opacity: 0.6;
+  --calendar-disabled-overlay-z-index: 999;
+
+  /* Calendar Grid */
+  --calendar-cell-border-radius: var(--global-radius-sm);
+  --calendar-cell-start-border-radius: 0.4rem 0 0 0.4rem;
+  --calendar-cell-end-border-radius: 0 0.4rem 0.4rem 0;
+
+  --calendar-grid-margin-top: 0.5rem;
+
+  /* Calendar Day Names */
+  --calendar-day-name-text: var(--global-color-gray-700);
+
+  /* Calendar Date States */
+  --calendar-date-text: var(--color-text-primary);
+  --calendar-date-hover-background: var(--global-color-rose-200);
+  --calendar-date-selected-background: var(--color-surface-interactive-default);
+  --calendar-date-selected-text: var(--color-text-on-brand);
+  --calendar-date-today-border: 2px solid var(--color-border-interactive);
+  --calendar-date-disabled-text: var(--color-text-disabled);
+
+  /* Calendar Range Selection */
+  --calendar-range-start-background: var(--color-surface-interactive-default);
+  --calendar-range-start-text: var(--color-text-on-brand);
+
+  /* Calendar Sizes */
+  --calendar-size-sm-font: var(--global-font-size-xs);
+  --calendar-size-sm-padding: var(--global-spacing-2);
+  --calendar-size-md-font: var(--global-font-size-sm);
+
+  /* Calendar Input */
+  --calendar-input-width-range: 21.75rem;
+
+  /* Calendar Popup */
+  --calendar-popup-background: var(--global-background);
+  --calendar-popup-border: 1px solid var(--color-border-default);
+  --calendar-popup-border-radius: var(--global-radius-lg);
+  --calendar-popup-shadow: var(--global-elevation-03);
+  --calendar-popup-z-index: 1000;
+  --calendar-popup-padding: 1rem;
+  --calendar-popup-margin-top: 5px;
+
+  /* Calendar Glass Surface Effect */
+  --calendar-glass-background-fallback: rgba(255, 255, 255, 0.4);
+  --calendar-glass-background-medium: rgba(255, 255, 255, 0.5);
+  --calendar-glass-background-strong: rgba(255, 255, 255, 0.75);
+  --calendar-glass-background-max: rgba(255, 255, 255, 1.0);
+  --calendar-glass-backdrop-filter: blur(15px) saturate(180%);
+  --calendar-glass-border: 2px solid rgba(255, 255, 255, 0.3);
+  --calendar-glass-box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  --calendar-glass-text-color: #222;
+
+  /* Calendar Weekday Cell */
+  --calendar-weekday-width: 25px;
+  --calendar-weekday-height: 20px;
+
+  /* Calendar Month/Year Selector Dimensions */
+  --calendar-month-year-selector-height: 20px;
+  --calendar-month-year-selector-padding-zero: 0px;
+
+  /* Calendar Hover & Disabled States */
+  --calendar-hover-opacity: 0.8;
+  --calendar-disabled-opacity: 0.4;
+
+  /* Calendar Transition */
+  --calendar-transition-bg: background-color 0.2s ease;
+
+  /* Calendar XS Input Button Padding */
+  --calendar-input-btn-xs-padding: 0.15rem;
+
+  /* Calendar Size-specific Spacing — xs */
+  --calendar-xs-grid-margin-top: 6px;
+  --calendar-xs-weekdays-margin-bottom: 4px;
+  --calendar-xs-days-gap: 6px;
+
+  /* Calendar Size-specific Spacing — sm */
+  --calendar-sm-grid-margin-top: 8px;
+  --calendar-sm-weekdays-margin-bottom: 6px;
+  --calendar-sm-days-gap: 8px;
+
+  /* Calendar Size-specific Spacing — md */
+  --calendar-md-grid-margin-top: 10px;
+  --calendar-md-weekdays-margin-bottom: 10px;
+  --calendar-md-days-gap: 10px;
+
+  /* Calendar Size-specific Spacing — lg */
+  --calendar-lg-grid-margin-top: 12px;
+  --calendar-lg-weekdays-margin-bottom: 10px;
+  --calendar-lg-days-gap: 10px;
+
+  /* Calendar Size-specific Spacing — xl */
+  --calendar-xl-grid-margin-top: 14px;
+  --calendar-xl-weekdays-margin-bottom: 12px;
+  --calendar-xl-days-gap: 12px;
+
+  /* Calendar Month-Year Wrapper */
+  --calendar-month-year-btn-padding: 8px 10px;
+  --calendar-month-year-content-gap: 8px;
+  --calendar-month-year-content-padding-top: 6px;
+
+  /* Calendar Selector Shape Constants */
+  --calendar-circle-selector-radius: 50%;
+  --calendar-square-selector-radius: 0.5rem;
+
+  /* Calendar veriants */
+  --calendar-varient-xs-height: 12rem;
+  --calendar-varient-sm-width: 16.75rem;
+  --calendar-varient-sm-min-width: 10.5rem;
+  --calendar-varient-sm-height: 16.125rem;
+
+  --calendar-varient-md-width: 19.25rem;
+  --calendar-varient-md-height: 18.75rem;
+  --calendar-varient-lg-height: 21.25rem;
+  --calendar-varient-xl-width: 25.25rem;
+  --calendar-varient-xl-height: 23.75rem;
+
+  /* Calendar Variant Font & Cell Sizes */
+  --calendar-variant-xs-font-size: 10px;
+  --calendar-variant-xs-cell-size: 26px;
+
+  --calendar-variant-sm-font-size: var(--global-font-size-xs);
+  --calendar-variant-sm-cell-size: 28px;
+
+  --calendar-variant-md-font-size: var(--global-font-size-sm);
+  --calendar-variant-md-cell-size: 32px;
+
+  --calendar-variant-lg-font-size: var(--global-font-size-md);
+  --calendar-variant-lg-cell-size: 36px;
+
+  --calendar-variant-xl-font-size: 18px;
+  --calendar-variant-xl-cell-size: 40px;
+
+
+  --calendar-input-disabled-background: var(--color-background-disabled);
+
+  --calendar-input-xs-height: var(--textbox-input-xs-height);
+  --calendar-input-sm-height: var(--textbox-input-sm-height);
+  --calendar-input-md-height: var(--textbox-input-md-height);
+  --calendar-input-lg-height: var(--textbox-input-lg-height);
+  --calendar-input-xl-height: var(--textbox-input-xl-height);
+}

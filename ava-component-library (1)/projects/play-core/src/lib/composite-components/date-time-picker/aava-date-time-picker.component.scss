@@ -1,0 +1,59 @@
+.date-time-picker-container {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+
+  .calendar-section {
+    display: flex;
+    justify-content: center;
+    position: relative;
+  }
+
+  .divider {
+    height: 1px;
+    background-color: #f3f4f6;
+    width: 100%;
+    margin: 8px 0;
+  }
+
+  .time-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+    z-index: 2; // Higher z-index for time section to appear above calendar
+
+    .time-label {
+      color: #6b7280;
+      font-size: 14px;
+      font-weight: 500;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    // Ensure time picker scroll interface has proper z-index
+    aava-time-picker {
+      position: relative;
+      z-index: 3; // Even higher z-index for the time picker component itself
+    }
+  }
+
+  // Override calendar popup z-index when embedded in date-time-picker
+  ::ng-deep aava-datepicker {
+    .calendar-popup {
+      z-index: 1 !important; // Override the default 1000 z-index
+      position: relative !important; // Ensure it's positioned relative to container
+    }
+
+    .date-picker.always-open .calendar-popup.embedded {
+      position: static !important;
+      z-index: auto !important;
+    }
+  }
+}

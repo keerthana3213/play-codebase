@@ -1,0 +1,27 @@
+[
+    {
+      "id": "1",
+      "icon": "home",
+      "text": "Dashboard",
+      "route": "/dashboard",
+      "active": true
+    },
+    {
+      "id": "2",
+      "icon": "home",
+      "text": "Users",
+      "route": "/users"
+    },
+    {
+      "id": "3",
+      "icon": "settings",
+      "text": "Settings",
+      "route": "/settings"
+    },
+    {
+      "id": "4",
+      "icon": "home",
+      "text": "Analytics",
+      "route": "/analytics"
+    }
+  ]

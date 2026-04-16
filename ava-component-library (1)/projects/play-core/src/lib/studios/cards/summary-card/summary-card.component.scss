@@ -1,0 +1,91 @@
+.summary-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.summary-card-first-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.summary-card-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+}
+
+.summary-card-second-line {
+    display: flex;
+    width: 100%;
+}
+
+.summary-card-title {
+    color: var(--studios-summary-title-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-summary-title-size);
+    font-style: normal;
+    font-weight: var(--studios-summary-title-weight);
+    line-height: var(--studios-summary-title-line-height);
+    /* 150% */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+    min-width: 0;
+}
+
+.summary-card-subtitle {
+    color: var(--studios-summary-subtitle-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-summary-subtitle-size);
+    font-style: normal;
+    font-weight: var(--studios-summary-subtitle-weight);
+    line-height: normal;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.summary-card-tag {
+    flex-shrink: 0;
+}
+
+.summary-card-tag-element {
+    flex-shrink: 0;
+}
+
+.summary-card-subtitle-container {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    width: 100%;
+}
+
+.summary-card-dot {
+    color: var(--studios-summary-subtitle-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-summary-subtitle-size);
+    font-style: normal;
+    font-weight: var(--studios-summary-subtitle-weight);
+    line-height: normal;
+}
+
+.summary-card-rating {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.rating-value {
+    color: var(--studios-summary-subtitle-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-summary-subtitle-size);
+    font-style: normal;
+    font-weight: var(--studios-summary-subtitle-weight);
+    line-height: normal;
+}

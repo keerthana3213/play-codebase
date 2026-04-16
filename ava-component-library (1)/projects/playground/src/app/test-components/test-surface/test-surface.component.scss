@@ -1,0 +1,25 @@
+.surface-bg {
+    background: url('/assets/glass-bg-l.png') no-repeat center center;
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    padding: 15px;
+
+    .sur {
+        display: grid;
+        grid-template-columns: repeat(10, 105px);
+        gap: 8px;
+    }
+
+    .s {
+        width: 105px;
+        height: 35px;
+        margin-bottom: 10px;
+    }
+}
+
+/* Dark theme override inside component */
+:host-context([data-theme="dark"]) .surface-bg {
+    background: url('/assets/glass-bg-d.png') no-repeat center center;
+    background-size: cover;
+}

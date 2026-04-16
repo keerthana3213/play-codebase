@@ -1,0 +1,118 @@
+<div
+  class="aava-layout-container"
+  [ngStyle]="customStyles"
+  [class.left-panel-open]="showLeftPanel && leftPanelOpen"
+  [class.right-panel-open]="showRightPanel && rightPanelOpen"
+  [class.no-header]="!showHeader"
+  [style.--left-panel-width]="leftPanelWidth"
+  [style.--right-panel-width]="rightPanelWidth"
+>
+  <!-- Left Panel Container -->
+  <div class="left-panel-container" *ngIf="showLeftPanel">
+    <!-- Left Panel Section -->
+    <aside
+      class="aava-layout-left-panel"
+      [class.open]="leftPanelOpen"
+      [class.closed]="!leftPanelOpen"
+      [style.height]="'100vh'"
+    >
+      <div class="left-panel-content">
+        <ng-content select="[slot=left-panel]"></ng-content>
+      </div>
+    </aside>
+
+    <!-- Left Panel Trigger (Always Visible) -->
+    <button
+      *ngIf="!leftPanelOpen"
+      class="left-panel-trigger"
+      (click)="toggleLeftPanel()"
+      [attr.aria-label]="leftPanelOpen ? 'Close left panel' : 'Open left panel'"
+      [attr.aria-expanded]="leftPanelOpen"
+      role="button"
+      tabindex="0"
+      [style.left]="leftPanelOpen ? 'calc(100% - 20px)' : '0px'"
+      [style.top]="leftPanelTriggerTop"
+    >
+      <aava-icon
+        [iconName]="leftPanelOpen ? leftPanelClosedIcon : leftPanelOpenIcon"
+        [iconSize]="16"
+        iconColor="var(--color-text-primary)"
+      >
+      </aava-icon>
+    </button>
+  </div>
+
+  <!-- Main Body Section (Includes Header Content) -->
+  <div class="aava-layout-body" [class.scrollable-mode]="footerMode === 'scrollable'">
+    <!-- Header Section -->
+    <header
+      class="aava-layout-header"
+      *ngIf="showHeader"
+      [style.height]="headerHeight"
+    >
+      <div class="header-content">
+        <!-- Center Header Content -->
+        <div class="header-center">
+          <ng-content select="[slot=header]"></ng-content>
+        </div>
+
+        <!-- Right Toggle Button -->
+        <div class="header-right">
+          <aava-icon
+            *ngIf="showRightPanel"
+            (click)="toggleRightPanel()"
+            [iconName]="
+              rightPanelOpen ? rightPanelClosedIcon : rightPanelOpenIcon
+            "
+            [iconSize]="20"
+            [iconColor]="headerIconColor"
+            class="header-toggle"
+            [attr.aria-label]="
+              rightPanelOpen ? 'Close right panel' : 'Open right panel'
+            "
+            [attr.aria-expanded]="rightPanelOpen"
+            role="button"
+            tabindex="0"
+          >
+          </aava-icon>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content Section -->
+    <main
+      class="aava-layout-main"
+      [style.height]="
+        footerMode === 'sticky'
+          ? (showHeader ? 'calc(100vh - ' + headerHeight + ')' : '100vh')
+          : 'auto'
+      "
+    >
+      <ng-content></ng-content>
+    </main>
+    <footer
+      class="aava-layout-footer"
+      [class.sticky]="footerMode === 'sticky'"
+      [class.scrollable]="footerMode === 'scrollable'"
+      *ngIf="showFooter"
+      [style.height]="footerHeight"
+    >
+      <ng-content select="[slot=footer]">
+        <span *ngIf="footerText">{{ footerText }}</span>
+      </ng-content>
+    </footer>
+  </div>
+
+  <!-- Right Panel Section (Outside Body) -->
+  <aside
+    class="aava-layout-right-panel"
+    *ngIf="showRightPanel"
+    [class.open]="rightPanelOpen"
+    [class.closed]="!rightPanelOpen"
+    [style.height]="'100vh'"
+  >
+    <div class="right-panel-content">
+      <ng-content select="[slot=right-panel]"></ng-content>
+    </div>
+  </aside>
+</div>

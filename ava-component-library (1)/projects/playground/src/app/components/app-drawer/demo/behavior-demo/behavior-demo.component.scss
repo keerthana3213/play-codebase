@@ -1,0 +1,140 @@
+.behavior-demo {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+      font-size: 1.5rem;
+    }
+
+    p {
+      color: #666;
+      font-size: 1rem;
+    }
+  }
+
+  .demo-content {
+    .behavior-section {
+      margin-bottom: 3rem;
+
+      h4 {
+        color: #333;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+
+      p {
+        color: #555;
+        margin-bottom: 2rem;
+        line-height: 1.6;
+      }
+
+      .behavior-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 3rem;
+
+        .behavior-card {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          padding: 1.5rem;
+          background: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+          .property-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+
+            h5 {
+              color: #333;
+              font-size: 1.1rem;
+              margin: 0;
+            }
+
+            .property-type {
+              background: #f0f0f0;
+              padding: 0.25rem 0.5rem;
+              border-radius: 4px;
+              font-size: 0.875rem;
+              color: #666;
+              font-family: monospace;
+            }
+          }
+
+          .property-description {
+            color: #555;
+            margin-bottom: 1rem;
+            line-height: 1.5;
+          }
+
+          .property-examples {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+          }
+
+          .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 0.75rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #495057;
+            line-height: 1.4;
+
+            code {
+              background: #e9ecef;
+              padding: 0.125rem 0.25rem;
+              border-radius: 2px;
+              color: #d63384;
+            }
+          }
+        }
+      }
+    }
+
+    .demo-content {
+      h4 {
+        // color: #333;
+        margin-bottom: 1rem;
+        font-size: 1.25rem;
+      }
+
+      p {
+        // color: #555;
+        margin-bottom: 1rem;
+        line-height: 1.6;
+
+        code {
+          background: #f8f9fa;
+          padding: 0.125rem 0.25rem;
+          border-radius: 2px;
+          font-family: monospace;
+          color: #d63384;
+        }
+      }
+
+      ul {
+        margin-bottom: 1rem;
+        padding-left: 1.5rem;
+
+        li {
+          // color: #555;
+          margin-bottom: 0.5rem;
+          line-height: 1.5;
+        }
+      }
+    }
+  }
+}

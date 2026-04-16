@@ -1,0 +1,103 @@
+<div class="ava-data-grid-wrapper" [attr.id]="id ? 'aava-data-grid-' + id : null" [ngStyle]="customStyles">
+  <div class="data-grid-wrapper" [ngClass]="{
+      'is-loading': isLoading,
+      'no-data': !isLoading && sortedData.length === 0
+    }">
+    <table class="ava-data-grid" [ngClass]="zerbaLine ? 'zebraline' : ''">
+      <thead>
+        <tr>
+          <ng-container *ngFor="let column of columns; let i = index">
+            <th [style.cursor]="column.sortable ? 'pointer' : 'default'">
+              <div class="cell-wrapper">
+                <div class="grid-column-container" (click)="onSort(column)">
+                  <ng-container *ngIf="column.headerCellDef">
+                    <ng-container *ngTemplateOutlet="column.headerCellDef.templateRef"></ng-container>
+                  </ng-container>
+                  <ng-container>
+                    <span class="sort-icon s-show" *ngIf="column.sortable && sortColumn === column.name">
+                      <ng-container [ngSwitch]="sortDirection">
+                        <aava-icon *ngSwitchCase="'asc'" iconName="arrow-up" iconSize="15" alt="Ascending" />
+                        <aava-icon *ngSwitchCase="'desc'" iconName="arrow-down" iconSize="15" alt="Descending" />
+                        <!-- Optional: no icon if no direction -->
+                      </ng-container>
+                    </span>
+                    <span class="sort-icon" *ngIf="column.sortable && sortColumn !== column.name">
+                      <aava-icon iconName="arrow-up" iconSize="15" alt="Ascending" />
+                    </span>
+                    <!-- <span class="sort-icon" *ngIf="column.sortable && !sortDirection ">
+                                            <aava-icon iconName="move-up" iconSize="15" alt="Ascending" />
+                                        </span> -->
+                  </ng-container>
+                </div>
+                <span class="filter" *ngIf="column.filter" [ngClass]="{ active: isFilterActive(column.name) }"
+                  (userClick)="openPanel(column.name, $event)">
+                  <span *ngIf="isFilterActive(column.name)" class="dot"></span>
+                  <aava-icon *ngIf="isFilterActive(column.name)" iconName="list-filter" iconSize="15" alt="filter"
+                    [cursor]="true" iconColor="#FFF" (userClick)="openPanel(column.name, $event)" />
+                  <aava-icon *ngIf="!isFilterActive(column.name)" iconName="list-filter" iconSize="15" alt="filter"
+                    [cursor]="true" (userClick)="openPanel(column.name, $event)" />
+                </span>
+                <div [ngClass]="{
+                    last:
+                      column.filter &&
+                      (i === columns.length - 2 || i === columns.length - 1)
+                  }" class="filter-wrapper" #filterWrapper *ngIf="
+                    isFilterOpen && checkForOpen(column.name) && column.filter
+                  " (click)="stopPropagation($event)">
+                  <div class="link-wrapper">
+                    <aava-button label="Clear All" variant="primary" size="xs" (userClick)="clearAll($event)"
+                      pressedEffect="ripple"></aava-button>
+                  </div>
+                  <aava-select height="200" size="sm" aria-label="Filter condition" role="listbox"
+                    (selectionChange)="selectFilter($event)">
+                    <aava-select-option *ngFor="let opt of defaultFilterConditions" role="option"
+                      [attr.aria-selected]="selectedFilter === opt.value" [selected]="opt.value === selectedFilter"
+                      [value]="opt.value">
+                      {{ opt.label }}
+                    </aava-select-option>
+                  </aava-select>
+                  <aava-textbox [mapper]="column.name" size="sm" #textboxRef [attr.data-column]="column.name"
+                    placeholder="Enter value"></aava-textbox>
+                  <div class="default-filter-actions">
+                    <aava-button label="Clear" variant="secondary" size="xs"
+                      (userClick)="clearFilter(column.name, $event)" pressedEffect="ripple"></aava-button>
+                    <aava-button label="Filter" variant="primary" size="xs"
+                      (userClick)="applyFilter(column.name, $event)" pressedEffect="ripple"></aava-button>
+                  </div>
+                </div>
+              </div>
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of sortedData; let i = index; trackBy: trackById" draggable="true"
+          (dragstart)="onDragStart($event, i)" (dragover)="onDragOver($event, i)" (drop)="onDrop($event, i)"
+          (dragend)="onDragEnd()" [class.dragging]="i === draggingIndex">
+          <ng-container *ngFor="let column of columns">
+            <td>
+              <ng-container *ngIf="column.cellDef" [ngTemplateOutlet]="column.cellDef.templateRef"
+                [ngTemplateOutletContext]="{ $implicit: row, index: i }"></ng-container>
+            </td>
+          </ng-container>
+        </tr>
+        <tr *ngIf="sortedData.length === 0">
+          <td colspan="100%">
+            <div class="no-data-wrapper">
+              <p>No data available</p>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div *ngIf="isLoading && loadingType === 'cubical'" class="loading-overlay">
+      <aava-cubical-loading background="var(--grid-loader-color)"></aava-cubical-loading>
+    </div>
+    <div *ngIf="isLoading && loadingType === 'skeleton'" class="loading-overlay">
+      <aava-skeleton [rows]="sortedData.length || 5" skeletonType="table" [columns]="columns.length">
+      </aava-skeleton>
+      <aava-skeleton [rows]="sortedData.length || 5" skeletonType="table" [columns]="columns.length">
+      </aava-skeleton>
+    </div>
+  </div>
+</div>

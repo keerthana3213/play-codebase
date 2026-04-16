@@ -1,0 +1,461 @@
+<!-- eslint-disable @angular-eslint/template/click-events-have-key-events -->
+<!-- eslint-disable @angular-eslint/template/interactive-supports-focus -->
+<div class="theme-preview">
+  <!-- Loading State -->
+  <div *ngIf="loading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading themes...</p>
+  </div>
+
+  <!-- Theme Content -->
+  <div *ngIf="!loading">
+    <!-- Header -->
+    <div class="theme-header">
+      <h1>🎨 Play+ Design System Theme Variants</h1>
+      <p>
+        Explore and switch between different theme variants to see how the
+        design system adapts to different visual styles and brand requirements.
+      </p>
+      <div class="theme-stats">
+        <div class="stat">
+          <span class="stat-number">{{ getThemeArray().length }}</span>
+          <span class="stat-label">Total Themes</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">8</span>
+          <span class="stat-label">Color Schemes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Current Theme Info -->
+    <div class="current-theme-info">
+      <div class="current-theme-header">
+        <h2>Current Theme: {{ getCurrentThemeInfo().displayName }}</h2>
+        <div class="theme-category-badge" [class]="getCurrentThemeInfo().category">
+          {{ getCurrentThemeInfo().category }}
+        </div>
+      </div>
+      <div class="theme-details">
+        <p class="theme-description">{{ getCurrentThemeInfo().description }}</p>
+        <div class="color-preview">
+          <div class="color-preview-item">
+            <div class="color-swatch" [style.background-color]="getCurrentThemeInfo().primaryColor"></div>
+            <div class="color-info">
+              <span class="color-name">Primary</span>
+              <span class="color-value">{{
+                getCurrentThemeInfo().primaryColor
+                }}</span>
+            </div>
+          </div>
+          <div class="color-preview-item">
+            <div class="color-swatch" [style.background-color]="getCurrentThemeInfo().secondaryColor"></div>
+            <div class="color-info">
+              <span class="color-name">Secondary</span>
+              <span class="color-value">{{
+                getCurrentThemeInfo().secondaryColor
+                }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="characteristics">
+          <h4>Characteristics:</h4>
+          <div class="characteristics-grid">
+            <span class="characteristic" *ngFor="
+                let characteristic of getCurrentThemeInfo().characteristics
+              ">
+              {{ characteristic }}
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme Categories -->
+    <div class="theme-categories">
+      <!-- Default Category -->
+      <div class="theme-category">
+        <div class="category-header">
+          <h2>🌅 Default Variants</h2>
+          <p>Classic and modern light themes for general applications</p>
+        </div>
+        <div class="theme-grid">
+          <div *ngFor="let theme of getThemesByCategory('default')" class="theme-card"
+            [class.active]="isThemeActive(theme.name)" (click)="setTheme(theme.name)">
+            <div class="theme-preview-colors">
+              <div class="color-swatch primary" [style.background-color]="theme.primaryColor"></div>
+              <div class="color-swatch secondary" [style.background-color]="theme.secondaryColor"></div>
+            </div>
+            <div class="theme-info">
+              <h3>{{ theme.displayName }}</h3>
+              <p>{{ theme.description }}</p>
+              <div class="theme-tags">
+                <span class="tag">{{ theme.name }}</span>
+                <span class="tag" *ngIf="theme.name === 'default'">default</span>
+                <span class="tag" *ngIf="theme.name === 'light'">light</span>
+                <span class="tag" *ngIf="theme.name === 'modern-vibrant'">vibrant</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Dark Category -->
+      <div class="theme-category">
+        <div class="category-header">
+          <h2>🌙 Dark Variants</h2>
+          <p>Dark themes for reduced eye strain and modern aesthetics</p>
+        </div>
+        <div class="theme-grid">
+          <div *ngFor="let theme of getThemesByCategory('dark')" class="theme-card"
+            [class.active]="isThemeActive(theme.name)" (click)="setTheme(theme.name)">
+            <div class="theme-preview-colors">
+              <div class="color-swatch primary" [style.background-color]="theme.primaryColor"></div>
+              <div class="color-swatch secondary" [style.background-color]="theme.secondaryColor"></div>
+            </div>
+            <div class="theme-info">
+              <h3>{{ theme.displayName }}</h3>
+              <p>{{ theme.description }}</p>
+              <div class="theme-tags">
+                <span class="tag">{{ theme.name }}</span>
+                <span class="tag" *ngIf="theme.name === 'dark'">dark</span>
+                <span class="tag" *ngIf="theme.name === 'console'">console</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ACME Category -->
+      <div class="theme-category">
+        <div class="category-header">
+          <h2>🏢 ACME Variants</h2>
+          <p>Professional enterprise themes for corporate applications</p>
+        </div>
+        <div class="theme-grid">
+          <div *ngFor="let theme of getThemesByCategory('acme')" class="theme-card"
+            [class.active]="isThemeActive(theme.name)" (click)="setTheme(theme.name)">
+            <div class="theme-preview-colors">
+              <div class="color-swatch primary" [style.background-color]="theme.primaryColor"></div>
+              <div class="color-swatch secondary" [style.background-color]="theme.secondaryColor"></div>
+            </div>
+            <div class="theme-info">
+              <h3>{{ theme.displayName }}</h3>
+              <p>{{ theme.description }}</p>
+              <div class="theme-tags">
+                <span class="tag">{{ theme.name }}</span>
+                <span class="tag" *ngIf="theme.name === 'acme'">acme</span>
+                <span class="tag" *ngIf="theme.name === 'enterprise'">enterprise</span>
+                <span class="tag" *ngIf="theme.name === 'corporate'">corporate</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Live Component Preview -->
+    <div class="component-preview">
+      <h2>🎯 Live Component Preview</h2>
+      <p>
+        See how actual Play+ components look with the current theme applied in
+        real-time:
+      </p>
+
+      <div class="preview-grid">
+        <!-- Buttons -->
+        <div class="preview-item">
+          <h3>Buttons</h3>
+          <div class="button-showcase">
+            <aava-button variant="primary" label="Primary Button"></aava-button>
+            <aava-button variant="secondary" label="Secondary Button"></aava-button>
+            <aava-button variant="success" label="Success Button"></aava-button>
+            <!-- <aava-button variant="error">Error Button</aava-button> -->
+          </div>
+        </div>
+
+        <!-- Glass Button -->
+        <!-- <div class="preview-item">
+          <h3>Glass Button</h3>
+          <div class="glass-button-showcase">
+            <ava-glass-button
+              tone="positive"
+              label="Glass Primary"
+            ></ava-glass-button>
+            <ava-glass-button
+              tone="neutral"
+              label="Glass Secondary"
+            ></ava-glass-button>
+            <ava-glass-button
+              tone="positive"
+              label="Glass Success"
+            ></ava-glass-button>
+          </div>
+        </div> -->
+
+        <!-- Form Elements -->
+        <div class="preview-item">
+          <h3>Form Elements</h3>
+          <div class="form-showcase">
+            <div class="input-section">
+              <h4>Text Inputs</h4>
+              <aava-textbox label="Text Input" placeholder="Enter text here..." [required]="true" variant="default">
+              </aava-textbox>
+
+              <aava-textbox label="Email Input" placeholder="Enter email address..." variant="primary" type="email">
+              </aava-textbox>
+
+              <aava-textarea label="Text Area" placeholder="Enter longer text here..." [rows]="3" variant="default">
+              </aava-textarea>
+            </div>
+
+            <div class="selection-section">
+              <h4>Selection Controls</h4>
+              <aava-checkbox label="Check this option"></aava-checkbox>
+              <aava-checkbox label="Another option" [isChecked]="true"></aava-checkbox>
+
+              <aava-radio-button [options]="radioOptions" name="demo" selectedValue="option1">
+              </aava-radio-button>
+
+              <aava-toggle [checked]="true" title="Toggle Switch"></aava-toggle>
+              <!-- <aava-toggle title="Another Toggle" [checked]="true"></aava-toggle> -->
+            </div>
+
+            <div class="range-section">
+              <h4>Range Controls</h4>
+              <aava-slider [min]="0" [max]="100" [value]="50" [step]="5" [showTooltip]="true">
+              </aava-slider>
+
+              <!-- <ava-slider
+                [min]="0"
+                [max]="200"
+                [value]="75"
+                [step]="10"
+                [showTooltip]="true"
+              >
+              </ava-slider> -->
+            </div>
+
+            <div class="dropdown-section">
+              <h4>Dropdown Menu</h4>
+              <!-- <aava-dropdown label="Dropdown Menu" [options]="dropdownOptions" dropdownTitle="Select an option">
+              </aava-dropdown> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Cards -->
+        <div class="preview-item">
+          <h3>Cards</h3>
+          <div class="card-showcase">
+            <aava-card>
+              <div header>
+                <h4>Basic Card</h4>
+              </div>
+              <div content>
+                <p>This is a basic card component showing theme colors.</p>
+              </div>
+              <div footer>
+                <aava-button variant="primary" size="sm" label="Action"></aava-button>
+              </div>
+            </aava-card>
+          </div>
+        </div>
+
+        <!-- Interactive Elements -->
+        <div class="preview-item">
+          <h3>Interactive Elements</h3>
+          <div class="interactive-showcase">
+            <aava-toggle title="Toggle Switch"></aava-toggle>
+            <aava-slider [min]="0" [max]="100" [value]="50"> </aava-slider>
+            <!-- <aava-dropdown label="Dropdown Menu" [options]="dropdownOptions" dropdownTitle="Select an option">
+            </aava-dropdown> -->
+            <aava-link href="#" label="Interactive Link"></aava-link>
+          </div>
+        </div>
+
+        <!-- Data Display -->
+        <div class="preview-item">
+          <h3>Data Display</h3>
+          <div class="data-showcase">
+            <div class="badges-section">
+              <h4>Badges</h4>
+              <aava-badges state="high-priority" [count]="5" iconName="alert"></aava-badges>
+              <aava-badges state="medium-priority" [count]="12" iconName="info"></aava-badges>
+              <aava-badges state="low-priority" [count]="3" iconName="check"></aava-badges>
+              <aava-badges state="information" [count]="8" iconName="star"></aava-badges>
+              <aava-badges state="neutral" [count]="1" iconName="user"></aava-badges>
+            </div>
+
+            <div class="avatars-section">
+
+
+              <!-- <aava-avatars
+                size="small"
+                shape="pill"
+                imageUrl="https://via.placeholder.com/40"              >
+              </aava-avatars> -->
+            </div>
+          </div>
+        </div>
+
+        <!-- Navigation -->
+        <div class="preview-item">
+          <h3>Navigation</h3>
+          <div class="navigation-showcase">
+            <h4>Default Tabs with Content</h4>
+            <aava-tabs [tabs]="tabItems" [activeTabId]="activeTabId" (tabChange)="activeTabId = $event.id"
+              ariaLabel="Theme preview navigation tabs">
+            </aava-tabs>
+
+            <!-- <h4>Button Style Tabs (Navigation Only)</h4>
+            <aava-tabs
+              [tabs]="tabItems"
+              [activeTabId]="activeTabId"
+              variant="button"
+              [showContentPanels]="false"
+              (tabChange)="activeTabId = $event.id"
+              ariaLabel="Button style navigation tabs"
+            >
+            </aava-tabs> -->
+
+            <!-- <ava-accordion [items]="accordionItems"></ava-accordion>
+            <ava-pagination-controls
+              [currentPage]="1"
+              [totalPages]="10"
+              [showFirstLast]="true"
+            >
+            </ava-pagination-controls> -->
+          </div>
+        </div>
+
+        <!-- Feedback -->
+        <div class="preview-item">
+          <h3>Feedback & Status</h3>
+          <div class="feedback-showcase">
+            <div class="spinner-section">
+              <h4>Loading States</h4>
+              <aava-spinner size="md" color="primary" type="linear-gradient"></aava-spinner>
+              <!-- <aava-spinner size="md" color="secondary" type="dotted"></aava-spinner> -->
+              <!-- <aava-spinner size="lg" color="success" type="gradient"></aava-spinner> -->
+            </div>
+
+            <div class="progress-section">
+              <h4>Progress Indicators</h4>
+              <aava-progressbar [percentage]="75" label="Linear Progress" type="linear" color="#2E308E">
+              </aava-progressbar>
+
+              <aava-progressbar [percentage]="60" label="Circular Progress" type="circular" color="#4CAF50">
+              </aava-progressbar>
+            </div>
+          </div>
+        </div>
+
+        <!-- Theme Actions -->
+        <div class="preview-item">
+          <h3>Theme Actions</h3>
+          <div class="theme-actions">
+            <aava-button variant="primary" label="Toggle Light/Dark" (userClick)="toggleTheme()">
+            </aava-button>
+            <aava-button variant="secondary" label="Cycle All Themes" (userClick)="cycleTheme()">
+            </aava-button>
+            <aava-button variant="success" label="Reset to Default" (userClick)="setTheme('default')">
+            </aava-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme Features -->
+    <div class="theme-features">
+      <h2>✨ Theme Features</h2>
+      <div class="features-grid">
+        <div class="feature">
+          <h3>🎨 CSS-Based</h3>
+          <p>
+            Pure CSS theme system using custom properties and data attributes
+            for optimal performance and compatibility.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>⚡ Instant Switching</h3>
+          <p>
+            Switch themes instantly without page reloads using CSS custom
+            properties and efficient DOM updates.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>🔧 Easy Customization</h3>
+          <p>
+            Create custom themes by simply overriding semantic tokens in CSS
+            files with your brand colors.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>📱 Responsive</h3>
+          <p>
+            All themes are fully responsive and work seamlessly across all
+            device sizes and orientations.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>♿ Accessible</h3>
+          <p>
+            Built with accessibility in mind, ensuring proper contrast ratios
+            and keyboard navigation support.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>🔄 Persistent</h3>
+          <p>
+            Theme preferences are automatically saved and restored across
+            browser sessions using localStorage.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Theme Comparison -->
+    <div class="theme-comparison">
+      <h2>📊 Theme Comparison</h2>
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Theme</th>
+              <th>Primary</th>
+              <th>Secondary</th>
+              <th>Category</th>
+              <th>Best For</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let theme of getThemeArray()">
+              <td>
+                <strong>{{ theme.displayName }}</strong>
+              </td>
+              <td>
+                <div class="color-indicator" [style.background-color]="theme.primaryColor"></div>
+                {{ theme.primaryColor }}
+              </td>
+              <td>
+                <div class="color-indicator" [style.background-color]="theme.secondaryColor"></div>
+                {{ theme.secondaryColor }}
+              </td>
+              <td>
+                <span class="category-badge" [class]="theme.category">{{
+                  theme.category
+                  }}</span>
+              </td>
+              <td>{{ getUseCase(theme.name) }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,55 @@
+.demo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.demo-description {
+  margin-bottom: 2rem;
+}
+
+.demo-description h3 {
+  color: #333;
+  margin-bottom: 1rem;
+  font-size: 24px;
+}
+
+.demo-description p {
+  color: #666;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+.rating-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 8px;
+}
+
+.rating-info {
+  text-align: center;
+}
+
+.rating-info p {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.reset-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.reset-btn:hover {
+  background-color: #0056b3;
+}

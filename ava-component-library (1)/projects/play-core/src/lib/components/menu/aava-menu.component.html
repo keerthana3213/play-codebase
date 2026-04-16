@@ -1,0 +1,72 @@
+<div
+  class="ava-menu"
+  [class.visible]="visible"
+  [attr.id]="id ? 'aava-menu-' + id : null"
+  [ngStyle]="menuStyles"
+  [attr.data-position]="positionConfig.position"
+>
+  <div class="ava-menu__columns">
+    <div class="ava-menu__column" *ngFor="let column of columns">
+      <!-- Regular menu item -->
+      <button
+        *ngFor="let item of column"
+        class="ava-menu__item"
+        [class.active]="isItemActive(item)"
+        [class.disabled]="item.disabled"
+        [class.divider]="item.divider"
+        [class.icon-only]="shouldShowIcon(item) && !displayOptions.showTitle"
+        [class.no-icon]="!shouldShowIcon(item)"
+        [disabled]="item.disabled"
+        (click)="onItemClick(item, $event)"
+      >
+        <!-- Icon -->
+        <div
+          *ngIf="shouldShowIcon(item)"
+          class="ava-menu__item-icon"
+          [class.active]="isItemActive(item)"
+        >
+          <aava-icon
+            [iconName]="item.icon!"
+            [iconSize]="displayOptions.iconSize || 24"
+            [iconColor]="
+              isItemActive(item)
+                ? 'var(--menu-item-icon-active-color)'
+                : 'var(--menu-item-icon-color)'
+            "
+            class="ava-menu__icon"
+            [class.active]="isItemActive(item)"
+          />
+        </div>
+
+        <!-- Content -->
+        <div
+          *ngIf="displayOptions.showTitle || shouldShowDescription(item)"
+          class="ava-menu__item-content"
+        >
+          <!-- Title -->
+          <div
+            *ngIf="displayOptions.showTitle !== false"
+            class="ava-menu__item-title"
+            [class.active]="isItemActive(item)"
+            [attr.data-weight]="displayOptions.titleWeight"
+          >
+            {{ item.label }}
+          </div>
+
+          <!-- Description -->
+          <div
+            *ngIf="shouldShowDescription(item)"
+            class="ava-menu__item-description"
+            [class.active]="isItemActive(item)"
+            [attr.data-size]="displayOptions.descriptionSize"
+          >
+            {{ item.description }}
+          </div>
+        </div>
+
+        <!-- Divider (if item.divider is true) -->
+        <div *ngIf="item.divider" class="ava-menu__divider"></div>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+<div>
+  <div class="container-reset-password">
+    <label class="size-label">Small</label>
+    <aava-reset-password
+      label="Password"
+      placeholder="Small size"
+      [rules]="passwordRules.slice(0, 2)"
+      size="sm"
+    >
+    </aava-reset-password>
+  </div>
+
+  <div class="container-reset-password">
+    <label class="size-label">Large</label>
+    <aava-reset-password
+      label="Password"
+      placeholder="Large size"
+      [rules]="passwordRules.slice(0, 2)"
+      size="lg"
+    >
+    </aava-reset-password>
+  </div>
+</div>

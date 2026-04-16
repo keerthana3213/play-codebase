@@ -1,0 +1,76 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Toast Component Tokens
+ *
+ * Component-specific semantic tokens for toast notification elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for toast styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Toast Base --- */
+  --toast-background: var(--global-background);
+  --toast-border: var(--color-border-default);
+  --toast-border-radius: var(--global-radius-md);
+  --toast-border-radius-sm: var(--global-radius-sm);
+  --toast-shadow: var(--global-elevation-02);
+  --toast-padding: var(--global-spacing-4);
+  /* --- Toast Title --- */
+  --toast-title-font: var(--font-body-2);
+  --toast-title-color: var(--color-text-primary);
+  --toast-title-weight: var(--global-font-weight-semibold);
+  --toast-title-line-height: var(--global-line-height-default);
+  --toast-title-margin-bottom: var(--global-spacing-2);
+  --toast-title-font-size: var(--global-icon-size-sm);
+  /* --- Toast Message --- */
+  --toast-font-family: var(--font-family-body);
+  --toast-message-color: var(--global-color-gray-500);
+  --toast-message-weight: var(--global-font-weight-regular);
+  --toast-gap: var(--global-spacing-3);
+
+  /* --- Toast Variants --- */
+  --toast-success-background: var(--global-color-green-500);
+  --toast-color-text: var(--global-background);
+  --toast-error-background: var(--global-color-red-500);
+  --toast-warning-background: var(--global-color-yellow-500);
+  --toast-info-background: var(--global-color-blue-info-500);
+
+  /* --- Toast Container --- */
+  --toast-container-position: fixed;
+  --toast-container-z-index: 9999;
+  --toast-margin: var(--global-spacing-1);
+
+  /* ---Toast color ---*/
+  --toast-color-warning: var(--global-color-marigold-600);
+  --toast-color-info: var(--global-color-cyan-600);
+  --toast-color-error: var(--global-color-red-600);
+  --toast-color-success: var(--global-color-green-600);
+  --toast-color-black: var(--color-text-primary);
+  --toast-color-gray: var(--global-color-gray-500);
+
+  /* Layout / Spacing */
+  --toast-margin-bottom: 16px;
+  --toast-padding-default: 16px 20px 12px 20px;
+  --toast-padding-large: 1rem 1.25rem;
+  --toast-padding-medium: 0.75rem 1rem;
+  --toast-padding-small: 0.5rem 0.75rem;
+
+  /* Font Sizes */
+  --toast-font-size-large: 1rem;
+  --toast-font-size-medium: 0.9rem;
+  --toast-font-size-small: 0.8rem;
+
+  /* Icon Sizes */
+  --toast-icon-size-large: 32px;
+  --toast-icon-size-medium: 28px;
+  --toast-icon-size-small: 24px;
+
+  /* Width / Sizing */
+  --toast-width: 400px;
+  --toast-gap: 12px;
+  --toast-progress-height: 4px;
+
+  /* Box Shadow */
+  --toast-box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}

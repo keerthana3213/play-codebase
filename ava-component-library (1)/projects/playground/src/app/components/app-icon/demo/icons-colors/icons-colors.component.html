@@ -1,0 +1,10 @@
+<div class="demo-container">
+  <aava-icon
+    *ngFor="let example of colorExamples"
+    [iconName]="iconName"
+    [iconSize]="24"
+    [iconColor]="example.color"
+    [attr.aria-label]="example.label"
+  >
+  </aava-icon>
+</div>

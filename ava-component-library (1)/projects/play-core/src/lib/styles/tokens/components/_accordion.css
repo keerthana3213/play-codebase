@@ -1,0 +1,19 @@
+/**
+ * Component: Accordion
+ * Purpose: Accordion component tokens for collapsible content sections
+ */
+
+:root {
+  /* Accordion Base */
+  --accordion-font-family: var(--global-font-family-body);
+  --accordion-header-text-color: var(--global-color-gray-900);
+  --accordion-icon-color: var(--accordion-header-text-color);
+  --accordion-border: 0.5px solid var(--color-border-subtle);
+  --accordion-border-focussed: 2px solid var(--color-border-focus);
+  --accordion-font-weight: var(--global-font-weight-regular);
+  --accordion-divider-background: var(--color-border-default);
+  --accordion-content-text-color: var(--global-color-gray-800);
+  --accordion-header-font-weight: var(--global-font-weight-semibold);
+  --accordion-background-disabled: var(--color-background-disabled);
+
+}

@@ -1,0 +1,14 @@
+<div class="option"
+     role="option"
+     [attr.id]="optionId"
+     [attr.aria-selected]="selected"
+     [attr.aria-disabled]="disabled"
+     (click)="onClick($event)"
+     [class.selected]="selected && !noSelected"
+     [class.highlighted]="highlighted"
+     [class.has-checkbox]="hasCheckbox"
+     [class.disabled]="disabled"
+     [class.no-hover]="noHover"
+     [class.no-selected]="noSelected">
+    <ng-content></ng-content>
+</div>

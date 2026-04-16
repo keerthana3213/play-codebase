@@ -1,0 +1,250 @@
+// Global Reset
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+header {
+  border: 1px solid #eee;
+}
+
+html {
+  &[data-theme="light"] {
+    .logo {
+      background-color: transparent;
+    }
+  }
+
+  &[data-theme="dark"] {
+    .logo {
+      background-color: #fff;
+    }
+  }
+}
+
+// Documentation wrapper
+.documentation {
+  width: 100%;
+
+  .section {
+    margin-bottom: 50px;
+    padding: 20px 0;
+
+    .mobile-view {
+      width: 40%;
+      margin: 0 auto;
+    }
+
+    h3 {
+      text-align: center;
+      background: #e2e2e2;
+      padding: 20px 0;
+    }
+  }
+
+  // Header Layout
+  .header__right {
+    display: flex;
+    align-items: center;
+    gap: 15px; // spacing between items
+  }
+
+  .logo {
+    font-weight: bold;
+    font-size: 18px;
+    letter-spacing: 1px;
+  }
+
+  // Tabs (center navigation)
+  .tabs {
+    display: flex;
+    gap: 20px;
+
+    a {
+      text-decoration: none;
+      color: #444;
+      font-size: 14px;
+      position: relative;
+      padding-bottom: 5px;
+
+      &.active {
+        color: #e91e63;
+        font-weight: 500;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          height: 2px;
+          background: #e91e63;
+        }
+      }
+    }
+  }
+
+  // Search Box
+  .search-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    padding: 5px 10px;
+    background: #fafafa;
+
+    input {
+      border: none;
+      outline: none;
+      padding: 5px;
+      background: transparent;
+      font-size: 14px;
+    }
+
+    i {
+      margin-right: 8px;
+      color: #666;
+    }
+  }
+
+  // Icons
+  .icon {
+    cursor: pointer;
+    transition: transform 0.2s ease;
+
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  // Avatar
+  .avatar,
+  .user-avatar {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    img {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: red;
+      color: #fff;
+      font-size: 10px;
+      padding: 2px 5px;
+      border-radius: 50%;
+    }
+  }
+
+  // Dropdown menu
+  .dropdown {
+    position: absolute;
+    top: 60px;
+    right: 20px;
+    background: #fff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    z-index: 1000;
+  }
+
+  // Responsive
+  @media (max-width: 768px) {
+    .tabs {
+      display: none;
+    }
+  }
+
+  // Tabs overrides for ava-tabs
+  .ava-tabs {
+    .ava-tabs__container {
+      border: none !important;
+      box-shadow: none !important;
+      background: none;
+    }
+  }
+
+  .test-tabs-container,
+  .test-tabs-container-iconOnly {
+    display: flex;
+    flex-direction: row;
+    padding-left: 20px;
+  }
+
+  .test-tabs-container-iconOnly {
+    gap: 160px;
+  }
+}
+/* Menu dropdown */
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 15px;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 15px;
+  display: none;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 2000;
+}
+
+.menu-dropdown.open {
+  display: flex;
+}
+
+/* Logo inside dropdown */
+.dropdown-logo {
+  text-align: center;
+  margin-bottom: 10px;
+
+  img {
+    max-width: 120px;
+    height: auto;
+  }
+}
+
+/* Search inside dropdown */
+.dropdown-search {
+  width: 100%;
+}
+
+/* Tabs vertically */
+.dropdown-tabs {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  .ava-tabs__container {
+    flex-direction: column !important;
+    align-items: flex-start;
+  }
+
+  .ava-tab {
+    width: 100%;
+    text-align: left;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+    color: #e91e63;
+
+    &:hover {
+      background: #f9f9f9;
+    }
+  }
+}
+
+/* Menu toggle icon */
+.menu-toggle {
+  cursor: pointer;
+}

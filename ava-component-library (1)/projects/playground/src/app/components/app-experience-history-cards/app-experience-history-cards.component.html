@@ -1,0 +1,158 @@
+<!-- <h2>History Card</h2>
+<section class="comp-container">
+  <awe-experience-history-cards
+    [imageUrl]="image"
+    [title]="title"
+    [mode]="'dark'" 
+    (onHistoryClick)="onHistoryClicked()"
+    (onExternalLinkClick)="onExternalLinkClicked()">
+  </awe-experience-history-cards>
+  
+</section>
+
+<section class="comp-container">
+  <awe-experience-history-cards
+  [imageUrl]="image"
+  [title]="title"
+  [mode]="'light'" 
+  (onHistoryClick)="onHistoryClicked()"
+  (onExternalLinkClick)="onExternalLinkClicked()">
+</awe-experience-history-cards>
+</section> -->
+
+
+<div class="documentation">
+  
+  <!-- Header -->
+  <header class="doc-header">
+    <h1>Experience Studio History Card Component</h1>
+    <p class="description">
+      The History Card component is used to display experience history cards, which can be presented in both light and dark themes. The component includes various interactions such as clicking on the history icon or external links.
+    </p>
+  </header>
+
+  <!-- Installation -->
+  <section class="doc-section">
+    <h2>Installation</h2>
+    <div class="code-block">
+      <pre><code>import {{ '{' }} ExperienceHistoryCardsComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+    </div>
+  </section>
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <awe-experience-history-cards 
+                [imageUrl]="image"
+                [title]="title"
+                [mode]="'light'"
+                (onHistoryClick)="onHistoryClicked()"
+                (onExternalLinkClick)="onExternalLinkClicked()">
+              </awe-experience-history-cards>
+            </ng-container>
+
+            <!-- History Card Theme -->
+            <ng-container *ngSwitchCase="'History Card light Theme'">
+              <awe-experience-history-cards
+                [imageUrl]="image"
+                [title]="title"
+                [mode]="'light'"
+                (onHistoryClick)="onHistoryClicked()"
+                (onExternalLinkClick)="onExternalLinkClicked()">
+              </awe-experience-history-cards>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'History Card dark Theme'">
+              <awe-experience-history-cards
+                [imageUrl]="image"
+                [title]="title"
+                [mode]="'dark'"
+                (onHistoryClick)="onHistoryClicked()"
+                (onExternalLinkClick)="onExternalLinkClicked()">
+              </awe-experience-history-cards>
+            </ng-container>
+          
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy" *ngIf="section.title!=='Available Icons'"></awe-icons>
+          </button>
+        </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Events -->
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td><code>{{ event.name }}</code></td>
+          <td><code>{{ event.type }}</code></td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

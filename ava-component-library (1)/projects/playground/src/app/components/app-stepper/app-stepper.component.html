@@ -1,0 +1,241 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Stepper Component</h1>
+        <p class="description">
+          A versatile stepper component offering various sizes, orientations,
+          and navigation options.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Components</h2>
+        <div class="nav-links">
+          <h3>Demo Sections</h3>
+          <div class="nav-grid">
+            <a routerLink="/stepper/basic-usage" class="nav-link">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Basic Usage</span>
+            </a>
+            <a routerLink="/stepper/sizes" class="nav-link">
+              <span class="nav-icon">📏</span>
+              <span class="nav-text">Sizes</span>
+            </a>
+            <a routerLink="/stepper/orientation" class="nav-link">
+              <span class="nav-icon">📍</span>
+              <span class="nav-text">Orientation</span>
+            </a>
+            <a routerLink="/stepper/interactive" class="nav-link">
+              <span class="nav-icon">🎯</span>
+              <span class="nav-text">Interactive</span>
+            </a>
+            <a routerLink="/stepper/events" class="nav-link">
+              <span class="nav-icon">⚡</span>
+              <span class="nav-text">Events</span>
+            </a>
+            <a routerLink="/stepper/forms" class="nav-link">
+              <span class="nav-icon">📋</span>
+              <span class="nav-text">Forms</span>
+            </a>
+            <a routerLink="/stepper/animation" class="nav-link">
+              <span class="nav-icon">✨</span>
+              <span class="nav-text">Animation</span>
+            </a>
+            <a routerLink="/stepper/accessibility" class="nav-link">
+              <span class="nav-icon">♿</span>
+              <span class="nav-text">Accessibility</span>
+            </a>
+            <a routerLink="/stepper/icon" class="nav-link">
+              <span class="nav-icon">🎨</span>
+              <span class="nav-text">Icon Variant</span>
+            </a>
+            <a routerLink="/stepper/api" class="nav-link">
+              <span class="nav-icon">📚</span>
+              <span class="nav-text">API Reference</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)"
+                (keydown.enter)="toggleCodeVisibility(i, $event)" (keydown.space)="toggleCodeVisibility(i, $event)"
+                tabindex="0" role="button" [attr.aria-expanded]="section.showCode"
+                [attr.aria-label]="section.showCode ? 'Hide code' : 'View code'">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Stepper -->
+            <ng-container *ngSwitchCase="'Basic Stepper'">
+              <div class="example-group">
+                <h4>Basic Horizontal Stepper</h4>
+                <aava-stepper [steps]="basicLabels" [currentStep]="basicStep" [iconColor]="'#ffff'" [iconSize]="'20'"
+                  orientation="horizontal" size="md" [showNavigation]="true" (stepChange)="onBasicStepChange($event)">
+                </aava-stepper>
+              </div>
+            </ng-container>
+
+            <!-- Stepper Sizes -->
+            <ng-container *ngSwitchCase="'Stepper Sizes'">
+              <div class="example-group">
+                <h4>Large Horizontal Stepper</h4>
+                <aava-stepper [steps]="largeLabels" [currentStep]="largeStep" [iconColor]="'#ffff'" [iconSize]="'24'"
+                  orientation="horizontal" size="lg" [showNavigation]="true" (stepChange)="onLargeStepChange($event)">
+                </aava-stepper>
+              </div>
+              <div class="example-group">
+                <h4>Medium Horizontal Stepper</h4>
+                <aava-stepper [steps]="mediumLabels" [currentStep]="mediumStep" [iconColor]="'#ffff'" [iconSize]="'20'"
+                  orientation="horizontal" size="md" [showNavigation]="true" (stepChange)="onMediumStepChange($event)">
+                </aava-stepper>
+              </div>
+              <div class="example-group">
+                <h4>Small Horizontal Stepper</h4>
+                <aava-stepper [steps]="smallLabels" [currentStep]="smallStep" [iconColor]="'#ffff'" [iconSize]="'16'"
+                  orientation="horizontal" size="sm" [showNavigation]="true" (stepChange)="onSmallStepChange($event)">
+                </aava-stepper>
+              </div>
+
+              <div class="example-group">
+                <h4> Extra Small Horizontal Stepper</h4>
+                <aava-stepper [steps]="smallLabels" [currentStep]="smallStep" [iconColor]="'#ffff'" [iconSize]="'12'"
+                  orientation="horizontal" size="xs" [showNavigation]="true" (stepChange)="onSmallStepChange($event)">
+                </aava-stepper>
+              </div>
+            </ng-container>
+
+            <!-- Vertical Stepper -->
+            <ng-container *ngSwitchCase="'Vertical Stepper'">
+              <section class="stepper-vertical">
+                <div class="example-group">
+                  <h4>Large Vertical Stepper</h4>
+                  <aava-stepper [steps]="verticalLabelSet1" [currentStep]="verticalStep1" [iconColor]="'#ffff'"
+                    [iconSize]="'24'" orientation="vertical" size="lg" [showNavigation]="true"
+                    (stepChange)="onVerticalStep1Change($event)">
+                  </aava-stepper>
+                </div>
+                <div class="example-group">
+                  <h4>Medium Vertical Stepper</h4>
+                  <aava-stepper [steps]="verticalLabelSet2" [currentStep]="verticalStep2" [iconColor]="'#ffff'"
+                    [iconSize]="'20'" orientation="vertical" size="md" [showNavigation]="true"
+                    (stepChange)="onVerticalStep2Change($event)">
+                  </aava-stepper>
+                </div>
+                <div class="example-group">
+                  <h4>Small Vertical Stepper</h4>
+                  <aava-stepper [steps]="verticalLabelSet3" [currentStep]="verticalStep3" [iconColor]="'#ffff'"
+                    [iconSize]="'16'" orientation="vertical" size="sm" [showNavigation]="true"
+                    (stepChange)="onVerticalStep3Change($event)">
+                  </aava-stepper>
+                </div>
+                <div class="example-group">
+                  <h4>Extra Small Vertical Stepper</h4>
+                  <aava-stepper [steps]="verticalLabelSet3" [currentStep]="verticalStep3" [iconColor]="'#ffff'"
+                    [iconSize]="'12'" orientation="vertical" size="xs" [showNavigation]="true"
+                    (stepChange)="onVerticalStep3Change($event)">
+                  </aava-stepper>
+                </div>
+              </section>
+            </ng-container>
+
+            <!-- Stepper with Icons -->
+            <ng-container *ngSwitchCase="'Stepper with Icons'">
+              <div class="example-group">
+                <h4>Stepper with Lucide Icons</h4>
+                <aava-stepper [steps]="iconSteps" [currentStep]="iconStep" [iconColor]="'#fff'" [iconSize]="'15'"
+                  orientation="horizontal" size="md" [showNavigation]="true" [stepVariant]="'icon'"
+                  (stepChange)="onIconStepChange($event)">
+                </aava-stepper>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <!-- Icon for copy button -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>
+            <code>{{ event.name }}</code>
+          </td>
+          <td>
+            <code>{{ event.type }}</code>
+          </td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,0 +1,164 @@
+<div class="timepicker-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Time Picker Component</h1>
+            <p class="description">
+              A sophisticated time selection component with scroll-based interface, inline
+              editing, keyboard navigation, and full accessibility support for precise
+              time input in 12-hour format.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="basic-usage" class="nav-link">
+                <span class="nav-icon">🕐</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+
+              <a routerLink="scroll-mode" class="nav-link">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-text">Scroll Mode</span>
+              </a>
+              <a routerLink="keyboard-navigation" class="nav-link">
+                <span class="nav-icon">⌨️</span>
+                <span class="nav-text">Keyboard Navigation</span>
+              </a>
+              <a routerLink="validation" class="nav-link">
+                <span class="nav-icon">✅</span>
+                <span class="nav-text">Validation</span>
+              </a>
+              <a routerLink="custom-styling" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Custom Styling</span>
+              </a>
+              <a routerLink="api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>Simple time picker with default behavior and display mode</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-time-picker
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="mt-3">
+                <strong>Selected Time:</strong> {{selectedTime}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Size Variants -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Size Variants</h2>
+          <p>Different sizes for various use cases</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <aava-time-picker
+                size="sm"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="size-label">Small</div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-time-picker
+                size="md"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="size-label">Medium</div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-time-picker
+                size="lg"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="size-label">Large</div>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <aava-time-picker
+                size="xl"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="size-label">Extra Large</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- States -->
+    <section class="demo-section states-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Component States</h2>
+          <p>Different states and styling examples</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <aava-time-picker
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="state-label">Normal State</div>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-time-picker
+                [customStyles]="disabledStyles"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="state-label">Custom Styled</div>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-time-picker
+                [customStyles]="darkStyles"
+                (timeSelected)="onTimeSelected($event)">
+              </aava-time-picker>
+              <div class="state-label">Dark Theme</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

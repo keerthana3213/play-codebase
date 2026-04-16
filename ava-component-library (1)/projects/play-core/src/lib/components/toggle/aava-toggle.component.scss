@@ -1,0 +1,495 @@
+// Icon color variables - mapped to brand primary from toggle track background
+:host {
+  --toggle-icon-checked-color: rgba(var(--rgb-brand-primary));
+  --toggle-icon-unchecked-color: color-mix(in srgb,
+      rgba(var(--rgb-brand-primary)) 60%,
+      var(--text-color-secondary, #666666));
+}
+
+.ava-toggle-container {
+  display: flex;
+  align-items: center;
+  gap: var(--toggle-gap);
+  user-select: none;
+
+  &.toggle-left {
+    flex-direction: row;
+  }
+
+  &.toggle-right {
+    flex-direction: row;
+  }
+
+  &.disabled {
+    opacity: 0.6;
+  }
+}
+
+.toggle-title {
+  color: var(--toggle-label-text);
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+
+  // Default size for md
+  font-size: var(--toggle-font-size-md);
+
+  // Size variations based on container class
+  .toggle-size-xs & {
+    font-size: var(--toggle-font-size-xs);
+  }
+
+  .toggle-size-sm & {
+    font-size: var(--toggle-font-size-sm);
+  }
+
+  .toggle-size-md & {
+    font-size: var(--toggle-font-size-md);
+  }
+
+  .toggle-size-lg & {
+    font-size: var(--toggle-font-size-lg);
+  }
+
+  // &:hover:not(.disabled) {
+  //   color: color-mix(
+  //     in srgb,
+  //     var(--toggle-label-text) 80%,
+  //     var(--toggle-track-checked-background-gradient) 20%
+  //   );
+  // }
+
+  &.disabled {
+    color: var(--toggle-label-disabled-text);
+    cursor: not-allowed;
+  }
+}
+
+.toggle-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  border-radius: var(--toggle-border-radius);
+  background: var(--toggle-track-background);
+  cursor: pointer;
+  flex-shrink: 0;
+  outline: none;
+  padding: 2px;
+
+  // Pseudo-element for delayed checked background
+  &::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--toggle-track-checked-background-gradient);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease 0.4s;
+    z-index: 0;
+  }
+
+  &.checked::before {
+    opacity: 1;
+  }
+
+  // Ensure content is above the pseudo background
+  >* {
+    position: relative;
+    z-index: 1;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &.checked {
+    background: var(--toggle-track-checked-background-gradient);
+  }
+
+  /* Size variants */
+  &.toggle-xs {
+    width: var(--toggle-size-xs-width);
+    height: var(--toggle-size-xs-height);
+
+    .toggle-slider {
+      width: var(--toggle-size-xs-thumb-size);
+      height: var(--toggle-size-xs-thumb-size);
+      transform: translateX(0px);
+    }
+
+    &.checked .toggle-slider {
+      transform: translateX(20px);
+    }
+
+    &:not(.disabled):active:not(.checked) .toggle-slider {
+      transform: translateX(1px) scale(0.95);
+    }
+
+    &:not(.disabled):active.checked .toggle-slider {
+      transform: translateX(16px) scale(0.95);
+    }
+  }
+
+  &.toggle-sm {
+    width: var(--toggle-size-sm-width);
+    height: var(--toggle-size-sm-height);
+
+    .toggle-slider {
+      width: var(--toggle-size-sm-thumb-size);
+      height: var(--toggle-size-sm-thumb-size);
+      transform: translateX(1px);
+    }
+
+    &.checked .toggle-slider {
+      transform: translateX(19px);
+    }
+
+    &:not(.disabled):active:not(.checked) .toggle-slider {
+      transform: translateX(1px) scale(0.95);
+    }
+
+    &:not(.disabled):active.checked .toggle-slider {
+      transform: translateX(15px) scale(0.95);
+    }
+  }
+
+  &.toggle-md {
+    width: var(--toggle-size-md-width);
+    height: var(--toggle-size-md-height);
+
+    .toggle-slider {
+      width: var(--toggle-size-md-thumb-size);
+      height: var(--toggle-size-md-thumb-size);
+      transform: translateX(1px);
+    }
+
+    &.checked .toggle-slider {
+      transform: translateX(23px);
+    }
+
+    &:not(.disabled):active:not(.checked) .toggle-slider {
+      transform: translateX(1px) scale(0.95);
+    }
+
+    &:not(.disabled):active.checked .toggle-slider {
+      transform: translateX(19px) scale(0.95);
+    }
+  }
+
+  &.toggle-lg {
+    width: var(--toggle-size-lg-width);
+    height: var(--toggle-size-lg-height);
+
+    .toggle-slider {
+      width: var(--toggle-size-lg-thumb-size);
+      height: var(--toggle-size-lg-thumb-size);
+      transform: translateX(1px);
+    }
+
+    &.checked .toggle-slider {
+      transform: translateX(27px);
+    }
+
+    &:not(.disabled):active:not(.checked) .toggle-slider {
+      transform: translateX(1px) scale(0.95);
+    }
+
+    &:not(.disabled):active.checked .toggle-slider {
+      transform: translateX(19px) scale(0.95);
+    }
+  }
+
+  /* Focus styles - keyboard navigation only */
+  &:focus-visible {
+    outline: 2px solid var(--toggle-track-checked-background-gradient);
+    outline-offset: 2px;
+    box-shadow: 0 0 0 4px rgba(156, 39, 176, 0.1);
+  }
+
+  /* Remove focus styles for mouse clicks */
+  &:focus:not(:focus-visible) {
+    outline: none;
+    box-shadow: none;
+  }
+
+  /* Hover effects - translucent ring, subtle glow, and size increase */
+  &:not(.disabled):hover .toggle-slider {
+    box-shadow: var(--toggle-glass-shadow),
+      0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background)30%, transparent),
+      0 0 12px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+    transform: scale(1.1);
+  }
+
+  /* Size-specific hover effects with proper positioning */
+  &.toggle-xs:not(.disabled):hover .toggle-slider {
+    box-shadow: var(--toggle-glass-shadow),
+      0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background) 30%, transparent),
+      0 0 8px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+    transform: translateX(0px) scale(1.1);
+  }
+
+  &.toggle-xs.checked:not(.disabled):hover .toggle-slider {
+    transform: translateX(20px) scale(1.1);
+  }
+
+  &.toggle-sm:not(.disabled):hover .toggle-slider {
+    box-shadow: var(--toggle-glass-shadow),
+      0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background) 30%, transparent),
+      0 0 10px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+    transform: translateX(1px) scale(1.1);
+  }
+
+  &.toggle-sm.checked:not(.disabled):hover .toggle-slider {
+    transform: translateX(19px) scale(1.1);
+  }
+
+  &.toggle-md:not(.disabled):hover .toggle-slider {
+    box-shadow: var(--toggle-glass-shadow),
+      0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background) 30%, transparent),
+      0 0 12px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+    transform: translateX(1px) scale(1.1);
+  }
+
+  &.toggle-md.checked:not(.disabled):hover .toggle-slider {
+    transform: translateX(23px) scale(1.1);
+  }
+
+  &.toggle-lg:not(.disabled):hover .toggle-slider {
+    box-shadow: var(--toggle-glass-shadow),
+      0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background) 30%, transparent),
+      0 0 14px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+    transform: translateX(1px) scale(1.1);
+  }
+
+  &.toggle-lg.checked:not(.disabled):hover .toggle-slider {
+    transform: translateX(27px) scale(1.1);
+  }
+
+  /* Active/pressed state - override hover effects */
+  &:not(.disabled):active .toggle-slider {
+    box-shadow: none !important;
+  }
+
+  /* Active state with specific overrides to maintain proper positioning */
+  &.toggle-xs:not(.disabled):active:not(.checked) .toggle-slider {
+    transform: translateX(0px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-xs:not(.disabled):active.checked .toggle-slider {
+    transform: translateX(16px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-sm:not(.disabled):active:not(.checked) .toggle-slider {
+    transform: translateX(1px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-sm:not(.disabled):active.checked .toggle-slider {
+    transform: translateX(15px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-md:not(.disabled):active:not(.checked) .toggle-slider {
+    transform: translateX(1px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-md:not(.disabled):active.checked .toggle-slider {
+    transform: translateX(19px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-lg:not(.disabled):active:not(.checked) .toggle-slider {
+    transform: translateX(1px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.toggle-lg:not(.disabled):active.checked .toggle-slider {
+    transform: translateX(19px) scale(0.95) !important;
+    box-shadow: none !important;
+  }
+
+  &.animated {
+    transition: background-color 0.6s ease 0.4s;
+
+    .toggle-slider {
+      transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55),
+        box-shadow 0.2s ease;
+    }
+  }
+
+  &:not(.animated) {
+    .toggle-slider {
+      transition: box-shadow 0.2s ease;
+    }
+  }
+}
+
+.toggle-slider {
+  position: relative;
+  border-radius: var(--toggle-border-radius);
+  background: var(--toggle-thumb-background);
+  box-shadow: var(--toggle-glass-shadow);
+  flex-shrink: 0;
+}
+
+/* Screen reader support - visually hidden but accessible text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .toggle-wrapper {
+    border: 1px solid transparent;
+
+    &:focus-visible {
+      border-color: currentColor;
+      outline: 2px solid;
+    }
+
+    &:focus:not(:focus-visible) {
+      border: none;
+      outline: none;
+    }
+  }
+
+  .toggle-slider {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .toggle-wrapper.animated {
+    transition: background-color 0.15s ease !important;
+
+    .toggle-slider {
+      transition: transform 0.15s ease, box-shadow 0.15s ease !important;
+    }
+  }
+}
+
+/* Icon Support */
+.toggle-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.toggle-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  position: relative;
+  z-index: 11;
+
+  &.toggle-icon-checked {
+    opacity: 1;
+  }
+
+  &.toggle-icon-unchecked {
+    opacity: 0.8;
+  }
+}
+
+/* Adjustments for toggles with icons */
+.toggle-wrapper.toggle-with-icons {
+  .toggle-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+  }
+
+  /* Ensure icons are properly sized for different toggle sizes */
+  &.toggle-xs .toggle-icons {
+    width: 10px;
+    height: 10px;
+  }
+
+  &.toggle-sm .toggle-icons {
+    width: #{var(--toggle-size-sm-thumb-size)- 2px};
+    height: #{var(--toggle-size-sm-thumb-size) - 2px};
+  }
+
+  &.toggle-md .toggle-icons {
+    width: #{var(--toggle-size-md-thumb-size)- 2px};
+    height: #{var(--toggle-size-md-thumb-size) - 2px};
+  }
+
+  &.toggle-lg .toggle-icons {
+    width: #{var(--toggle-size-lg-thumb-size) - 2px};
+    height: #{var(--toggle-size-lg-thumb-size)- 2px};
+  }
+
+  /* Override slider transform to include icon transforms */
+  &.toggle-xs.checked .toggle-slider {
+    transform: translateX(20px);
+
+    .toggle-icons {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.toggle-sm.checked .toggle-slider {
+    transform: translateX(19px);
+
+    .toggle-icons {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.toggle-md.checked .toggle-slider {
+    transform: translateX(23px);
+
+    .toggle-icons {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  &.toggle-lg.checked .toggle-slider {
+    transform: translateX(27px);
+
+    .toggle-icons {
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  /* Ensure icon visibility with better contrast */
+  &.checked .toggle-icon-checked {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  }
+
+  &:not(.checked) .toggle-icon-unchecked {
+    filter: drop-shadow(0 1px 2px rgba(255, 255, 255, 0.3));
+  }
+}
+
+.ava-toggle-container:hover .toggle-slider {
+  box-shadow: var(--toggle-glass-shadow),
+    0 0 0 3px color-mix(in srgb, var(--toggle-track-checked-background) 30%, transparent),
+    0 0 14px color-mix(in srgb, var(--toggle-track-checked-background) 15%, transparent);
+  transform: translateX(1px) scale(1.1);
+}

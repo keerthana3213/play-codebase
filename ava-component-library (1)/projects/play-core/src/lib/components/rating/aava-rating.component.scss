@@ -1,0 +1,36 @@
+.rating {
+    display: inline-flex;
+    align-items: center;
+}
+
+.rating-value {
+    font-family: var(--rating-label-font-family);
+    font-weight: var(--rating-label-font-weight);
+    line-height: var(--rating-label-font-size);
+    color: var(--rating-label-color);
+    font-style: normal;
+}
+
+.rating img {
+    margin-right: 4px;
+}
+
+.rating-value--xs {
+    font-size: var(--rating-value-font-size-sm);
+    letter-spacing: var(--rating-label-letter-spacing-sm);
+}
+
+.rating-value--sm {
+    font-size: var(--rating-value-font-size-sm);
+    letter-spacing: var(--rating-label-letter-spacing-sm);
+}
+
+.rating-value--md {
+    font-size: var(--rating-value-font-size-md);
+    letter-spacing: var(--rating-label-letter-spacing-medium);
+}
+
+.rating-value--lg {
+    font-size: var(--rating-value-font-size-lg);
+    letter-spacing: var(--rating-label-letter-spacing-lg);
+}

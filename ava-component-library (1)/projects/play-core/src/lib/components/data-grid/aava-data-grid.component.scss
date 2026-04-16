@@ -1,0 +1,219 @@
+.ava-data-grid-wrapper {
+  table-layout: auto;
+
+  .data-grid-wrapper {
+    position: relative;
+    overflow-x: auto;
+    width: 100%;
+    min-height: var(--grid-min-height);
+    border: 1px solid var(--grid-border-color);
+    border-radius: 10px;
+
+    &.no-data {
+      min-height: 0;
+
+      p {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    &.is-loading {
+      overflow: hidden;
+    }
+
+    .loading-overlay {
+      position: absolute;
+      top: 0px;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      -webkit-backdrop-filter: blur(2px);
+      backdrop-filter: blur(2px);
+      background: var(--grid-overlay-background);
+      z-index: 10;
+      margin-top: 50px;
+    }
+
+    .ava-data-grid {
+      table-layout: auto;
+      width: max-content;
+      min-width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-family: var(--grid-font-family-body);
+      color: var(--grid-text-color);
+      background-color: var(--grid-background);
+
+      .cell-wrapper {
+        position: relative;
+
+        .sort-icon {
+          opacity: 0;
+          margin-left: 5px;
+          position: relative;
+          top: -1px;
+
+          &.s-show {
+            opacity: 1;
+          }
+        }
+
+        .filter {
+          position: absolute;
+          border-radius: 4px;
+          top: 0;
+          right: 0;
+          padding: 0px 4px;
+          height: 20px;
+
+          &:hover {
+            .sort-icon {
+              opacity: 0;
+            }
+          }
+
+          &.active {
+            background: var(--grid-filter-active-color);
+
+            &:hover {
+              background: var(--color-brand-primary-hover);
+            }
+          }
+
+          aava-icon {
+            position: relative;
+            top: -3px;
+          }
+
+          .dot {
+            width: 6px;
+            height: 6px;
+            display: block;
+            position: absolute;
+            background: white;
+            border-radius: 40px;
+            right: 3px;
+            top: 3px;
+            z-index: 9;
+          }
+        }
+      }
+
+      .filter-wrapper {
+        position: absolute;
+        z-index: 999;
+        background-color: var(--global-background);
+        border: 1px solid var(--grid-border);
+        border-radius: var(--grid-filter-border-radius);
+        box-shadow: var(--grid-filter-elevation);
+        padding: var(--grid-filter-padding);
+        min-width: var(--grid-filter-min-width);
+        display: flex;
+        flex-direction: column;
+        gap: var(--grid-filter-gap);
+        right: -227px;
+        top: 40px;
+
+        &.last {
+          right: 0;
+        }
+
+        ava-button {
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+
+        .link-wrapper {
+          display: flex;
+          justify-content: flex-end;
+        }
+
+        .default-filter-actions {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+        }
+      }
+
+      th:hover .sort-icon {
+        opacity: 1;
+      }
+
+      th.hide-sort .sort-icon {
+        opacity: 0;
+      }
+
+      th,
+      td {
+        padding: var(--grid-cell-paading);
+        text-align: left;
+        border-bottom: var(--grid-cell-bottom-border);
+        font-family: var(--grid-title-family);
+      }
+
+      th {
+        color: var(--grid-title-color);
+        font-size: var(--grid-title-size);
+        font-style: normal;
+        font-weight: var(--grid-title-weight);
+      }
+
+      td {
+        color: var(--grid-content-color);
+        font-size: var(--grid-content-size);
+        font-weight: var(--grid-content-weight);
+
+        aava-icon {
+          margin-right: 1rem;
+        }
+      }
+
+      thead {
+        th {
+          position: sticky;
+          top: 0;
+          z-index: 5;
+        }
+      }
+
+      tbody {
+        tr:first-child {
+          transform: translateY(4px);
+        }
+
+        tr:not(:first-child) {
+          transform: translateY(4px);
+        }
+
+        .cell-link {
+          color: inherit;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      &.zebraline {
+        tbody tr {
+          &:nth-child(odd) {
+            background-color: var(--grid-background-color-odd);
+          }
+
+          &:nth-child(even) {
+            background: var(--grid-background-color-even);
+          }
+        }
+      }
+    }
+  }
+}

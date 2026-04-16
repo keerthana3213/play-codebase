@@ -1,0 +1,40 @@
+<aava-sidebar [isCollapsed]="isCollapsed" (collapseToggle)="onCollapseToggle($event)" class="custom-sidebar"
+  [class.collapsed]="isCollapsed" [ngClass]="size" [showCollapseButton]="false">
+  <!-- Header -->
+  <div class="header-container" [class.collapsed]="isCollapsed">
+    <img [src]="isCollapsed ? logoUrl_collapsed : logoUrl" [alt]="isCollapsed ? logoAltCollapsed : logoAlt"
+      class="custom-logo" />
+    <div class="search-example" *ngIf="!isCollapsed">
+      <aava-search-bar placeholder="Search" (searchClick)="onSearch($event, 'custom-sidebar')"
+        (textboxChange)="onTextboxChange($event)" [size]="searchIconSize"></aava-search-bar>
+    </div>
+    <aava-icon *ngIf="isCollapsed" iconName="search" iconSize="20"></aava-icon>
+  </div>
+
+  <!-- Content -->
+
+  <ul class="custom-nav-section" [class.collapsed]="isCollapsed">
+    <li *ngFor="let item of items" class="custom-nav-item" [class.active]="item.active" (click)="onItemClick(item)"
+      [class.collapsed]="isCollapsed">
+      <aava-icon *ngIf="item.active" [iconColor]="iconColor" [iconName]="item.icon" [iconSize]="20"></aava-icon>
+      <aava-icon *ngIf="!item.active" [iconName]="item.icon" [iconSize]="20"></aava-icon>
+      <span class="custom-nav-text" [class.hidden]="isCollapsed">
+        {{ item.text }}
+      </span>
+    </li>
+  </ul>
+
+  <aava-button class="custom-toggle-btn" [class.collapsed]="isCollapsed"
+    [iconName]="isCollapsed ? 'chevron-right' : 'chevron-left'" iconPosition="only" variant="secondary"
+    [size]="toggleButtonSize" (click)="onCollapseToggle(!isCollapsed)" aria-label="Toggle sidebar"></aava-button>
+
+  <aava-dividers variant="solid" color="#333" class="sidebar-divider" [class.collapsed]="isCollapsed"></aava-dividers>
+  <!-- Footer -->
+  <div class="footer-container" [class.collapsed]="isCollapsed">
+    <img [src]="avatarUrl" [alt]="avatarAlt" class="user-avatar" />
+    <div class="user-info" [class.hidden]="isCollapsed">
+      <div class="user-name">{{ userName }}</div>
+      <aava-link label="{{ profileText }}" color="primary" size="sm" class="view-profile"></aava-link>
+    </div>
+  </div>
+</aava-sidebar>

@@ -1,0 +1,40 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Single File Mode</h4>
+      <p>Only one file can be selected at a time</p>
+      <aava-file-upload
+        componentTitle="Select One File"
+        [singleFileMode]="true"
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onSingleFileChange($event)">
+      </aava-file-upload>
+      
+      <div class="result" *ngIf="singleFile.length > 0">
+        <strong>Selected:</strong> {{singleFile[0].name}}
+      </div>
+    </div>
+
+    <div class="example-group">
+      <h4>Multiple Files Mode</h4>
+      <p>Multiple files can be selected (up to 5)</p>
+      <aava-file-upload
+        componentTitle="Select Multiple Files"
+        [singleFileMode]="false"
+        layout="tags"
+        [maxFiles]="3"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onMultipleFileChange($event)">
+      </aava-file-upload>
+      
+      <div class="result" *ngIf="multipleFiles.length > 0">
+        <strong>Selected Files:</strong> {{multipleFiles.length}}
+        <ul>
+          <li *ngFor="let file of multipleFiles">{{file.name}}</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>

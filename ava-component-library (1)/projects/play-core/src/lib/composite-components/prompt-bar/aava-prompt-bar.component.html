@@ -1,0 +1,123 @@
+<div class="prompt-bar"
+     [ngStyle]="computedStyles"
+     [style.cursor]="disabled ? 'not-allowed' : 'default'"
+     [style.background]="disabled ? 'var(--promptbar-background-disabled)' : null">
+  <aava-textarea
+    [placeholder]="placeholder"
+    [resizable]="false"
+    [rows]="computedRows"
+    [disabled]="disabled"
+    [customStyles]="{
+      '--glass-50-border': 'none',
+      '--textbox-textarea-hover-border-width': '0px',
+      '--textbox-textarea-focus-primary': 'transparent'
+    }"
+    [(ngModel)]="currentMessage"
+    (textareaInput)="onInput($event)"
+    (keydown)="onKeyPress($event)"
+    [maxHeight]="textAreaMaxHeight"
+    [autoResize]="textAreaAutoResize"
+  >
+  </aava-textarea>
+
+  <!-- Second row: Combined tags and image previews -->
+  <div class="second-row" *ngIf="tags && tags.length > 0">
+    <!-- Iterate through all tags in upload order -->
+    <ng-container *ngFor="let tag of tags">
+      <!-- Show as image preview if showImage is true and it's an image file -->
+      <div
+        *ngIf="showImage && tag.file && isImageFile(tag.file)"
+        class="image-preview-item"
+        (click)="onTagRemove(tag)"
+      >
+        <img
+          [src]="getImagePreviewUrl(tag)"
+          [alt]="tag.label"
+          class="preview-image"
+        />
+        <div class="image-overlay">
+          <lucide-icon name="x" class="remove-icon"></lucide-icon>
+        </div>
+      </div>
+
+      <!-- Show as tag if not an image or showImage is false -->
+      <div *ngIf="!showImage || !tag.file || !isImageFile(tag.file)">
+        <aava-tag
+          type="tag"
+          variant="filled"
+          [size]="getTagSize"
+          [label]="tag.label"
+          [avatar]="tag.avatar"
+          [removable]="tag.removable !== false"
+          [icon]="tag.icon"
+          [iconPosition]="tag.iconPosition || 'start'"
+          [customClass]="tag.customClass"
+          [customStyle]="tag.customStyle"
+          (removed)="onTagRemove(tag)"
+        ></aava-tag>
+      </div>
+    </ng-container>
+  </div>
+
+
+
+  <!-- Third row: toolbar -->
+  <div class="third-row">
+    <!-- Default layout with left-icons and right-icons -->
+    <!-- Left side -->
+    <div class="left-side">
+      @for (icon of getIconsBySlot('icon-start'); track icon.name) { @if
+      (icon.visible){
+      <aava-icon
+        [iconName]="icon.name"
+        [iconColor]="icon.color || '#2563eb'"
+        [iconSize]="getIconSize"
+        (click)="disabled ? null : onIconClick(icon)"
+        [style.cursor]="disabled ? 'not-allowed' : (icon.click ? 'pointer' : 'default')"
+        [style.opacity]="disabled ? '0.5' : '1'"
+      >
+      </aava-icon>
+      } } @if (showSelection){
+      <div class="select-container">
+        <aava-select
+          [size]="getSelectSize"
+          [placeholder]="selectPlaceholder"
+          [disabled]="disabled"
+          [customStyles]="{ 'width': selectWidth }">
+          <aava-select-option
+            *ngFor="let deviceOption of deviceOptions"
+            [value]="deviceOption.value"
+          >
+          <div class="options">
+            {{ deviceOption.label }}
+            <aava-icon
+              [iconSize]="getIconSize"
+              iconName="{{ deviceOption.icon }}"
+            ></aava-icon>
+            </div>
+          </aava-select-option>
+        </aava-select>
+      </div>
+      }
+    </div>
+
+    <!-- Right side -->
+    <div class="right-side">
+      @for (icon of getIconsBySlot('icon-end'); track icon.name) { @if
+      (icon.visible){
+      <aava-icon
+        [iconName]="icon.name"
+        [iconColor]="icon.color || '#2563eb'"
+        [iconSize]="getIconSize"
+        (click)="disabled ? null : onIconClick(icon)"
+        [style.cursor]="disabled ? 'not-allowed' : (icon.click ? 'pointer' : 'default')"
+        [style.opacity]="disabled ? '0.5' : '1'"
+      >
+      </aava-icon>
+      } }
+    </div>
+
+    <!-- Optional ng-content slot for additional custom content -->
+    <ng-content></ng-content>
+  </div>
+</div>

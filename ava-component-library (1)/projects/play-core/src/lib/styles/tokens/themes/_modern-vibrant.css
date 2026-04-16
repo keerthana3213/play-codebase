@@ -1,0 +1,200 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Modern Vibrant Theme
+ *
+ * Modern vibrant theme with bold, energetic colors and high contrast.
+ * Perfect for modern applications and creative platforms.
+ * =========================================================================
+ */
+
+[data-theme="modern-vibrant"] {
+  /* --- Modern Vibrant Theme Global Color Overrides --- */
+
+  /* Primary (Electric Purple) */
+  --global-color-violet-600: #9333ea;
+  --global-color-violet-800: #6b21a8;
+  --global-color-violet-50: #f5f3ff;
+
+  /* Secondary (Neon Green) */
+  --global-color-green-400: #4ade80;
+  --global-color-green-600: #16a34a;
+  --global-color-green-100: #dcfce7;
+  --global-color-green-500: #22c55e;
+
+  /* Gray Scale */
+  --global-color-gray-800: #1f2937;
+  --global-color-gray-500: #6b7280;
+  --global-color-gray-400: #9ca3af;
+  --global-color-gray-300: #d1d5db;
+  --global-color-gray-200: #e5e7eb;
+  --global-color-gray-100: #f3f4f6;
+  --global-color-white: #ffffff;
+
+  /* Semantic Colors */
+  --global-color-red-500: #ef4444;
+  --global-color-yellow-500: #eab308;
+  --global-color-yellow-600: #ca8a04;
+  --global-color-cyan-500: #06b6d4;
+
+  /* --- Modern Vibrant Theme Color Overrides --- */
+  /* PRIMARY (Electric Purple) */
+  --color-brand-primary: var(--global-color-violet-600);
+  --color-brand-primary-hover: var(--global-color-violet-800);
+  --color-brand-primary-active: var(--global-color-violet-800);
+  --color-surface-interactive-primary: var(--global-color-violet-600);
+  --color-surface-interactive-primary-hover: var(--global-color-violet-800);
+  --color-surface-interactive-primary-active: var(--global-color-violet-800);
+  --color-border-primary: var(--global-color-violet-600);
+  --color-border-primary-hover: var(--global-color-violet-800);
+  --color-border-primary-active: var(--global-color-violet-800);
+  --color-text-primary: var(--global-color-gray-800);
+  --color-text-on-primary: var(--global-color-white);
+
+  /* SECONDARY (Neon Green) */
+  --color-brand-secondary: var(--global-color-green-400);
+  --color-brand-secondary-hover: var(--global-color-green-600);
+  --color-brand-secondary-active: var(--global-color-green-600);
+  --color-surface-interactive-secondary: var(--global-color-green-100);
+  --color-surface-interactive-secondary-hover: var(--global-color-green-400);
+  --color-surface-interactive-secondary-active: var(--global-color-green-600);
+  --color-border-secondary: var(--global-color-green-400);
+  --color-border-secondary-hover: var(--global-color-green-600);
+  --color-border-secondary-active: var(--global-color-green-600);
+  --color-text-secondary: var(--global-color-green-600);
+  --color-text-on-secondary: var(--global-color-white);
+  --color-background-secondary: var(--global-color-green-100);
+
+  /* INTERACTIVE ELEMENTS */
+  --color-text-placeholder: var(--global-color-gray-500);
+  --color-text-disabled: var(--global-color-gray-400);
+  --color-text-on-brand: var(--global-color-white);
+  --color-text-interactive: var(--global-color-violet-600);
+  --color-text-interactive-hover: var(--global-color-violet-800);
+  --color-text-success: var(--global-color-green-500);
+  --color-text-error: var(--global-color-red-500);
+  --color-background-primary: var(--global-color-white);
+  --color-background-disabled: var(--global-color-gray-100);
+  --color-surface-interactive-default: var(--global-color-violet-600);
+  --color-surface-interactive-hover: var(--global-color-violet-800);
+  --color-surface-interactive-active: var(--global-color-violet-800);
+  --color-surface-disabled: var(--global-color-gray-200);
+  --color-surface-subtle-hover: var(--global-color-violet-50);
+  --color-border-default: var(--global-color-gray-300);
+  --color-border-subtle: var(--global-color-gray-200);
+  --color-border-interactive: var(--global-color-violet-600);
+  --color-border-focus: var(--global-color-violet-600);
+  --color-border-error: var(--global-color-red-500);
+  --color-background-error: var(--global-color-red-500);
+
+  /* SEMANTIC COLORS */
+  --color-border-warning: var(--global-color-yellow-500);
+  --color-border-success: var(--global-color-green-500);
+  --color-border-info: var(--global-color-cyan-500);
+  --color-text-warning: var(--global-color-yellow-600);
+  --color-text-success: var(--global-color-green-600);
+  --color-text-info: var(--global-color-cyan-500);
+  --color-background-warning: var(--global-color-yellow-500);
+  --color-background-success: var(--global-color-green-500);
+  --color-background-info: var(--global-color-cyan-500);
+
+  /* GLASSMORPHISM */
+  --glass-backdrop-blur: 16px;
+  --glass-background-color: rgba(255, 255, 255, 0.8);
+  --glass-border-color: rgba(255, 255, 255, 0.4);
+  --glass-border-width: 1px;
+  --glass-elevation: var(--global-elevation-03);
+
+  /* =======================
+     MODERN VIBRANT THEME: RGB OVERRIDES
+     Extract RGB values from modern vibrant theme semantic colors
+     ======================= */
+  --rgb-brand-primary: 147, 51, 234;
+  /* From #9333ea */
+  --rgb-brand-secondary: 74, 222, 128;
+  /* From #4ade80 */
+  --rgb-brand-tertiary: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-brand-quaternary: 67, 189, 144;
+  /* From #43bd90 */
+  --rgb-brand-quinary: 254, 225, 64;
+  /* From #fee140 */
+  --rgb-brand-senary: 156, 39, 176;
+  /* From #9c27b0 */
+  --rgb-violet: 147, 51, 234;
+  /* From #9333ea */
+  --rgb-royal-blue: 37, 99, 235;
+  /* From #2563eb */
+  --rgb-cyan: 3, 189, 212;
+  /* From #03bdd4 */
+  --rgb-spearmint: 67, 189, 144;
+  /* From #43bd90 */
+  --rgb-rose: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-white: 255, 255, 255;
+  /* From #ffffff */
+  --rgb-black: 0, 0, 0;
+  /* From #000000 */
+  --rgb-neutral-100: 243, 244, 246;
+  /* From #f3f4f6 */
+
+  /* =======================
+     MODERN VIBRANT THEME: EFFECT COLOR OVERRIDES
+     Override all effect colors for proper modern vibrant theme adaptation
+     ======================= */
+  --effect-color-primary: var(--rgb-brand-primary);
+  /* Electric Purple */
+  --effect-color-secondary: var(--rgb-brand-secondary);
+  /* Neon Green */
+  --effect-color-accent: var(--rgb-rose);
+  /* Rose accent for variety */
+  --effect-color-neutral: var(--rgb-black);
+  /* Black shadows work well on light bg */
+  --effect-color-surface: var(--rgb-white);
+  /* White glass/shimmer on light bg */
+
+  /* =======================
+     MODERN VIBRANT THEME: SEMANTIC COMPONENT TOKENS
+     Theme-aware component-specific tokens using the metaphor system
+     ======================= */
+
+  /* Glass Metaphor (Theme-Aware) */
+  --surface-glass-bg: rgba(var(--effect-color-surface), 0.15);
+  --surface-glass-border: rgba(var(--effect-color-surface), 0.7);
+  --surface-glass-shadow: rgba(var(--effect-color-surface), 0.18);
+
+  /* Light Metaphor (Theme-Aware) */
+  --color-light-glow: rgba(var(--effect-color-primary), 0.45);
+  --color-light-glow-focus: rgba(var(--effect-color-primary), 0.65);
+  --color-light-shadow: rgba(var(--effect-color-accent), 0.1);
+  --color-light-border: var(--color-brand-primary);
+  --color-light-border-focus: var(--color-brand-secondary);
+
+  /* Liquid Metaphor (Theme-Aware) */
+  --color-liquid-shimmer-start: var(--color-brand-secondary);
+  --color-liquid-shimmer-end: var(--color-brand-primary);
+
+  /* =======================
+     MODERN VIBRANT THEME: SOPHISTICATED GLASS CHAINING
+     Override glass surface colors for modern vibrant theme variants
+     ======================= */
+
+  /* Modern vibrant theme glass surface - keep default white */
+  --glass-surface-color: var(--rgb-white);
+
+  /* Modern vibrant theme variant glass colors */
+  --glass-variant-primary: var(--rgb-brand-primary);
+  --glass-variant-success: 76, 175, 80;
+  --glass-variant-warning: 255, 152, 0;
+  --glass-variant-danger: 244, 67, 54;
+  --glass-variant-info: 3, 189, 212;
+  --glass-variant-purple: 156, 39, 176;
+  --glass-variant-emerald: 16, 185, 129;
+  --glass-variant-blue: 37, 99, 235;
+  --glass-variant-aqua: 3, 189, 212;
+
+  /* Modern vibrant theme effect color adjustments */
+  --effect-color-neutral: var(--rgb-black);
+  /* Black shadows work on light bg */
+  --effect-color-surface: var(--rgb-white);
+  /* White highlights on light bg */
+}

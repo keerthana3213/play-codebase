@@ -1,0 +1,501 @@
+<div class="console-cards-demo">
+    <h1>Console Cards</h1>
+
+    <div class="cards-grid">
+        <!-- Artifact Metrics -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="artifactMetricsHeaderData" (tabChange)="onTabChange($event)"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="stats-cards-grid" style="height: 310px;">
+                    <aava-stats-card *ngFor="let stats of artifactMetricsStatsCards" [data]="stats">
+                    </aava-stats-card>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="artifactMetricsFooterData"
+                    (buttonClick)="onFooterButtonClick('Artifact Metrics')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Review Submission -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="reviewSubmissionHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="submission-cards-grid" style="height: 310px;">
+                    <aava-submission-card *ngFor="let submission of reviewSubmissionCards" [data]="submission">
+                    </aava-submission-card>
+                    <div *ngIf="reviewSubmissionCards.length === 0" class="empty-state">
+                        No new submissions pending.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="reviewSubmissionFooterData"
+                    (buttonClick)="onFooterButtonClick('Review Submission')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Revisions Pending -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="revisionsPendingHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="review-cards-grid" style="height: 310px;">
+                    <aava-review-card *ngFor="let review of revisionsPendingCards" [data]="review">
+                    </aava-review-card>
+                    <div *ngIf="revisionsPendingCards.length === 0" class="empty-state">
+                        No revisions awaiting review.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="revisionsPendingFooterData" (buttonClick)="onFooterButtonClick('Revisions Pending')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Resume Drafts -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="resumeDraftsHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let draft of resumeDraftsCards" [data]="draft">
+                    </aava-summary-card>
+                    <div *ngIf="resumeDraftsCards.length === 0" class="empty-state">
+                        No drafts available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="resumeDraftsFooterData"
+                    (buttonClick)="onFooterButtonClick('Resume Drafts')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Manage User -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="manageUserHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="request-cards-grid" style="height: 310px;">
+                    <aava-request-card *ngFor="let request of manageUserCards" [data]="request"
+                        (buttonClick)="onRequestButtonClick($event)">
+                    </aava-request-card>
+                    <div *ngIf="manageUserCards.length === 0" class="empty-state">
+                        No pending user requests.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="manageUserFooterData" (buttonClick)="onFooterButtonClick('Manage User')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Security Alerts -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="securityAlertsHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="review-cards-grid" style="height: 310px;">
+                    <aava-review-card *ngFor="let alert of securityAlertsCards" [data]="alert">
+                    </aava-review-card>
+                    <div *ngIf="securityAlertsCards.length === 0" class="empty-state">
+                        No security alerts at this time.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="securityAlertsFooterData" (buttonClick)="onFooterButtonClick('Security Alerts')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Featured Marketplace -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="featuredMarketplaceHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let item of featuredMarketplaceCards" [data]="item">
+                    </aava-summary-card>
+                    <div *ngIf="featuredMarketplaceCards.length === 0" class="empty-state">
+                        No marketplace items available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="featuredMarketplaceFooterData" (buttonClick)="onFooterButtonClick('Featured Marketplace')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Audit Trail -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="auditTrailHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="execution-cards-grid" style="height: 310px;">
+                    <aava-execution-card *ngFor="let event of auditTrailCards" [data]="event">
+                    </aava-execution-card>
+                    <div *ngIf="auditTrailCards.length === 0" class="empty-state">
+                        No audit events available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="auditTrailFooterData" (buttonClick)="onFooterButtonClick('Audit Trail')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- My Creations -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="myCreationsHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let creation of myCreationsCards" [data]="creation">
+                    </aava-summary-card>
+                    <div *ngIf="myCreationsCards.length === 0" class="empty-state">
+                        No creations available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="myCreationsFooterData" (buttonClick)="onFooterButtonClick('My Creations')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Ongoing Pipelines Execution -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="ongoingPipelinesHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="execution-cards-grid" style="height: 310px;">
+                    <aava-execution-card *ngFor="let pipeline of ongoingPipelinesCards" [data]="pipeline">
+                    </aava-execution-card>
+                    <div *ngIf="ongoingPipelinesCards.length === 0" class="empty-state">
+                        No pipeline executions available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="ongoingPipelinesFooterData" (buttonClick)="onFooterButtonClick('Ongoing Pipelines Execution')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+    </div>
+</div>
+
+<!-- Launchpad Cards Section -->
+<div class="console-cards-demo">
+    <h1>Launchpad Cards</h1>
+
+    <!-- Welcome and Profile Cards Row -->
+    <div style="padding:16px 80px; border-radius: 12px; margin-bottom: 16px;">
+        <div style="display: flex; gap: 16px; height: 250px;">
+            <!-- Welcome Card (70%) -->
+            <div style="flex: 0 0 calc(70% - 8px); height: 100%;">
+                <aava-welcome-card [data]="welcomeCardData"></aava-welcome-card>
+            </div>
+
+            <!-- Profile Card (30%) -->
+            <div style="flex: 0 0 calc(30% - 8px); height: 100%;">
+                <aava-profile-card [data]="profileCardData"></aava-profile-card>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-grid">
+        <!-- Create New Artifacts -->
+        <aava-action-card [data]="createNewArtifactsCard"></aava-action-card>
+
+        <!-- Resume Drafts (Launchpad) -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="resumeDraftsLaunchpadHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let summary of resumeDraftsLaunchpadCards" [data]="summary">
+                    </aava-summary-card>
+                    <div *ngIf="resumeDraftsLaunchpadCards.length === 0" class="empty-state">
+                        No drafts available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="resumeDraftsLaunchpadFooterData" (buttonClick)="onFooterButtonClick('Resume Drafts')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Ongoing Pipelines Execution (Launchpad) -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="ongoingPipelinesLaunchpadHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="execution-cards-grid" style="height: 310px;">
+                    <aava-execution-card *ngFor="let pipeline of ongoingPipelinesLaunchpadCards" [data]="pipeline">
+                    </aava-execution-card>
+                    <div *ngIf="ongoingPipelinesLaunchpadCards.length === 0" class="empty-state">
+                        No pipeline executions available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="ongoingPipelinesLaunchpadFooterData" (buttonClick)="onFooterButtonClick('Ongoing Pipelines Execution')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- My List -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="myListHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="execution-cards-grid" style="height: 310px;">
+                    <aava-execution-card *ngFor="let card of myListCards" [data]="card">
+                    </aava-execution-card>
+                    <div *ngIf="myListCards.length === 0" class="empty-state">
+                        No items in your list.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="myListFooterData" (buttonClick)="onFooterButtonClick('My List')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Open Studio -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="openStudioHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="execution-cards-grid" style="height: 310px;">
+                    <aava-execution-card *ngFor="let studio of openStudioCards" [data]="studio">
+                    </aava-execution-card>
+                    <div *ngIf="openStudioCards.length === 0" class="empty-state">
+                        No studios available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="openStudioFooterData" (buttonClick)="onFooterButtonClick('Open Studio')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Revisions Work -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="revisionsWorkHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="review-cards-grid" style="height: 310px;">
+                    <aava-review-card *ngFor="let revision of revisionsWorkCards" [data]="revision">
+                    </aava-review-card>
+                    <div *ngIf="revisionsWorkCards.length === 0" class="empty-state">
+                        No revisions awaiting review.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="revisionsWorkFooterData" (buttonClick)="onFooterButtonClick('Revisions Work')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- New in Marketplace -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="newInMarketplaceHeaderData" ></aava-studio-card-header>
+                <!-- add these after the version is updated (buttonClick)="onHeaderButtonClick($event)" -->
+            </div>
+
+            <div style="display: flex; gap: 16px; padding: 16px; height: 350px;">
+                <div style="flex: 0 0 65%; overflow-y: auto;">
+                    <div class="summary-cards-grid" style="height: 100%;">
+                        <aava-summary-card *ngFor="let marketplace of newInMarketplaceCards" [data]="marketplace">
+                        </aava-summary-card>
+                        <div *ngIf="newInMarketplaceCards.length === 0" class="empty-state">
+                            No new marketplace items available.
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0 0 35%; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/launchpad/price.svg" alt="Marketplace" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+        </aava-default-card>
+
+        <!-- My Creations (Launchpad) -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="myCreationsLaunchpadHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let creation of myCreationsLaunchpadCards" [data]="creation">
+                    </aava-summary-card>
+                    <div *ngIf="myCreationsLaunchpadCards.length === 0" class="empty-state">
+                        No creations available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="myCreationsLaunchpadFooterData" (buttonClick)="onFooterButtonClick('My Creations')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- For You (Launchpad) -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="forYouLaunchpadHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let item of forYouLaunchpadCards" [data]="item">
+                    </aava-summary-card>
+                    <div *ngIf="forYouLaunchpadCards.length === 0" class="empty-state">
+                        No personalized picks available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="forYouLaunchpadFooterData" (buttonClick)="onFooterButtonClick('For You')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Trending Now -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="trendingNowHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div style="display: flex; gap: 16px; padding: 16px; height: 310px;">
+                <div style="flex: 0 0 65%; overflow-y: auto;">
+                    <div class="summary-cards-grid" style="height: 100%;">
+                        <aava-summary-card *ngFor="let trending of trendingNowCards" [data]="trending">
+                        </aava-summary-card>
+                        <div *ngIf="trendingNowCards.length === 0" class="empty-state">
+                            No trending items available.
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0 0 35%; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/launchpad/star.svg" alt="Trending" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="trendingNowFooterData" (buttonClick)="onFooterButtonClick('Trending Now')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- My Workspace (Launchpad) -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="myWorkspaceLaunchpadHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div>
+                <div class="summary-cards-grid" style="height: 310px;">
+                    <aava-summary-card *ngFor="let workspace of myWorkspaceLaunchpadCards" [data]="workspace">
+                    </aava-summary-card>
+                    <div *ngIf="myWorkspaceLaunchpadCards.length === 0" class="empty-state">
+                        No workspaces available.
+                    </div>
+                </div>
+            </div>
+
+            <div>
+                <aava-studio-card-footer [data]="myWorkspaceLaunchpadFooterData" (buttonClick)="onFooterButtonClick('My Workspace')"></aava-studio-card-footer>
+            </div>
+        </aava-default-card>
+
+        <!-- Learn & Get Help -->
+        <aava-default-card
+            [customStyles]="{'border-radius': '12px', border: '2px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)','box-shadow': '0 2px 4px 0 #D1D3D8'}">
+            <div>
+                <aava-studio-card-header [data]="learnAndGetHelpHeaderData"></aava-studio-card-header>
+            </div>
+
+            <div style="display: flex; gap: 16px; padding: 16px; height: 350px;">
+                <div style="flex: 0 0 65%; overflow-y: auto;">
+                    <div style="display: flex; flex-direction: column; gap: 12px; height: 100%;">
+                        <div *ngFor="let item of learnAndGetHelpCards"
+                             style="display: flex; align-items: center; gap: 12px; padding: 16px; background: #F8F9FA; border-radius: 8px; cursor: pointer;">
+                            <aava-icon [iconName]="item.icon.name" [iconColor]="item.icon.color" [iconSize]="24"></aava-icon>
+                            <span style="font-family: 'Mulish', sans-serif; font-size: 14px; font-weight: 500; color: #1F2937;">{{ item.title }}</span>
+                        </div>
+                    </div>
+                </div>
+                <div style="flex: 0 0 35%; display: flex; align-items: center; justify-content: center;">
+                    <img src="assets/launchpad/book.svg" alt="Learn & Get Help" style="width: 100%; height: 100%; object-fit: contain;">
+                </div>
+            </div>
+        </aava-default-card>
+    </div>
+</div>

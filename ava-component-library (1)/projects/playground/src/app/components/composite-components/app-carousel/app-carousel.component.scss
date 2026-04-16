@@ -1,0 +1,80 @@
+/* ========================================
+   CAROUSEL DEMO PAGE STYLES
+   ======================================== */
+
+.carousel-demo {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    h1 {
+        color: var(--color-text-primary);
+        margin-bottom: 0.5rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+
+    h2 {
+        color: var(--color-text-primary);
+        margin: 2rem 0 1rem 0;
+        font-size: 1.875rem;
+        font-weight: 600;
+        padding-bottom: 0.5rem;
+    }
+
+    h3 {
+        color: var(--color-text-primary);
+        margin: 0 0 1.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+
+    p {
+        color: var(--color-text-primary);
+        margin-bottom: 2rem;
+        font-size: 1.125rem;
+        line-height: 1.6;
+    }
+}
+
+.demo-section {
+    margin-bottom: 3rem;
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .carousel-demo {
+        padding: 1rem;
+
+        h1 {
+            font-size: 2rem;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+        }
+
+        h3 {
+            font-size: 1.25rem;
+        }
+
+        p {
+            font-size: 1rem;
+        }
+    }
+
+    .demo-section {
+        margin-bottom: 2rem;
+
+        .carousel-container {
+            min-height: 150px;
+        }
+    }
+}

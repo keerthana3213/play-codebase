@@ -1,0 +1,68 @@
+<div class="documentation">
+  <div class="section">
+    <aava-header containerClass="">
+      <div left-content class="header__left">
+        <div class="logo"><img src="{{ logoUrl }}" alt="" /></div>
+      </div>
+
+      <div center-content class="header__center tabs-header">
+        <aava-tabs
+          [tabs]="iconsTabs"
+          [activeTabId]="activeTabId"
+          variant="default"
+          size="sm"
+          [showContentPanels]="false"
+          (tabChange)="onTabChange($event)"
+          ariaLabel="Basic navigation tabs"
+        ></aava-tabs>
+      </div>
+
+      <div right-content class="header__right">
+        <div class="search-box">
+          <aava-icon
+            iconName="search"
+            [iconSize]="16"
+            iconColor="#000"
+          ></aava-icon>
+          <input
+            type="text"
+            [(ngModel)]="searchText"
+            (input)="onSearchChange()"
+            placeholder="Search"
+          />
+        </div>
+
+        <aava-icon
+          class="icon"
+          iconName="Sun"
+          [iconSize]="20"
+          [iconColor]="getIconColor"
+          (click)="onGraphIconClick()"
+        ></aava-icon>
+        <aava-icon
+          class="icon"
+          iconName="Languages"
+          [iconSize]="20"
+          [iconColor]="getIconColor"
+          (click)="onTranslateIconClick()"
+        ></aava-icon>
+        <aava-icon
+          class="icon"
+          iconName="EllipsisVertical"
+          [iconSize]="20"
+          [iconColor]="getIconColor"
+          (click)="onDayLightModeIconClick()"
+        ></aava-icon>
+
+        <aava-avatars
+          size="md"
+          shape="square"
+          [imageUrl]="getLoggedInUserLogo()"
+          badgeState="high-priority"
+          badgeSize="lg"
+          [badgeCount]="9"
+        ></aava-avatars>
+      </div>
+    </aava-header>
+  </div>
+</div>

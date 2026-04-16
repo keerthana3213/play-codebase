@@ -1,0 +1,63 @@
+<div class="treeview-demo">
+  <div class="demo-header">
+    <h1>Tree View Component Demos</h1>
+    <p>
+      A hierarchical tree view component that provides an intuitive way to
+      display and navigate nested data structures. Built with accessibility in
+      mind, it supports expandable/collapsible nodes, customizable icons,
+      multiple size variants, and comprehensive keyboard navigation.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <div class="nav-card" routerLink="/app-treeview/basic-usage">
+      <h3>Basic Usage</h3>
+      <p>Simple tree view with expandable nodes and basic selection.</p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-treeview/selection">
+      <h3>Selection Logic</h3>
+      <p>Advanced selection logic: parent selected only when all children are selected.</p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-treeview/file-system">
+      <h3>File System Example</h3>
+      <p>
+        Tree view configured to display file system structure with folder icons.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-treeview/navigation">
+      <h3>Navigation Tree</h3>
+      <p>
+        Navigation tree with custom icons and right-aligned expand/collapse
+        controls.
+      </p>
+    </div>
+
+    <div class="nav-card" routerLink="/app-treeview/custom-icons">
+      <h3>Custom Icons</h3>
+      <p>Tree view with custom icons and different size variants.</p>
+    </div>
+  </div>
+
+  <div class="component-showcase">
+    <h2>Component Showcase</h2>
+    <p>Interactive example of the tree view component in action.</p>
+
+    <div class="showcase-container">
+      <aava-tree [data]="showcaseNodes" [selectionMode]="'single'"
+        (nodeClick)="onShowcaseNodeSelect($event)"></aava-tree>
+    </div>
+
+    <div class="showcase-status" *ngIf="selectedNode">
+      <h3>Selection Status</h3>
+      <p><strong>Selected Node:</strong> {{ selectedNode.name }}</p>
+      <p><strong>Node ID:</strong> {{ selectedNode.id }}</p>
+      <p>
+        <strong>Has Children:</strong>
+        {{ selectedNode.children ? "Yes" : "No" }}
+      </p>
+    </div>
+  </div>
+</div>

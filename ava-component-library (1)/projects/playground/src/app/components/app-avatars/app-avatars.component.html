@@ -1,0 +1,216 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Avatars Component</h1>
+        <p class="description">
+          A versatile avatar component that displays user images with different
+          shapes, sizes, and badges. Built with accessibility and user
+          experience in mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Pages</h2>
+        <div class="demo-navigation">
+          <div class="demo-grid">
+            <a routerLink="/avatar/basic" class="demo-link">
+              <div class="demo-card">
+                <h3>Basic Usage</h3>
+                <p>Basic avatar implementation with default settings</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/sizes" class="demo-link">
+              <div class="demo-card">
+                <h3>Sizes</h3>
+                <p>Different avatar sizes (sm, md, lg)</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/shapes" class="demo-link">
+              <div class="demo-card">
+                <h3>Shapes</h3>
+                <p>Pill and square shape variants</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/badges" class="demo-link">
+              <div class="demo-card">
+                <h3>Badges</h3>
+                <p>Avatar with badge integration</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/text-labels" class="demo-link">
+              <div class="demo-card">
+                <h3>Text Labels</h3>
+                <p>Status and profile text labels</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/states" class="demo-link">
+              <div class="demo-card">
+                <h3>States</h3>
+                <p>Active and processed states</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/gradients" class="demo-link">
+              <div class="demo-card">
+                <h3>Gradients</h3>
+                <p>Animated gradient borders</p>
+              </div>
+            </a>
+            <a routerLink="/avatar/accessibility" class="demo-link">
+              <div class="demo-card">
+                <h3>Accessibility</h3>
+                <p>Accessibility features and best practices</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="lg" shape="pill" [imageUrl]="sampleImageUrl">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Large Avatars'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="lg" shape="pill" [imageUrl]="sampleImageUrl" badgeState="high-priority"
+                    badgeSize="lg" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="lg" shape="square" [imageUrl]="sampleImageUrl" badgeState="high-priority"
+                    badgeSize="lg" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Medium Avatars'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="md" shape="pill" [imageUrl]="sampleImageUrl" badgeState="medium-priority"
+                    badgeSize="md" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="md" shape="square" [imageUrl]="sampleImageUrl" badgeState="medium-priority"
+                    badgeSize="md" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Small Avatars'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="sm" shape="pill" [imageUrl]="sampleImageUrl" badgeState="low-priority"
+                    badgeSize="sm" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="sm" shape="square" [imageUrl]="sampleImageUrl" badgeState="low-priority"
+                    badgeSize="sm" [badgeCount]="1">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Avatars with Text'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="lg" shape="pill" [imageUrl]="sampleImageUrl" badgeState="information"
+                    badgeSize="lg" [badgeCount]="1" statusText="Online" profileText="ascendion.hyderabad">
+                  </aava-avatars>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars [imageUrl]="sampleImageUrl" profileText="John Doe">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Avatars with Events'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-avatars size="lg" shape="pill" [imageUrl]="sampleImageUrl" badgeState="information"
+                    badgeSize="lg" [badgeCount]="7" statusText="Online" profileText="ascendion.hyderabad"
+                    (click)="handleIconClick()">
+                  </aava-avatars>
+                </div>
+              </div>
+            </ng-container>
+
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getAvatarCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <!-- Icon for copy button -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

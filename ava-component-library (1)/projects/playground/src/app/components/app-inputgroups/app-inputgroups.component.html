@@ -1,0 +1,131 @@
+<!-- <h2>Input Groups</h2>
+<section >
+  <awe-input-groups
+  [inputs]="[  
+    { label: 'Label Input ', placeholder: 'Enter text here', status: 'white', icons: ['awe_send', 'awe_mic', 'awe_close'] },
+    { label: 'Label Input ', placeholder: 'After input text', status: 'white', icons: ['awe_send', 'awe_mic', 'awe_close'] },
+    { label: 'Label Input ', placeholder: 'Enter more text', status: 'red', required: true, errorMessage: 'Error: Field required', icons: ['awe_send', 'awe_mic', 'awe_close'] }
+  ]"
+  [buttons]="[
+    { label: 'Label', variant: 'primary', size: 'medium', state: 'default' ,iconPosition: 'right', pill: 'false',iconName:'awe_tick', iconColor:'whiteIcon' },
+    { label: 'Label', variant: 'secondary', size: 'medium', state: 'active', iconPosition: 'left', pill: 'false', iconName:'awe_tick', iconColor:'action' }
+  ]"
+  [checkboxes]="[
+    { label: 'Label', size: 'medium', ariaChecked: false, indeterminate: false },
+    { label: 'Label', size: 'medium', ariaChecked: true, indeterminate: false },
+    { label: 'Label', size: 'medium', ariaChecked: false, indeterminate: true }
+  ]"
+  [sliders]="[
+    { step: 1, label: 'Lable', value: volumeSignal },
+  ]"
+  [toggles]="[
+    { size: 'small', textPosition: 'after', label: 'On/Off', value: toggleBeforeSignal },
+    { size: 'small', textPosition: 'after', label: 'On/Off', value: toggleAfterSignal }
+  ]"
+  (iconClickEvent)="handleIconClick($event)"
+  (buttonClick)="handleButtonClick($event)">
+</awe-input-groups>
+
+</section> -->
+
+<div class="documentation">
+  <header class="doc-header">
+    <h1>Input Groups Component</h1>
+    <p class="description">
+      The Input Groups component combines text inputs, buttons, checkboxes, sliders, and toggles into a cohesive UI element.
+    </p>
+  </header>
+
+  <section class="doc-section">
+    <h2>Installation</h2>
+    <div class="code-block">
+     <pre><code>import {{ '{' }} InputGroupsComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+    </div>
+  </section>
+
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="section-header" (click)="toggleCodeVisibility(i, $event)">
+        <h2>{{ section.title }}</h2>
+        <div class="description-container">
+          <p>{{ section.description }}</p>
+          <div class="code-toggle">
+            <span *ngIf="!section.showCode">View Code</span>
+            <span *ngIf="section.showCode">Hide Code</span>
+            <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <awe-input-groups
+            [inputs]="[
+              { label: 'Input ', placeholder: 'Enter text here', status: 'white', icons: ['awe_send', 'awe_mic', 'awe_close'] },
+              { label: 'Disabled Input', disabled:true ,placeholder: 'Enter text here', status: 'white', icons: ['awe_send', 'awe_mic', 'awe_close'] },
+              { label: 'Input with errorMessage ', placeholder: 'Enter more text', status: 'red', required: true, errorMessage: 'Error: Field required', icons: ['awe_send', 'awe_mic', 'awe_close'] }
+            ]"
+            [buttons]="[
+              { label: 'Default Button', variant: 'primary', size: 'medium', state: 'default', iconPosition: 'right', pill: 'false', iconName:'awe_tick', iconColor:'whiteIcon' },
+              { label: 'Active Button', variant: 'secondary', size: 'medium', state: 'active', iconPosition: 'left', pill: 'false', iconName:'awe_tick', iconColor:'action' }
+            ]"
+            [checkboxes]="[
+              { label: 'Active Checkbox', size: 'medium', isChecked:true , indeterminate: false },
+              { label: 'Inactive Checkbox', size: 'medium', isChecked:false , indeterminate: false },
+              { label: 'Indeterminate Checkbox', size: 'medium', ariaChecked: false, indeterminate: true }
+            ]"
+            [sliders]="[{ step: 1, label: 'Slider', value: volumeSignal }]"
+
+            [toggles]="[
+              { size: 'small', textPosition: 'after', label: ' Active Toggle', value: toggleBeforeSignal },
+              { size: 'small', textPosition: 'after', label: 'Inactive Toggle', value: toggleAfterSignal }
+            ]"
+            (iconClickEvent)="handleIconClick($event)"
+            (buttonClick)="handleButtonClick($event)">
+          </awe-input-groups>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <pre><code [innerText]="getExampleCode(section.title)"></code></pre>
+          <button class="copy-button" (click)="copyCode(section.title)">
+            <awe-icons iconName="awe_copy"></awe-icons>
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr><th>Property</th><th>Type</th><th>Default</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr><th>Event</th><th>Type</th><th>Description</th></tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td><code>{{ event.name }}</code></td>
+          <td><code>{{ event.type }}</code></td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>
+

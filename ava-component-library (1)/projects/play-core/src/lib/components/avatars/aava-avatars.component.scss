@@ -1,0 +1,410 @@
+.avatar-wrapper {
+  display: flex;
+
+  // When avatar has text content, add padding and gap
+  &--with-text {
+    padding: var(--avatar-padding);
+    gap: var(--avatar-container-gap);
+  }
+
+  .initials {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .in-f {
+      letter-spacing: .5px;
+    }
+  }
+
+}
+
+
+
+.avatar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-start;
+  flex-shrink: var(--avatar-flex-shrink);
+  aspect-ratio: var(--avatar-aspect-ratio);
+  background-color: transparent;
+  background-size: cover;
+  background-position: cover;
+  background-repeat: no-repeat;
+
+  position: relative;
+
+  // Large size variations
+  &--xxl {
+    width: var(--avatar-size-ul);
+    height: var(--avatar-size-ul);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-ul);
+    }
+
+    .in-f {
+      font-size: 2.5rem;
+    }
+  }
+
+  &--xl {
+    width: var(--avatar-size-xl);
+    height: var(--avatar-size-xl);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-xl);
+    }
+
+    .in-f {
+      font-size: 1.5rem;
+    }
+  }
+
+  &--lg {
+    width: var(--avatar-size-lg);
+    height: var(--avatar-size-lg);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-lg);
+    }
+
+    .in-f {
+      font-size: 1.25rem;
+    }
+  }
+
+  // Medium size variations
+  &--md {
+    width: var(--avatar-size-md);
+    height: var(--avatar-size-md);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-md);
+    }
+
+    .in-f {
+      font-size: 1rem;
+    }
+  }
+
+  // Small size variations
+  &--sm {
+    width: var(--avatar-size-sm);
+    height: var(--avatar-size-sm);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-sm);
+    }
+
+    .in-f {
+      font-size: .875rem;
+    }
+  }
+
+  &--xs {
+    width: var(--avatar-size-xs);
+    height: var(--avatar-size-xs);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-xs);
+    }
+
+    .in-f {
+      font-size: .65rem;
+    }
+  }
+
+  &--xxs {
+    width: var(--avatar-size-us);
+    height: var(--avatar-size-us);
+
+    &.avatar--pill {
+      border-radius: var(--avatar-border-radius);
+    }
+
+    &.avatar--square {
+      border-radius: var(--avatar-border-radius-us);
+    }
+
+    .in-f {
+      font-size: .5rem;
+    }
+  }
+
+  // Pill shape badge positioning
+  &--pill {
+    .avatar-badge {
+      top: -8px;
+      right: -4px;
+    }
+
+    &.avatar--xxl .avatar-badge {
+      top: 2px;
+      right: -2px;
+    }
+
+    &.avatar--xl .avatar-badge {
+      top: -7px;
+      right: -5px;
+    }
+
+    &.avatar--lg .avatar-badge {
+      top: -7px;
+      right: -5px;
+    }
+
+    &.avatar--md .avatar-badge {
+      top: -1px;
+      right: -3px;
+    }
+
+    &.avatar--sm .avatar-badge {
+      top: -4px;
+      right: -3px;
+    }
+
+    &.avatar--xs .avatar-badge {
+      top: -6px;
+      right: -5px;
+    }
+
+    &.avatar--xxs .avatar-badge {
+      top: -8px;
+      right: -7px;
+    }
+  }
+
+  // Square shape badge positioning
+  &--square {
+    .avatar-badge {
+      top: -6px;
+      right: -6px;
+    }
+
+    &.avatar--xxl .avatar-badge {
+      top: -4px;
+      right: -4px;
+    }
+
+    &.avatar--xl .avatar-badge {
+      top: -7px;
+      right: -6px;
+    }
+
+    &.avatar--lg .avatar-badge {
+      top: -7px;
+      right: -6px;
+    }
+
+    &.avatar--md .avatar-badge {
+      top: -6px;
+      right: -4px;
+    }
+
+    &.avatar--sm .avatar-badge {
+      top: -4px;
+      right: -4px;
+    }
+
+    &.avatar--xs .avatar-badge {
+      top: -7px;
+      right: -8px;
+    }
+
+    &.avatar--xxs .avatar-badge {
+      top: -7px;
+      right: -8px;
+    }
+  }
+}
+
+.avatar-badge {
+  position: absolute;
+  z-index: 1;
+
+  // Default positioning (fallback)
+  top: var(--avatar-badge-poisition);
+  right: var(--avatar-badge-poisition);
+}
+
+// Size-specific badge positioning
+.avatar--xxl .avatar-badge {
+  top: 0px;
+  right: 0px;
+}
+
+.avatar--xl .avatar-badge {
+  top: -4px;
+  right: -4px;
+}
+
+.avatar--lg .avatar-badge {
+  top: -4px;
+  right: -4px;
+}
+
+.avatar--md .avatar-badge {
+  top: -3px;
+  right: -3px;
+}
+
+.avatar--sm .avatar-badge {
+  top: -3px;
+  right: -3px;
+}
+
+.avatar--xs .avatar-badge {
+  top: -6px;
+  right: -6px;
+}
+
+.avatar--xxs .avatar-badge {
+  top: -7px;
+  right: -7px;
+}
+
+.avatar-text-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 0;
+
+  // Size-specific gaps for text container
+  &[data-size="ultra-large"] {
+    gap: var(--avatar-wrapper-gap-ul);
+  }
+
+  &[data-size="extra-large"] {
+    gap: var(--avatar-wrapper-gap-xl);
+  }
+
+  &[data-size="large"] {
+    gap: 0;
+  }
+
+  &[data-size="medium"] {
+    gap: 0;
+  }
+
+  &[data-size="small"] {
+    gap: var(--avatar-wrapper-gap-sm);
+  }
+
+  &[data-size="extra-small"] {
+    gap: var(--avatar-wrapper-gap-xs);
+  }
+
+  &[data-size="ultra-small"] {
+    gap: var(--avatar-wrapper-gap-us);
+  }
+}
+
+.avatar-text {
+  text-align: center;
+  font-style: normal;
+
+  // Status text styling (Primary text - e.g., "Profile Name")
+  &--status {
+    color: var(--avatar-status-color);
+    font-family: var(--avatar-status-font-family);
+    font-weight: var(--avatar-status-font-weight);
+
+    // Large size styling
+    &[data-size="large"] {
+      font-size: var(--avatar-status-font-size-lg);
+      line-height: var(--avatar-status-line-height-lg);
+      margin-bottom: var(--avatar-profile-margin);
+      /* 4px gap after status */
+    }
+
+    // Medium size styling
+    &[data-size="medium"] {
+      font-size: var(--avatar-status-font-size-md);
+      line-height: var(--avatar-status-line-height-md);
+      margin-bottom: var(--avatar-profile-margin);
+    }
+
+    // Small size styling (keep existing behavior)
+    &[data-size="small"] {
+      font-size: var(--avatar-status-font-size-sm);
+      line-height: var(--avatar-status-line-height-sm);
+    }
+  }
+
+  &--profile {
+    color: var(--avatar-profile-color);
+    font-family: var(--avatar-profile-font-family);
+    font-weight: var(--avatar-profile-font-weight);
+
+    // Large size styling
+    &[data-size="large"] {
+      font-size: var(--avatar-profile-font-size-lg);
+      line-height: var(--avatar-profile-line-height-lg);
+      margin-bottom: var(--avatar-additional-margin);
+    }
+
+    // Medium size styling
+    &[data-size="medium"] {
+      font-size: var(--avatar-profile-font-size-md);
+      line-height: var(--avatar-profile-line-height-md);
+      margin-bottom: var(--avatar-additional-margin);
+    }
+
+    // Small size styling (keep existing behavior)
+    &[data-size="small"] {
+      font-size: var(--avatar-profile-font-size-sm);
+      line-height: var(--avatar-profile-line-height-sm);
+    }
+  }
+
+  // Additional text styling (Tertiary text - e.g., additional role info)
+  &--additional {
+    color: var(--avatar-additional-color);
+    font-family: var(--avatar-additional-font-family);
+    font-weight: var(--avatar-additional-font-weight);
+
+    // Large size styling
+    &[data-size="large"] {
+      font-size: var(--avatar-additional-font-size-lg);
+      line-height: var(--avatar-additional-line-height-lg);
+    }
+
+    // Medium size styling
+    &[data-size="medium"] {
+      font-size: var(--avatar-additional-font-size-md);
+      line-height: var(--avatar-additional-line-height-md);
+    }
+
+    // Small size styling
+    &[data-size="small"] {
+      font-size: var(--avatar-additional-font-size-sm);
+      line-height: var(--avatar-additional-line-height-sm);
+    }
+  }
+}

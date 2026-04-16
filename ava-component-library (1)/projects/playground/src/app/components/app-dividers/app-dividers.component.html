@@ -1,0 +1,656 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Dividers Component</h1>
+        <p class="description">
+          A flexible divider component for creating visual separation between
+          content sections with multiple styles, orientations, and customization
+          options. Perfect for enhancing content hierarchy and improving
+          readability.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} DividersComponent {{ '}' }} from '&#64;ava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Sections</h2>
+        <div class="nav-links">
+          <a routerLink="/dividers/basic-usage" class="nav-link">
+            <span class="nav-icon">📝</span>
+            <span class="nav-text">Basic Usage</span>
+          </a>
+          <a routerLink="/dividers/variants" class="nav-link">
+            <span class="nav-icon">🎨</span>
+            <span class="nav-text">Variants</span>
+          </a>
+          <a routerLink="/dividers/orientation" class="nav-link">
+            <span class="nav-icon">↔️</span>
+            <span class="nav-text">Orientation</span>
+          </a>
+          <a routerLink="/dividers/api" class="nav-link">
+            <span class="nav-icon">📚</span>
+            <span class="nav-text">API Reference</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section
+      *ngFor="let section of sections; let i = index"
+      class="doc-section"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div
+                class="code-toggle"
+                (click)="toggleCodeVisibility(i, $event)"
+                (keydown.enter)="toggleCodeVisibility(i, $event)"
+                (keydown.space)="toggleCodeVisibility(i, $event)"
+                tabindex="0"
+                role="button"
+                [attr.aria-label]="
+                  section.showCode ? 'Hide code example' : 'Show code example'
+                "
+              >
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Example Preview -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <div class="basic-usage-demo">
+                <div class="content-section">
+                  <h3>Product Description</h3>
+                  <p>
+                    This is our premium product with excellent features and
+                    quality craftsmanship.
+                  </p>
+
+                  <aava-dividers></aava-dividers>
+
+                  <h3>Customer Reviews</h3>
+                  <p>
+                    See what our customers are saying about this amazing
+                    product.
+                  </p>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Divider Variants -->
+            <ng-container *ngSwitchCase="'Divider Variants'">
+              <div class="variants-demo">
+                <div class="variant-example">
+                  <h4>Solid Divider</h4>
+                  <p>For clear, definitive content separation</p>
+                  <aava-dividers variant="solid" color="#333"></aava-dividers>
+                </div>
+
+                <div class="variant-example">
+                  <h4>Dashed Divider</h4>
+                  <p>For subtle, secondary content breaks</p>
+                  <aava-dividers variant="dashed" color="#666"></aava-dividers>
+                </div>
+
+                <div class="variant-example">
+                  <h4>Dotted Divider</h4>
+                  <p>For delicate, minimal visual separation</p>
+                  <aava-dividers variant="dotted" color="#999"></aava-dividers>
+                </div>
+
+                <div class="variant-example">
+                  <h4>Gradient Divider</h4>
+                  <p>For modern, premium aesthetic appeal</p>
+                  <aava-dividers variant="gradient"></aava-dividers>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Orientation Options -->
+            <ng-container *ngSwitchCase="'Orientation Options'">
+              <div class="orientation-demo">
+                <!-- Horizontal Examples -->
+                <div class="horizontal-section">
+                  <h4>Horizontal Dividers</h4>
+                  <div class="article-content">
+                    <p>
+                      First paragraph of article content with important
+                      information...
+                    </p>
+                    <aava-dividers
+                      variant="solid"
+                      orientation="horizontal"
+                      color="#007bff"
+                    ></aava-dividers>
+                    <p>Second paragraph continues with more details...</p>
+                    <aava-dividers
+                      variant="dashed"
+                      orientation="horizontal"
+                      color="#28a745"
+                    ></aava-dividers>
+                    <p>Final paragraph concludes the content section...</p>
+                  </div>
+                </div>
+
+                <!-- Vertical Examples -->
+                <div class="vertical-section">
+                  <h4>Vertical Dividers</h4>
+                  <div class="layout-demo">
+                    <div class="sidebar-content">
+                      <h5>Navigation</h5>
+                      <ul>
+                        <li>Dashboard</li>
+                        <li>Reports</li>
+                        <li>Settings</li>
+                      </ul>
+                    </div>
+
+                    <aava-dividers
+                      variant="solid"
+                      orientation="vertical"
+                      color="#dc3545"
+                    ></aava-dividers>
+
+                    <div class="main-content">
+                      <h5>Main Content</h5>
+                      <p>
+                        Primary content area with detailed information and
+                        interactive elements.
+                      </p>
+                    </div>
+
+                    <aava-dividers
+                      variant="dotted"
+                      orientation="vertical"
+                      color="#ffc107"
+                    ></aava-dividers>
+
+                    <div class="panel-content">
+                      <h5>Side Panel</h5>
+                      <p>Additional tools and information panel.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Color Customization -->
+            <ng-container *ngSwitchCase="'Color Customization'">
+              <div class="color-demo">
+                <div class="color-section">
+                  <h4>Brand Colors</h4>
+                  <div class="color-examples">
+                    <div class="color-item">
+                      <span class="color-label">Primary Blue</span>
+                      <aava-dividers
+                        variant="solid"
+                        color="#007bff"
+                      ></aava-dividers>
+                    </div>
+                    <div class="color-item">
+                      <span class="color-label">Success Green</span>
+                      <aava-dividers
+                        variant="dashed"
+                        color="#28a745"
+                      ></aava-dividers>
+                    </div>
+                    <div class="color-item">
+                      <span class="color-label">Danger Red</span>
+                      <aava-dividers
+                        variant="dotted"
+                        color="#dc3545"
+                      ></aava-dividers>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="color-section">
+                  <h4>Custom RGB Colors</h4>
+                  <div class="color-examples">
+                    <div class="color-item">
+                      <span class="color-label">Warning Orange</span>
+                      <aava-dividers
+                        variant="solid"
+                        color="rgb(255, 193, 7)"
+                      ></aava-dividers>
+                    </div>
+                    <div class="color-item">
+                      <span class="color-label">Info Light Blue</span>
+                      <aava-dividers
+                        variant="dashed"
+                        color="rgba(23, 162, 184, 0.7)"
+                      ></aava-dividers>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="color-section">
+                  <h4>Gradient Effects</h4>
+                  <div class="gradient-examples">
+                    <div class="gradient-item">
+                      <span class="color-label">Default Gradient</span>
+                      <aava-dividers variant="gradient"></aava-dividers>
+                    </div>
+                    <div
+                      class="gradient-item"
+                      style="
+                        --divider-background-gradient: linear-gradient(
+                          90deg,
+                          #ff6b6b,
+                          #4ecdc4,
+                          #45b7d1
+                        );
+                      "
+                    >
+                      <span class="color-label">Custom Rainbow</span>
+                      <aava-dividers variant="gradient"></aava-dividers>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Practical Examples -->
+            <ng-container *ngSwitchCase="'Practical Examples'">
+              <div class="practical-demo">
+                <!-- Card Example -->
+                <div class="card-example">
+                  <h4>User Profile Card</h4>
+                  <div class="demo-card">
+                    <div class="card-header">
+                      <h5>John Doe</h5>
+                    </div>
+                    <aava-dividers
+                      variant="solid"
+                      color="#e9ecef"
+                    ></aava-dividers>
+                    <div class="card-body">
+                      <p><strong>Email:</strong> john.doe&#64;example.com</p>
+                      <p><strong>Role:</strong> Senior Developer</p>
+                      <p><strong>Department:</strong> Engineering</p>
+                    </div>
+                    <aava-dividers
+                      variant="dashed"
+                      color="#dee2e6"
+                    ></aava-dividers>
+                    <div class="card-footer">
+                      <button class="btn-primary">Edit Profile</button>
+                      <button class="btn-secondary">View Details</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Form Example -->
+                <div class="form-example">
+                  <h4>Registration Form</h4>
+                  <div class="demo-form">
+                    <div class="form-section">
+                      <h5>Personal Information</h5>
+                      <input
+                        type="text"
+                        placeholder="First Name"
+                        class="form-input"
+                      />
+                      <input
+                        type="text"
+                        placeholder="Last Name"
+                        class="form-input"
+                      />
+                    </div>
+
+                    <aava-dividers
+                      variant="dotted"
+                      color="#6c757d"
+                    ></aava-dividers>
+
+                    <div class="form-section">
+                      <h5>Contact Details</h5>
+                      <input
+                        type="email"
+                        placeholder="Email Address"
+                        class="form-input"
+                      />
+                      <input
+                        type="tel"
+                        placeholder="Phone Number"
+                        class="form-input"
+                      />
+                    </div>
+
+                    <aava-dividers variant="gradient"></aava-dividers>
+
+                    <div class="form-actions">
+                      <button class="btn-primary">Submit</button>
+                      <button class="btn-secondary">Reset</button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Navigation Example -->
+                <div class="navigation-example">
+                  <h4>Navigation Menu</h4>
+                  <div class="demo-nav">
+                    <div class="nav-section">
+                      <a href="#" class="nav-link">Home</a>
+                      <a href="#" class="nav-link">About</a>
+                      <a href="#" class="nav-link">Products</a>
+                    </div>
+                    <aava-dividers
+                      variant="solid"
+                      color="#495057"
+                    ></aava-dividers>
+                    <div class="nav-section">
+                      <a href="#" class="nav-link">Services</a>
+                      <a href="#" class="nav-link">Portfolio</a>
+                      <a href="#" class="nav-link">Blog</a>
+                    </div>
+                    <aava-dividers
+                      variant="dashed"
+                      color="#6c757d"
+                    ></aava-dividers>
+                    <div class="nav-section">
+                      <a href="#" class="nav-link">Contact</a>
+                      <a href="#" class="nav-link">Support</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Responsive Design -->
+            <ng-container *ngSwitchCase="'Responsive Design'">
+              <div class="responsive-demo">
+                <div class="responsive-article">
+                  <header class="article-header">
+                    <h3>Responsive Article Layout</h3>
+                    <p class="meta">
+                      Published on January 15, 2024 by Design Team
+                    </p>
+                  </header>
+
+                  <aava-dividers variant="gradient"></aava-dividers>
+
+                  <div class="responsive-content">
+                    <div class="content-main">
+                      <h4>Main Article Content</h4>
+                      <p>
+                        This content adapts beautifully to different screen
+                        sizes while maintaining visual hierarchy through
+                        strategic use of dividers.
+                      </p>
+                      <p>
+                        On larger screens, you'll see vertical dividers
+                        separating columns. On mobile devices, these
+                        automatically become horizontal dividers for better
+                        readability.
+                      </p>
+                    </div>
+
+                    <div class="divider-vertical-responsive">
+                      <aava-dividers
+                        variant="solid"
+                        orientation="vertical"
+                        color="#dee2e6"
+                      ></aava-dividers>
+                    </div>
+
+                    <aside class="content-sidebar">
+                      <h5>Related Articles</h5>
+                      <ul>
+                        <li><a href="#">Design Systems 101</a></li>
+                        <li><a href="#">Component Libraries</a></li>
+                        <li><a href="#">Responsive Design Tips</a></li>
+                      </ul>
+                    </aside>
+                  </div>
+
+                  <aava-dividers
+                    variant="dashed"
+                    color="#6c757d"
+                  ></aava-dividers>
+
+                  <footer class="article-footer">
+                    <p>Tags: Design, Components, UI/UX</p>
+                  </footer>
+                </div>
+
+                <div class="responsive-cards">
+                  <h4>Responsive Card Grid</h4>
+                  <div class="card-grid">
+                    <div class="grid-card">
+                      <h5>Feature 1</h5>
+                      <p>Responsive design that works on all devices.</p>
+                    </div>
+
+                    <div class="divider-responsive">
+                      <aava-dividers
+                        variant="dotted"
+                        orientation="vertical"
+                        color="#adb5bd"
+                      ></aava-dividers>
+                    </div>
+
+                    <div class="grid-card">
+                      <h5>Feature 2</h5>
+                      <p>Flexible dividers that adapt to layout changes.</p>
+                    </div>
+
+                    <div class="divider-responsive">
+                      <aava-dividers
+                        variant="dotted"
+                        orientation="vertical"
+                        color="#adb5bd"
+                      ></aava-dividers>
+                    </div>
+
+                    <div class="grid-card">
+                      <h5>Feature 3</h5>
+                      <p>Consistent visual hierarchy across breakpoints.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <!-- Code Display -->
+        <div class="code-display" *ngIf="section.showCode">
+          <div class="code-header">
+            <span>{{ section.title }} - Example Code</span>
+            <button class="copy-btn" (click)="copyCode(section.title)">
+              Copy Code
+            </button>
+          </div>
+          <pre><code>{{ getExampleCode(section.title) }}</code></pre>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Documentation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section api-section">
+        <h2>API Reference</h2>
+
+        <!-- Component Properties -->
+        <div class="api-subsection">
+          <h3>Component Properties</h3>
+          <div class="api-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prop of apiProps">
+                  <td>
+                    <code>{{ prop.name }}</code>
+                  </td>
+                  <td>
+                    <code>{{ prop.type }}</code>
+                  </td>
+                  <td>
+                    <code>{{ prop.default }}</code>
+                  </td>
+                  <td>{{ prop.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- CSS Custom Properties -->
+        <div class="api-subsection">
+          <h3>CSS Custom Properties</h3>
+          <div class="api-table">
+            <table>
+              <thead>
+                <tr>
+                  <th>Property</th>
+                  <th>Type</th>
+                  <th>Default</th>
+                  <th>Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let prop of cssProps">
+                  <td>
+                    <code>{{ prop.name }}</code>
+                  </td>
+                  <td>
+                    <code>{{ prop.type }}</code>
+                  </td>
+                  <td>
+                    <code>{{ prop.default }}</code>
+                  </td>
+                  <td>{{ prop.description }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Usage Guidelines -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section guidelines-section">
+        <h2>Best Practices & Guidelines</h2>
+
+        <div class="guidelines-content">
+          <div class="guideline-item">
+            <h4>🎨 Design Guidelines</h4>
+            <ul>
+              <li>
+                Use <strong>solid</strong> dividers for clear, definitive
+                content separation
+              </li>
+              <li>
+                Choose <strong>dashed</strong> dividers for subtle, secondary
+                content breaks
+              </li>
+              <li>
+                Apply <strong>dotted</strong> dividers for delicate, minimal
+                visual separation
+              </li>
+              <li>
+                Implement <strong>gradient</strong> dividers for modern, premium
+                aesthetics
+              </li>
+            </ul>
+          </div>
+
+          <div class="guideline-item">
+            <h4>♿ Accessibility</h4>
+            <ul>
+              <li>
+                Dividers are purely decorative and use appropriate ARIA
+                attributes
+              </li>
+              <li>
+                Ensure sufficient color contrast between dividers and
+                backgrounds
+              </li>
+              <li>
+                Don't rely solely on dividers for content structure - use proper
+                semantic HTML
+              </li>
+              <li>Dividers don't interfere with keyboard navigation flow</li>
+            </ul>
+          </div>
+
+          <div class="guideline-item">
+            <h4>📱 Responsive Design</h4>
+            <ul>
+              <li>Consider divider behavior across different screen sizes</li>
+              <li>Vertical dividers may need to become horizontal on mobile</li>
+              <li>
+                Test divider visibility and effectiveness at all breakpoints
+              </li>
+              <li>
+                Maintain consistent spacing and proportions across devices
+              </li>
+            </ul>
+          </div>
+
+          <div class="guideline-item">
+            <h4>⚡ Performance</h4>
+            <ul>
+              <li>
+                Pure CSS implementation ensures minimal performance impact
+              </li>
+              <li>
+                Use CSS custom properties for dynamic theming without JavaScript
+              </li>
+              <li>
+                Vector-based styling provides crisp appearance at all
+                resolutions
+              </li>
+              <li>
+                Component avoids unnecessary re-renders through OnPush strategy
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+</div>

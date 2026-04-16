@@ -1,0 +1,20 @@
+<div class="footer-demo-container">
+  <header class="demo-header">
+    <h1>Footer Component</h1>
+    <p>
+      A modern, responsive footer component for consistent site-wide navigation and information.
+      Supports multiple layouts with customizable sections, links, and branding.
+    </p>
+  </header>
+
+  <section class="demo-sections">
+    <h2>Demo Pages</h2>
+    <div class="sections-grid">
+      <div *ngFor="let section of sections" class="section-card" [routerLink]="section.route">
+        <span class="section-icon">{{ section.icon }}</span>
+        <h3>{{ section.title }}</h3>
+        <p>{{ section.description }}</p>
+      </div>
+    </div>
+  </section>
+</div>

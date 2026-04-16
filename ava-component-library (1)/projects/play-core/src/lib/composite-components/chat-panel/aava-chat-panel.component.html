@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <div class="messages-container">
+    <div *ngFor="let message of messages" class="message" [ngClass]="message.sender">
+      <div *ngIf="message.sender === 'ai'" class="ai-icon"
+                 [ngStyle]="{'background-color': config?.icon?.background}">
+        <aava-icon
+          [iconColor]="iconColor"
+          [iconSize]="iconSize"
+          [iconName]="iconName"
+        ></aava-icon>
+      </div>
+      <div class="message-bubble" [ngStyle]="getMessageStyle(message.sender)">
+        <div class="message-content">
+          {{ message.text }}
+        </div>
+      </div>
+    </div>
+  </div>
+  <aava-search-bar
+    #searchBar
+    placeholder="Type your message..."
+    (searchClick)="onSendMessage($event)"
+  ></aava-search-bar>
+</div>

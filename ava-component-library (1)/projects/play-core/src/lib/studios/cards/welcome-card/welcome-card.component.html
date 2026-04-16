@@ -1,0 +1,29 @@
+<aava-default-card
+    [customStyles]="{'border-radius': '12px', border: '1px solid #FDFDFD', background: 'rgba(255, 255, 255, 0.50)', 'box-shadow': 'none', padding: '0px'}">
+    <div class="welcome-card-wrapper">
+        <!-- Background Image -->
+        <div class="welcome-card-bg-image">
+            <img [src]="data.backgroundImage" alt="Background" />
+        </div>
+        
+        <!-- Content Container -->
+        <div class="welcome-card-content">
+            <!-- Left Section -->
+            <div class="welcome-card-left">
+                <div class="welcome-card-greeting">
+                    <span class="welcome-card-greeting-text">{{ data.greetingText }}</span>
+                    <span class="welcome-card-greeting-emoji" *ngIf="data.greetingEmoji">{{ data.greetingEmoji }}</span>
+                </div>
+                
+                <div class="welcome-card-subtitle" *ngIf="data.subtitle">
+                    {{ data.subtitle }}
+                </div>
+            </div>
+            
+            <!-- Right Section -->
+            <div class="welcome-card-right">
+                <img [src]="data.heroImage" alt="Hero" class="welcome-card-hero" />
+            </div>
+        </div>
+    </div>
+</aava-default-card>

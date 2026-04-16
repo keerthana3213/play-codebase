@@ -1,0 +1,78 @@
+<div class="cards-container">
+    <!-- First Card - Simple Card -->
+    <div class="card-wrapper">
+        <aava-default-card class="simple-card">
+            <div class="card-content">
+                <h2 class="card-heading">Heading lable</h2>
+                <p class="card-description">Description text goes here ax 2 lines after that truncation will turned on
+                </p>
+                <div class="card-footer">
+                    <span class="footer-text">michaelscottascendion.com</span>
+                </div>
+            </div>
+        </aava-default-card>
+    </div>
+
+    <!-- Second Card - Complex Card -->
+    <div class="card-wrapper">
+        <aava-default-card class="complex-card">
+            <div class="card-content">
+                <!-- Header Section -->
+                <div class="card-header">
+                    <div class="header-left">
+                        <div class="icon-container">
+                            <aava-icon iconName="grid" [iconSize]="24" iconColor="#000000"></aava-icon>
+                        </div>
+                        <h2 class="card-title">Ruby to Springboot</h2>
+                    </div>
+                    <div class="header-right">
+                        <aava-icon iconName="star" [iconSize]="16" iconColor="#D9D9D9"></aava-icon>
+                        <span class="rating-text">5.0</span>
+                        <aava-tag label="Tag" color="error" size="md" [pill]="false"></aava-tag>
+                        <aava-icon iconName="more-vertical" [iconSize]="20"></aava-icon>
+                    </div>
+                </div>
+
+                <!-- Description -->
+                <p class="card-description">Effortlessly convert Ruby code to Spring Boot with optimised migration</p>
+
+                <!-- Tags Section -->
+                <div class="tags-section">
+                    <aava-tag label="Ascendion" color="default" size="lg" [pill]="false"></aava-tag>
+                    <aava-tag label="Individual buttons" color="default" size="lg" [pill]="false"></aava-tag>
+                    <aava-tag label="Agent" color="default" size="lg" [pill]="false"></aava-tag>
+                    <aava-tag label="Label" color="default" size="lg" [pill]="false"></aava-tag>
+                    <aava-tag label="Label" color="default" size="lg" [pill]="false"></aava-tag>
+                </div>
+
+                <!-- Meta Info Section -->
+                <div class="meta-info-section">
+                    <div class="meta-left">
+                        <aava-icon iconName="user" [iconSize]="16"></aava-icon>
+                        <span class="meta-text">michaelscottascendion.com</span>
+                    </div>
+                    <div class="meta-right">
+                        <aava-icon iconName="calendar-days" [iconSize]="16"></aava-icon>
+                        <span class="meta-text">12 May 2025</span>
+                    </div>
+                </div>
+
+                <!-- Action Section -->
+                <div class="action-section">
+                    <div class="action-left">
+                        <aava-icon iconName="user" [iconSize]="16"></aava-icon>
+                        <span class="action-number">24</span>
+                    </div>
+                    <div class="action-right">
+                        <aava-icon iconName="trash-2" [iconSize]="16"></aava-icon>
+                        <aava-icon iconName="copy" [iconSize]="16"></aava-icon>
+                        <aava-icon iconName="code" [iconSize]="16"></aava-icon>
+                        <aava-button iconName="play" iconPosition="only" variant="primary" size="xs" [pill]="false"
+                            width="45px" height="36px">
+                        </aava-button>
+                    </div>
+                </div>
+            </div>
+        </aava-default-card>
+    </div>
+</div>

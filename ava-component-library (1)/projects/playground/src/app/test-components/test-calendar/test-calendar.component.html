@@ -1,0 +1,445 @@
+<div class="divider-group horizontal">
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Squar cells on Hover</span>
+            <aava-datepicker [alwaysOpen]="false" (dateSelected)="onDateSelected($event)"></aava-datepicker>
+        </div>
+    </div>
+
+    <!-- customization Demo -->
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Circular cells on Hover</span>
+            <aava-datepicker [alwaysOpen]="false" selectorShape="circle" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <!-- Range Date -->
+
+    <div class="divider-group">
+        <div class="surface-strength">
+            <span>Calender with maximum surface strength</span>
+            <aava-datepicker [alwaysOpen]="false" [surface]="true" surfaceStrength="max"
+                (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<!-- Requested examples: single, range, function-based -->
+
+
+<h4>Testing selectedDate with null - Textbox should clear</h4>
+<div class="divider-group horizontal">
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Test selectedDate clearing</h6>
+            <p>Current selectedDate value: {{testSelectedDate | json}}</p>
+            <aava-datepicker dateFormat="DD/MM/YYYY" [selectedDate]="testSelectedDate"
+                (dateSelected)="onTestSelectedDateChange($event)" label="Test Selected Date">
+            </aava-datepicker>
+            <br><br>
+            <button (click)="setTestDate()">Set Date (15/10/2025)</button>
+            <button (click)="clearTestDate()">Clear Date (set to null)</button>
+            <p>Expected: When you click "Clear Date", the textbox should become empty</p>
+        </div>
+    </div>
+</div>
+
+<div class="divider-group">
+    <div class="mar-10">
+        <h6>Test selectedRange clearing</h6>
+        <p>Current selectedRange value: {{testSelectedRange | json}}</p>
+        <aava-datepicker dateFormat="DD/MM/YYYY" [isRange]="true" [dateRange]="testSelectedRange"
+            (rangeSelected)="onTestSelectedRangeChange($event)" label="Test Selected Range">
+        </aava-datepicker>
+        <br><br>
+        <button (click)="setTestRange()">Set Range (10/10/2025 - 20/10/2025)</button>
+        <button (click)="clearTestRange()">Clear Range (set to null)</button>
+        <p>Expected: When you click "Clear Range", the textbox should become empty</p>
+    </div>
+</div>
+
+
+<h6>button</h6>
+<div class="divider-group3" style="margin-top: 30px;">
+    <div class="mar-10">
+        <h6>Button-triggered Calendar with alwaysOpen=true</h6>
+        <aava-button variant="primary" size="md" label="Open Calendar"
+            (click)="$event.stopPropagation(); showButtonCalendar = !showButtonCalendar">
+        </aava-button>
+        <div *ngIf="showButtonCalendar">
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'md'" [hideInput]="true"
+                (closed)="onCalendarClosed()">
+            </aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<h6>different formats</h6>
+
+<!-- New Date Format Examples -->
+<h4>Date Format Examples</h4>
+<div class="divider-group horizontal">
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>DD/MM/YYYY Format (Default)</h6>
+            <span>Single Date - DD/MM/YYYY:</span>
+            <aava-datepicker dateFormat="DD/MM/YYYY" (dateSelected)="onDateSelectedDDMMYYYY($event)"
+                label="DD/MM/YYYY Single">
+            </aava-datepicker>
+            <p>Selected: {{selectedDateDDMMYYYY | date:'dd/MM/yyyy'}}</p>
+
+            <span>Date Range - DD/MM/YYYY:</span>
+            <aava-datepicker dateFormat="DD/MM/YYYY" [isRange]="true" (rangeSelected)="onRangeSelectedDDMMYYYY($event)"
+                label="DD/MM/YYYY Range">
+            </aava-datepicker>
+            <p>Selected Range: {{selectedRangeDDMMYYYY.start | date:'dd/MM/yyyy'}} - {{selectedRangeDDMMYYYY.end |
+                date:'dd/MM/yyyy'}}</p>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>MM/DD/YYYY Format (US)</h6>
+            <span>Single Date - MM/DD/YYYY:</span>
+            <aava-datepicker dateFormat="MM/DD/YYYY" (dateSelected)="onDateSelectedMMDDYYYY($event)"
+                label="MM/DD/YYYY Single">
+            </aava-datepicker>
+            <p>Selected: {{selectedDateMMDDYYYY | date:'MM/dd/yyyy'}}</p>
+
+            <span>Date Range - MM/DD/YYYY:</span>
+            <aava-datepicker dateFormat="MM/DD/YYYY" [isRange]="true" (rangeSelected)="onRangeSelectedMMDDYYYY($event)"
+                label="MM/DD/YYYY Range">
+            </aava-datepicker>
+            <p>Selected Range: {{selectedRangeMMDDYYYY.start | date:'MM/dd/yyyy'}} - {{selectedRangeMMDDYYYY.end |
+                date:'MM/dd/yyyy'}}</p>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>YYYY/MM/DD Format (ISO)</h6>
+            <span>Single Date - YYYY/MM/DD:</span>
+            <aava-datepicker dateFormat="YYYY/MM/DD" (dateSelected)="onDateSelectedYYYYMMDD($event)"
+                label="YYYY/MM/DD Single">
+            </aava-datepicker>
+            <p>Selected: {{selectedDateYYYYMMDD | date:'yyyy/MM/dd'}}</p>
+
+            <span>Date Range - YYYY/MM/DD:</span>
+            <aava-datepicker dateFormat="YYYY/MM/DD" [isRange]="true" (rangeSelected)="onRangeSelectedYYYYMMDD($event)"
+                label="YYYY/MM/DD Range">
+            </aava-datepicker>
+            <p>Selected Range: {{selectedRangeYYYYMMDD.start | date:'yyyy/MM/dd'}} - {{selectedRangeYYYYMMDD.end |
+                date:'yyyy/MM/dd'}}</p>
+        </div>
+    </div>
+</div>
+
+
+<h6>min max</h6>
+<div class="divider-group">
+    <div class="mar-10">
+        <span>Example: Function-based min/max (±7 days)</span>
+        <aava-datepicker [minDate]="minDateFn" [maxDate]="maxDateFn"
+            (dateSelected)="onDateSelected($event)"></aava-datepicker>
+    </div>
+</div>
+
+<div class="divider-group">
+    <div class="mar-10">
+        <span>Example: Min Date (Today) No Max Date</span>
+        <aava-datepicker [minDate]="todayDate" (dateSelected)="onDateSelected($event)"></aava-datepicker>
+    </div>
+</div>
+
+<h6>disable state</h6>
+<div style="margin-top: 20px;display: flex;">
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Calendar with Disabled Dates (Set 1)</span>
+            <aava-datepicker [disabledDate]="disabledDates1" (dateSelected)="onDateSelected($event)"></aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Calendar with Disabled Dates (Set 2)</span>
+            <aava-datepicker [disabledDate]="disabledDates2" (dateSelected)="onDateSelected($event)"></aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Calendar with Min/Max and Disabled Dates1</span>
+            <aava-datepicker maxDate="20/11/2025">
+            </aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<!-- All Calendar Sizes - Regular Mode -->
+<h4>All Calendar Sizes - Regular Mode</h4>
+<div style="margin-top: 20px;display: flex; flex-wrap: wrap; gap: 20px;">
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Extra Small (xs)</span>
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'xs'" label="XS Calendar">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Small (sm)</span>
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'sm'" label="SM Calendar">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Medium (md)</span>
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'md'" label="MD Calendar">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Large (lg)</span>
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'lg'" label="LG Calendar">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Extra Large (xl)</span>
+            <aava-datepicker (dateSelected)="onDateSelected($event)" [calendarSize]="'xl'" label="XL Calendar">
+            </aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<!-- All Calendar Sizes - Always Open Mode -->
+<h4>All Calendar Sizes - Always Open Mode</h4>
+<div style="margin-top: 20px;display: flex; flex-wrap: wrap; gap: 20px;">
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Small (sm) - Always Open</span>
+            <aava-datepicker [alwaysOpen]="true" [calendarSize]="'sm'" label="SM Always Open"></aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Medium (md) - Always Open</span>
+            <aava-datepicker [alwaysOpen]="true" [calendarSize]="'md'" label="MD Always Open"></aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <span>Large (lg) - Always Open input is hide</span>
+            <aava-datepicker [alwaysOpen]="true" [calendarSize]="'lg'" label="LG Always Open"
+                [hideInput]="true"></aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<div class="divider-group1">
+    <div class="mar-10">
+
+        <aava-datepicker label="Calendar with date range" placeholder="DD/MM/YYYY - DD/MM/YYYY" [isRange]="true"
+            (rangeSelected)="onRangeSelected($event)">
+        </aava-datepicker>
+    </div>
+</div>
+<div class="divider-group2">
+    <div class="mar-10 form">
+        <form [formGroup]="form">
+            <span>Reactive form integration</span>
+            <aava-datepicker label="Date" formControlName="date" (dateSelected)="onDateSelected($event)"
+                [calendarSize]="'sm'"> </aava-datepicker>
+            <aava-datepicker formControlName="dateDisabled" (dateSelected)="onDateSelected($event)"
+                [calendarSize]="'sm'"> </aava-datepicker>
+
+        </form>
+        <br /><br>
+        <pre> {{form.value | json}}</pre>
+        <br /><br>
+        <br /><br>
+        <br /><br>
+
+    </div>
+</div>
+
+<!-- Error State Examples -->
+<h4>Error State Examples</h4>
+<div class="divider-group horizontal" style="margin-top: 20px;">
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Static Error Message</h6>
+            <p>Calendar with a static error message</p>
+            <aava-datepicker label="Date with Error" [error]="errorMessage" [required]="true">
+            </aava-datepicker>
+            <br><br>
+            <button (click)="toggleError()">
+                {{ showError ? 'Clear Error' : 'Show Error' }}
+            </button>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Error Clears on Date Selection</h6>
+            <aava-datepicker label="Select Date to Clear Error" [error]="dateError" [selectedDate]="dateValue"
+                (dateSelected)="onDateSelect($event)" [required]="true">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Required Field Error</h6>
+            <p>Calendar with required validation - error shows when touched and empty</p>
+            <aava-datepicker label="Required Date" [required]="true" [error]="getRequiredDateError()">
+            </aava-datepicker>
+            <p><small>Try to submit the form below to see the error</small></p>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Custom Validation Error</h6>
+            <p>Calendar with custom validation error</p>
+            <aava-datepicker label="Custom Error Date" [error]="getCustomErrorDateError()">
+            </aava-datepicker>
+            <br><br>
+            <button (click)="setCustomError()">Set Custom Error</button>
+            <button (click)="clearCustomError()">Clear Error</button>
+        </div>
+    </div>
+</div>
+
+<!-- Error Form Examples -->
+<div class="divider-group" style="margin-top: 30px;">
+    <div class="mar-10 form">
+        <h6>Form with Error Validation</h6>
+        <form [formGroup]="errorForm" (ngSubmit)="onErrorFormSubmit()">
+            <div style="margin-bottom: 20px;">
+                <aava-datepicker label="Required Date (with error)" formControlName="requiredDate" [required]="true"
+                    [error]="getRequiredDateError()">
+                </aava-datepicker>
+                <p *ngIf="errorForm.get('requiredDate')?.hasError('required') && errorForm.get('requiredDate')?.touched"
+                    style="color: red; font-size: 12px; margin-top: 5px;">
+                    This field is required
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <aava-datepicker label="Custom Error Date" formControlName="customErrorDate"
+                    [error]="getCustomErrorDateError()">
+                </aava-datepicker>
+                <p *ngIf="errorForm.get('customErrorDate')?.hasError('custom') && errorForm.get('customErrorDate')?.touched"
+                    style="color: red; font-size: 12px; margin-top: 5px;">
+                    Custom validation error message
+                </p>
+            </div>
+
+            <div style="margin-bottom: 20px;">
+                <aava-datepicker label="Invalid Date Error" formControlName="invalidDate" [error]="invalidDateError">
+                </aava-datepicker>
+                <p><small>Type an invalid date (e.g., 99/99/9999) and blur to see error</small></p>
+            </div>
+
+            <aava-button type="submit" variant="primary" size="md" label="Submit Form">
+            </aava-button>
+        </form>
+
+        <br><br>
+        <h6>Form Status:</h6>
+        <pre>Valid: {{ errorForm.valid }}</pre>
+        <pre>Form Value: {{ errorForm.value | json }}</pre>
+        <pre>Form Errors: {{ errorForm.errors | json }}</pre>
+
+        <div *ngIf="!errorForm.valid" style="margin-top: 10px;">
+            <h6>Field Errors:</h6>
+            <div *ngFor="let controlName of ['requiredDate', 'customErrorDate', 'invalidDate']">
+                <strong>{{ controlName }}:</strong>
+                <pre>{{ errorForm.get(controlName)?.errors | json }}</pre>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Range Date with Error -->
+<div class="divider-group" style="margin-top: 30px;">
+    <div class="mar-10">
+        <h6>Date Range with Error</h6>
+        <p>Calendar in range mode with error message</p>
+        <aava-datepicker label="Date Range with Error" [isRange]="true" [error]="'Please select a valid date range'"
+            [required]="true">
+        </aava-datepicker>
+    </div>
+</div>
+
+<!-- Popup Positioning Examples -->
+<h4>Popup Positioning Examples</h4>
+<div class="divider-group horizontal" style="margin-top: 20px; flex-wrap: wrap; gap: 20px;">
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Vertical: Auto (Default)</h6>
+            <aava-datepicker label="Vertical Auto" verticalPosition="auto" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Vertical: Top</h6>
+            <aava-datepicker label="Vertical Top" verticalPosition="top" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Vertical: Bottom</h6>
+            <aava-datepicker label="Vertical Bottom" verticalPosition="bottom" horizontalPosition="left" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Horizontal: Left (Default)</h6>
+            <aava-datepicker label="Horizontal Left" horizontalPosition="left" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Horizontal: Right</h6>
+            <aava-datepicker label="Horizontal Right" horizontalPosition="right" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+        </div>
+    </div>
+</div>
+
+<!-- Test at bottom of page for auto positioning -->
+<div style="margin-top: 100vh; padding-bottom: 50px;">
+    <h4>Auto Positioning Test (Bottom of Page)</h4>
+    <div class="divider-group">
+        <div class="mar-10">
+            <h6>Auto Position at Bottom of Viewport</h6>
+            <p>Scroll down here - this should open UPWARD due to insufficient space below</p>
+            <aava-datepicker label="Auto Position Test" dateFormat="DD/MM/YYYY" (dateSelected)="onDateSelected($event)">
+            </aava-datepicker>
+            <p><small>Smart positioning: Opens above when at bottom of page</small></p>
+        </div>
+    </div>
+</div>

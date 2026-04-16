@@ -1,0 +1,73 @@
+.action-link {
+  cursor: pointer;
+  text-decoration: none; /* Ensures no underline by default */
+  display: inline-flex;
+  align-items: center;
+  font-weight: 500;
+  transition: color 0.3s ease; /* Transition for smooth color change */
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+
+  /* Size classes */
+  &.sm {
+    font-size: var(--link-size-sm-font);
+  }
+
+  &.md {
+    font-size: var(--link-size-md-font);
+  }
+
+  &.lg {
+    font-size: var(--link-size-lg-font);
+  }
+
+  /* Icon and arrow styles */
+  .icon-left {
+    margin-right: 6px;
+  }
+
+  /* Color variants */
+  &.primary {
+    color: var(--link-primary-text);
+  }
+
+  &.danger {
+    color: var(--link-danger-text);
+  }
+
+  &.success {
+    color: var(--link-success-text);
+  }
+
+  &.warning {
+    color: var(--link-warning-text);
+  }
+
+  &.info {
+    color: var(--link-info-text);
+  }
+
+  /* Hover effect for all labels */
+  &:not(.underline):hover {
+    border-bottom: 1px solid currentColor;
+  }
+
+  .link-content {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Underline class */
+  &.underline {
+    text-decoration: var(--link-active-text-decoration);
+  }
+
+  /* Ensure hover color is applied to underlined links */
+  &.underline:hover {
+    color: var(--color-text-interactive-hover) !important;
+  }
+}
+
+
+
+

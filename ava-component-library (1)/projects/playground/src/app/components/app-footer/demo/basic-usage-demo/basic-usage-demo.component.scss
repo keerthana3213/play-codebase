@@ -1,0 +1,67 @@
+.fv-1 {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 4rem;
+  color: white;
+}
+
+.custom-footer-content {
+  .i-m {
+    p {
+      color: #94a3b8;
+      line-height: 1.6;
+      margin: 1.5rem 0;
+      max-width: 300px;
+    }
+  }
+
+  .social {
+    display: flex;
+    gap: 1.5rem;
+    
+    aava-icon {
+      cursor: pointer;
+      color: #94a3b8;
+      transition: color 0.3s ease;
+      
+      &:hover {
+        color: #ffffff;
+      }
+    }
+  }
+
+  .footer-right-wrapper {
+    display: flex;
+    gap: 4rem;
+    
+    .l h3 {
+      color: white;
+      font-size: 1.1rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+    
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      
+      li {
+        margin-bottom: 0.75rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .fv-1 {
+    flex-direction: column;
+    padding: 2rem;
+  }
+  .footer-right-wrapper {
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+}

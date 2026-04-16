@@ -1,0 +1,989 @@
+/* =======================
+   AVA TEXTBOX - TEXT INPUT SPECIFICATIONS ONLY
+   Implements only spec-compliant effects per design system
+   ======================= */
+
+/* =======================
+   COMPONENT STYLES
+   ======================= */
+
+.ava-textbox {
+  display: flex;
+  flex-direction: column;
+  gap: var(--textbox-gap);
+  width: 100%;
+
+  .ava-textbox__label {
+    display: block;
+    color: var(--textbox-label-color);
+
+    &--required::after {
+      content: "";
+    }
+  }
+
+  .ava-label-prefix {
+    display: flex;
+
+    .ava-textbox__label-arrow {
+      margin-top: 4px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+
+    .ava-textbox__label-email {
+      margin-top: -1px;
+      margin-right: 8px;
+    }
+
+    .ava-textbox__label-password {
+      margin-top: -2px;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+
+  // Size variants
+  &--xs {
+    .ava-textbox__container {
+      border-radius: var(--textbox-xs-border-radius);
+      padding: var(--textbox-input-xs-padding);
+      height: var(--textbox-input-xs-height);
+    }
+
+    .ava-textbox__label {
+      font-size: var(--textbox-xs-label-font-size);
+      font-weight: var(--textbox-xs-label-weight);
+      line-height: var(--textbox-xs-label-line-height);
+      font-style: var(--textbox-xs-label-font-style);
+    }
+
+    .ava-textbox__error {
+      font-size: var(--textbox-xs-error-font-size);
+    }
+
+    .ava-textbox__error-icon {
+      position: relative;
+      top: -4.5px;
+    }
+
+    .ava-textbox__label-name {
+      font-size: var(--textbox-input-xs-font-size);
+    }
+
+    .ava-label-prefix {
+      .ava-textbox__label-arrow {
+        margin-top: 1px;
+        margin-right: 4px;
+      }
+
+      .ava-textbox__label-email {
+        margin-right: 4px;
+      }
+
+      .ava-textbox__label-password {
+        margin-right: 4px;
+      }
+    }
+
+    .ava-textbox__icons--start {
+      margin-right: 4px;
+    }
+  }
+
+  &--sm {
+    .ava-textbox__container {
+      border-radius: var(--textbox-sm-border-radius);
+      padding: var(--textbox-input-sm-padding);
+      height: var(--textbox-input-sm-height);
+    }
+
+    .ava-textbox__label {
+      font-size: var(--textbox-sm-label-font-size);
+      font-weight: var(--textbox-sm-label-weight);
+      line-height: var(--textbox-sm-label-line-height);
+      font-style: var(--textbox-sm-label-font-style);
+    }
+
+    .ava-textbox__error {
+      font-size: var(--textbox-sm-error-font-size);
+    }
+
+    .ava-textbox__error-icon {
+      position: relative;
+      top: -3.7px;
+    }
+
+    .ava-textbox__label-name {
+      font-size: var(--textbox-input-sm-font-size);
+    }
+
+    .ava-label-prefix {
+      .ava-textbox__label-arrow {
+        margin-top: 2px;
+        margin-right: 6px;
+      }
+      .ava-textbox__label-email {
+        margin-right: 6px;
+      }
+      .ava-textbox__label-password {
+        margin-right: 6px;
+      }
+    }
+
+    .ava-textbox__icons--start {
+      margin-right: 6px;
+    }
+  }
+
+  &--md {
+    .ava-textbox__container {
+      border-radius: var(--textbox-md-border-radius);
+      padding: var(--textbox-input-md-padding);
+      height: var(--textbox-input-md-height);
+    }
+
+    .ava-textbox__label {
+      font-size: var(--textbox-md-label-font-size);
+      font-weight: var(--textbox-md-label-weight);
+      line-height: var(--textbox-md-label-line-height);
+      font-style: var(--textbox-md-label-font-style);
+    }
+
+    .ava-textbox__error {
+      font-size: var(--textbox-md-error-font-size);
+    }
+
+    .ava-textbox__error-icon {
+      position: relative;
+      top: -3.7px;
+    }
+
+    .ava-textbox__label-name {
+      font-size: var(--textbox-input-md-font-size);
+    }
+
+    .ava-label-prefix {
+      .ava-textbox__label-arrow {
+        margin-top: 3px;
+        margin-right: 8px;
+      }
+      .ava-textbox__label-email {
+        margin-right: 8px;
+      }
+      .ava-textbox__label-password {
+        margin-right: 8px;
+      }
+    }
+
+    .ava-textbox__icons--start {
+      margin-right: 8px;
+    }
+  }
+
+  &--lg {
+    .ava-textbox__container {
+      border-radius: var(--textbox-lg-border-radius);
+      padding: var(--textbox-input-lg-padding);
+      height: var(--textbox-input-lg-height);
+    }
+
+    .ava-textbox__label {
+      font-size: var(--textbox-lg-label-font-size);
+      font-weight: var(--textbox-lg-label-weight);
+      line-height: var(--textbox-lg-label-line-height);
+      font-style: var(--textbox-lg-label-font-style);
+    }
+
+    .ava-textbox__error {
+      font-size: var(--textbox-lg-error-font-size);
+
+      .ava-textbox__error-icon {
+        position: relative;
+        top: -3.7px;
+      }
+    }
+
+    .ava-textbox__label-name {
+      font-size: var(--textbox-input-lg-font-size);
+    }
+
+    .ava-label-prefix {
+      .ava-textbox__label-arrow {
+        margin-right: 8px;
+      }
+      .ava-textbox__label-email {
+        margin-right: 8px;
+      }
+      .ava-textbox__label-password {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &--xl {
+    .ava-textbox__container {
+      border-radius: var(--textbox-xl-border-radius);
+      padding: var(--textbox-input-xl-padding);
+      height: var(--textbox-input-xl-height);
+    }
+
+    .ava-textbox__label {
+      font-size: var(--textbox-xl-label-font-size);
+      font-weight: var(--textbox-xl-label-weight);
+      line-height: var(--textbox-xl-label-line-height);
+      font-style: var(--textbox-xl-label-font-style);
+    }
+
+    .ava-textbox__error {
+      font-size: var(--textbox-xl-error-font-size);
+    }
+
+    .ava-textbox__error-icon {
+      position: relative;
+      top: -3.3px;
+    }
+
+    .ava-textbox__label-name {
+      font-size: var(--textbox-input-xl-font-size);
+    }
+
+    .ava-label-prefix {
+      .ava-textbox__label-arrow {
+        margin-right: 8px;
+      }
+      .ava-textbox__label-email {
+        margin-right: 8px;
+      }
+      .ava-textbox__label-password {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+.ava-textbox__required {
+  color: var(--textbox-required-color);
+  margin-left: 0.25rem;
+}
+
+.ava-textbox__container {
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  // Default effect color for focus border and other effects (fallback)
+  --effect-color-primary: var(--textbox-effect-color-primary);
+
+  // Sophisticated glass effect - chained from base tokens
+  background: var(--textbox-glass-default-background);
+  backdrop-filter: var(--textbox-glass-default-blur);
+  -webkit-backdrop-filter: var(--textbox-glass-default-blur);
+  border: var(--textbox-glass-default-border);
+
+  // Default shadows from base tokens
+  // box-shadow: var(--textbox-glass-default-shadow);
+
+  // Sophisticated transitions
+  transition: var(--textbox-transition);
+
+  // Hover effect - border color and width change
+  &:hover:not(:focus-within) {
+    border-color: rgba(var(--effect-color-primary), 1);
+    border-width: var(--textbox-hover-border-width);
+  }
+
+  // Text Input Spec: Focus with thick border stroke (default)
+  &:focus-within {
+    border: var(--textbox-focus-border-width) solid
+      rgb(var(--effect-color-primary));
+    // box-shadow: 0 0 0 1px rgba(var(--effect-color-primary), 0.2),
+    //   var(--textbox-glass-default-shadow);
+    outline: none;
+  }
+
+  // Active/Pressed effect - chained from global pressed tokens
+  // &:active {
+  //   box-shadow: var(--textbox-glass-default-shadow),
+  //     var(--textbox-pressed-effect);
+  //   // transform: var(--textbox-pressed-transform);
+  // }
+
+  // State styles
+
+  .ava-textbox--readonly & {
+    background: var(--textbox-background-readonly);
+    border-color: var(--textbox-border-readonly-color);
+  }
+
+  // Text Input Spec: Grey disabled state only
+  .ava-textbox--disabled-grey &,
+  .ava-textbox--disabled-gray & {
+    background: var(
+      --textbox-disabled-grey-background
+    ); // gray-400 with transparency
+    border-color: var(--textbox-disabled-grey-border);
+    cursor: not-allowed;
+    opacity: 0.7;
+    filter: grayscale(100%);
+  }
+
+  // Sophisticated Variant Styles - Override glass-surface-color for different tints
+
+  // Default variant - Explicit default variant support
+  .ava-textbox--default & {
+    --glass-surface-color: var(--textbox-variant-default);
+    --effect-color-primary: var(--textbox-rgb-brand-primary);
+  }
+
+  // Primary variant - Override glass surface color to primary
+  .ava-textbox--primary & {
+    --glass-surface-color: var(--textbox-variant-primary);
+    --effect-color-primary: var(--textbox-glass-variant-primary);
+  }
+
+  // Success variant - Override glass surface color to success
+  .ava-textbox--success & {
+    --glass-surface-color: var(--textbox-variant-success);
+    --effect-color-primary: var(--textbox-glass-variant-success);
+  }
+
+  // Warning variant - Override glass surface color to warning
+  .ava-textbox--warning & {
+    --glass-surface-color: var(--textbox-variant-warning);
+    --effect-color-primary: var(--textbox-glass-variant-warning);
+  }
+
+  // Danger/Error variant - Override glass surface color to danger
+  .ava-textbox--danger &,
+  .ava-textbox--error & {
+    --glass-surface-color: var(--textbox-variant-danger);
+    --effect-color-primary: var(--textbox-glass-variant-danger);
+  }
+
+  // Info variant - Override glass surface color to info
+  .ava-textbox--info & {
+    --glass-surface-color: var(--textbox-variant-info);
+    --effect-color-primary: var(--textbox-glass-variant-info);
+  }
+}
+
+.ava-textbox__input {
+  flex: 1;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: var(--textbox-input-color);
+  resize: none;
+  z-index: 2; // Above any overlay effects
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  padding-block: 0;
+  padding-inline: 0;
+  line-height: 1;
+
+  &::placeholder {
+    color: var(--textbox-placeholder-color);
+    opacity: 1;
+    padding: 0;
+    line-height: 1;
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &:read-only {
+    cursor: default;
+  }
+
+  // Size variants
+  &--xs {
+    font-size: var(--textbox-input-xs-font-size);
+    font-weight: var(--textbox-input-xs-font-weight);
+    font-style: var(--textbox-input-xs-font-style);
+    line-height: var(--textbox-input-xs-line-height);
+  }
+
+  &--sm {
+    font-size: var(--textbox-input-sm-font-size);
+    font-weight: var(--textbox-input-sm-font-weight);
+    font-style: var(--textbox-input-sm-font-style);
+    line-height: var(--textbox-input-sm-line-height);
+  }
+
+  &--md {
+    font-size: var(--textbox-input-md-font-size);
+    font-weight: var(--textbox-input-md-font-weight);
+    font-style: var(--textbox-input-md-font-style);
+    line-height: var(--textbox-input-md-line-height);
+  }
+
+  &--lg {
+    font-size: var(--textbox-input-lg-font-size);
+    font-weight: var(--textbox-input-lg-font-weight);
+    font-style: var(--textbox-input-lg-font-style);
+    line-height: var(--textbox-input-lg-line-height);
+  }
+
+  &--xl {
+    font-size: var(--textbox-input-xl-font-size);
+    font-weight: var(--textbox-input-xl-font-weight);
+    font-style: var(--textbox-input-xl-font-style);
+    line-height: var(--textbox-input-xl-line-height);
+  }
+
+  // Icon spacing classes are now applied dynamically based on projected content
+
+  // Legacy icon spacing classes (kept for backward compatibility)
+  &--icon-start {
+    //padding-left: var(--textbox-input-icon-padding-start);
+  }
+
+  &--icon-end {
+    //padding-right: var(--textbox-input-icon-padding-end);
+  }
+
+  // Additional spacing when both icons and prefix/suffix are present
+  &--icon-start.ava-textbox__input--with-prefix {
+    padding-left: calc(
+      var(--textbox-input-icon-padding-start) + var(--textbox-separator-margin)
+    );
+  }
+
+  &--icon-end.ava-textbox__input--with-suffix {
+    padding-right: calc(
+      var(--textbox-input-icon-padding-end) + var(--textbox-separator-margin)
+    );
+  }
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.ava-textbox__icons {
+  display: flex;
+  align-items: center;
+  gap: var(--textbox-separator-margin);
+  height: 100%;
+  z-index: 3; // Above input and effects
+
+  // Hide empty icon containers
+  &:empty {
+    display: none;
+  }
+
+  &--start {
+    color: var(--textbox-icon-color);
+    margin-right: 8px;
+  }
+
+  &--end {
+    color: var(--textbox-icon-color);
+    margin-left: var(
+      --textbox-separator-margin
+    ); // Normal spacing between icon and text (default)
+  }
+
+  aava-icon {
+    cursor: pointer;
+    transition: var(--textbox-liquid-transition);
+
+    &:hover,
+    &:focus {
+      color: var(--textbox-icon-focus-color);
+      transform: var(--textbox-liquid-transform-hover);
+    }
+
+    &:active {
+      opacity: var(--textbox-icon-active-opacity);
+      transform: scale(0.95);
+    }
+  }
+
+  .ava-textbox--focused & {
+    color: var(--textbox-icon-focus-color);
+  }
+}
+
+.ava-textbox__prefix,
+.ava-textbox__suffix {
+  display: flex;
+  align-items: center;
+  //padding: var(--textbox-affix-padding);
+  color: var(--textbox-affix-color);
+  font-size: var(--textbox-affix-font-size);
+  background: var(--textbox-affix-background);
+  border-radius: var(--textbox-affix-border-radius);
+  z-index: 2;
+  white-space: nowrap; // Prevent wrapping of prefix/suffix text
+
+  // Hide empty prefix/suffix containers
+  &:empty {
+    display: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .ava-textbox--disabled & {
+    color: var(--textbox-affix-disabled-color);
+    background: var(--textbox-affix-disabled-background);
+  }
+}
+
+.ava-textbox__prefix--dropdown {
+  padding: 0;
+}
+
+// Dropdown styles for prefix and suffix
+.ava-textbox__prefix-dropdown,
+.ava-textbox__suffix-dropdown {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  user-select: none;
+  transition: var(--textbox-transition);
+  border-radius: var(--textbox-affix-border-radius);
+
+  &:hover {
+    background: var(--textbox-affix-background);
+  }
+
+  .ava-textbox--disabled &,
+  .ava-textbox--readonly & {
+    cursor: not-allowed;
+    opacity: 0.6;
+    pointer-events: none;
+  }
+}
+
+.ava-textbox__dropdown-label {
+  font-size: var(--textbox-affix-font-size);
+  color: var(--textbox-affix-color);
+  white-space: nowrap;
+}
+
+.ava-textbox__dropdown-icon {
+  transition: transform 0.2s ease;
+  color: var(--textbox-icon-color);
+
+  &--open {
+    transform: rotate(180deg);
+  }
+}
+.dropdown-menu-wrapper {
+  position: relative;
+  .ava-textbox__dropdown-menu {
+    position: absolute;
+    max-height: 200px;
+    overflow-y: auto;
+    background: var(--textbox-background-primary);
+    border: 1px solid var(--textbox-border-primary-color);
+    border-radius: var(--textbox-md-border-radius);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    z-index: 1000;
+    padding: 0.25rem;
+
+    // For suffix dropdown, align to the right
+    &--suffix {
+      left: auto;
+      right: 0;
+    }
+  }
+}
+
+.ava-textbox__dropdown-option {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  transition: var(--textbox-transition);
+  border-radius: calc(var(--textbox-md-border-radius) - 2px);
+  font-size: var(--textbox-affix-font-size);
+  color: var(--textbox-input-color);
+
+  &:hover {
+    background: var(--textbox-affix-background);
+  }
+
+  &--selected {
+    background: var(--textbox-variant-primary);
+    color: var(--textbox-input-color);
+    font-weight: 500;
+  }
+}
+
+.ava-textbox__prefix {
+  border-top-left-radius: var(--textbox-border-radius);
+  border-bottom-left-radius: var(--textbox-border-radius);
+  margin-right: var(
+    --textbox-affix-margin-normal
+  ); // Minimal spacing between prefix and input text
+
+  &:empty {
+    margin-right: 0;
+  }
+}
+
+.ava-textbox__suffix {
+  border-top-right-radius: var(--textbox-border-radius);
+  border-bottom-right-radius: var(--textbox-border-radius);
+  margin-left: var(
+    --textbox-affix-margin-normal
+  ); // Minimal spacing between suffix and input text
+
+  &:empty {
+    margin-left: 0;
+  }
+}
+
+// Icon Separator Styles
+.ava-textbox__icon-separator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--textbox-separator-width);
+  height: var(--textbox-separator-height);
+  background: var(--textbox-separator-background);
+  z-index: 3;
+  transition: var(--textbox-separator-transition);
+  border-radius: 0.5px; // Slightly rounded edges for better visibility
+
+  &--start {
+    /* Increase gap between icon and separator */
+    left: calc(var(--textbox-icon-position-start) + 24px + 0.5rem);
+    /* 24px icon + 0.5rem gap */
+  }
+
+  &--end {
+    right: calc(var(--textbox-icon-position-end) + 24px + 0.5rem);
+  }
+
+  // State-specific separator colors
+  .ava-textbox--focused & {
+    background: var(--textbox-separator-background-focused);
+  }
+
+  .ava-textbox--disabled & {
+    background: var(--textbox-separator-background-disabled);
+    opacity: var(--textbox-separator-opacity-disabled);
+  }
+}
+
+// Icon Separator Input Padding Adjustments
+.ava-textbox--icon-separator {
+  .ava-textbox__input--icon-start {
+    /* Increase padding-left to add more space between separator and text */
+    padding-left: var(--textbox-separator-margin);
+  }
+
+  .ava-textbox__input--icon-end {
+    padding-right: var(--textbox-separator-margin);
+  }
+}
+
+.ava-textbox__icons--end {
+  margin-left: 0.5rem;
+}
+
+.ava-textbox__error {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--textbox-error-gap);
+  color: var(--textbox-error-color);
+  line-height: 1.4;
+}
+
+.ava-textbox__error-icon {
+  flex-shrink: 0;
+  margin-top: var(--textbox-global-spacing-1);
+}
+
+.ava-textbox__error-text {
+  flex: 1;
+}
+
+.ava-textbox__helper {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--textbox-helper-gap);
+  color: var(--textbox-helper-color);
+  font-size: var(--textbox-helper-font-size);
+  line-height: 1.4;
+}
+
+.ava-textbox__helper-icon {
+  flex-shrink: 0;
+  margin-top: var(--textbox-global-spacing-1);
+}
+
+.ava-textbox__helper-text {
+  flex: 1;
+}
+
+// Icon Spacing Variants
+.ava-textbox--icon-spacing-compact {
+  // Adjust input padding for compact icon spacing - creates visual gap between icon and text
+  .ava-textbox__input--icon-start {
+    padding-left: var(--textbox-icon-spacing-compact-padding-start) !important;
+  }
+
+  .ava-textbox__input--icon-end {
+    padding-right: var(--textbox-icon-spacing-compact-padding-end) !important;
+  }
+
+  // Reduce prefix/suffix spacing for website and price variants
+  .ava-textbox__prefix {
+    margin-right: var(--textbox-affix-margin-compact) !important;
+  }
+
+  .ava-textbox__suffix {
+    margin-left: var(--textbox-affix-margin-compact) !important;
+  }
+}
+
+.ava-textbox--icon-spacing-relaxed {
+  // Adjust input padding for relaxed icon spacing - creates visual gap between icon and text
+  .ava-textbox__input--icon-start {
+    padding-left: var(--textbox-icon-spacing-relaxed-padding-start) !important;
+  }
+
+  .ava-textbox__input--icon-end {
+    padding-right: var(--textbox-icon-spacing-relaxed-padding-end) !important;
+  }
+}
+
+// Normal spacing (explicit for clarity)
+.ava-textbox--icon-spacing-normal {
+  .ava-textbox__input--icon-start {
+    padding-left: var(--textbox-icon-spacing-normal-padding-start) !important;
+  }
+
+  .ava-textbox__input--icon-end {
+    padding-right: var(--textbox-icon-spacing-normal-padding-end) !important;
+  }
+}
+
+/* =======================
+     PLAY+ METAPHOR KEYFRAMES AND ANIMATIONS
+     Component-owned animations and keyframes
+     ======================= */
+
+// Removed custom keyframes - using animate.css instead
+
+/* =======================
+     SOPHISTICATED GLASS VARIANTS - Props-Based Classes
+     Each glass variant uses the sophisticated chained tokens
+     ======================= */
+
+// Glass Variant Classes - Text Input Spec Only
+.ava-textbox--glass-10 .ava-textbox__container {
+  background: var(--textbox-glass-10-gradient);
+  background-color: var(--textbox-glass-background-color);
+  backdrop-filter: var(--textbox-glass-10-blur);
+  -webkit-backdrop-filter: var(--textbox-glass-10-blur);
+  border: var(--textbox-glass-10-border);
+  // box-shadow: var(--textbox-glass-10-shadow);
+
+  // Ensure focus border overrides glass border
+  &:focus-within {
+    border: var(--textbox-focus-border-width) solid
+      rgb(var(--effect-color-primary)) !important;
+    // box-shadow: 0 0 0 1px rgba(var(--effect-color-primary), 0.2),
+    //   var(--textbox-glass-default-shadow);
+  }
+}
+
+.ava-textbox--glass-50 .ava-textbox__container {
+  // background: var(--glass-50-gradient);
+  background: var(--textbox-background-primary);
+  backdrop-filter: var(--textbox-glass-50-blur);
+  -webkit-backdrop-filter: var(--textbox-glass-50-blur);
+  border: var(--textbox-glass-50-border);
+  // box-shadow: var(--textbox-glass-50-shadow);
+
+  // Ensure focus border overrides glass border
+  &:focus-within {
+    border: var(--textbox-focus-border-width) solid
+      rgb(var(--effect-color-primary));
+    // box-shadow: 0 0 0 1px rgba(var(--effect-color-primary), 0.2),
+    //   var(--textbox-glass-default-shadow);
+    outline: none;
+  }
+}
+
+.ava-textbox--primary .ava-textbox__container {
+  border: 1px solid var(--textbox-border-primary-color);
+}
+
+.ava-textbox--success .ava-textbox__container {
+  border: 1px solid var(--textbox-border-success-color);
+}
+
+.ava-textbox--error .ava-textbox__container {
+  margin-bottom: var(--textbox-gap);
+  border: 1px solid var(--textbox-border-error-color);
+}
+
+.ava-textbox--disabled .ava-textbox__container {
+  background: var(--textbox-background-disabled);
+  border-color: var(--textbox-border-disabled-color);
+  cursor: not-allowed;
+  opacity: 0.6;
+  pointer-events: none;
+  aava-icon {
+    --icon-color: var(--textbox-icon-disabled-color);
+  }
+}
+
+/* =======================
+     SOPHISTICATED EFFECTS IMPLEMENTATION - Using global effect tokens
+     These can be applied via props: hoverEffect, pressedEffect, processingEffect
+     ======================= */
+
+// Hover Effects - Text Input Spec Only (Border color and width change)
+.ava-textbox--hover-tint .ava-textbox__container:hover:not(:focus-within),
+.ava-textbox--hover-glow .ava-textbox__container:hover:not(:focus-within) {
+  border-color: rgba(var(--effect-color-primary), 1);
+  border-width: var(--textbox-hover-border-width-alt);
+}
+
+// Pressed Effects - Text Input Spec Only
+.ava-textbox--pressed-solid .ava-textbox__container:active {
+  // background: rgba(var(--effect-color-primary), 0.05);
+  border-color: rgba(var(--effect-color-primary), 0.15);
+  //  transform: scale(0.98);
+  transition: all 0.1s ease;
+}
+
+// Processing Effects - Text Input Spec Only
+.ava-textbox--processing-border-pulse .ava-textbox__container {
+  animation: ava-border-pulse 2s ease-in-out infinite;
+}
+
+.ava-textbox--processing-shimmer .ava-textbox__container {
+  .ava-textbox__input {
+    animation: ava-text-shimmer 2s ease-in-out infinite;
+  }
+}
+
+// Processing Gradient Border Variant (Animated, Multi-Color, Border Only)
+.ava-textbox--processing-gradient-border .ava-textbox__container {
+  --processing-border-width: 2px;
+  position: relative;
+  z-index: 0;
+  background: var(--textbox-glass-default-background, #1d1f20);
+  border-radius: var(--textbox-border-radius);
+  border: none;
+
+  &::before {
+    content: "";
+    position: absolute;
+    z-index: 1;
+    pointer-events: none;
+    inset: 0;
+    border-radius: inherit;
+    background: var(--textbox-processing-gradient);
+    background-size: 300% 300%;
+    animation: animatedgradient 3s ease alternate infinite;
+    padding: var(--textbox-processing-border-width);
+    box-sizing: border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box,
+      linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+  }
+
+  // Ensure the container content is above the border
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}
+
+@keyframes animatedgradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Text Input Spec: Border pulse animation using variant color
+@keyframes ava-border-pulse {
+  0%,
+  100% {
+    border-color: var(
+      --textbox-glass-default-border-color,
+      rgba(var(--effect-color-primary), 0.3)
+    );
+    box-shadow: var(--textbox-glass-default-shadow),
+      0 0 0 0 rgba(var(--effect-color-primary), 0);
+  }
+
+  50% {
+    border-color: rgba(var(--effect-color-primary), 0.8);
+    box-shadow: var(--textbox-glass-default-shadow),
+      0 0 0 3px rgba(var(--effect-color-primary), 0.2);
+  }
+}
+
+// Text Input Spec: Text shimmer animation
+@keyframes ava-text-shimmer {
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.7;
+    text-shadow: 0 0 8px rgba(var(--effect-color-primary), 0.3);
+  }
+}
+
+.ava-textbox--processing-gradient-border .ava-textbox__container:focus-within {
+  border: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+// Phone functionality styles (when phone=true)
+.ava-textbox--label-start,
+.ava-textbox--label-end {
+  .ava-textbox__container {
+    display: flex;
+    align-items: center;
+  }
+
+  .ava-textbox__label-prefix {
+    display: flex;
+    align-items: center;
+    padding: var(--textbox-input-padding);
+    background: var(--textbox-background);
+    border: 1px solid var(--color-border-light);
+    min-width: fit-content;
+    white-space: nowrap;
+  }
+
+  .ava-textbox__label-name {
+    color: var(--textbox-input-color);
+    white-space: nowrap;
+  }
+
+  &.ava-textbox--disabled .ava-textbox__label-name {
+    color: var(--textbox-input-disabled-color);
+  }
+}

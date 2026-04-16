@@ -1,0 +1,67 @@
+<div class="test-autocomplete-page">
+    <h2>Autocomplete Examples</h2>
+
+    <!-- Example 1: Standard JSON Format -->
+    <div class="example-section">
+        <h3>1. Standard JSON (Full Library Control)</h3>
+        <p class="desc">Library handles structural styling, clicks, and keyboard navigation.</p>
+
+        <div class="selection-status" *ngIf="selectedFruit">
+            Selected: <span class="selection-badge">{{ selectedFruit }}</span>
+        </div>
+
+        <aava-autocomplete [options]="fruits" placeholder="Search fruits..." label="Fruits" size="md" [clearable]="true"
+            (optionSelected)="onOptionSelected($event)" [showDefaultOptions]="true">
+        </aava-autocomplete>
+    </div>
+
+    <!-- Example 2: Normal Mode (Full User Control) -->
+    <div class="example-section">
+        <h3>2. Normal Mode (Full User Control)</h3>
+        <p class="desc">Library adds <strong>nothing</strong>. You build the dropdown structure (like a list), handle
+            clicks, and update the textbox manually.</p>
+ 
+        <div class="selection-status" *ngIf="selectedCity">
+            Selected: <span class="selection-badge">{{ selectedCity }}</span>
+        </div>
+ 
+        <aava-autocomplete #autocomplete contentType="normal" placeholder="Search cities..." label="Cities" size="md"
+            [clearable]="true" [showDefaultOptions]="true" (optionSelected)="onCitySelected($event)">
+
+            <ul class="custom-dropdown">
+                <li *ngFor="let city of filterCities(autocomplete.query)" class="custom-dropdown__item"
+                    (mousedown)="autocomplete.select(city.name, city)">
+                    <strong>{{ city.name }}</strong>
+                    <span class="custom-dropdown__meta">{{ city.country }} · Pop: {{ city.population }}</span>
+                </li>
+                <li *ngIf="filterCities(autocomplete.query).length === 0" class="custom-dropdown__empty">
+                    No cities found
+                </li>
+            </ul>
+
+        </aava-autocomplete>
+    </div>
+
+    <!-- Example 3: Normal Mode (Conditional Flyout) -->
+    <div class="example-section">
+        <h3>3. Normal Mode (Conditional Flyout - Cars)</h3>
+        <p class="desc">Search for a car brand or model. The flyout hides if no matches are found.</p>
+ 
+        <div class="selection-status" *ngIf="selectedCar">
+            Selected: <span class="selection-badge">{{ selectedCar }}</span>
+        </div>
+ 
+        <aava-autocomplete #autocompleteCars contentType="normal" placeholder="Search cars (e.g., Tesla)..." label="Cars Flyout" size="md"
+            [clearable]="true" [showDefaultOptions]="true" (optionSelected)="onCarSelected($event)" 
+            [hideFlyout]="hideFlyout" (valueChange)="filterCars($event)">
+ 
+            <ul class="custom-dropdown">
+                <li *ngFor="let car of filteredCars" class="custom-dropdown__item"
+                    (mousedown)="autocompleteCars.select(car.model, car)">
+                    <strong>{{ car.model }}</strong>
+                    <span class="custom-dropdown__meta">{{ car.brand }} · {{ car.year }} · {{ car.price }}</span>
+                </li>
+            </ul>
+        </aava-autocomplete>
+    </div>
+</div>

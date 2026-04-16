@@ -1,0 +1,26 @@
+.app-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 100vh;
+}
+
+aava-chat-panel {
+  width: 400px;      /* fixed width */
+  max-width: 100%;   /* responsive fallback */
+  overflow: hidden;  /* prevent content from expanding */
+  box-sizing: border-box;
+}
+
+aava-chat-panel aava-search-bar {
+  width: 100% !important;  /* use full width of panel */
+  margin: 0 auto;
+  box-sizing: border-box;
+}
+
+aava-chat-panel aava-search-bar input {
+  max-width: 100% !important; /* text will wrap instead of expanding */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;    /* adds "..." if text too long */
+}

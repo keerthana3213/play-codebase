@@ -1,0 +1,40 @@
+<!-- Carousel Container -->
+<div #carouselContainer class="ava-carousel__container" [ngClass]="getCarouselSizeClass()" role="region" tabindex="0">
+  <!-- Carousel Viewport -->
+  <div class="ava-carousel__viewport" [ngStyle]="computedStyles">
+    <div #carouselTrack class="ava-carousel__track">
+      <!-- All Cards - Position classes will be applied dynamically -->
+      <div *ngFor="let item of items; let i = index; trackBy: trackByItemId" class="ava-carousel__item"
+        [ngClass]="getCardPositionClass(i)" [class.ava-carousel__item--active]="i === currentActiveIndex"
+        (click)="onCardClick(i)" tabindex="0" aria-label="Carousel card">
+        <div class="ava-carousel__item-content">
+          <img *ngIf="item.imageUrl" [src]="item.imageUrl" [alt]="item.imageAlt || item.title || 'Carousel image'"
+            class="ava-carousel__item-image" />
+          <div *ngIf="item.title" class="ava-carousel__item-title-overlay">{{ item.title }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls (arrows + dots) -->
+  <div class="ava-carousel__controls" *ngIf="items.length > 1">
+    <div class="ava-carousel__indicators">
+      <!-- Left arrow -->
+      <aava-icon [cursor]="true" (userClick)="goToPrevious()" [iconColor]="'#999999'" [iconSize]="24"
+        [iconName]="'chevron-left'" aria-label="Previous card">
+      </aava-icon>
+
+      <!-- Dots -->
+      <div *ngFor="let item of items; let i = index" class="ava-carousel__indicator"
+        [class.ava-carousel__indicator--active]="isIndicatorActive(i)" (click)="onIndicatorClick(i)" tabindex="0"
+        [attr.aria-label]="'Go to card ' + (i + 1)">
+        <span class="ava-carousel__indicator-dot"></span>
+      </div>
+
+      <!-- Right arrow -->
+      <aava-icon [cursor]="true" (userClick)="goToNext()" [iconColor]="'#999999'" [iconSize]="24"
+        [iconName]="'chevron-right'" aria-label="Next card">
+      </aava-icon>
+    </div>
+  </div>
+</div>

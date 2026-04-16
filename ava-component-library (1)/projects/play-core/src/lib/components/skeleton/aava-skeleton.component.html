@@ -1,0 +1,58 @@
+<ng-container [ngSwitch]="skeletonType">
+  <!-- TableList Skeleton Type -->
+  <div
+    *ngSwitchCase="'tableList'"
+    class="shimmer-container"
+    [attr.id]="skeletonId"
+    [style.width]="width"
+    [style.height]="height"
+    [ngClass]="[
+      'shimmer-item',
+      'shimmer-' + shape,
+      'shimmer-animation-' + animation
+    ]"
+    [style.background-color]="backgroundColor"
+    [ngStyle]="customStyles"
+    role="status"
+    [attr.aria-label]="computedAriaLabel"
+    [attr.aria-labelledby]="ariaLabelledby || null"
+    [attr.aria-describedby]="ariaDescribedby || null"
+    [attr.aria-busy]="isLoading ? 'true' : null"
+    [attr.aria-live]="isLoading ? 'polite' : null">
+  </div>
+
+  <!-- Table Skeleton Type -->
+  <div *ngSwitchCase="'table'">
+    <div
+      *ngIf="isLoading"
+      class="table-skeleton"
+      [attr.id]="skeletonId"
+      [ngStyle]="customStyles"
+      role="status"
+      [attr.aria-label]="computedAriaLabel"
+      [attr.aria-labelledby]="ariaLabelledby || null"
+      [attr.aria-describedby]="ariaDescribedby || null"
+      [attr.aria-busy]="'true'"
+      [attr.aria-live]="'polite'">
+      <div class="table-container">
+        <div class="skeleton-header">
+          <div
+            class="skeleton-cell header-cell"
+            *ngFor="let _ of colArray"
+            [attr.aria-hidden]="'true'">
+          </div>
+        </div>
+        <div
+          class="skeleton-row"
+          *ngFor="let _ of rowArray"
+          [attr.aria-hidden]="'true'">
+          <div
+            class="skeleton-cell body-cell"
+            *ngFor="let _ of colArray"
+            [attr.aria-hidden]="'true'">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</ng-container>

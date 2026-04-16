@@ -1,0 +1,287 @@
+// Root
+.ava-autocomplete {
+  position: relative;
+  width: 100%;
+
+  &--full-width {
+    width: 100%;
+  }
+}
+
+.ava-autocomplete__dropdown {
+  position: absolute;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: var(--autocomplete-background);
+  border: var(--autocomplete-border-width) solid var(--autocomplete-border-color);
+  border-radius: var(--autocomplete-border-radius);
+  box-shadow: var(--autocomplete-shadow);
+  margin-top: 0.25rem;
+  max-height: 320px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.25rem 0;
+  backdrop-filter: blur(8px);
+  border-top: none;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+
+  /* Ensure dropdown is always visible */
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--autocomplete-background);
+    z-index: -1;
+    border-radius: inherit;
+  }
+}
+
+.ava-autocomplete__option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  
+  cursor: pointer;
+  color: var(--autocomplete-option-color);
+  background: transparent;
+  border: none;
+  font: inherit;
+  transition: all 0.15s ease;
+  outline: none;
+  position: relative;
+  width: 100%;
+  box-sizing: border-box;
+  min-width: 0;
+    &.xl{
+    font-size: var(--global-font-size-xl);
+    padding: 0.5rem 1rem;
+  }
+  &.lg{
+    font-size: var(--global-font-size-lg);
+    padding: 0.75rem 1rem;
+  }
+    &.md{
+    font-size: var(--global-font-size-md);
+    padding: 0.75rem 1rem;
+  }
+  &.sm{
+    font-size: var(--global-font-size-sm);
+    padding: 0.5rem 1rem;
+  }
+
+  &:hover,
+  &--highlighted {
+    background: var(--autocomplete-option-hover-bg);
+    color: var(--autocomplete-option-color);
+    transform: translateX(2px);
+  }
+
+  &:active {
+    background: var(--autocomplete-surface-active);
+    transform: translateX(1px);
+  }
+
+  /* Focus state for accessibility */
+  &:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: -2px;
+  }
+}
+
+.ava-autocomplete__option-icon {
+  display: flex;
+  align-items: center;
+  color: var(--autocomplete-option-icon-color);
+  flex-shrink: 0;
+}
+
+.ava-autocomplete__option-label {
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-weight: 500;
+  min-width: 0;
+  word-wrap: break-word;
+  &.xl{
+    font-size: var(--global-font-size-xl);
+  }
+  &.lg{
+    font-size: var(--global-font-size-lg);
+  }
+    &.md{
+    font-size: var(--global-font-size-md);
+  }
+  &.sm{
+    font-size: var(--global-font-size-sm);
+  }
+}
+
+.ava-autocomplete__loading,
+.ava-autocomplete__empty {
+  padding: 1.5rem 1rem;
+  color: var(--autocomplete-empty-color);
+  text-align: center;
+  font-size: 0.875rem;
+  font-style: italic;
+  background: var(--autocomplete-background);
+}
+
+.ava-autocomplete__loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+
+  &::before {
+    content: "";
+    width: 16px;
+    height: 16px;
+    border: 2px solid #e5e7eb;
+    border-top: 2px solid var(--color-border-primary, #e91e63);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ava-autocomplete__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0.5rem 0 0.25rem 0;
+}
+
+.ava-autocomplete__chip {
+  display: flex;
+  align-items: center;
+  background: var(--autocomplete-chip-bg);
+  color: var(--autocomplete-chip-color);
+  border-radius: 1rem;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.875rem;
+  gap: 0.5rem;
+  border: 1px solid var(--autocomplete-border-tertiary);
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--autocomplete-option-hover-bg);
+    transform: translateY(-1px);
+  }
+}
+
+.ava-autocomplete__chip-remove {
+  background: none;
+  border: none;
+  color: var(--autocomplete-chip-remove-color);
+  font-size: 1.1em;
+  cursor: pointer;
+  margin-left: 0.25rem;
+  padding: 0;
+  line-height: 1;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+
+  &:hover {
+    background: var(--autocomplete-error-surface);
+    transform: scale(1.1);
+  }
+}
+
+.ava-autocomplete__options-ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  background: var(--autocomplete-background);
+  width: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+  
+}
+
+/* Dark theme support */
+[data-theme="dark"] {
+  .ava-autocomplete__dropdown {
+    background: var(--autocomplete-background);
+    border-color: var(--autocomplete-border-color);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      background: var(--autocomplete-background);
+    }
+  }
+
+  .ava-autocomplete__option {
+    color: var(--autocomplete-option-color);
+
+    &:hover,
+    &--highlighted {
+      background: var(--autocomplete-option-hover-bg);
+      color: var(--autocomplete-option-color);
+    }
+
+    &:active {
+      background: var(--autocomplete-surface-active);
+    }
+  }
+
+  .ava-autocomplete__option-icon {
+    color: var(--autocomplete-option-icon-color);
+  }
+
+  .ava-autocomplete__loading,
+  .ava-autocomplete__empty {
+    background: var(--autocomplete-background);
+    color: var(--autocomplete-empty-color);
+  }
+
+  .ava-autocomplete__options-ul {
+    background: var(--autocomplete-background);
+  }
+
+  .ava-autocomplete__chip {
+    background: var(--autocomplete-chip-bg);
+    color: var(--autocomplete-chip-color);
+    border-color: var(--autocomplete-border-tertiary);
+
+    &:hover {
+      background: var(--autocomplete-option-hover-bg);
+    }
+  }
+}
+
+/* Scrollbar styling for the dropdown */
+.ava-autocomplete__dropdown::-webkit-scrollbar {
+  width: 6px;
+}
+
+.ava-autocomplete__dropdown::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.ava-autocomplete__dropdown::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-color);
+  border-radius: 3px;
+}
+
+

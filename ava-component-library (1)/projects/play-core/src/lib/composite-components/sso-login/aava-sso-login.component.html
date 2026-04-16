@@ -1,0 +1,119 @@
+<div class="sso-login-container" [ngClass]="getContainerClasses()">
+  <!-- Header Section -->
+  <div class="login-header">
+    <h1 class="body-bold-default-400 login-title mb-0">AAVA Login</h1>
+    <p class="body-regular-default-100-inter login-subtitle">
+      Login with your AAVA credentials
+    </p>
+  </div>
+
+  <!-- Login Form -->
+  <div class="login-form" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="username-field">
+      <!-- Username/Email Field -->
+      <aava-textbox
+        label="Username or email"
+        type="text"
+        placeholder="Enter Text Here"
+        [value]="username?.value || ''"
+        [required]="true"
+        [error]="submitted ? usernameError : ''"
+        [disabled]="loading || disabled"
+        [size]="variant"
+        (textboxInput)="onUsernameChange($event)"
+        (blur)="username?.markAsTouched()"
+        width="100%"
+      >
+      </aava-textbox>
+    </div>
+
+    <div class="passwod-field">
+      <!-- Password Field -->
+      <aava-textbox
+        inputKind="password"
+        label="Password"
+        placeholder="Enter Text Here"
+        [value]="password?.value || ''"
+        [required]="true"
+        [error]="submitted ? passwordError : ''"
+        labelPosition="end"
+        [disabled]="loading || disabled"
+        [size]="variant"
+        (textboxInput)="onPasswordChange($event)"
+        (blur)="password?.markAsTouched()"
+        (iconEndClick)="togglePasswordVisibility()"
+        width="100%"
+      >
+      </aava-textbox>
+    </div>
+
+    <!-- Options Row -->
+    <div class="form-options">
+      <aava-checkbox
+        label="Remember me"
+        [size]="getCheckboxSize()"
+        [isChecked]="keepSignedIn?.value || false"
+        (isCheckedChange)="onKeepSignedInChange($event)"
+      >
+      </aava-checkbox>
+
+      <aava-link
+        label="Forgot Password?"
+        [size]="getHyperlinkSize()"
+        color="primary"
+        (userClick)="onForgotPassword()"
+      >
+      </aava-link>
+    </div>
+
+    <!-- Sign In Button -->
+    <div class="form-actions">
+      <aava-button
+        type="submit"
+        variant="primary"
+        size="lg"
+        label="Sign in"
+        [disabled]="!isFormValid"
+        [iconName]="'arrow-right'"
+        [iconPosition]="'right'"
+        width="100%"
+      >
+      </aava-button>
+    </div>
+
+    <!-- Divider with "or" text -->
+    <div class="divider-section">
+      <aava-dividers variant="solid" color="#e0e0e0"></aava-dividers>
+      <span class="divider-text">or</span>
+      <aava-dividers variant="solid" color="#e0e0e0"></aava-dividers>
+    </div>
+
+    <!-- SSO Login Button -->
+    <div class="sso-section">
+      <aava-button
+        variant="secondary"
+        size="lg"
+        label="Login with SSO"
+        (userClick)="onSSOLogin()"
+        [disabled]="loading || disabled"
+        width="100%"
+      >
+        <span class="sso-highlight">SSO</span>
+      </aava-button>
+    </div>
+
+    <!-- Trouble Signing In Link -->
+    <div class="trouble-signin">
+      <span class="trouble-text" [ngClass]="getTroubleTextClasses()"
+        >Still having trouble signing in?</span
+      >
+      <aava-link
+        label="Click Here"
+        [size]="getHyperlinkSize()"
+        color="primary"
+        (userClick)="onTroubleSigningIn()"
+      >
+      </aava-link>
+    </div>
+  </div>
+</div>

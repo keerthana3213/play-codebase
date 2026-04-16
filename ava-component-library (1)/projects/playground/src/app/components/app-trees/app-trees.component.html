@@ -1,0 +1,443 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Trees Component</h1>
+        <p class="description">
+          A hierarchical tree component for displaying nested data structures
+          with expandable nodes, selection capabilities, and custom event
+          handling. Perfect for file explorers, navigation menus, and
+          organizational charts.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Pages</h2>
+        <div class="demo-navigation">
+          <div class="demo-grid">
+            <a routerLink="/trees/basic" class="demo-link">
+              <div class="demo-card">
+                <h3>Basic Usage</h3>
+                <p>Simple tree structure with expandable nodes</p>
+              </div>
+            </a>
+            <a routerLink="/trees/icons" class="demo-link">
+              <div class="demo-card">
+                <h3>With Icons</h3>
+                <p>Tree nodes with custom icons for visual hierarchy</p>
+              </div>
+            </a>
+            <a routerLink="/trees/single-select" class="demo-link">
+              <div class="demo-card">
+                <h3>Selection Modes</h3>
+                <p>Single selection</p>
+              </div>
+            </a>
+            <a routerLink="/trees/multi-select" class="demo-link">
+              <div class="demo-card">
+                <h3>Selection Modes</h3>
+                <p>multi selection</p>
+              </div>
+            </a>
+            <a routerLink="/trees/event" class="demo-link">
+              <div class="demo-card">
+                <h3>Event Handling</h3>
+                <p>Custom event handling and user feedback</p>
+              </div>
+            </a>
+            <a routerLink="/trees/accessibility" class="demo-link">
+              <div class="demo-card">
+                <h3>Accessibility</h3>
+                <p>Accessibility features and keyboard navigation</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section
+      class="doc-section"
+      *ngFor="let section of sections; let i = index"
+    >
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div
+                class="code-toggle"
+                (click)="toggleCodeVisibility(i, $event)"
+              >
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <aava-tree [data]="treeData1"></aava-tree>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- With Icons -->
+            <ng-container *ngSwitchCase="'With Icons'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <aava-tree [data]="treeData2"></aava-tree>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Single Selection -->
+            <ng-container *ngSwitchCase="'Single Selection'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <aava-tree
+                    [data]="treeData3"
+                    selectionMode="single"
+                    [selectedNodes]="selectedNodes"
+                    (selectionChange)="onSelectionChange($event)"
+                  >
+                  </aava-tree>
+                  <div class="selection-info" *ngIf="selectedNodes.length > 0">
+                    <strong>Selected:</strong> {{ selectedNodes[0].name }}
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Multi Selection -->
+            <ng-container *ngSwitchCase="'Multi Selection'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <aava-tree
+                    [data]="treeData4"
+                    selectionMode="multi"
+                    [selectedNodes]="selectedNodes"
+                    (selectionChange)="onSelectionChange($event)"
+                  >
+                  </aava-tree>
+                  <div class="selection-info" *ngIf="selectedNodes.length > 0">
+                    <strong>Selected ({{ selectedNodes.length }}):</strong>
+                    <span *ngFor="let node of selectedNodes; let last = last">
+                      {{ node.name }}<span *ngIf="!last">, </span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Event Handling -->
+            <ng-container *ngSwitchCase="'Event Handling'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <p class="demo-note">
+                    Click on any node to see event handling in action.
+                  </p>
+                  <aava-tree
+                    [data]="treeDataWithSnackbar"
+                    selectionMode="single"
+                    [selectedNodes]="selectedNodes"
+                    (selectionChange)="onSelectionChange($event)"
+                    (nodeClick)="onNodeClickWithSnackbar($event)"
+                  >
+                  </aava-tree>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- With Snackbar Integration -->
+            <ng-container *ngSwitchCase="'With Snackbar Integration'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <p class="demo-note">
+                    Click on any node to see snackbar notification.
+                  </p>
+                  <aava-tree
+                    [data]="treeDataWithSnackbar"
+                    selectionMode="single"
+                    [selectedNodes]="selectedNodes"
+                    (selectionChange)="onSelectionChange($event)"
+                    (nodeClick)="onNodeClickWithSnackbar($event)"
+                  >
+                  </aava-tree>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- With Custom Alert -->
+            <ng-container *ngSwitchCase="'With Custom Alert'">
+              <div class="row g-3">
+                <div class="col-12">
+                  <p class="demo-note">
+                    Click on any node to see custom alert dialog.
+                  </p>
+                  <aava-tree
+                    [data]="treeDataWithAlert"
+                    selectionMode="single"
+                    [selectedNodes]="selectedNodes"
+                    (selectionChange)="onSelectionChange($event)"
+                    (nodeClick)="onNodeClickWithAlert($event)"
+                  >
+                  </aava-tree>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getTreeCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button
+            class="copy-button"
+            (click)="copyCode(section.title.toLowerCase())"
+          >
+            Copy
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference Section -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+
+    <h3>Component Properties</h3>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Events</h3>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>
+            <code>{{ event.name }}</code>
+          </td>
+          <td>
+            <code>{{ event.type }}</code>
+          </td>
+          <td>
+            <code>{{ event.default }}</code>
+          </td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>TreeNode Interface</h3>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of treeNodeInterface">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Usage Examples Section -->
+  <section class="doc-section">
+    <h2>Usage Examples</h2>
+
+    <h3>Basic Tree Structure</h3>
+    <div class="code-block">
+      <pre><code>// Define your tree data
+const treeData: TreeNode[] = [
+  &#123;
+    name: 'Documents',
+    isExpanded: false,
+    children: [
+      &#123;
+        name: 'Work',
+        children: [
+          &#123; name: 'Resume.pdf' &#125;,
+          &#123; name: 'Cover Letter.doc' &#125;
+        ]
+      &#125;
+    ]
+  &#125;
+];
+ 
+// Use in template
+&lt;aava-tree [data]="treeData"&gt;&lt;/aava-tree&gt;</code></pre>
+    </div>
+
+    <h3>With Selection</h3>
+    <div class="code-block">
+      <pre><code>// Component
+selectedNodes: TreeNode[] = [];
+ 
+onSelectionChange(selection: TreeNode[]): void &#123;
+  this.selectedNodes = selection;
+  console.log('Selected:', selection);
+&#125;
+ 
+// Template
+&lt;aava-tree
+  [data]="treeData"
+  selectionMode="single"
+  [selectedNodes]="selectedNodes"
+  (selectionChange)="onSelectionChange($event)"&gt;
+&lt;/aava-tree&gt;</code></pre>
+    </div>
+
+    <h3>With Icons and Events</h3>
+    <div class="code-block">
+      <pre><code>// Tree data with icons
+const treeData: TreeNode[] = [
+  &#123;
+    id: 1,
+    name: 'Projects',
+    icon: 'folder',
+    isExpanded: true,
+    children: [
+      &#123;
+        id: 2,
+        name: 'Website',
+        icon: 'globe'
+      &#125;,
+      &#123;
+        id: 3,
+        name: 'Mobile App',
+        icon: 'smartphone'
+      &#125;
+    ]
+  &#125;
+];
+ 
+// Handle node clicks
+onNodeClick(node: TreeNode): void &#123;
+  console.log('Clicked node:', node.name);
+  // Custom logic here
+&#125;
+ 
+// Template
+&lt;aava-tree
+  [data]="treeData"
+  (nodeClick)="onNodeClick($event)"&gt;
+&lt;/aava-tree&gt;</code></pre>
+    </div>
+  </section>
+
+  <!-- Best Practices Section -->
+  <section class="doc-section">
+    <h2>Best Practices</h2>
+    <div class="best-practices">
+      <div class="practice-item">
+        <h4>🎯 Use Unique IDs</h4>
+        <p>
+          Always provide unique <code>id</code> values for nodes when using
+          selection functionality to ensure proper state management.
+        </p>
+      </div>
+
+      <div class="practice-item">
+        <h4>🎨 Consistent Icons</h4>
+        <p>
+          Use consistent icon naming from the Lucide icon set. Common patterns:
+          <code>folder</code> for containers, <code>file</code> for items.
+        </p>
+      </div>
+
+      <div class="practice-item">
+        <h4>⚡ Performance</h4>
+        <p>
+          For large trees, consider implementing virtual scrolling or lazy
+          loading of child nodes to maintain performance.
+        </p>
+      </div>
+
+      <div class="practice-item">
+        <h4>♿ Accessibility</h4>
+        <p>
+          The component includes built-in keyboard navigation. Ensure your tree
+          data has meaningful names for screen readers.
+        </p>
+      </div>
+
+      <div class="practice-item">
+        <h4>🔄 State Management</h4>
+        <p>
+          Use controlled selection state with <code>[selectedNodes]</code> and
+          <code>(selectionChange)</code> for predictable behavior.
+        </p>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- Custom alert content outside the tree component -->
+<div class="custom-alert" *ngIf="showCustomAlert">
+  <div class="alert-content">
+    <h4>Node Clicked!</h4>
+    <p>
+      You clicked on: <strong>{{ clickedNodeName }}</strong>
+    </p>
+    <button (click)="closeCustomAlert()">Close</button>
+  </div>
+</div>

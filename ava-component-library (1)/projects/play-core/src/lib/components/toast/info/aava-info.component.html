@@ -1,0 +1,52 @@
+<ng-container [ngSwitch]="design">
+  <div class="ava-toast ava-toast-info" *ngSwitchCase="'classic'" [style.width]="customWidth"
+    [style.height]="customHeight" [ngStyle]="customStyles">
+    <!-- Icon -->
+    <div class="ava-toast-icon">
+      <aava-icon [iconName]="icon || 'info'" [iconColor]="iconColor || 'white'" [iconSize]="24">
+      </aava-icon>
+    </div>
+
+    <!-- Content -->
+    <div class="ava-toast-content">
+      <div class="ava-toast-title" *ngIf="title">{{ title }}</div>
+      <div class="ava-toast-message" *ngIf="message">{{ message }}</div>
+      <ng-content></ng-content>
+
+      <!-- Learn More Button -->
+      <div class="ava-toast-actions" *ngIf="showLearnMoreButton">
+        <aava-button [label]="learnMoreButtonText || 'Learn More'" variant="primary" size="sm"
+          (userClick)="onLearnMore()">
+        </aava-button>
+      </div>
+    </div>
+
+    <!-- Close Button -->
+    <aava-button *ngIf="showCloseButton" class="ava-toast-close" size="sm" iconName="x" iconColor="white"
+      [iconSize]="16" iconPosition="only" (userClick)="onClose()" aria-label="Close toast">
+    </aava-button>
+
+    <!-- Progress Bar -->
+    <div class="ava-toast-progress" *ngIf="showProgress && duration && duration > 0"
+      [style.animation-duration.ms]="duration"></div>
+  </div>
+
+  <div class="toast-wrapper" *ngSwitchCase="'modern'">
+    <div [ngClass]="getSizeClass()" class="toast info-toast" [style.width]="customWidth" [style.height]="customHeight">
+      <div class="toast-icon">
+        <aava-icon [iconName]="icon || 'info'" [iconColor]="iconColor || 'white'" [iconSize]="getIconSize()">
+        </aava-icon>
+      </div>
+      <div class="toast-text">
+        <div class="toast-title">{{ title }}</div>
+        <div class="toast-message">
+          {{ message }}
+        </div>
+      </div>
+      <aava-icon *ngIf="showCloseButton" [cursor]="true" (userClick)="onClose()" 
+        [iconName]="'x'"></aava-icon>
+      <div class="toast-progress" *ngIf="showProgress && duration && duration > 0"
+        [style.animation-duration.ms]="duration"></div>
+    </div>
+  </div>
+</ng-container>

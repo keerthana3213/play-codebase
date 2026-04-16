@@ -1,0 +1,141 @@
+.sso-login-container {
+  display: flex;
+  width: 100%;
+  padding: var(--global-spacing-5);
+  flex-direction: column;
+  gap: var(--global-spacing-6);
+  border-radius: var(--global-radius-lg);
+  border: 0.5px solid var(--color-border-default);
+  background: var(--color-login-background);
+
+  @media (min-width: 1024px) {
+    &.sso-login-container--xs {
+      min-width: 490px;
+    }
+
+    &.sso-login-container--sm {
+      min-width: 490px;
+    }
+
+    &.sso-login-container--md {
+      min-width: 490px;
+    }
+
+    &.sso-login-container--lg {
+      min-width: 490px;
+    }
+
+    &.sso-login-container--xl {
+      min-width: 490px;
+    }
+  }
+
+  @media (max-width: 1023px) {
+    &.sso-login-container--xs {
+      max-width: 500px;
+    }
+
+    &.sso-login-container--sm {
+      max-width: 500px;
+    }
+
+    &.sso-login-container--md {
+      max-width: 500px;
+    }
+
+    &.sso-login-container--lg {
+      max-width: 500px;
+    }
+
+    &.sso-login-container--xl {
+      max-width: 500px;
+    }
+  }
+
+  .login-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-self: stretch;
+
+    .login-title {
+      color: var(--color-text-primary);
+    }
+
+    .login-subtitle {
+      color: var(--color-text-primary);
+    }
+  }
+
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    // align-items: flex-start;
+    gap: var(--Global-v1-Size-24, 24px);
+    align-self: stretch;
+
+    .form-options {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+
+  .divider-section {
+    display: flex;
+    align-items: flex-end;
+    gap: 36px;
+    align-self: stretch;
+
+    .divider-text {
+      color: var(--color-text-primary);
+      text-align: center;
+
+      /* Body 2 | Reg */
+      font-family: var(--font-family-body);
+      font-size: var(--global-font-size-sm);
+      font-style: normal;
+      font-weight: var(--global-font-weight-regular);
+      line-height: 22px;
+      /* 157.143% */
+    }
+
+    aava-dividers {
+      flex: 1;
+    }
+  }
+
+  .trouble-signin {
+    .trouble-text {
+      color: var(--color-text-primary);
+      font-family: var(--font-family-body);
+      font-weight: var(--global-font-weight-regular);
+
+      &--xs {
+        font-size: var(--global-font-size-xs);
+      }
+
+      &--sm {
+        font-size: var(--global-font-size-xs);
+      }
+
+      &--md {
+        font-size: var(--global-font-size-sm);
+      }
+
+      &--lg {
+        font-size: var(--global-font-size-sm);
+      }
+
+      &--xl {
+        font-size: var(--global-font-size-sm);
+      }
+    }
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--global-spacing-1);
+    align-self: stretch;
+  }
+}

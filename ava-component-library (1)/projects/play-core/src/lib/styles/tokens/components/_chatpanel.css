@@ -1,0 +1,13 @@
+
+:root{
+    --chat-panel-user-background-color:var(--global-color-pulse-blue-500);
+    --chat-panel-user-text-color:var(--global-color-white);
+    --chat-panel-ai-background-color:var(--global-color-pulse-blue-50);
+    --chat-panel-ai-text-color:var(--global-color-gray-800);
+    --chat-panel-icon-background-color:var(--global-color-pulse-blue-50);
+    --chat-panel-icon-color:var(--global-color-pulse-blue-50);
+    --chat-panel-font-family:var(--font-family-body);
+    --chat-panel-font-weight:var(--font-body-1);
+    --chat-panel-border-radius:var(--global-radius-circle);
+    --chat-panel-border-radius-search-bar:var(--global-radius-lg);
+}

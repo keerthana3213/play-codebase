@@ -1,0 +1,44 @@
+<div class="flyout-container">
+  <div #ab class="flyout">
+    <aava-button (userClick)="flyout1.open(ab)" label="Flyout" variant="primary"></aava-button>
+  </div>
+
+  <aava-flyout [offsetLeft]="3" #flyout1>
+    <p>This flyout appears below the button clicked</p>
+    <aava-button (userClick)="flyout1.close()" label="Close" variant="primary"></aava-button>
+  </aava-flyout>
+
+  <!-- <aava-select label="Select" (userClick)="flyout2.open(ab)"> </aava-select>
+  <aava-flyout [offsetLeft]="3" #flyout2>
+    <p>This flyout appears below the button clicked</p>
+    <button (click)="flyout1.close()">Close</button>
+  </aava-flyout> -->
+</div>
+
+
+<div class="scroll-test-container">
+  <h3>Scroll Test - Multiple Flyouts</h3>
+  <p>Scroll down and test each flyout to verify positioning behavior when scrolled.</p>
+  
+  <div *ngFor="let item of flyoutList; let i = index" class="flyout-item">
+    <div #trigger class="flyout-trigger">
+      <aava-button 
+        (userClick)="flyouts.get(i)?.open(trigger)" 
+        [label]="item.label" 
+        variant="primary">
+      </aava-button>
+    </div>
+
+    <aava-flyout #flyout [offsetLeft]="3">
+      <div class="flyout-content">
+        <p><strong>{{ item.label }}</strong></p>
+        <p>{{ item.content }}</p>
+        <aava-button 
+          (userClick)="flyout.close()" 
+          label="Close" 
+          variant="secondary">
+        </aava-button>
+      </div>
+    </aava-flyout>
+  </div>
+</div>

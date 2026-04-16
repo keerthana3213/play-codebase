@@ -1,0 +1,113 @@
+<div class="nested-table-demo container-fluid">
+  <!-- <p>This demonstrates a table inside another table using the @ava/play-core table component</p> -->
+
+  <!-- Error State -->
+  <div *ngIf="loadingError && !isLoading" class="error-container">
+    <div class="error-content">
+      <h3>⚠️ Error Loading Data</h3>
+      <p>Unable to fetch financial data. Please try again.</p>
+      <button class="retry-btn" (click)="retryLoading()">🔄 Retry</button>
+    </div>
+  </div>
+
+  <!-- Data Content -->
+  <div class="table-container row">
+    <div class="col-12">
+      <!-- Refresh Button -->
+      <div class="refresh-section">
+        <button class="refresh-btn" (click)="simulateApiCall()">
+          🔄 Refresh Data
+        </button>
+        <span class="last-updated">Last updated: {{ getCurrentTime() }}</span>
+      </div>
+
+      <!-- Main Table using aava-user-table -->
+      <div *ngIf="!isLoading">
+        <aava-user-table
+          [columns]="mainTableColumns"
+          [data]="getMainTableData()"
+          [maxHeight]="'600px'"
+          [maxWidth]="'100%'"
+          [expandable]="true"
+          [expandableRows]="expandableRows"
+           filterIcon = "list-filter"
+          
+          [useDefaultFilter]="true"
+          [useCustomFilter]="false"
+          [showCheckbox]="true"
+          [isSortingEnabled]="true"
+          [lazyLoad]="false"
+          (rowExpand)="onRowExpand($event)"
+        >
+          <!-- Nested Content Template -->
+          <ng-template #nestedContent let-row>
+            <div class="nested-table-wrapper row">
+              <div class="col-12">
+                <h4>Transaction Details for {{ row.name.value }}</h4>
+              </div>
+
+              <div class="col-12">
+                <!-- Nested Table -->
+                <aava-user-table
+                  [columns]="transactionColumns"
+                  [data]="getTransactionData(row.id)"
+                  [maxHeight]="'300px'"
+                  [maxWidth]="'100%'"
+                  [showCheckbox]="false"
+                  [isSortingEnabled]="true"
+                >
+                </aava-user-table>
+              </div>
+
+              <!-- Transaction Summary Row -->
+              <div class="col-12">
+                <div class="transaction-summary">
+                  <table class="summary-table">
+                    <tr>
+                      <td><strong>Total Credits:</strong></td>
+                      <td class="currency">
+                        {{
+                          formatCurrency(
+                            getTotalCredits(getTransactionData(row.id))
+                          )
+                        }}
+                      </td>
+                      <td><strong>Total Debits:</strong></td>
+                      <td class="currency">
+                        {{
+                          formatCurrency(
+                            getTotalDebits(getTransactionData(row.id))
+                          )
+                        }}
+                      </td>
+                      <td><strong>Net Amount:</strong></td>
+                      <td class="currency">
+                        {{
+                          formatCurrency(
+                            getNetAmount(getTransactionData(row.id))
+                          )
+                        }}
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </ng-template>
+        </aava-user-table>
+      </div>
+
+      <!-- Loading State for Main Table -->
+      <div *ngIf="isLoading" class="table-loading">
+        <aava-skeleton
+          [rows]="5"
+          skeletonType="table"
+          [columns]="mainTableColumns.length"
+        >
+        </aava-skeleton>
+      </div>
+
+      <!-- Remove the old nested content display since it's now handled inline -->
+    </div>
+  </div>
+</div>

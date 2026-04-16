@@ -1,0 +1,50 @@
+.fe-card {
+    background: black;
+    padding: 25px;
+}
+
+.ad-card {
+    background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+
+    h3 {
+        margin: 0;
+    }
+
+}
+
+.img-card-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    gap: 1rem;
+
+    .left-wrapper {
+        img {
+            max-width: 100px;
+            height: auto;
+            display: block;
+        }
+    }
+
+    .right-wrapper {
+        p {
+            margin: 0;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.pcard-wrapper {
+    .text-card {
+        padding: 100px;
+    }
+
+    .img-card {
+        .ava-card {
+            background: #F5F5F5;
+            min-width: 375px;
+            min-height: 200px;
+        }
+    }
+}

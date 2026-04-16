@@ -1,0 +1,120 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Default Type</h3>
+    <p>Standard accordion with expandable icons and smooth animations.</p>
+    <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+      (click)="onAccordionToggle($event)">
+      <span header>Default Accordion</span>
+      <div content>
+        <p>
+          This is the default accordion type with expandable icons positioned on
+          the left side.
+        </p>
+        <p>
+          It provides a clean, traditional accordion experience with smooth
+          animations.
+        </p>
+      </div>
+    </aava-accordion>
+
+    <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="right"
+      (click)="onAccordionToggle($event)">
+      <span header>Default Accordion</span>
+      <div content>
+        <p>
+          This is the default accordion type with expandable icons positioned on
+          the left side.
+        </p>
+        <p>
+          It provides a clean, traditional accordion experience with smooth
+          animations.
+        </p>
+      </div>
+    </aava-accordion>
+
+    <aava-accordion type="default" iconClosed="chevron-down" iconOpen="chevron-up" iconPosition="left"
+      [withoutBox]="true" (click)="onAccordionToggle($event)">
+      <span header>Default Accordion</span>
+      <div content>
+        <p>
+          This is the default accordion type with expandable icons positioned on
+          the left side.
+        </p>
+        <p>
+          It provides a clean, traditional accordion experience with smooth
+          animations.
+        </p>
+      </div>
+    </aava-accordion>
+  </div>
+
+  <div class="demo-section">
+    <h3>Title Icon Type</h3>
+    <p>
+      Accordion with static title icon and separate expand/collapse control.
+    </p>
+    <aava-accordion type="titleIcon" titleIcon="settings" iconClosed="chevron-down" iconOpen="chevron-up"
+      (click)="onAccordionToggle($event)">
+      <span header>Settings Panel</span>
+      <div content>
+        <div [innerHTML]="settingsContent"></div>
+      </div>
+    </aava-accordion>
+  </div>
+
+  <div class="demo-section">
+    <h3>Comparison: Default vs Title Icon</h3>
+    <p>See the difference between the two accordion types side by side.</p>
+
+    <div class="comparison-grid">
+      <div class="comparison-item">
+        <h4>Default Type</h4>
+        <aava-accordion type="default" iconClosed="chevron-right" iconOpen="chevron-down">
+          <span header>Project Overview</span>
+          <div content>
+            <div [innerHTML]="projectContent"></div>
+          </div>
+        </aava-accordion>
+      </div>
+
+      <div class="comparison-item">
+        <h4>Title Icon Type</h4>
+        <aava-accordion type="titleIcon" titleIcon="folder" iconClosed="chevron-down" iconOpen="chevron-up">
+          <span header>Project Overview</span>
+          <div content>
+            <div [innerHTML]="projectContent"></div>
+          </div>
+        </aava-accordion>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Use Cases</h3>
+    <p>
+      When to use each accordion type based on your content and design needs.
+    </p>
+
+    <div class="use-cases">
+      <div class="use-case">
+        <h4>Default Type - Best For:</h4>
+        <ul>
+          <li>Simple content organization</li>
+          <li>Traditional accordion patterns</li>
+          <li>When you want consistent icon behavior</li>
+          <li>General purpose expandable content</li>
+        </ul>
+      </div>
+
+      <div class="use-case">
+        <h4>Title Icon Type - Best For:</h4>
+        <ul>
+          <li>Content categorization (folders, categories)</li>
+          <li>When you need static visual indicators</li>
+          <li>Settings panels and configuration sections</li>
+          <li>Navigation menus with icons</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+:root {
+    --card-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.25);
+    /* --card-padding: var(--global-spacing-3) var(--global-spacing-4); */
+    --card-heading1-font: var(--font-family-heading);
+    /*mullish*/
+    --card-heading1-font-weight: var(--global-font-weight-regular);
+    --card-default-border: 2px solid #FFF;
+    --card-primary-color: var(--color-brand-primary);
+    --card-font-weight: var(--font-heading-h3);
+    --card-font-family: var(--font-family-heading);
+    --card-background: linear-gradient(102deg, var(--global-color-gray-50) 1.91%, var(--global-background) 97.68%);
+    --card-padding: var(--global-spacing-4);
+    --card-border-radius: var(--global-spacing-3);
+
+
+    /* product-studio Understanding card */
+    --product-card-border-radius: var(--global-spacing-3);
+    --product-card-border: 1px solid #E4E7EC;
+    --product-card-background: var(--color-background-primary);
+    --product-card-shadow: var(--global-elevation-03);
+    --product-card-shadow-hover: var(--global-elevation-04);
+    --product-card-padding: var(--global-spacing-4);
+
+    /* Image card */
+    --image-card-text-color: var(--color-text-primary);
+    --image-card-font-family-title: var(--global-font-family-heading);
+    --image-card-font-size-title: var(--global-font-size-xl);
+    --image-card-font-weight-title: var(--global-font-weight-bold);
+    --image-card-font-family-description: var(--global-font-family-body);
+    --image-card-font-size-description: var(--global-font-size-md);
+    --image-card-font-weight-regular: var(--global-font-weight-regular);
+    --image-card-text-color-sub-description1: var(--global-color-gray-500);
+    --image-card-font-size-sub-description: var(--global-font-size-xs);
+    --image-card-font-weight-sub-description: var(--global-font-weight-semibold);
+    --image-card-text-color-sub-description2: var(--global-color-gray-600);
+    --image-card-text-label-color: var(--global-font-size-sm);
+
+}

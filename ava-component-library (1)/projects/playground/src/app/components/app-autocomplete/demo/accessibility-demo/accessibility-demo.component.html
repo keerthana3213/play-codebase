@@ -1,0 +1,9 @@
+<div class="demo-section">
+    <div class="demo-container">
+        <aava-autocomplete [options]="options" placeholder="Search for accessibility features..."
+            label="Select accessibility feature" helper="Choose an accessibility feature to learn more about it"
+            ariaLabel="Accessibility features autocomplete" ariaLabelledby="accessibility-label"
+            ariaDescribedby="accessibility-description" startIcon="accessibility" startIconColor="#6b7280"
+            (optionSelected)="onOptionSelected($event)" (valueChange)="onValueChange($event)"></aava-autocomplete>
+    </div>
+</div>

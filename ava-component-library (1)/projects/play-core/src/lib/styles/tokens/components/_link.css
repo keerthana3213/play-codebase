@@ -1,0 +1,75 @@
+/**
+ * Component: Link
+ * Purpose: Link component tokens for navigation and interactive text elements
+ */
+
+:root {
+  /* Link Base */
+  --link-text: var(--color-text-interactive);
+  --link-font: var(--font-body-1);
+  --link-text-decoration: underline;
+  --link-text-decoration-thickness: 1px;
+  --link-text-underline-offset: 0.125rem;
+
+  /* Link States */
+  --link-hover-text: var(--color-text-interactive-hover);
+  --link-hover-text-decoration: underline;
+  --link-hover-text-decoration-thickness: 2px;
+
+  --link-active-text: var(--color-text-interactive-hover);
+  --link-active-text-decoration: underline;
+
+  --link-focus-text: var(--color-text-interactive);
+  --link-focus-outline: 2px solid var(--accessibility-focus-ring-color);
+  --link-focus-outline-offset: 0.125rem;
+
+  --link-visited-text: var(--color-text-interactive);
+  --link-visited-text-decoration: underline;
+
+  /* Link Variants */
+  --link-primary-text: var(--color-text-interactive);
+  --link-primary-hover-text: var(--color-text-interactive-hover);
+
+  --link-secondary-text: var(--color-text-secondary);
+  --link-secondary-hover-text: var(--color-text-primary);
+  --link-secondary-text-decoration: none;
+
+  --link-subtle-text: var(--color-text-secondary);
+  --link-subtle-hover-text: var(--color-text-primary);
+  --link-subtle-text-decoration: none;
+
+  --link-info-text: var(--color-background-info);
+  --link-warning-text: var(--global-color-yellow-500);
+  --link-success-text: var(--color-background-success);
+  --link-danger-text:var(--global-color-red-500);
+
+  /* Link Sizes */
+  --link-size-sm-font: var(--global-font-size-sm);
+  --link-size-md-font: var(--global-font-size-md);
+  --link-size-lg-font: var(--global-font-size-lg);
+
+  /* Link Disabled */
+  --link-disabled-text: var(--color-text-disabled);
+  --link-disabled-text-decoration: none;
+  --link-disabled-cursor: not-allowed;
+
+  /* Link External */
+  --link-external-icon-size: var(--global-icon-size-sm);
+  --link-external-icon-color: var(--color-text-secondary);
+  --link-external-icon-margin: var(--global-spacing-1);
+
+  /* Link Navigation */
+  --link-nav-text: var(--color-text-primary);
+  --link-nav-hover-background: var(--color-surface-subtle-hover);
+  --link-nav-active-background: var(--color-surface-subtle);
+  --link-nav-padding: var(--global-spacing-3);
+  --link-nav-border-radius: var(--global-radius-sm);
+  --link-nav-text-decoration: none;
+
+  /* Link Breadcrumb */
+  --link-breadcrumb-text: var(--color-text-secondary);
+  --link-breadcrumb-hover-text: var(--color-text-primary);
+  --link-breadcrumb-separator-color: var(--color-text-disabled);
+  --link-breadcrumb-separator-margin: var(--global-spacing-2);
+  --link-breadcrumb-text-decoration: none;
+} 

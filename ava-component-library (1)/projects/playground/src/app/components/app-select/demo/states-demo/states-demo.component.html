@@ -1,0 +1,39 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-select
+        label="Normal"
+        [showSearch]="false"
+        placeholder="Select a user">
+        <aava-select-option value="1">John Doe</aava-select-option>
+        <aava-select-option value="2">Jane Smith</aava-select-option>
+        <aava-select-option value="3">Jack Wilson</aava-select-option>
+        <aava-select-option value="4">James Brown</aava-select-option>
+      </aava-select>
+
+      <aava-select
+        label="Disabled"
+        [showSearch]="false"
+        placeholder="Disabled select"
+        [disabled]="true">
+        <aava-select-option value="1">John Doe</aava-select-option>
+        <aava-select-option value="2">Jane Smith</aava-select-option>
+        <aava-select-option value="3">Jack Wilson</aava-select-option>
+        <aava-select-option value="4">James Brown</aava-select-option>
+      </aava-select>
+
+      <aava-select
+        label="Error"
+        [showSearch]="false"
+        placeholder="Select a user"
+        error="This field is required">
+        <aava-select-option value="1">John Doe</aava-select-option>
+        <aava-select-option value="2">Jane Smith</aava-select-option>
+        <aava-select-option value="3">Jack Wilson</aava-select-option>
+        <aava-select-option value="4">James Brown</aava-select-option>
+      </aava-select>
+    </div>
+
+
+  </div>
+</div>

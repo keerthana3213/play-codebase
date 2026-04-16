@@ -1,0 +1,112 @@
+<div class="custom-icons-demo">
+  <div class="demo-description">
+    <h2>Custom Icons Demo</h2>
+    <p>
+      Tree view component with custom icons for different node types and
+      enhanced visual representation.
+    </p>
+  </div>
+
+  <div class="demo-container">
+    <div class="tree-section">
+      <h3>Custom Icons Tree</h3>
+      <div class="tree-container">
+        <aava-tree
+          [data]="customIconNodes"
+          [selectionMode]="'single'"
+          (nodeClick)="onNodeSelect($event)"
+        ></aava-tree>
+      </div>
+    </div>
+
+    <div class="selection-section" *ngIf="selectedNode">
+      <h3>Selected Node</h3>
+      <div class="selection-info">
+        <div class="info-item">
+          <span class="label">Name:</span>
+          <span class="value">{{ selectedNode.name }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Type:</span>
+          <span class="value">
+            {{
+              selectedNode.children && selectedNode.children.length > 0
+                ? "Folder"
+                : "File"
+            }}
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="label">Icon:</span>
+          <span class="value">{{ selectedNode.icon }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Icon Description:</span>
+          <span class="value">{{
+            getIconDescription(selectedNode.icon || "")
+          }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h3>Features Demonstrated</h3>
+    <ul>
+      <li>
+        <strong>Custom Icons:</strong> Different icons for different node types
+        and purposes
+      </li>
+      <li>
+        <strong>Visual Hierarchy:</strong> Clear visual distinction between
+        folders, files, and special items
+      </li>
+      <li>
+        <strong>Icon Descriptions:</strong> Helpful descriptions for each icon
+        type
+      </li>
+      <li>
+        <strong>Consistent Design:</strong> Unified icon system across the
+        entire tree structure
+      </li>
+      <li>
+        <strong>Enhanced UX:</strong> Better user experience through visual cues
+        and icons
+      </li>
+    </ul>
+  </div>
+
+  <div class="icon-reference-section">
+    <h3>Icon Reference</h3>
+    <div class="icon-grid">
+      <div
+        class="icon-item"
+        *ngFor="
+          let icon of [
+            'folder-open',
+            'code',
+            'puzzle',
+            'zap',
+            'tool',
+            'image',
+            'star',
+            'book',
+            'square',
+            'type',
+            'maximize-2',
+            'globe',
+            'shield',
+            'database',
+            'wrench',
+            'hash',
+            'tag',
+            'help-circle'
+          ]
+        "
+      >
+        <span class="icon-label">{{ icon }}</span>
+        <span class="icon-desc">{{ getIconDescription(icon) }}</span>
+      </div>
+    </div>
+  </div>
+</div>

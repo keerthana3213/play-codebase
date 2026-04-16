@@ -1,0 +1,21 @@
+/**
+ * Component: Rating
+ * Purpose: Rating Component
+ */
+
+:root {
+    --rating-label-font-family: var(--global-font-family-body);
+    --rating-label-font-weight: var(--global-font-weight-semibold);
+    --rating-label-font-size: var(--global-font-size-md);
+    --rating-label-line-height: var(--global-font-size-md);
+    --rating-label-letter-spacing-sm: 0.028px;
+    --rating-label-letter-spacing-lg: 0.048px;
+    --rating-label-letter-spacing-medium: 0.032px;
+    --rating-label-color: var(--color-text-primary);
+
+    /* Size variants */
+    --rating-value-font-size-sm: var(--global-font-size-sm);
+    --rating-value-font-size-md: var(--global-font-size-md);
+    --rating-value-font-size-lg: var(--global-font-size-xl);
+    --rating-value-font-size-xs: var(--global-font-size-xs);
+}

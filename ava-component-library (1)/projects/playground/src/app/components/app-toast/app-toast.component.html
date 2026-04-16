@@ -1,0 +1,331 @@
+<div class="documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Toast Component</h1>
+        <p class="description">
+          A flexible and powerful toast notification system with multiple types, positions, and customization options.
+          Built with service pattern architecture for easy integration and management.
+          <strong>Hover over toasts with auto-dismiss to pause the timer!</strong>
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Installation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} ToastService {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 1. All Variants with Title and Message -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>1. All Toast Variants (Title + Message)</h2>
+        <p>All toast types with title and message only - clean and simple.</p>
+        <div class="demo-container">
+          <div class="control-group">
+            <div class="control-row">
+              <ava-button label="Success" variant="success" (userClick)="showBasicSuccess()"></ava-button>
+              <ava-button label="Error" variant="danger" (userClick)="showBasicError()"></ava-button>
+              <ava-button label="Warning" variant="warning" (userClick)="showBasicWarning()"></ava-button>
+              <ava-button label="Info" variant="info" (userClick)="showBasicInfo()"></ava-button>
+              <ava-button label="Default" variant="secondary" (userClick)="showBasicDefault()"></ava-button>
+              <ava-button label="Custom" variant="primary" (userClick)="showBasicCustom()"></ava-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 2. All Variants with Title, Message and Action Buttons -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>2. All Toast Variants (Title + Message + Action Buttons)</h2>
+        <p>All toast types with interactive action buttons and their functionality.</p>
+        <div class="demo-container">
+          <div class="control-group">
+            <div class="control-row">
+              <ava-button label="Success with Action" variant="success" (userClick)="showSuccessWithAction()"></ava-button>
+              <ava-button label="Error with Retry" variant="danger" (userClick)="showErrorWithRetry()"></ava-button>
+              <ava-button label="Warning with Action" variant="warning" (userClick)="showWarningWithAction()"></ava-button>
+              <ava-button label="Info with Learn More" variant="info" (userClick)="showInfoWithLearnMore()"></ava-button>
+              <ava-button label="Default with Action" variant="secondary" (userClick)="showDefaultWithAction()"></ava-button>
+              <ava-button label="Custom with Actions" variant="primary" (userClick)="showCustomWithActions()"></ava-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- 3. All Variants with All Inputs -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>3. All Toast Variants with All Inputs</h2>
+        <p>Complete showcase of all toast types with every possible configuration option including icons, durations, sizes, colors, progress bars, close buttons, and custom styling.</p>
+        <div class="demo-container">
+
+          <!-- Success Variants -->
+          <div class="control-group">
+            <h3>Success Toasts</h3>
+              <ava-button label="Success with Icon" variant="success" (userClick)="showSuccessWithIcon()"></ava-button>
+              <ava-button label="Success Long Duration" variant="success" (userClick)="showSuccessLongDuration()"></ava-button>
+              <ava-button label="Success Custom Size" variant="success" (userClick)="showSuccessCustomSize()"></ava-button>
+              <ava-button label="Success No Progress" variant="success" (userClick)="showSuccessNoProgress()"></ava-button>
+          </div>
+
+          <!-- Error Variants -->
+          <div class="control-group">
+            <h3>Error Toasts</h3>
+              <ava-button label="Error with Icon" variant="danger" (userClick)="showErrorWithIcon()"></ava-button>
+              <ava-button label="Error with Retry + Icon" variant="danger" (userClick)="showErrorWithRetryAndIcon()"></ava-button>
+              <ava-button label="Error Custom Duration" variant="danger" (userClick)="showErrorCustomDuration()"></ava-button>
+              <ava-button label="Error No Close Button" variant="danger" (userClick)="showErrorNoCloseButton()"></ava-button>
+          </div>
+
+          <!-- Warning Variants -->
+          <div class="control-group">
+            <h3>Warning Toasts</h3>
+              <ava-button label="Warning with Icon" variant="warning" (userClick)="showWarningWithIcon()"></ava-button>
+              <ava-button label="Warning with Action + Icon" variant="warning" (userClick)="showWarningWithActionAndIcon()"></ava-button>
+              <ava-button label="Warning Custom Size" variant="warning" (userClick)="showWarningCustomSize()"></ava-button>
+              <ava-button label="Warning Long Message" variant="warning" (userClick)="showWarningLongMessage()"></ava-button>
+          </div>
+
+          <!-- Info Variants -->
+          <div class="control-group">
+            <h3>Info Toasts</h3>
+              <ava-button label="Info with Icon" variant="info" (userClick)="showInfoWithIcon()"></ava-button>
+              <ava-button label="Info with Learn More + Icon" variant="info" (userClick)="showInfoWithLearnMoreAndIcon()"></ava-button>
+              <ava-button label="Info Quick Duration" variant="info" (userClick)="showInfoQuickDuration()"></ava-button>
+              <ava-button label="Info Custom Colors" variant="info" (userClick)="showInfoCustomColors()"></ava-button>
+          </div>
+
+          <!-- Default Variants -->
+          <div class="control-group">
+            <h3>Default Toasts</h3>
+              <ava-button label="Default with Icon" variant="secondary" (userClick)="showDefaultWithIcon()"></ava-button>
+              <ava-button label="Default Custom Icon Color" variant="secondary" (userClick)="showDefaultCustomIconColor()"></ava-button>
+              <ava-button label="Default Large Size" variant="secondary" (userClick)="showDefaultLargeSize()"></ava-button>
+              <ava-button label="Default No Auto-dismiss" variant="secondary" (userClick)="showDefaultNoAutoDismiss()"></ava-button>
+          </div>
+
+          <!-- Custom Variants -->
+          <div class="control-group">
+            <h3>Custom Toasts</h3>
+              <ava-button label="Custom Gradient" variant="secondary" (userClick)="showCustomGradient()"></ava-button>
+              <ava-button label="Custom Dark Theme" variant="secondary" (userClick)="showCustomDarkTheme()"></ava-button>
+              <ava-button label="Custom Brand Colors" variant="secondary" (userClick)="showCustomBrandColors()"></ava-button>
+              <ava-button label="Custom Compact" variant="secondary" (userClick)="showCustomCompact()"></ava-button>
+              <ava-button label="🎯 Test Wide Toasts (600px)" variant="success" (userClick)="showCustomExtraWide()"></ava-button>
+          </div>
+
+          <!-- Fully Custom Content Variants -->
+          <div class="control-group">
+            <h3>Fully Custom Content Toasts</h3>
+            <p style="font-size: 14px; color: #666; margin-bottom: 12px;">
+              Advanced custom toasts with rich HTML content, interactive elements, and complex layouts.
+            </p>
+              <ava-button label="🎨 Fully Custom Analytics" variant="primary" (userClick)="showFullyCustomToast()"></ava-button>
+              <ava-button label="🧩 Custom File Upload" variant="primary" (userClick)="showCustomWithNgContent()"></ava-button>
+          </div>
+
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Position Examples -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>4. Position Examples</h2>
+        <p>Toast notifications in different screen positions.</p>
+        <div class="demo-container">
+          <div class="control-group">
+            <div class="control-row">
+              <ava-button label="Top Left" variant="secondary" (userClick)="showPositionExample('top-left')"></ava-button>
+              <ava-button label="Top Center" variant="secondary" (userClick)="showPositionExample('top-center')"></ava-button>
+              <ava-button label="Top Right" variant="secondary" (userClick)="showPositionExample('top-right')"></ava-button>
+            </div>
+            <div class="control-row">
+              <ava-button label="Bottom Left" variant="secondary" (userClick)="showPositionExample('bottom-left')"></ava-button>
+              <ava-button label="Bottom Center" variant="secondary" (userClick)="showPositionExample('bottom-center')"></ava-button>
+              <ava-button label="Bottom Right" variant="secondary" (userClick)="showPositionExample('bottom-right')"></ava-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Actions -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>5. Actions</h2>
+        <div class="demo-container">
+          <div class="control-group">
+            <div class="control-row">
+              <ava-button label="Dismiss All Toasts" variant="danger" (userClick)="dismissAllToasts()"></ava-button>
+              <ava-button label="Show Multiple Toasts" variant="primary" (userClick)="showMultipleToasts()"></ava-button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- API Documentation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>6. API Reference</h2>
+        
+        <h3>ToastService Methods</h3>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Method</th>
+              <th>Parameters</th>
+              <th>Return Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>success(config?)</code></td>
+              <td><code>SuccessToastConfig</code></td>
+              <td><code>Promise&lt;ToastResult&gt;</code></td>
+              <td>Show a success toast notification</td>
+            </tr>
+            <tr>
+              <td><code>error(config?)</code></td>
+              <td><code>ErrorToastConfig</code></td>
+              <td><code>Promise&lt;ToastResult&gt;</code></td>
+              <td>Show an error toast notification</td>
+            </tr>
+            <tr>
+              <td><code>warning(config?)</code></td>
+              <td><code>WarningToastConfig</code></td>
+              <td><code>Promise&lt;ToastResult&gt;</code></td>
+              <td>Show a warning toast notification</td>
+            </tr>
+            <tr>
+              <td><code>info(config?)</code></td>
+              <td><code>InfoToastConfig</code></td>
+              <td><code>Promise&lt;ToastResult&gt;</code></td>
+              <td>Show an info toast notification</td>
+            </tr>
+            <tr>
+              <td><code>custom(config?)</code></td>
+              <td><code>CustomToastConfig</code></td>
+              <td><code>Promise&lt;ToastResult&gt;</code></td>
+              <td>Show a custom toast notification</td>
+            </tr>
+            <tr>
+              <td><code>setPosition(position)</code></td>
+              <td><code>ToastPosition</code></td>
+              <td><code>void</code></td>
+              <td>Set the global toast position</td>
+            </tr>
+            <tr>
+              <td><code>dismissAll()</code></td>
+              <td>-</td>
+              <td><code>void</code></td>
+              <td>Dismiss all active toasts</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <h3>Configuration Options</h3>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Default</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>title</code></td>
+              <td><code>string</code></td>
+              <td><code>undefined</code></td>
+              <td>Toast title text</td>
+            </tr>
+            <tr>
+              <td><code>message</code></td>
+              <td><code>string</code></td>
+              <td><code>undefined</code></td>
+              <td>Toast message text</td>
+            </tr>
+            <tr>
+              <td><code>duration</code></td>
+              <td><code>number</code></td>
+              <td><code>4000</code></td>
+              <td>Auto-dismiss duration in milliseconds</td>
+            </tr>
+            <tr>
+              <td><code>position</code></td>
+              <td><code>ToastPosition</code></td>
+              <td><code>'top-right'</code></td>
+              <td>Toast position on screen</td>
+            </tr>
+            <tr>
+              <td><code>showCloseButton</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td>Show close button</td>
+            </tr>
+            <tr>
+              <td><code>showProgress</code></td>
+              <td><code>boolean</code></td>
+              <td><code>true</code></td>
+              <td>Show progress bar</td>
+            </tr>
+            <tr>
+              <td><code>icon</code></td>
+              <td><code>string</code></td>
+              <td><code>auto</code></td>
+              <td>Custom icon name (Lucide icons)</td>
+            </tr>
+            <tr>
+              <td><code>iconColor</code></td>
+              <td><code>string</code></td>
+              <td><code>auto</code></td>
+              <td>Custom icon color</td>
+            </tr>
+            <tr>
+              <td><code>customWidth</code></td>
+              <td><code>string</code></td>
+              <td><code>'400px'</code></td>
+              <td>Custom toast width (custom type only)</td>
+            </tr>
+            <tr>
+              <td><code>customHeight</code></td>
+              <td><code>string</code></td>
+              <td><code>'auto'</code></td>
+              <td>Custom toast height (custom type only)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>
+
+
+</div>

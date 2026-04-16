@@ -1,0 +1,319 @@
+<div class="content-demo">
+  <div class="demo-content">
+    <div class="button-group">
+      <aava-button
+        label="Basic Content"
+        (click)="openDrawer('basic')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Header & Footer"
+        (click)="openDrawer('header-footer')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Custom Header"
+        (click)="openDrawer('custom-header')"
+        variant="secondary"
+      >
+      </aava-button>
+      <aava-button
+        label="Form Content"
+        (click)="openDrawer('form')"
+        variant="secondary"
+      >
+      </aava-button>
+      <!-- <aava-button
+        label="Complex Content"
+        (click)="openDrawer('complex')"
+        variant="secondary"
+      >
+      </aava-button> -->
+    </div>
+
+    <!-- Basic Content -->
+    <aava-drawer
+      [isOpen]="basicContentDrawerOpen"
+      title="Basic Content"
+      subtitle="Simple content structure"
+      (closed)="closeDrawer('basic')"
+    >
+      <div class="content-section">
+        <h4>Simple Content</h4>
+        <p>This is a basic drawer with simple content in the body section.</p>
+        <p>The drawer automatically handles scrolling for long content.</p>
+        <div class="lorem-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+            nisi ut aliquip ex ea commodo consequat.
+          </p>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur.
+          </p>
+        </div>
+      </div>
+    </aava-drawer>
+
+    <!-- Header & Footer -->
+    <aava-drawer
+      [isOpen]="headerFooterDrawerOpen"
+      title="Header & Footer"
+      subtitle="Complete content structure"
+      [showFooter]="true"
+      (closed)="closeDrawer('header-footer')"
+    >
+      <div class="content-section">
+        <h4>Content with Header and Footer</h4>
+        <p>
+          This drawer demonstrates the complete content structure with header,
+          body, and footer sections.
+        </p>
+
+        <div class="content-block">
+          <h5>Main Content Area</h5>
+          <p>
+            The body section contains the main content and automatically scrolls
+            when needed.
+          </p>
+          <p>
+            You can include any HTML content here: forms, lists, images, etc.
+          </p>
+        </div>
+
+        <div class="content-block">
+          <h5>Another Section</h5>
+          <p>
+            Multiple content blocks can be organized within the body section.
+          </p>
+          <ul>
+            <li>Lists work well</li>
+            <li>Tables are supported</li>
+            <li>Forms integrate seamlessly</li>
+          </ul>
+        </div>
+      </div>
+
+      <div slot="footer">
+        <aava-button
+          label="Cancel"
+          variant="secondary"
+          (click)="closeDrawer('header-footer')"
+        >
+        </aava-button>
+        <aava-button
+          label="Save Changes"
+          variant="primary"
+          (click)="closeDrawer('header-footer')"
+        >
+        </aava-button>
+      </div>
+    </aava-drawer>
+
+    <!-- Custom Header -->
+    <aava-drawer
+      [isOpen]="customHeaderDrawerOpen"
+      [showCloseButton]="false"
+      (closed)="closeDrawer('custom-header')"
+    >
+      <div slot="header">
+        <div class="custom-header">
+          <div class="header-left">
+            <h3>Custom Header</h3>
+            <p>Completely custom header content</p>
+          </div>
+          <div class="header-right">
+            <aava-button label="Action" variant="primary" size="sm">
+            </aava-button>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section">
+        <h4>Custom Header Example</h4>
+        <p>
+          This drawer uses a custom header slot instead of the default
+          title/subtitle.
+        </p>
+        <p>
+          You can include any content in the header: buttons, icons, custom
+          layouts, etc.
+        </p>
+
+        <div class="custom-content">
+          <div class="info-card">
+            <h5>Custom Layout</h5>
+            <p>
+              With custom headers, you have complete control over the header
+              design and functionality.
+            </p>
+          </div>
+        </div>
+      </div>
+    </aava-drawer>
+
+    <!-- Form Content -->
+    <aava-drawer
+      [isOpen]="formDrawerOpen"
+      title="Form Drawer"
+      subtitle="Data entry with validation"
+      [showFooter]="true"
+      (closed)="closeDrawer('form')"
+    >
+      <div class="form-content">
+        <h4>User Information Form</h4>
+        <p>Complete the form below to update user information.</p>
+
+        <div class="form-section">
+          <aava-textbox
+            label="Full Name"
+            placeholder="Enter full name"
+            [required]="true"
+          >
+          </aava-textbox>
+
+          <aava-textbox
+            label="Email"
+            type="email"
+            placeholder="user@example.com"
+            [required]="true"
+          >
+          </aava-textbox>
+
+          <aava-textbox label="Phone" type="tel" placeholder="+1 (555) 123-4567">
+          </aava-textbox>
+        </div>
+
+        <div class="form-section">
+          <h5>Preferences</h5>
+          <aava-checkbox label="Email notifications" [isChecked]="true">
+          </aava-checkbox>
+          <aava-checkbox label="SMS notifications" [isChecked]="false">
+          </aava-checkbox>
+          <aava-checkbox label="Marketing communications" [isChecked]="false">
+          </aava-checkbox>
+        </div>
+      </div>
+
+      <div slot="footer">
+        <aava-button
+          label="Reset"
+          variant="secondary"
+          (click)="closeDrawer('form')"
+        >
+        </aava-button>
+        <aava-button
+          label="Save User"
+          variant="primary"
+          (click)="closeDrawer('form')"
+        >
+        </aava-button>
+      </div>
+    </aava-drawer>
+
+    <!-- Complex Content -->
+    <aava-drawer
+      [isOpen]="complexContentDrawerOpen"
+      title="Complex Content"
+      subtitle="Advanced content organization"
+      size="lg"
+      [showFooter]="true"
+      (closed)="closeDrawer('complex')"
+    >
+      <div class="complex-content">
+        <div class="content-tabs">
+          <div class="tab-header">
+            <button class="tab-button active">Overview</button>
+            <button class="tab-button">Details</button>
+            <button class="tab-button">Settings</button>
+          </div>
+
+          <div class="tab-content">
+            <div class="tab-panel active">
+              <h4>Project Overview</h4>
+              <div class="stats-grid">
+                <div class="stat-item">
+                  <span class="stat-number">42</span>
+                  <span class="stat-label">Tasks</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">18</span>
+                  <span class="stat-label">Completed</span>
+                </div>
+                <div class="stat-item">
+                  <span class="stat-number">75%</span>
+                  <span class="stat-label">Progress</span>
+                </div>
+              </div>
+
+              <div class="progress-section">
+                <h5>Project Progress</h5>
+                <div class="progress-bar">
+                  <div class="progress-fill" style="width: 75%"></div>
+                </div>
+                <p>3 weeks remaining until deadline</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="content-section">
+          <h4>Recent Activity</h4>
+          <div class="activity-list">
+            <div class="activity-item">
+              <div class="activity-icon">📝</div>
+              <div class="activity-content">
+                <h6>Task Updated</h6>
+                <p>User authentication module completed</p>
+                <span class="activity-time">2 hours ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">✅</div>
+              <div class="activity-content">
+                <h6>Task Completed</h6>
+                <p>Database schema design finalized</p>
+                <span class="activity-time">1 day ago</span>
+              </div>
+            </div>
+            <div class="activity-item">
+              <div class="activity-icon">👥</div>
+              <div class="activity-content">
+                <h6>Team Member Added</h6>
+                <p>Sarah Johnson joined the project</p>
+                <span class="activity-time">3 days ago</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div slot="footer">
+        <aava-button
+          label="Export"
+          variant="secondary"
+          (click)="closeDrawer('complex')"
+        >
+        </aava-button>
+        <aava-button
+          label="Share"
+          variant="secondary"
+          (click)="closeDrawer('complex')"
+        >
+        </aava-button>
+        <aava-button
+          label="Close"
+          variant="primary"
+          (click)="closeDrawer('complex')"
+        >
+        </aava-button>
+      </div>
+    </aava-drawer>
+  </div>
+</div>

@@ -1,0 +1,273 @@
+// Size-specific variables
+$accordion-small-height: 2.25rem; // 36px
+$accordion-small-padding: 0.5rem; // 8px
+$accordion-small-font-size: 0.875rem; // 14px
+$accordion-small-line-height: 1.125rem; // 18px
+$accordion-small-icon-size: 1rem; // 16px
+$accordion-small-gap: 0.25rem; // 4px
+
+$accordion-medium-height: 2.75rem; // 44px
+$accordion-medium-padding: 0.75rem; // 12px
+$accordion-medium-font-size: 1rem; // 16px
+$accordion-medium-line-height: 1.25rem; // 20px
+$accordion-medium-icon-size: 1.25rem; // 20px
+$accordion-medium-gap: 0.5rem; // 8px
+
+$accordion-large-height: 3rem; // 48px
+$accordion-large-padding: 0.875rem; // 14px
+$accordion-large-font-size: 1.25rem; // 20px
+$accordion-large-line-height: 1.5rem; // 24px
+$accordion-large-icon-size: 1.25rem; // 20px
+$accordion-large-gap: 0.5rem; // 8px
+
+// General variables
+$accordion-margin-bottom: 1rem; // 20px
+$accordion-border-radius: 0.5rem; //8px
+
+.accordion-container {
+  width: 100%;
+  border-radius: $accordion-border-radius;
+  overflow: hidden;
+  margin-bottom: $accordion-margin-bottom;
+  position: relative;
+  border: var(--accordion-border);
+
+  &.expanded {
+    overflow: visible;
+  }
+
+  &.disabled {
+    cursor: not-allowed;
+    background: var(--accordion-background-disabled);
+
+    &.expanded {
+      .accordion-header {
+        cursor: not-allowed;
+
+        &:hover {
+          background: var(--accordion-background-disabled);
+
+        }
+      }
+    }
+
+  }
+
+  .accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    cursor: pointer;
+    box-sizing: border-box;
+    color: var(--accordion-header-text-color);
+    font-family: var(--accordion-font-family);
+    // color: var(--color-text-primary);
+    font-style: normal;
+    position: relative;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+
+  // Size-specific styles for small
+  &.size-sm {
+    .accordion-header {
+      min-height: $accordion-small-height;
+      padding: 0 $accordion-small-padding;
+      line-height: $accordion-small-line-height;
+    }
+
+    .header-row {
+      gap: $accordion-small-gap;
+    }
+
+    .accordion-icon {
+      width: $accordion-small-icon-size;
+      height: $accordion-small-icon-size;
+    }
+
+    .accordion-content {
+      padding: 0rem $accordion-small-padding 1rem $accordion-small-padding;
+      font-size: $accordion-small-font-size;
+      line-height: $accordion-small-line-height;
+    }
+  }
+
+  // Size-specific styles for medium (default)
+  &.size-md {
+    .accordion-header {
+      min-height: $accordion-medium-height;
+      padding: 0 $accordion-medium-padding;
+      line-height: $accordion-medium-line-height;
+    }
+
+    .header-row {
+      gap: $accordion-medium-gap;
+    }
+
+    .accordion-icon {
+      width: $accordion-medium-icon-size;
+      height: $accordion-medium-icon-size;
+    }
+
+    .accordion-content {
+      padding: 0rem $accordion-medium-padding 1.5rem $accordion-medium-padding;
+      font-size: $accordion-medium-font-size;
+      line-height: $accordion-medium-line-height;
+    }
+  }
+
+  // Size-specific styles for large
+  &.size-lg {
+    .accordion-header {
+      min-height: $accordion-large-height;
+      padding: 0 $accordion-large-padding;
+      font-size: $accordion-large-font-size;
+      line-height: $accordion-large-line-height;
+      font-weight: 500; // Medium
+    }
+
+    .header-row {
+      gap: $accordion-large-gap;
+    }
+
+    .accordion-icon {
+      width: $accordion-large-icon-size;
+      height: $accordion-large-icon-size;
+    }
+
+    .accordion-content {
+      padding: 0rem $accordion-large-padding 1.5rem $accordion-large-padding;
+      font-size: $accordion-large-font-size;
+      line-height: $accordion-large-line-height;
+    }
+  }
+
+  // Show gradient border only when accordion is expanded
+  &.expanded .accordion-header {
+
+    // Hover effect
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.02);
+    }
+
+    // Active/pressed effect
+    &:active {
+      transform: translateY(0);
+      background-color: rgba(0, 0, 0, 0.04);
+    }
+
+    // Focus effect for accessibility
+    &:focus-visible {
+      outline: var(--accordion-border-focussed);
+      outline-offset: 2px;
+    }
+  }
+
+  .accordion-body {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.4s ease-in-out, overflow 0.1s ease-in-out;
+    background: none;
+
+    &.open {
+      overflow: visible;
+    }
+
+    // Ensure content is properly clipped during collapse animation
+    &:not(.open) {
+      overflow: hidden;
+    }
+  }
+
+  .accordion-content {
+    color: var(--accordion-content-text-color);
+    font-family: var(--accordion-font-family);
+    ;
+    font-style: normal;
+    font-weight: var(--accordion-font-weight);
+  }
+
+  .accordion-title-highlight {
+    font-weight: 500;
+  }
+
+  .header-row {
+    display: flex;
+    align-items: center;
+    width: 100%;
+
+    .accordion-title {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-aligned-icon {
+      margin-left: auto;
+    }
+  }
+}
+
+// When withoutBox is active, suppress the header pseudo-divider
+.accordion-container.without-box {
+  .accordion-header::after {
+    display: none;
+  }
+}
+
+// Divider element used when withoutBox is true
+.accordion-divider {
+  height: 1px;
+  margin-bottom: 1.125rem;
+  margin-left: 2%;
+  margin-right: 2%;
+  background: var(--accordion-divider-background);
+
+  &.size-lg {
+    margin-bottom: 1.25rem;
+  }
+
+  &.size-md {
+    margin-bottom: 1.25rem;
+  }
+
+  &.size-sm {
+    margin-bottom: 1rem;
+  }
+}
+
+.accordion-header.rich-header {
+  min-height: auto;
+  align-items: flex-start;
+  padding: 1rem;
+  line-height: 1.4;
+
+  .accordion-title {
+    display: block;
+    width: 100%;
+
+    >*+* {
+      margin-top: 0.25rem;
+    }
+  }
+}
+
+
+// Media query for reduced motion accessibility
+@media (prefers-reduced-motion: reduce) {
+  .accordion-container {
+    .accordion-body {
+      transition: none;
+    }
+
+    .accordion-icon {
+      transition: none;
+    }
+  }
+}

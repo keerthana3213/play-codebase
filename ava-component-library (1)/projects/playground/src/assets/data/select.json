@@ -1,0 +1,52 @@
+[
+    {
+        "typeName": "Bank Account Transactions",
+        "typeCode": "BANK_ACCOUNTS",
+        "workflowTypeId": "77b9cdc3-179f-4c74-bfa4-7e76d635fa08"
+    },
+    {
+        "typeName": "Bill Payment Approval",
+        "typeCode": "BILL_PAYMENTS",
+        "workflowTypeId": "e6a186bb-1588-4b45-863c-c402cee3e3dc"
+    },
+    {
+        "typeName": "Deposit Approval",
+        "typeCode": "DEPOSITS",
+        "workflowTypeId": "1c31c164-8ace-481a-882b-3237bd718bf8"
+    },
+    {
+        "typeName": "Entity Setup",
+        "typeCode": "ENTITY_SETUP",
+        "workflowTypeId": "8123c55a-211a-49dc-b0a5-ac8ad899feb6"
+    },
+    {
+        "typeName": "Journal Entry Approval",
+        "typeCode": "JOURNAL_ENTRY",
+        "workflowTypeId": "fadf1dcd-da7d-475f-b391-ef9a6872bde8"
+    },
+    {
+        "typeName": "Payment Method Setup",
+        "typeCode": "PAYMENT_METHOD_SETUP",
+        "workflowTypeId": "5b0730b1-b4a4-4519-a543-c18826de4aba"
+    },
+    {
+        "typeName": "Transaction Approval",
+        "typeCode": "TRANSACTION_APPROVAL",
+        "workflowTypeId": "0f44706f-1a4d-4daa-9a4c-90a1b0a34434"
+    },
+    {
+        "typeName": "User Role Change",
+        "typeCode": "USER_ROLE_CHANGE",
+        "workflowTypeId": "8660f2db-8a40-4b27-ad9b-8143c5730cf8"
+    },
+    {
+        "typeName": "Vendor Management",
+        "typeCode": "VENDORS",
+        "workflowTypeId": "0746087d-ea00-4176-9f6e-e796800936b3"
+    },
+    {
+        "typeName": "Vendor Onboarding",
+        "typeCode": "VENDOR_ONBOARDING",
+        "workflowTypeId": "c5d75e8a-490d-474c-b286-9950e295f9e6"
+    }
+]

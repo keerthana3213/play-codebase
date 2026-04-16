@@ -1,0 +1,94 @@
+/* Design Tokens */
+
+:root {
+    /*fileupload*/
+    --fileupload-background: var(--global-background);
+    --fileupload-layout-tag-background: transparent;
+    --fileupload-layout-icon-background: transparent;
+    --fileupload-review-background: var(--global-background);
+    --fileupload-delete-icon-color: var(--global-color-red-600);
+    --fileupload-font-family-body: var(--font-family-body);
+    --fileupload-font-family-heading: var(--global-font-family-heading);
+    --fileupload-font-size-md: var(--global-font-size-md);
+    --fileupload-font-size-xs: var(--global-font-size-xs);
+    --fileupload-font-size-sm: var(--global-font-size-sm);
+    --fileupload-font-size-lg: var(--global-font-size-lg);
+
+    --fileupload-list-padding: 8px;
+    --fileupload-color: var(--color-text-primary);
+
+    --fileupload-font-weight-regular: var(--global-font-weight-regular);
+    --fileupload-font-weight-semibold: var(--global-font-weight-semibold);
+    --fileupload-font-weight-medium: var(--global-font-weight-medium);
+    --fileupload-font-weight-bold: var(--global-font-weight-bold);
+
+
+
+
+    --fileupload-disabled-bg: var(--color-background-disabled);
+    --fileupload-heading-color: var(--color-text-primary);
+
+    --fileupload-selected-filename-color: var(--color-text-primary);
+    --fileupload-border-color: var(--color-text-disabled);
+    --fileupload-danger-background: var(--global-color-red-500);
+    --fileupload-text-color-link: var(--color-text-success);
+
+    --fileupload-gap-lg: var(--global-spacing-4);
+    --fileupload-gap-md: var(--global-spacing-3);
+    --fileupload-gap-sm: var(--global-spacing-2);
+    --fileupload-gap-xs: var(--global-spacing-1);
+
+    --fileupload-button-padding: var(--global-spacing-3) var(--global-spacing-4);
+    --fileupload-radius-sm: var(--global-radius-sm);
+    --fileupload-radius-md: var(--global-radius-md);
+    --fileupload-radius-2xl: var(--global-radius-2xl);
+    --fileupload-table-padding: 10px 16px;
+
+    --fileupload-delete-icon-color: var(--global-color-red-600);
+    --fileupload-filename-color: var(--color-text-primary);
+    --fileupload-filename-display-color: var(--color-text-primary);
+    --fileupload-filename-title-color: var(--global-color-gray-800);
+    --fileupload-filename-background-color: var(--global-background);
+
+    --fileupload-variant-padding-2: var(--global-spacing-2);
+    --fileupload-variant-padding-3: var(--global-spacing-3);
+    --fileupload-variant-padding-4: var(--global-spacing-4);
+    --fileupload-variant-padding-5: var(--global-spacing-5);
+    --fileupload-variant-padding-11: var(--global-spacing-11);
+
+    --fileupload-file-display-border: 1px solid #ccc;
+    --fileupload-md-variant-border: 1px dashed #d1d5db;
+    --fileupload-file-tag-border: 1px solid var(--tag-border-color);
+    --fileupload-lg-variant-border: 1px solid var(--fileupload-border-color);
+    --fileupload-upload-area-border: 1px solid var(--fileupload-border-color);
+    --fileupload-upload-area-default-border: 1px dashed #898E99;
+    --fileupload-scrollbar-border: 2px solid #f1f1f1;
+    --fileupload-file-review-border: 1px solid #d1d3d8;
+
+    --fileupload-error-color: var(--color-text-error);
+
+    --fileupload-span-margin-right: 0.5rem;
+    --fileupload-fileicon-margin-right: 10px;
+    --fileupload-fileinfo-margin-right: 10px;
+    --fileupload-upload-margin-bottom: 16px;
+    --fileupload-md-upload-margin-bottom: 24px;
+    --fileupload-supported-formats-text-margin-bottom: 4px;
+    --fileupload-filetag-header-margin-bottom: 16px;
+    --fileupload-filereview-margin-bottom: 12px;
+    --fileupload-delete-icon-margin-left: auto;
+    --fileupload-h3-margin: 0 0 16px 0;
+    --fileupload-margin: 0;
+    --fileupload-color-pdf: #f97070;
+    --fileupload-color-doc: #70bef9;
+    --fileupload-color-docx: #70bef9;
+    --fileupload-color-xls: #3f9b48;
+    --fileupload-color-xlsx: #3f9b48;
+    --fileupload-color-txt: #8770f9;
+    --fileupload-color-html: #8770f9;
+    --fileupload-color-ppt: #f97316;
+    --fileupload-color-pptx: #f97316;
+    --fileupload-color-png: palevioletred;
+    --fileupload-color-svg: palevioletred;
+    --fileupload-color-jpeg: #a3a7c2;
+    --fileupload-color-jpg: #a3a7c2;
+}

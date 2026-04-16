@@ -1,0 +1,61 @@
+<div class="test-table-wrapper">
+  <aava-table [dataSource]="dataSource" [displayedColumns]="displayedColumns" (toggleExpand) = "onRowExpand($event)">
+    <ng-container aavaColumnDef="select">
+      <th *aavaHeaderCellDef>Select</th>
+      <td aava-cell *aavaCellDef="let element"><aava-checkbox></aava-checkbox></td>
+    </ng-container>
+    <ng-container aavaColumnDef="name">
+      <th *aavaHeaderCellDef>Project</th>
+      <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+    </ng-container>
+    <ng-container aavaColumnDef="owner">
+      <th *aavaHeaderCellDef>Owner</th>
+      <td aava-cell *aavaCellDef="let element">{{ element.owner }}</td>
+    </ng-container>
+     <ng-container aavaColumnDef="expand">
+      <th *aavaHeaderCellDef></th>
+      <td aava-cell *aavaCellDef="let element;let index = index">
+        <aava-icon  [cursor] = "true" [iconName]="expandedRowIndex===index && isExpanded ?'chevron-up':'chevron-down'"></aava-icon>
+      </td>
+    </ng-container>
+
+    <tr aava-header-row *aavaHeaderRowDef="['select','name', 'owner','expand']"></tr>
+    <tr aava-row *aavaRowDef="let row; columns: ['select','name', 'owner','expand']"></tr>
+    <!-- Expanded Row -->
+    <!-- <ng-template aavaRowDetail let-row="row">
+      <tr class="expanded-row">
+        <td colspan="3">
+          <aava-table [dataSource] = "row.tasks">
+              <ng-container aavaColumnDef="select">
+                  <th *aavaHeaderCellDef>Select</th>
+                  <td aava-cell *aavaCellDef="let element"><aava-checkbox></aava-checkbox></td>
+              </ng-container>
+                <ng-container aavaColumnDef="name">
+                  <th aava-header-cell *aavaHeaderCellDef> Project </th>
+                  <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+              </ng-container>
+              <ng-container aavaColumnDef="task">
+                  <th aava-header-cell *aavaHeaderCellDef> Owner </th>
+                  <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+              </ng-container>
+              
+            
+              <tr aava-header-row *aavaHeaderRowDef="['select','name','task']"></tr>
+              <tr aava-row *aavaRowDef="let t; columns: ['select','name','task']"></tr>
+              </aava-table>
+      </td>
+      </tr>
+    </ng-template> -->
+
+
+   <ng-template aavaRowDetail let-row="row">
+      <tr class="nested-row" *ngFor="let task of row.tasks">
+        <td><aava-checkbox></aava-checkbox></td>
+        <td>{{ task.name }}</td>
+        <td></td>
+        <td></td>
+
+      </tr>
+  </ng-template>
+  </aava-table>
+</div>

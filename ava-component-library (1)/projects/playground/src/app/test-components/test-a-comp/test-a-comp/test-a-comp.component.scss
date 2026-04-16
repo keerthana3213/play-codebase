@@ -1,0 +1,27 @@
+aava-select {
+    margin-bottom: 20px;
+    display: block;
+    width: 250px;
+}
+
+.ct {
+    display: flex;
+    gap: 30px;
+}
+
+.sf {
+    aava-select-flyout {
+        display: block;
+        margin-bottom: 10px;
+    }
+
+    button {
+        margin: 15px
+    }
+}
+
+.tooltip {
+    aava-icon {
+        margin-right: 20px;
+    }
+}

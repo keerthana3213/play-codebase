@@ -1,0 +1,76 @@
+// width: 100%;
+//         border-radius: var(--card-border-radius);
+//         border: 1px solid var(--card-default-border);
+//         background: var(--card-background);
+//         box-shadow: var(--card-shadow);
+//         padding: var(--card-padding);
+
+:host {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+
+    // --- CSS Custom Properties for Theming ---
+    --ava-card-padding-base: 1rem;
+
+
+    --ava-card-border-radius: 0.75rem;
+    --ava-card-border: 1px solid #E4E7EC;
+    --ava-card-background: var(--Neutral-N--50, #fff);
+    --ava-card-box-shadow: box-shadow: 0 4px 8px -2px rgba(16, 24, 40, 0.10),
+        0 -4px 8px -2px rgba(16, 24, 40, 0.10),
+        4px 0 8px -2px rgba(16, 24, 40, 0.10),
+        -4px 0 8px -2px rgba(16, 24, 40, 0.10),
+        0 2px 4px -2px rgba(16, 24, 40, 0.06),
+        0 -2px 4px -2px rgba(16, 24, 40, 0.06),
+        2px 0 4px -2px rgba(16, 24, 40, 0.06),
+        -2px 0 4px -2px rgba(16, 24, 40, 0.06);
+    ;
+    --ava-card-box-shadow-hover: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+
+    // Section specific padding variables
+    --ava-card-header-padding: var(--ava-card-padding-base);
+    --ava-card-body-padding: var(--ava-card-padding-base);
+    --ava-card-footer-padding: var(--ava-card-padding-base);
+}
+
+.ava-card-wrapper {
+    border-radius: var(--product-card-border-radius);
+    border: var(--product-card-border);
+    background: var(--product-card-background);
+    box-shadow: var(--product-card-shadow);
+    transition: box-shadow 0.3s ease;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding: var(--product-card-padding);
+    &:hover {
+        box-shadow: var(--product-card-shadow-hover);
+        border-radius: var(--product-card-border-radius);
+    }
+}
+
+::ng-deep ava-heading {
+    width: 60
+}
+
+.ava-card-header {
+    margin-bottom: 0.5rem;
+
+    .ava-card-wrapper .with-header-padding & {
+        padding: var(--product-card-padding);
+    }
+}
+
+.ava-card-body {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.ava-card-footer {
+    .ava-card-wrapper.with-footer-padding & {
+        padding: var(--ava-card-footer-padding);
+    }
+}

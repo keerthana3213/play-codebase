@@ -1,0 +1,36 @@
+<div class="with-actions-demo">
+  <div class="demo-section">
+    <div class="demo-grid">
+      <!-- Primary Actions -->
+      <div class="demo-item">
+        <aava-default-card>
+          <aava-card-header>
+            <h4>Account Settings</h4>
+          </aava-card-header>
+          <aava-card-content>
+            <p>
+              Manage your account preferences, security settings, and personal
+              information.
+            </p>
+            <ul class="settings-list">
+              <li>Profile Information</li>
+              <li>Security & Privacy</li>
+              <li>Notification Preferences</li>
+            </ul>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="primary-actions">
+              <aava-button
+                label="Save Changes"
+                variant="primary"
+                size="sm"
+                (click)="onPrimaryAction('Save Changes')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="prompt-bar-demo">
+  <div class="demo-section-small">
+    <aava-prompt-bar
+      [placeholder]="placeholder"
+      [disabled]="disabled"
+      [icons]="chatIcons"
+      [deviceOptions]="deviceOptions"
+      [showSelection]="true"
+      [tags]="tags"
+      (iconClicked)="onIconClick($event)"
+      (tagRemoved)="onTagRemoved($event)"
+      size="sm"
+    >
+    </aava-prompt-bar>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<aava-default-card class="request-card"
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="request-card-content">
+        <div class="request-card-text" *ngIf="hasContent">
+            <div class="request-card-first-line" *ngIf="data.icon || data.name">
+                <aava-icon *ngIf="data.icon" [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+                <div class="request-card-name" *ngIf="data.name">{{ data.name }}</div>
+            </div>
+            <div class="request-card-department" *ngIf="data.department">{{ data.department }}</div>
+        </div>
+
+        <div class="request-card-buttons" *ngIf="hasButtons">
+            <aava-button *ngFor="let button of data.buttons" [label]="button.label"
+                [variant]="button.variant || 'primary'" size="sm" [outlined]="true"
+                [customStyles]="getButtonStyle(button)" (userClick)="onButtonClick(button)" class="request-card-button">
+            </aava-button>
+        </div>
+    </div>
+</aava-default-card>

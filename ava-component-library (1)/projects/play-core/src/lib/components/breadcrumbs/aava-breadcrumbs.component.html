@@ -1,0 +1,162 @@
+<nav
+  #breadcrumbNav
+  class="breadcrumb"
+  [ngClass]="size"
+  [attr.id]="componentId"
+  [ngStyle]="customStyles"
+  [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null"
+  aria-orientation="horizontal"
+>
+  <ul class="breadcrumb" [ngClass]="size" [ngStyle]="flyoutStyle">
+    <ng-container
+      *ngFor="
+        let breadcrumb of displayedBreadcrumbs;
+        let last = last;
+        let i = index
+      "
+    >
+      <li
+        [ngClass]="{
+          'breadcrumb-item': true,
+          'dropdown-trigger': hasDropdown(breadcrumb),
+          active: breadcrumb.active,
+          inactive: !breadcrumb.active
+        }"
+      >
+        <!-- Breadcrumb with dropdown -->
+        <div *ngIf="hasDropdown(breadcrumb)" class="dropdown-container">
+          <button
+            class="dropdown-button"
+            (click)="toggleDropdown(i)"
+            [attr.aria-expanded]="isDropdownOpen(i)"
+            [attr.aria-label]="breadcrumb.label || 'Breadcrumb dropdown'"
+            [attr.aria-haspopup]="'menu'"
+            [class.active]="breadcrumb.active"
+          >
+            <aava-icon
+              *ngIf="breadcrumb.icon"
+              [iconName]="breadcrumb.icon"
+              [iconSize]="iconSize"
+            >
+            </aava-icon>
+            <span>{{ breadcrumb.label }}</span>
+            <aava-icon
+              iconName="chevron-down"
+              [iconSize]="dropdownIconSize"
+              [style.transform]="
+                isDropdownOpen(i) ? 'rotate(180deg)' : 'rotate(0deg)'
+              "
+              class="arrow-icon"
+              [attr.aria-hidden]="'true'"
+            >
+            </aava-icon>
+          </button>
+
+          <!-- Dropdown menu -->
+          <ul
+            *ngIf="isDropdownOpen(i)"
+            class="dropdown-menu opened"
+            role="menu"
+            [attr.aria-label]="breadcrumb.label || 'Breadcrumb menu'"
+          >
+            <li
+              *ngFor="let item of breadcrumb.dropdownItems"
+              class="dropdown-item"
+              (click)="onDropdownItemClick(item, i)"
+              (keydown)="onDropdownItemKeydown($event, item, i)"
+              tabindex="0"
+              role="menuitem"
+            >
+              <aava-icon
+                *ngIf="item.icon"
+                [iconName]="item.icon"
+                [iconSize]="getDropdownIconSize(item)"
+                [attr.aria-hidden]="'true'"
+              >
+              </aava-icon>
+              {{ item.label }}
+            </li>
+          </ul>
+        </div>
+
+        <!-- Regular breadcrumb link (not last item) -->
+        <a
+          *ngIf="!hasDropdown(breadcrumb) && !last"
+          [routerLink]="breadcrumb.url"
+          (click)="onBreadcrumbClick($event, getOriginalIndex(i))"
+          (keydown)="onBreadcrumbKeydown($event, i)"
+          [attr.tabindex]="0"
+          [attr.aria-current]="breadcrumb.active ? 'page' : null"
+          class="breadcrumb-link"
+        >
+          <aava-icon
+            *ngIf="breadcrumb.icon"
+            [iconName]="breadcrumb.icon"
+            [iconSize]="iconSize"
+            [cursor]="false"
+            [iconColor]="getIconColor(false)"
+            [attr.aria-hidden]="'true'"
+          >
+          </aava-icon>
+          <span>{{ breadcrumb.label }}</span>
+        </a>
+
+        <!-- Current breadcrumb (last item) -->
+        <span
+          *ngIf="!hasDropdown(breadcrumb) && last"
+          class="breadcrumb-current"
+          [attr.aria-current]="'page'"
+        >
+          <aava-icon
+            *ngIf="breadcrumb.icon"
+            [iconName]="breadcrumb.icon"
+            [iconSize]="iconSize"
+            [cursor]="false"
+            [iconColor]="'currentColor'"
+            [attr.aria-hidden]="'true'"
+          >
+          </aava-icon>
+          <span>{{ breadcrumb.label }}</span>
+        </span>
+      </li>
+
+      <!-- Separator icon (not after last item) -->
+      <li *ngIf="!last" class="breadcrumb-separator" [attr.aria-hidden]="'true'">
+        <aava-icon
+          [iconName]="separatorIcon"
+          [iconSize]="separatorSize"
+          [cursor]="false"
+        >
+        </aava-icon>
+      </li>
+
+      <!-- Show ellipsis after first item if needed -->
+      <li
+        *ngIf="shouldShowEllipsis && i === 0"
+        class="breadcrumb-ellipsis"
+      >
+        <button
+          class="ellipsis-button"
+          (click)="onEllipsisClick()"
+          (keydown)="onEllipsisKeydown($event)"
+          [attr.aria-label]="'Show more breadcrumbs'"
+          [attr.aria-expanded]="false"
+          tabindex="0"
+        >
+          <span class="ellipsis">...</span>
+        </button>
+        <!-- Separator after ellipsis -->
+        <aava-icon
+          [iconName]="separatorIcon"
+          [iconSize]="separatorSize"
+          [cursor]="false"
+          class="breadcrumb-separator"
+          [attr.aria-hidden]="'true'"
+        >
+        </aava-icon>
+      </li>
+    </ng-container>
+  </ul>
+</nav>

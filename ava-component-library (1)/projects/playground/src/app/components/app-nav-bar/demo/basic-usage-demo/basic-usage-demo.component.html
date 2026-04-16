@@ -1,0 +1,30 @@
+<div class="demo-container">
+  <div class="demo-header">
+    <h1>Nav Bar - Basic Usage</h1>
+    <p>A navigation bar styled to match the original aava-ui-web components</p>
+  </div>
+
+  <div class="demo-content">
+    <div class="nav-bar-showcase">
+      <ava-nav-bar
+        [navItems]="navItems"
+        [activeRoute]="currentRoute"
+        [customStyles]="originalStyles"
+        [responsive]="true"
+        variant="glass"
+        size="medium"
+        (navItemSelected)="onNavItemSelected($event)"
+        (dropdownItemSelected)="onDropdownItemSelected($event)"
+      >
+      </ava-nav-bar>
+    </div>
+
+    <div class="demo-info">
+      <p><strong>Current Route:</strong> {{ currentRoute }}</p>
+      <p>
+        This nav-bar is styled to match the original design with clean colors
+        and subtle interactions.
+      </p>
+    </div>
+  </div>
+</div>

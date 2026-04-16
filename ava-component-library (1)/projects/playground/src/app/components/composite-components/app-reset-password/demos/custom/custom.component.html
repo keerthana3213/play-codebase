@@ -1,0 +1,12 @@
+<div class="container-reset-password">
+  <aava-reset-password
+    label="Corporate Password"
+    placeholder="Enter your corporate password"
+    [rules]="customPasswordRules"
+    [showConfirmPassword]="true"
+    [showPasswordStrength]="false"
+    size="md"
+    (passwordChange)="onPasswordChange($event)"
+  >
+  </aava-reset-password>
+</div>

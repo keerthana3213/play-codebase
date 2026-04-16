@@ -1,0 +1,96 @@
+<div class="demo-section">
+    <div class="demo-description">
+        <h3>Custom Styles</h3>
+        <p>
+            Customize autocomplete appearance with CSS custom properties and
+            advanced styling options.
+        </p>
+    </div>
+
+    <div class="demo-grid">
+        <div class="demo-item">
+            <h4>Color Picker Style</h4>
+            <aava-autocomplete [options]="colorOptions" placeholder="Choose a color..." label="Select color"
+                helper="Pick a color from the palette" [optionTemplate]="colorTemplate"
+                (optionSelected)="onColorSelected($event)" class="color-picker-style"></aava-autocomplete>
+        </div>
+
+        <div class="demo-item">
+            <h4>Technology Stack Style</h4>
+            <aava-autocomplete [options]="techStackOptions" placeholder="Select technologies..." label="Tech Stack"
+                helper="Choose your technology stack" [multi]="true" tagColor="success" tagVariant="outlined"
+                [tagPill]="true" [tagRemovable]="true" (valueChange)="onTechStackChange($event)"
+                class="tech-stack-style"></aava-autocomplete>
+        </div>
+
+        <div class="demo-item">
+            <h4>Dark Theme Style</h4>
+            <aava-autocomplete [options]="colorOptions" placeholder="Search in dark mode..." label="Dark Theme"
+                helper="Autocomplete with dark theme styling" startIcon="moon" startIconColor="#a78bfa"
+                (optionSelected)="onDarkThemeSelected($event)" class="dark-theme-style"></aava-autocomplete>
+        </div>
+
+        <div class="demo-item">
+            <h4>Minimal Style</h4>
+            <aava-autocomplete [options]="colorOptions" placeholder="Minimal design..." label="Minimal"
+                helper="Clean and minimal autocomplete design" (optionSelected)="onMinimalSelected($event)"
+                class="minimal-style"></aava-autocomplete>
+        </div>
+    </div>
+
+    <div class="demo-output" *ngIf="
+      selectedColor ||
+      selectedTechStack.length > 0 ||
+      selectedDarkTheme ||
+      selectedMinimal
+    ">
+        <h4>Output:</h4>
+        <div class="output-item" *ngIf="selectedColor">
+            <strong>Selected Color:</strong>
+            <span class="color-preview" [style.background]="selectedColor['color']"></span>
+            {{ selectedColor.label }}
+        </div>
+        <div class="output-item" *ngIf="selectedTechStack.length > 0">
+            <strong>Tech Stack:</strong> {{ selectedTechStack.join(', ') }}
+        </div>
+        <div class="output-item" *ngIf="selectedDarkTheme">
+            <strong>Dark Theme Selection:</strong> {{ selectedDarkTheme.label }}
+        </div>
+        <div class="output-item" *ngIf="selectedMinimal">
+            <strong>Minimal Selection:</strong> {{ selectedMinimal.label }}
+        </div>
+    </div>
+
+    <div class="features-list">
+        <h4>Custom Styling Features:</h4>
+        <ul>
+            <li>
+                <strong>CSS Custom Properties:</strong> Easy theming with CSS
+                variables
+            </li>
+            <li>
+                <strong>Custom Templates:</strong> Complete control over option
+                appearance
+            </li>
+            <li>
+                <strong>Theme Variants:</strong> Light, dark, and custom theme
+                support
+            </li>
+            <li>
+                <strong>Responsive Design:</strong> Adapts to different screen sizes
+            </li>
+            <li>
+                <strong>Brand Integration:</strong> Match your brand colors and
+                styling
+            </li>
+        </ul>
+    </div>
+</div>
+
+<!-- Color Template -->
+<ng-template #colorTemplate let-option>
+    <div class="color-option">
+        <div class="color-swatch" [style.background]="option.color"></div>
+        <span class="color-name">{{ option.label }}</span>
+    </div>
+</ng-template>

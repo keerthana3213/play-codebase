@@ -1,0 +1,191 @@
+.medium-variant-demo {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .demo-description {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+
+  .demo-container {
+    background: var(--surface-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    .upload-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+    }
+
+    .status-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .status-info {
+        background: var(--surface-primary);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-primary);
+
+        p {
+          margin: 0.5rem 0;
+          color: var(--text-secondary);
+
+          strong {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
+
+    .files-section {
+      h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .files-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 1rem;
+
+        .file-card {
+          background: var(--surface-primary);
+          border: 1px solid var(--border-primary);
+          border-radius: 12px;
+          padding: 1rem;
+          transition: all 0.2s ease;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-primary);
+          }
+
+          .file-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.75rem;
+
+            .file-icon {
+              font-size: 2rem;
+            }
+
+            .remove-btn {
+              background: var(--error-primary);
+              color: white;
+              border: none;
+              border-radius: 50%;
+              width: 24px;
+              height: 24px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              cursor: pointer;
+              font-size: 1rem;
+              font-weight: bold;
+              transition: all 0.2s ease;
+
+              &:hover {
+                background: var(--error-primary-dark);
+                transform: scale(1.1);
+              }
+            }
+          }
+
+          .file-content {
+            .file-name {
+              font-weight: 600;
+              color: var(--text-primary);
+              margin-bottom: 0.5rem;
+              font-size: 0.95rem;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            .file-meta {
+              display: flex;
+              gap: 0.75rem;
+              font-size: 0.85rem;
+
+              .file-size {
+                color: var(--text-secondary);
+                background: var(--surface-secondary);
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+              }
+
+              .file-type {
+                color: var(--text-secondary);
+                background: var(--surface-secondary);
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .features-section {
+    background: var(--surface-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-primary);
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 0.5rem 0;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        border-bottom: 1px solid var(--border-secondary);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        strong {
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+}

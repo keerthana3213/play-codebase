@@ -1,0 +1,189 @@
+.list-layout-demo {
+  padding: 2rem;
+  max-width: 1000px;
+  margin: 0 auto;
+
+  .demo-description {
+    text-align: center;
+    margin-bottom: 2rem;
+
+    h2 {
+      font-size: 2rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      line-height: 1.6;
+    }
+  }
+
+  .demo-container {
+    background: var(--surface-secondary);
+    border-radius: 16px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+
+    .upload-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+    }
+
+    .status-section {
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .status-info {
+        background: var(--surface-primary);
+        padding: 1rem;
+        border-radius: 8px;
+        border: 1px solid var(--border-primary);
+
+        p {
+          margin: 0.5rem 0;
+          color: var(--text-secondary);
+
+          strong {
+            color: var(--text-primary);
+          }
+        }
+      }
+    }
+
+    .files-section {
+      h3 {
+        font-size: 1.25rem;
+        color: var(--text-primary);
+        margin-bottom: 1rem;
+      }
+
+      .files-list {
+        .file-item {
+          background: var(--surface-primary);
+          border: 1px solid var(--border-primary);
+          border-radius: 8px;
+          padding: 1rem;
+          margin-bottom: 0.75rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .file-icon {
+            font-size: 1.5rem;
+            min-width: 40px;
+            text-align: center;
+          }
+
+          .file-info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+
+            .file-name {
+              font-weight: 500;
+              color: var(--text-primary);
+              font-size: 1rem;
+            }
+
+            .file-details {
+              display: flex;
+              gap: 1rem;
+              font-size: 0.9rem;
+
+              .file-size {
+                color: var(--text-secondary);
+              }
+
+              .file-type {
+                color: var(--text-secondary);
+                background: var(--surface-secondary);
+                padding: 0.25rem 0.5rem;
+                border-radius: 4px;
+              }
+            }
+          }
+
+          .file-actions {
+            display: flex;
+            gap: 0.5rem;
+
+            .action-btn {
+              padding: 0.5rem 1rem;
+              border: none;
+              border-radius: 6px;
+              font-size: 0.9rem;
+              font-weight: 500;
+              cursor: pointer;
+              transition: all 0.2s ease;
+
+              &.view-btn {
+                background: var(--accent-primary);
+                color: white;
+
+                &:hover {
+                  background: var(--accent-primary-dark);
+                }
+              }
+
+              &.remove-btn {
+                background: var(--error-primary);
+                color: white;
+
+                &:hover {
+                  background: var(--error-primary-dark);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .features-section {
+    background: var(--surface-primary);
+    border-radius: 12px;
+    padding: 1.5rem;
+    border: 1px solid var(--border-primary);
+
+    h3 {
+      font-size: 1.25rem;
+      color: var(--text-primary);
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+
+      li {
+        padding: 0.5rem 0;
+        color: var(--text-secondary);
+        line-height: 1.5;
+        border-bottom: 1px solid var(--border-secondary);
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        strong {
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+}

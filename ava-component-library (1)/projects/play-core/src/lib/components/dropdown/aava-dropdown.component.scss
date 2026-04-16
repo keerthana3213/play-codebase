@@ -1,0 +1,398 @@
+// Component-specific variables
+$dropdown-spacing-sm: 8px;
+$dropdown-line-height: 1.5;
+$dropdown-icon-spacing: $dropdown-spacing-sm;
+$dropdown-checkbox-spacing: $dropdown-spacing-sm;
+$dropdown-option-gap: $dropdown-spacing-sm;
+$dropdown-placeholder-color: var(--color-text-placeholder);
+$dropdown-brand-color: var(--color-brand-primary);
+$dropdown-selected-background: $dropdown-brand-color;
+$dropdown-selected-border: $dropdown-brand-color;
+$dropdown-select-text-color: var(--color-text-on-primary);
+
+// Disabled state colors using base design tokens
+$dropdown-disabled-text: var(--color-text-disabled);
+$dropdown-disabled-background: var(--color-background-disabled);
+$dropdown-disabled-border: var(--color-border-disabled);
+
+.ava-dropdown {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 200px;
+  overflow: visible;
+
+  .label-container {
+    display: flex;
+    font: var(--dropdown-label-font);
+    align-items: center;
+    gap: 4px;
+    margin-bottom: var(--dropdown-lable-margin);
+  }
+
+  .required-star {
+    color: var(--dropdown-error-text);
+    /* Style the star as needed */
+  }
+
+  // Validation error styling
+  .validation-error {
+    font: var(--dropdown-error-font);
+    color: var(--dropdown-error-text);
+    font-size: var(--dropdown-error-font-size);
+
+    &.validation-error-bottom {
+      margin-top: var(--dropdown-error-spacing);
+    }
+  }
+
+  .dropdown-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--dropdown-toggle-padding);
+    background: var(--dropdown-toggle-background);
+    border: var(--dropdown-toggle-background) solid 1px;
+    border-radius: var(--dropdown-toggle-border-radius);
+    cursor: pointer;
+    font: var(--dropdown-toggle-font);
+    color: var(--dropdown-toggle-text);
+    transition: var(--dropdown-transition);
+    min-height: var(--dropdown-size-md-height);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 5px;
+    border: var(--glass-50-border);
+    box-shadow: var(--glass-50-shadow);
+
+    span {
+      flex: 1;
+      text-align: left;
+      overflow-x: auto;
+      overflow-y: hidden;
+      white-space: nowrap;
+      max-width: calc(100% - 30px); // Account for icon space
+      scrollbar-width: none; // Firefox
+      -ms-overflow-style: none; // IE and Edge
+
+      // Hide scrollbar for WebKit browsers
+      &::-webkit-scrollbar {
+        display: none;
+      }
+    }
+
+    &:hover {
+      border-color: $dropdown-brand-color;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $dropdown-brand-color;
+    }
+
+    &.open {
+      border-color: $dropdown-brand-color;
+      border: $dropdown-brand-color solid 2px;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+      background: $dropdown-disabled-background;
+      color: $dropdown-disabled-text;
+
+      &:hover {
+        border-color: $dropdown-disabled-border;
+      }
+    }
+
+    &.error {
+      border-color: var(--dropdown-error-text);
+    }
+
+    aava-icon {
+      transition: transform 0.2s ease;
+      color: var(--dropdown-toggle-icon-color);
+    }
+  }
+
+  .dropdown-menu {
+    position: absolute;
+    top: calc(100% + 2px);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background: var(--dropdown-menu-background);
+    border: var(--dropdown-menu-border) solid 1px;
+    border-radius: var(--dropdown-menu-border-radius);
+    box-shadow: var(--dropdown-menu-shadow);
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    transform: translateY(-8px);
+    animation: dropdownSlideDown 0.2s ease forwards;
+  }
+
+  .search-box {
+    position: relative;
+    padding: var(--dropdown-menu-padding);
+    background: var(--dropdown-search-background);
+
+    input {
+      width: 100%;
+      height: var(--dropdown-size-sm-height);
+      padding: var(--dropdown-search-padding);
+      border: none;
+      border-radius: var(--dropdown-search-border-radius);
+      font: var(--dropdown-search-font);
+      color: var(--dropdown-search-text);
+      background: transparent;
+      box-sizing: border-box;
+
+      &::placeholder {
+        color: $dropdown-placeholder-color;
+      }
+
+      &:focus {
+        outline: none;
+        background: transparent;
+      }
+    }
+
+    aava-icon {
+      position: absolute;
+      right: $dropdown-icon-spacing;
+      top: 50%;
+      transform: translateY(-50%);
+      color: $dropdown-placeholder-color;
+      pointer-events: none;
+    }
+  }
+
+  .options {
+    padding: 0;
+    overflow: visible;
+    position: relative;
+  }
+
+  .option-group {
+    margin-bottom: 0;
+    position: relative;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: optionSlideIn 0.3s ease forwards;
+    overflow: visible;
+  }
+
+  // Generate animation delays for up to 50 options
+  @for $i from 1 through 50 {
+    .option-group:nth-child(#{$i}) {
+      animation-delay: #{$i * 50}ms;
+    }
+  }
+
+  .option {
+    display: flex;
+    align-items: center;
+    padding: var(--dropdown-item-padding);
+    cursor: pointer;
+    transition: var(--dropdown-item-transition);
+    font: var(--dropdown-item-font);
+    color: var(--dropdown-item-text);
+    border-radius: 0;
+    margin: 0;
+    position: relative;
+    min-height: var(--dropdown-size-md-height);
+    line-height: $dropdown-line-height;
+    background: var(--dropdown-item-background);
+    border-left: 3px solid transparent;
+
+    &:hover:not(.checkbox-option),
+    &:focus:not(.checkbox-option),
+    &.focused:not(.checkbox-option) {
+      background: var(--dropdown-item-background-hover);
+      color: var(--dropdown-item-text-hover);
+    }
+
+    &.selected:not(.checkbox-option) {
+      background: $dropdown-selected-background;
+      color: $dropdown-select-text-color;
+      border-left-color: $dropdown-selected-border;
+    }
+
+    &.checkbox-option {
+
+      // Add hover and focus effects for checkbox options
+      &:hover,
+      &:focus,
+      &.focused {
+        background: var(--dropdown-item-background-hover);
+        color: var(--dropdown-item-text-hover);
+      }
+
+      // No selected state styling for checkbox options
+      &.selected {
+        background: transparent;
+        color: var(--dropdown-item-text-active);
+      }
+    }
+
+    &.has-suboptions {
+      position: relative;
+    }
+
+    &.disabled {
+      cursor: not-allowed;
+      opacity: 0.5;
+      color: $dropdown-disabled-text;
+
+      &:hover,
+      &:focus,
+      &.focused {
+        background: var(--dropdown-item-background);
+        color: $dropdown-disabled-text;
+        box-shadow: none; // Remove focus ring for disabled items
+      }
+
+      &.selected {
+        background: var(--dropdown-item-background);
+        color: $dropdown-disabled-text;
+        border-left-color: transparent;
+      }
+    }
+
+    .option-content {
+      display: flex;
+      align-items: center;
+      gap: $dropdown-option-gap;
+      flex: 1;
+    }
+
+    aava-icon {
+      color: currentColor;
+      transition: all 0.2s ease;
+    }
+
+    // Checkbox styling
+    ava-checkbox {
+      margin-right: $dropdown-checkbox-spacing;
+    }
+  }
+
+  .suboptions-overlay {
+    position: absolute;
+    left: calc(100% + 4px);
+    top: 0;
+    z-index: 9999;
+    pointer-events: auto;
+  }
+
+  .suboptions-panel {
+    background: var(--dropdown-submenu-background);
+    border: var(--dropdown-menu-border) solid 1px;
+    border-radius: var(--dropdown-submenu-border-radius);
+    box-shadow: var(--dropdown-submenu-shadow);
+    min-width: 200px;
+    max-height: 240px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    opacity: 0;
+    transform: translateX(-5px);
+    animation: slideInFromLeft 0.2s ease forwards;
+
+    .suboption {
+      padding: var(--dropdown-item-padding);
+      cursor: pointer;
+      transition: var(--dropdown-item-transition);
+      font: var(--dropdown-item-font);
+      color: var(--dropdown-item-text);
+      margin: 0;
+      border-radius: 0;
+      line-height: $dropdown-line-height;
+      min-height: var(--dropdown-size-md-height);
+      display: flex;
+      align-items: center;
+      background: var(--dropdown-item-background);
+      border-left: 3px solid transparent;
+
+      &:hover,
+      &:focus,
+      &.focused {
+        background: var(--dropdown-item-background-hover);
+        color: var(--dropdown-item-text-hover);
+      }
+
+      &.selected {
+        background: $dropdown-selected-background;
+        color: var(--dropdown-item-text-active);
+        border-left-color: $dropdown-selected-border;
+      }
+
+      &.disabled {
+        cursor: not-allowed;
+        opacity: 0.5;
+        color: $dropdown-disabled-text;
+
+        &:hover,
+        &:focus,
+        &.focused {
+          background: var(--dropdown-item-background);
+          color: $dropdown-disabled-text;
+          box-shadow: none; // Remove focus ring for disabled items
+        }
+
+        &.selected {
+          background: var(--dropdown-item-background);
+          color: $dropdown-disabled-text;
+          border-left-color: transparent;
+        }
+      }
+    }
+  }
+
+  .no-results {
+    padding: var(--dropdown-item-padding);
+    text-align: center;
+    color: $dropdown-placeholder-color;
+    font: var(--dropdown-item-font);
+    font-style: italic;
+  }
+}
+
+// Animations
+@keyframes dropdownSlideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes optionSlideIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-5px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

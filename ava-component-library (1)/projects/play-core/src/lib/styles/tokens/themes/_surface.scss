@@ -1,0 +1,14 @@
+@mixin fill-blur($fill, $blur) {
+    border-radius: var(--surface-border-radius);
+    border: 1px solid var(--surface-border-color);
+    background: rgb(var(--surface-bg) / calc(#{$fill}/ 10)); // 0.1 to 1.0
+    backdrop-filter: blur(calc(#{$blur * 5}px / 2));
+}
+
+@for $f from 1 through 10 {
+    @for $b from 1 through 10 {
+        .surface--fill#{$f}--blur#{$b} {
+            @include fill-blur($f, $b);
+        }
+    }
+}

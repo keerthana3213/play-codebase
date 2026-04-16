@@ -1,0 +1,24 @@
+
+    <div class="example-group">
+      <h4>Default State</h4>
+      <aava-prompt-bar
+        placeholder="Type your message here..."
+        [icons]="icons"
+>
+      </aava-prompt-bar>
+      <br>
+      <h4>Disabled State</h4>
+      <aava-prompt-bar
+        placeholder="This prompt bar is disabled"
+        [disabled]="true"
+        [icons]="icons" >
+      </aava-prompt-bar>
+      <br>
+      <h4>Auto-resize Textarea</h4>
+      <aava-prompt-bar
+        placeholder="This textarea will auto-resize as you type..."
+        [textAreaAutoResize]="true"
+        [textAreaMaxHeight]="200"
+        [icons]="icons" >
+      </aava-prompt-bar>
+    </div>

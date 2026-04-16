@@ -1,0 +1,175 @@
+.textbox-demo-page {
+  min-height: 100vh;
+  background: #f8fafc;
+}
+
+.demo-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 4rem 0;
+  margin-bottom: 2rem;
+
+  .doc-header {
+    text-align: center;
+
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      color: white;
+    }
+
+    .description {
+      font-size: 1.25rem;
+      opacity: 0.9;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+}
+
+.demo-navigation {
+  background: white;
+  padding: 2rem 0;
+  border-bottom: 1px solid #e2e8f0;
+  margin-bottom: 2rem;
+
+  .nav-links {
+    h3 {
+      color: #1e293b;
+      margin-bottom: 1.5rem;
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+
+    .nav-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .nav-link {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      text-decoration: none;
+      color: #374151;
+      transition: all 0.2s;
+
+      &:hover {
+        background: #f1f5f9;
+        border-color: #cbd5e1;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      }
+
+      .nav-icon {
+        font-size: 1.5rem;
+      }
+
+      .nav-text {
+        font-weight: 500;
+      }
+    }
+  }
+}
+
+.demo-sections {
+  .demo-section {
+    padding: 4rem 0;
+    margin-bottom: 2rem;
+
+    &.basic-bg {
+      background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    &.variants-bg {
+      background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    &.sizes-bg {
+      background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    &.icons-bg {
+      background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+    }
+
+    &.states-bg {
+      background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+    }
+
+    &.processing-bg {
+      background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+    }
+
+    &.form-bg {
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+    }
+
+    &.glass-bg {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+
+      h2 {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: white;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      p {
+        font-size: 1.125rem;
+        color: rgba(255, 255, 255, 0.9);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+
+    .demo-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.glass-demo-background {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .demo-header {
+    padding: 2rem 0;
+
+    .doc-header h1 {
+      font-size: 2rem;
+    }
+
+    .description {
+      font-size: 1rem;
+    }
+  }
+
+  .demo-navigation .nav-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .demo-sections .demo-section .section-header h2 {
+    font-size: 2rem;
+  }
+}

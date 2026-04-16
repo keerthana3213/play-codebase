@@ -1,0 +1,15 @@
+<div class="demo-page">
+  <!-- Demo Content -->
+  <div class="demo-content">
+    <div class="container">
+      <div class="demo-section">
+        <div class="progress-grid">
+          <div class="progress-item" *ngFor="let percentage of percentages">
+            <aava-progressbar [percentage]="percentage" type="linear" color="#2E308E" mode="determinate">
+            </aava-progressbar>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,142 @@
+<div class="demo-container">
+  <div class="demo-description">
+    <h3>Search Bar Variants</h3>
+    <p>
+      Different visual variants for various design requirements and use cases.
+    </p>
+  </div>
+
+  <div class="variants-demo">
+    <div class="demo-section">
+      <h4>Default Variant</h4>
+      <p class="variant-description">
+        Standard search bar with default styling
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Default Search"
+          placeholder="Search with default styling..."
+          (searchClick)="onSearch($event, 'default')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Custom Icon Colors</h4>
+      <p class="variant-description">
+        Search bar with custom search and send icon colors
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Custom Icons"
+          placeholder="Search with custom colors..."
+          searchIconColor="#8b5cf6"
+          sendIconColor="#ec4899"
+          (searchClick)="onSearch($event, 'custom-icons')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Brand Colors</h4>
+      <p class="variant-description">Search bar using brand-specific colors</p>
+      <div class="search-example">
+        <aava-search-bar
+          label="Brand Search"
+          placeholder="Search with brand colors..."
+          searchIconColor="#3b82f6"
+          sendIconColor="#10b981"
+          (searchClick)="onSearch($event, 'brand')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>High Contrast</h4>
+      <p class="variant-description">
+        Search bar with high contrast colors for accessibility
+      </p>
+      <div class="search-example">
+        <aava-search-bar
+          label="High Contrast"
+          placeholder="Search with high contrast..."
+          searchIconColor="#1f2937"
+          sendIconColor="#dc2626"
+          (searchClick)="onSearch($event, 'high-contrast')"
+          (textboxChange)="onTextboxChange($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h4>Theme Variants</h4>
+      <p class="variant-description">Different theme-based color schemes</p>
+      <div class="theme-variants">
+        <div class="theme-item">
+          <label for="primary-search">Primary Theme</label>
+          <aava-search-bar
+            id="primary-search"
+            placeholder="Primary"
+            searchIconColor="#3b82f6"
+            sendIconColor="#3b82f6"
+            (searchClick)="onSearch($event, 'primary')"
+          ></aava-search-bar>
+        </div>
+        <div class="theme-item">
+          <label for="success-search">Success Theme</label>
+          <aava-search-bar
+            id="success-search"
+            placeholder="Success"
+            searchIconColor="#10b981"
+            sendIconColor="#10b981"
+            (searchClick)="onSearch($event, 'success')"
+          ></aava-search-bar>
+        </div>
+        <div class="theme-item">
+          <label for="warning-search">Warning Theme</label>
+          <aava-search-bar
+            id="warning-search"
+            placeholder="Warning"
+            searchIconColor="#f59e0b"
+            sendIconColor="#f59e0b"
+            (searchClick)="onSearch($event, 'warning')"
+          ></aava-search-bar>
+        </div>
+        <div class="theme-item">
+          <label for="danger-search">Danger Theme</label>
+          <aava-search-bar
+            id="danger-search"
+            placeholder="Danger"
+            searchIconColor="#ef4444"
+            sendIconColor="#ef4444"
+            (searchClick)="onSearch($event, 'danger')"
+          ></aava-search-bar>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="info-section">
+    <h4>Variant Features</h4>
+    <ul class="feature-list">
+      <li>
+        <strong>Custom Icon Colors:</strong> Flexible color customization for
+        search and send icons
+      </li>
+      <li>
+        <strong>Brand Integration:</strong> Use brand colors for consistent
+        visual identity
+      </li>
+      <li>
+        <strong>Accessibility:</strong> High contrast options for better
+        visibility
+      </li>
+      <li>
+        <strong>Theme Support:</strong> Multiple theme-based color schemes
+      </li>
+    </ul>
+  </div>
+</div>

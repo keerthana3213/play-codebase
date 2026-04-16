@@ -1,0 +1,26 @@
+<div class="loading-dialog" [attr.id]="id ? 'aava-loading-' + id : null" [ngStyle]="customStyles" [ngClass]="bottomBorder ? 'has-bottom-border' : ''">
+    <div class="spinner-container">
+        <div class="spinner" [style.border-top-color]="spinnerColor"></div>
+    </div>
+
+    <h3 class="popup-title" id="popup-title">
+        {{ title }}
+    </h3>
+
+    <p class="inline-text">{{ message }}</p>
+
+    <div class="progress-container" *ngIf="showProgress">
+        <div class="progress-bar">
+            <div class="progress-fill" [style.width]="progressPercentage" [style.background-color]="spinnerColor">
+            </div>
+        </div>
+        <div class="progress-text" *ngIf="!indeterminate">
+            {{ progressText }}
+        </div>
+    </div>
+
+    <div class="dialog-actions" *ngIf="showCancelButton">
+        <aava-button [label]="cancelButtonText" variant="secondary" size="sm" (userClick)="onCancel()">
+        </aava-button>
+    </div>
+</div>

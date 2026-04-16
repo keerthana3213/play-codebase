@@ -1,0 +1,87 @@
+<div class="nested-table-wrapper">
+      <aava-table [dataSource]="dataSource" [displayedColumns] = "displayedColumns">
+          <ng-container aavaColumnDef="name" >
+              <th aava-cell *aavaHeaderCellDef>
+                 Name</th>
+              <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+            <ng-container aavaColumnDef="email" >
+              <th *aavaHeaderCellDef>Email</th>
+              <td  aava-cell *aavaCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+            <ng-container aavaColumnDef="role" >
+              <th *aavaHeaderCellDef>Role</th>
+              <td  aava-cell *aavaCellDef="let element"> {{ element.role }}</td>
+          </ng-container>
+           <ng-container aavaColumnDef="status" >
+              <th *aavaHeaderCellDef>Status</th>
+              <td  aava-cell *aavaCellDef="let element">{{ element.status }}</td>
+          </ng-container>
+            
+
+        <tr aava-header-row *aavaHeaderRowDef="displayedColumns"></tr>
+        <tr aava-row *aavaRowDef="let row; columns: displayedColumns"></tr>
+      </aava-table>
+</div>
+
+<div class="nested-table-wrapper">
+      <aava-table [dataSource]="dataSource" [displayedColumns] = "displayedColumns">
+          <ng-container aavaColumnDef="name" >
+              <th aava-cell *aavaHeaderCellDef>
+                 Name</th>
+              <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+          </ng-container>
+            <ng-container aavaColumnDef="email" >
+              <th *aavaHeaderCellDef>Email</th>
+              <td  aava-cell *aavaCellDef="let element">{{ element.email }}</td>
+          </ng-container>
+            <ng-container aavaColumnDef="role" >
+              <th *aavaHeaderCellDef>Role</th>
+              <td  aava-cell *aavaCellDef="let element"> {{ element.role }}</td>
+          </ng-container>
+           <ng-container aavaColumnDef="status" >
+              <th *aavaHeaderCellDef>Status</th>
+              <td  aava-cell *aavaCellDef="let element">{{ element.status }}</td>
+          </ng-container>
+            <ng-container aavaColumnDef="expand">
+              <th *aavaHeaderCellDef></th>
+              <td aava-cell *aavaCellDef="let element;let index = index">
+                <aava-icon [cursor]="true"
+                  [iconName]="expandedRowIndex===index && isExpanded ?'chevron-up':'chevron-down'"></aava-icon>
+              </td>
+            </ng-container>
+
+        <tr aava-header-row *aavaHeaderRowDef="displayedColumns"></tr>
+        <tr aava-row *aavaRowDef="let row; columns: displayedColumns"></tr>
+        <!-- Expanded Row -->
+      <ng-template aavaRowDetail let-row="row">
+        <tr class="expanded-row">
+          <td colspan="5">
+            <aava-table [dataSource]="row.orders">
+              <ng-container aavaColumnDef="orderId">
+                <th aava-header-cell *aavaHeaderCellDef> OrderId </th>
+                <td aava-cell *aavaCellDef="let element">{{ element.orderId }}</td>
+              </ng-container>
+               <ng-container aavaColumnDef="item">
+                <th aava-header-cell *aavaHeaderCellDef> Item </th>
+                <td aava-cell *aavaCellDef="let element">{{ element.item }}</td>
+              </ng-container>
+               <ng-container aavaColumnDef="amount">
+                <th aava-header-cell *aavaHeaderCellDef> Amount </th>
+                <td aava-cell *aavaCellDef="let element" style="text-align: right;">{{ element.amount | currency:'USD':'symbol':'1.2-2' }}</td>
+              </ng-container>
+
+              <tr aava-header-row *aavaHeaderRowDef="['orderId','item','amount']"></tr>
+              <tr aava-row *aavaRowDef="let t; columns: ['orderId','item','amount']"></tr>
+            </aava-table>
+          </td>
+        </tr>
+      </ng-template>
+
+      </aava-table>
+</div>
+
+
+
+
+

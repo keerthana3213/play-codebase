@@ -1,0 +1,179 @@
+<div class="showcase-container">
+
+    <!-- Hero Section -->
+    <header class="hero-section">
+        <h1 playAnimate animation="slideUp" [trigger]="['load']">AAVA Play+ Motion System</h1>
+        <p playAnimate animation="fade" [trigger]="['load']" [delay]="0.2">
+            <strong>Glass</strong> (Surface), <strong>Liquid</strong> (Connection), and <strong>Light</strong>
+            (Feedback).
+        </p>
+    </header>
+
+    <!-- 1. Glass — Surface Layer -->
+    <section class="demo-section">
+        <h2>1. Glass — Surface Layer</h2>
+        <p>Surfaces that reveal hierarchy and focus. <em>Defines operational state.</em></p>
+
+        <!-- Updated Glass Examples from Animation-1 (Better Visuals) -->
+        <div class="demo-grid" style="background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%);">
+
+            <!-- Glass Lift -->
+            <div class="showcase-item">
+                <div style="padding: 24px;">
+                    <aava-default-card playAnimate animation="glassLift" trigger="hover"
+                        style="border-radius: 24px; overflow: hidden"
+                        [cardStyles]="{'border-radius': '24px', 'overflow': 'hidden'}" [customStyles]="{
+                            'width': '200px', 
+                            'height': '200px', 
+                            'background': 'rgba(255,255,255,0.2)', 
+                            'border-radius': '24px', 
+                            'border': '1px solid rgba(255,255,255,0.3)',
+                            'display': 'flex',
+                            'align-items': 'center',
+                            'justify-content': 'center'
+                        }">
+                        <div
+                            style="font-size: 24px; font-weight: 600; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            Lift</div>
+                    </aava-default-card>
+                </div>
+                <div class="label">Glass Lift (280ms)</div>
+            </div>
+
+            <!-- Glass Hover -->
+            <div class="showcase-item">
+                <div style="padding: 24px;">
+                    <aava-default-card playAnimate animation="glassHover" trigger="hover"
+                        style="border-radius: 24px; overflow: hidden"
+                        [cardStyles]="{'border-radius': '24px', 'overflow': 'hidden'}" [customStyles]="{
+                            'width': '200px', 
+                            'height': '200px', 
+                            'background': 'rgba(255,255,255,0.1)', 
+                            'border-radius': '24px', 
+                            'border': '1px solid rgba(255,255,255,0.2)',
+                            'display': 'flex',
+                            'align-items': 'center',
+                            'justify-content': 'center'
+                        }">
+                        <div
+                            style="font-size: 24px; font-weight: 600; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            Hover</div>
+                    </aava-default-card>
+                </div>
+                <div class="label">Glass Hover (180ms)</div>
+            </div>
+
+            <!-- Zoom Fade (Glass Entry) -->
+            <div class="showcase-item">
+                <div style="padding: 24px;">
+                    <aava-default-card playAnimate animation="zoomFadeIn" trigger="click"
+                        style="border-radius: 24px; overflow: hidden"
+                        [cardStyles]="{'border-radius': '24px', 'overflow': 'hidden'}" [customStyles]="{
+                            'width': '200px', 
+                            'height': '200px', 
+                            'background': 'rgba(255,255,255,0.2)', 
+                            'border-radius': '24px', 
+                            'border': '1px solid rgba(255,255,255,0.3)',
+                            'display': 'flex',
+                            'align-items': 'center',
+                            'justify-content': 'center'
+                        }">
+                        <div
+                            style="font-size: 24px; font-weight: 600; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+                            Zoom</div>
+                    </aava-default-card>
+                </div>
+                <div class="label">Blur Morph / Zoom (320ms)</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 2. Liquid — Motion Layer -->
+    <section class="demo-section">
+        <h2>2. Liquid — Motion Layer</h2>
+        <p>Transitions that express continuity and momentum. <em>Connects the system.</em></p>
+
+        <div class="demo-grid">
+            <!-- Flow Slide -->
+            <div class="showcase-group">
+                <h3>Flow Slide</h3>
+                <div class="row">
+                    <aava-button playAnimate animation="slideUp" trigger="click" label="Slide Up"
+                        variant="primary"></aava-button>
+                    <aava-button playAnimate animation="slideDown" trigger="click" label="Slide Down"
+                        variant="primary"></aava-button>
+                </div>
+                <div class="label">Directional (~220ms)</div>
+            </div>
+
+            <!-- Navigation / Tabs (Moved here as per Motion 1.md) -->
+            <div class="showcase-group" style="width: 100%; max-width: 500px;">
+                <h3>Navigation Flow</h3>
+                <aava-tabs playAnimate [animation]="['tabSwitch', 'tabSwitch']" [trigger]="['load', 'click']"
+                    [tabs]="tabItems" variant="button" size="xl" [activeTabId]="activeTabId" buttonShape="rounded"
+                    [bordered]="true" [showContentPanels]="false">
+                </aava-tabs>
+                <div class="label">Tab Switch (Liquid Flow)</div>
+            </div>
+
+            <!-- Soft Bounce & Fade -->
+            <div class="showcase-group">
+                <h3>Micro-Flows</h3>
+                <div class="row">
+                    <aava-button playAnimate animation="fade" trigger="click" label="Fade In"
+                        variant="secondary"></aava-button>
+                    <aava-button playAnimate animation="bounce" trigger="click" label="Bounce"
+                        variant="secondary"></aava-button>
+                </div>
+                <div class="label">Fade & Bounce</div>
+            </div>
+
+            <!-- Viscous Settle / Swoop -->
+            <div class="showcase-group">
+                <h3>Viscous Settle</h3>
+                <div class="row">
+                    <aava-button label="Swoop In" variant="primary" (userClick)="openSwoopModal()"></aava-button>
+                    <aava-button label="Swoop Out" variant="secondary" (userClick)="openSwoopOutModal()"></aava-button>
+                </div>
+                <div class="label">Swoop Animation</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Light — Feedback Layer -->
+    <section class="demo-section">
+        <h2>3. Light — Feedback Layer</h2>
+        <p>Feedback that reflects action and energy. <em>Responds to intelligence.</em></p>
+
+        <div class="demo-grid">
+            <!-- Ripple -->
+            <div class="showcase-group">
+                <h3>Ripple Spread</h3>
+                <aava-button playAnimate animation="ripple" trigger="click" label="Click Me"
+                    variant="primary"></aava-button>
+                <div class="label">Radial Wave (150ms)</div>
+            </div>
+
+            <!-- Light Pulse -->
+            <div class="showcase-group">
+                <h3>Light Pulse</h3>
+                <aava-button playAnimate animation="pulse" trigger="click" label="Pulse"
+                    variant="secondary"></aava-button>
+                <div class="label">Quick Glow (120ms)</div>
+            </div>
+
+            <!-- Specular/Interaction -->
+            <div class="showcase-group">
+                <h3>Interaction</h3>
+                <div class="row">
+                    <aava-button playAnimate animation="shake" trigger="click" label="Shake (Error)"
+                        variant="secondary"></aava-button>
+                    <aava-button playAnimate animation="flip" trigger="click" label="Flip"
+                        variant="secondary"></aava-button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

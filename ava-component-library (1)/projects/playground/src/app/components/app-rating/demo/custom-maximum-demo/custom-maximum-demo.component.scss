@@ -1,0 +1,39 @@
+.demo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+.demo-description {
+  margin-bottom: 2rem;
+}
+.custom-max-demo {
+  margin-bottom: 2rem;
+}
+.demo-section {
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
+.scale-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+.scale-example {
+  padding: 1.5rem;
+  background-color: white;
+  border-radius: 6px;
+  border: 1px solid #dee2e6;
+  text-align: center;
+}
+.rating-value {
+  display: block;
+  margin-top: 1rem;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+}

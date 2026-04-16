@@ -1,0 +1,8 @@
+<div class="demo-container">
+    <div *ngFor="let config of treeConfigs" class="tree-variant">
+        <p>{{ config.label }}</p>
+        <aava-treeview [nodes]="config.nodes" [size]="config.size" [iconPosition]="config.iconPosition"
+            (nodeSelect)="onNodeSelect(config, $event)">
+        </aava-treeview>
+    </div>
+</div>

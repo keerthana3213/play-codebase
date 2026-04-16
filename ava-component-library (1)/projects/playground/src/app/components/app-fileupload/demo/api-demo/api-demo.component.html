@@ -1,0 +1,100 @@
+<div class="api-demo-container">
+  <div class="api-section">
+    <h2>File Upload Component API</h2>
+    <p>Complete reference for the AavaFileUploadComponent inputs, outputs, and interfaces.</p>
+  </div>
+
+  <!-- Component Inputs -->
+  <div class="api-section">
+    <h3>Component Inputs</h3>
+    <div class="api-table-container">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Property</th>
+            <th>Type</th>
+            <th>Default</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let prop of componentProps">
+            <td class="prop-name">{{ prop.name }}</td>
+            <td class="prop-type">{{ prop.type }}</td>
+            <td class="prop-default">{{ prop.default }}</td>
+            <td class="prop-description">{{ prop.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Component Outputs -->
+  <div class="api-section">
+    <h3>Component Outputs</h3>
+    <div class="api-table-container">
+      <table class="api-table">
+        <thead>
+          <tr>
+            <th>Event</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of events">
+            <td class="prop-name">{{ event.name }}</td>
+            <td class="prop-type">{{ event.type }}</td>
+            <td class="prop-description">{{ event.description }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Interfaces -->
+  <div class="api-section">
+    <h3>Interfaces</h3>
+    <div *ngFor="let interface of interfaces" class="interface-section">
+      <h4>{{ interface.name }}</h4>
+      <div class="api-table-container">
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Property</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let prop of interface.properties">
+              <td class="prop-name">{{ prop.name }}</td>
+              <td class="prop-type">{{ prop.type }}</td>
+              <td class="prop-description">{{ prop.description }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Usage Examples -->
+  <div class="api-section">
+    <h3>Usage Examples</h3>
+    
+    <div class="example-section">
+      <h4>Basic Usage</h4>
+      <pre class="code-block">{{ basicUsageExample }}</pre>
+    </div>
+
+    <div class="example-section">
+      <h4>Layout Variants</h4>
+      <pre class="code-block">{{ layoutVariantsExample }}</pre>
+    </div>
+
+    <div class="example-section">
+      <h4>File Validation</h4>
+      <pre class="code-block">{{ validationExample }}</pre>
+    </div>
+  </div>
+</div>

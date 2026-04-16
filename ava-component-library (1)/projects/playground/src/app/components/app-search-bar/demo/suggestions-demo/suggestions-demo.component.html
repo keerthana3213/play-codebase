@@ -1,0 +1,139 @@
+<div class="demo-container">
+    <div class="example-group">
+      <h4>Autocomplete with Client-Side Filtering</h4>
+      <p class="description">Type to see filtered options immediately (try "script", "type", or "java")</p>
+      <aava-search-bar
+        placeholder="Search frameworks..."
+        [showAutocomplete]="true"
+        [options]="searchSuggestions"
+        [closeButton]="true"
+        (searchClick)="onSearchClick($event)"
+        (searchChange)="onSearchChange($event)"
+      ></aava-search-bar>
+    </div>
+
+    <!-- JSON-based Options with Icons Example -->
+    <div class="example-group">
+      <h4>Product Search with Icons</h4>
+      <p class="description">Type at least 3 characters to filter products (try "phone", "key", or "mic")</p>
+      <aava-search-bar
+        placeholder="Search products..."
+        [showAutocomplete]="true"
+        [options]="productSuggestions"
+        [closeButton]="true"
+        [minLength]="3"
+        (searchClick)="onSearchClick($event)"
+        (searchChange)="onProductSearchChange($event)"
+      ></aava-search-bar>
+    </div>
+
+    <!-- Loading State Example -->
+    <div class="example-group">
+      <h4>Loading State Example</h4>
+      <p class="description">Type to see loading spinner, then filtered results after 800ms. Try "Laptop", "phone", or "xyz" (no matches).</p>
+      <aava-search-bar
+        placeholder="Search with loading state..."
+        [showAutocomplete]="true"
+        [options]="loadingSuggestions"
+        [isLoading]="isLoadingDemo"
+        [closeButton]="true"
+        (searchChange)="onLoadingDemoSearchChange($event)"
+        (searchClick)="onSearchClick($event)"
+      ></aava-search-bar>
+    </div>
+
+    <!-- ng-content Approach Example -->
+    <div class="example-group">
+      <h4>Custom Autocomplete (ng-content)</h4>
+      <p class="description">Fully customized autocomplete with your own HTML & CSS via ng-content projection</p>
+      <aava-search-bar
+        placeholder="Search documentation, tutorials, or examples..."
+        [showAutocomplete]="true"
+        [closeButton]="true"
+        (searchClick)="onSearchClick($event)"
+      >
+        <div class="custom-autocomplete">
+          <!-- Recent Searches Section -->
+          <div class="autocomplete-section">
+            <div class="section-header">
+              <aava-icon iconName="clock" [iconSize]="16" iconColor="#6b7280"></aava-icon>
+              <span class="section-title">Recent Searches</span>
+            </div>
+            <div class="autocomplete-items">
+              <div class="autocomplete-item">
+                <aava-icon iconName="search" [iconSize]="14" iconColor="#9ca3af"></aava-icon>
+                <span class="item-text">Angular Components Library</span>
+                <aava-icon iconName="arrow-up" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+              <div class="autocomplete-item">
+                <aava-icon iconName="search" [iconSize]="14" iconColor="#9ca3af"></aava-icon>
+                <span class="item-text">TypeScript Best Practices</span>
+                <aava-icon iconName="arrow-up" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+              <div class="autocomplete-item">
+                <aava-icon iconName="search" [iconSize]="14" iconColor="#9ca3af"></aava-icon>
+                <span class="item-text">Reactive Forms Tutorial</span>
+                <aava-icon iconName="arrow-up" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="autocomplete-divider"></div>
+
+          <!-- Suggested Topics Section -->
+          <div class="autocomplete-section">
+            <div class="section-header">
+              <aava-icon iconName="trending-up" [iconSize]="16" iconColor="#6b7280"></aava-icon>
+              <span class="section-title">Trending Topics</span>
+            </div>
+            <div class="autocomplete-items">
+              <div class="autocomplete-item featured">
+                <aava-icon iconName="sparkles" [iconSize]="14" iconColor="#f59e0b"></aava-icon>
+                <span class="item-text">Component Design Patterns</span>
+                <span class="item-badge">Popular</span>
+              </div>
+              <div class="autocomplete-item featured">
+                <aava-icon iconName="zap" [iconSize]="14" iconColor="#8b5cf6"></aava-icon>
+                <span class="item-text">Performance Optimization</span>
+                <span class="item-badge">Hot</span>
+              </div>
+              <div class="autocomplete-item">
+                <aava-icon iconName="book-open" [iconSize]="14" iconColor="#3b82f6"></aava-icon>
+                <span class="item-text">State Management Guide</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Divider -->
+          <div class="autocomplete-divider"></div>
+
+          <!-- Quick Actions Section -->
+          <div class="autocomplete-section">
+            <div class="section-header">
+              <aava-icon iconName="layout" [iconSize]="16" iconColor="#6b7280"></aava-icon>
+              <span class="section-title">Quick Actions</span>
+            </div>
+            <div class="autocomplete-items">
+              <div class="autocomplete-item action-item">
+                <aava-icon iconName="file-text" [iconSize]="14" iconColor="#10b981"></aava-icon>
+                <span class="item-text">Browse Documentation</span>
+                <aava-icon iconName="arrow-right" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+              <div class="autocomplete-item action-item">
+                <aava-icon iconName="code" [iconSize]="14" iconColor="#6366f1"></aava-icon>
+                <span class="item-text">View Code Examples</span>
+                <aava-icon iconName="arrow-right" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+              <div class="autocomplete-item action-item">
+                <aava-icon iconName="help-circle" [iconSize]="14" iconColor="#ec4899"></aava-icon>
+                <span class="item-text">Get Help & Support</span>
+                <aava-icon iconName="arrow-right" [iconSize]="12" iconColor="#d1d5db" class="item-action"></aava-icon>
+              </div>
+            </div>
+          </div>
+        </div>
+      </aava-search-bar>
+    </div>
+
+</div>

@@ -1,0 +1,371 @@
+<div class="textbox-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Textbox Component</h1>
+            <p class="description">
+              A sophisticated text input component with glass morphism, content
+              projection, advanced processing effects, and comprehensive form
+              integration. Built with accessibility and modern design
+              principles.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/textbox/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/textbox/variants" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Variants</span>
+              </a>
+              <a routerLink="/textbox/sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="/textbox/icons-affixes" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Icons & Affixes</span>
+              </a>
+              <a routerLink="/textbox/states-validation" class="nav-link">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">States & Validation</span>
+              </a>
+              <a routerLink="/textbox/processing-effects" class="nav-link">
+                <span class="nav-icon">✨</span>
+                <span class="nav-text">Processing Effects</span>
+              </a>
+              <a routerLink="/textbox/form-integration" class="nav-link">
+                <span class="nav-icon">🔗</span>
+                <span class="nav-text">Form Integration</span>
+              </a>
+              <a routerLink="/textbox/glass-effects" class="nav-link">
+                <span class="nav-icon">🔮</span>
+                <span class="nav-text">Glass & Effects</span>
+              </a>
+              <a routerLink="/textbox/phone-number" class="nav-link">
+                <span class="nav-icon">📱</span>
+                <span class="nav-text">Phone Number</span>
+              </a>
+              <a routerLink="/textbox/otp" class="nav-link">
+                <span class="nav-icon">🔐</span>
+                <span class="nav-text">OTP Input</span>
+              </a>
+              <a routerLink="/textbox/masking" class="nav-link">
+                <span class="nav-icon">🔤</span>
+                <span class="nav-text">Masking</span>
+              </a>
+              <a routerLink="/textbox/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>
+            Simple textbox implementation with label, placeholder, and two-way
+            data binding
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Basic Input" placeholder="Enter text here" [(ngModel)]="basicValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Email Input" type="email" placeholder="user@example.com"
+                [(ngModel)]="emailValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Disabled Input" placeholder="Cannot edit" [value]="'Disabled input'"
+                [disabled]="true"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Read Only" placeholder="Cannot edit" [value]="'Read only value'"
+                [readonly]="true"></aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Variants -->
+    <section class="demo-section variants-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Textbox Variants</h2>
+          <p>
+            Six semantic variants that control visual appearance and focus
+            colors
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Default Variant" placeholder="Default variant..." variant="default"
+                [(ngModel)]="defaultValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Primary Variant" placeholder="Primary variant..." variant="primary"
+                [(ngModel)]="primaryValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Success Variant" placeholder="Success variant..." variant="success"
+                [(ngModel)]="successValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Error Variant" placeholder="Error variant..." variant="error"
+                [(ngModel)]="errorValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Warning Variant" placeholder="Warning variant..." variant="warning"
+                [(ngModel)]="warningValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4">
+              <aava-textbox label="Info Variant" placeholder="Info variant..." variant="info"
+                [(ngModel)]="infoValue"></aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Textbox Sizes</h2>
+          <p>Three size options to accommodate different interface densities</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-end">
+            <div class="col-12 col-md-4">
+              <aava-textbox label="Small Size" placeholder="Small textbox..." size="sm"
+                [(ngModel)]="smallValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-textbox label="Medium Size (Default)" placeholder="Medium textbox..." size="md"
+                [(ngModel)]="mediumValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-textbox label="Large Size" placeholder="Large textbox..." size="sm"
+                [(ngModel)]="largeValue"></aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Icons & Affixes -->
+    <section class="demo-section icons-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Icons & Affixes</h2>
+          <p>
+            Advanced content projection system supporting icons, prefixes, and
+            suffixes
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Search with Icons" placeholder="Search..." [(ngModel)]="searchValue">
+                <aava-icon slot="icon-start" iconName="search"></aava-icon>
+                <aava-icon slot="icon-end" iconName="x" (click)="clearSearch()"></aava-icon>
+              </aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Currency Input" placeholder="0.00" [(ngModel)]="currencyValue">
+                <span slot="prefix">$</span>
+                <span slot="suffix">USD</span>
+              </aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Email with Icon" type="email" placeholder="Enter email"
+                [(ngModel)]="emailWithIconValue">
+                <aava-icon slot="icon-start" iconName="mail"></aava-icon>
+              </aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Percentage" placeholder="0" [(ngModel)]="percentageValue">
+                <span slot="suffix">%</span>
+              </aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- States & Validation -->
+    <section class="demo-section states-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>States & Validation</h2>
+          <p>
+            Comprehensive validation system with error messages and helper text
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-textbox label="With Helper Text" placeholder="Enter your comments..."
+                helper="Please provide detailed feedback to help us improve our service."
+                [(ngModel)]="helperValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="With Error State" placeholder="Enter your email..."
+                error="Please enter a valid email address." [(ngModel)]="errorStateValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Required Field" placeholder="This field is required..." [required]="true"
+                [(ngModel)]="requiredValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Character Limit" placeholder="Max 50 characters..." [maxlength]="50"
+                [(ngModel)]="maxLengthValue"></aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Processing Effects -->
+    <section class="demo-section processing-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Processing Effects</h2>
+          <p>Advanced processing states with multiple animation options</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Processing State" placeholder="Processing..." [processing]="true"
+                [(ngModel)]="processingValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Shimmer Effect" placeholder="Validating..." [processing]="true"
+                processingEffect="shimmer" [(ngModel)]="shimmerValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Gradient Border" placeholder="Submitting..." [processing]="true"
+                [processingGradientBorder]="true" [(ngModel)]="gradientValue"></aava-textbox>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-textbox label="Custom Colors" placeholder="Custom processing..." [processing]="true"
+                [processingGradientBorder]="true" [processingGradientColors]="['#ff6b6b', '#4ecdc4', '#45b7d1']"
+                [(ngModel)]="customGradientValue"></aava-textbox>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Form Integration -->
+    <section class="demo-section form-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Form Integration</h2>
+          <p>
+            Complete Angular forms integration with reactive and template-driven
+            forms
+          </p>
+        </div>
+        <div class="demo-content">
+          <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Username" placeholder="Enter username" formControlName="username"
+                  [error]="getFieldError('username')" helper="3-20 characters, letters and numbers only"></aava-textbox>
+              </div>
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Email" type="email" placeholder="Enter email" formControlName="email"
+                  [error]="getFieldError('email')" helper="We'll never share your email"></aava-textbox>
+              </div>
+              <div class="col-12">
+                <aava-textbox label="Message" placeholder="Enter your message..." formControlName="message"
+                  [rows]="3"></aava-textbox>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-primary">
+                  Submit Form
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Glass & Effects -->
+    <section class="demo-section glass-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Glass & Effects</h2>
+          <p>
+            Advanced glass morphism system with hover, pressed, and focus
+            effects
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="glass-demo-background">
+            <div class="row g-3">
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Glass 10 (Recommended)" placeholder="Subtle glass effect..."
+                  glassVariant="glass-10" [(ngModel)]="glass10Value"></aava-textbox>
+              </div>
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Glass 50 (Medium)" placeholder="Medium glass intensity..." glassVariant="glass-50"
+                  [(ngModel)]="glass50Value"></aava-textbox>
+              </div>
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Tint Hover Effect" placeholder="Hover for tint effect..." hoverEffect="tint"
+                  [(ngModel)]="tintValue"></aava-textbox>
+              </div>
+              <div class="col-12 col-md-6">
+                <aava-textbox label="Glow Hover Effect" placeholder="Hover for glow effect..." hoverEffect="glow"
+                  [(ngModel)]="glowValue"></aava-textbox>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>
+<div class="password-demo" style="max-width: 400px; padding: 20px;">
+  <aava-textbox [formControl]="passwordControl" label="Password (JS Masked)" type="text" placeholder="Enter password"
+    (input)="onPasswordInput($event)">
+    <aava-icon slot="icon-end" [iconName]="showPassword ? 'eye' : 'eye-off'" (click)="togglePasswordVisibility()">
+    </aava-icon>
+  </aava-textbox>
+  <div style="margin-top: 8px; font-size: 12px; color: #666;">
+    <div>Display: {{ passwordControl.value }}</div>
+    <div>Real Value: {{ realPasswordValue }}</div>
+  </div>
+</div>

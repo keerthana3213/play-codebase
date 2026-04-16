@@ -1,0 +1,202 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Console Theme
+ *
+ * Console theme optimized for developers with high contrast and readability.
+ * Perfect for code editors, terminals, and developer tools.
+ * =========================================================================
+ */
+
+[data-theme="console"] {
+   /* --- Console Theme Global Color Overrides --- */
+
+   /* Primary (Electric Blue) */
+   --global-color-royal-blue-400: #60a5fa;
+   --global-color-royal-blue-600: #2563eb;
+   --global-color-royal-blue-500: #3b82f6;
+
+   /* Secondary (Terminal Green) */
+   --global-color-green-400: #4ade80;
+   --global-color-green-600: #16a34a;
+
+   /* Gray Scale */
+   --global-color-gray-900: #111827;
+   --global-color-gray-800: #1f2937;
+   --global-color-gray-700: #374151;
+   --global-color-gray-600: #4b5563;
+   --global-color-gray-500: #6b7280;
+   --global-color-gray-100: #f3f4f6;
+   --global-color-white: #ffffff;
+   --global-color-black: #000000;
+
+   /* Semantic Colors */
+   --global-color-red-400: #f87171;
+   --global-color-red-700: #b91c1c;
+   --global-color-yellow-400: #facc15;
+   --global-color-yellow-600: #ca8a04;
+
+   /* --- Console Theme Color Overrides --- */
+   /* PRIMARY (Electric Blue) */
+   --color-brand-primary: var(--global-color-royal-blue-400);
+   --color-brand-primary-hover: var(--global-color-royal-blue-600);
+   --color-brand-primary-active: var(--global-color-royal-blue-600);
+   --color-surface-interactive-primary: var(--global-color-royal-blue-400);
+   --color-surface-interactive-primary-hover: var(--global-color-royal-blue-600);
+   --color-surface-interactive-primary-active: var(--global-color-royal-blue-600);
+   --color-border-primary: var(--global-color-royal-blue-400);
+   --color-border-primary-hover: var(--global-color-royal-blue-600);
+   --color-border-primary-active: var(--global-color-royal-blue-600);
+   --color-text-primary: var(--global-color-gray-100);
+   --color-text-on-primary: var(--global-color-white);
+
+   /* SECONDARY (Terminal Green) */
+   --color-brand-secondary: var(--global-color-green-400);
+   --color-brand-secondary-hover: var(--global-color-green-600);
+   --color-brand-secondary-active: var(--global-color-green-600);
+   --color-surface-interactive-secondary: var(--global-color-green-400);
+   --color-surface-interactive-secondary-hover: var(--global-color-green-600);
+   --color-surface-interactive-secondary-active: var(--global-color-green-600);
+   --color-border-secondary: var(--global-color-green-400);
+   --color-border-secondary-hover: var(--global-color-green-600);
+   --color-border-secondary-active: var(--global-color-green-600);
+   --color-text-secondary: var(--global-color-green-400);
+   --color-text-on-secondary: var(--global-color-black);
+   --color-background-secondary: var(--global-color-gray-800);
+
+   /* INTERACTIVE ELEMENTS */
+   --color-text-placeholder: var(--global-color-gray-500);
+   --color-text-disabled: var(--global-color-gray-600);
+   --color-text-on-brand: var(--global-color-white);
+   --color-text-interactive: var(--global-color-royal-blue-400);
+   --color-text-interactive-hover: var(--global-color-royal-blue-600);
+   --color-text-success: var(--global-color-green-400);
+   --color-text-error: var(--global-color-red-400);
+   --color-background-primary: var(--global-color-gray-900);
+   --color-background-disabled: var(--global-color-gray-800);
+   --color-surface-interactive-default: var(--global-color-royal-blue-400);
+   --color-surface-interactive-hover: var(--global-color-royal-blue-600);
+   --color-surface-interactive-active: var(--global-color-royal-blue-600);
+   --color-surface-disabled: var(--global-color-gray-700);
+   --color-surface-subtle-hover: var(--global-color-gray-800);
+   --color-border-default: var(--global-color-gray-600);
+   --color-border-subtle: var(--global-color-gray-700);
+   --color-border-interactive: var(--global-color-royal-blue-400);
+   --color-border-focus: var(--global-color-royal-blue-400);
+   --color-border-error: var(--global-color-red-400);
+   --color-background-error: var(--global-color-red-700);
+
+   /* SEMANTIC COLORS */
+   --color-border-warning: var(--global-color-yellow-400);
+   --color-border-success: var(--global-color-green-400);
+   --color-border-error: var(--global-color-red-400);
+   --color-border-info: var(--global-color-royal-blue-400);
+   --color-text-warning: var(--global-color-yellow-400);
+   --color-text-success: var(--global-color-green-400);
+   --color-text-error: var(--global-color-red-400);
+   --color-text-info: var(--global-color-royal-blue-400);
+   --color-background-warning: var(--global-color-yellow-600);
+   --color-background-success: var(--global-color-green-700);
+   --color-background-error: var(--global-color-red-700);
+   --color-background-info: var(--global-color-royal-blue-500);
+
+   /* GLASSMORPHISM */
+   --glass-backdrop-blur: 8px;
+   --glass-background-color: rgba(17, 24, 39, 0.8);
+   --glass-border-color: rgba(255, 255, 255, 0.1);
+   --glass-border-width: 1px;
+   --glass-elevation: var(--global-elevation-01);
+
+   /* =======================
+     CONSOLE THEME: RGB OVERRIDES
+     Extract RGB values from console theme semantic colors
+     ======================= */
+   --rgb-brand-primary: 96, 165, 250;
+   /* From #60a5fa */
+   --rgb-brand-secondary: 74, 222, 128;
+   /* From #4ade80 */
+   --rgb-brand-tertiary: 3, 189, 212;
+   /* From #03bdd4 */
+   --rgb-brand-quaternary: 250, 112, 154;
+   /* From #fa709a */
+   --rgb-brand-quinary: 254, 225, 64;
+   /* From #fee140 */
+   --rgb-brand-senary: 156, 39, 176;
+   /* From #9c27b0 */
+   --rgb-violet: 124, 58, 237;
+   /* From #7c3aed */
+   --rgb-royal-blue: 37, 99, 235;
+   /* From #2563eb */
+   --rgb-cyan: 3, 189, 212;
+   /* From #03bdd4 */
+   --rgb-spearmint: 67, 189, 144;
+   /* From #43bd90 */
+   --rgb-rose: 250, 112, 154;
+   /* From #fa709a */
+   --rgb-white: 255, 255, 255;
+   /* From #ffffff */
+   --rgb-black: 0, 0, 0;
+   /* From #000000 */
+   --rgb-neutral-100: 17, 24, 39;
+   /* From #111827 */
+
+   /* =======================
+     CONSOLE THEME: EFFECT COLOR OVERRIDES
+     Override all effect colors for proper console theme adaptation
+     ======================= */
+   --effect-color-primary: var(--rgb-brand-primary);
+   /* Electric Blue */
+   --effect-color-secondary: var(--rgb-brand-secondary);
+   /* Terminal Green */
+   --effect-color-accent: var(--rgb-cyan);
+   /* Cyan accent for variety */
+   --effect-color-neutral: var(--rgb-white);
+   /* White shadows work well on dark bg */
+   --effect-color-surface: var(--rgb-black);
+   /* Black glass/shimmer on dark bg */
+
+   /* =======================
+     CONSOLE THEME: SEMANTIC COMPONENT TOKENS
+     Theme-aware component-specific tokens using the metaphor system
+     ======================= */
+
+   /* Glass Metaphor (Theme-Aware) */
+   --surface-glass-bg: rgba(var(--effect-color-surface), 0.15);
+   --surface-glass-border: rgba(var(--effect-color-surface), 0.3);
+   --surface-glass-shadow: rgba(var(--effect-color-surface), 0.2);
+
+   /* Light Metaphor (Theme-Aware) */
+   --color-light-glow: rgba(var(--effect-color-primary), 0.45);
+   --color-light-glow-focus: rgba(var(--effect-color-primary), 0.65);
+   --color-light-shadow: rgba(var(--effect-color-accent), 0.1);
+   --color-light-border: var(--color-brand-primary);
+   --color-light-border-focus: var(--color-brand-secondary);
+
+   /* Liquid Metaphor (Theme-Aware) */
+   --color-liquid-shimmer-start: var(--color-brand-secondary);
+   --color-liquid-shimmer-end: var(--color-brand-primary);
+
+   /* =======================
+     CONSOLE THEME: SOPHISTICATED GLASS CHAINING
+     Override glass surface colors for console theme variants
+     ======================= */
+
+   /* Console theme glass surface - use black for dark theme */
+   --glass-surface-color: var(--rgb-black);
+
+   /* Console theme variant glass colors */
+   --glass-variant-primary: var(--rgb-brand-primary);
+   --glass-variant-success: 76, 175, 80;
+   --glass-variant-warning: 255, 152, 0;
+   --glass-variant-danger: 244, 67, 54;
+   --glass-variant-info: 96, 165, 250;
+   --glass-variant-purple: 156, 39, 176;
+   --glass-variant-emerald: 16, 185, 129;
+   --glass-variant-blue: 37, 99, 235;
+   --glass-variant-aqua: 3, 189, 212;
+
+   /* Console theme effect color adjustments */
+   --effect-color-neutral: var(--rgb-white);
+   /* White shadows work on dark bg */
+   --effect-color-surface: var(--rgb-black);
+   /* Black highlights on dark bg */
+}

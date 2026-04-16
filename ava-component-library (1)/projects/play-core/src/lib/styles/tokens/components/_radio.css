@@ -1,0 +1,47 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Radio Button Component Tokens
+ *
+ * Component-specific semantic tokens for radio button elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for radio button styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Radio Group --- */
+  --radio-group-gap: var(--global-spacing-4);
+  --radio-group-direction: column;
+  --radio-group-align-items: flex-start;
+  --radio-focus-outline-offset: 2px;
+  --radio-focus-border-radius: 4px;
+  --radio-cursor: pointer;
+  --radio-focus-font-weight: 500;
+  --radio-checkmark-background: var(--global-background);
+  --radio-checkmark-border: 2px solid var(--color-brand-primary);
+  --radio-checkmark-border-radius: var(--radio-border-radius);
+  --radio-cursor-disabled: not-allowed;
+  --radio-dot-background-disabled: var(--color-text-disabled);
+  --radio-border-radius: 50%;
+
+  --radio-size-sm: 16px;
+  --radio-size-md: 20px;
+  --radio-size-lg: 24px;
+  --radio-animated-shadow: 0 0 0 8px rgba(0, 0, 0, 0.1),
+    0 2px 8px 0 rgba(0, 0, 0, 0.1);
+  --radio-dot-background: var(--color-brand-primary);
+  --radio-dot-border-radius: 50%;
+  --radio-size-sm-dot: 8.5px;
+  --radio-size-md-dot: 10.6px;
+  --radio-size-lg-dot: 12.8px;
+  --radio-label-margin-left: var(--global-spacing-3);
+  --radio-label-color: var(--color-text-primary);
+  --radio-label-font: var(--font-body-2);
+  --radio-label-color-disabled: var(--color-text-disabled);
+  --radio-label-cursor-disabled: not-allowed;
+  --radio-size-sm-label: var(--font-label);
+
+  --radio-size-md-label: var(--font-body-2);
+
+  --radio-size-lg-label: var(--font-body-1);
+}

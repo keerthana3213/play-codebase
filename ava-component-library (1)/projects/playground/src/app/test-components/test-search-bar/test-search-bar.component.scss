@@ -1,0 +1,20 @@
+.t-container {
+    width: 100%;
+    margin-left: 30px;
+    margin-top: 30px;
+}
+
+.each {
+    display: flex;
+}
+
+.each>div {
+    display: inline-block;
+    width: 20%;
+    margin-right: 2%;
+
+    aava-search-bar {
+        display: block;
+        margin-bottom: 30px;
+    }
+}

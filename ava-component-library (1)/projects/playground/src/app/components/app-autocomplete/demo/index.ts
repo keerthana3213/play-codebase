@@ -1,0 +1,9 @@
+export { AppAutocompleteBasicUsageDemoComponent } from './basic-usage-demo/basic-usage-demo.component';
+export { AppAutocompleteMultiSelectDemoComponent } from './multi-select-demo/multi-select-demo.component';
+export { AppAutocompleteIconsDemoComponent } from './icons-demo/icons-demo.component';
+export { AppAutocompleteLoadingDemoComponent } from './loading-demo/loading-demo.component';
+export { AppAutocompleteTemplatesDemoComponent } from './templates-demo/templates-demo.component';
+export { AppAutocompleteFormsDemoComponent } from './forms-demo/forms-demo.component';
+export { AppAutocompleteAccessibilityDemoComponent } from './accessibility-demo/accessibility-demo.component';
+export { AppAutocompleteAsyncDemoComponent } from './async-demo/async-demo.component';
+export { AppAutocompleteCustomStylesDemoComponent } from './custom-styles-demo/custom-styles-demo.component';

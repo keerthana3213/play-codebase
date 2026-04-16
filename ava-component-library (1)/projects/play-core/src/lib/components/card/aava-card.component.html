@@ -1,0 +1,17 @@
+<div class="ava-card-container" [attr.role]="'listitem'" [attr.id]="id ? 'aava-card-' + id : null">
+    <div class="ava-card card">
+        <div class="card-wrapper">
+            <div class="card-header">
+                <ng-content select="div[header]"></ng-content>
+            </div>
+
+            <div class="card-content">
+                <ng-content select="div[content]"></ng-content>
+            </div>
+
+            <div class="card-footer">
+                <ng-content select="div[footer]"></ng-content>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+.table-tooltip-dialog {
+    padding: 24px;
+    min-width: 500px;
+}
+
+.dialog-header {
+    margin-bottom: 20px;
+
+    h2 {
+        margin: 0 0 8px 0;
+        font-size: 1.25rem;
+        font-weight: 600;
+    }
+
+    .description {
+        margin: 0;
+        color: var(--color-text-secondary, #666);
+        font-size: 0.875rem;
+    }
+}
+
+.dialog-content {
+    margin-bottom: 20px;
+    overflow: visible;
+
+    // Ensure tooltips are not clipped by table container
+    ::ng-deep .aava-table-container {
+        overflow: visible !important;
+    }
+}
+
+.dialog-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+}
+
+.tooltip-cell {
+    cursor: pointer;
+    padding: 4px 8px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+
+    &:hover {
+        background-color: var(--color-surface-hover, rgba(0, 0, 0, 0.05));
+    }
+}
+
+.status-badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+
+    &.active {
+        background-color: #e6f4ea;
+        color: #1e7e34;
+    }
+
+    &.pending {
+        background-color: #fff3e0;
+        color: #e65100;
+    }
+
+    &.inactive {
+        background-color: #fce4ec;
+        color: #c62828;
+    }
+}
+
+.action-link {
+    color: var(--color-brand-primary, #007bff);
+    text-decoration: underline;
+}

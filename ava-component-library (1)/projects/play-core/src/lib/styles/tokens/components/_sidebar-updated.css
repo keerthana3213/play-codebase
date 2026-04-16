@@ -1,0 +1,57 @@
+/**
+ * Component: Sidebar
+ * Purpose: Defines semantic tokens for the sidebar component and its sub-menus
+ */
+
+:root {
+    /* Base Styles */
+    --sidebar-background: var(--color-background-primary);
+    --sidebar-border: var(--color-border-default);
+    --sidebar-box-shadow: var(--global-elevation-02);
+    
+    /* Text Colors */
+    --sidebar-text-primary: var(--color-text-primary);
+    --sidebar-text-secondary: var(--color-text-secondary);
+    --sidebar-text-active: var(--color-text-on-primary);
+    
+    /* Interactive States */
+    --sidebar-item-hover-bg: var(--color-surface-subtle-hover);
+    --sidebar-item-active-bg: var(--color-surface-interactive-primary);
+    --sidebar-item-active-border: var(--color-border-primary);
+    
+    /* Sub-menu Specific */
+    --sidebar-submenu-indent: var(--global-spacing-4);
+    --sidebar-submenu-bg: var(--color-background-primary);
+    --sidebar-submenu-hover-bg: var(--color-surface-subtle-hover);
+    --sidebar-submenu-active-bg: var(--color-surface-interactive-secondary);
+    --sidebar-submenu-border: var(--color-border-subtle);
+    --sidebar-submenu-text: var(--color-text-secondary);
+    --sidebar-text-color: var(--color-text-on-secondary);
+    
+    
+    /* Icons */
+    --sidebar-icon-color: var(--color-text-secondary);
+    --sidebar-icon-hover-color: var(--color-text-interactive);
+    --sidebar-icon-active-color: var(--color-text-on-primary);
+    
+    /* Transitions */
+    --sidebar-transition-duration: 0.3s;
+    --sidebar-transition-timing: ease;
+    
+    /* Collapsed State */
+    --sidebar-collapsed-width-sm: 76px;
+    --sidebar-collapsed-width-md: 88px;
+    --sidebar-collapsed-width-lg: 92px;
+    
+    /* Expanded State */
+    --sidebar-expanded-width-sm: 250px;
+    --sidebar-expanded-width-md: 280px;
+    --sidebar-expanded-width-lg: 320px;
+    
+    /* Spacing */
+    --sidebar-item-padding: var(--global-spacing-3);
+    --sidebar-group-spacing: var(--global-spacing-2);
+    --sidebar-header-padding: var(--global-spacing-4);
+
+    --sidebar-submenu-indent: var(--global-spacing-5);
+}

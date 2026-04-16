@@ -1,0 +1,101 @@
+<div class="custom-data-grid-wrapper">
+  <aava-data-grid
+    [dataSource]="accounts"
+    [displayedColumns]="displayedColumns"
+    [isLoading]="config.isLoading || false"
+    [zerbaLine]="true"
+    (rowDrop)="handleRowDrop($event)"
+  >
+    <!-- GL Account Number Column -->
+    <ng-container avaColumnDef="accountNumber" [sortable]="true">
+      <ng-container *avaHeaderCellDef>
+        <span class="header-text">GL Account Number</span>
+      </ng-container>
+      <ng-container *avaCellDef="let account">
+        <span
+          class="account-number-cell"
+          (click)="onAccountClick(account)"
+          role="button"
+          tabindex="0"
+          [attr.aria-label]="'View account ' + account.accountNumber"
+        >
+          {{ account.accountNumber }}
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <!-- GL Account Name Column -->
+    <ng-container avaColumnDef="accountName" [sortable]="true">
+      <ng-container *avaHeaderCellDef>
+        <span class="header-text">GL Account Name</span>
+      </ng-container>
+      <ng-container *avaCellDef="let account">
+        <span
+          class="account-name-cell"
+          (click)="onAccountClick(account)"
+          role="button"
+          tabindex="0"
+          [attr.aria-label]="'View account ' + account.accountName"
+        >
+          {{ account.accountName }}
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <!-- Debits Column -->
+    <ng-container avaColumnDef="debits" [sortable]="true">
+      <ng-container *avaHeaderCellDef>
+        <span class="header-text">Debits</span>
+      </ng-container>
+      <ng-container *avaCellDef="let account">
+        <span class="amount-cell debit-amount">
+          {{ formatCurrency(account.debits) }}
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <!-- Credits Column -->
+    <ng-container avaColumnDef="credits" [sortable]="true">
+      <ng-container *avaHeaderCellDef>
+        <span class="header-text">Credits</span>
+      </ng-container>
+      <ng-container *avaCellDef="let account">
+        <span class="amount-cell credit-amount">
+          {{ formatCurrency(account.credits) }}
+        </span>
+      </ng-container>
+    </ng-container>
+
+    <!-- Actions Column -->
+    <ng-container avaColumnDef="actions" *ngIf="config.showDeleteAction">
+      <ng-container *avaHeaderCellDef>
+        <span class="header-text">Actions</span>
+      </ng-container>
+      <ng-container *avaCellDef="let account">
+        <div class="actions-cell">
+          <aava-icon
+            [iconName]="config.deleteIconName || 'trash-2'"
+            [iconSize]="16"
+            iconColor="#dc3545"
+            [cursor]="true"
+            [ariaLabel]="'Delete account ' + account.accountNumber"
+            (userClick)="onDeleteAccount(account)"
+            class="delete-icon"
+          ></aava-icon>
+        </div>
+      </ng-container>
+    </ng-container>
+  </aava-data-grid>
+
+  <!-- Empty State -->
+  <div *ngIf="!config.isLoading && accounts.length === 0" class="empty-state">
+    <div class="empty-content">
+      <aava-icon
+        iconName="file-text"
+        [iconSize]="48"
+        iconColor="var(--color-text-secondary)"
+      ></aava-icon>
+      <p class="empty-message">{{ config.emptyMessage }}</p>
+    </div>
+  </div>
+</div>

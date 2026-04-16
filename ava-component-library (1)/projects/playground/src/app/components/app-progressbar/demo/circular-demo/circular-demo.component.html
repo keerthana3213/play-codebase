@@ -1,0 +1,72 @@
+<div class="demo-page">
+  <!-- Demo Content -->
+  <div class="demo-content">
+    <div class="container">
+      <!-- Basic Circular Progress -->
+      <div class="demo-section">
+        <div class="progress-grid">
+          <div class="progress-item" *ngFor="let percentage of percentages">
+            <aava-progressbar [percentage]="percentage" [label]="percentage + '% Complete'" type="circular"
+              color="#2E308E" [svgSize]="100">
+            </aava-progressbar>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="demo-section">
+        <h2>Position Variants</h2>
+        <p>
+          Circular progress bars with different starting positions (clock
+          positions).
+        </p>
+        <div class="progress-grid">
+          <div class="progress-item" *ngFor="let position of positions">
+            <ava-progressbar
+              [percentage]="50"
+              [label]="position + ' o\'clock'"
+              type="circular"
+              [position]="position"
+              color="#28a745"
+              [svgSize]="140"
+            >
+            </ava-progressbar>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Size Variants</h2>
+        <p>Circular progress bars with different sizes.</p>
+        <div class="progress-grid">
+          <div class="progress-item" *ngFor="let size of sizes">
+            <ava-progressbar
+              [percentage]="75"
+              [label]="size + 'px'"
+              type="circular"
+              color="#dc3545"
+              [svgSize]="size"
+            >
+            </ava-progressbar>
+          </div>
+        </div>
+      </div>
+
+      <div class="demo-section">
+        <h2>Color Variants</h2>
+        <p>Circular progress bars with different colors.</p>
+        <div class="progress-grid">
+          <div class="progress-item" *ngFor="let color of colors">
+            <ava-progressbar
+              [percentage]="60"
+              [label]="'Color: ' + color"
+              type="circular"
+              [color]="color"
+              [svgSize]="140"
+            >
+            </ava-progressbar>
+          </div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+</div>

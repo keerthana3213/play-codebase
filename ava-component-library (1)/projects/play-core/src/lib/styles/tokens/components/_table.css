@@ -1,0 +1,18 @@
+:root {
+    --table-font-family-body: var(--font-family-body);
+    --table-header-background-color: var(--color-background-secondary);
+    --table-border: var(--color-border-subtle);
+    --table-background-color-odd: var(--global-background);
+    --table-background-color: var(--global-background);
+    --table-background-color-even: var(--color-background-disabled);
+    --table-text-disabled: var(--color-text-disabled);
+    --table-text-btn-secondary-color: var(--color-text-secondary);
+    --table-padding: 1rem;
+    --table-icon-padding: 2px;
+    --table-icon-margin: 2px;
+    --table-row-selected-background: var(--global-color-gray-100);
+    --table-flyout-border: var(--color-border-subtle);
+    --table-flyout-border-radius: 8px;
+    --table-flyout-elevation: 0 6px 16px rgba(0, 0, 0, 0.1);
+    --table-flyout-padding: var(--global-spacing-4);
+}

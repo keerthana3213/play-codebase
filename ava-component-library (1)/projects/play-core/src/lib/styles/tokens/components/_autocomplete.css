@@ -1,0 +1,20 @@
+:root {
+  /* Use existing semantic variables from the design system */
+  --autocomplete-background: var(--global-background);
+  --autocomplete-border-width: 1px;
+  --autocomplete-border-color: var(--color-border-default);
+  --autocomplete-border-radius: var(--global-radius-md);
+  --autocomplete-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+
+  --autocomplete-option-color: var(--color-text-primary);
+  --autocomplete-option-hover-bg: var(--color-surface-subtle-hover);
+  --autocomplete-option-icon-color: var(--color-text-secondary);
+
+  --autocomplete-chip-bg: var(--color-surface-subtle);
+  --autocomplete-chip-remove-color: var(--color-border-error);
+
+  /* Additional semantic variables for autocomplete */
+  --autocomplete-surface-active: var(--color-surface-subtle-active);
+  --autocomplete-border-tertiary: var(--color-border-subtle);
+  --autocomplete-error-surface: rgba(244, 67, 54, 0.1);
+}

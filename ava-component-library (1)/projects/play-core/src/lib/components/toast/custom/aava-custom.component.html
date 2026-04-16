@@ -1,0 +1,61 @@
+<div class="ava-toast ava-toast-custom"
+     [style.width]="customWidth"
+     [style.height]="customHeight"
+     [style.background]="customBackground"
+     [style.color]="customTextColor">
+  
+  <!-- Icon -->
+  <div class="ava-toast-icon" *ngIf="icon">
+    <aava-icon 
+      [iconName]="icon" 
+      [iconColor]="iconColor || customTextColor || 'var(--color-text-primary)'" 
+      [iconSize]="24">
+    </aava-icon>
+  </div>
+
+  <!-- Content -->
+  <div class="ava-toast-content">
+    <div class="ava-toast-title" *ngIf="title">{{ title }}</div>
+    <div class="ava-toast-message" *ngIf="message">{{ message }}</div>
+    
+    <!-- Custom HTML Content -->
+    <div class="ava-toast-custom-content" 
+         *ngIf="customContent" 
+         [innerHTML]="customContent">
+    </div>
+    
+    <!-- ng-content for flexible content -->
+    <ng-content></ng-content>
+
+    <!-- Custom Actions -->
+    <div class="ava-toast-actions" *ngIf="showCustomActions">
+      <aava-button
+        *ngFor="let action of customActions"
+        [label]="action.text"
+        [variant]="action.variant || 'secondary'"
+        [size]="action.size || 'sm'"
+        (userClick)="onCustomAction(action)">
+      </aava-button>
+    </div>
+  </div>
+
+  <!-- Close Button -->
+  <aava-button
+    *ngIf="showCloseButton"
+    class="ava-toast-close"
+    size="sm"
+    iconName="x"
+    [iconColor]="customTextColor || 'var(--color-text-primary)'"
+    [iconSize]="16"
+    iconPosition="only"
+    (userClick)="onClose()"
+    aria-label="Close toast">
+  </aava-button>
+
+  <!-- Progress Bar -->
+  <div class="ava-toast-progress"
+       *ngIf="showProgress && duration && duration > 0"
+       [style.animation-duration.ms]="duration"
+       [style.background]="progressColor">
+  </div>
+</div>

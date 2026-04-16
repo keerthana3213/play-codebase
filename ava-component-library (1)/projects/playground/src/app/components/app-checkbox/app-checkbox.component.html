@@ -1,0 +1,448 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Checkbox Component</h1>
+        <p class="description">
+          A versatile checkbox component offering various sizes, animation
+          effects, variants, and states like checked, indeterminate, and
+          disabled.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Sections</h2>
+        <div class="nav-links">
+          <a routerLink="/checkbox/basic-usage" class="nav-link">
+            <span class="nav-icon">📝</span>
+            <span class="nav-text">Basic Usage</span>
+          </a>
+          <a routerLink="/checkbox/variants" class="nav-link">
+            <span class="nav-icon">🎨</span>
+            <span class="nav-text">Variants</span>
+          </a>
+          <a routerLink="/checkbox/sizes" class="nav-link">
+            <span class="nav-icon">📏</span>
+            <span class="nav-text">Sizes</span>
+          </a>
+          <a routerLink="/checkbox/states" class="nav-link">
+            <span class="nav-icon">🔘</span>
+            <span class="nav-text">States</span>
+          </a>
+          <a routerLink="/checkbox/indeterminate" class="nav-link">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-text">Indeterminate</span>
+          </a>
+          <a routerLink="/checkbox/orientations" class="nav-link">
+            <span class="nav-icon">⚡</span>
+            <span class="nav-text">Orientations</span>
+          </a>
+          <a routerLink="/checkbox/accessibility" class="nav-link">
+            <span class="nav-icon">♿</span>
+            <span class="nav-text">Accessibility</span>
+          </a>
+          <a routerLink="/checkbox/events" class="nav-link">
+            <span class="nav-icon">📡</span>
+            <span class="nav-text">Events</span>
+          </a>
+          <a routerLink="/checkbox/api" class="nav-link">
+            <span class="nav-icon">📚</span>
+            <span class="nav-text">API Reference</span>
+          </a>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Checkboxes -->
+            <ng-container *ngSwitchCase="'Basic Checkboxes'">
+              <div class="example-group">
+                <h4>Basic States</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox label="Unchecked"></aava-checkbox>
+                  <aava-checkbox label="Checked" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox label="Indeterminate" [indeterminate]="true"></aava-checkbox>
+                  <aava-checkbox label="Disabled" [disable]="true"></aava-checkbox>
+                  <aava-checkbox label="Disabled Checked" [disable]="true" [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Checkbox Variants -->
+            <ng-container *ngSwitchCase="'Checkbox Variants'">
+              <div class="example-group">
+                <h4>Interactive Variants</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox variant="default" label="Default" [isChecked]="demoStates.basicDefault"
+                    (isCheckedChange)="demoStates.basicDefault = $event"></aava-checkbox>
+                  <aava-checkbox variant="with-bg" label="With Background" [isChecked]="demoStates.basicWithBg"
+                    (isCheckedChange)="demoStates.basicWithBg = $event"></aava-checkbox>
+                  <aava-checkbox variant="animated" label="Animated" [isChecked]="demoStates.basicAnimated"
+                    (isCheckedChange)="demoStates.basicAnimated = $event"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Variants with Indeterminate State</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox variant="default" label="Default Indeterminate" [indeterminate]="true"></aava-checkbox>
+                  <aava-checkbox variant="with-bg" label="With-bg Indeterminate" [indeterminate]="true"></aava-checkbox>
+                  <aava-checkbox variant="animated" label="Animated Indeterminate"
+                    [indeterminate]="true"></aava-checkbox>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Checkbox Sizes -->
+            <ng-container *ngSwitchCase="'Checkbox Sizes'">
+              <div class="example-group">
+                <h4>Small Size</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox size="sm" variant="default" label="Small Default" [isChecked]="demoStates.sizeSmall"
+                    (isCheckedChange)="demoStates.sizeSmall = $event"></aava-checkbox>
+                  <aava-checkbox size="sm" variant="with-bg" label="Small With-bg" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox size="sm" variant="animated" label="Small Animated" [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Medium Size</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox size="md" variant="default" label="Medium Default" [isChecked]="demoStates.sizeMedium"
+                    (isCheckedChange)="demoStates.sizeMedium = $event"></aava-checkbox>
+                  <aava-checkbox size="md" variant="with-bg" label="Medium With-bg" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox size="md" variant="animated" label="Medium Animated"
+                    [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Large Size</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox size="lg" variant="default" label="Large Default" [isChecked]="demoStates.sizeLarge"
+                    (isCheckedChange)="demoStates.sizeLarge = $event"></aava-checkbox>
+                  <aava-checkbox size="lg" variant="with-bg" label="Large With-bg" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox size="lg" variant="animated" label="Large Animated" [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Horizontal Alignment -->
+            <ng-container *ngSwitchCase="'Horizontal Alignment'">
+              <div class="example-group">
+                <h4>Radio Button Style Layout</h4>
+                <p class="example-description">
+                  Choose your preferred options:
+                </p>
+                <div class="horizontal-checkbox-group">
+                  <aava-checkbox alignment="horizontal" label="Option A" [isChecked]="demoStates.horizontalOptions"
+                    (isCheckedChange)="demoStates.horizontalOptions = $event"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" label="Option B" [isChecked]="demoStates.horizontalFeatures"
+                    (isCheckedChange)="demoStates.horizontalFeatures = $event"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" label="Option C" [isChecked]="demoStates.horizontalPreferences"
+                    (isCheckedChange)="
+                      demoStates.horizontalPreferences = $event
+                    "></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Horizontal with Different Variants</h4>
+                <p class="example-description">
+                  Horizontal layout works with all variants:
+                </p>
+                <div class="horizontal-checkbox-group">
+                  <aava-checkbox alignment="horizontal" variant="default" label="Default"
+                    [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" variant="with-bg" label="With-bg"
+                    [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" variant="animated" label="Animated"
+                    [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Horizontal with Different Sizes</h4>
+                <p class="example-description">
+                  All sizes support horizontal alignment:
+                </p>
+                <div class="horizontal-checkbox-group">
+                  <aava-checkbox alignment="horizontal" size="sm" label="Small" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" size="md" label="Medium" [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox alignment="horizontal" size="lg" label="Large" [isChecked]="true"></aava-checkbox>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Checkbox Indeterminate -->
+            <ng-container *ngSwitchCase="'Checkbox Indeterminate'">
+              <div class="example-group">
+                <h4>Parent-Child Relationship</h4>
+                <div class="indeterminate-example">
+                  <aava-checkbox [label]="'Parent task'" [isChecked]="parentChecked" [indeterminate]="indeterminate"
+                    (isCheckedChange)="onParentChanged($event)">
+                  </aava-checkbox>
+
+                  <div class="child-checkboxes">
+                    <aava-checkbox *ngFor="let child of children; let i = index" [label]="child.label"
+                      [isChecked]="child.checked" (isCheckedChange)="onChildChanged(i, $event)">
+                    </aava-checkbox>
+                  </div>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Checkbox Multiple -->
+            <ng-container *ngSwitchCase="'Checkbox Multiple'">
+              <div class="example-group">
+                <h4>Multi-level Hierarchy</h4>
+                <div class="multi-level-example">
+                  <ng-container *ngFor="let item of multiLevelCheckboxes">
+                    <ng-template [ngTemplateOutlet]="renderCheckbox"
+                      [ngTemplateOutletContext]="{ item: item }"></ng-template>
+                  </ng-container>
+
+                  <ng-template #renderCheckbox let-item="item">
+                    <div class="checkbox-item">
+                      <aava-checkbox [label]="item.label" [isChecked]="item.checked"
+                        [indeterminate]="item.indeterminate" (isCheckedChange)="onMultiCheckboxChanged(item, $event)">
+                      </aava-checkbox>
+
+                      <div *ngIf="item.children?.length > 0" class="nested-checkboxes">
+                        <ng-container *ngFor="let child of item.children">
+                          <ng-template [ngTemplateOutlet]="renderCheckbox"
+                            [ngTemplateOutletContext]="{ item: child }"></ng-template>
+                        </ng-container>
+                      </div>
+                    </div>
+                  </ng-template>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Select All/Deselect All Hierarchy -->
+            <ng-container *ngSwitchCase="'Select All/Deselect All Hierarchy'">
+              <div class="example-group">
+                <h4>
+                  Advanced Hierarchy with Select All/Deselect All Controls
+                </h4>
+
+                <!-- Global Control Panel -->
+                <div class="hierarchy-controls">
+                  <div class="control-group">
+                    <div class="control-header">
+                      <h5>Global Controls</h5>
+                      <span class="selection-count">({{ getSelectedCount() }}/{{
+                        getTotalCount()
+                        }}
+                        selected)</span>
+                    </div>
+                    <div class="button-group">
+                      <button class="control-btn primary" (click)="selectAllInHierarchy()">
+                        <span>Select All</span>
+                      </button>
+                      <button class="control-btn secondary" (click)="deselectAllInHierarchy()">
+                        <span>Deselect All</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Selected Items Summary -->
+                  <div class="selected-summary" *ngIf="getSelectedCount() > 0">
+                    <h6>Selected Items ({{ getSelectedCount() }}):</h6>
+                    <div class="selected-list">
+                      <span *ngFor="let item of getSelectedItems(); let last = last" class="selected-item">
+                        {{ item }}<span *ngIf="!last">, </span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Advanced Hierarchy Tree -->
+                <div class="advanced-hierarchy-tree">
+                  <ng-container *ngFor="let category of advancedHierarchy">
+                    <ng-template [ngTemplateOutlet]="advancedCheckboxTemplate"
+                      [ngTemplateOutletContext]="{ item: category, level: 0 }">
+                    </ng-template>
+                  </ng-container>
+                </div>
+
+                <!-- Recursive Template for Advanced Hierarchy -->
+                <ng-template #advancedCheckboxTemplate let-item="item" let-level="level">
+                  <div class="checkbox-node" [class]="'level-' + level">
+                    <!-- Node with controls for categories/subcategories -->
+                    <div class="node-header" *ngIf="item.children?.length > 0">
+                      <div class="checkbox-with-controls">
+                        <aava-checkbox [label]="item.label" [isChecked]="item.checked"
+                          [indeterminate]="item.indeterminate" [size]="
+                            level === 0
+                              ? 'lg'
+                              : level === 1
+                              ? 'md'
+                              : 'sm'
+                          " (isCheckedChange)="
+                            onAdvancedCheckboxChanged(item, $event)
+                          ">
+                        </aava-checkbox>
+
+                        <div class="level-controls" *ngIf="level < 2">
+                          <button class="mini-btn select" (click)="selectAllInCategory(item)"
+                            title="Select all in {{ item.label }}">
+                            <span>Select All</span>
+                          </button>
+                          <button class="mini-btn deselect" (click)="deselectAllInCategory(item)"
+                            title="Deselect all in {{ item.label }}">
+                            <span>Deselect All</span>
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <!-- Leaf node without controls -->
+                    <div class="node-leaf" *ngIf="!item.children?.length">
+                      <aava-checkbox [label]="item.label" [isChecked]="item.checked" size="sm" (isCheckedChange)="
+                          onAdvancedCheckboxChanged(item, $event)
+                        ">
+                      </aava-checkbox>
+                    </div>
+
+                    <!-- Render children recursively -->
+                    <div class="children-container" *ngIf="item.children?.length > 0">
+                      <ng-container *ngFor="let child of item.children">
+                        <ng-template [ngTemplateOutlet]="advancedCheckboxTemplate" [ngTemplateOutletContext]="{
+                            item: child,
+                            level: level + 1
+                          }">
+                        </ng-template>
+                      </ng-container>
+                    </div>
+                  </div>
+                </ng-template>
+              </div>
+            </ng-container>
+
+            <!-- Disabled States -->
+            <ng-container *ngSwitchCase="'Disabled States'">
+              <div class="example-group">
+                <h4>Default Variant - Disabled</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox variant="default" label="Disabled Default" [disable]="true"></aava-checkbox>
+                  <aava-checkbox variant="default" label="Disabled Checked Default" [disable]="true"
+                    [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox variant="default" label="Disabled Indeterminate Default" [disable]="true"
+                    [indeterminate]="true"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>With-bg Variant - Disabled</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox variant="with-bg" label="Disabled With-bg" [disable]="true"></aava-checkbox>
+                  <aava-checkbox variant="with-bg" label="Disabled Checked With-bg" [disable]="true"
+                    [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox variant="with-bg" label="Disabled Indeterminate With-bg" [disable]="true"
+                    [indeterminate]="true"></aava-checkbox>
+                </div>
+              </div>
+
+              <div class="example-group">
+                <h4>Animated Variant - Disabled</h4>
+                <div class="checkbox-row">
+                  <aava-checkbox variant="animated" label="Disabled Animated" [disable]="true"></aava-checkbox>
+                  <aava-checkbox variant="animated" label="Disabled Checked Animated" [disable]="true"
+                    [isChecked]="true"></aava-checkbox>
+                  <aava-checkbox variant="animated" label="Disabled Indeterminate Animated" [disable]="true"
+                    [indeterminate]="true"></aava-checkbox>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <!-- <awe-icons iconName="awe_copy"></awe-icons> -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>
+            <code>{{ event.name }}</code>
+          </td>
+          <td>
+            <code>{{ event.type }}</code>
+          </td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

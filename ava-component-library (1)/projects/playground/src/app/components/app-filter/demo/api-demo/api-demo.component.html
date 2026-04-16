@@ -1,0 +1,60 @@
+<div class="demo-container">
+  <h2>API Reference</h2>
+  <p>Complete documentation of all Filter component properties and events.</p>
+
+  <div class="api-section">
+    <h3>Input Properties</h3>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProperties">
+          <td><strong>{{ prop.name }}</strong></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td>{{ prop.default }}</td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="api-section">
+    <h3>Output Events</h3>
+    <div class="events-grid">
+      <div *ngFor="let event of events" class="event-card">
+        <h4>{{ event.name }}</h4>
+        <p class="description">{{ event.description }}</p>
+        <p class="payload"><strong>Payload:</strong> <code>{{ event.payload }}</code></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="api-section">
+    <h3>Types</h3>
+    <div class="type-definitions">
+      <div class="type-def">
+        <h4>AavaFilterOption</h4>
+        <pre><code>interface AavaFilterOption &#123;
+  id: number;
+  label: string;
+  value: string;
+  selected: boolean;
+&#125;</code></pre>
+      </div>
+      <div class="type-def">
+        <h4>AavaFilterGroup</h4>
+        <pre><code>interface AavaFilterGroup &#123;
+  title: string;
+  selectionType: 'checkbox' | 'radio' | 'none';
+  options: AavaFilterOption[];
+&#125;</code></pre>
+      </div>
+    </div>
+  </div>
+</div>

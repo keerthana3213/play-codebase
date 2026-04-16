@@ -1,0 +1,38 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Multiple Controlled Accordions</h3>
+    <p>
+      Control multiple accordions with external state management and
+      programmatic control.
+    </p>
+
+    <div class="control-panel">
+      <h4>Control Panel</h4>
+      <div class="control-buttons">
+        <button class="btn btn-primary" (click)="openAll()">Open All</button>
+        <button class="btn btn-secondary" (click)="closeAll()">
+          Close All
+        </button>
+        <button class="btn btn-info" (click)="openFirst()">Open First</button>
+        <button class="btn btn-warning" (click)="openLast()">Open Last</button>
+      </div>
+    </div>
+
+    <div class="controlled-accordions">
+      <div *ngFor="let state of controlledStates; let i = index" class="accordion-wrapper" role="button" tabindex="0"
+        (click)="toggleAccordion(i)" (keydown.enter)="toggleAccordion(i, $event)"
+        (keydown.space)="toggleAccordion(i, $event)" [attr.aria-expanded]="state">
+        <aava-accordion [expanded]="state" [controlled]="true" iconClosed="chevron-down" iconOpen="chevron-up">
+          <span header>Controlled Accordion {{ i + 1 }}</span>
+          <div content>
+            <p>{{ getAccordionContent(i) }}</p>
+            <p>
+              <strong>Current state:</strong>
+              {{ state ? "Expanded" : "Collapsed" }}
+            </p>
+          </div>
+        </aava-accordion>
+      </div>
+    </div>
+  </div>
+</div>

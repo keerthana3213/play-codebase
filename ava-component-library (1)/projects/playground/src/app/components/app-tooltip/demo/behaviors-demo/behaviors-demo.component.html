@@ -1,0 +1,151 @@
+<div class="demo-container">
+  <h2>Tooltip Behaviors</h2>
+  <p class="demo-description">
+    Tooltip can be triggered on hover, focus, or other behaviors. Choose the
+    right trigger based on your use case and accessibility requirements.
+  </p>
+
+  <div class="demo-section">
+    <h3>Hover Trigger (Default)</h3>
+    <div class="behavior-demo">
+      <div class="tooltip-container">
+        <aava-button label="Hover Me" variant="primary" size="md"
+          tooltipDescription="This tooltip appears on hover and disappears when you move away" tooltipTrigger="hover"
+          tooltipPosition="top" tooltipArrow="center">
+        </aava-button>
+      </div>
+
+      <p class="behavior-description">
+        <strong>Best for:</strong> General information, non-critical
+        context, desktop interactions
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Click Trigger</h3>
+    <div class="behavior-demo">
+
+      <div class="tooltip-container">
+        <aava-button label="Click Me" variant="secondary" size="md"
+          tooltipDescription="This tooltip appears on click and stays until you click elsewhere" tooltipTrigger="click"
+          tooltipPosition="top" tooltipArrow="center">
+        </aava-button>
+      </div>
+
+      <p class="behavior-description">
+        <strong>Best for:</strong> Mobile devices, important information,
+        persistent tooltips
+      </p>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Focus Trigger</h3>
+    <div class="behavior-demo">
+      <div class="focus-examples">
+        <div class="tooltip-container">
+          <input type="text" class="focus-input" placeholder="Tab to focus input"
+            tooltipDescription="This tooltip appears when the input receives focus" tooltipTrigger="focus"
+            tooltipPosition="right" tooltipArrow="center" />
+
+        </div>
+
+        <button class="focus-button" tooltipDescription="Keyboard accessible tooltip" tooltipPosition="top">
+          Tab to Focus Button
+        </button>
+      </div>
+      <p class="behavior-description">
+        <strong>Best for:</strong> Form elements, keyboard navigation,
+        accessibility compliance
+      </p>
+    </div>
+  </div>
+
+  <!-- <div class="demo-section">
+    <h3>Advanced Behaviors</h3>
+    <div class="behavior-demo">
+      <div class="manual-controls">
+        <aava-button label="Programmatic Control" variant="secondary" size="md"
+          tooltipDescription="This tooltip can be controlled programmatically" tooltipPosition="top">
+        </aava-button>
+
+        <div class="manual-buttons">
+          <aava-button label="Show Info" variant="success" size="sm" (click)="showTooltipInfo()">
+          </aava-button>
+          <aava-button label="Hide Info" variant="danger" size="sm" (click)="hideTooltipInfo()">
+          </aava-button>
+        </div>
+      </div>
+      <p class="behavior-description">
+        <strong>Best for:</strong> Programmatic control, guided tours,
+        conditional tooltips
+      </p>
+    </div>
+  </div> -->
+
+  <div class="demo-section">
+    <h3>Behavior Comparison</h3>
+    <div class="comparison-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Trigger</th>
+            <th>Activation</th>
+            <th>Accessibility</th>
+            <th>Mobile Friendly</th>
+            <th>Use Case</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Hover</strong></td>
+            <td>Mouse enter/leave</td>
+            <td>⚠️ Limited</td>
+            <td>❌ No</td>
+            <td>Desktop context</td>
+          </tr>
+          <tr>
+            <td><strong>Click</strong></td>
+            <td>Mouse click</td>
+            <td>✅ Good</td>
+            <td>✅ Yes</td>
+            <td>Persistent info</td>
+          </tr>
+          <tr>
+            <td><strong>Focus</strong></td>
+            <td>Keyboard/mouse focus</td>
+            <td>✅ Excellent</td>
+            <td>✅ Yes</td>
+            <td>Form elements</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Mixed Behaviors Example</h3>
+    <div class="mixed-demo">
+      <div class="form-example">
+        <input type="text" class="demo-input" placeholder="Enter username"
+          tooltipDescription="Username must be 3-20 characters, alphanumeric only" tooltipTrigger="focus"
+          tooltipPosition="right" />
+
+        <aava-button label="Submit" variant="primary" size="md" tooltipDescription="Click to submit the form"
+          tooltipTrigger="hover" tooltipPosition="top">
+        </aava-button>
+
+        <span class="help-icon" tooltipDescription="Click for detailed help information" tooltipTrigger="click"
+          tooltipPosition="left">
+          ❓
+        </span>
+      </div>
+    </div>
+  </div>
+
+  <div class="code-example">
+    <h3>Code Example</h3>
+    <pre><code>{{ codeExample }}</code></pre>
+  </div>
+</div>

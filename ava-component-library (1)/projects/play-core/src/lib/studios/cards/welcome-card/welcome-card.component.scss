@@ -1,0 +1,99 @@
+.welcome-card-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 12px;
+}
+
+.welcome-card-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    height: auto;
+    z-index: 0;
+    pointer-events: none;
+    
+    img {
+        width: 100%;
+        height: 230px;
+        display: block;
+        opacity: 0.91;
+    }
+}
+
+.welcome-card-content {
+    position: relative;
+    display: flex;
+    gap: 9px;
+    z-index: 1;
+    min-height: 230px;
+}
+
+.welcome-card-left {
+    flex: 0 0 65%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 40px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+}
+
+.welcome-card-greeting {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.welcome-card-greeting-text {
+    color: var(--studios-welcome-greeting-color);
+    font-family: var(--studios-welcome-greeting-family);
+    font-size: var(--studios-welcome-greeting-size);
+    font-weight: var(--studios-welcome-greeting-weight);
+    line-height: var(--studios-welcome-greeting-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.welcome-card-greeting-emoji {
+    color: var(--studios-welcome-emoji-color);
+    font-family: var(--studios-welcome-emoji-family);
+    font-size: var(--studios-welcome-emoji-size);
+    font-weight: var(--studios-welcome-emoji-weight);
+    line-height: var(--studios-welcome-emoji-line-height);
+    flex-shrink: 0;
+}
+
+.welcome-card-subtitle {
+    color: var(--studios-welcome-subtitle-color);
+    font-family: var(--studios-welcome-subtitle-family);
+    font-size: var(--studios-welcome-subtitle-size);
+    font-weight: var(--studios-welcome-subtitle-weight);
+    line-height: var(--studios-welcome-subtitle-line-height);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 8px;
+}
+
+.welcome-card-right {
+    flex: 0 0 35%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.welcome-card-hero {
+    width: 216px;
+    height: 201px;
+    object-fit: contain;
+    object-position: right bottom;
+    position: absolute;
+    right: 10px;
+    bottom: 0;
+    top: 29px;
+}

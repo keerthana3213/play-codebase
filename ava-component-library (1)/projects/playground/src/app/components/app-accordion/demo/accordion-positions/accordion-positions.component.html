@@ -1,0 +1,26 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="position-comparison">
+      <aava-accordion
+        *ngFor="let example of positionExamples"
+        [iconPosition]="example.position"
+        [iconClosed]="example.iconClosed"
+        [iconOpen]="example.iconOpen"
+        (click)="onAccordionToggle($event)"
+      >
+        <span header>{{ example.title }}</span>
+        <div content>
+          <p>
+            <strong>{{ example.description }}</strong>
+          </p>
+          <p>
+            This accordion demonstrates the
+            {{ example.position }} icon positioning. The icons are positioned on
+            the {{ example.position }} side of the header, providing a different
+            visual emphasis compared to the opposite position.
+          </p>
+        </div>
+      </aava-accordion>
+    </div>
+  </div>
+</div>

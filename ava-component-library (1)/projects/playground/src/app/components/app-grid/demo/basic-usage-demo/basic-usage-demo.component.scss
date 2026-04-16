@@ -1,0 +1,117 @@
+.basic-usage-demo {
+  padding: 2rem;
+  background-color: var(--surface-background);
+  max-width: 880px;
+  margin: 0 auto;
+}
+
+.demo-header {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.demo-content .row {
+  margin-bottom: 1rem;
+}
+
+.demo-col {
+  padding: 1rem;
+  background-color: #3b82f6;
+  border: 1px solid #2563eb;
+  border-radius: 4px;
+  color: white;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  font-weight: 500;
+}
+
+.demo-container {
+  padding: 1rem;
+  background-color: #f3f4f6;
+  border: 2px dashed #9ca3af;
+  border-radius: 4px;
+}
+
+.demo-content-box {
+  padding: 1rem;
+  background-color: #e5e7eb;
+  border: 1px solid #9ca3af;
+  border-radius: 4px;
+  color: #374151;
+  text-align: center;
+  font-weight: 500;
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .basic-usage-demo {
+    padding: 16px;
+  }
+
+  .demo-header {
+    margin-bottom: 32px;
+
+    h1 {
+      font-size: 28px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  }
+
+  .demo-content .demo-section {
+    margin-bottom: 32px;
+
+    h2 {
+      font-size: 20px;
+    }
+
+    > p {
+      font-size: 14px;
+    }
+
+    .example {
+      margin-bottom: 24px;
+
+      h3 {
+        font-size: 16px;
+      }
+
+      .demo-col {
+        padding: 12px;
+        min-height: 50px;
+        font-size: 14px;
+      }
+    }
+  }
+}

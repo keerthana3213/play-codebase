@@ -1,0 +1,101 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Dropdown Component Tokens
+ *
+ * Component-specific semantic tokens for dropdown elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for dropdown styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Dropdown Base --- */
+  --dropdown-background: var(--color-background-primary);
+  --dropdown-background-dark: var(--global-color-senary);
+  --dropdown-text: var(--color-text-primary);
+  --dropdown-text-dark: var(--color-text-on-brand);
+  --dropdown-font: var(--font-body-2);
+
+  /* --- Dropdown Menu --- */
+  --dropdown-menu-background: var(--dropdown-background);
+  --dropdown-menu-background-dark: var(--dropdown-background-dark);
+  --dropdown-menu-border: var(--color-border-default);
+  --dropdown-menu-border-radius: var(--global-radius-sm);
+  --dropdown-menu-shadow: var(--global-elevation-02);
+  --dropdown-menu-padding: var(--global-spacing-2);
+
+  /* --- Dropdown Items --- */
+  --dropdown-item-background: transparent;
+  --dropdown-item-background-hover: var(--color-surface-subtle-hover);
+  --dropdown-item-background-hover-dark: rgba(255, 255, 255, 0.1);
+  --dropdown-item-text: var(--dropdown-text);
+  --dropdown-item-text-hover: var(--color-text-primary);
+  --dropdown-item-text-active: var(--color-text-primary);
+  --dropdown-item-text-dark: var(--dropdown-text-dark);
+  --dropdown-item-text-hover-dark: rgba(255, 255, 255, 0.8);
+  --dropdown-item-text-active-dark: rgba(255, 255, 255, 0.6);
+  --dropdown-item-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --dropdown-item-font: var(--dropdown-font);
+  --dropdown-item-transition: var(--motion-pattern-fade);
+
+  /* --- Dropdown Toggle --- */
+  --dropdown-toggle-background: var(--dropdown-background);
+  --dropdown-toggle-background-dark: var(--dropdown-background-dark);
+  --dropdown-toggle-text: var(--dropdown-text);
+  --dropdown-toggle-text-dark: var(--dropdown-text-dark);
+  --dropdown-toggle-border: var(--color-border-default);
+  --dropdown-toggle-border-radius: var(--global-radius-sm);
+  --dropdown-toggle-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --dropdown-toggle-font: var(--dropdown-font);
+  --dropdown-toggle-icon-color: var(--color-text-secondary);
+  --dropdown-toggle-icon-color-dark: var(--color-text-secondary);
+
+  /* --- Dropdown Submenu --- */
+  --dropdown-submenu-background: var(--dropdown-background);
+  --dropdown-submenu-background-dark: var(--dropdown-background-dark);
+  --dropdown-submenu-shadow: var(--global-elevation-03);
+  --dropdown-submenu-border-radius: var(--global-radius-sm);
+  --dropdown-submenu-padding: var(--global-spacing-2);
+
+  /* --- Dropdown Search --- */
+  --dropdown-search-background: var(--color-background-primary);
+  --dropdown-search-background-dark: var(--color-background-secondary);
+  --dropdown-search-text: var(--color-text-primary);
+  --dropdown-search-text-dark: var(--color-text-primary);
+  --dropdown-search-border: var(--color-border-default);
+  --dropdown-search-border-radius: var(--global-radius-sm);
+  --dropdown-search-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --dropdown-search-font: var(--dropdown-font);
+
+  /* --- Dropdown Sizes --- */
+  --dropdown-size-sm-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --dropdown-size-sm-font: var(--font-label);
+  --dropdown-size-sm-height: 32px;
+
+  --dropdown-size-md-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --dropdown-size-md-font: var(--font-body-2);
+  --dropdown-size-md-height: 40px;
+
+  --dropdown-size-lg-padding: var(--global-spacing-4) var(--global-spacing-5);
+  --dropdown-size-lg-font: var(--font-body-1);
+  --dropdown-size-lg-height: 48px;
+
+  /* --- Dropdown States --- */
+  --dropdown-focus-ring: var(--accessibility-focus-ring-width) var(--accessibility-focus-ring-style) var(--accessibility-focus-ring-color);
+  --dropdown-focus-ring-offset: var(--accessibility-focus-ring-offset);
+  --dropdown-transition: var(--motion-pattern-fade);
+
+  /* --- Dropdown Label --- */
+  --dropdown-label-text: var(--color-text-primary);
+  --dropdown-label-text-disabled: var(--color-text-disabled);
+  --dropdown-label-font: var(--font-label);
+  --dropdown-label-spacing: var(--global-spacing-1);
+  --dropdown-lable-margin: var(--global-spacing-3);
+
+  /* --- Dropdown Error --- */
+  --dropdown-error-text: var(--color-text-error);
+  --dropdown-error-font: var(--font-label);
+  --dropdown-error-spacing: var(--global-spacing-3);
+  --dropdown-error-font-size: var(--global-font-size-xs);
+
+}

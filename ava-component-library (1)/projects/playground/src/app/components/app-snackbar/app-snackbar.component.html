@@ -1,0 +1,253 @@
+<div class="snackbar-demo-container">
+  <h1>Snackbar Component Demos</h1>
+  <p class="demo-intro">
+    Explore different aspects of the Snackbar component with interactive demos.
+    Each demo showcases specific features and usage patterns.
+  </p>
+  <div class="demo-grid">
+    <a class="demo-card" routerLink="/snackbar/basic-usage">
+      <div class="demo-card-header">
+        <h3>Basic Usage</h3>
+        <span class="demo-badge">Fundamental</span>
+      </div>
+      <p class="demo-description">Show a simple snackbar with a message.</p>
+      <div class="demo-preview"><span>🔔</span></div>
+    </a>
+    <a class="demo-card" routerLink="/snackbar/positions">
+      <div class="demo-card-header">
+        <h3>Positions</h3>
+        <span class="demo-badge">Layout</span>
+      </div>
+      <p class="demo-description">
+        Display snackbars in different screen positions.
+      </p>
+      <div class="demo-preview"><span>↔️</span></div>
+    </a>
+    <a class="demo-card" routerLink="/snackbar/variants">
+      <div class="demo-card-header">
+        <h3>Variants & Types</h3>
+        <span class="demo-badge">Styling</span>
+      </div>
+      <p class="demo-description">
+        Show snackbars with different surface variants and types.
+      </p>
+      <div class="demo-preview"><span>🎨</span></div>
+    </a>
+    <a class="demo-card" routerLink="/snackbar/actions-icons">
+      <div class="demo-card-header">
+        <h3>Actions & Icons</h3>
+        <span class="demo-badge">Interaction</span>
+      </div>
+      <p class="demo-description">
+        Add action buttons, icons, make snackbars dismissible or persistent.
+      </p>
+      <div class="demo-preview"><span>⚡️</span></div>
+    </a>
+  </div>
+
+  <div class="code-preview-section">
+    <h2>Quick Start</h2>
+    <div class="code-preview">
+      <pre><code>{{ quickStartCode }}</code></pre>
+    </div>
+  </div>
+</div>
+
+<div class="documentation container">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Snackbar Component</h1>
+        <p class="description">
+          The Snackbar component is used to provide brief feedback about an
+          operation through a message at the bottom of the screen.
+        </p>
+      </header>
+    </div>
+  </div>
+
+
+  <!-- <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <awe-snackbar
+        #snackbar
+        [message]="snackbarMessage"
+        [actionLabel]="snackbarActionLabel"
+        [duration]="snackbarDuration"
+        [size]="snackbarSize"
+        [animate]="snackbarAnimate"
+        (action)="onSnackbarAction()"
+        (dismiss)="onSnackbarDismiss()">
+      </awe-snackbar>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Basic Snackbar'">
+              <section class="bottom-panel">
+                <awe-button variant="primary" (click)="showSnackbar('Save your progress?', 'Yes', 10000, 'medium')">Normal Snackbar</awe-button>
+              </section>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Animated Snackbar'">
+              <section class="bottom-panel">
+                <awe-button variant="secondary" (click)="showSnackbar('Your order is being prepared, please hold on a moment...', 'Cancel', 5000, 'medium', true)">Animated Snackbar</awe-button>
+                <awe-button variant="primary" (click)="showSnackbar('Your order has been successfully placed! Do you want to track it?', 'Track Order', 5000, 'medium', false)">Non-Animated Snackbar</awe-button>
+              </section>
+            </ng-container>            
+
+            <ng-container *ngSwitchCase="'Snackbar Sizes'">
+              <section class="bottom-panel">
+                <awe-button variant="primary" (click)="showSnackbar('Error: Payment failed due to insufficient balance. Try another method?', 'Undo', 5000, 'extra-large')">Extra Large</awe-button>
+                <awe-button variant="secondary" (click)="showSnackbar('Your session will expire soon. Save your progress?', 'View', 5000, 'large')">Large</awe-button>
+                <awe-button variant="primary" (click)="showSnackbar('Your file has been uploaded.', 'Extend', 5000, 'medium')">Medium</awe-button>
+                <awe-button variant="secondary" (click)="showSnackbar('Saved', 'Retry', 5000, 'small')">Small</awe-button>
+              </section>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Extended Sizes'">
+              <section class="bottom-panel">
+                <awe-button variant="primary" (click)="showSnackbar('Your payment failed due to insufficient balance. Would you like to try another method?', 'Try Again', 5000, 'extra-large')">Extra Large snackbar</awe-button>
+                <awe-button variant="secondary" (click)="showSnackbar('Oops! We couldn’t complete the payment. Do you want to choose a different payment option?', 'Choose Option', 5000, 'large')">Large snackbar</awe-button>
+                <awe-button variant="primary" (click)="showSnackbar('Payment unsuccessful. Please try a different method.', 'Retry', 5000, 'medium')">Medium snackbar</awe-button>
+                <awe-button variant="secondary" (click)="showSnackbar('Payment failed. Try again.', 'Retry', 5000, 'small')">Small snackbar</awe-button>
+              </section>
+            </ng-container>            
+            
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getSnackbarCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy" *ngIf="section.title!=='Available Icons'"></awe-icons>
+          </button>
+        </div>
+        
+      </div>
+    </section>
+  </div> -->
+
+  <!-- <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td><code>{{ event.name }}</code></td>
+          <td><code>{{ event.type }}</code></td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section> -->
+  <div>
+    <section class="doc-section">
+      <div class="size-button-group">
+        <div class="demo-buttons">
+          <!-- Basic snackbar -->
+          <button class="btn" (click)="triggerSnackBar()">
+            Basic Snackbar
+          </button>
+
+          <!-- Snackbar with action -->
+          <button class="btn" (click)="triggerSnackBarWithAction()">
+            With Action Link
+          </button>
+
+          <!-- Snackbar with icon -->
+          <button class="btn" (click)="triggerSnackBarWithIcon()">
+            With Icon
+          </button>
+
+          <!-- Snackbar with icon and action -->
+          <button class="btn" (click)="triggerSnackBarWithIconAndAction()">
+            Icon + Action
+          </button>
+
+          <!-- Dismissible snackbar -->
+          <button class="btn" (click)="triggerDismissibleSnackbar()">
+            Dismissible
+          </button>
+
+          <!-- Error snackbar -->
+          <button class="btn" (click)="triggerErrorSnackbar()">
+            Error Message
+          </button>
+
+          <!-- Info snackbar -->
+          <button class="btn" (click)="triggerInfoSnackbar()">
+            Info Message
+          </button>
+          <!-- Surface-bold snackbar demos -->
+          <button class="btn" (click)="triggerSurfaceBoldMedium()">
+            Surface Bold - Medium
+          </button>
+          <button class="btn" (click)="triggerSurfaceBoldStrong()">
+            Surface Bold - Strong
+          </button>
+          <button class="btn" (click)="triggerSurfaceBoldMax()">
+            Surface Bold - Max
+          </button>
+          <!-- <button class="btn" (click)="triggerMessageActionIconSnackbar()">Message + Small Action Link + Icon</button> -->
+          <!-- <button class="btn" (click)="triggerPersistentRightIconSnackbar()">Persistent Snackbar</button> -->
+          <button class="btn" (click)="triggerActionLinkWithXIcon()">
+            Action Link with Persistent
+          </button>
+          <button class="btn" (click)="triggerTextWithEndIconClose()">
+            Text with End Icon (Click to Close)
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

@@ -1,0 +1,129 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Menu Component Tokens
+ * Component: ava-menu
+ * 
+ * Following the same semantic token patterns as dropdown, popup, and list components
+ * for proper accessibility and theme-aware colors.
+ * =========================================================================
+ */
+
+:root {
+  /* === MENU CONTAINER === */
+  --menu-min-width: 280px;
+  --menu-background: var(--color-background-primary);
+  --menu-border-radius: var(--global-radius-md);
+  --menu-shadow: var(--global-elevation-03);
+  --menu-border: 1px solid var(--color-border-default);
+  --menu-transform-y: 10px;
+  --menu-transition: opacity var(--global-motion-duration-standard)
+      var(--global-motion-easing-standard),
+    transform var(--global-motion-duration-standard)
+      var(--global-motion-easing-standard),
+    visibility var(--global-motion-duration-standard)
+      var(--global-motion-easing-standard);
+  --menu-z-index: 1500;
+  --menu-margin-top: var(--global-spacing-2);
+  --menu-padding: var(--global-spacing-2);
+
+  /* === MENU COLUMNS === */
+  --menu-columns-gap: var(--global-spacing-4);
+  --menu-column-min-width: 280px;
+
+  /* === MENU ITEMS (Following dropdown/popup patterns) === */
+  --menu-item-gap: var(--global-spacing-3);
+  --menu-item-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --menu-item-border-radius: var(--global-radius-sm);
+  --menu-item-transition: all var(--global-motion-duration-standard)
+    var(--global-motion-easing-standard);
+  --menu-item-background: transparent;
+  --menu-item-margin: var(--global-spacing-1) 0;
+  --menu-item-color: var(--color-text-primary);
+  --menu-item-font: var(--font-body-2);
+  --menu-item-cursor: pointer;
+
+  /* === MENU ITEM STATES (Following semantic patterns) === */
+  /* Hover - Using semantic hover patterns like dropdown/popup */
+  --menu-item-hover-background: var(--color-surface-subtle-hover);
+  --menu-item-hover-color: var(--color-text-primary);
+
+  /* Active/Selected - Using semantic interactive patterns */
+  --menu-item-active-background: var(--color-surface-interactive-default);
+  --menu-item-active-color: var(--color-text-on-brand);
+
+  /* Focus - Following accessibility patterns */
+  --menu-item-focus-background: var(--color-background-primary);
+  --menu-item-focus-color: var(--color-text-primary);
+  --menu-item-focus-outline: 2px solid var(--accessibility-focus-ring-color);
+  --menu-item-focus-outline-offset: 0.125rem;
+
+  /* Disabled - Using semantic disabled patterns */
+  --menu-item-disabled-background: var(--color-background-disabled);
+  --menu-item-disabled-color: var(--color-text-disabled);
+  --menu-item-disabled-cursor: not-allowed;
+
+  /* === MENU ITEM SPACING === */
+  --menu-item-first-margin-top: var(--global-spacing-1);
+  --menu-item-last-margin-bottom: var(--global-spacing-1);
+
+  /* === MENU ITEM ICON === */
+  --menu-item-icon-size: var(--global-icon-size-md);
+  --menu-item-icon-color: var(--color-text-secondary);
+  --menu-item-icon-transition: color var(--global-motion-duration-standard)
+    var(--global-motion-easing-standard);
+  --menu-item-icon-margin: var(--global-spacing-1);
+
+  /* Icon States - Following semantic patterns */
+  --menu-item-icon-hover-color: var(--color-text-primary);
+  --menu-item-icon-active-color: var(--color-text-on-brand);
+  --menu-item-icon-disabled-color: var(--color-text-disabled);
+
+  /* === MENU ITEM CONTENT === */
+  --menu-item-content-gap: var(--global-spacing-1);
+
+  /* === MENU ITEM TITLE === */
+  --menu-item-title-font-weight: var(--global-font-weight-medium);
+  --menu-item-title-font-size: var(--global-font-size-md);
+  --menu-item-title-color: var(--color-text-primary);
+  --menu-item-title-transition: color var(--global-motion-duration-standard)
+    var(--global-motion-easing-standard);
+  --menu-item-title-line-height: var(--global-line-height-snug);
+
+  /* Title States - Following semantic patterns */
+  --menu-item-title-hover-color: var(--color-text-primary);
+  --menu-item-title-active-color: var(--color-text-on-brand);
+  --menu-item-title-active-font-weight: var(--global-font-weight-semibold);
+  --menu-item-title-disabled-color: var(--color-text-disabled);
+
+  /* === MENU ITEM DESCRIPTION === */
+  --menu-item-description-font-size: var(--global-font-size-sm);
+  --menu-item-description-color: var(--color-text-secondary);
+  --menu-item-description-transition: color
+    var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  --menu-item-description-line-height: var(--global-line-height-normal);
+  --menu-item-description-font-weight: var(--global-font-weight-regular);
+
+  /* Description States - Following semantic patterns */
+  --menu-item-description-hover-color: var(--color-text-secondary);
+  --menu-item-description-active-color: var(--color-text-on-brand);
+  --menu-item-description-disabled-color: var(--color-text-disabled);
+
+  /* === MENU SIZES (Following component size patterns) === */
+  --menu-size-sm-min-width: 200px;
+  --menu-size-sm-padding: var(--global-spacing-1);
+  --menu-size-sm-item-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --menu-size-sm-title-font-size: var(--global-font-size-sm);
+  --menu-size-sm-description-font-size: var(--global-font-size-xs);
+
+  --menu-size-md-min-width: 280px;
+  --menu-size-md-padding: var(--global-spacing-2);
+  --menu-size-md-item-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --menu-size-md-title-font-size: var(--global-font-size-md);
+  --menu-size-md-description-font-size: var(--global-font-size-sm);
+
+  --menu-size-lg-min-width: 320px;
+  --menu-size-lg-padding: var(--global-spacing-3);
+  --menu-size-lg-item-padding: var(--global-spacing-4) var(--global-spacing-5);
+  --menu-size-lg-title-font-size: var(--global-font-size-lg);
+  --menu-size-lg-description-font-size: var(--global-font-size-md);
+}

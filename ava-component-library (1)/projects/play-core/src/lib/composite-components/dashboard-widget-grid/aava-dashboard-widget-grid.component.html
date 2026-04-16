@@ -1,0 +1,170 @@
+<div class="dashboard-widget-grid">
+  <div class="dashboard-header">
+    <div class="header-content">
+      <div class="title-section">
+        <h2 class="dashboard-title">{{ config.title }}</h2>
+        <p *ngIf="config.description" class="dashboard-description">
+          {{ config.description }}
+        </p>
+      </div>
+      <div class="header-actions">
+        <aava-button
+          *ngIf="config.editable"
+          (click)="toggleEditMode()"
+          [variant]="isEditMode ? 'warning' : 'primary'"
+          size="md"
+          [label]="isEditMode ? 'Exit Edit Mode' : 'Edit Dashboard'"
+          [iconName]="isEditMode ? 'x' : 'edit'"
+          [iconSize]="16"
+        >
+        </aava-button>
+        <aava-button
+          *ngIf="isEditMode"
+          (click)="onSaveLayout()"
+          variant="success"
+          size="md"
+          label="Save Layout"
+          iconName="save"
+          [iconSize]="16"
+        >
+        </aava-button>
+        <aava-button
+          *ngIf="isEditMode"
+          (click)="onResetLayout()"
+          variant="secondary"
+          size="md"
+          label="Reset Layout"
+          iconName="rotate-ccw"
+          [iconSize]="16"
+        >
+        </aava-button>
+      </div>
+    </div>
+  </div>
+
+  <div class="dashboard-content">
+    <!-- Widget Type Selector -->
+    <div *ngIf="isEditMode" class="widget-selector">
+      <h3>Add Widget</h3>
+      <div class="widget-types-grid">
+        <aava-button
+          *ngFor="let widgetType of widgetTypes"
+          (click)="onAddWidget(widgetType.id)"
+          variant="secondary"
+          size="md"
+          [label]="widgetType.label"
+          [iconName]="widgetType.icon"
+          [iconSize]="16"
+        >
+        </aava-button>
+      </div>
+    </div>
+
+    <!-- Widget Grid -->
+    <div
+      class="widget-grid"
+      [ngStyle]="gridStyle"
+      [class.show-grid]="config.showGrid"
+    >
+      <div
+        *ngFor="let widget of widgets; trackBy: trackByWidget"
+        class="widget-container"
+        [ngStyle]="getWidgetStyle(widget)"
+        [class.selected]="isSelected(widget.id)"
+        [class.dragging]="isDragging(widget.id)"
+        (click)="selectWidget(widget.id)"
+        (keydown.enter)="selectWidget(widget.id)"
+        (keydown.space)="selectWidget(widget.id)"
+        (mousedown)="startDrag(widget.id)"
+        (mouseup)="endDrag()"
+        tabindex="0"
+        role="button"
+        [attr.aria-label]="'Select widget: ' + widget.title"
+      >
+        <aava-card>
+          <div header class="widget-header">
+            <div class="widget-title">
+              <aava-icon
+                [iconName]="getWidgetIcon(widget.type)"
+                [iconSize]="16"
+                iconColor="#666"
+              ></aava-icon>
+              <span>{{ widget.title }}</span>
+            </div>
+            <div *ngIf="config.showWidgetControls" class="widget-controls">
+              <aava-button
+                *ngIf="isEditMode"
+                (click)="onEditWidget(widget.id); $event.stopPropagation()"
+                variant="secondary"
+                size="sm"
+                label="Edit"
+                iconName="settings"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <aava-button
+                (click)="onRefreshWidget(widget.id); $event.stopPropagation()"
+                variant="secondary"
+                size="sm"
+                label="Refresh"
+                iconName="refresh-cw"
+                [iconSize]="14"
+              >
+              </aava-button>
+              <aava-button
+                *ngIf="isEditMode"
+                (click)="onRemoveWidget(widget.id); $event.stopPropagation()"
+                variant="secondary"
+                size="sm"
+                label="Remove"
+                iconName="trash"
+                [iconSize]="14"
+              >
+              </aava-button>
+            </div>
+          </div>
+          <div content class="widget-content">
+            <div *ngIf="widget.loading" class="widget-loading">
+              <aava-icon
+                iconName="loader"
+                [iconSize]="24"
+                iconColor="#007bff"
+              ></aava-icon>
+              <span>Loading...</span>
+            </div>
+            <div *ngIf="widget.error" class="widget-error">
+              <aava-icon
+                iconName="alert-circle"
+                [iconSize]="24"
+                iconColor="#dc3545"
+              ></aava-icon>
+              <span>{{ widget.error }}</span>
+            </div>
+            <div
+              *ngIf="!widget.loading && !widget.error"
+              class="widget-body"
+              [innerHTML]="getWidgetContent(widget)"
+            ></div>
+          </div>
+        </aava-card>
+      </div>
+    </div>
+
+    <!-- Empty State -->
+    <div *ngIf="widgets.length === 0 && !loading" class="empty-state">
+      <aava-icon iconName="grid" [iconSize]="64" iconColor="#6c757d"></aava-icon>
+      <h3>No Widgets Added</h3>
+      <p>Click "Edit Dashboard" to start adding widgets</p>
+    </div>
+
+    <!-- Loading State -->
+    <div *ngIf="loading" class="loading-state">
+      <aava-icon
+        iconName="loader"
+        [iconSize]="32"
+        iconColor="#007bff"
+      ></aava-icon>
+      <span>Loading dashboard...</span>
+    </div>
+  </div>
+</div>

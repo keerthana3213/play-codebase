@@ -1,0 +1,38 @@
+/* ava-modal.component.scss */
+.ava-modal-content {
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+  max-height: 90vh;
+  overflow: hidden;
+
+  .ava-modal-header {
+    flex-shrink: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .ava-modal-body {
+    flex: 1;
+    overflow-y: auto;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+  .ava-modal-footer {
+    flex-shrink: 0;
+
+    &:empty {
+      display: none;
+    }
+  }
+
+}
+
+.ava-modal-header-centered {
+  text-align: center;
+}

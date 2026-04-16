@@ -1,0 +1,89 @@
+/**
+ * Component: Search
+ * Purpose: Search component tokens for search input and results
+ */
+
+:root {
+  /* Search Base */
+  --search-background: var(--color-background-primary);
+  --search-border: 1px solid var(--color-border-default);
+  --search-border-radius: var(--global-radius-md);
+  --search-padding: var(--global-spacing-3);
+  --search-font: var(--font-body-1);
+
+  /* Search Input */
+  --search-input-background: transparent;
+  --search-input-text: var(--color-text-primary);
+  --search-input-placeholder: var(--color-text-placeholder);
+  --search-input-border: none;
+  --search-input-outline: none;
+  --search-input-padding: var(--global-spacing-2);
+  --search-input-width: 100%;
+
+  /* Search Icon */
+  --search-icon-color: var(--color-text-secondary);
+  --search-icon-size: var(--global-icon-size-md);
+  --search-icon-margin: var(--global-spacing-2);
+
+  /* Search Clear Button */
+  --search-clear-background: var(--color-surface-subtle);
+  --search-clear-text: var(--color-text-secondary);
+  --search-clear-size: var(--global-icon-size-sm);
+  --search-clear-border-radius: var(--global-radius-circle);
+  --search-clear-padding: var(--global-spacing-1);
+
+  --search-clear-hover-background: var(--color-surface-subtle-hover);
+  --search-clear-hover-text: var(--color-text-primary);
+
+  /* Search States */
+  --search-focus-border: 1px solid var(--color-border-focus);
+  --search-focus-shadow: 0 0 0 2px var(--accessibility-focus-ring-color);
+
+  --search-error-border: 1px solid var(--color-border-error);
+  --search-error-text: var(--color-text-error);
+
+  --search-disabled-background: var(--color-background-disabled);
+  --search-disabled-text: var(--color-text-disabled);
+  --search-disabled-border: 1px solid var(--color-border-disabled);
+
+  /* Search Sizes */
+  --search-size-sm-padding: var(--global-spacing-2);
+  --search-size-sm-font: var(--global-font-size-sm);
+  --search-size-sm-icon-size: var(--global-icon-size-sm);
+
+  --search-size-md-padding: var(--global-spacing-3);
+  --search-size-md-font: var(--global-font-size-md);
+  --search-size-md-icon-size: var(--global-icon-size-md);
+
+  --search-size-lg-padding: var(--global-spacing-4);
+  --search-size-lg-font: var(--global-font-size-lg);
+  --search-size-lg-icon-size: var(--global-icon-size-lg);
+
+  /* Search Results */
+  --search-results-background: var(--color-background-primary);
+  --search-results-border: 1px solid var(--color-border-default);
+  --search-results-border-radius: var(--global-radius-md);
+  --search-results-shadow: var(--global-elevation-02);
+  --search-results-max-height: 20rem;
+  --search-results-z-index: 1000;
+
+  --search-result-item-background: var(--color-background-primary);
+  --search-result-item-text: var(--color-text-primary);
+  --search-result-item-padding: var(--global-spacing-3);
+  --search-result-item-border-bottom: 1px solid var(--color-border-subtle);
+
+  --search-result-item-hover-background: var(--color-surface-subtle-hover);
+  --search-result-item-hover-text: var(--color-text-primary);
+
+  --search-result-item-selected-background: var(--color-surface-interactive-default);
+  --search-result-item-selected-text: var(--color-text-on-brand);
+
+  /* Search Loading */
+  --search-loading-color: var(--color-text-secondary);
+  --search-loading-size: var(--global-icon-size-md);
+
+  /* Search Empty State */
+  --search-empty-text: var(--color-text-secondary);
+  --search-empty-padding: var(--global-spacing-4);
+  --search-empty-font: var(--font-body-2);
+} 

@@ -1,0 +1,32 @@
+<aava-default-card
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="summary-card-container">
+        <!-- First Line: Icon + Title + Tag -->
+        <div class="summary-card-first-line" *ngIf="data.icon || data.title || hasTag">
+            <div class="summary-card-left">
+                <aava-icon *ngIf="data.icon" [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+                <div class="summary-card-title" *ngIf="data.title">{{ data.title }}</div>
+            </div>
+            <div class="summary-card-tag" *ngIf="hasTag">
+                <aava-tag [label]="data.tag!.label" color="custom" [variant]="data.tag!.variant || 'filled'" size="sm"
+                    [customStyle]="getTagCustomStyle(data.tag!)" class="summary-card-tag-element">
+                </aava-tag>
+            </div>
+        </div>
+
+        <!-- Second Line: Subtitle with Rating -->
+        <div class="summary-card-second-line" *ngIf="data.subtitle || hasRating">
+            <div class="summary-card-subtitle-container">
+                <span *ngIf="data.subtitle" class="summary-card-subtitle">{{ data.subtitle }}</span>
+                <span *ngIf="data.subtitle && hasRating" class="summary-card-dot"> • </span>
+                <div *ngIf="hasRating" class="summary-card-rating">
+                    <aava-icon [iconName]="data.rating!.icon.name" [iconSize]="16"
+                        [iconColor]="data.rating!.icon.color || '#F59E0B'">
+                    </aava-icon>
+                    <span class="rating-value">{{ data.rating!.value }}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</aava-default-card>

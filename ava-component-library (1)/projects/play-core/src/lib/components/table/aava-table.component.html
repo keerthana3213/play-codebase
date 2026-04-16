@@ -1,0 +1,115 @@
+<div class="aava-table-wrapper">
+  <div #tableContainer class="aava-table-container" [ngClass]="classNames"
+    [style.overflow-y]="(height || stickyHeader) ? 'auto' : 'visible'" [ngStyle]="getContainerStyles()"
+    (scroll)="onTableScroll($event)">
+    <!-- <aava-skeleton *ngIf="loading && !infiniteScrollLoading" [rows]="skeletonRows" skeletonType="table"
+        [columns]="displayedColumns.length"></aava-skeleton> -->
+    <table class="aava-table" [ngClass]="zebraLine?'zebraline':''">
+      <thead *ngIf="showHeader" class="aava-table-header" [class.sticky-header]="stickyHeader">
+        <tr>
+
+          <ng-container *ngFor="let col of displayedColumns">
+            <th (click)="sort(col)" [ngStyle]="thStyle">
+              <div class="aava-header-container">
+                <div class="left-section">
+                  <div #headerCell></div>
+                  <span class="sort-header" *ngIf="isColumnSortable(col)">
+                    <aava-icon
+                      [iconName]="(sortColumn=== col && sortDirection === 'asc')? sortAscIcon: (sortColumn=== col && sortDirection === 'desc')? sortDescIcon: sortDefaultIcon"
+                      [iconSize]="16">
+                    </aava-icon>
+                  </span>
+                </div>
+                <div #filterFoTriger class="sort-filter" *ngIf="isColumnFilterable(col)"
+                  [ngClass]="isFilterActive(col)?'active': ''">
+                  <aava-icon [iconName]="filterIcon" [iconSize]="16" [cursor]="true"
+                    (userClick)="$event.stopPropagation();toggleFilterFlyout(col, filterFoTriger)"
+                    [iconColor]="isFilterActive(col)?activeFilterIconColor:'var(--icon-color)'"></aava-icon>
+                </div>
+              </div>
+            </th>
+          </ng-container>
+        </tr>
+      </thead>
+
+
+
+
+      <tbody>
+        <ng-container *ngIf="!loading">
+          <ng-container *ngFor="let row of displayedData; let i = index">
+            <tr class="data-row">
+              <ng-container *ngFor="let col of displayedColumns">
+                <td (click)="_toggleExpand(row,i,col)" [ngStyle]="tdStyle">
+                  <div class="td-parent" #cellContainer></div>
+                </td>
+              </ng-container>
+            </tr>
+
+            <ng-container *ngIf="isExpanded(row) && detailTemplate">
+              <ng-container *ngTemplateOutlet="detailTemplate; context: { row: row }"></ng-container>
+            </ng-container>
+          </ng-container>
+        </ng-container>
+
+        <tr *ngIf="infiniteScrollLoading">
+          <td class="no-padi" [attr.colspan]="displayedColumns.length || 1">
+            <aava-skeleton [rows]="skeletonRows" skeletonType="table" [customStyles]="{'border':'none'}"
+              [columns]="displayedColumns.length"></aava-skeleton>
+          </td>
+        </tr>
+        <ng-container *ngIf="!loading && (displayedData.length === 0 || uiDataEmpty)">
+          <ng-container *ngIf="noDataRow; else defaultNoData">
+            <ng-container *ngTemplateOutlet="noDataRow.templateRef"></ng-container>
+          </ng-container>
+          <ng-template #defaultNoData>
+            <tr>
+              <td [attr.colspan]="displayedColumns.length || 1">
+                <div class="no-data-wrapper">
+                  <p>{{noDataLabel}}</p>
+                </div>
+              </td>
+            </tr>
+          </ng-template>
+        </ng-container>
+        <tr *ngIf="loading" class="loader">
+          <td [attr.colspan]="displayedColumns.length || 1">
+            <aava-skeleton [rows]="skeletonRows" skeletonType="table"
+              [columns]="displayedColumns.length"></aava-skeleton>
+          </td>
+        </tr>
+
+      </tbody>
+    </table>
+
+
+
+  </div>
+  <div class="table-filter-flyout-container">
+    <aava-flyout classNames="table-filter-flyout" [offsetTop]="15" #filterFlyout [width]="flyoutWidth"
+      [customPanelStyles]="{
+                'border': '1px solid var(--table-flyout-border)',
+                'border-radius': 'var(--table-flyout-border-radius)',
+                'box-shadow': 'var(--table-flyout-elevation)',
+                'padding': 'var(--table-flyout-padding)'
+                }">
+      <aava-select size="sm" aria-label="Filter condition" role="listbox" [(ngModel)]="selectedOperator"
+        (selectionChange)="selectFilter($event)">
+        <aava-select-option *ngFor="let opt of defaultFilterConditions" role="option"
+          [attr.aria-selected]="selectedOperator === opt.value" [selected]="opt.value === selectedOperator"
+          [value]="opt.value">
+          {{ opt.label }}
+        </aava-select-option>
+      </aava-select>
+      <aava-textbox size="sm" [(ngModel)]="selectedValue" (change)="selectValue($event)"
+        [attr.data-column]="activefilterColumn" placeholder="Enter value"></aava-textbox>
+      <div class="default-filter-actions" *ngIf="!clearClick">
+        <aava-button label="Clear" variant="secondary" size="xs" (userClick)="clearFilter($event);"
+          pressedEffect="ripple"></aava-button>
+        <aava-button label="Filter" variant="primary" size="xs" (userClick)="applyFilter();"
+          pressedEffect="ripple"></aava-button>
+      </div>
+    </aava-flyout>
+
+  </div>
+</div>

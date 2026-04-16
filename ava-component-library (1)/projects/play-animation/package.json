@@ -1,0 +1,46 @@
+{
+  "name": "@aava/play-animations",
+  "version": "1.0.0",
+  "description": "Play plus animation",
+  "author": "Ascendion",
+  "peerDependencies": {
+    "@angular/core": ">=16.0.0 <21.0.0",
+    "gsap": "^3.12.5"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://verdaccio-app.wonderfulmeadow-d3716817.eastus.azurecontainerapps.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dev.azure.com/ascendionava/ava-platform/_git/ava-component-library"
+  },
+  "keywords": [
+    "angular"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "ng build play-animation --configuration production",
+    "build:performance": "ng build play-animation --configuration performance",
+    "build:dev": "ng build play-animation --configuration development",
+    "build:analyze": "npm run build && echo 'Bundle analysis: Check dist/play-animation/fesm2022/ for bundle files' && ls -lh ../../dist/play-animation/fesm2022/",
+    "postbuild": "find ../../dist/play-animation -name '*.map' -delete && echo 'Source maps removed'",
+    "prepublishOnly": "npm run build",
+    "test": "ng test play-animation --code-coverage --watch=false",
+    "test:watch": "ng test play-animation --code-coverage",
+    "test:ci": "ng test play-animation --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:unit": "ng test play-animation --code-coverage --watch=false --include=**/*.spec.ts",
+    "test:integration": "ng test play-animation --code-coverage --watch=false --include=**/*.integration.spec.ts",
+    "test:accessibility": "ng test play-animation --code-coverage --watch=false --include=**/*.a11y.spec.ts",
+    "test:performance": "ng test play-animation --code-coverage --watch=false --include=**/*.perf.spec.ts",
+    "test:coverage": "ng test play-animation --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:coverage:report": "npm run test:coverage && open coverage/play-animation/index.html",
+    "test:high-contrast": "node scripts/test-high-contrast.js",
+    "test:high-contrast:interactive": "node scripts/test-high-contrast.js --interactive",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:accessibility && npm run test:performance"
+  }
+}

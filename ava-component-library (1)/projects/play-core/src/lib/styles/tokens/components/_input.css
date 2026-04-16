@@ -1,0 +1,76 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Input Component Tokens
+ *
+ * Component-specific semantic tokens for input elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for input styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Input Base --- */
+  --input-background: var(--color-background-primary);
+  --input-background-disabled: var(--color-background-disabled);
+  --input-background-focus: var(--color-background-primary);
+  --input-background-error: var(--color-background-primary);
+
+  --input-text: var(--color-text-primary);
+  --input-text-disabled: var(--color-text-disabled);
+  --input-text-placeholder: var(--color-text-placeholder);
+  --input-text-error: var(--color-text-error);
+
+  --input-border: var(--color-border-default);
+  --input-border-hover: var(--color-border-interactive);
+  --input-border-focus: var(--color-border-focus);
+  --input-border-error: var(--color-border-error);
+  --input-border-disabled: var(--color-border-default);
+
+  /* --- Input Sizes --- */
+  --input-size-sm-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --input-size-sm-font: var(--font-label);
+  --input-size-sm-height: 32px;
+  --input-size-sm-border-radius: var(--global-radius-sm);
+
+  --input-size-md-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --input-size-md-font: var(--font-body-2);
+  --input-size-md-height: 40px;
+  --input-size-md-border-radius: var(--global-radius-sm);
+
+  --input-size-lg-padding: var(--global-spacing-4) var(--global-spacing-5);
+  --input-size-lg-font: var(--font-body-1);
+  --input-size-lg-height: 48px;
+  --input-size-lg-border-radius: var(--global-radius-md);
+
+  /* --- Input States --- */
+  --input-focus-ring: var(--accessibility-focus-ring-width)
+    var(--accessibility-focus-ring-style) var(--accessibility-focus-ring-color);
+  --input-focus-ring-offset: var(--accessibility-focus-ring-offset);
+  --input-transition: var(--motion-pattern-fade);
+
+  /* --- Input Icon --- */
+  --input-icon-color: var(--color-text-secondary);
+  --input-icon-color-disabled: var(--color-text-disabled);
+  --input-icon-color-error: var(--color-text-error);
+  --input-icon-size: var(--icon-size-md);
+  --input-icon-spacing: var(--global-spacing-2);
+
+  /* --- Input Label --- */
+  --input-label-text: var(--color-text-primary);
+  --input-label-text-disabled: var(--color-text-disabled);
+  --input-label-text-error: var(--color-text-error);
+  --input-label-font: var(--font-label);
+  --input-label-spacing: var(--global-spacing-1);
+
+  /* --- Input Helper Text --- */
+  --input-helper-text: var(--color-text-secondary);
+  --input-helper-text-error: var(--color-text-error);
+  --input-helper-font: var(--font-label);
+  --input-helper-spacing: var(--global-spacing-1);
+
+  /* --- Input Group --- */
+  --input-group-border: var(--color-border-default);
+  --input-group-background: var(--color-background-secondary);
+  --input-group-border-radius: var(--global-radius-sm);
+  --input-group-padding: var(--global-spacing-2);
+}

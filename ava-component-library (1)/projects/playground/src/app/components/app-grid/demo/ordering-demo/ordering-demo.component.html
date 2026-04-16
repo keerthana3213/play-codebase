@@ -1,0 +1,36 @@
+<div class="ordering-demo">
+  <div class="demo-content">
+    <ava-grid-demo-card
+      title="Default Order"
+      description="Without any order classes, items are displayed in their source order."
+    >
+      <div class="d-flex demo-order-container">
+        <div class="demo-order-item">First item</div>
+        <div class="demo-order-item">Second item</div>
+        <div class="demo-order-item">Third item</div>
+      </div>
+    </ava-grid-demo-card>
+
+    <ava-grid-demo-card
+      title="Custom Order"
+      description="Use .order-1, .order-2, etc., to change the visual order of items."
+    >
+      <div class="d-flex demo-order-container">
+        <div class="order-3 demo-order-item">First item (ordered 3rd)</div>
+        <div class="order-1 demo-order-item">Second item (ordered 1st)</div>
+        <div class="order-2 demo-order-item">Third item (ordered 2nd)</div>
+      </div>
+    </ava-grid-demo-card>
+
+    <ava-grid-demo-card
+      title="First and Last"
+      description="Use .order-first and .order-last to quickly change the order of items."
+    >
+      <div class="d-flex demo-order-container">
+        <div class="order-last demo-order-item">First item (last)</div>
+        <div class="demo-order-item">Second item (default)</div>
+        <div class="order-first demo-order-item">Third item (first)</div>
+      </div>
+    </ava-grid-demo-card>
+  </div>
+</div>

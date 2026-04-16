@@ -1,0 +1,30 @@
+<aava-default-card class="execution-card"
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="execution-card-content">
+        <!-- First Line: Icon + Title + Status Tag -->
+        <div class="execution-card-first-line" *ngIf="data.icon || data.title || hasStatus">
+            <div class="execution-card-left">
+                <aava-icon *ngIf="data.icon" [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+                <div class="execution-card-title" *ngIf="data.title">{{ data.title }}</div>
+            </div>
+            <div class="execution-card-status" *ngIf="hasStatus">
+                <aava-tag [label]="data.status!.label" color="custom" [variant]="data.status!.variant || 'filled'"
+                    size="xs" [customStyle]="getStatusCustomStyle(data.status)" class="execution-card-status-tag">
+                </aava-tag>
+            </div>
+        </div>
+
+        <!-- Second Line: Subtitle -->
+        <div class="execution-card-second-line" *ngIf="data.subtitle">
+            <div class="execution-card-subtitle">{{ data.subtitle }}</div>
+        </div>
+
+        <!-- Third Line: Metadata (Author and Timestamp) -->
+        <div class="execution-card-metadata" *ngIf="hasMetadata">
+            <span *ngIf="data.author">{{ data.author }}</span>
+            <span *ngIf="data.author && data.timestamp"> • </span>
+            <span *ngIf="data.timestamp">{{ data.timestamp }}</span>
+        </div>
+    </div>
+</aava-default-card>

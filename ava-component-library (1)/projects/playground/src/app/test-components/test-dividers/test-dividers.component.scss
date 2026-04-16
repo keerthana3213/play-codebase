@@ -1,0 +1,28 @@
+.divider-group {
+  display: flex;
+  gap: 24px;
+  padding: 16px;
+  // background: #f9f9f9;
+  border-radius: 8px;
+
+  &.horizontal {
+    flex-direction: column; /* Show horizontal dividers stacked */
+    align-items: stretch;
+    
+
+    ava-dividers {
+      width:1012px;
+    }
+  }
+
+  &.vertical {
+    flex-direction: row; 
+    align-items: center;
+    justify-content: center;
+    height:1012px;
+
+    ava-dividers {
+      height: 100%;
+    }
+  }
+}

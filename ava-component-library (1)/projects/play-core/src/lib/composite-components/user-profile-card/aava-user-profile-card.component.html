@@ -1,0 +1,183 @@
+<div class="user-profile-card" [class.theme-minimal]="config.theme === 'minimal'"
+  [class.theme-modern]="config.theme === 'modern'" [class.theme-professional]="config.theme === 'professional'"
+  [class.layout-horizontal]="config.layout === 'horizontal'" [class.layout-compact]="config.layout === 'compact'"
+  [class.loading]="loading" [class.disabled]="disabled">
+  <aava-card>
+    <div header class="profile-header">
+      <div class="profile-info">
+        <!-- Avatar Section -->
+        <div *ngIf="config.showAvatar" class="avatar-section">
+          <aava-avatars [imageUrl]="profile?.avatar || ''" [profileText]="profile?.name || ''"
+            [size]="config.avatarSize || 'lg'" (click)="onAvatarClick()" class="profile-avatar"
+            [class.clickable]="profile?.avatar">
+          </aava-avatars>
+
+          <!-- Status Indicator -->
+          <div *ngIf="config.showStatus" class="status-indicator">
+            <aava-icon [iconName]="statusIcon" [iconSize]="12" [iconColor]="statusColor"></aava-icon>
+            <span class="status-text">{{ statusText }}</span>
+          </div>
+        </div>
+
+        <!-- Basic Info -->
+        <div class="basic-info">
+          <h3 class="user-name" (click)="onProfileView()" (keydown.enter)="onProfileView()"
+            (keydown.space)="onProfileView()" tabindex="0" role="button" [attr.aria-label]="
+              'View profile of ' + (profile?.name || 'Unknown User')
+            ">
+            {{ profile?.name || "Unknown User" }}
+          </h3>
+
+          <div *ngIf="profile?.role" class="user-role">
+            <aava-icon iconName="briefcase" [iconSize]="14" iconColor="#666"></aava-icon>
+            <span>{{ profile!.role }}</span>
+          </div>
+
+          <div *ngIf="profile?.department" class="user-department">
+            <aava-icon iconName="building" [iconSize]="14" iconColor="#666"></aava-icon>
+            <span>{{ profile!.department }}</span>
+          </div>
+
+          <div *ngIf="profile?.location" class="user-location">
+            <aava-icon iconName="map-pin" [iconSize]="14" iconColor="#666"></aava-icon>
+            <span>{{ profile!.location }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Header Actions -->
+      <div class="header-actions">
+        <aava-button *ngIf="config.showEditButton && config.editable" (click)="onProfileEdit()" variant="secondary"
+          size="sm" label="Edit" iconName="edit" [iconSize]="14">
+        </aava-button>
+
+        <aava-button *ngIf="config.showMoreButton" (click)="toggleExpanded()" variant="secondary" size="sm"
+          [label]="isExpanded ? 'Show Less' : 'Show More'" [iconName]="isExpanded ? 'chevron-up' : 'chevron-down'"
+          [iconSize]="14">
+        </aava-button>
+      </div>
+    </div>
+
+    <div content class="profile-content">
+      <!-- Contact Information -->
+      <div *ngIf="config.showContactInfo && profile" class="contact-info">
+        <div *ngIf="profile.email" class="contact-item" (click)="onContactClick('email', profile.email)"
+          (keydown.enter)="onContactClick('email', profile.email)"
+          (keydown.space)="onContactClick('email', profile.email)" tabindex="0" role="button"
+          [attr.aria-label]="'Contact via email: ' + profile.email">
+          <aava-icon iconName="mail" [iconSize]="16" iconColor="#007bff"></aava-icon>
+          <span class="contact-value">{{ profile.email }}</span>
+        </div>
+
+        <div *ngIf="profile.phone" class="contact-item" (click)="onContactClick('phone', profile.phone)"
+          (keydown.enter)="onContactClick('phone', profile.phone)"
+          (keydown.space)="onContactClick('phone', profile.phone)" tabindex="0" role="button"
+          [attr.aria-label]="'Contact via phone: ' + profile.phone">
+          <aava-icon iconName="phone" [iconSize]="16" iconColor="#28a745"></aava-icon>
+          <span class="contact-value">{{ profile.phone }}</span>
+        </div>
+      </div>
+
+      <!-- Bio Section -->
+      <div *ngIf="config.showBio && profile?.bio" class="bio-section">
+        <h4 class="section-title">About</h4>
+        <p class="bio-text">{{ displayBio }}</p>
+        <button *ngIf="hasMoreBio" (click)="toggleExpanded()" class="expand-bio">
+          {{ isExpanded ? "Show Less" : "Read More" }}
+        </button>
+      </div>
+
+      <!-- Skills Section -->
+      <div *ngIf="config.showSkills && profile?.skills?.length" class="skills-section">
+        <h4 class="section-title">Skills</h4>
+        <div class="skills-list">
+          <aava-tag *ngFor="let skill of displaySkills; trackBy: trackBySkill" [label]="skill" color="primary" size="sm"
+            [pill]="true">
+          </aava-tag>
+          <aava-tag *ngIf="hasMoreSkills && !isExpanded" label="+{{
+              profile!.skills!.length - (config.maxSkills || 5)
+            }} more" color="info" size="sm" [pill]="true" (clicked)="toggleExpanded()">
+          </aava-tag>
+        </div>
+      </div>
+
+      <!-- Stats Section -->
+      <div *ngIf="config.showStats && profile?.stats" class="stats-section">
+        <h4 class="section-title">Statistics</h4>
+        <div class="stats-grid">
+          <div *ngIf="profile!.stats!.projects" class="stat-item">
+            <div class="stat-value">{{ profile!.stats!.projects }}</div>
+            <div class="stat-label">Projects</div>
+          </div>
+          <div *ngIf="profile!.stats!.tasks" class="stat-item">
+            <div class="stat-value">{{ profile!.stats!.tasks }}</div>
+            <div class="stat-label">Tasks</div>
+          </div>
+          <div *ngIf="profile!.stats!.contributions" class="stat-item">
+            <div class="stat-value">{{ profile!.stats!.contributions }}</div>
+            <div class="stat-label">Contributions</div>
+          </div>
+          <div *ngIf="profile!.stats!.experience" class="stat-item">
+            <div class="stat-value">{{ profile!.stats!.experience }}y</div>
+            <div class="stat-label">Experience</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Social Links -->
+      <div *ngIf="config.showSocialLinks && profile?.socialLinks" class="social-section">
+        <h4 class="section-title">Connect</h4>
+        <div class="social-links">
+          <aava-button *ngIf="profile!.socialLinks!.linkedin"
+            (click)="onSocialClick('linkedin', profile!.socialLinks!.linkedin!)" variant="secondary" size="sm"
+            label="LinkedIn" iconName="linkedin" [iconSize]="14">
+          </aava-button>
+
+          <aava-button *ngIf="profile!.socialLinks!.twitter"
+            (click)="onSocialClick('twitter', profile!.socialLinks!.twitter!)" variant="secondary" size="sm"
+            label="Twitter" iconName="twitter" [iconSize]="14">
+          </aava-button>
+
+          <aava-button *ngIf="profile!.socialLinks!.github"
+            (click)="onSocialClick('github', profile!.socialLinks!.github!)" variant="secondary" size="sm"
+            label="GitHub" iconName="github" [iconSize]="14">
+          </aava-button>
+
+          <aava-button *ngIf="profile!.socialLinks!.website"
+            (click)="onSocialClick('website', profile!.socialLinks!.website!)" variant="secondary" size="sm"
+            label="Website" iconName="globe" [iconSize]="14">
+          </aava-button>
+        </div>
+      </div>
+
+      <!-- Additional Info (Expanded) -->
+      <div *ngIf="isExpanded" class="expanded-info">
+        <div *ngIf="profile?.joinDate" class="info-item">
+          <aava-icon iconName="calendar" [iconSize]="14" iconColor="#666"></aava-icon>
+          <span>{{ getJoinDateText() }}</span>
+        </div>
+
+        <div *ngIf="profile!.lastSeen && profile!.status !== 'online'" class="info-item">
+          <aava-icon iconName="clock" [iconSize]="14" iconColor="#666"></aava-icon>
+          <span>Last seen {{ getLastSeenText() }}</span>
+        </div>
+      </div>
+
+      <!-- Actions Section -->
+      <div *ngIf="config.showActions && actions.length" class="actions-section">
+        <h4 class="section-title">Actions</h4>
+        <div class="actions-grid">
+          <aava-button *ngFor="let action of visibleActions; trackBy: trackByAction" (click)="onActionClick(action)"
+            [variant]="action.variant" size="sm" [label]="action.label" [iconName]="action.icon" [iconSize]="14"
+            [disabled]="action.disabled || disabled">
+          </aava-button>
+
+          <aava-button *ngIf="hasMoreActions" (click)="toggleMoreActions()" variant="secondary" size="sm"
+            [label]="showMoreActions ? 'Show Less' : 'Show More'"
+            [iconName]="showMoreActions ? 'chevron-up' : 'chevron-down'" [iconSize]="14">
+          </aava-button>
+        </div>
+      </div>
+    </div>
+  </aava-card>
+</div>

@@ -1,0 +1,65 @@
+<div [ngClass]="getTimelineClasses()" [attr.id]="id ? 'aava-timeline-' + id : null" #timelineContainer [ngStyle]="customStyles">
+  <!-- Dynamic timeline line based on number of nodes -->
+  <!-- <div class="timeline-line" [class.vertical]="orientation === 'vertical'" [style.height.px]="getTimelineLineHeight()"
+    [style.width.px]="getTimelineLineWidth()"></div> -->
+
+  <div *ngFor="let event of sortedEvents; let i = index; let isLast = last; trackBy: trackByEvent"
+    class="timeline-event" [ngClass]="getEventClasses(i, event, isLast)">
+
+    <div class="timeline-icon-wrapper" [ngClass] = "alignment">
+      <div class="timeline-icon" [ngStyle] = "event?.iconStyle" [style.--timeline-icon-bg-color]="disabled ? 'var(--timeline-unreached-color)' : iconCircleBgColor" [class]="event.status || 'default'">
+        <ng-container>
+          <img *ngIf="event.imageUrl" [src]="event.imageUrl" [alt]="event.text || event.title || 'Timeline event'"
+            class="timeline-icon-image" [style.width]="event.imageSize || iconCircleSize"
+            [style.height]="event.imageSize || iconCircleSize" />
+
+          <aava-icon *ngIf="!event.imageUrl && event.iconName" class="timeline__icon" [iconName]="event.iconName"
+            [iconColor]="event.iconColor || ''" [iconSize]="event.iconSize || ''">
+          </aava-icon>
+
+          <!-- Fallback icon for status -->
+          <aava-icon *ngIf="!event.imageUrl && !event.iconName" class="timeline__icon" [iconSize]="event.iconSize || ''">
+          </aava-icon>
+        </ng-container>
+      </div>
+
+      <!-- Optimized connector line generation based on node interconnection -->
+      <div *ngIf="shouldShowConnector(i, event, isLast)" class="timeline-connector-line"
+        [class.horizontal]="orientation === 'horizontal'" [class.vertical]="orientation === 'vertical'"
+        [class]="getConnectorStatus(i, event)" [style.height.px]="getConnectorHeight(i)"
+        [style.width.px]="getConnectorWidth(i)">
+      </div>
+    </div>
+
+    <div class="timeline-content" [class]="event.status || 'default'" [ngClass] = "alignment">
+      <div class="timeline-header" *ngIf="event.year || event.time">
+        <div class="timeline-time">
+          <span *ngIf="event.year" [ngStyle] = "event?.bodyStyle?.year">{{ event.year }}</span>
+          <span *ngIf="event.year && event.time"> - </span>
+          <span *ngIf="event.time" [ngStyle] = "event?.bodyStyle?.time">{{ event.time }}</span>
+        </div>
+      </div>
+
+      <div class="timeline-body">
+        <div class="timeline-title" [ngClass]="{ 'message-icon-wrapper': event?.tooltip }" *ngIf="event.title"
+          [ngStyle]="event?.bodyStyle?.title">{{ event.title }}
+          <span *ngIf="event?.tooltip" class="message">
+            <aava-icon [iconName]="event?.tooltip?.messageIcon || 'MessageSquare'" [iconSize]="event?.tooltip?.iconSize || 30" 
+            [tooltipDescription]="event?.tooltip?.message || ''"
+              [tooltipPosition]="event?.tooltip?.position || 'top'" [tooltipArrow]="event?.tooltip?.arrow || 'start'"
+             [iconColor]="event?.tooltip?.iconColor || 'var(--icon-color)'">
+            </aava-icon>
+          </span>
+        </div>
+        <div class="timeline-text" *ngIf="event.text" [ngStyle] = "event?.bodyStyle?.text">{{ event.text }}</div>
+        <div class="timeline-description" [ngStyle] = "event?.bodyStyle?.description" *ngIf="event?.description" [innerHtml] ="getSafeHtml(event?.description)">
+          
+        </div>
+      </div>
+
+      <!-- Optional content projection for custom content -->
+      <ng-content *ngTemplateOutlet="contentTemplate; context: { $implicit: event }">
+      </ng-content>
+    </div>
+  </div>
+</div>

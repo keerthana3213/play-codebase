@@ -1,0 +1,37 @@
+<div class="card-skeleton-demo">
+  <div class="demo-content">
+    <div class="card-skeleton-container">
+
+      <!-- Card Skeleton 1 -->
+      <div class="card-skeleton">
+        <div *ngFor="let element of cardSkeletonElements; let i = index"
+             class="skeleton-element"
+             [class.title]="i === 1"
+             [class.description]="i > 1">
+          <aava-skeleton
+            [width]="element.width"
+            [height]="element.height"
+            [shape]="element.shape"
+            [animation]="element.animation">
+          </aava-skeleton>
+        </div>
+      </div>
+
+      <!-- Card Skeleton 2 -->
+      <div class="card-skeleton">
+        <div *ngFor="let element of cardSkeleton; let i = index"
+             class="skeleton-element"
+             [class.title]="i === 1"
+             [class.description]="i > 1">
+          <aava-skeleton
+            [width]="element.width"
+            [height]="element.height"
+            [shape]="element.shape"
+            [animation]="element.animation">
+          </aava-skeleton>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

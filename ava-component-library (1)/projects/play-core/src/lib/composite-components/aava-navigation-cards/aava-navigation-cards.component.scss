@@ -1,0 +1,152 @@
+.navigation-cards-container {
+  z-index: 300;
+  position: absolute;
+  width: 100%;
+  display: block;
+
+  .main-container {
+    border-radius: 12px;
+    border: var(--rail-nav-cards-border);
+    backdrop-filter: blur(calc(var(--Blur-Blur---2, 10px) / 2));
+    display: inline-flex;
+    align-items: flex-start;
+
+    .cards-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+
+
+      .panel-heading {
+        color: var(--rail-nav-card-heading-color);
+        font-family: var(--rail-nav-card-heading-font-family);
+        font-size: var(--rail-nav-card-heading-font-size);
+        font-weight: var(--rail-nav-card-heading-font-weight);
+        font-style: normal;
+        line-height: normal;
+      }
+
+      .cards-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        width: 100%;
+
+        /* Wrapper that controls the fixed container size and alignment */
+        .navigation-card-wrapper {
+          width: 186px;
+          height: 223px;
+          display: flex;
+          align-items: center;
+          /* flex-start positioning */
+          justify-content: flex-start;
+          /* Prevent layout shift and keep zoom contained */
+          overflow: hidden;
+          border-radius: 26px;
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.08);
+        }
+
+        .navigation-card {
+          cursor: pointer;
+          transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, border-radius 0.2s ease;
+          display: flex;
+          width: 186px;
+          height: 223px;
+          flex-direction: column;
+          align-items: flex-start;
+          gap: 8px;
+          border-radius: 26px;
+          border: 0.5px solid var(--global-color-gray-50);
+          background: linear-gradient(125deg, var(--global-color-gray-50) 3.53%, var(--global-color-white) 96.47%);
+         
+          // transform-origin: top left;
+          /* grow from top-left (flex-start) */
+
+
+          .card-image {
+            height: 120px;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            border-radius: 26px;
+            border: 0.876px solid rgba(255, 255, 255, 0.20);
+            position: relative;
+            background-color: transparent;
+            box-shadow: 0 10.507px 23.641px 0 rgba(255, 255, 255, 0.10) inset, 0 8.756px 13.134px 0 rgba(0, 0, 0, 0.20);
+
+            .card-icon {
+              position: absolute;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 8px 8px 0px 0px;
+            }
+
+            .card-icon-default {
+              opacity: 1;
+              z-index: 1;
+
+              &.faded {
+                opacity: 1;
+              }
+            }
+
+            .card-icon-hover {
+              opacity: 0;
+              z-index: 2;
+              transition: opacity 300ms linear;
+
+              &.visible {
+                opacity: 1;
+              }
+            }
+          }
+
+          .card-content {
+            display: flex;
+            padding: 0 12px 24px 12px;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 4px;
+            flex: 1 0 0;
+            align-self: stretch;
+
+            .title {
+              color: var(--rail-nav-card-heading-color);
+              font-family: var(--rail-nav-card-title-font-family);
+              font-size: var(--rail-nav-card-title-font-size);
+              font-style: normal;
+              font-weight: var(--rail-nav-card-title-font-weight);
+              line-height: normal;
+              text-align: left;
+              white-space: nowrap;
+              overflow: hidden;
+              text-overflow: ellipsis;
+              width: 100%;
+            }
+
+            .description {
+              color: var(--rail-nav-card-description-color);
+              font-family: var(--rail-nav-card-heading-font-family);
+              font-size: var(--rail-nav-card-description-text);
+              font-style: normal;
+              font-weight: var(--rail-nav-card-title-font-weight);
+              line-height: 14px;
+              text-align: left;
+              overflow: hidden;
+              display: -webkit-box;
+              -webkit-line-clamp: 3;
+              line-clamp: 3;
+              -webkit-box-orient: vertical;
+            }
+          }
+        }
+      }
+    }
+  }
+}

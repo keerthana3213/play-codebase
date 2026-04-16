@@ -1,0 +1,47 @@
+/**
+ * Component: List
+ * Purpose: List component tokens for displaying selectable lists
+ */
+
+:root {
+
+
+  /* List Item */
+  --list-item-border: 1px solid var(--color-border-subtle);
+  --list-item-padding-lg: 4px 8px;
+  --list-item-padding-md: 6px 8px;
+  --list-item-padding-sm: 6px 8px;
+  --list-item-padding-xs: 6px 8px;
+  --list-item-gap: 8px;
+  --list-item-gap-xs: 4px;
+
+  --list-item-outline-border: 1px solid var(--global-color-gray-300);
+  --list-item-outline-hover-border-color: var(--global-color-pink-500);
+  --list-item-border-radius: var(--global-radius-sm);
+  --list-item-hover-bg: var(--global-color-pink-50);
+  --list-item-left-margin: 8px;
+  --list-item-middle-gap: 4px;
+  --list-item-checkbox-padding: var(--global-spacing-1);
+
+  /* List Item Font Sizes by Size Variant */
+  --list-item-font-size-lg: var(--global-font-size-lg);
+  --list-item-font-size-md: var(--global-font-size-sm);
+  --list-item-font-size-md: var(--global-font-size-sm);
+  --list-item-font-size-xs: var(--global-font-size-xs);
+
+
+
+  --list-item-option-text-font: (var(--global-font-family-body), var(--global-font-weight-medium), var(--global-line-height-normal));
+  --list-item-option-text-font-size: 18px;
+  --list-item-option-text-color: rgba(59, 63, 70, 1);
+
+  --list-item-heading-text-font: (var(--global-font-family-body), var(--global-font-weight-semibold));
+  --list-item-heading-text-font-size: var(--global-font-size-sm);
+  --list-item-heading-text-color: rgba(0, 0, 0, 1);
+  --list-item-heading-text-line-height: 20px;
+
+  --list-item-description-text-font: (var(--global-font-family-body), var(--global-font-weight-regular), var(--global-line-height-none));
+  --list-item-description-text-font-size: var(--global-font-size-xs);
+  --list-item-description-text-color: rgba(0, 0, 0, 1);
+
+}

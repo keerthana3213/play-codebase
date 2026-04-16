@@ -1,0 +1,52 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Default Preview Layout</h4>
+      <aava-file-upload
+        componentTitle="Default Preview"
+        previewLayout="default"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Table Preview Layout</h4>
+      <aava-file-upload
+        componentTitle="Table Preview"
+        layout="icon"
+        previewLayout="table"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Table with Custom Height (200px)</h4>
+      <aava-file-upload
+        componentTitle="Scrollable Table"
+        previewLayout="table"
+         layout="icon"
+
+        [previewLayoutHeight]="200"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="10"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Table with Custom Columns</h4>
+      <aava-file-upload
+        previewLayout="table"
+        layout="icon"
+        [tableColumns]="customColumns"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+  </div>
+</div>

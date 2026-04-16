@@ -1,0 +1,138 @@
+.ava-spinner-container {
+  display: flex;
+  flex-direction: row; // horizontal alignment
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem; // space between spinners
+  padding: var(--spinner-padding);
+
+
+  .spinner {
+    border-radius: var(--spinner-border-radius);
+    transition: transform 0.45s linear;
+
+    &.progress-spinner {
+      animation: none !important;
+    }
+
+    /* Dynamic Rotation States */
+    &.rotate-25 {
+      transform: rotate(90deg);
+    }
+
+    &.rotate-50 {
+      transform: rotate(180deg);
+    }
+
+    &.rotate-75 {
+      transform: rotate(270deg);
+    }
+
+    &.rotate-100 {
+      transform: rotate(360deg);
+    }
+
+
+    /* Named color variants */
+    &.primary {
+      border: 3px solid var(--spinner-primary-track);
+      border-top-color: var(--spinner-primary-fill);
+    }
+
+    &.secondary {
+      border: 3px solid var(--spinner-secondary-track);
+      border-top-color: var(--spinner-secondary-fill);
+    }
+
+    &.success {
+      border: 3px solid var(--spinner-success-track);
+      border-top-color: var(--spinner-success-fill);
+    }
+
+    &.warning {
+      border: 3px solid var(--spinner-warning-track);
+      border-top-color: var(--spinner-warning-fill);
+
+    }
+
+    &.danger {
+      border: 3px solid var(--spinner-error-track);
+      border-top-color: var(--spinner-error-fill);
+
+    }
+
+    &.animated {
+      animation: spin 3s linear infinite;
+    }
+
+    /* Variants */
+    &.linear-gradient {
+      border-width: 5px;
+    }
+
+    &.blob {
+      border: 3px solid transparent;
+      border-radius: 50%;
+      /* Ensure circular shape for conic gradient */
+
+      /* Semantic Background Variants (Track Color) */
+      &.primary {
+        background: conic-gradient(from 90deg at 50% 50%, var(--spinner-primary-track) 0% 100%);
+      }
+
+      &.secondary {
+        background: conic-gradient(from 90deg at 50% 50%, var(--spinner-secondary-track) 0% 100%);
+      }
+
+      &.success {
+        background: conic-gradient(from 90deg at 50% 50%, var(--spinner-success-track) 0% 100%);
+      }
+
+      &.warning {
+        background: conic-gradient(from 90deg at 50% 50%, var(--spinner-warning-track) 0% 100%);
+      }
+
+      &.danger {
+        background: conic-gradient(from 90deg at 50% 50%, var(--spinner-error-track) 0% 100%);
+      }
+    }
+
+    &.size-sm {
+      width: var(--spinner-size-sm);
+      height: var(--spinner-size-sm);
+    }
+
+    &.size-md {
+      width: var(--spinner-size-md);
+      height: var(--spinner-size-md);
+    }
+
+    &.size-lg {
+      width: var(--spinner-size-lg);
+      height: var(--spinner-size-lg);
+    }
+
+    &.size-xl {
+      width: var(--spinner-size-xl);
+      height: var(--spinner-size-xl);
+
+    }
+  }
+}
+
+:host.spin {
+  display: inline-block;
+  animation: spin 1.2s linear infinite;
+  transform-origin: center;
+}
+
+
+
+/* Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+
+
+}

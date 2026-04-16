@@ -1,0 +1,166 @@
+<div class="popover-demo-container">
+  <div class="header">
+    <h1>Popover Component</h1>
+    <p>
+      A flexible popover component with multiple positioning options, navigation
+      variants, and customizable content for tooltips, help text, and guided
+      tours.
+    </p>
+  </div>
+
+  <!-- Demo Navigation Links -->
+  <div class="demo-links">
+    <h3>Demo Pages</h3>
+    <div class="demo-grid">
+      <a routerLink="./basic-usage" class="demo-link">
+        <div class="demo-card">
+          <h4>Basic Usage</h4>
+          <p>Simple popover implementation with default settings</p>
+        </div>
+      </a>
+      <a routerLink="./positions" class="demo-link">
+        <div class="demo-card">
+          <h4>Positioning Options</h4>
+          <p>Four positioning variants with intelligent arrow placement</p>
+        </div>
+      </a>
+      <a routerLink="./navigation" class="demo-link">
+        <div class="demo-card">
+          <h4>Navigation Variants</h4>
+          <p>Multiple footer configurations for different use cases</p>
+        </div>
+      </a>
+      <a routerLink="./content" class="demo-link">
+        <div class="demo-card">
+          <h4>Content Variants</h4>
+          <p>Different content configurations for various use cases</p>
+        </div>
+      </a>
+      <a routerLink="./variants" class="demo-link">
+        <div class="demo-card">
+          <h4>Footer Variants</h4>
+          <p>Multiple footer configurations to match different patterns</p>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <!-- Original Working Demos -->
+  <div class="working-demos">
+    <h2>Interactive Examples</h2>
+    <p>Try these working popover examples below:</p>
+
+    <div class="demo-section">
+      <h3>Position Examples</h3>
+
+      <div class="position-demo">
+        <!-- Top Position -->
+        <aava-button aavaPopover [aavaPopoverData]="samplePopoverData" [aavaPopoverPosition]="'top'"
+          [aavaPopoverArrow]="'center'" [label]="'Top'" [variant]="'primary'" [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Bottom Position -->
+        <aava-button aavaPopover [aavaPopoverData]="samplePopoverData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [label]="'Bottom'" [variant]="'primary'" [outlined]="true"
+          pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Left Position -->
+        <aava-button aavaPopover [aavaPopoverData]="samplePopoverData" [aavaPopoverPosition]="'left'"
+          [aavaPopoverArrow]="'center'" [label]="'Left'" [variant]="'primary'" [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Right Position -->
+        <aava-button aavaPopover [aavaPopoverData]="samplePopoverData" [aavaPopoverPosition]="'right'"
+          [aavaPopoverArrow]="'center'" [label]="'Right'" [variant]="'primary'" [outlined]="true"
+          pressedEffect="ripple">
+        </aava-button>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Popover Variants</h3>
+
+      <div class="variant-demo">
+        <!-- Variant 1: Learn More with custom URL -->
+        <aava-button aavaPopover [aavaPopoverData]="learnMoreExampleData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [aavaPopoverShowLearnMore]="true" [label]="'Custom URL'" [variant]="'primary'"
+          [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Variant 2: Buttons only (showButtons = true) -->
+        <aava-button aavaPopover [aavaPopoverData]="samplePopoverData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [aavaPopoverShowButtons]="true" [label]="'Buttons Only'" [variant]="'primary'"
+          [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Variant 3: Pagination + Buttons (showPagination = true, showButtons = true) -->
+        <aava-button aavaPopover [aavaPopoverData]="multiStepData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [aavaPopoverShowPagination]="true" [aavaPopoverShowButtons]="true"
+          [label]="'Pagination + Buttons'" [variant]="'primary'" [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Variant 4: Skip + Icon navigation (showSkip = true, showIcon = true) -->
+        <aava-button aavaPopover [aavaPopoverData]="tourData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [aavaPopoverShowSkip]="true" [aavaPopoverShowIcon]="true"
+          [label]="'Skip + Icon'" [variant]="'primary'" [outlined]="true" pressedEffect="ripple">
+        </aava-button>
+      </div>
+    </div>
+
+    <div class="demo-section">
+      <h3>Arrow Position Examples</h3>
+
+      <div class="arrow-demo">
+        <!-- Start Arrow -->
+        <aava-button aavaPopover [aavaPopoverData]="multiStepData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'start'" [label]="'Start Arrow'" [variant]="'primary'" [outlined]="true"
+          pressedEffect="ripple">
+        </aava-button>
+
+        <!-- Center Arrow -->
+        <aava-button aavaPopover [aavaPopoverData]="multiStepData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'center'" [label]="'Center Arrow'" [variant]="'primary'" [outlined]="true"
+          pressedEffect="ripple">
+        </aava-button>
+
+        <!-- End Arrow -->
+        <aava-button aavaPopover [aavaPopoverData]="multiStepData" [aavaPopoverPosition]="'bottom'"
+          [aavaPopoverArrow]="'end'" [label]="'End Arrow'" [variant]="'primary'" [outlined]="true"
+          pressedEffect="ripple">
+        </aava-button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <h3>Key Features</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <h4>🎯 Flexible Positioning</h4>
+        <p>Automatic positioning with arrow alignment and boundary detection</p>
+      </div>
+      <div class="feature-item">
+        <h4>🧭 Navigation Options</h4>
+        <p>Multiple footer configurations for different interaction patterns</p>
+      </div>
+      <div class="feature-item">
+        <h4>📱 Responsive Design</h4>
+        <p>Adapts to different screen sizes and content lengths</p>
+      </div>
+      <div class="feature-item">
+        <h4>♿ Accessibility</h4>
+        <p>Built-in accessibility features and keyboard navigation</p>
+      </div>
+      <div class="feature-item">
+        <h4>🎨 Customizable Content</h4>
+        <p>Support for headers, descriptions, and learn more links</p>
+      </div>
+      <div class="feature-item">
+        <h4>✨ Smooth Animation</h4>
+        <p>Entrance animations with stretch effects and smooth transitions</p>
+      </div>
+    </div>
+  </div>
+</div>

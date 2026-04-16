@@ -1,0 +1,31 @@
+.demo-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h2 {
+    margin-bottom: 1rem;
+    color: #333;
+  }
+}
+.size-xs{
+  width:140px;
+}
+.size-sm{
+  width:200px;
+}
+.size-md{
+  width:240px;
+}
+.size-lg{
+  width:280px;
+}
+.size-xl{
+  width:300px;
+}
+
+.sizes-grid{
+  display:flex;
+  flex-direction: row;
+  gap:15px;
+}

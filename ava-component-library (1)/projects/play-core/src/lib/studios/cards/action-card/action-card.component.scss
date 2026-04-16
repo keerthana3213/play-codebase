@@ -1,0 +1,51 @@
+.action-card {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.action-card-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    padding: 24px;
+    text-align: center;
+}
+
+.action-card-icon-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.action-card-icon-circle {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: var(--studios-Action-bgcolor);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+}
+
+.action-card-title {
+    /* Desktop/Body/Body 1 Med */
+    font-family: var(--studios-Action-font-family);
+    font-size: var(--studios-Action-font-size);
+    font-style: normal;
+    font-weight: var(--studios-Action-weight);
+    line-height: var(--studios-Action-line-height);
+    /* 120% */
+    text-align: center;
+    max-width: 100%;
+    word-wrap: break-word;
+    margin-bottom: 4px;
+}

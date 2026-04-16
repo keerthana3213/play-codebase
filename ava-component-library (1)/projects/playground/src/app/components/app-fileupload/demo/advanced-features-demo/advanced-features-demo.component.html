@@ -1,0 +1,78 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Custom File Type Colors</h4>
+      <aava-file-upload
+        componentTitle="Custom Colors"
+        layout="tags"
+        [fileTypeColors]="customFileColors"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png', 'txt']"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - Start (Default Layout)</h4>
+      <aava-file-upload
+        layout="default"
+        ellipses="start"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - Middle (Default Layout)</h4>
+      <aava-file-upload
+        layout="default"
+        ellipses="middle"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - End (Default Layout)</h4>
+      <aava-file-upload
+        layout="default"
+        ellipses="end"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - Start (List Layout)</h4>
+      <aava-file-upload
+        layout="list"
+        ellipses="start"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - Middle (List Layout)</h4>
+      <aava-file-upload
+        layout="list"
+        ellipses="middle"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Filename Ellipses - End (List Layout)</h4>
+      <aava-file-upload
+        layout="tags"
+        ellipses="middle"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+  </div>
+</div>

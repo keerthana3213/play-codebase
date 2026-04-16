@@ -1,0 +1,12 @@
+<div class="demo-container">
+  <aava-icon
+    *ngFor="let icon of interactiveIcons"
+    [iconName]="icon.name"
+    [iconSize]="24"
+    iconColor="#374151"
+    [cursor]="icon.cursor"
+    [attr.aria-label]="icon.label"
+    (userClick)="onIconClick($event, icon.name)"
+  >
+  </aava-icon>
+</div>

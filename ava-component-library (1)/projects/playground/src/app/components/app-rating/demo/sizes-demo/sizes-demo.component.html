@@ -1,0 +1,51 @@
+<div class="demo-container">
+  <div class="sizes-grid">
+    <div class="size-demo">
+      <h4 style="color: var(--color-text-primary)">Extra Small</h4>
+      <aava-rating
+        [value]="ratingValue"
+        size="xs"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+    </div>
+
+    <div class="size-demo">
+      <h4 style="color: var(--color-text-primary)">Small</h4>
+      <aava-rating
+        [value]="ratingValue"
+        size="sm"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+    </div>
+
+    <div class="size-demo">
+      <h4 style="color: var(--color-text-primary)">Medium - Default</h4>
+      <aava-rating
+        [value]="ratingValue"
+        size="md"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+    </div>
+
+    <div class="size-demo">
+      <h4 style="color: var(--color-text-primary)">Large</h4>
+      <aava-rating
+        [value]="ratingValue"
+        size="lg"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+    </div>
+
+    <div class="size-demo">
+      <h4 style="color: var(--color-text-primary)">Custom</h4>
+      <aava-rating
+        [value]="ratingValue"
+        [size]="40"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+    </div>
+  </div>
+  <p style="color: var(--color-text-primary)">
+    Current Rating: {{ ratingValue }}
+  </p>
+</div>

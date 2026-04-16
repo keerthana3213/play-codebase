@@ -1,0 +1,61 @@
+.nested-demo {
+  padding: 2rem;
+  background-color: var(--surface-background);
+}
+
+.demo-header {
+  margin-bottom: 3rem;
+  text-align: center;
+
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--text-primary);
+    }
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin: 0 0 0.5rem 0;
+    color: var(--text-primary);
+  }
+
+  p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+.demo-col,
+.demo-col-nested,
+.demo-col-nested-2 {
+  padding: 1rem;
+  border-radius: 4px;
+  text-align: center;
+  color: var(--text-on-primary);
+}
+
+.demo-col {
+  background-color: #3b82f6;
+}
+
+.demo-col-nested {
+  background-color: #2563eb;
+  margin-top: 1rem;
+}
+
+.demo-col-nested-2 {
+  background-color: #1d4ed8;
+  margin-top: 1rem;
+}

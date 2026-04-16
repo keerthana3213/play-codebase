@@ -1,0 +1,180 @@
+<!-- 
+<div style = "margin:75px">
+        <div #box class="box"></div>
+
+        <aava-button label="Animate" variant="primary" (click)="animateBox()"></aava-button>
+
+
+</div> -->
+
+<!-- #####-------OLD code----------######### -->
+<!-- <div class="each">
+  <aava-tabs playAnimate [animation]="['zoomFadeIn', 'tabSwitch','tabSwitch']" [trigger]="['load','load', 'click']"
+    [tabs]="tabItems" variant="button" size="xl" [activeTabId]="activeTabId" buttonShape="rounded" [bordered]="true"
+    [showContentPanels]="false"></aava-tabs>
+
+
+</div>
+
+<div class="each">
+  <aava-tabs playAnimate [animation]="[ 'tabSwitch','tabSwitch']" [trigger]="['load', 'click']" [tabs]="tabItems"
+    variant="button" size="xl" [activeTabId]="activeTabId1" [activeTabIndex]="2" buttonShape="rounded" [bordered]="true"
+    [showContentPanels]="false"></aava-tabs>
+</div>
+
+
+<div class="each" style=" background: linear-gradient(135deg, #1f2937, #111827);display:inline-block">
+  <div style="padding: 24px;display:inline-block;width:300px;">
+    <aava-default-card playAnimate animation="glassHover" trigger="hover" style="border-radius:14px" [customStyles]="{'border-radius': '16px',
+              background: 'rgba(255, 255, 255, 0.1)',
+              'backdrop-filter': 'blur(10px)',
+              border: '1px solid rgba(255, 255, 255, 0.2)',
+              color: 'white',
+              'box-shadow': '0 4px 30px rgba(0, 0, 0, 0.1)',
+              transition: 'transform 0.3s ease, box-shadow 0.3s ease'}">
+
+      <p style="height:100px;"></p>
+    </aava-default-card>
+  </div>
+
+</div>
+<div class="each" style="background-color: skyblue; display:inline-block">
+  <div style="padding: 24px;display:inline-block;width:300px;margin-right: 20px;">
+    <aava-default-card playAnimate animation="zoomFadeIn" trigger="load"
+      [customStyles]="{'border-radius': '12px', border: 'none', background: 'rgba(255, 255, 255, 0.50)',}">
+      <p style="height:100px;"></p>
+    </aava-default-card>
+  </div>
+
+</div>
+
+
+<div>
+  <div class="each" style="width:250px;display:inline-block">
+    <aava-button playAnimate animation="ripple" trigger="click" label=" Ripple GSAP" variant="primary"> </aava-button>
+  </div>
+  <div class="each" style="width:200px;display:inline-block">
+    <aava-button variant="primary" label="Flip" playAnimate animation="flip" trigger="click"> </aava-button>
+  </div>
+  <div class="each" style="width:250px;display:inline-block">
+    <aava-button label="Ripple Default" variant="primary"> </aava-button>
+  </div>
+</div>
+<div class="each">
+  <aava-button label="Open Swoop Modal" variant="primary" (userClick)="openSwoopModal()"></aava-button>
+  <aava-button label="Open SwoopOut Modal" variant="secondary" (userClick)="openSwoopOutModal()"></aava-button>
+</div> -->
+
+<hr>
+<!-- ###############--------NEW Code------(18-12-2025)----######## -->
+<div class="each" style="margin-top: 20px;">
+  <div style="display: flex; gap: 10px;">
+
+    <aava-button playAnimate animation="fade" trigger="click" label="Fade (Liquid)" variant="primary"></aava-button>
+
+    <aava-button playAnimate animation="slideUp" trigger="click" label="Slide Up (Flow)"
+      variant="primary"></aava-button>
+
+    <aava-button playAnimate animation="slideDown" trigger="click" label="Slide Down (Flow)"
+      variant="primary"></aava-button>
+
+    <aava-button playAnimate animation="zoomFadeIn" trigger="click" label="Zoom Fade (Glass)"
+      variant="primary"></aava-button>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="each" style="margin-top: 20px;">
+  <div style="display: flex; gap: 10px;">
+
+    <aava-button playAnimate animation="bounce" trigger="click" label="Bounce (Soft)" variant="secondary"></aava-button>
+
+    <aava-button playAnimate animation="pulse" trigger="click" label="Pulse (Light)" variant="primary"></aava-button>
+
+    <aava-button playAnimate animation="flip" trigger="click" label="Flip (Standard)" variant="secondary"></aava-button>
+
+    <aava-button playAnimate animation="shake" trigger="click" label="Shake" variant="secondary"></aava-button>
+
+    <aava-button playAnimate animation="ripple" trigger="click" label="Ripple (Light)" variant="primary"></aava-button>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="each" style="margin-top: 20px;">
+  <div
+    style="display: flex; width: 600px; gap: 40px; padding: 60px; background: linear-gradient(135deg, #8EC5FC 0%, #E0C3FC 100%); border-radius: 20px; justify-content: center; align-items: center;">
+
+    <div style="text-align: center;">
+
+      <aava-default-card playAnimate animation="glassLift" trigger="hover" style="border-radius: 24px; overflow: hidden"
+        [cardStyles]="{'border-radius': '24px', 'overflow': 'hidden'}" [customStyles]="{
+          'width': '200px', 
+          'height': '200px', 
+          'background': 'rgba(255,255,255,0.2)', 
+          'border-radius': '24px', 
+          'border': '1px solid rgba(255,255,255,0.3)',
+          'display': 'flex',
+          'align-items': 'center',
+          'justify-content': 'center'
+        }">
+        <div style="font-size: 24px; font-weight: 600; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Lift</div>
+      </aava-default-card>
+
+      <p style="margin-top: 16px; font-size: 16px; font-weight: 500; color: #333;">Glass Lift</p>
+    </div>
+
+    <div style="text-align: center;">
+
+      <aava-default-card playAnimate animation="glassHover" trigger="hover"
+        style="border-radius: 24px; overflow: hidden" [cardStyles]="{'border-radius': '24px', 'overflow': 'hidden'}"
+        [customStyles]="{
+          'width': '200px', 
+          'height': '200px', 
+          'background': 'rgba(255,255,255,0.1)', 
+          'border-radius': '24px', 
+          'border': '1px solid rgba(255,255,255,0.2)',
+          'display': 'flex',
+          'align-items': 'center',
+          'justify-content': 'center'
+        }">
+        <div style="font-size: 24px; font-weight: 600; color: #fff; text-shadow: 0 2px 4px rgba(0,0,0,0.1);">Hover</div>
+      </aava-default-card>
+
+      <p style="margin-top: 16px; font-size: 16px; font-weight: 500; color: #333;">Glass Hover</p>
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="each" style="margin-top: 20px;">
+  <h3 style="margin-bottom: 16px; font-size: 20px; font-weight: 600; color: #333;">Swoop Animations
+  </h3>
+
+  <div style="display: flex; gap: 20px; flex-wrap: wrap;">
+
+
+    <aava-button label="Open SwoopIn Modal" variant="primary" (userClick)="openSwoopModal()"></aava-button>
+
+    <aava-button label="Open SwoopOut Modal" variant="secondary" (userClick)="openSwoopOutModal()"></aava-button>
+
+  </div>
+</div>
+
+<hr>
+
+<div class="each">
+
+  <aava-tabs playAnimate [animation]="['tabSwitch', 'tabSwitch']" [trigger]="['load', 'click']" [tabs]="tabItems"
+    variant="button" size="xl" [activeTabId]="activeTabId" buttonShape="rounded" [bordered]="true"
+    [showContentPanels]="false">
+  </aava-tabs>
+
+</div>
+
+<hr>

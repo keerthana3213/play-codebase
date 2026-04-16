@@ -1,0 +1,22 @@
+<div class="demo-container">
+  <h3>Compact — Basic</h3>
+  <div class="demo-item">
+    <aava-pagination-controls type="basic" [compact]="true" [size]="'xs'" [currentPage]="currentPage" [totalPages]="100"
+      (pageChange)="onPageChange($event)">
+    </aava-pagination-controls>
+  </div>
+
+  <h3>Compact — Unfilled</h3>
+  <div class="demo-item">
+    <aava-pagination-controls type="unfilled" [compact]="true" [size]="'xs'" [currentPage]="currentPage"
+      [totalPages]="100" (pageChange)="onPageChange($event)">
+    </aava-pagination-controls>
+  </div>
+
+  <h3>Compact — Basic Unfilled</h3>
+  <div class="demo-item">
+    <aava-pagination-controls type="basicunfilled" [compact]="true" [size]="'xs'" [currentPage]="currentPage"
+      [totalPages]="100" (pageChange)="onPageChange($event)">
+    </aava-pagination-controls>
+  </div>
+</div>

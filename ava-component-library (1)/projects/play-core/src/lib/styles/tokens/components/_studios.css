@@ -1,0 +1,194 @@
+:root {
+
+  /* --- Studios Colors --- */
+  --studios-text-primary: var(--global-color-gray-800);
+  --studios-text-secondary: var(--global-color-gray-600);
+  --studios-text-tertiary: var(--global-color-gray-400);
+  --studios-text-placeholder: var(--global-color-gray-400);
+
+  /* --- Studios Typography --- */
+  --studios-font-family-heading: var(--global-font-family-heading);
+  --studios-font-family-body: var(--global-font-family-body);
+
+  /* Font Sizes */
+  --studios-font-size-xs: var(--global-font-size-xs);
+  --studios-font-size-sm: var(--global-font-size-sm);
+  --studios-font-size-md: var(--global-font-size-md);
+  --studios-font-size-lg: var(--global-font-size-lg);
+
+  /* Font Weights */
+  --studios-font-weight-regular: var(--global-font-weight-regular);
+  --studios-font-weight-medium: var(--global-font-weight-medium);
+  --studios-font-weight-semibold: var(--global-font-weight-semibold);
+  --studios-font-weight-bold: var(--global-font-weight-bold);
+
+  /* Line Heights */
+  --studios-line-height-none: var(--global-line-height-none);
+  --studios-line-height-tight: var(--global-line-height-tight);
+  --studios-line-height-normal: var(--global-line-height-normal);
+
+  /* --- Studios Card Styles --- */
+  --studios-card-border-radius: 12px;
+  --studios-card-border: 2px solid #FDFDFD;
+  --studios-card-background: rgba(255, 255, 255, 0.50);
+  --studios-card-shadow: 0 2px 4px 0 #D1D3D8;
+
+
+  /* --- Studios Stats Card --- */
+  --studios-stats-card-border: 1px solid #F0F1F2;
+  --studios-stats-card-background: rgba(255, 255, 255, 0.90);
+  --studios-stats-card-border-radius: 12px;
+
+  /* --- Studios Header --- */
+  --studios-header-primary-color: var(--studios-text-primary);
+  --studios-header-primary-size: var(--studios-font-size-lg);
+  --studios-header-primary-weight: var(--studios-font-weight-bold);
+  --studios-header-primary-line-height: 150%;
+
+  --studios-header-secondary-color: var(--studios-text-secondary);
+  --studios-header-secondary-size: var(--studios-font-size-sm);
+  --studios-header-secondary-weight: var(--studios-font-weight-semibold);
+  --studios-header-secondary-line-height: var(--studios-line-height-none);
+
+  --studios-header-number-size: var(--studios-font-size-sm);
+  --studios-header-number-weight: var(--studios-font-weight-regular);
+  --studios-header-text-color: var(--studios-text-secondary);
+
+  /* --- Studios Submission Card --- */
+  --studios-submission-text-color: var(--studios-text-primary);
+  --studios-submission-text-size: var(--studios-font-size-md);
+  --studios-submission-text-weight: var(--studios-font-weight-medium);
+  --studios-submission-text-line-height: var(--studios-line-height-normal);
+
+  --studios-submission-label-color: var(--studios-text-tertiary);
+  --studios-submission-label-size: var(--studios-font-size-xs);
+  --studios-submission-label-weight: var(--studios-font-weight-medium);
+  --studios-submission-label-line-height: var(--studios-line-height-none);
+
+  /* --- Studios Review Card --- */
+  --studios-review-text-color: var(--studios-text-primary);
+  --studios-review-text-size: var(--studios-font-size-md);
+  --studios-review-text-weight: var(--studios-font-weight-medium);
+  --studios-review-text-line-height: var(--studios-line-height-normal);
+
+  --studios-review-description-color: var(--studios-text-tertiary);
+  --studios-review-description-size: var(--studios-font-size-sm);
+  --studios-review-description-weight: var(--studios-font-weight-regular);
+  --studios-review-description-line-height: var(--studios-line-height-none);
+
+  --studios-review-by-text-color: var(--studios-text-tertiary);
+  --studios-review-by-text-size: var(--studios-font-size-xs);
+  --studios-review-by-text-weight: var(--studios-font-weight-medium);
+  --studios-review-by-text-line-height: var(--studios-line-height-none);
+
+  /* --- Studios Summary Card --- */
+  --studios-summary-title-color: var(--studios-text-primary);
+  --studios-summary-title-size: var(--studios-font-size-md);
+  --studios-summary-title-weight: var(--studios-font-weight-medium);
+  --studios-summary-title-line-height: var(--studios-line-height-tight);
+
+  --studios-summary-subtitle-color: var(--studios-text-tertiary);
+  --studios-summary-subtitle-size: var(--studios-font-size-sm);
+  --studios-summary-subtitle-weight: var(--studios-font-weight-regular);
+
+  /* --- Studios Welcome Card --- */
+  /* Greeting (first line) */
+  --studios-welcome-greeting-color: var(--studios-text-primary);
+  --studios-welcome-greeting-family: var(--studios-font-family-body);
+  --studios-welcome-greeting-size: 42px;
+  --studios-welcome-greeting-weight: var(--studios-font-weight-medium);
+  --studios-welcome-greeting-line-height: var(--studios-line-height-none);
+
+  /* Emoji on first line */
+  --studios-welcome-emoji-color: var(--studios-text-primary);
+  --studios-welcome-emoji-family: var(--studios-font-family-body);
+  --studios-welcome-emoji-size: 28px;
+  --studios-welcome-emoji-weight: var(--studios-font-weight-regular);
+  --studios-welcome-emoji-line-height: var(--studios-line-height-none);
+
+  /* Subtitle (second line) */
+  --studios-welcome-subtitle-color: var(--studios-text-secondary);
+  --studios-welcome-subtitle-family: var(--studios-font-family-body);
+  --studios-welcome-subtitle-size: var(--studios-font-size-lg);
+  --studios-welcome-subtitle-weight: var(--studios-font-weight-regular);
+  --studios-welcome-subtitle-line-height: 24px;
+
+  /* --- Studios Profile Card --- */
+  /* Title */
+  --studios-profile-title-color: var(--studios-text-primary);
+  --studios-profile-title-family: var(--studios-font-family-heading);
+  --studios-profile-title-size: 24px;
+  --studios-profile-title-weight: var(--studios-font-weight-medium);
+  --studios-profile-title-line-height: var(--studios-line-height-none);
+
+  /* Subtitle */
+  --studios-profile-subtitle-color: var(--studios-text-secondary);
+  --studios-profile-subtitle-family: var(--studios-font-family-body);
+  --studios-profile-subtitle-size: var(--studios-font-size-md);
+  --studios-profile-subtitle-weight: var(--studios-font-weight-regular);
+  --studios-profile-subtitle-line-height: 24px;
+
+  /* Stat Value */
+  --studios-profile-stat-value-color: var(--studios-text-primary);
+  --studios-profile-stat-value-family: var(--studios-font-family-heading);
+  --studios-profile-stat-value-size: 24px;
+  --studios-profile-stat-value-weight: var(--studios-font-weight-bold);
+  --studios-profile-stat-value-line-height: 32px;
+
+  /* Stat Label */
+  --studios-profile-stat-label-color: var(--studios-text-secondary);
+  --studios-profile-stat-label-family: var(--studios-font-family-heading);
+  --studios-profile-stat-label-size: 12px;
+  --studios-profile-stat-label-weight: var(--studios-font-weight-regular);
+  --studios-profile-stat-label-line-height: 16px;
+
+  /* --- Studios Request Card --- */
+  --studios-request-name-color: var(--studios-text-primary);
+  --studios-request-name-size: var(--studios-font-size-md);
+  --studios-request-name-weight: var(--studios-font-weight-medium);
+  --studios-request-name-line-height: var(--studios-line-height-tight);
+
+  --studios-request-department-color: var(--studios-text-tertiary);
+  --studios-request-department-size: var(--studios-font-size-sm);
+  --studios-request-department-weight: var(--studios-font-weight-regular);
+
+  /* --- Studios Execution Card --- */
+  --studios-execution-title-color: var(--studios-text-primary);
+  --studios-execution-title-size: var(--studios-font-size-md);
+  --studios-execution-title-weight: var(--studios-font-weight-medium);
+  --studios-execution-title-line-height: var(--studios-line-height-tight);
+
+  --studios-execution-subtitle-color: var(--studios-text-tertiary);
+  --studios-execution-subtitle-size: var(--studios-font-size-xs);
+  --studios-execution-subtitle-weight: var(--studios-font-weight-regular);
+
+  /* --- Studios Stats Card --- */
+  --studios-stats-label-color: var(--studios-text-secondary);
+  --studios-stats-label-size: var(--studios-font-size-md);
+  --studios-stats-label-weight: var(--studios-font-weight-medium);
+  --studios-stats-label-line-height: var(--studios-line-height-none);
+
+  --studios-stats-value-size: var(--studios-font-size-lg);
+  --studios-stats-value-weight: var(--studios-font-weight-bold);
+
+  /* --- Studios Empty State --- */
+  --studios-empty-state-color: var(--studios-text-secondary);
+  --studios-empty-state-size: var(--studios-font-size-sm);
+  --studios-empty-state-weight: var(--studios-font-weight-regular);
+  --studios-empty-state-line-height: var(--studios-line-height-normal);
+  --studios-empty-state-padding: 24px;
+  --studios-empty-state-text-align: center;
+
+  /* --- Studios Spacing --- */
+  --studios-gap-xs: 4px;
+  --studios-gap-sm: 8px;
+  --studios-gap-md: 12px;
+  --studios-gap-lg: 16px;
+
+  /* --- Studios Action Card --- */
+  --studios-Action-bgcolor: var(--global-color-white);
+  --studios-Action-font-size: var(--global-font-size-lg);
+  --studios-Action-weight: var(--global-font-weight-medium);
+  --studios-Action-line-height: var(--global-line-height-normal);
+  --studios-Action-font-family: var(--global-font-family-body);
+}

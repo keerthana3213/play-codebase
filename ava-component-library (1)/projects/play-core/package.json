@@ -1,0 +1,48 @@
+{
+  "name": "@aava/play-core",
+  "version": "1.4.5",
+  "description": "Angular component library with reusable UI components",
+  "author": "Ascendion",
+  "peerDependencies": {
+    "@angular/common": ">=16.0.0 <21.0.0",
+    "@angular/core": ">=16.0.0 <21.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.3.0"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://verdaccio-app.wonderfulmeadow-d3716817.eastus.azurecontainerapps.io/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dev.azure.com/ascendionava/ava-platform/_git/ava-component-library"
+  },
+  "keywords": [
+    "angular",
+    "components",
+    "ui-library"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "ng build play-core --configuration production",
+    "build:performance": "ng build play-core --configuration performance",
+    "build:dev": "ng build play-core --configuration development",
+    "build:analyze": "npm run build && echo 'Bundle analysis: Check dist/play-core/fesm2022/ for bundle files' && ls -lh ../../dist/play-core/fesm2022/",
+    "postbuild": "find ../../dist/play-core -name '*.map' -delete && echo 'Source maps removed'",
+    "prepublishOnly": "npm run build",
+    "test": "ng test play-core --code-coverage --watch=false",
+    "test:watch": "ng test play-core --code-coverage",
+    "test:ci": "ng test play-core --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:unit": "ng test play-core --code-coverage --watch=false --include=**/*.spec.ts",
+    "test:integration": "ng test play-core --code-coverage --watch=false --include=**/*.integration.spec.ts",
+    "test:accessibility": "ng test play-core --code-coverage --watch=false --include=**/*.a11y.spec.ts",
+    "test:performance": "ng test play-core --code-coverage --watch=false --include=**/*.perf.spec.ts",
+    "test:coverage": "ng test play-core --code-coverage --watch=false --browsers=ChromeHeadless",
+    "test:coverage:report": "npm run test:coverage && open coverage/play-core/index.html",
+    "test:high-contrast": "node scripts/test-high-contrast.js",
+    "test:high-contrast:interactive": "node scripts/test-high-contrast.js --interactive",
+    "test:all": "npm run test:unit && npm run test:integration && npm run test:accessibility && npm run test:performance"
+  }
+}

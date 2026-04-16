@@ -1,0 +1,23 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-time-picker size="sm" ></aava-time-picker>
+      <div class="size-label">Small</div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker size="md" ></aava-time-picker>
+      <div class="size-label">Medium</div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker size="lg" ></aava-time-picker>
+      <div class="size-label">Large</div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker size="xl" ></aava-time-picker>
+      <div class="size-label">Extra Large</div>
+    </div>
+  </div>
+  <div class="result" *ngIf="selectedTime">
+    Selected Time: {{ selectedTime }}
+  </div>
+</div>

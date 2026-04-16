@@ -1,0 +1,13 @@
+:root {
+    --chat-bubble-user-background-color: var(--global-color-gray-50);
+    --chat-bubble-user-text-color: var(--global-color-gray-800);
+    --chat-bubble-ai-background-color: var(--global-color-gray-500);
+    --chat-bubble-ai-text-color: #D1D3D8;
+    --chat-bubble-font-family: var(--font-family-body);
+    --chat-bubble-text: var(--color-text-primary);
+    --chat-bubble-line: var(--global-color-gray-400);
+    --chat-bubble-font-weight: var(--global-font-weight-regular);
+    --chat-bubble-font-size-md: var(--global-font-size-md);
+    --chat-bubble-font-size-sm: var(--global-font-size-sm);
+    --chat-bubble-font-size-xs: var(--global-font-size-xs);
+}

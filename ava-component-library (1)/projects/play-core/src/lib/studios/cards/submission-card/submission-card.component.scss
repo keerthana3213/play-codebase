@@ -1,0 +1,67 @@
+.submission-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.submission-card-first-line {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+}
+
+.submission-card-left {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex: 1;
+    min-width: 0;
+    /* Allow text truncation */
+}
+
+.submission-card-text {
+    color: var(--studios-submission-text-color);
+    font-family: var(--studios-font-family-heading);
+    font-size: var(--studios-submission-text-size);
+    font-style: normal;
+    font-weight: var(--studios-submission-text-weight);
+    line-height: var(--studios-submission-text-line-height);
+    /* 150% */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}
+
+.submission-card-top-tag {
+    flex-shrink: 0;
+    /* Prevent tag from shrinking */
+}
+
+.submission-card-second-line {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+}
+
+.submission-card-third-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.submission-card-label {
+    color: var(--studios-submission-label-color);
+    font-family: var(--studios-font-family-body);
+    font-size: var(--studios-submission-label-size);
+    font-style: normal;
+    font-weight: var(--studios-submission-label-weight);
+    line-height: var(--studios-submission-label-line-height);
+    /* 133.333% */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    flex: 1;
+}

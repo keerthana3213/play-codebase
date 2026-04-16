@@ -1,0 +1,188 @@
+.chat-window {
+  display: flex;
+  height: 100%;
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  overflow: hidden;
+
+  .chat-main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%; // Ensure full height
+    min-height: 0; // Allow flex child to shrink
+
+    .messages-container {
+      flex: 1;
+      overflow-y: auto; // Auto scroll - shows scrollbar when needed
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      min-height: 0; // Allow flex child to shrink
+
+      // Create a spacer that pushes messages to bottom when there are few messages
+      &::before {
+        content: '';
+        flex: 1;
+        min-height: 0;
+      }
+
+      // Custom scrollbar styling
+      &::-webkit-scrollbar {
+        width: 12px; // Made slightly wider for better visibility
+      }
+
+      &::-webkit-scrollbar-track {
+        background: var(--surface-secondary, #f8fafc);
+        border-radius: 6px;
+        margin: 4px 0; // Add some margin to track
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background: var(--border-color, #e5e7eb);
+        border-radius: 6px;
+        border: 2px solid var(--surface-background, #ffffff); // Add border for better definition
+        transition: background-color 0.2s ease;
+
+        &:hover {
+          background: var(--text-tertiary, #9ca3af);
+        }
+      }
+
+      &::-webkit-scrollbar-thumb:active {
+        background: var(--text-secondary, #6b7280);
+      }
+
+      // Firefox scrollbar styling
+      scrollbar-width: thin;
+      scrollbar-color: var(--border-color, #e5e7eb) var(--surface-secondary, #f8fafc);
+
+      .message-wrapper {
+        display: flex;
+        width: 100%;
+
+        &.bot-message {
+          justify-content: flex-start;
+
+          .message-content {
+            max-width: 70%;
+
+            .message-card {
+              ::ng-deep {
+                .aava-default-card {
+                  background: transparent;
+                  border: none;
+                  border-radius: 0;
+                  box-shadow: none;
+                  padding: 12px 16px;
+                  margin: 0;
+
+                  .message-text {
+                    margin: 0 0 4px 0;
+                    line-height: 1.4;
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
+
+                  .message-timestamp {
+                    font-size: 11px;
+                    margin: 0;
+                    font-weight: 400;
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        &.user-message {
+          justify-content: flex-end;
+
+          .message-content {
+            max-width: 70%;
+
+            .message-card {
+              ::ng-deep {
+                .aava-default-card {
+                  background: transparent;
+                  border: none;
+                  border-radius: 0;
+                  box-shadow: none;
+                  padding: 12px 16px;
+                  margin: 0;
+
+                  .message-text {
+                    margin: 0 0 4px 0;
+                    line-height: 1.4;
+                    font-size: 14px;
+                    font-weight: 400;
+                  }
+
+                  .message-timestamp {
+                    font-size: 11px;
+                    margin: 0;
+                    font-weight: 400;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Fixed input area at bottom
+    .input-area {
+      padding: 16px;
+      background: transparent;
+      flex-shrink: 0; // Don't shrink the input area
+      border-top: 1px solid var(--border-color, #e5e7eb);
+
+      .chat-input {
+        ::ng-deep .ava-textbox__container {
+          border-radius: var(--border-radius-full, 24px);
+          border: 1px solid var(--border-color, #e5e7eb);
+          background: var(--surface-background, #ffffff);
+          display: flex;
+          align-items: center;
+
+          .ava-textbox__input {
+            border: none;
+            background: transparent;
+            padding: 12px 16px;
+            font-size: 14px;
+            cursor: text;
+            flex: 1;
+
+            &:focus {
+              outline: none;
+              box-shadow: none;
+            }
+          }
+
+          .ava-textbox__icons--end {
+            padding-right: 8px;
+
+            .send-button {
+              ::ng-deep .ava-button {
+                width: 36px;
+                height: 36px;
+                min-width: unset;
+                padding: 0;
+                border-radius: 50%;
+              }
+            }
+          }
+
+          &:focus-within {
+            border-color: var(--border-color, #e5e7eb);
+            box-shadow: none;
+          }
+        }
+      }
+    }
+  }
+}

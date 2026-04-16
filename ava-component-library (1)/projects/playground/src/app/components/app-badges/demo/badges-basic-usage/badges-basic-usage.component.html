@@ -1,0 +1,7 @@
+<div class="demo-container">
+  <aava-badges *ngFor="let example of basicExamples" [count]="example.count" [state]="example.state"
+    [size]="example.size" (click)="onBadgeClick($event)" (keydown.enter)="onBadgeKeyPress($event)"
+    (keydown.space)="onBadgeKeyPress($event)" tabindex="0" role="button"
+    [attr.aria-label]="'Badge with count ' + example.count">
+  </aava-badges>
+</div>

@@ -1,0 +1,116 @@
+<div class="demo-section center-demo">
+  <div class="demo-content">
+    <h3>API Reference</h3>
+    <p class="description">Select component API documentation and usage</p>
+    
+    <div class="api-sections">
+      <div class="api-section">
+        <h4>Component Properties</h4>
+        <div class="api-table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prop of componentProps">
+                <td class="prop-name">{{ prop.name }}</td>
+                <td class="prop-type">{{ prop.type }}</td>
+                <td class="prop-default">{{ prop.default }}</td>
+                <td class="prop-description">{{ prop.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="api-section">
+        <h4>Events</h4>
+        <div class="api-table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let event of events">
+                <td class="prop-name">{{ event.name }}</td>
+                <td class="prop-type">{{ event.type }}</td>
+                <td class="prop-description">{{ event.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="api-section">
+        <h4>Select Option Properties</h4>
+        <div class="api-table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prop of optionProps">
+                <td class="prop-name">{{ prop.name }}</td>
+                <td class="prop-type">{{ prop.type }}</td>
+                <td class="prop-default">{{ prop.default }}</td>
+                <td class="prop-description">{{ prop.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="api-section">
+        <h4>Usage Examples</h4>
+        <div class="code-examples">
+          <div class="code-example">
+            <h5>Basic Usage</h5>
+            <pre><code>{{ basicUsageExample }}</code></pre>
+          </div>
+
+          <div class="code-example">
+            <h5>Multiple Selection</h5>
+            <pre><code>{{ multipleSelectionExample }}</code></pre>
+          </div>
+
+          <div class="code-example">
+            <h5>Form Integration</h5>
+            <pre><code>{{ formIntegrationExample }}</code></pre>
+          </div>
+
+          <div class="code-example">
+            <h5>With Icons and Validation</h5>
+            <pre><code>{{ iconsValidationExample }}</code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="api-section">
+        <h4>Accessibility Features</h4>
+        <div class="accessibility-info">
+          <ul>
+            <li><strong>Keyboard Navigation:</strong> Full keyboard support with arrow keys, Enter, Escape, and Tab</li>
+            <li><strong>ARIA Labels:</strong> Proper ARIA attributes for screen readers</li>
+            <li><strong>Focus Management:</strong> Logical focus flow and visual focus indicators</li>
+            <li><strong>Screen Reader Support:</strong> Announces selections and state changes</li>
+            <li><strong>High Contrast:</strong> Supports high contrast mode and custom themes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

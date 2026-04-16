@@ -1,0 +1,65 @@
+<div class="demo-section">
+    <div class="demo-container">
+        <aava-autocomplete [options]="options$" placeholder="Search for users..." label="Search users"
+            helper="Simple Observable-based autocomplete demo" startIcon="search" startIconColor="#6b7280"
+            [minLength]="1" (optionSelected)="onOptionSelected($event)"
+            (valueChange)="onValueChange($event)"></aava-autocomplete>
+    </div>
+    <div class="demo-output" *ngIf="selectedOption || currentValue">
+        <h4>Output:</h4>
+        <div class="output-item" *ngIf="selectedOption">
+            <strong>Selected Option:</strong> {{ selectedOption.label }} ({{
+            selectedOption.value
+            }})
+        </div>
+        <div class="output-item" *ngIf="selectedOption && selectedOption['email']">
+            <strong>Email:</strong> {{ selectedOption['email'] }}
+        </div>
+        <div class="output-item" *ngIf="currentValue">
+            <strong>Current Value:</strong> {{ currentValue }}
+        </div>
+        <div class="output-item">
+            <strong>API Calls:</strong> {{ apiCallCount }} requests made
+        </div>
+    </div>
+
+    <div class="demo-controls">
+        <div class="control-group">
+            <span class="control-label">Search Mode:</span>
+            <div class="radio-group">
+                <label class="radio-item">
+                    <input type="radio" [checked]="searchMode === 'api'" (change)="setSearchMode('api')" />
+                    <span>API Search (Simulated)</span>
+                </label>
+                <label class="radio-item">
+                    <input type="radio" [checked]="searchMode === 'local'" (change)="setSearchMode('local')" />
+                    <span>Local Filter</span>
+                </label>
+            </div>
+        </div>
+
+        <button class="reset-btn" (click)="resetDemo()">Reset Demo</button>
+    </div>
+
+    <div class="features-list">
+        <h4>Async Features:</h4>
+        <ul>
+            <li>
+                <strong>Observable Support:</strong> Simple Observable integration
+                like the main example
+            </li>
+            <li>
+                <strong>Mode Switching:</strong> Toggle between API and local data
+                sources
+            </li>
+            <li>
+                <strong>Delayed Loading:</strong> Simulates API delay for realistic
+                testing
+            </li>
+            <li>
+                <strong>Built-in Filtering:</strong> Component handles all filtering
+                internally
+            </li>
+        </ul>
+    </div>
+</div>

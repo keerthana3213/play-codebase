@@ -1,0 +1,206 @@
+.example-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width:500px;
+}
+.demo-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem
+}
+
+/* ============================================
+   Custom Autocomplete Styles (ng-content example)
+   ============================================ */
+
+.custom-autocomplete {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto;
+  background: #ffffff;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Section Styling */
+.autocomplete-section {
+  padding: 8px 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+}
+
+.section-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #6b7280;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Autocomplete Items Container */
+.autocomplete-items {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Individual Autocomplete Item */
+.autocomplete-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  border-radius: 6px;
+  margin: 0 8px;
+  position: relative;
+}
+
+.autocomplete-item:hover {
+  background-color: #f3f4f6;
+}
+
+.autocomplete-item:active {
+  background-color: #e5e7eb;
+  transform: scale(0.98);
+}
+
+/* Item Text */
+.item-text {
+  flex: 1;
+  font-size: 14px;
+  color: #1f2937;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Item Action Icon (appears on hover) */
+.item-action {
+  opacity: 0;
+  transition: opacity 0.15s ease;
+}
+
+.autocomplete-item:hover .item-action {
+  opacity: 1;
+}
+
+/* Featured Items (with special styling) */
+.autocomplete-item.featured {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border-left: 3px solid #f59e0b;
+}
+
+.autocomplete-item.featured:hover {
+  background: linear-gradient(135deg, #fde68a 0%, #fcd34d 100%);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.2);
+}
+
+.autocomplete-item.featured .item-text {
+  font-weight: 500;
+  color: #92400e;
+}
+
+/* Action Items (Quick Actions section) */
+.autocomplete-item.action-item {
+  border: 1px solid #e5e7eb;
+  background: #fafafa;
+}
+
+.autocomplete-item.action-item:hover {
+  background: #ffffff;
+  border-color: #3b82f6;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.15);
+}
+
+/* Item Badge */
+.item-badge {
+  font-size: 10px;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 12px;
+  background: #fbbf24;
+  color: #78350f;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+/* Divider */
+.autocomplete-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, #e5e7eb 20%, #e5e7eb 80%, transparent);
+  margin: 8px 0;
+}
+
+/* Footer */
+.autocomplete-footer {
+  padding: 12px 16px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+  margin-top: 4px;
+}
+
+.footer-text {
+  font-size: 12px;
+  color: #6b7280;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.footer-text kbd {
+  display: inline-block;
+  padding: 2px 6px;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  background: #ffffff;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  color: #374151;
+  font-weight: 600;
+}
+
+/* Scrollbar Styling */
+.custom-autocomplete::-webkit-scrollbar {
+  width: 8px;
+}
+
+.custom-autocomplete::-webkit-scrollbar-track {
+  background: #f9fafb;
+  border-radius: 4px;
+}
+
+.custom-autocomplete::-webkit-scrollbar-thumb {
+  background: #d1d5db;
+  border-radius: 4px;
+}
+
+.custom-autocomplete::-webkit-scrollbar-thumb:hover {
+  background: #9ca3af;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  .custom-autocomplete {
+    max-height: 300px;
+  }
+
+  .autocomplete-item {
+    padding: 8px 10px;
+  }
+
+  .item-text {
+    font-size: 13px;
+  }
+}

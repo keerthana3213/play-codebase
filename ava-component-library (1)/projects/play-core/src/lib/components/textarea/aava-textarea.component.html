@@ -1,0 +1,93 @@
+<div
+  [class]="wrapperClasses"
+  [ngStyle]="customStyles"
+  [attr.id]="id ? 'aava-textarea-' + id : null"
+  [ngClass]="requiredError ? 'ava-textarea--error' : ''"
+  [attr.aria-label]="ariaLabel || null"
+  [attr.aria-labelledby]="computedAriaLabelledby || null"
+>
+  <!-- Label -->
+  <label
+    *ngIf="label"
+    [id]="labelId"
+    [for]="inputId"
+    class="ava-textarea__label"
+    [class.ava-textarea__label--required]="required"
+  >
+    {{ label }}
+    <span *ngIf="required" class="ava-textarea__required" aria-hidden="true"
+      >*</span
+    >
+  </label>
+
+  <!-- Input Container -->
+  <div class="ava-textarea__container" [ngStyle]="computedStyles">
+    <!-- Textarea Field -->
+    <textarea
+      #textareaElement
+      [id]="inputId"
+      [name]="name"
+      [placeholder]="placeholder"
+      [value]="value"
+      [disabled]="disabled"
+      [readonly]="readonly"
+      [required]="required"
+      [attr.maxlength]="maxlength"
+      [attr.minlength]="minlength"
+      [rows]="rows"
+      [class]="inputClasses"
+      [attr.aria-invalid]="hasError"
+      [attr.aria-label]="ariaLabel || null"
+      [attr.aria-labelledby]="computedAriaLabelledby || null"
+      [attr.aria-describedby]="ariaDescribedBy || null"
+      [attr.aria-required]="required || null"
+      [style.resize]="resizable ? 'vertical' : 'none'"
+      (input)="onInput($event)"
+      (focus)="onFocus($event)"
+      (blur)="onBlur($event)"
+      (change)="onChange_($event)"
+      [style.max-height.px]="maxHeight > 0 ? maxHeight : null"
+    ></textarea>
+    <!-- Icons Bar (stacked below textarea) -->
+    <div class="ava-textarea__iconsbar">
+      <div class="ava-textarea__icons ava-textarea__icons--start">
+        <ng-content select="[slot=icon-start]"></ng-content>
+      </div>
+      <div class="ava-textarea__iconsbar-spacer"></div>
+      <div class="ava-textarea__icons ava-textarea__icons--end">
+        <ng-content select="[slot=icon-end]"></ng-content>
+      </div>
+    </div>
+  </div>
+
+  <!-- Error Message -->
+  <div
+    *ngIf="hasError"
+    [id]="errorId"
+    class="ava-textarea__error"
+    role="alert"
+    aria-live="polite"
+  >
+    <aava-icon
+      iconName="alert-circle"
+      [iconSize]="14"
+      class="ava-textarea__error-icon"
+      [cursor]="false"
+      [disabled]="false"
+      [iconColor]="'red'"
+    ></aava-icon>
+    <span class="ava-textarea__error-text">{{ error }}</span>
+  </div>
+
+  <!-- Helper Message -->
+  <div *ngIf="hasHelper" [id]="helperId" class="ava-textarea__helper">
+    <aava-icon
+      iconName="info"
+      [iconSize]="14"
+      class="ava-textarea__helper-icon"
+      [cursor]="false"
+      [disabled]="false"
+    ></aava-icon>
+    <span class="ava-textarea__helper-text">{{ helper }}</span>
+  </div>
+</div>

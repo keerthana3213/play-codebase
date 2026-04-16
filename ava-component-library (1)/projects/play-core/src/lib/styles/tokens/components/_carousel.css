@@ -1,0 +1,114 @@
+:root {
+    /* ========================================
+     CAROUSEL COMPONENT TOKENS
+     ======================================== */
+    --carousel-in-duration: 2s;
+    --carousel-out-duration: 2s;
+    /* Container & Layout */
+    --carousel-container-width: 100%;
+    --carousel-container-display: flex;
+    --carousel-container-flex-direction: column;
+    --carousel-container-align-items: center;
+
+    /* Viewport Heights by Size */
+    --carousel-viewport-height-xs: 200px;
+    --carousel-viewport-height-sm: 300px;
+    --carousel-viewport-height-md: 400px;
+    --carousel-viewport-height-lg: 500px;
+
+    /* Border Radius by Size */
+    --carousel-radius-xs: 20px;
+    --carousel-radius-sm: 30px;
+    --carousel-radius-md: 35px;
+    --carousel-radius-lg: 40px;
+
+    /* Image Border Radius */
+    --carousel-image-radius: 15px;
+
+    /* Colors & Background */
+    --carousel-bg: #fff;
+    --carousel-shadow: 0 8px 32px rgba(0, 0, 0, 0.12);
+    --carousel-shadow-hover: 0 12px 40px rgba(0, 0, 0, 0.16);
+
+    /* Animation & Transitions */
+    --carousel-transition-duration: 0.9s;
+    --carousel-transition-timing: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    --carousel-shadow-transition: box-shadow 0.3s ease;
+
+    /* Z-Index Layers */
+    --carousel-z-center: 5;
+    --carousel-z-side-1: 4;
+    --carousel-z-side-2: 3;
+    --carousel-z-hidden: 1;
+
+    /* Opacity Values */
+    --carousel-opacity-center: 1;
+    --carousel-opacity-side-1: 0.9;
+    --carousel-opacity-side-2: 0.6;
+    --carousel-opacity-hidden: 0;
+
+    /* Scale Values */
+    --carousel-scale-center: 1;
+    --carousel-scale-side-1: 0.85;
+    --carousel-scale-side-2: 0.7;
+    --carousel-scale-hidden: 0.5;
+
+    /* Center Card Dimensions */
+    --carousel-center-width-xs: 320px;
+    --carousel-center-height-xs: 160px;
+    --carousel-center-width-sm: 480px;
+    --carousel-center-height-sm: 240px;
+    --carousel-center-width-md: 640px;
+    --carousel-center-height-md: 320px;
+    --carousel-center-width-lg: 800px;
+    --carousel-center-height-lg: 400px;
+
+    /* Side Card 1 Transform Values */
+    --carousel-side-1-translate-xs: 110px;
+    --carousel-side-1-translate-sm: 160px;
+    --carousel-side-1-translate-md: 220px;
+    --carousel-side-1-translate-lg: 280px;
+
+    /* Side Card 1 Dimensions */
+    --carousel-side-1-width-xs: 272px;
+    --carousel-side-1-height-xs: 136px;
+    --carousel-side-1-width-sm: 408px;
+    --carousel-side-1-height-sm: 204px;
+    --carousel-side-1-width-md: 544px;
+    --carousel-side-1-height-md: 272px;
+    --carousel-side-1-width-lg: 710px;
+    --carousel-side-1-height-lg: 370px;
+
+    /* Side Card 2 Transform Values */
+    --carousel-side-2-translate-xs: 180px;
+    --carousel-side-2-translate-sm: 270px;
+    --carousel-side-2-translate-md: 360px;
+    --carousel-side-2-translate-lg: 450px;
+
+    /* Side Card 2 Dimensions */
+    --carousel-side-2-width-xs: 224px;
+    --carousel-side-2-height-xs: 112px;
+    --carousel-side-2-width-sm: 336px;
+    --carousel-side-2-height-sm: 168px;
+    --carousel-side-2-width-md: 448px;
+    --carousel-side-2-height-md: 224px;
+    --carousel-side-2-width-lg: 600px;
+    --carousel-side-2-height-lg: 360px;
+
+    /* Controls & Indicators */
+    --carousel-controls-margin-top: 1rem;
+    --carousel-controls-gap: 0.5rem;
+    --carousel-indicators-gap: 0.75rem;
+
+    /* Indicator Styles */
+    --carousel-indicator-size: 12px;
+    --carousel-indicator-active-size: 16px;
+    --carousel-indicator-color: #999999;
+    --carousel-indicator-active-color: #7B61FF;
+    --carousel-indicator-border-radius: 50%;
+
+    /* Icon Styles */
+    --carousel-icon-color: #999999;
+    --carousel-icon-size: 24px;
+    --carousel-icon-transition: color 0.3s ease;
+}

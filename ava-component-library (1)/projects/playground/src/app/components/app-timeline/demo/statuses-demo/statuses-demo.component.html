@@ -1,0 +1,118 @@
+<div class="statuses-timeline-demo">
+  <div class="demo-header">
+    <h1>Timeline Status Types Demo</h1>
+    <p>
+      Visual status indicators for timeline events with different states. 
+      Each status provides visual feedback about the current state of events.
+    </p>
+  </div>
+
+  <div class="demo-content">
+    <div class="status-container">
+      <h2>Status-Based Timeline</h2>
+      <p>Timeline showing different status types with color-coded indicators.</p>
+      
+      <div class="timeline-wrapper">
+        <aava-timeline
+          [events]="statusEvents"
+          [size]="'lg'"
+          [orientation]="'vertical'"
+          [textAlign]="'zigzag-left'"
+          [iconCircleSize]="'40px'"
+          [iconCircleBgColor]="'#fff'"
+          [iconCircleBorderColor]="'#ccc'"
+        ></aava-timeline>
+      </div>
+    </div>
+
+    <div class="status-guide">
+      <h3>Status Types Guide</h3>
+      <div class="status-grid">
+        <div class="status-item completed">
+          <h4>Completed</h4>
+          <p>Events that have been finished successfully. Usually shown with green styling.</p>
+          <div class="status-example">
+            <span class="status-indicator completed"></span>
+            <span>Project Planning - Finished</span>
+          </div>
+        </div>
+        
+        <div class="status-item current">
+          <h4>Current</h4>
+          <p>Events that are currently in progress or active. Usually shown with blue styling.</p>
+          <div class="status-example">
+            <span class="status-indicator current"></span>
+            <span>Design Phase - In Progress</span>
+          </div>
+        </div>
+        
+        <div class="status-item pending">
+          <h4>Pending</h4>
+          <p>Events that are scheduled but not yet started. Usually shown with orange styling.</p>
+          <div class="status-example">
+            <span class="status-indicator pending"></span>
+            <span>Development - Scheduled</span>
+          </div>
+        </div>
+        
+        <div class="status-item unreached">
+          <h4>Unreached</h4>
+          <p>Future events that are not yet accessible. Usually shown with gray styling.</p>
+          <div class="status-example">
+            <span class="status-indicator unreached"></span>
+            <span>Testing & QA - Future</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="event-details" *ngIf="selectedEvent">
+      <h3>Selected Event Details</h3>
+      <div class="event-info">
+        <p><strong>Title:</strong> {{ selectedEvent.title }}</p>
+        <p><strong>Time:</strong> {{ selectedEvent.time }}</p>
+        <p><strong>Year:</strong> {{ selectedEvent.year }}</p>
+        <p><strong>Status:</strong> {{ selectedEvent.status }}</p>
+        <p><strong>Description:</strong> {{ selectedEvent.description }}</p>
+      </div>
+    </div>
+
+    <div class="code-example">
+      <h3>Code Example</h3>
+      <pre><code>const statusEvents = [
+  {{ '{' }}
+    time: "9:00 AM",
+    title: "Project Planning",
+    description: "Requirements gathering and project scope definition",
+    iconName: "circle-check",
+    iconColor: "#4CAF50",
+    status: "completed"
+  {{ '}' }},
+  {{ '{' }}
+    time: "11:00 AM",
+    title: "Design Phase",
+    description: "UI/UX design and wireframe creation",
+    iconName: "loader",
+    iconColor: "#2196F3",
+    status: "current"
+  {{ '}' }},
+  {{ '{' }}
+    time: "2:00 PM",
+    title: "Development",
+    description: "Core feature development and implementation",
+    iconName: "clock",
+    iconColor: "#FF9800",
+    status: "pending"
+  {{ '}' }},
+  {{ '{' }}
+    time: "4:00 PM",
+    title: "Testing & QA",
+    description: "Quality assurance and testing phase",
+    iconName: "help-circle",
+    iconColor: "#9E9E9E",
+    status: "unreached"
+  {{ '}' }}
+];</code></pre>
+    </div>
+  </div>
+</div>

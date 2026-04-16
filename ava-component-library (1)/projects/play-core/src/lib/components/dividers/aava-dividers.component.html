@@ -1,0 +1,7 @@
+<div class="ava-divider" 
+[attr.id]="id ? 'aava-divider-' + id : null"
+[ngStyle]="customStyles"
+[ngClass]="[orientation, variant]" 
+[style.background]="variant === 'gradient' ? color : null"
+[style.--divider-color]="color">
+</div>

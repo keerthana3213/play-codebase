@@ -1,0 +1,34 @@
+<aava-default-card
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="review-card-container" [ngClass]="{'review-card-container--security': isSecurityVariant}">
+        <!-- First line: Icon and Text with Top Tag -->
+        <div *ngIf="hasFirstLine" class="review-card-first-line">
+            <div class="review-card-left">
+                <aava-icon *ngIf="data.icon" [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+                <span *ngIf="data.text" class="review-card-text">{{ data.text }}</span>
+            </div>
+            <aava-tag *ngIf="data.topTag" [label]="data.topTag.label" [color]="getTagColor(data.topTag.color)"
+                [variant]="data.topTag.variant || 'filled'" size="sm" [customStyle]="getTagCustomStyle(data.topTag)"
+                [icon]="data.topTag.iconName" [iconColor]="data.topTag.iconColor" class="review-card-top-tag">
+            </aava-tag>
+        </div>
+
+        <!-- Second line: Description -->
+        <div *ngIf="hasSecondLine" class="review-card-second-line">
+            <span class="review-card-description"
+                [ngClass]="{'review-card-description--security': isSecurityVariant}">{{ data.description }}</span>
+        </div>
+
+        <!-- Third line: By Text or Target -->
+        <div *ngIf="hasThirdLine" class="review-card-third-line">
+            <span *ngIf="data.byText && !data.target" class="review-card-by-text">{{ data.byText }}</span>
+            <div *ngIf="data.target" class="review-card-target-container"
+                [ngClass]="{'review-card-target-container--security': isSecurityVariant}">
+                <span class="review-card-target-label">Target:</span>
+                <span class="review-card-target-value"
+                    [ngClass]="{'review-card-target-value--security': isSecurityVariant}">{{ data.target }}</span>
+            </div>
+        </div>
+    </div>
+</aava-default-card>

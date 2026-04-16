@@ -1,0 +1,25 @@
+<div class="selection-demo">
+    <div class="demo-container">
+        <div class="selection-section">
+            <h3>Treeview Selection Logic</h3>
+            <p>In this demo, parent nodes are automatically selected <strong>only when all children are
+                    selected</strong>. Selecting a parent node toggles all its children.</p>
+            <div class="selection-info">
+                <div class="info-item">
+                    <span class="label">Last Interacted Node:</span>
+                    <span class="value">{{ selectedNodeName }}</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="tree-section">
+            <div class="tree-container">
+                <div *ngFor="let config of treeConfigs" class="tree-variant">
+                    <aava-treeview [nodes]="config.nodes" [size]="config.size" [iconPosition]="config.iconPosition"
+                        (nodeSelect)="onNodeSelect(config, $event)">
+                    </aava-treeview>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

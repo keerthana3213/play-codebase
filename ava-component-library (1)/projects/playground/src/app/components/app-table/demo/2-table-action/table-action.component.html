@@ -1,0 +1,56 @@
+<div class="demo-table-wrapper">
+    <aava-table [dataSource]="dataSource" [displayedColumns]="displayedColumns">
+        <ng-container aavaColumnDef="name">
+            <th *aavaHeaderCellDef>Name</th>
+            <td *aavaCellDef="let element">{{ element.name }}</td>
+        </ng-container>
+        <ng-container aavaColumnDef="email">
+            <th *aavaHeaderCellDef>Email</th>
+            <td *aavaCellDef="let element">{{ element.email }}</td>
+        </ng-container>
+        <ng-container aavaColumnDef="realm">
+            <th *aavaHeaderCellDef>Realm</th>
+            <td *aavaCellDef="let element">
+                <ng-container *ngFor="let r of element.realm">
+                    <aava-tag type='badge' size="sm" [label]="r" color="custom" [ngStyle]="{
+                        'background': 'var(--global-color-gray-100)',
+                        'border': '1px solid var(--table-border)',
+                        'border-radius': '20px',
+                        'margin-right':'3px',
+                        'padding-bottom': '2px'
+                        }">
+                    </aava-tag>
+                </ng-container>
+                <aava-tag type='badge' size="sm" label="3+" color="custom" [ngStyle]="{
+                        'background': 'var(--global-color-gray-100)',
+                        'border': '1px solid var(--table-border)',
+                        'border-radius': '20px',
+                        'margin-right':'3px',
+                        'padding-bottom': '2px'
+                        }">
+                </aava-tag>
+            </td>
+        </ng-container>
+        <ng-container aavaColumnDef="status">
+            <th *aavaHeaderCellDef>Status</th>
+            <td *aavaCellDef="let element">
+                <ng-container *ngFor="let r of element.status">
+                    <aava-tag type='badge' color="custom" [ngStyle]="getStatusColor(r)" size="md"
+                        [label]="r "></aava-tag>
+                </ng-container>
+            </td>
+        </ng-container>
+        <ng-container aavaColumnDef="action">
+            <th *aavaHeaderCellDef>Actions</th>
+            <td *aavaCellDef="let element">
+                <aava-icon [cursor]="true" hoverColor="var(--color-brand-primary-hover)" iconName="square-pen"
+                    (click)="edit(element)" />
+                <aava-icon [cursor]="true" hoverColor="var(--color-brand-primary-hover)" iconName="eye"
+                    (click)="view(element)" />
+            </td>
+        </ng-container>
+
+        <tr aava-header-row *aavaHeaderRowDef="displayedColumns"></tr>
+        <tr aava-row *aavaRowDef="let row; columns: displayedColumns"></tr>
+    </aava-table>
+</div>

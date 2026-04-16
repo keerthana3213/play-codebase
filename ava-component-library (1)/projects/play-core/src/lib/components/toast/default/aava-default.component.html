@@ -1,0 +1,40 @@
+<div class="ava-toast ava-toast-default"
+     [style.width]="customWidth"
+     [style.height]="customHeight"
+     [ngStyle]="customStyles">
+  
+  <!-- Icon -->
+  <div class="ava-toast-icon" *ngIf="icon">
+    <aava-icon 
+      [iconName]="icon" 
+      [iconColor]="iconColor || 'var(--color-text-primary)'" 
+      [iconSize]="24">
+    </aava-icon>
+  </div>
+
+  <!-- Content -->
+  <div class="ava-toast-content">
+    <div class="ava-toast-title" *ngIf="title">{{ title }}</div>
+    <div class="ava-toast-message" *ngIf="message">{{ message }}</div>
+    <ng-content></ng-content>
+  </div>
+
+  <!-- Close Button -->
+  <aava-button
+    *ngIf="showCloseButton"
+    class="ava-toast-close"
+    size="sm"
+    iconName="x"
+    iconColor="var(--color-text-primary)"
+    [iconSize]="16"
+    iconPosition="only"
+    (userClick)="onClose()"
+    aria-label="Close toast">
+  </aava-button>
+
+  <!-- Progress Bar -->
+  <div class="ava-toast-progress"
+       *ngIf="showProgress && duration && duration > 0"
+       [style.animation-duration.ms]="duration">
+  </div>
+</div>

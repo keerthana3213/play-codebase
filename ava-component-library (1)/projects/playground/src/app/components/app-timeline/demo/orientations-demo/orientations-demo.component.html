@@ -1,0 +1,35 @@
+<div class="orientations-timeline-demo">
+  <div class="demo-content">
+    <div class="orientation-grid">
+      <div class="orientation-item">
+        <h3>Vertical Timeline</h3>
+        <div class="timeline-wrapper">
+          <aava-timeline
+            [events]="verticalEvents"
+            [size]="'lg'"
+            [orientation]="'vertical'"
+            [textAlign]="'zigzag-left'"
+            [iconCircleSize]="'40px'"
+            [iconCircleBgColor]="'#fff'"
+            [iconCircleBorderColor]="'#ccc'"
+          ></aava-timeline>
+        </div>
+      </div>
+
+      <div class="orientation-item">
+        <h3>Horizontal Timeline</h3>
+        <div class="timeline-wrapper horizontal">
+          <aava-timeline
+            [events]="horizontalEvents"
+            [size]="'lg'"
+            [orientation]="'horizontal'"
+            [textAlign]="'zigzag-down'"
+            [iconCircleSize]="'40px'"
+            [iconCircleBgColor]="'#fff'"
+            [iconCircleBorderColor]="'#ccc'"
+          ></aava-timeline>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

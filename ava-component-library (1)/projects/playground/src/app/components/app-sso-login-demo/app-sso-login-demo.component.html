@@ -1,0 +1,82 @@
+<div class="sso-login-demo-wrapper">
+  <div class="demo-header">
+    <h2>SSO Login Component</h2>
+    <p>
+      A comprehensive authentication interface with username/password login and
+      Single Sign-On capabilities.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <h3>Demo Pages</h3>
+    <div class="nav-grid">
+      <a routerLink="./basic-usage" class="nav-card">
+        <h4>Basic Usage</h4>
+        <p>Complete SSO login form with all features</p>
+      </a>
+      <a routerLink="./variants" class="nav-card">
+        <h4>Variants</h4>
+        <p>Different size variants (xs, sm, md, lg, xl)</p>
+      </a>
+      <a routerLink="./events" class="nav-card">
+        <h4>Events</h4>
+        <p>Comprehensive event system demonstration</p>
+      </a>
+      <a routerLink="./states" class="nav-card">
+        <h4>States</h4>
+        <p>Loading, disabled, and error states</p>
+      </a>
+      <a routerLink="./accessibility" class="nav-card">
+        <h4>Accessibility</h4>
+        <p>Keyboard navigation and screen reader support</p>
+      </a>
+    </div>
+  </div>
+
+  <div class="demo-showcase">
+    <h3>Component Variants</h3>
+    <div class="variants-showcase">
+      <div class="variant-item">
+        <h4>Extra Large (XL)</h4>
+        <aava-sso-login variant="xl"></aava-sso-login>
+      </div>
+
+      <div class="variant-item">
+        <h4>Large (LG)</h4>
+        <aava-sso-login variant="lg"></aava-sso-login>
+      </div>
+
+      <div class="variant-item">
+        <h4>Medium (MD) - Default</h4>
+        <aava-sso-login variant="md"></aava-sso-login>
+      </div>
+
+      <div class="variant-item">
+        <h4>Small (SM)</h4>
+        <aava-sso-login variant="sm"></aava-sso-login>
+      </div>
+
+      <div class="variant-item">
+        <h4>Extra Small (XS)</h4>
+        <aava-sso-login variant="xs"></aava-sso-login>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-interactive">
+    <h3>Interactive Demo</h3>
+    <p>Try the component with different configurations:</p>
+
+    <aava-sso-login
+      (login)="onLogin($event)"
+      (ssoLogin)="onSSOLogin()"
+      (forgotPassword)="onForgotPassword($event)"
+      (troubleSignin)="onTroubleSigningIn()"
+    ></aava-sso-login>
+  </div>
+
+  <div class="demo-output" *ngIf="lastEvent">
+    <h4>Last Event:</h4>
+    <pre>{{ lastEvent | json }}</pre>
+  </div>
+</div>

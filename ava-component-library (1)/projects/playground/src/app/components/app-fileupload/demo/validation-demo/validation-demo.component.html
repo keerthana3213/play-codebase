@@ -1,0 +1,52 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Format Validation</h4>
+      <p>Only PDF and DOC files allowed</p>
+      <aava-file-upload
+        componentTitle="PDF/DOC Only"
+        [allowedFormats]="['pdf', 'doc']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Size Validation</h4>
+      <p>Maximum 1MB per file</p>
+      <aava-file-upload
+        componentTitle="Max 1MB Files"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFileSize]="1048576"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Max Files Validation</h4>
+      <p>Maximum 2 files allowed</p>
+      <aava-file-upload
+        componentTitle="Max 2 Files"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        layout="tags"
+        [maxFiles]="2"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Duplicate Detection</h4>
+      <p>Shows error for duplicate files</p>
+      <aava-file-upload
+        componentTitle="No Duplicates"
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [showDuplicateError]="true"
+        duplicateErrorText="This file already exists!"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+  </div>
+</div>

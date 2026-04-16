@@ -1,0 +1,62 @@
+<div class="ava-rating-card-container">
+  <!-- Rating Card -->
+  <aava-default-card *ngIf="!isSubmitted">
+    <div header>
+      <ng-content select="div[header]"></ng-content>
+      <div class="star-icon">
+        <aava-icon
+          *ngFor="let star of stars"
+          iconName="star"
+          [iconSize]="24"
+         [iconColor]="star.filled ? '#dc3545' : '#e9ecef'"
+         (click)="selectRating(star.index + 1)">
+        </aava-icon>
+      </div>
+      <h2 class="title">{{ config.title || 'How did we do?' }}</h2>
+    </div>
+    <div content>
+      <ng-content select="div[content]"></ng-content>
+      <aava-textarea
+        placeholder="{{ config.description || 'Please let us know how we did by giving us your valuable feedback. Your feedback matters a lot to us to help us improve our offering!' }}"
+        [rows]="4">
+      </aava-textarea>
+      <div class="rating-buttons" *ngIf="showRatingButtons">
+        <aava-button
+          variant="secondary"
+          *ngFor="let rating of ratingOptions"
+          [class.selected]="selectedRating === rating"
+          class="rating-btn"
+          (click)="selectRating(rating)"
+          [label]="rating.toString()">
+        </aava-button>
+      </div>
+    </div>
+    <div footer>
+      <ng-content select="div[footer]"></ng-content>
+      <aava-button
+        width="90%"
+        [label]="config.submitButtonText || 'Submit'"
+        variant="primary"
+        (userClick)="submitRating()"
+        [pill]="true"
+        [disabled]="!selectedRating"
+        class="submit-btn-wrapper">
+      </aava-button>
+    </div>
+  </aava-default-card>
+ 
+  <!-- Thank You Card -->
+  <aava-default-card *ngIf="isSubmitted">
+    <div class="thank-you-container">
+      <div *ngIf="config.showIllustration !== false" class="illustration">
+      </div>
+      <div class="selected-rating">
+        You selected {{ selectedRating }} out of {{ ratingOptions.length }}
+      </div>
+      <h2 class="thank-you-title">{{ config.thankYouTitle || 'Thank You' }}</h2>
+      <p class="thank-you-message">
+        {{ config.thankYouMessage || 'We appreciate you taking the time to give a rating. If you ever need more support, don\'t hesitate to get in touch.' }}
+      </p>
+    </div>
+  </aava-default-card>
+</div>

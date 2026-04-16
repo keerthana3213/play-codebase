@@ -1,0 +1,95 @@
+<div class="ava-search-bar" [ngClass]="size">
+  <div #searchBarContainer>
+    <aava-textbox
+      [label]="label"
+      [value]="value?value:searchValue.trim()"
+      [disabled]="disabled"
+      [variant]="variant"
+      [placeholder]="placeH"
+      [size]="size"
+      (input)="change01($event)"
+      (textboxChange)="change01($event)"
+    >
+    <aava-icon
+      slot="icon-start"
+      [iconColor]="iconSearchColor"
+      [iconSize]="iconSize"
+      iconName="search"
+    ></aava-icon>
+    <div slot="icon-end">
+      <aava-icon
+        *ngIf="closeButton && showClose"
+        [iconColor]="iconSendColor"
+        [cursor]="true"
+        [iconSize]="iconSize"
+        iconName="X"
+        (click)="clear()"
+      ></aava-icon>
+
+      <aava-icon
+        *ngIf="closeButtonVisibility === 'auto' && showClose"
+        [iconColor]="iconSendColor"
+        [cursor]="true"
+        [iconSize]="iconSize"
+        iconName="X"
+        (click)="clear()"
+      ></aava-icon>
+      <aava-icon
+        *ngIf="closeButtonVisibility === 'always'"
+        [iconColor]="iconSendColor"
+        [cursor]="true"
+        [iconSize]="iconSize"
+        iconName="X"
+        (click)="clear()"
+      ></aava-icon>
+
+      <aava-icon
+        *ngIf="sendButton"
+        [iconColor]="iconSendColor"
+        [cursor]="true"
+        [iconSize]="iconSize"
+        iconName="send-horizontal"
+        (click)="search()"
+      ></aava-icon>
+    </div>
+    </aava-textbox>
+  </div>
+
+  <!-- Autocomplete Flyout -->
+  <aava-flyout #suggestionsFlyout [width]="flyoutWidth">
+    <!-- ng-content approach: Allow custom autocomplete content -->
+    <ng-content></ng-content>
+
+    <!-- Loading state -->
+    <div *ngIf="isLoading" class="suggestions-loading">
+      <aava-spinner
+        type="linear-gradient"
+        size="md"
+        color="primary"
+        [animation]="true"
+      ></aava-spinner>
+    </div>
+
+    <!-- No results message (when input length is > 0 but < minLength) -->
+    <div *ngIf="shouldShowNoResults" class="no-results-message">
+      {{ noResultsMessage }}
+    </div>
+
+    <!-- JSON-based approach: Render options from data -->
+    <div *ngIf="shouldShowOptions" class="suggestions-list">
+      <div
+        *ngFor="let option of options"
+        class="suggestion-item"
+        (click)="onSuggestionClick(option)"
+      >
+        <aava-icon
+          *ngIf="option.icon"
+          [iconName]="option.icon"
+          [iconSize]="iconSize"
+          class="suggestion-icon"
+        ></aava-icon>
+        <span class="suggestion-label">{{ option.label }}</span>
+      </div>
+    </div>
+  </aava-flyout>
+</div>

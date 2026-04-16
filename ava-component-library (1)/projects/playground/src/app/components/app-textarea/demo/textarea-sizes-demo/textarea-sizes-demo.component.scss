@@ -1,0 +1,16 @@
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 16px; /* space between columns */
+  
+}
+
+.demo-column {
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; /* space between textareas */
+  &.padl{
+    padding-right: 0;
+  }
+}

@@ -1,0 +1,59 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <h4>Upload Icon - Left Position</h4>
+      <aava-file-upload
+        componentTitle="Icon Left"
+        uploadIconPosition="left"
+        uploadIconName="upload"
+        uploadButtonLabel="Upload Files"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Upload Icon - Right Position</h4>
+      <aava-file-upload
+        componentTitle="Icon Right"
+        uploadIconPosition="right"
+        uploadIconName="Upload"
+        uploadButtonLabel="Choose Files"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>Upload Icon - Only (No Text)</h4>
+      <aava-file-upload
+        componentTitle="Icon Only"
+        uploadIconPosition="only"
+        uploadIconName="upload"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="3"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+
+    <div class="example-group">
+      <h4>All Custom Icons Combined</h4>
+      <aava-file-upload
+        componentTitle="All Custom"
+        uploadIconPosition="right"
+        uploadIconName="cloud-upload"
+        uploadButtonLabel="Upload to Cloud"
+        deleteIconPosition="left"
+        deleteIconName="trash"
+        deleteButtonLabel="Delete All"
+        tagIcon="x"
+        layout="tags"
+        [allowedFormats]="['pdf', 'doc', 'jpg', 'png']"
+        [maxFiles]="5"
+        (selectedList)="onFileChange($event)">
+      </aava-file-upload>
+    </div>
+  </div>
+</div>

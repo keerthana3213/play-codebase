@@ -1,0 +1,109 @@
+.filter-options {
+  display: flex;
+  padding: var(--filter-container-padding);
+  flex-direction: column;
+  border-radius: var(--filter-border-radius);
+  background: var(--filter-background-primary);
+  gap: var(--filter-layout-gap);
+  max-height: var(--filter-container-max-height);
+  overflow-y: auto;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.filter-content.xl .option-row {
+  height: var(--filter-options-height-xl);
+  padding: var( --filter-options-padding-xl);
+}
+.filter-content.lg .option-row {
+  height: var(--filter-options-height-lg);
+  padding: var( --filter-options-padding-lg);
+}
+.filter-content.md .option-row {
+  height: var(--filter-options-height-md);
+  padding: var( --filter-options-padding-md);
+}
+.filter-content.sm .option-row {
+  height: var(--filter-options-height-sm);
+  padding: var( --filter-options-padding-sm);
+}
+.filter-content.xs .option-row {
+  height: var(--filter-options-height-xs);
+  padding: var( --filter-options-padding-xs);
+}
+
+.option-left {
+  display: flex;
+  gap: var(--filter-options-gap-xl);
+  flex-direction: row;
+  align-items: center;
+}
+/* Adjust gap for smaller filter sizes */
+.filter-content.md .option-left,
+.filter-content.sm .option-left,
+.filter-content.xs .option-left {
+  gap: var(--filter-options-gap-xs);
+}
+.filter-actions {
+  display: flex;
+  gap: var(--filter-action-buttons-gap);
+  justify-content: flex-end;
+  padding: 0px var(--filter-action-padding) var(--filter-action-padding);
+}
+.option-label {
+  color: var(--filter-options-label-color);
+
+  /* Desktop/Body/Body 2 Medium */
+  font-family: var(--filter-options-font-family);
+  font-size: var(--filter-options-font-size-default);
+  font-style: normal;
+  font-weight: var(--filter-options-font-weight);
+  line-height: var(--filter-options-line-height); 
+}
+
+.option-label.clickable {
+  cursor: pointer;
+  user-select: none;
+}
+
+.option-label.clickable:hover {
+  color: var(--filter-options-hover-background);
+}
+
+.filter-content.xl .option-label {
+  font-size: var(--filter-options-font-size-xl);
+}
+.filter-content.lg .option-label {
+  font-size: var(--filter-options-font-size-lg);
+}
+.filter-content.md .option-label {
+  font-size: var(--filter-options-font-size-md);
+}
+.filter-content.sm .option-label {
+  font-size: var(--filter-options-font-size-sm);
+}
+.filter-content.xs .option-label {
+  font-size: var(--filter-options-font-size-xs);
+}
+.option-checkbox {
+  padding: var(--filter-checkbox-padding);
+}
+
+.option-radio {
+  padding: var(--filter-checkbox-padding);
+}
+
+
+
+/* Category styles for multi-level mode */
+.category-name {
+  color: var(--filter-placeholder-color);
+  font-family: var(--filter-options-font-family);
+  font-size: var(--filter-options-font-size-md);
+  font-weight: var(--filter-options-font-weight);
+}

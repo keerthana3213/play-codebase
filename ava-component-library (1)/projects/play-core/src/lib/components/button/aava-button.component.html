@@ -1,0 +1,47 @@
+<div class="aava-btn-wrapper" [ngStyle]="wrapperComputedStyle">
+<button 
+  #buttonElement
+  [class]="buttonClasses" 
+  [ngStyle]="computedStyles" 
+  [type]="type"
+  [disabled]="disabled || processing"
+  [attr.aria-disabled]="(disabled || processing) || null"
+  [attr.tabindex]="computedTabIndex"
+  [attr.id]="id ? 'aava-button-' + id : null"
+  [attr.aria-label]="computedAriaLabel"
+  [attr.aria-describedby]="ariaDescribedBy || null"
+  [attr.aria-controls]="ariaControls || null"
+  [attr.aria-busy]="processing || null"
+  [attr.aria-haspopup]="computedAriaHasPopup"
+  [attr.aria-expanded]="ariaExpanded"
+  (click)="handleClick($event)" 
+  (keydown)="onKeydown($event)">
+  <div class="button-content">
+    <!-- Left Icon (aava-icon or custom SVG) -->
+    <ng-container *ngIf="hasIcon && (iconPosition === 'left' || iconPosition === 'only')">
+      <aava-icon class="button-icon" [iconName]="iconName" [iconColor]="computedIconColor" [iconSize]="getIconSize()"
+        [disabled]="disabled" [cursor]="cursor" [cursorName]="disabled ? 'not-allowed' :  ''"
+        [attr.aria-hidden]="iconPosition !== 'only' ? 'true' : null"></aava-icon>
+    </ng-container>
+    <ng-content select="[slot=icon-left]"></ng-content>
+
+    <!-- Button Label -->
+    <span *ngIf="iconPosition !== 'only' && label" class="button-label">
+      {{ label }}
+    </span>
+
+    <!-- Right Icon (aava-icon or custom SVG) -->
+    <ng-container *ngIf="hasIcon && iconPosition === 'right'">
+      <aava-icon class="button-icon" [iconName]="iconName" [iconColor]="computedIconColor" [iconSize]="getIconSize()"
+        [disabled]="disabled" [cursor]="cursor" [cursorName]="disabled ? 'not-allowed' :  ''"
+        [attr.aria-hidden]="'true'"></aava-icon>
+    </ng-container>
+    <ng-content select="[slot=icon-right]"></ng-content>
+
+    <!-- Dropdown Icon (Legacy Support) -->
+    <aava-icon *ngIf="dropdown" class="button-icon button-dropdown" iconName="chevron-down"
+      [iconColor]="computedIconColor" [iconSize]="16" [cursor]="cursor"
+      [attr.aria-hidden]="'true'"></aava-icon>
+  </div>
+</button>
+</div>

@@ -1,0 +1,54 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <!-- Left Column -->
+    <div class="demo-column padl">
+      <aava-textarea
+        [(ngModel)]="extraSmallValue"
+        label="Extra Small"
+        placeholder="Extra small textarea..."
+        size="xs"
+        [rows]="2"
+        (textareaChange)="onExtraSmallChange($event)"
+      ></aava-textarea>
+
+      <aava-textarea
+        [(ngModel)]="smallValue"
+        label="Small"
+        placeholder="Small textarea..."
+        size="sm"
+        [rows]="2"
+        (textareaChange)="onSmallChange($event)"
+      ></aava-textarea>
+
+      <aava-textarea
+        [(ngModel)]="mediumValue"
+        label="Medium"
+        placeholder="Medium textarea..."
+        size="md"
+        [rows]="3"
+        (textareaChange)="onMediumChange($event)"
+      ></aava-textarea>
+    </div>
+
+    <!-- Right Column -->
+    <div class="demo-column padr">
+      <aava-textarea
+        [(ngModel)]="largeValue"
+        label="Large"
+        placeholder="Large textarea..."
+        size="lg"
+        [rows]="4"
+        (textareaChange)="onLargeChange($event)"
+      ></aava-textarea>
+
+      <aava-textarea
+        [(ngModel)]="extraLargeValue"
+        label="Extra Large"
+        placeholder="Extra large textarea..."
+        size="xl"
+        [rows]="4"
+        (textareaChange)="onExtraLargeChange($event)"
+      ></aava-textarea>
+    </div>
+  </div>
+</div>

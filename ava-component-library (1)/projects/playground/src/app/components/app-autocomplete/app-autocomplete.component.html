@@ -1,0 +1,133 @@
+<div class="documentation">
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>ava-autocomplete Component</h1>
+        <p class="description">
+          A sophisticated autocomplete input component with support for single
+          and multi-select, custom templates, icons, loading states, and full
+          accessibility features.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/autocomplete/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/autocomplete/multi-select" class="nav-link">
+                <span class="nav-icon">🏷️</span>
+                <span class="nav-text">Multi-Select</span>
+              </a>
+              <a routerLink="/autocomplete/icons" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Icons</span>
+              </a>
+              <a routerLink="/autocomplete/loading" class="nav-link">
+                <span class="nav-icon">⏳</span>
+                <span class="nav-text">Loading States</span>
+              </a>
+              <a routerLink="/autocomplete/templates" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Custom Templates</span>
+              </a>
+              <a routerLink="/autocomplete/forms" class="nav-link">
+                <span class="nav-icon">📋</span>
+                <span class="nav-text">Form Integration</span>
+              </a>
+              <a routerLink="/autocomplete/accessibility" class="nav-link">
+                <span class="nav-icon">♿</span>
+                <span class="nav-text">Accessibility</span>
+              </a>
+              <a routerLink="/autocomplete/async" class="nav-link">
+                <span class="nav-icon">🔄</span>
+                <span class="nav-text">Async/API</span>
+              </a>
+              <a routerLink="/autocomplete/custom-styles" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Custom Styles</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Basic Example -->
+  <div class="demo-block">
+    <h2>Basic Example</h2>
+    <aava-autocomplete [options]="options" placeholder="Search fruits..." label="Fruit" [(ngModel)]="value"
+      (optionSelected)="onOptionSelected()" (valueChange)="onValueChange()" (cleared)="onCleared()" [helper]="helper"
+      [clearable]="true"></aava-autocomplete>
+    <div class="demo-value"><strong>Value:</strong> {{ value }}</div>
+  </div>
+
+  <!-- Custom Option Template -->
+  <div class="demo-block">
+    <h2>Custom Option Template</h2>
+    <ng-template #customOption let-option>
+      <span style="font-weight: bold; color: #7c3aed">🍇 {{ option.label }}</span>
+    </ng-template>
+    <aava-autocomplete [options]="options" placeholder="Custom render..." label="Custom" [optionTemplate]="customOption"
+      [clearable]="true"></aava-autocomplete>
+  </div>
+
+  <!-- Multi-select -->
+  <div class="demo-block">
+    <h2>Multi-select</h2>
+    <aava-autocomplete [options]="options" placeholder="Pick multiple fruits..." label="Fruits" [multi]="true"
+      [(ngModel)]="multiValue" [clearable]="true" [tagSize]="'sm'" [tagPill]="true" [tagRemovable]="true"
+      [tagDisabled]="false"></aava-autocomplete>
+    <div class="demo-value">
+      <strong>Value:</strong> {{ multiValue | json }}
+    </div>
+  </div>
+
+  <!-- Disabled, Error, Helper, Full Width -->
+  <div class="demo-block">
+    <h2>Disabled, Error, Helper, Full Width</h2>
+    <aava-autocomplete [options]="options" placeholder="Disabled..." label="Disabled"
+      [disabled]="true"></aava-autocomplete>
+    <aava-autocomplete [options]="options" placeholder="With error..." label="Error"
+      error="This is an error!"></aava-autocomplete>
+    <aava-autocomplete [options]="options" placeholder="With helper..." label="Helper"
+      helper="This is a helper message."></aava-autocomplete>
+    <aava-autocomplete [options]="options" placeholder="Full width..." label="Full Width"
+      [fullWidth]="true"></aava-autocomplete>
+    <aava-autocomplete [options]="options" [showDefaultOptions]="true" placeholder="Search..." label="Search">
+    </aava-autocomplete>
+
+
+  </div>
+
+  <!-- Async (API) Example -->
+  <div class="demo-block">
+    <h2>Async (API) Example</h2>
+    <aava-autocomplete [options]="apiOptions$" placeholder="Search users..." label="User" [(ngModel)]="asyncValue"
+      [clearable]="true" [loading]="loading" [minLength]="1"></aava-autocomplete>
+    <div class="demo-value"><strong>Value:</strong> {{ asyncValue }}</div>
+    <div class="demo-note">
+      (Suggestions are fetched from
+      <a href="https://jsonplaceholder.typicode.com/users" target="_blank">JSONPlaceholder API</a>.)
+    </div>
+  </div>
+
+  <!-- Autocomplete with Start Icon -->
+  <div class="demo-block">
+    <h2>With Start Icon</h2>
+    <aava-autocomplete [options]="options" placeholder="Search with icon..." label="With Icon" [(ngModel)]="iconValue"
+      [startIcon]="'search'" [startIconColor]="'#7c3aed'" [startIconSize]="'18px'"
+      [clearable]="true"></aava-autocomplete>
+    <div class="demo-value"><strong>Value:</strong> {{ iconValue }}</div>
+  </div>
+</div>

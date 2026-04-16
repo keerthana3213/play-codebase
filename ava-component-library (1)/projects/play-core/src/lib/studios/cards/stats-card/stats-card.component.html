@@ -1,0 +1,14 @@
+<aava-default-card
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="stats-card-container">
+        <div class="stats-card-header">
+            <aava-icon [iconName]="iconName" [iconSize]="iconSize" [iconColor]="iconColor">
+            </aava-icon>
+            <span class="stats-card-label">{{ data.label }}</span>
+        </div>
+
+        <div class="stats-card-value" [style.color]="data.valueColor">
+            {{ data.value }}
+        </div>
+    </div>
+</aava-default-card>

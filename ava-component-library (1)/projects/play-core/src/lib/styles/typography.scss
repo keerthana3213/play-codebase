@@ -1,0 +1,1863 @@
+/* Typography Styles - Play Design System */
+/* 
+ * Primary Font: Mulish - Used for headings, titles, and primary text
+ * Secondary Font: Inter - Used for body text, captions, and secondary content
+ * 
+ * Design Principles:
+ * - Responsive typography using rem units for better accessibility
+ * - Consistent scale based on 8px grid system
+ * - CSS custom properties for easy theming and maintenance
+ * - Mobile-first responsive design with breakpoint adjustments
+ */
+
+/* CSS Custom Properties for Font Families */
+:root {
+    --play-font-primary: 'Mulish', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --play-font-secondary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Light Weight Styles (300) - Mulish Primary */
+.body-light-default-25 {
+    font-family: var(--play-font-primary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-50 {
+    font-family: var(--play-font-primary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-75 {
+    font-family: var(--play-font-primary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-100 {
+    font-family: var(--play-font-primary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-200 {
+    font-family: var(--play-font-primary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-300 {
+    font-family: var(--play-font-primary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-400 {
+    font-family: var(--play-font-primary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-500 {
+    font-family: var(--play-font-primary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-600 {
+    font-family: var(--play-font-primary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-700 {
+    font-family: var(--play-font-primary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-default-800 {
+    font-family: var(--play-font-primary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+/* Regular Weight Styles (400) - Mulish Primary */
+.body-regular-default-25 {
+    font-family: var(--play-font-primary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-50 {
+    font-family: var(--play-font-primary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-75 {
+    font-family: var(--play-font-primary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-100 {
+    font-family: var(--play-font-primary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-200 {
+    font-family: var(--play-font-primary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-300 {
+    font-family: var(--play-font-primary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-400 {
+    font-family: var(--play-font-primary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-500 {
+    font-family: var(--play-font-primary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-600 {
+    font-family: var(--play-font-primary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-700 {
+    font-family: var(--play-font-primary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-default-800 {
+    font-family: var(--play-font-primary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+/* Medium Weight Styles (500) - Mulish Primary */
+.body-medium-default-25 {
+    font-family: var(--play-font-primary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-50 {
+    font-family: var(--play-font-primary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-75 {
+    font-family: var(--play-font-primary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-100 {
+    font-family: var(--play-font-primary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-200 {
+    font-family: var(--play-font-primary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-300 {
+    font-family: var(--play-font-primary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-400 {
+    font-family: var(--play-font-primary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-500 {
+    font-family: var(--play-font-primary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-600 {
+    font-family: var(--play-font-primary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-700 {
+    font-family: var(--play-font-primary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-default-800 {
+    font-family: var(--play-font-primary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+/* Bold Weight Styles (600) - Mulish Primary */
+.body-bold-default-25 {
+    font-family: var(--play-font-primary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-50 {
+    font-family: var(--play-font-primary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-75 {
+    font-family: var(--play-font-primary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-100 {
+    font-family: var(--play-font-primary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-200 {
+    font-family: var(--play-font-primary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-300 {
+    font-family: var(--play-font-primary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-400 {
+    font-family: var(--play-font-primary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-500 {
+    font-family: var(--play-font-primary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-600 {
+    font-family: var(--play-font-primary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-700 {
+    font-family: var(--play-font-primary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-default-800 {
+    font-family: var(--play-font-primary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 600;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+/* ===================================== */
+/* Typography Styles - Inter Font Family (Secondary) */
+/* ===================================== */
+
+/* Light Weight Styles (300) - Inter Secondary */
+.body-light-default-25-inter,
+.body-light-italic-25-inter,
+.body-light-underline-25-inter,
+.body-light-italic-underline-25-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-25-inter,
+.body-light-italic-underline-25-inter {
+    font-style: italic;
+}
+
+.body-light-underline-25-inter,
+.body-light-italic-underline-25-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-50-inter,
+.body-light-italic-50-inter,
+.body-light-underline-50-inter,
+.body-light-italic-underline-50-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-50-inter,
+.body-light-italic-underline-50-inter {
+    font-style: italic;
+}
+
+.body-light-underline-50-inter,
+.body-light-italic-underline-50-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-75-inter,
+.body-light-italic-75-inter,
+.body-light-underline-75-inter,
+.body-light-italic-underline-75-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-75-inter,
+.body-light-italic-underline-75-inter {
+    font-style: italic;
+}
+
+.body-light-underline-75-inter,
+.body-light-italic-underline-75-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-100-inter,
+.body-light-italic-100-inter,
+.body-light-underline-100-inter,
+.body-light-italic-underline-100-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-100-inter,
+.body-light-italic-underline-100-inter {
+    font-style: italic;
+}
+
+.body-light-underline-100-inter,
+.body-light-italic-underline-100-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-200-inter,
+.body-light-italic-200-inter,
+.body-light-underline-200-inter,
+.body-light-italic-underline-200-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-200-inter,
+.body-light-italic-underline-200-inter {
+    font-style: italic;
+}
+
+.body-light-underline-200-inter,
+.body-light-italic-underline-200-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-300-inter,
+.body-light-italic-300-inter,
+.body-light-underline-300-inter,
+.body-light-italic-underline-300-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-300-inter,
+.body-light-italic-underline-300-inter {
+    font-style: italic;
+}
+
+.body-light-underline-300-inter,
+.body-light-italic-underline-300-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-400-inter,
+.body-light-italic-400-inter,
+.body-light-underline-400-inter,
+.body-light-italic-underline-400-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-400-inter,
+.body-light-italic-underline-400-inter {
+    font-style: italic;
+}
+
+.body-light-underline-400-inter,
+.body-light-italic-underline-400-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-500-inter,
+.body-light-italic-500-inter,
+.body-light-underline-500-inter,
+.body-light-italic-underline-500-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-500-inter,
+.body-light-italic-underline-500-inter {
+    font-style: italic;
+}
+
+.body-light-underline-500-inter,
+.body-light-italic-underline-500-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-600-inter,
+.body-light-italic-600-inter,
+.body-light-underline-600-inter,
+.body-light-italic-underline-600-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-600-inter,
+.body-light-italic-underline-600-inter {
+    font-style: italic;
+}
+
+.body-light-underline-600-inter,
+.body-light-italic-underline-600-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-700-inter,
+.body-light-italic-700-inter,
+.body-light-underline-700-inter,
+.body-light-italic-underline-700-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-700-inter,
+.body-light-italic-underline-700-inter {
+    font-style: italic;
+}
+
+.body-light-underline-700-inter,
+.body-light-italic-underline-700-inter {
+    text-decoration: underline;
+}
+
+.body-light-default-800-inter,
+.body-light-italic-800-inter,
+.body-light-underline-800-inter,
+.body-light-italic-underline-800-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 300;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-light-italic-800-inter,
+.body-light-italic-underline-800-inter {
+    font-style: italic;
+}
+
+.body-light-underline-800-inter,
+.body-light-italic-underline-800-inter {
+    text-decoration: underline;
+}
+
+/* Regular Weight Styles (400) - Inter Secondary */
+.body-regular-default-25-inter,
+.body-regular-italic-25-inter,
+.body-regular-underline-25-inter,
+.body-regular-italic-underline-25-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-25-inter,
+.body-regular-italic-underline-25-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-25-inter,
+.body-regular-italic-underline-25-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-50-inter,
+.body-regular-italic-50-inter,
+.body-regular-underline-50-inter,
+.body-regular-italic-underline-50-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-50-inter,
+.body-regular-italic-underline-50-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-50-inter,
+.body-regular-italic-underline-50-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-75-inter,
+.body-regular-italic-75-inter,
+.body-regular-underline-75-inter,
+.body-regular-italic-underline-75-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-75-inter,
+.body-regular-italic-underline-75-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-75-inter,
+.body-regular-italic-underline-75-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-100-inter,
+.body-regular-italic-100-inter,
+.body-regular-underline-100-inter,
+.body-regular-italic-underline-100-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-100-inter,
+.body-regular-italic-underline-100-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-100-inter,
+.body-regular-italic-underline-100-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-200-inter,
+.body-regular-italic-200-inter,
+.body-regular-underline-200-inter,
+.body-regular-italic-underline-200-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-200-inter,
+.body-regular-italic-underline-200-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-200-inter,
+.body-regular-italic-underline-200-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-300-inter,
+.body-regular-italic-300-inter,
+.body-regular-underline-300-inter,
+.body-regular-italic-underline-300-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-300-inter,
+.body-regular-italic-underline-300-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-300-inter,
+.body-regular-italic-underline-300-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-400-inter,
+.body-regular-italic-400-inter,
+.body-regular-underline-400-inter,
+.body-regular-italic-underline-400-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-400-inter,
+.body-regular-italic-underline-400-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-400-inter,
+.body-regular-italic-underline-400-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-500-inter,
+.body-regular-italic-500-inter,
+.body-regular-underline-500-inter,
+.body-regular-italic-underline-500-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-500-inter,
+.body-regular-italic-underline-500-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-500-inter,
+.body-regular-italic-underline-500-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-600-inter,
+.body-regular-italic-600-inter,
+.body-regular-underline-600-inter,
+.body-regular-italic-underline-600-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-600-inter,
+.body-regular-italic-underline-600-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-600-inter,
+.body-regular-italic-underline-600-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-700-inter,
+.body-regular-italic-700-inter,
+.body-regular-underline-700-inter,
+.body-regular-italic-underline-700-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-700-inter,
+.body-regular-italic-underline-700-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-700-inter,
+.body-regular-italic-underline-700-inter {
+    text-decoration: underline;
+}
+
+.body-regular-default-800-inter,
+.body-regular-italic-800-inter,
+.body-regular-underline-800-inter,
+.body-regular-italic-underline-800-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 400;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-regular-italic-800-inter,
+.body-regular-italic-underline-800-inter {
+    font-style: italic;
+}
+
+.body-regular-underline-800-inter,
+.body-regular-italic-underline-800-inter {
+    text-decoration: underline;
+}
+
+/* Medium Weight Styles (500) - Inter Secondary */
+.body-medium-default-25-inter,
+.body-medium-italic-25-inter,
+.body-medium-underline-25-inter,
+.body-medium-italic-underline-25-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-25-inter,
+.body-medium-italic-underline-25-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-25-inter,
+.body-medium-italic-underline-25-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-50-inter,
+.body-medium-italic-50-inter,
+.body-medium-underline-50-inter,
+.body-medium-italic-underline-50-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-50-inter,
+.body-medium-italic-underline-50-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-50-inter,
+.body-medium-italic-underline-50-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-75-inter,
+.body-medium-italic-75-inter,
+.body-medium-underline-75-inter,
+.body-medium-italic-underline-75-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-75-inter,
+.body-medium-italic-underline-75-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-75-inter,
+.body-medium-italic-underline-75-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-100-inter,
+.body-medium-italic-100-inter,
+.body-medium-underline-100-inter,
+.body-medium-italic-underline-100-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-100-inter,
+.body-medium-italic-underline-100-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-100-inter,
+.body-medium-italic-underline-100-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-200-inter,
+.body-medium-italic-200-inter,
+.body-medium-underline-200-inter,
+.body-medium-italic-underline-200-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-200-inter,
+.body-medium-italic-underline-200-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-200-inter,
+.body-medium-italic-underline-200-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-300-inter,
+.body-medium-italic-300-inter,
+.body-medium-underline-300-inter,
+.body-medium-italic-underline-300-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-300-inter,
+.body-medium-italic-underline-300-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-300-inter,
+.body-medium-italic-underline-300-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-400-inter,
+.body-medium-italic-400-inter,
+.body-medium-underline-400-inter,
+.body-medium-italic-underline-400-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-400-inter,
+.body-medium-italic-underline-400-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-400-inter,
+.body-medium-italic-underline-400-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-500-inter,
+.body-medium-italic-500-inter,
+.body-medium-underline-500-inter,
+.body-medium-italic-underline-500-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-500-inter,
+.body-medium-italic-underline-500-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-500-inter,
+.body-medium-italic-underline-500-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-600-inter,
+.body-medium-italic-600-inter,
+.body-medium-underline-600-inter,
+.body-medium-italic-underline-600-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-600-inter,
+.body-medium-italic-underline-600-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-600-inter,
+.body-medium-italic-underline-600-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-700-inter,
+.body-medium-italic-700-inter,
+.body-medium-underline-700-inter,
+.body-medium-italic-underline-700-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-700-inter,
+.body-medium-italic-underline-700-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-700-inter,
+.body-medium-italic-underline-700-inter {
+    text-decoration: underline;
+}
+
+.body-medium-default-800-inter,
+.body-medium-italic-800-inter,
+.body-medium-underline-800-inter,
+.body-medium-italic-underline-800-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 500;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-medium-italic-800-inter,
+.body-medium-italic-underline-800-inter {
+    font-style: italic;
+}
+
+.body-medium-underline-800-inter,
+.body-medium-italic-underline-800-inter {
+    text-decoration: underline;
+}
+
+/* Bold Weight Styles (700) - Inter Secondary */
+.body-bold-default-25-inter,
+.body-bold-italic-25-inter,
+.body-bold-underline-25-inter,
+.body-bold-italic-underline-25-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.625rem;
+    /* 10px */
+    line-height: 0.875rem;
+    /* 14px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-25-inter,
+.body-bold-italic-underline-25-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-25-inter,
+.body-bold-italic-underline-25-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-50-inter,
+.body-bold-italic-50-inter,
+.body-bold-underline-50-inter,
+.body-bold-italic-underline-50-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.75rem;
+    /* 12px */
+    line-height: 1rem;
+    /* 16px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-50-inter,
+.body-bold-italic-underline-50-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-50-inter,
+.body-bold-italic-underline-50-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-75-inter,
+.body-bold-italic-75-inter,
+.body-bold-underline-75-inter,
+.body-bold-italic-underline-75-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 0.875rem;
+    /* 14px */
+    line-height: 1.25rem;
+    /* 20px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-75-inter,
+.body-bold-italic-underline-75-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-75-inter,
+.body-bold-italic-underline-75-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-100-inter,
+.body-bold-italic-100-inter,
+.body-bold-underline-100-inter,
+.body-bold-italic-underline-100-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1rem;
+    /* 16px */
+    line-height: 1.5rem;
+    /* 24px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-100-inter,
+.body-bold-italic-underline-100-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-100-inter,
+.body-bold-italic-underline-100-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-200-inter,
+.body-bold-italic-200-inter,
+.body-bold-underline-200-inter,
+.body-bold-italic-underline-200-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.125rem;
+    /* 18px */
+    line-height: 1.625rem;
+    /* 26px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-200-inter,
+.body-bold-italic-underline-200-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-200-inter,
+.body-bold-italic-underline-200-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-300-inter,
+.body-bold-italic-300-inter,
+.body-bold-underline-300-inter,
+.body-bold-italic-underline-300-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.25rem;
+    /* 20px */
+    line-height: 1.75rem;
+    /* 28px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-300-inter,
+.body-bold-italic-underline-300-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-300-inter,
+.body-bold-italic-underline-300-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-400-inter,
+.body-bold-italic-400-inter,
+.body-bold-underline-400-inter,
+.body-bold-italic-underline-400-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.5rem;
+    /* 24px */
+    line-height: 2rem;
+    /* 32px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-400-inter,
+.body-bold-italic-underline-400-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-400-inter,
+.body-bold-italic-underline-400-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-500-inter,
+.body-bold-italic-500-inter,
+.body-bold-underline-500-inter,
+.body-bold-italic-underline-500-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 1.75rem;
+    /* 28px */
+    line-height: 2.25rem;
+    /* 36px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-500-inter,
+.body-bold-italic-underline-500-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-500-inter,
+.body-bold-italic-underline-500-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-600-inter,
+.body-bold-italic-600-inter,
+.body-bold-underline-600-inter,
+.body-bold-italic-underline-600-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.125rem;
+    /* 34px */
+    line-height: 2.75rem;
+    /* 44px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-600-inter,
+.body-bold-italic-underline-600-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-600-inter,
+.body-bold-italic-underline-600-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-700-inter,
+.body-bold-italic-700-inter,
+.body-bold-underline-700-inter,
+.body-bold-italic-underline-700-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 2.5rem;
+    /* 40px */
+    line-height: 3.125rem;
+    /* 50px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-700-inter,
+.body-bold-italic-underline-700-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-700-inter,
+.body-bold-italic-underline-700-inter {
+    text-decoration: underline;
+}
+
+.body-bold-default-800-inter,
+.body-bold-italic-800-inter,
+.body-bold-underline-800-inter,
+.body-bold-italic-underline-800-inter {
+    font-family: var(--play-font-secondary);
+    font-size: 3rem;
+    /* 48px */
+    line-height: 3.5rem;
+    /* 56px */
+    font-weight: 700;
+    font-style: normal;
+    letter-spacing: 0.0125rem;
+    /* 0.2px */
+}
+
+.body-bold-italic-800-inter,
+.body-bold-italic-underline-800-inter {
+    font-style: italic;
+}
+
+.body-bold-underline-800-inter,
+.body-bold-italic-underline-800-inter {
+    text-decoration: underline;
+}
+
+/* ===================================== */
+/* Utility Classes */
+/* ===================================== */
+
+/* Reset base styles */
+* {
+    box-sizing: border-box;
+}
+
+/* Base typography utility classes */
+.text-italic {
+    font-style: italic !important;
+}
+
+.text-underline {
+    text-decoration: underline !important;
+}
+
+.text-normal {
+    font-style: normal !important;
+    text-decoration: none !important;
+}
+
+/* ===================================== */
+/* Play Design System Typography Utilities */
+/* ===================================== */
+
+/* Font Family Utilities */
+.font-primary {
+    font-family: var(--play-font-primary) !important;
+}
+
+.font-secondary {
+    font-family: var(--play-font-secondary) !important;
+}
+
+/* Responsive Typography Scale */
+.text-xs {
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+
+/* 12px */
+.text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+}
+
+/* 14px */
+.text-base {
+    font-size: 1rem;
+    line-height: 1.5rem;
+}
+
+/* 16px */
+.text-lg {
+    font-size: 1.125rem;
+    line-height: 1.75rem;
+}
+
+/* 18px */
+.text-xl {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+}
+
+/* 20px */
+.text-2xl {
+    font-size: 1.5rem;
+    line-height: 2rem;
+}
+
+/* 24px */
+.text-3xl {
+    font-size: 1.875rem;
+    line-height: 2.25rem;
+}
+
+/* 30px */
+.text-4xl {
+    font-size: 2.25rem;
+    line-height: 2.5rem;
+}
+
+/* 36px */
+.text-5xl {
+    font-size: 3rem;
+    line-height: 1;
+}
+
+/* 48px */
+
+/* Font Weight Utilities */
+.font-light {
+    font-weight: 300 !important;
+}
+
+.font-normal {
+    font-weight: 400 !important;
+}
+
+.font-medium {
+    font-weight: 500 !important;
+}
+
+.font-semibold {
+    font-weight: 600 !important;
+}
+
+.font-bold {
+    font-weight: 700 !important;
+}
+
+/* Line Height Utilities */
+.leading-tight {
+    line-height: 1.25 !important;
+}
+
+.leading-snug {
+    line-height: 1.375 !important;
+}
+
+.leading-normal {
+    line-height: 1.5 !important;
+}
+
+.leading-relaxed {
+    line-height: 1.625 !important;
+}
+
+.leading-loose {
+    line-height: 2 !important;
+}
+
+/* Letter Spacing Utilities */
+.tracking-tighter {
+    letter-spacing: -0.05em !important;
+}
+
+.tracking-tight {
+    letter-spacing: -0.025em !important;
+}
+
+.tracking-normal {
+    letter-spacing: 0em !important;
+}
+
+.tracking-wide {
+    letter-spacing: 0.025em !important;
+}
+
+.tracking-wider {
+    letter-spacing: 0.05em !important;
+}
+
+.tracking-widest {
+    letter-spacing: 0.1em !important;
+}
+
+/* Text Alignment Utilities */
+.text-left {
+    text-align: left !important;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.text-justify {
+    text-align: justify !important;
+}
+
+/* Text Transform Utilities */
+.uppercase {
+    text-transform: uppercase !important;
+}
+
+.lowercase {
+    text-transform: lowercase !important;
+}
+
+.capitalize {
+    text-transform: capitalize !important;
+}
+
+.normal-case {
+    text-transform: none !important;
+}
+
+/* Text Decoration Utilities */
+.underline {
+    text-decoration: underline !important;
+}
+
+.line-through {
+    text-decoration: line-through !important;
+}
+
+.no-underline {
+    text-decoration: none !important;
+}

@@ -1,0 +1,281 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Button Demo Component SCSS
+ *
+ * Matching the textbox demo's beautiful animated gradient background
+ * and enhanced styling for better visual consistency
+ * =========================================================================
+ */
+
+/* =======================
+   BUTTON DEMO PAGE STYLING
+   ======================= */
+
+.button-demo-page {
+  background: #ffffff;
+  min-height: 100vh;
+
+  .demo-header {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    padding: 4rem 0 2rem;
+    border-bottom: 1px solid #e2e8f0;
+
+    .doc-header {
+      text-align: center;
+
+      h1 {
+        font-size: 3rem;
+        font-weight: 700;
+        color: #1e293b;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .description {
+        font-size: 1.2rem;
+        color: #64748b;
+        max-width: 600px;
+        margin: 0 auto;
+        line-height: 1.6;
+      }
+    }
+  }
+
+  /* Demo Navigation Links */
+  .demo-navigation {
+    background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+    padding: 3rem 0;
+    border-bottom: 1px solid #cbd5e1;
+
+    .nav-links {
+      text-align: center;
+
+      h3 {
+        font-size: 2rem;
+        font-weight: 600;
+        color: #1e293b;
+        margin-bottom: 2rem;
+        background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        max-width: 1200px;
+        margin: 0 auto;
+
+        .nav-link {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          padding: 1.5rem;
+          background: rgba(255, 255, 255, 0.8);
+          border: 2px solid transparent;
+          border-radius: 1rem;
+          text-decoration: none;
+          color: #374151;
+          transition: all 0.3s ease;
+          backdrop-filter: blur(10px);
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+
+          &:hover {
+            transform: translateY(-4px);
+            border-color: #6366f1;
+            background: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 8px 25px rgba(99, 102, 241, 0.15);
+            color: #6366f1;
+          }
+
+          .nav-icon {
+            font-size: 2rem;
+            margin-bottom: 0.75rem;
+            display: block;
+          }
+
+          .nav-text {
+            font-size: 1rem;
+            font-weight: 500;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+
+  .demo-sections {
+    .demo-section {
+      padding: 4rem 0;
+      position: relative;
+      overflow: hidden;
+
+      .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+
+        h2 {
+          font-size: 2.5rem;
+          font-weight: 600;
+          margin-bottom: 0.5rem;
+          color: #1e293b;
+        }
+
+        p {
+          font-size: 1.1rem;
+          color: #64748b;
+          margin: 0;
+        }
+      }
+
+      .demo-content {
+        position: relative;
+        z-index: 2;
+
+        .row {
+          justify-content: center;
+        }
+      }
+    }
+  }
+}
+
+/* Section-specific backgrounds */
+
+/* Button Variants - Simple Purple Gradient */
+.variants-bg {
+  background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+}
+
+/* Interaction States - Simple Green Gradient */
+.states-bg {
+  background: linear-gradient(135deg, #f9fafb 0%, #f3f4f6 100%);
+}
+
+/* Button Sizes - Simple Orange Gradient */
+.sizes-bg {
+  background: linear-gradient(135deg, #fefce8 0%, #fef3c7 100%);
+}
+
+/* Glass Background - Keep existing special background */
+.glass-bg {
+  background: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 50%, #cbd5e1 100%);
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: url('data:image/svg+xml,<svg width="120" height="120" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="hexagons" width="120" height="120" patternUnits="userSpaceOnUse"><polygon points="60,10 90,30 90,70 60,90 30,70 30,30" fill="none" stroke="rgba(71,85,105,0.1)" stroke-width="1"/></pattern></defs><rect width="100%" height="100%" fill="url(%23hexagons)"/></svg>')
+      repeat;
+    z-index: 1;
+  }
+}
+
+/* Hover Effects - Dark Background for Better Effect Visibility */
+.hover-bg {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+
+  .section-header {
+    h2,
+    p {
+      color: #f8fafc !important;
+    }
+  }
+}
+
+/* Pressed Effects - Dark Background for Better Ripple Visibility */
+.pressed-bg {
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+
+  .section-header {
+    h2,
+    p {
+      color: #f8fafc !important;
+    }
+  }
+}
+
+/* Shape Modifiers - Simple Teal Gradient */
+.shapes-bg {
+  background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+}
+
+/* Enhanced Glass Demo Background */
+.glass-demo-background {
+  background: url("../../../assets/glass_1.png") !important;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  padding: 4rem 3rem;
+  border-radius: 2rem;
+  position: relative;
+  z-index: 3;
+  min-height: 300px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+}
+
+// Responsive adjustments
+@media (max-width: 768px) {
+  .button-demo-page {
+    .demo-navigation {
+      padding: 2rem 0;
+
+      .nav-links {
+        h3 {
+          font-size: 1.5rem;
+        }
+
+        .nav-grid {
+          grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+          gap: 1rem;
+
+          .nav-link {
+            padding: 1rem;
+
+            .nav-icon {
+              font-size: 1.5rem;
+            }
+
+            .nav-text {
+              font-size: 0.875rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .documentation {
+    padding: 1rem;
+
+    .doc-header h1 {
+      font-size: 2rem;
+    }
+
+    .doc-section h2 {
+      font-size: 1.5rem;
+      padding: 0.75rem;
+    }
+
+    .example-preview {
+      padding: 1rem;
+    }
+
+    .row.g-3 {
+      gap: 1rem !important;
+
+      [class*="col-"] {
+        margin-bottom: 0.5rem;
+      }
+    }
+  }
+}

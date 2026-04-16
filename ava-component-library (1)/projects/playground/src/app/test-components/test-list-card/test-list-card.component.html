@@ -1,0 +1,19 @@
+<div class="test-section">
+    <aava-list-card [data]="sampleData1" (buttonClicked)="onButtonClick($event)"
+        (linkClicked)="onLinkClick($event)"></aava-list-card>
+</div>
+
+<div class="test-section">
+    <aava-list-card [data]="noIconNoButton" (buttonClicked)="onButtonClick($event)"
+        (linkClicked)="onLinkClick($event)"></aava-list-card>
+</div>
+
+<div class="test-section">
+    <aava-list-card [data]="noIconHasButton" (buttonClicked)="onButtonClick($event)"
+        (linkClicked)="onLinkClick($event)"></aava-list-card>
+</div>
+
+<div class="test-section">
+    <aava-list-card [data]="hasAvatarNoButton" (buttonClicked)="onButtonClick($event)"
+        (linkClicked)="onLinkClick($event)"></aava-list-card>
+</div>

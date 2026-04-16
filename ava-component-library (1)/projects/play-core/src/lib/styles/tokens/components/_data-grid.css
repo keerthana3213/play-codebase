@@ -1,0 +1,36 @@
+:root {
+    --grid-font-family-body: var(--font-family-body);
+    --grid-header-background-color: var(--color-background-secondary);
+    --grid-border: var(--color-border-subtle);
+    --grid-background-color-odd: transparent;
+    --grid-background-color-even: var(--global-color-gray-50);
+    --grid-background-table-hover: var(--global-color-pink-50);
+    --grid-text-disabled: var(--color-text-disabled);
+    --grid-text-color: var(--color-text-primary);
+    --grid-filter-active-color: var(--color-brand-primary);
+    --grid-cell-paading: var(--global-spacing-4);
+    --grid-background: var(--global-background);
+    --grid-dark-row-odd-bg: var(--rgba(var(--rgb-black), 1));
+
+    /* Column-specific styling */
+    --grid-journal-description-gap: var(--global-spacing-3);
+    --grid-loader-color: var(--color-brand-primary);
+    --grid-cell-paading: var(--global-spacing-4);
+    --grid-overlay-background: rgba(255, 255, 255, 0.6);
+    --grid-border-color: var(--color-border-subtle);
+    --grid-min-height: 250px;
+
+    /* Grid filter specific*/
+    --grid-filter-border-radius: 8px;
+    --grid-filter-elevation: 0 6px 16px rgba(0, 0, 0, 0.1);
+    --grid-filter-padding: var(--global-spacing-4);
+    --grid-filter-min-width: 240px;
+    --grid-filter-gap: 0.5rem;
+    --grid-title-family: Inter;
+    --grid-title-size: 18px;
+    --grid-title-weight: var(--global-font-weight-medium);
+    --grid-content-color: var(--color-text-primary);
+    --grid-content-size: 16px;
+    --grid-content-weight: var(--global-font-weight-regular);
+    --grid-cell-bottom-border: 1px solid #E5E7EB;
+}

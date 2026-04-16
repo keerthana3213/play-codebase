@@ -1,0 +1,15 @@
+<div class="demo-container">
+  <div class="search-demo">
+    <div class="demo-section">
+      <div class="search-example">
+        <aava-search-bar
+          placeholder="Enter your search term..."
+          [closeButton]="true"
+          (searchClick)="onSearchClick($event)"
+          (searchChange)="onSearchChange($event)"
+          (onClose)="onClose($event)"
+        ></aava-search-bar>
+      </div>
+    </div>
+  </div>
+</div>

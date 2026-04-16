@@ -1,0 +1,213 @@
+.demo-container {
+  max-width: 870px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.demo-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 60vh;
+}
+
+.comparison-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.comparison-group {
+  padding: 1.5rem;
+}
+
+.size-comparison {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  min-height: 3rem;
+  padding: 1rem;
+}
+
+.use-case-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.use-case-group {
+  padding: 1.5rem;
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.tag-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.75rem;
+  background: #f9fafb;
+  border-radius: 6px;
+  border: 1px dashed #d1d5db;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.guideline-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    color: #6b7280;
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    &::before {
+      content: "•";
+      color: #3b82f6;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.responsive-info {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.responsive-card {
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .demo-container {
+    padding: 1rem;
+  }
+
+  .size-examples {
+    grid-template-columns: 1fr;
+  }
+
+  .size-comparison {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .responsive-info {
+    grid-template-columns: 1fr;
+  }
+
+  .tag-examples {
+    gap: 0.5rem;
+  }
+}
+
+// Interactive elements
+ava-tag {
+  &:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+
+  &:hover {
+    transform: translateY(-1px);
+    transition: transform 0.2s ease;
+  }
+}
+
+// Animation for size examples
+.size-example {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+}
+
+// Size-specific styling for better visual hierarchy
+.size-preview ava-tag {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}
+
+// Comparison styling
+.size-comparison ava-tag {
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+}

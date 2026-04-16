@@ -1,0 +1,304 @@
+<div class="show">
+  <div class="filter-container">
+        <label>Checkbox Selection</label>
+        <aava-filter
+          size="xs"
+          [options]="categoryOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          (selectionChange)="onCategoryFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Radio Selection</label>
+        <aava-filter
+          label="Status"
+          size="md"
+          [options]="statusOptions"
+          selectionType="radio"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          (selectionChange)="onStatusFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Label-only Selection</label>
+        <aava-filter
+          label="Priority"
+          size="md"
+          [options]="priorityOptions"
+          selectionType="none"
+          [allowMultipleSelection]="true"
+          [showSelectionCount]="true"
+          (selectionChange)="onPriorityFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Small (sm)</label>
+        <aava-filter
+          label="Users"
+          size="sm"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Medium (md)</label>
+        <aava-filter
+          label="Users"
+          size="md"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Large (lg)</label>
+        <aava-filter
+          label="Users"
+          size="lg"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Extra Large (xl)</label>
+        <aava-filter
+          label="Users"
+          size="xl"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Custom Width (300px)</label>
+        <aava-filter
+          label="Wide Filter"
+          size="md"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          [showSelectionCount]="true"
+          [width]="customWidth"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>With Custom Icon</label>
+        <aava-filter
+          label="Custom Filter"
+          size="md"
+          [options]="basicOptions"
+          selectionType="checkbox"
+          icon="users"
+          iconColor="#6366f1"
+          [showSelectionCount]="true"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Single Selection (Label)</label>
+        <aava-filter
+          label="Single Choice"
+          size="md"
+          [options]="priorityOptions"
+          selectionType="none"
+          [allowMultipleSelection]="false"
+          [showSelectionCount]="true"
+          (selectionChange)="onPriorityFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Disabled Filter</label>
+        <aava-filter
+          label="Disabled"
+          size="md"
+          [options]="basicOptions"
+          [disabled]="true"
+          selectionType="checkbox"
+          (selectionChange)="onBasicFilterChange($event)">
+        </aava-filter>
+      </div>
+
+
+      <div class="filter-container">
+        <label>Full Featured Filter</label>
+        <aava-filter
+          label="Advanced Filter"
+          size="lg"
+          [options]="categoryOptions"
+          selectionType="checkbox"
+          icon="home"
+          iconColor="#059669"
+          [allowMultipleSelection]="true"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          (selectionChange)="onCategoryFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+
+
+      <div class="filter-container">
+        <label>User Status with Icons (Checkbox)</label>
+        <aava-filter
+          label="Status"
+          size="md"
+          [options]="optionsWithIcons"
+          selectionType="checkbox"
+          [allowMultipleSelection]="true"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          icon="users"
+          iconColor="#3b82f6"
+          (selectionChange)="onIconFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>User Status with Icons (Label-only)</label>
+        <aava-filter
+          label="Status"
+          size="lg"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          [allowMultipleSelection]="false"
+          [showActionButtons]="false"
+          icon="user"
+          iconColor="#8b5cf6"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Advanced Multi-Group Filter</label>
+        <aava-filter
+          label="Advanced Filters"
+          size="lg"
+          [filterGroups]="filterGroups"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          icon="star"
+          iconColor="#10b981"
+          (selectionChange)="onMultiGroupFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Wide Multi-Group Filter (400px)</label>
+        <aava-filter
+          label="Wide Advanced Filters"
+          size="lg"
+          [filterGroups]="filterGroups"
+          [showSelectionCount]="true"
+          [showActionButtons]="true"
+          icon="star"
+          iconColor="#10b981"
+          [width]="400"
+          (selectionChange)="onMultiGroupFilterChange($event)"
+          (clearAll)="onClearAll()"
+          (apply)="onApply($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>Compact Multi-Group Filter</label>
+        <aava-filter
+          label="Filters"
+          size="sm"
+          [filterGroups]="filterGroups"
+          [showSelectionCount]="true"
+          [showActionButtons]="false"
+          icon="settings"
+          iconColor="#f59e0b"
+          (selectionChange)="onMultiGroupFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>XS Size (12px icons)</label>
+        <aava-filter
+          label="XS Filter"
+          size="xs"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          icon="home"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>SM Size (16px icons)</label>
+        <aava-filter
+          label="SM Filter"
+          size="sm"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          icon="home"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>MD Size (20px icons)</label>
+        <aava-filter
+          label="MD Filter"
+          size="md"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          icon="home"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>LG Size (24px icons)</label>
+        <aava-filter
+          label="LG Filter"
+          size="lg"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          icon="home"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+
+      <div class="filter-container">
+        <label>XL Size (24px icons)</label>
+        <aava-filter
+          label="XL Filter"
+          size="xl"
+          [options]="optionsWithIcons"
+          selectionType="none"
+          icon="star"
+          (selectionChange)="onIconFilterChange($event)">
+        </aava-filter>
+      </div>
+

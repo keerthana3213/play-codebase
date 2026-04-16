@@ -1,0 +1,61 @@
+trigger: none
+
+pool:
+  vmImage: "ubuntu-latest"
+
+variables:
+  nodeVersion: "18.x"
+
+stages:
+  - stage: Build
+    displayName: "Build Applications"
+    jobs:
+      - job: BuildLibrary
+        steps:
+          - task: UseNode@1
+            inputs:
+              version: $(nodeVersion)
+          - script: |
+              npm ci
+              npx ng version
+            displayName: "Install Dependencies"
+          - script: npx ng analytics off
+            displayName: "Disable Angular CLI Analytics"
+          - script: npx ng build --project=play-core
+            displayName: "Build Play library"
+          - script: npx ng build --project=playground
+            displayName: "Build Playground"
+
+          # Publish Component Library
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish Component Library"
+            inputs:
+              targetPath: "dist/play-core"
+              artifact: "play-core"
+              publishLocation: "pipeline"
+
+          # Publish Playground
+          - task: PublishPipelineArtifact@1
+            displayName: "Publish Playground"
+            inputs:
+              targetPath: "dist/playground/browser"
+              artifact: "playground"
+              publishLocation: "pipeline"
+  # Deploy
+  - stage: Deploy
+    displayName: "Deploy Applications"
+    dependsOn: Build
+    jobs:
+      - job: DeployPlayground
+        steps:
+          - task: DownloadPipelineArtifact@2
+            inputs:
+              artifact: "playground"
+              path: "$(Pipeline.Workspace)/playground"
+
+          - task: AzureStaticWebApp@0
+            inputs:
+              app_location: "$(Pipeline.Workspace)/playground"
+              output_location: "$(Pipeline.Workspace)/playground"
+              azure_static_web_apps_api_token: $(PLAYGROUND_DEPLOYMENT_TOKEN)
+              skip_app_build: true

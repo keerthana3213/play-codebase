@@ -1,0 +1,248 @@
+// Circular Progress
+.progress-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 100%;
+
+  svg {
+    max-width: 100%;
+  }
+
+  .progress-background {
+    stroke: var(--progress-background);
+  }
+
+  .progress-bar {
+    stroke-linecap: round;
+    transform: rotate(-90deg); // Start at top (12 o'clock)
+    transform-origin: 50px 50px;
+    // Transition removed from CSS - will be applied programmatically after initial state is set
+    // transition: stroke-dashoffset var(--progress-duration, 1.5s) ease-in-out;
+    stroke: url(#progressGradient);
+
+    &.indeterminate {
+      animation: circular-rotate 1s linear infinite;
+    }
+
+    &.query {
+      animation: spin-reverse 1.5s linear infinite;
+    }
+  }
+
+  .progress-text {
+    fill: var(--progress-text-color);
+    font-weight: var(--progress-text-weight);
+    color: var(--progress-text-color);
+  }
+
+  .progress-label {
+    margin-top: var(--progress-container-gap);
+    font-size: var(--progress-label-font);
+    color: var(--progress-label-color);
+    font-weight: var(--progress-label-weight);
+    line-height: var(--progress-label-line-height);
+    text-align: center;
+  }
+
+  // Size variants
+  &[data-size="sm"] svg {
+    width: var(--progress-size-sm-circular-size);
+    height: var(--progress-size-sm-circular-size);
+
+    .progress-text {
+      font-size: var(--progress-size-sm-text);
+      font-weight: var(--progress-label-weight);
+
+    }
+  }
+
+  &[data-size="md"] svg {
+    width: var(--progress-size-md-circular-size);
+    height: var(--progress-size-md-circular-size);
+
+    .progress-text {
+      font-size: var(--progress-size-md-text);
+      font-weight: var(--progress-text-weight);
+    }
+  }
+
+  &[data-size="lg"] svg {
+    width: var(--progress-size-lg-circular-size);
+    height: var(--progress-size-lg-circular-size);
+
+    .progress-text {
+      font-size: var(--progress-size-lg-text);
+      font-weight: var(--progress-size-lg-text-font-weight);
+    }
+  }
+}
+
+// Linear Progress
+.linear-progress-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--progress-container-gap);
+
+
+  .progress-percentage {
+    color: var(--progress-text-color);
+    font-weight: var(--progress-text-weight);
+    text-align: right;
+  }
+
+  .linear-bar {
+    width: 100%;
+    background: var(--progress-background-disabled);
+    border-radius: var(--progress-linear-border-radius);
+    overflow: hidden;
+    position: relative;
+
+    .linear-progress {
+      height: 100%;
+      border-radius: inherit;
+      transition: var(--progress-linear-fill-transition);
+      background: var(--progress-linear-gradient);
+      border-radius: var(--progress-linear-border-radius);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 2;
+    }
+
+    .buffer-bar {
+      height: 100%;
+      background: rgba(var(--progress-primary-color), 0.25);
+      transition: var(--progress-linear-fill-transition);
+      border-radius: var(--progress-linear-border-radius);
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+
+    .indeterminate-bar {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      overflow: hidden;
+      background: transparent;
+
+      &::before {
+        content: '';
+        display: block;
+        width: 30%;
+        height: 100%;
+        background: var(--progress-linear-gradient);
+        position: absolute;
+        left: -30%;
+        animation: indeterminate-move 2s infinite linear;
+      }
+
+      &.query::before {
+        animation: query-move 2s infinite linear;
+      }
+    }
+  }
+}
+
+// Animations
+
+// @keyframes circular-indeterminate {
+//   0% {
+//     stroke-dasharray: 1, 150;
+//     stroke-dashoffset: 0;
+//   }
+
+//   50% {
+//     stroke-dasharray: 90, 150;
+//     stroke-dashoffset: -35;
+//   }
+
+//   100% {
+//     stroke-dasharray: 90, 150;
+//     stroke-dashoffset: -124;
+//   }
+// }
+
+// Circular rotation: continuous smooth spinning
+@keyframes circular-rotate {
+  0% {
+    transform: rotate(-90deg);
+  }
+
+  100% {
+    transform: rotate(270deg);
+  }
+}
+
+// Linear indeterminate
+@keyframes indeterminate-move {
+  0% {
+    left: -30%;
+    width: 30%;
+  }
+
+  50% {
+    left: 50%;
+    width: 60%;
+  }
+
+  100% {
+    left: 100%;
+    width: 30%;
+  }
+}
+
+@keyframes query-move {
+  0% {
+    left: 100%;
+    width: 30%;
+  }
+
+  50% {
+    left: 50%;
+    width: 60%;
+  }
+
+  100% {
+    left: -30%;
+    width: 30%;
+  }
+}
+
+// @keyframes spin {
+//   0% {
+//     transform: rotate(-90deg);
+//   }
+
+//   100% {
+//     transform: rotate(270deg);
+//   }
+// }
+
+// @keyframes spin-reverse {
+//   0% {
+//     transform: rotate(270deg);
+//   }
+
+//   100% {
+//     transform: rotate(-90deg);
+//   }
+// }
+
+// Progress error message
+.progress-error {
+  color: var(--progress-error-fill);
+  font-size: var(--progress-size-md-percentage);
+  margin-top: var(--progress-container-gap);
+}
+
+// Responsive sizes
+@media (max-width: 768px) {
+  .progress-container svg {
+    width: var(--progress-size-md-circular-size);
+    height: var(--progress-size-md-circular-size);
+  }
+}

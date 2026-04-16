@@ -1,0 +1,31 @@
+
+<ul class="tree-ul" [ngStyle]="customStyles" [attr.id]="id ? 'aava-tree-' + id : null">
+  <li *ngFor="let node of data" class="tree-li">
+    <div class="node-container"
+         [class.selected]="isSelected(node)"
+         (click)="onNodeClick(node, $event)">
+      <div class="node-content">
+        <span class="toggle-icon" *ngIf="node.children && node.children.length > 0">
+          <aava-icon [iconName]="node.isExpanded ? 'chevron-down' : 'chevron-right'" [iconColor]="isSelected(node) ? selectedIconColor : defaultIconColor" iconSize="16"></aava-icon>
+        </span>
+        <span class="node-icon" *ngIf="node.icon">
+          <aava-icon [iconName]="node.icon" [iconColor]="isSelected(node) ? selectedIconColor : defaultIconColor" iconSize="16"></aava-icon>
+        </span>
+        <span class="node-name">{{ node.name }}</span>
+      </div>
+    </div>
+    <ul class="tree-ul" *ngIf="node.children && node.isExpanded">
+      <aava-tree
+        [data]="node.children"
+        [selectionMode]="selectionMode"
+        [selectedNodes]="selectedNodes"
+        (selectionChange)="onChildSelectionChange($event)"
+        (nodeClick)="onChildNodeClick($event)">
+        <ng-content></ng-content>
+      </aava-tree>
+    </ul>
+  </li>
+</ul>
+
+<!-- ng-content for any custom content -->
+<ng-content></ng-content>

@@ -1,0 +1,98 @@
+/**
+ * Component: Toggle
+ * Purpose: Toggle component tokens for on/off switches
+ */
+
+:root {
+  /* Toggle Base */
+  --toggle-width: 3rem;
+  --toggle-height: 1.5rem;
+  --toggle-border-radius: var(--global-radius-pill);
+  --toggle-transition: all var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+
+  /* Toggle Track */
+  --toggle-track-background: var(--global-color-gray-300);
+  --toggle-track-border: 1px solid var(--color-border-subtle);
+  --toggle-track-disabled-background: var(--color-background-disabled);
+  --toggle-track-disabled-border: 1px solid var(--color-border-disabled);
+
+  /* Toggle Track States */
+  --toggle-track-checked-background: var(--color-surface-interactive-default);
+  --toggle-track-checked-border: 1px solid var(--color-surface-interactive-default);
+  --toggle-track-checked-disabled-background: var(--color-surface-interactive-disabled);
+  --toggle-track-checked-disabled-border: 1px solid var(--color-surface-interactive-disabled);
+
+  /* Toggle Thumb */
+  --toggle-thumb-size: 1.25rem;
+  --toggle-thumb-background: var(--color-background-primary);
+  --toggle-thumb-border: 1px solid var(--color-border-subtle);
+  --toggle-thumb-shadow: var(--global-elevation-01);
+  --toggle-thumb-margin: 0.125rem;
+  --toggle-thumb-disabled-background: var(--color-background-disabled);
+  --toggle-thumb-disabled-border: 1px solid var(--color-border-disabled);
+
+  /* Toggle Thumb States */
+  --toggle-thumb-checked-background: var(--color-background-primary);
+  --toggle-thumb-checked-border: 1px solid var(--color-surface-interactive-default);
+  --toggle-thumb-checked-disabled-background: var(--color-background-disabled);
+  --toggle-thumb-checked-disabled-border: 1px solid var(--color-surface-interactive-disabled);
+
+  /* Toggle Sizes */
+  --toggle-size-xs-width: 2.25rem;
+  --toggle-size-xs-height: 1rem;
+  --toggle-size-xs-thumb-size: 0.75rem;
+
+  --toggle-size-sm-width: 2.25rem;
+  --toggle-size-sm-height: 1.25rem;
+  --toggle-size-sm-thumb-size: 0.875rem;
+
+  --toggle-size-md-width: 2.75rem;
+  --toggle-size-md-height: 1.5rem;
+  --toggle-size-md-thumb-size: 1rem;
+
+  --toggle-size-lg-width: 3.25rem;
+  --toggle-size-lg-height: 1.75rem;
+  --toggle-size-lg-thumb-size: 1.25rem;
+
+
+  /* Toggle Label */
+  --toggle-label-text: var(--color-text-primary);
+  --toggle-label-font: var(--font-body-2);
+  --toggle-label-margin: var(--global-spacing-3);
+  --toggle-label-disabled-text: var(--color-text-disabled);
+  --toggle-font-size-xs: var(--global-font-size-xs);
+  --toggle-font-size-sm: var(--global-font-size-xs);
+  --toggle-font-size-md: var(--global-font-size-sm);
+  --toggle-font-size-lg: var(--global-font-size-sm);
+
+  /* Toggle Focus */
+  --toggle-focus-outline: 2px solid var(--accessibility-focus-ring-color);
+  --toggle-focus-outline-offset: 0.125rem;
+
+  /* Toggle Variants */
+  --toggle-variant-primary-track-checked: var(--color-surface-interactive-default);
+  --toggle-variant-primary-thumb-checked: var(--color-background-primary);
+
+  --toggle-variant-success-track-checked: var(--color-surface-success);
+  --toggle-variant-success-thumb-checked: var(--color-background-primary);
+
+  --toggle-variant-warning-track-checked: var(--color-surface-warning);
+  --toggle-variant-warning-thumb-checked: var(--color-background-primary);
+
+  --toggle-variant-error-track-checked: var(--color-surface-error);
+  --toggle-variant-error-thumb-checked: var(--color-background-primary);
+
+  /* Toggle Icon */
+  --toggle-icon-size: var(--global-icon-size-xs);
+  --toggle-icon-color: var(--color-text-secondary);
+  --toggle-icon-checked-color: var(--color-text-on-brand);
+  --toggle-icon-disabled-color: var(--color-text-disabled);
+
+  --toggle-track-checked-background-gradient: linear-gradient(90deg,
+      rgba(var(--rgb-brand-primary)) 17.96%,
+      color-mix(in srgb, rgba(var(--rgb-brand-primary), 0.75), black 30%) 100%);
+  --toggle-glass-shadow: 0px 2px 4px 0px rgba(39, 39, 39, 0.1);
+
+  --toggle-gap: 12px;
+
+}

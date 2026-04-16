@@ -1,0 +1,109 @@
+<div class="t-container">
+    <!-- Top Position with different arrow positions -->
+    <div class="con">
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Top Start" variant="primary" size="md" tooltipTitle="He"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="top" tooltipArrow="start">
+            </aava-button>
+            <aava-button label="Top Center" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="top" tooltipArrow="center">
+            </aava-button>
+            <aava-button label="Top End" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="top" tooltipArrow="end">
+            </aava-button>
+        </div>
+
+        <!-- Bottom Position with different arrow positions -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Bottom Start" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="bottom" tooltipArrow="start">
+            </aava-button>
+            <aava-button label="Bottom Center" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="bottom" tooltipArrow="center">
+            </aava-button>
+            <aava-button label="Bottom End" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="bottom" tooltipArrow="end">
+            </aava-button>
+        </div>
+
+        <!-- Left Position with different arrow positions -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Left Start" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="left" tooltipArrow="start">
+            </aava-button>
+            <aava-button label="Left Center" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="left" tooltipArrow="center">
+            </aava-button>
+            <aava-button label="Left End" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="left" tooltipArrow="end">
+            </aava-button>
+        </div>
+
+        <!-- Right Position with different arrow positions -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Right Start" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="right" tooltipArrow="start">
+            </aava-button>
+            <aava-button label="Right Center" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="right" tooltipArrow="center">
+            </aava-button>
+            <aava-button label="Right End" variant="primary" size="md" tooltipTitle="Heading"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="right" tooltipArrow="end">
+            </aava-button>
+        </div>
+    </div>
+
+    <!-- Tooltip with only description -->
+    <div class="con">
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Description Only" variant="secondary" size="md"
+                tooltipDescription="This is body text of this tool tip" tooltipPosition="top" tooltipArrow="center">
+            </aava-button>
+        </div>
+    </div>
+
+    <!-- Tooltip with only title -->
+    <div class="con">
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Title Only" variant="info" size="md" tooltipTitle="Hkjhkasd asbdkasbdkasd ndasdla" tooltipPosition="top"
+                tooltipArrow="center">
+            </aava-button>
+        </div>
+    </div>
+
+    <!-- Icon Alignment Test Cases -->
+    <div class="con">
+        <h3>Icon Alignment Tests</h3>
+
+        <!-- Case 1: Title with icon + Description (description should align with title text) -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Title+Icon+Desc" variant="primary" size="md" tooltipTitle="Save Feature"
+                tooltipDescription="This description should align with title text" tooltipIcon="save"
+               tooltipIconColor="#339af0"  tooltipPosition="top" tooltipArrow="center" tooltipWidth = "200">
+            </aava-button>
+        </div>
+
+        <!-- Case 2: Description only with icon (description should start from beginning) -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Desc+Icon Only" variant="secondary" size="md"
+                tooltipDescription="This description should start from beginning" tooltipIcon="info"
+                tooltipIconColor="#339af0" tooltipPosition="top" tooltipArrow="center" tooltipWidth = "200">
+            </aava-button>
+        </div>
+
+        <!-- Case 3: Description only without icon (description should start from beginning) -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Desc Only" variant="secondary" size="md"
+                tooltipDescription="This description should start from beginning" tooltipPosition="top"
+                tooltipArrow="center">
+            </aava-button>
+        </div>
+
+        <!-- Case 4: Title only with icon -->
+        <div class="col-12 col-sm-auto">
+            <aava-button label="Title+Icon Only" variant="info" size="md" tooltipTitle="Save Feature" tooltipIcon="save"
+                tooltipIconColor="#ffffff" tooltipPosition="top" tooltipArrow="center">
+            </aava-button>
+        </div>
+    </div>
+</div>

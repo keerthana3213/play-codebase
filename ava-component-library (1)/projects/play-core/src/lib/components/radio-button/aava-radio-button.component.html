@@ -1,0 +1,62 @@
+<div
+  class="radio-group"
+  [attr.data-orientation]="orientation"
+  [attr.id]="componentId"
+  role="radiogroup"
+  [attr.aria-label]="computedAriaLabel"
+  [attr.aria-labelledby]="ariaLabelledby || null"
+  [attr.aria-describedby]="ariaDescribedby || null"
+  [attr.aria-required]="required || null"
+  (keydown)="onKeyDown($event)"
+  (focus)="onGroupFocus()"
+  [attr.tabindex]="isDisabled ? '-1' : '0'">
+  <label
+    class="radio-wrapper"
+    *ngFor="let option of options; let i = index"
+    [attr.data-size]="size"
+    [ngStyle]="customStyles"
+    [ngClass]="{
+      disabled: option.disabled,
+      focused: focusedIndex === i
+    }"
+    [attr.id]="getOptionId(i)">
+    <input
+      type="radio"
+      class="radio-input"
+      [name]="name || componentId"
+      [value]="option.value"
+      [checked]="selectedValue === option.value"
+      [disabled]="option.disabled || isDisabled"
+      [required]="required"
+      [attr.aria-describedby]="getLabelId(i)"
+      (change)="onSelectionChange(option.value)"
+      tabindex="-1" />
+    <span
+      class="custom-radio"
+      role="radio"
+      [attr.aria-checked]="selectedValue === option.value"
+      [attr.aria-disabled]="(option.disabled || isDisabled) || null"
+      [attr.aria-labelledby]="getLabelId(i)"
+      [class.animated-shadow]="animation === 'shadow' && selectedValue === option.value"
+      [class.disabled]="option.disabled || isDisabled"
+      [class.focused]="focusedIndex === i">
+      <span
+        class="radio-dot"
+        *ngIf="selectedValue === option.value && radio !== 'none'"
+        [ngStyle]="{
+          backgroundColor: (option.disabled || isDisabled)
+            ? 'var(--radio-dot-background-disabled)'
+            : color || 'var(--radio-dot-background)'
+        }"
+        [attr.aria-hidden]="'true'">
+      </span>
+    </span>
+    <span
+      class="radio-label"
+      [attr.id]="getLabelId(i)"
+      [ngStyle]="labelColor ? { color: labelColor } : null"
+      [class.disabled]="option.disabled || isDisabled">
+      {{ option.label }}
+    </span>
+  </label>
+</div>

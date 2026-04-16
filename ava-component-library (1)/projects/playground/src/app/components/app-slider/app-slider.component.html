@@ -1,0 +1,238 @@
+<div class="slider-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Slider Component</h1>
+            <p class="description">
+              A versatile slider component for selecting numeric values within a range.
+              Supports single and multi-range selection, custom icons, input variants,
+              and keyboard navigation with accessibility features.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/slider/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/slider/sizes" class="nav-link">
+                <span class="nav-icon">📏</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="/slider/states" class="nav-link">
+                <span class="nav-icon">⚡</span>
+                <span class="nav-text">States</span>
+              </a>
+              <a routerLink="/slider/multi-range" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Multi-Range</span>
+              </a>
+              <a routerLink="/slider/input-variant" class="nav-link">
+                <span class="nav-icon">⌨️</span>
+                <span class="nav-text">Input Variant</span>
+              </a>
+              <a routerLink="/slider/icon-thumb" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Icon Thumb</span>
+              </a>
+
+                <a routerLink="/slider/orientations" class="nav-link">
+                <span class="nav-text">orientations</span>
+              </a> 
+              <a routerLink="/slider/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>Simple slider with default configuration and keyboard navigation</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-slider
+                [value]="50"
+                [min]="0"
+                [max]="100"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+              <div class="mt-3">
+                <strong>Current Value:</strong> {{selectedValue}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sizes -->
+    <section class="demo-section sizes-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Size Variants</h2>
+          <p>Different sizes for various use cases</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3 align-items-center">
+            <div class="col-12 col-sm-auto">
+              <label class="form-label">Small</label>
+              <aava-slider
+                size="sm"
+                [value]="30"
+                [min]="0"
+                [max]="100"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+            <div class="col-12 col-sm-auto">
+              <label class="form-label">Medium (Default)</label>
+              <aava-slider
+                size="md"
+                [value]="70"
+                [min]="0"
+                [max]="100"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Multi-Range -->
+    <section class="demo-section multi-range-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Multi-Range Selection</h2>
+          <p>Select a range of values with dual handles</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-slider
+                [multiRange]="true"
+                [min]="0"
+                [max]="100"
+                [minValue]="multiMinValue"
+                [maxValue]="multiMaxValue"
+                (minValueChange)="onMultiMinChange($event)"
+                (maxValueChange)="onMultiMaxChange($event)">
+              </aava-slider>
+              <div class="mt-3">
+                <strong>Range:</strong> {{multiMinValue}} - {{multiMaxValue}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- States -->
+    <section class="demo-section states-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Component States</h2>
+          <p>Different states and configurations</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <label class="form-label">Normal State</label>
+              <aava-slider
+                [value]="50"
+                [min]="0"
+                [max]="100"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Disabled State</label>
+              <aava-slider
+                [value]="50"
+                [min]="0"
+                [max]="100"
+                [disabled]="true">
+              </aava-slider>
+            </div>
+            <div class="col-12 col-md-4">
+              <label class="form-label">Input Variant</label>
+              <aava-slider
+                type="input"
+                [value]="75"
+                [min]="0"
+                [max]="100"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Icon Features -->
+    <section class="demo-section icons-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Icon Features</h2>
+          <p>Sliders with custom icons and visual enhancements</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <label class="form-label">Volume Control</label>
+              <aava-slider
+                [value]="50"
+                [min]="0"
+                [max]="100"
+                [handleIcon]="'volume-2'"
+                [iconStart]="'volume-x'"
+                [iconEnd]="'volume-2'"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+            <div class="col-12 col-md-6">
+              <label class="form-label">Brightness Control</label>
+              <aava-slider
+                [value]="75"
+                [min]="0"
+                [max]="100"
+                [handleIcon]="'sun'"
+                [iconStart]="'moon'"
+                [iconEnd]="'sun'"
+                (valueChange)="onSliderChange($event)">
+              </aava-slider>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+</div>

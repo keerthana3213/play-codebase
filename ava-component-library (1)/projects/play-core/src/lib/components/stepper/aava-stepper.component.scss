@@ -1,0 +1,484 @@
+// CSS Custom Property for smooth animation
+@property --colorStop {
+  syntax: "<percentage>";
+  initial-value: 0%;
+  inherits: false;
+}
+
+.ava-stepper {
+  display: flex;
+  width: 100%;
+
+  &.horizontal {
+    flex-direction: row;
+    justify-content: space-between;
+
+    .step-wrapper {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+
+      .step-circle-wrapper {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+
+        .step-line-wrapper {
+          position: absolute;
+          top: 50%;
+          left: 50%; 
+          width: 100%; 
+          height: 4px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translateY(-50%);
+          z-index: 1;
+        }
+
+        .step-line {
+          width: 100%;
+          height: 4px;
+          background-color: var(--stepper-wrapper-background);
+          position: relative;
+          
+          &.incomplete {
+            height: 2px;
+            background-color:var(--stepper-line-incomplete-background);
+          }
+          
+          &.completed {
+            height: 4px;
+            background: var(--stepper-line-completed-background);
+          }
+          
+          &.animating-forward {
+            height: 4px;
+            background: linear-gradient(
+              to right,
+              #d1d5db 0%,
+              var(--stepper-wrapper-background) var(--colorStop, 0%),
+              #d1d5db var(--colorStop, 0%)
+            );
+            animation: progressFill 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          &.animating-backward {
+            height: 4px;
+            background: linear-gradient(
+              to right,
+              var(--stepper-wrapper-background) 0%,
+              #d1d5db var(--colorStop, 100%),
+              var(--stepper-wrapper-background) var(--colorStop, 100%)
+            );
+            animation: progressFillBackward 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+
+        .progress-dot {
+          position: absolute;
+          top: 50%;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: var(--stepper-wrapper-background);
+          box-shadow: 0 0 8px var(--stepper-wrapper-background);
+          transform: translate(-50%, -50%);
+
+          &.forward {
+            left: 0;
+            animation: dotMove 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          &.backward {
+            left: 100%;
+            animation: dotMoveBackward 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+      }
+      .step-label {
+        margin-top: 10px;
+        text-align: center;
+         &.active,
+        &.completed {
+          color: var(--step-circle-text);
+        }
+        &:not(.active):not(.completed) {
+          color: var(--stepper-line-incomplete-text);
+        }
+      }
+    }
+  }
+
+  &.vertical {
+    flex-direction: column;
+
+    .step-wrapper {
+      display: flex;
+      flex-direction: row;
+      align-items: center; 
+      position: relative;
+      margin-bottom: 1rem; 
+
+      .step-circle-wrapper {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex-shrink: 0; 
+
+        .step-line-wrapper {
+          position: absolute;
+          top: 100%; 
+          left: 50%;
+          width: 4px;
+          height: 100%;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transform: translateX(-50%);
+          z-index: 1;
+        }
+
+        .step-line {
+          width: 4px;
+          height: 100%;
+          background-color: var(--stepper-wrapper-background);
+          position: relative;
+          
+          &.incomplete {
+            width: 2px;
+            background-color:var(--stepper-line-incomplete-background);
+          }
+          
+          &.completed {
+            width: 4px;
+            background: var(--stepper-line-completed-background);
+          }
+          
+          &.animating-forward {
+            width: 4px;
+            background: linear-gradient(
+              to bottom,
+              #d1d5db 0%,
+              var(--stepper-wrapper-background) var(--colorStop, 0%),
+              #d1d5db var(--colorStop, 0%)
+            );
+            animation: progressFillVertical 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          &.animating-backward {
+            width: 4px;
+            background: linear-gradient(
+              to bottom,
+              var(--stepper-wrapper-background) 0%,
+              #d1d5db var(--colorStop, 100%),
+              var(--stepper-wrapper-background) var(--colorStop, 100%)
+            );
+            animation: progressFillVerticalBackward 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+
+        .progress-dot {
+          position: absolute;
+          left: 50%;
+          width: 12px;
+          height: 12px;
+          border-radius: 50%;
+          background-color: var(--stepper-wrapper-background);
+          box-shadow: 0 0 8px var(--stepper-wrapper-background);
+          transform: translate(-50%, -50%);
+
+          &.forward {
+            top: 0;
+            animation: dotMoveVertical 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+
+          &.backward {
+            top: 100%;
+            animation: dotMoveVerticalBackward 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+          }
+        }
+      }
+
+      .step-label {
+        margin-left: 1rem;
+        margin-top: 0;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+
+        &.active,
+        &.completed {
+          color: var(--step-circle-text);
+        }
+        &:not(.active):not(.completed) {
+          color: var(--stepper-line-incomplete-text);
+        }
+      }
+    }
+  }
+
+  .step-circle {
+    border-radius: 50%;
+    border: 3px solid var(--stepper-wrapper-background);
+    background-color: var(--stepper-background);
+    color: var(--stepper-wrapper-background);
+    font-weight:var(--stepper-font-family);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.3s ease;
+
+    &.incomplete {
+      border-color:var(--stepper-line-incomplete-background);
+      color:var(--stepper-line-incomplete-background);
+    }
+
+    &.active,
+    &.completed {
+      background-color: var(--stepper-wrapper-background);
+      color: var(--stepper-background);
+    }
+
+    &.animating-forward {
+      animation: stepActivate 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    &.animating-backward {
+      animation: stepDeactivate 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+  }
+
+  // Size: XSmall
+  &.xs {
+    .step-circle {
+      width: var(--stepper-size-xs-circle-width);
+      height: var(--stepper-size-xs-circle-height);
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      font-size: var(--stepper-size-xs-font);
+      line-height: 1;
+      border-width: 1.5px;
+
+      &.incomplete {
+        border-width: 1.5px;
+        color:var(--stepper-line-incomplete-color);
+        text-align: center;
+        font-family:var(--stepper-font-family);
+        font-size: var(--stepper-size-xs-font);
+        font-style: normal;
+        font-weight:var(--stepper-line-incomplete-font-weight-regular);
+        line-height:var(--stepper-size-xs-line-height);
+      }
+    }
+
+    .step-label {
+      font-family: var(--stepper-font-family-secondary);
+      font-size:var(--stepper-size-xs-font);
+      font-style: normal;
+      font-weight:var(--step-label-font-weight);
+      line-height:var(--stepper-size-xs-line-height);
+    }
+  }
+
+  // Size: Small
+  &.sm {
+    .step-circle {
+      width: var(--stepper-size-sm-circle-width);
+      height: var(--stepper-size-sm-circle-height);
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      font-size: var(--stepper-size-sm-font);
+      line-height: 1;
+      border-width: 1.5px;
+
+      &.incomplete {
+        border-width: 1.5px;
+        color:var(--stepper-line-incomplete-color);
+        text-align: center;
+        font-family: var(--stepper-font-family);
+        font-size: var(--stepper-size-sm-font);
+        font-style: normal;
+        font-weight:var(--stepper-line-incomplete-font-weight-regular);
+        line-height:var(--stepper-size-sm-line-height);
+      }
+    }
+
+    .step-label {
+      font-family: var(--stepper-font-family-secondary);
+      font-size:var(--stepper-size-md-font);
+      font-style: normal;
+      font-weight:var(--step-label-font-weight);
+      line-height:var(--stepper-size-sm-line-height);
+    }
+  }
+
+  // Size: Medium
+  &.md {
+    .step-circle {
+      width: var(--stepper-size-md-circle-width);
+      height: var(--stepper-size-md-circle-height);
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      font-size: var(--stepper-size-md-font);
+      line-height: 1;
+      border-width: 2px;
+
+      &.incomplete {
+        border-width: 2px;
+        color: var(--stepper-line-incomplete-color);
+        text-align: center;
+        font-family: var(--stepper-font-family);
+        font-size: var(--stepper-size-md-font);
+        font-style: normal;
+        font-weight:var(--stepper-line-incomplete-font-weight-medium);
+        line-height:var(--stepper-size-md-line-height);
+      }
+    }
+
+    .step-label {
+      font-family: var(--stepper-font-family-secondary);
+      font-size:var(--stepper-size-lg-font);
+      font-style: normal;
+      font-weight:var(--step-label-font-weight);
+      line-height:var(--stepper-size-md-line-height);
+    }
+  }
+
+  // Size: Large
+  &.lg {
+    .step-circle {
+      width: var(--stepper-size-lg-circle-width);
+      height: var(--stepper-size-lg-circle-height);
+      flex-shrink: 0;
+      aspect-ratio: 1/1;
+      font-size: var(--stepper-size-lg-font);
+      line-height: 1;
+      border-width: 2px;
+
+      &.incomplete {
+        border-width: 2px;
+        color: var(--stepper-line-incomplete-color);
+        text-align: center;
+        font-family: var(--stepper-font-family);
+        font-size: var(--stepper-size-lg-font);
+        font-style: normal;
+        font-weight: var(--stepper-line-incomplete-font-weight-medium);
+        line-height:var(--stepper-size-lg-line-height);
+      }
+    }
+
+    .step-label {
+      font-family:var(--stepper-font-family-secondary);
+      font-size: 24px;
+      font-style: normal;
+      font-weight:var(--step-label-font-weight);
+      line-height:var(--stepper-size-lg-line-height);
+    }
+  }
+}
+
+// Progress Animation Keyframes
+@keyframes progressFill {
+  0% {
+    --colorStop: 0%;
+  }
+  100% {
+    --colorStop: 100%;
+  }
+}
+
+@keyframes progressFillVertical {
+  0% {
+    --colorStop: 0%;
+  }
+  100% {
+    --colorStop: 100%;
+  }
+}
+
+@keyframes dotMove {
+  0% {
+    left: 0%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+@keyframes dotMoveVertical {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes stepActivate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+// Backward animation keyframes
+@keyframes progressFillBackward {
+  0% {
+    --colorStop: 100%;
+  }
+  100% {
+    --colorStop: 0%;
+  }
+}
+
+@keyframes progressFillVerticalBackward {
+  0% {
+    --colorStop: 100%;
+  }
+  100% {
+    --colorStop: 0%;
+  }
+}
+
+@keyframes dotMoveBackward {
+  0% {
+    left: 100%;
+  }
+  100% {
+    left: 0%;
+  }
+}
+
+@keyframes dotMoveVerticalBackward {
+  0% {
+    top: 100%;
+  }
+  100% {
+    top: 0%;
+  }
+}
+
+@keyframes stepDeactivate {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.9);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

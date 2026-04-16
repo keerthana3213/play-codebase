@@ -1,0 +1,17 @@
+<a class="action-link" [ngClass]="[color, size, underline ? 'underline' : '']"
+    [attr.id]="id ? 'aava-link-' + id: null"
+    [ngStyle]="getLinkStyles()" [attr.href]="safeHref" (click)="anchorClick($event)"
+    (keydown.enter)="anchorClick($event)" (keydown.space)="anchorClick($event)">
+    <span class="link-content">
+        @if(arrowDirection === 'right'){
+            {{ label }}
+        }
+        @if(addIcon && !underline){
+            <aava-icon [iconName]="separatorIcon" [iconSize]="separatorSize" [cursor]="false" class="action-link-separator">
+            </aava-icon>
+        }
+        @if(arrowDirection === 'left'){
+            {{ label }}
+        }
+    </span>
+</a>

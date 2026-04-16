@@ -1,0 +1,122 @@
+<div [class]="containerClasses" [style.--sidebar-width]="sidebarWidth" [style.--hover-area-width]="hoverAreaWidth"
+  [style.--collapsed-width]="collapsedWidth">
+
+  <!-- Main Sidebar -->
+  <div [class]="sidebarClasses" [style.width]="sidebarWidth" [style.height]="height">
+    <!-- Header Section -->
+    <div class="sidebar-header" *ngIf="showHeader">
+      <div class="header-content" *ngIf="!collapsed">
+        <div class="brand-container">
+          <div class="brand-logo">
+            <img *ngIf="logoUrl" [src]="logoUrl" alt="Logo" class="logo-image">
+            <!-- <div *ngIf="!logoUrl" class="logo-icon">A</div> -->
+          </div>
+          <div class="brand-text">
+            <h3 class="brand-title">{{ headerTitle }}</h3>
+            <p class="brand-subtitle" *ngIf="headerSubtitle">{{ headerSubtitle }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Collapsed Header -->
+      <div class="collapsed-header" *ngIf="collapsed">
+        <img *ngIf="collapsedLogoUrl" [src]="collapsedLogoUrl" alt="Logo" class="collapsed-logo-image">
+        <!-- <div *ngIf="!collapsedLogoUrl" class="logo-icon">A</div> -->
+      </div>
+    </div>
+
+    <!-- Search Section -->
+    <div class="sidebar-search" *ngIf="!collapsed">
+      <div class="search-input-wrapper">
+        <aava-icon class="search-icon" iconName="Search" [iconColor]="'#64748b'" [iconSize]="getIconSize()"></aava-icon>
+        <input #searchInput type="text" (input)="onSearchChange(searchInput.value)" placeholder="Search" class="search-input">
+      </div>
+    </div>
+
+    
+
+    <!-- Main Content Section -->
+    <div class="sidebar-content">
+      <!-- Custom Content Slot -->
+      <ng-content select="[slot=content]"></ng-content>
+
+      <!-- Menu Items -->
+      <nav class="sidebar-nav" *ngIf="menuItems.length > 0">
+        <ul class="nav-list">
+          <li *ngFor="let item of menuItems" class="nav-item" [class.active]="item.active"
+            [class.has-submenu]="item.subMenuItems && item.subMenuItems.length > 0" [class.expanded]="item.expanded">
+            <div class="nav-link" (click)="onMenuItemClick(item)">
+              <span class="nav-icon">
+                <aava-icon [iconName]="item.icon" [iconSize]="getIconSize()"
+                  [iconColor]="item.active ? '#ffffff' : '#000'"></aava-icon>
+              </span>
+              <span class="nav-text" *ngIf="!collapsed">{{ item.text }}</span>
+              <!-- <span class="nav-badge" *ngIf="item.badge && !collapsed">{{ item.badge }}</span> -->
+              <span class="nav-arrow" *ngIf="item.subMenuItems && item.subMenuItems.length > 0 && !collapsed">
+                <aava-icon [iconName]="item.expanded ? 'ChevronDown' : 'ChevronRight'" [iconSize]="getIconSize()"
+                  [iconColor]="item.active ? '#ffffff' : '#64748b'"></aava-icon>
+              </span>
+            </div>
+
+            <!-- Sub-menu items -->
+            <ul class="sub-nav-list"
+              *ngIf="item.subMenuItems && item.subMenuItems.length > 0 && item.expanded && !collapsed">
+              <li *ngFor="let subItem of item.subMenuItems" class="sub-nav-item" [class.active]="subItem.active"
+                (click)="onSubMenuItemClick(item, subItem); $event.stopPropagation()">
+                <div class="sub-nav-link">
+                  <span class="sub-nav-icon">
+                    <aava-icon [iconName]="subItem.icon" [iconSize]="getIconSize()"
+                      [iconColor]="subItem.active ? '#ffffff' : '#64748b'"></aava-icon>
+                  </span>
+                  <span class="sub-nav-text">{{ subItem.text }}</span>
+                  <!-- <span class="sub-nav-badge" *ngIf="subItem.badge">{{ subItem.badge }}</span> -->
+                </div>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Inside Button Variant -->
+    <div class="header-controls d-flex justify-content-start align-items-center p-3 "
+      *ngIf="showCollapseButton && buttonVariant === 'inside'">
+      <aava-button variant="secondary" [iconName]="collapseButtonIcon" iconPosition="only" size="sm" shape="rounded" pressedEffect="ripple"
+        (click)="toggleCollapse()"></aava-button>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="sidebar-footer" *ngIf="showFooter">
+      <!-- Custom Footer Content -->
+      <ng-content select="[slot=footer]"></ng-content>
+
+      <!-- User Profile -->
+      <div class="user-profile" *ngIf="userProfile" (click)="onUserProfileClick()">
+        <div class="user-avatar">
+          <img *ngIf="userProfile.avatar" [src]="userProfile.avatar" [alt]="userProfile.name" class="avatar-image">
+          <div *ngIf="!userProfile.avatar" class="avatar-placeholder">
+            {{ userProfile.name.charAt(0).toUpperCase() }}
+          </div>
+        </div>
+        <div class="user-info" *ngIf="!collapsed">
+          <div class="user-name">{{ userProfile.name }}</div>
+          <div class="user-role" *ngIf="userProfile.role">{{ userProfile.role }}</div>
+        </div>
+
+        <!-- <div class="user-actions" *ngIf="!collapsed && size === 'lg'">
+          <aava-icon iconName="Settings" [iconSize]="getIconSize()" [iconColor]="'#64748b'" class="action-icon"></aava-icon>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Outside Button Variant - Hover Area -->
+  <div class="hover-area" [class.right-positioned]="isRightPositioned" [class.left-positioned]="!isRightPositioned"
+    *ngIf="showCollapseButton && buttonVariant === 'outside'">
+    <div class="hover-area-content">
+      <aava-button variant="primary" [iconName]="collapseButtonIcon" iconPosition="only" size="sm"
+        (click)="toggleCollapse()"></aava-button>
+    </div>
+  </div>
+</div>

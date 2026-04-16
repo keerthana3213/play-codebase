@@ -1,0 +1,92 @@
+<div class="sidebar-demo-container">
+  <header class="demo-header">
+    <h1>Sidebar Component</h1>
+    <p>
+      A comprehensive sidebar navigation component with collapsible
+      functionality, nested menus, user profiles, and search capabilities for
+      building modern application layouts.
+    </p>
+  </header>
+
+  <section class="demo-sections">
+    <h2>Demo Pages</h2>
+    <div class="sections-grid">
+      <div
+        *ngFor="let section of sections"
+        class="section-card"
+        [routerLink]="section.route"
+      >
+        <span class="section-icon">{{ section.icon }}</span>
+        <h3>{{ section.title }}</h3>
+        <p>{{ section.description }}</p>
+      </div>
+    </div>
+  </section>
+  <!-- 
+  <section class="component-showcase">
+    <h2>Interactive Showcase</h2>
+    <div class="showcase-controls">
+      <div class="control-group">
+        <select
+          [value]="showcaseSize"
+          (change)="onSizeChange($event.target.value)"
+        >
+          <option value="small">Small (200px)</option>
+          <option value="medium">Medium (260px)</option>
+          <option value="large">Large (320px)</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <select
+          [value]="showcaseButtonVariant"
+          (change)="onButtonVariantChange($event.target.value)"
+        >
+          <option value="inside">Inside</option>
+          <option value="outside">Outside</option>
+        </select>
+      </div>
+      <div class="control-group">
+        <input
+          type="checkbox"
+          [checked]="showcaseCollapsed"
+          (change)="onCollapseToggle($event.target.checked)"
+        />
+        Collapsed
+      </div>
+    </div>
+
+    <div class="showcase-preview">
+      <aava-sidebar
+        [size]="showcaseSize"
+        [isCollapsed]="showcaseCollapsed"
+        [showCollapseButton]="true"
+        [buttonVariant]="showcaseButtonVariant"
+        headerTitle="Demo App"
+        headerSubtitle="Sidebar Showcase"
+        [menuItems]="[
+          {
+            id: 'dashboard',
+            icon: 'dashboard',
+            text: 'Dashboard',
+            route: '/dashboard',
+            active: true
+          },
+          { id: 'users', icon: 'people', text: 'Users', route: '/users' },
+          {
+            id: 'settings',
+            icon: 'settings',
+            text: 'Settings',
+            route: '/settings'
+          }
+        ]"
+        [userProfile]="{
+          name: 'John Doe',
+          role: 'Admin',
+          avatar: 'https://via.placeholder.com/40'
+        }"
+        (collapseToggle)="onCollapseToggle($event)"
+      >
+      </aava-sidebar>
+    </div>
+  </section> -->
+</div>

@@ -1,0 +1,342 @@
+<div class="with-footer-demo">
+  <div class="demo-header">
+    <h2>Cards with Footers</h2>
+    <p>
+      Demonstrate various footer configurations that provide actions, metadata,
+      and additional context at the bottom of your cards.
+    </p>
+  </div>
+
+  <div class="demo-section">
+    <div class="demo-grid">
+      <!-- Simple Footer -->
+      <div class="demo-item">
+        <h3>Simple Footer</h3>
+        <aava-default-card>
+          <aava-card-content>
+            <h4>Article Title</h4>
+            <p>
+              This is a well-written article about modern web development
+              practices and how they can improve user experience.
+            </p>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="simple-footer">
+              <span class="publish-date">Published: Dec 15, 2024</span>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Footer with Actions -->
+      <div class="demo-item">
+        <h3>Footer with Actions</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <h4>Product Showcase</h4>
+          </aava-card-header>
+          <aava-card-content>
+            <div class="product-info">
+              <div class="product-image">
+                <aava-icon
+                  iconName="smartphone"
+                  [iconSize]="48"
+                  iconColor="#007bff"
+                ></aava-icon>
+              </div>
+              <p>
+                Latest smartphone with advanced features and premium build
+                quality.
+              </p>
+              <div class="price">$899.99</div>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="action-footer">
+              <aava-button
+                label="Add to Cart"
+                variant="primary"
+                size="sm"
+                (click)="onFooterAction('Add to Cart')"
+              >
+              </aava-button>
+              <aava-button
+                label="Wishlist"
+                variant="secondary"
+                size="sm"
+                (click)="onFooterAction('Wishlist')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Footer with Meta Information -->
+      <div class="demo-item">
+        <h3>Footer with Meta Info</h3>
+        <aava-default-card>
+          <aava-card-content>
+            <h4>Team Update</h4>
+            <p>
+              Our development team has successfully completed the Q4 milestones
+              ahead of schedule. Great work everyone!
+            </p>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="meta-footer">
+              <div class="author-info">
+                <aava-icon
+                  iconName="user"
+                  [iconSize]="16"
+                  iconColor="#6c757d"
+                ></aava-icon>
+                <span>Sarah Johnson</span>
+              </div>
+              <div class="meta-stats">
+                <div class="stat">
+                  <aava-icon
+                    iconName="heart"
+                    [iconSize]="14"
+                    iconColor="#dc3545"
+                  ></aava-icon>
+                  <span>24</span>
+                </div>
+                <div class="stat">
+                  <aava-icon
+                    iconName="message-circle"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>8</span>
+                </div>
+                <div class="stat">
+                  <aava-icon
+                    iconName="share"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Share</span>
+                </div>
+              </div>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Social Footer -->
+      <div class="demo-item">
+        <h3>Social Footer</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="social-header">
+              <div class="user-avatar">
+                <aava-icon
+                  iconName="user"
+                  [iconSize]="24"
+                  iconColor="#ffffff"
+                ></aava-icon>
+              </div>
+              <div class="user-info">
+                <h4>Alex Rodriguez</h4>
+                <small>2 hours ago</small>
+              </div>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <p>
+              Just finished implementing the new dashboard design! The user
+              feedback has been incredibly positive. Can't wait to see how this
+              impacts our metrics. 🚀
+            </p>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="social-footer">
+              <div class="social-actions">
+                <button class="social-btn" (click)="onLike()">
+                  <aava-icon
+                    iconName="heart"
+                    [iconSize]="16"
+                    iconColor="#dc3545"
+                  ></aava-icon>
+                  <span>Like (42)</span>
+                </button>
+                <button class="social-btn" (click)="onComment()">
+                  <aava-icon
+                    iconName="message-circle"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Comment (12)</span>
+                </button>
+                <button class="social-btn" (click)="onShare()">
+                  <aava-icon
+                    iconName="share"
+                    [iconSize]="16"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Share</span>
+                </button>
+              </div>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Status Footer -->
+      <div class="demo-item">
+        <h3>Status Footer</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <div class="task-header">
+              <h4>Task: Implement User Authentication</h4>
+                <aava-tag type='badge' color="warning" size="md" label="In Progress"></aava-tag>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <p>
+              Working on implementing OAuth 2.0 authentication with support for
+              multiple providers including Google, GitHub, and Microsoft.
+            </p>
+            <div class="progress-section">
+              <div class="progress-label">
+                <span>Progress</span>
+                <span class="progress-percent">75%</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: 75%"></div>
+              </div>
+            </div>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="status-footer">
+              <div class="task-info">
+                <div class="assignee">
+                  <aava-icon
+                    iconName="user"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Assigned to: Mike Chen</span>
+                </div>
+                <div class="due-date">
+                  <aava-icon
+                    iconName="calendar"
+                    [iconSize]="14"
+                    iconColor="#6c757d"
+                  ></aava-icon>
+                  <span>Due: Dec 20, 2024</span>
+                </div>
+              </div>
+              <aava-button
+                label="View Task"
+                variant="primary"
+                size="sm"
+                (click)="onFooterAction('View Task')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- Navigation Footer -->
+      <div class="demo-item">
+        <h3>Navigation Footer</h3>
+        <aava-default-card>
+          <aava-card-header>
+            <h4>Documentation Guide</h4>
+          </aava-card-header>
+          <aava-card-content>
+            <h5>Getting Started with Components</h5>
+            <p>
+              This guide covers the basics of using our component library,
+              including installation, theming, and customization options.
+            </p>
+            <ul class="guide-topics">
+              <li>Installation and Setup</li>
+              <li>Basic Usage Examples</li>
+              <li>Theming and Customization</li>
+              <li>Advanced Patterns</li>
+            </ul>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="navigation-footer">
+              <aava-button
+                label="Previous"
+                variant="secondary"
+                size="sm"
+                [iconName]="'chevron-left'"
+                [iconSize]="14"
+                (click)="onFooterAction('Previous')"
+              >
+              </aava-button>
+              <div class="page-info">
+                <span>Page 2 of 5</span>
+              </div>
+              <aava-button
+                label="Next"
+                variant="primary"
+                size="sm"
+                [iconName]="'chevron-right'"
+                [iconSize]="14"
+                (click)="onFooterAction('Next')"
+              >
+              </aava-button>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h3>Footer Design Patterns</h3>
+    <div class="features-grid">
+      <div class="feature-item">
+        <aava-icon
+          iconName="mouse-pointer"
+          [iconSize]="24"
+          iconColor="#007bff"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Action Placement:</strong> Position primary and secondary
+          actions in footers
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon
+          iconName="info"
+          [iconSize]="24"
+          iconColor="#28a745"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Metadata Display:</strong> Show additional context like dates,
+          authors, and stats
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon
+          iconName="navigation"
+          [iconSize]="24"
+          iconColor="#ffc107"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Navigation Aid:</strong> Include pagination or navigation
+          controls
+        </div>
+      </div>
+      <div class="feature-item">
+        <aava-icon
+          iconName="users"
+          [iconSize]="24"
+          iconColor="#17a2b8"
+        ></aava-icon>
+        <div class="feature-content">
+          <strong>Social Integration:</strong> Add social actions like like,
+          share, comment
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

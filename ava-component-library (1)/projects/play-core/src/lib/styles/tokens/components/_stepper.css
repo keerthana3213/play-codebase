@@ -1,0 +1,196 @@
+/**
+ * Component: Stepper
+ * Purpose: Stepper component tokens for multi-step navigation
+ */
+
+:root {
+  /* Stepper Base */
+  --stepper-background: var(--color-background-primary);
+  --stepper-border-radius: var(--global-radius-md);
+  --stepper-margin: var(--global-spacing-4);
+  --stepper-font-family:var(--global-font-family-body);
+  --stepper-font-family-secondary: var(--font-family-heading);
+
+  /* Stepper Wrapper */
+  --stepper-wrapper-background: var(--color-brand-primary);
+  --stepper-wrapper-border-radius: calc(var(--global-font-size-sm) / 2);
+  --stepper-wrapper-margin-left: calc(
+    var(--global-radius-md) + (var(--global-radius-md) * 0.75)
+  );
+  --stepper-wrapper-margin-top: calc(
+    var(--global-radius-md) + (var(--global-radius-md) * 0.75)
+  );
+  --stepper-wrapper-margin-bottom: calc(
+    var(--global-radius-md) + (var(--global-radius-md) * 0.75)
+  );
+
+  /* Step Circle */
+  --step-circle-background: var(--color-text-primary);
+  --step-circle-text: var(--color-text-active-stepper-circle);
+  --step-circle-font: var(--font-heading-h4);
+  --step-circle-size: 2.5rem;
+  --step-circle-border-radius: var(--global-radius-circle);
+  --step-circle-border: 2px solid var(--color-border-default);
+
+  /* Step Circle States */
+  --step-circle-active-background: var(--color-surface-interactive-default);
+  --step-circle-active-text: var(--color-text-on-brand);
+  --step-circle-active-border: 2px solid
+    var(--color-surface-interactive-default);
+
+  --step-circle-completed-background: var(--color-surface-interactive-default);
+  --step-circle-completed-text: var(--color-text-on-brand);
+  --step-circle-completed-border: 2px solid
+    var(--color-surface-interactive-default);
+
+  --step-circle-disabled-background: var(--color-background-disabled);
+  --step-circle-disabled-text: var(--color-text-disabled);
+  --step-circle-disabled-border: 2px solid var(--color-border-disabled);
+
+  /* Step Connector */
+  --step-connector-background: var(--color-text-primary);
+  --step-connector-border-radius: var(--global-radius-md);
+  --step-connector-width: 2px;
+  --step-connector-height: 2rem;
+
+  /* Step Connector States */
+  --step-connector-completed-background: var(
+    --color-surface-interactive-default
+  );
+  --step-connector-active-background: var(--color-surface-interactive-default);
+  --step-connector-disabled-background: var(--color-border-disabled);
+
+  /* Step Connector Animations */
+  --step-connector-forward-animation-horizontal: linear-gradient(
+    to right,
+    var(--color-surface-interactive-default) 50%,
+    var(--color-text-primary) 50%
+  );
+  --step-connector-backward-animation-horizontal: linear-gradient(
+    to left,
+    var(--color-text-primary) 50%,
+    var(--color-surface-interactive-default) 50%
+  );
+  --step-connector-forward-animation-vertical: linear-gradient(
+    to bottom,
+    var(--color-surface-interactive-default) 50%,
+    var(--color-text-primary) 50%
+  );
+  --step-connector-backward-animation-vertical: linear-gradient(
+    to top,
+    var(--color-text-primary) 50%,
+    var(--color-surface-interactive-default) 50%
+  );
+
+  /* Step Label */
+  --step-label-text: var(--color-text-secondary);
+  --step-label-font: var(--font-body-1);
+  --step-label-font-weight:400px;
+  --step-label-margin: var(--global-spacing-2);
+
+  --step-label-active-text: var(--color-text-primary);
+  --step-label-active-font-weight:400px;
+
+  --step-label-completed-text: var(--color-text-primary);
+  --step-label-completed-font-weight: var(--global-font-weight-medium);
+
+  --step-label-disabled-text: var(--color-text-disabled);
+
+  /* Stepper Orientations */
+  --stepper-horizontal-gap: var(--global-spacing-4);
+  --stepper-horizontal-connector-width: 4rem;
+  --stepper-horizontal-connector-height: 2px;
+
+  --stepper-vertical-gap: var(--global-spacing-3);
+  --stepper-vertical-connector-width: 2px;
+  --stepper-vertical-connector-height: 2rem;
+
+  /* Stepper Sizes */
+
+  --stepper-size-xs-circle-size: 16px;
+  --stepper-size-xs-circle-width: 16px;
+  --stepper-size-xs-circle-height: 16px;
+  --stepper-size-xs-font: 12px;
+  --stepper-size-xs-line-height: 16px;
+  --stepper-size-xs-connector-width: 3rem;
+
+  --stepper-size-sm-circle-size: 20px;
+  --stepper-size-sm-circle-width: 20px;
+  --stepper-size-sm-circle-height: 20px;
+  --stepper-size-sm-font: 14px;
+  --stepper-size-sm-line-height: 20px;
+  --stepper-size-sm-connector-width: 3rem;
+
+  --stepper-size-md-circle-size: 24px;
+  --stepper-size-md-circle-width: 24px;
+  --stepper-size-md-circle-height: 24px;
+  --stepper-size-md-font: 16px;
+  --stepper-size-md-line-height: 24px;
+  --stepper-size-md-connector-width: 4rem;
+
+  --stepper-size-lg-circle-size: 32px;
+  --stepper-size-lg-circle-width: 32px;
+  --stepper-size-lg-circle-height: 32px;
+  --stepper-size-lg-font: 20px;
+  --stepper-size-lg-line-height: 28px;
+  --stepper-size-lg-connector-width: 5rem;
+
+  /* Stepper Variants */
+  --stepper-variant-default-circle-border: 2px solid var(--color-border-default);
+  --stepper-variant-default-connector-background: var(--color-border-default);
+
+  --stepper-variant-outlined-circle-background: transparent;
+  --stepper-variant-outlined-circle-border: 2px solid
+    var(--color-border-default);
+  --stepper-variant-outlined-connector-background: var(--color-border-default);
+
+  --stepper-variant-filled-circle-background: var(--color-surface-subtle);
+  --stepper-variant-filled-circle-border: 2px solid var(--color-border-subtle);
+  --stepper-variant-filled-connector-background: var(--color-border-subtle);
+
+  /* Stepper Navigation */
+  --stepper-nav-button-background: var(--color-surface-subtle);
+  --stepper-nav-button-text: var(--color-text-secondary);
+  --stepper-nav-button-border: 1px solid var(--color-border-subtle);
+  --stepper-nav-button-border-radius: var(--global-radius-sm);
+  --stepper-nav-button-padding: var(--global-spacing-3);
+
+  --stepper-nav-button-hover-background: var(--color-surface-subtle-hover);
+  --stepper-nav-button-hover-text: var(--color-text-primary);
+
+  --stepper-nav-button-disabled-background: var(--color-background-disabled);
+  --stepper-nav-button-disabled-text: var(--color-text-disabled);
+  --stepper-nav-button-disabled-border: 1px solid var(--color-border-disabled);
+
+  /* Stepper Content */
+  --stepper-content-background: var(--color-background-primary);
+  --stepper-content-padding: var(--global-spacing-4);
+  --stepper-content-border-radius: var(--global-radius-md);
+  --stepper-content-border: 1px solid var(--color-border-subtle);
+
+  --stepper-line-completed-background: linear-gradient(
+    93deg,
+    rgba(var(--rgb-brand-primary)) 2.21%,
+    color-mix(in srgb, rgba(var(--rgb-brand-primary), 0.75), black 20%) 79%
+  );
+
+  --stepper-line-incomplete-background:var(--global-color-gray-400);
+  --stepper-line-incomplete-text:var(--global-color-gray-400);
+  --stepper-line-incomplete-color:var(--global-color-gray-400);
+  --stepper-line-incomplete-font-weight-regular:var(--global-font-weight-regular);
+  --stepper-line-incomplete-font-weight-medium:var(--global-font-weight-medium);
+
+}
+
+
+
+
+
+
+
+
+   
+
+    
+
+ 

@@ -1,0 +1,28 @@
+.flyout-container {
+    position: relative; /* Create positioning context for absolutely positioned panel */
+}
+
+.flyout-overlay {
+    position: fixed;
+    inset: 0;
+    background: var(--flyout-overlay-background);
+    z-index: 999;
+}
+
+.flyout-panel {
+    background: var(--flyout-background);
+    border-radius: 6px;
+    box-shadow: var(--flyout-box-shadow);
+    position: absolute; /* Position is set dynamically in TypeScript relative to flyout-container */
+    z-index: 1000;
+    /* Prevent flickering by hiding until positioned */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease-out, visibility 0.2s ease-out;
+    
+    /* Show when positioned */
+    &.positioned {
+        opacity: 1;
+        visibility: visible;
+    }
+}

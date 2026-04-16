@@ -1,0 +1,152 @@
+/* ava-dialog-container.component.scss */
+.ava-dialog-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--dialog-backdrop-background);
+    backdrop-filter: blur(var(--dialog-backdrop-blur));
+    /* z-index is set dynamically via computedOverlayStyles */
+    overflow: hidden;
+    overscroll-behavior: contain;
+    transition: background 0.3s ease, backdrop-filter 0.3s ease;
+
+    &.transparent {
+        background: transparent;
+        backdrop-filter: none;
+    }
+}
+
+.ava-dialog-content {
+    position: fixed;
+    background: var(--dialog-background);
+    padding: var(--dialog-content-padding);
+    border-radius: var(--dialog-border-radius);
+    /* z-index is set dynamically via computedDialogStyles */
+    min-width: unset;
+    box-shadow: var(--dialog-shadow);
+
+    // Default center position
+    &.position-center {
+        /* Replaced transform centering with inset+margin to avoid conflict with animation transforms */
+        inset: 0;
+        margin: auto;
+        width: fit-content;
+        height: fit-content;
+        /* Ensure it remains fixed */
+        position: fixed;
+    }
+
+    // Top positions
+    &.position-left-top {
+        top: 20px;
+        left: 20px;
+        transform: none;
+    }
+
+    &.position-right-top {
+        top: 20px;
+        right: 20px;
+        transform: none;
+    }
+
+    // Bottom positions
+    &.position-left-bottom {
+        bottom: 20px;
+        left: 20px;
+        transform: none;
+    }
+
+    &.position-right-bottom {
+        bottom: 20px;
+        right: 20px;
+        transform: none;
+    }
+
+    &.has-bottom-border {
+        &.success {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-success-color);
+        }
+
+        &.error {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-error-color);
+        }
+
+        &.warning {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-warning-color);
+        }
+
+        &.info {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-info-color);
+        }
+
+        &.default {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        }
+
+        &.confirmation {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        }
+
+        &.custom {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        }
+
+        &.feedback {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        }
+
+        &.loading {
+            border-bottom: var(--dialog-icon-border-width) solid var(--dialog-primary-color);
+        }
+    }
+
+    /* Remove padding when using new modal component */
+    &.has-modal {
+        padding: 0;
+    }
+
+    &:has(.ava-modal) {
+        padding: 0;
+        border-radius: 8px;
+    }
+
+    .title {
+        font-size: var(--dialog-heading-size);
+        font-weight: var(--dialog-title-font-weight);
+        margin: var(--popup-heading-margin);
+        color: var(--dialog-heading-text);
+        line-height: var(--dialog-title-line-height-tight);
+        text-align: center;
+    }
+
+    .inline-text {
+        font-size: var(--dialog-md-title-font-size);
+        color: var(--dialog-black-color);
+        line-height: var(--dialog-text-line-height);
+        word-break: break-word;
+        overflow-wrap: anywhere;
+        flex: 1;
+        display: block;
+        margin: 0;
+    }
+
+    .close-container {
+        position: relative;
+        height: 0;
+        margin-bottom: var(--dialog-icon-border-width);
+
+        aava-icon {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            z-index: 10;
+        }
+    }
+
+    &.has-modal .close-container aava-icon {
+        top: 13px;
+        right: 13px
+    }
+}

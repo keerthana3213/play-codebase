@@ -1,0 +1,179 @@
+<div class="documentation">
+  <!-- Header -->
+  <header class="doc-header">
+    <h1>Pagination Controls Component</h1>
+    <p class="description">
+      The Pagination Controls component provides a user-friendly interface for
+      navigating through paginated content. It supports customizable page sizes
+      and displays navigation controls for moving between pages.
+    </p>
+  </header>
+
+  <!-- Installation -->
+
+
+  <!-- Demo Navigation -->
+  <section class="doc-section">
+    <h2>Demo Pages</h2>
+    <div class="demo-navigation">
+      <div class="demo-grid">
+        <a routerLink="/pagination/basic" class="demo-card">
+          <h3>Basic Pagination</h3>
+          <p>Default pagination with intelligent page number display</p>
+        </a>
+        <a routerLink="/pagination/extended" class="demo-card">
+          <h3>Extended Pagination</h3>
+          <p>Shows all page numbers for smaller datasets</p>
+        </a>
+        <a routerLink="/pagination/standard" class="demo-card">
+          <h3>Standard Pagination</h3>
+          <p>Three-section layout with centered page numbers</p>
+        </a>
+        <a routerLink="/pagination/page-info" class="demo-card">
+          <h3>Page Info</h3>
+          <p>Text-based display showing "Page X of Y"</p>
+        </a>
+        <a routerLink="/pagination/simple-page-info" class="demo-card">
+          <h3>Simple Page Info</h3>
+          <p>Centered layout with page information</p>
+        </a>
+        <a routerLink="/pagination/variants" class="demo-card">
+          <h3>All Variants</h3>
+          <p>Compare all pagination variants side by side</p>
+        </a>
+        <a routerLink="/pagination/accessibility" class="demo-card">
+          <h3>Accessibility</h3>
+          <p>Test keyboard navigation and screen reader support</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <!-- <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Usage -->
+
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <aava-pagination-controls [type]="'unfilled'" [currentPage]="unfilled_page" [totalPages]="20"
+                (pageChange)="basic_Page = $event" size="xs"></aava-pagination-controls>
+              <aava-pagination-controls [type]="'basic'" [currentPage]="basic_Page" [totalPages]="20"
+                (pageChange)="basic_Page = $event" size="sm"></aava-pagination-controls>
+              <aava-pagination-controls [type]="'basic'" [currentPage]="basic_Page" [totalPages]="20"
+                (pageChange)="basic_Page = $event" size="md"></aava-pagination-controls>
+              <aava-pagination-controls [type]="'basic'" [currentPage]="basic_Page" [totalPages]="20"
+                (pageChange)="basic_Page = $event" size="lg"></aava-pagination-controls>
+              <aava-pagination-controls [type]="'basic'" [currentPage]="basic_Page" [totalPages]="20"
+                (pageChange)="basic_Page = $event" size="xl"></aava-pagination-controls>
+            </ng-container>
+
+            <!-- Custom Size Pagination -->
+            <ng-container *ngSwitchCase="'Custom Size Pagination'">
+              <aava-pagination-controls [type]="'basicunfilled'" [currentPage]="extended_Page" [totalPages]="20"
+                (pageChange)="extended_Page = $event"></aava-pagination-controls>
+            </ng-container>
+
+            <!-- Console Pagination -->
+            <ng-container *ngSwitchCase="'Console Pagination'">
+              <aava-pagination-controls [type]="'pageinfo'" [currentPage]="standard_Page" [totalPages]="10"
+                (pageChange)="standard_Page = $event"></aava-pagination-controls>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Card Page Info'">
+              <aava-pagination-controls [type]="'pageinfo'" [currentPage]="pageinfo_Page" [totalPages]="10"
+                (pageChange)="pageinfo_Page = $event"></aava-pagination-controls>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Page Info'">
+              <aava-pagination-controls [type]="'pageinfofilled'" [currentPage]="simplepageinfo_Page" [totalPages]="10"
+                (pageChange)="simplepageinfo_Page = $event"></aava-pagination-controls>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getPaginationCode(section.title)"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title)">
+            <!-- <awe-icons iconName="awe_copy"></awe-icons> -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Events -->
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>
+            <code>{{ event.name }}</code>
+          </td>
+          <td>
+            <code>{{ event.type }}</code>
+          </td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

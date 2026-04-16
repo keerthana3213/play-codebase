@@ -1,0 +1,59 @@
+<div class="demo-section">
+    <div class="demo-description">
+        <h3>Loading States</h3>
+        <p>
+            Autocomplete with loading indicators while fetching options from
+            asynchronous sources.
+        </p>
+    </div>
+
+    <div class="demo-container">
+        <aava-autocomplete [options]="options$" [loading]="loading" placeholder="Search for users..."
+            label="Search users" helper="Simple loading state demonstration" startIcon="search" startIconColor="#6b7280"
+            [minLength]="1" (optionSelected)="onOptionSelected($event)"
+            (valueChange)="onValueChange($event)"></aava-autocomplete>
+    </div>
+
+    <div class="demo-output" *ngIf="selectedOption || currentValue || loading">
+        <h4>Output:</h4>
+        <div class="output-item" *ngIf="loading">
+            <strong>Status:</strong>
+            <span class="loading-status">🔄 Loading...</span>
+        </div>
+        <div class="output-item" *ngIf="selectedOption">
+            <strong>Selected Option:</strong> {{ selectedOption.label }} ({{
+            selectedOption.value
+            }})
+        </div>
+        <div class="output-item" *ngIf="currentValue">
+            <strong>Current Value:</strong> {{ currentValue }}
+        </div>
+    </div>
+
+    <div class="features-list">
+        <h4>Loading Features:</h4>
+        <ul>
+            <li>
+                <strong>Observable Integration:</strong> Simple Observable-based
+                data loading
+            </li>
+            <li>
+                <strong>Loading States:</strong> Built-in loading indicator support
+            </li>
+            <li>
+                <strong>Delayed Loading:</strong> Simulates real API loading with
+                delay
+            </li>
+            <li>
+                <strong>Reset Functionality:</strong> Easy demo reset with fresh
+                loading state
+            </li>
+        </ul>
+    </div>
+
+    <div class="demo-controls">
+        <button class="reset-btn" (click)="resetDemo()" [disabled]="loading">
+            Reset Demo
+        </button>
+    </div>
+</div>

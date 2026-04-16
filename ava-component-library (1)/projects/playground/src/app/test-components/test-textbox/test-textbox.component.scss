@@ -1,0 +1,38 @@
+.t-container {
+    width: 100%;
+    margin-left: 15px;
+    margin-top: 10px;
+}
+
+.each {
+    display: flex;
+}
+
+.each>div {
+
+
+    display: inline-block;
+    width: 18.5%;
+    margin-right: 1%;
+
+    &.l {
+        margin-right: 0
+    }
+
+    &.phide {
+        p {
+            color: #fff;
+        }
+    }
+
+    p {
+        border-bottom: 2px solid #ccc;
+        font-weight: bold;
+        color: blue
+    }
+
+    ava-textbox {
+        display: block;
+        margin-bottom: 30px;
+    }
+}

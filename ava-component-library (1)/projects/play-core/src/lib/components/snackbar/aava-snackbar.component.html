@@ -1,0 +1,141 @@
+<div
+  *ngIf="snackbar$() && snackbar$()?.type !== 'custom'"
+  class="ava-snackbar"
+  [attr.id]="snackbar$()?.id ? 'aava-snackbar-' + snackbar$()?.id : null"
+  [attr.role]="ariaRole"
+  [attr.aria-live]="ariaLive"
+  [attr.aria-atomic]="'true'"
+  [attr.tabindex]="'-1'"
+  [ngClass]="[
+    snackbar$()?.position,
+    variant ? variant : '',
+    variant && type ? type : ''
+  ]"
+  [ngStyle]="{
+    color: snackbar$()?.color,
+    'background-color': snackbar$()?.backgroundColor
+  }"
+>
+  <!-- Icon on left (if provided and position is left or not set) -->
+  <aava-icon
+    *ngIf="
+      snackbar$()?.icon &&
+      (!snackbar$()?.icon?.position || snackbar$()?.icon?.position === 'left')
+    "
+    [iconColor]="snackbar$()?.icon?.color ?? ''"
+    [iconSize]="snackbar$()?.icon?.size || 16"
+    [iconName]="snackbar$()?.icon?.name ?? ''"
+    class="snackbar-icon"
+  >
+  </aava-icon>
+
+  <!-- Message -->
+  <span class="snackbar-message" [attr.aria-label]="snackbar$()?.message || null">{{ snackbar$()?.message }}</span>
+
+  <!-- Action Link (with X icon inside, closes snackbar on click) -->
+  <ng-container *ngIf="snackbar$()?.action && snackbar$()?.action?.showXInside">
+    <aava-link
+      [label]="snackbar$()?.action?.text || ''"
+      [color]="snackbar$()?.action?.color || 'primary'"
+      size="sm"
+      [href]="snackbar$()?.action?.href || ''"
+      class="snackbar-action"
+    >
+      <aava-icon
+        [iconName]="'x'"
+        [iconSize]="14"
+        [iconColor]="snackbar$()?.action?.color || 'primary'"
+        (userClick)="onDismiss()"
+        style="margin-left: 4px; cursor: pointer"
+      ></aava-icon>
+    </aava-link>
+  </ng-container>
+  <!-- Default Action Link (if provided) -->
+  <aava-link
+    *ngIf="snackbar$()?.action && !snackbar$()?.action?.showXInside"
+    [label]="snackbar$()?.action?.text || ''"
+    [color]="snackbar$()?.action?.color || 'primary'"
+    size="sm"
+    [href]="snackbar$()?.action?.href || ''"
+    (click)="onActionClick(snackbar$()?.action)"
+    class="snackbar-action"
+  >
+  </aava-link>
+
+  <!-- Icon on right (if provided and position is right) -->
+  <aava-icon
+    *ngIf="snackbar$()?.icon && snackbar$()?.icon?.position === 'right'"
+    [iconColor]="snackbar$()?.icon?.color ?? ''"
+    [iconSize]="snackbar$()?.icon?.size || 16"
+    [iconName]="snackbar$()?.icon?.name ?? ''"
+    class="snackbar-icon"
+    [cursor]="!!snackbar$()?.icon?.iconClose"
+    (userClick)="snackbar$()?.icon?.iconClose ? onDismiss() : null"
+  >
+  </aava-icon>
+
+  <!-- Dismiss button (if dismissible) -->
+  <button
+    *ngIf="snackbar$()?.dismissible"
+    type="button"
+    (click)="onDismiss()"
+    [attr.aria-label]="'Dismiss notification'"
+    class="snackbar-dismiss"
+    tabindex="0"
+  >
+    <aava-icon
+      iconColor="snackbar$()?.color"
+      [iconSize]="16"
+      [iconName]="'x'"
+      [cursor]="true"
+    >
+    </aava-icon>
+  </button>
+</div>
+
+<div
+  *ngIf="snackbar$() && snackbar$()?.type === 'custom'"
+  class="custom-snackbar-wrapper"
+  [ngClass]="[snackbar$()?.position]"
+>
+  <div
+    class="custom-snackbar message-success"
+    [attr.role]="ariaRole"
+    [attr.aria-live]="ariaLive"
+    [attr.aria-atomic]="'true'"
+    [attr.tabindex]="'-1'"
+    [ngClass]="[
+      snackbar$()?.size || 'large',
+      'message-' + (snackbar$()?.styleType || 'success')
+    ]"
+    [ngStyle]="{
+      'background-color': snackbar$()?.backgroundColor,
+      
+    }"
+  >
+    <div
+      class="icon-circle"
+      [ngClass]="['icon-circle-' + (snackbar$()?.styleType || 'success')]"
+    >
+      <aava-icon
+        [iconName]="snackbar$()?.icon?.name ?? ''"
+        [iconSize]="getIconSize(snackbar$()?.size)"
+        iconColor="white"
+      ></aava-icon>
+    </div>
+
+    <div class="snackbar-text">
+      <div class="title">{{ snackbar$()?.title }}</div>
+      <div class="subtitle">{{ snackbar$()?.message }}</div>
+    </div>
+
+    <aava-button
+      *ngIf="snackbar$()?.buttonLabel"
+      [label]="snackbar$()?.buttonLabel ?? ''"
+      [size]="snackbar$()?.buttonSize ?? 'md'"
+      [variant]="snackbar$()?.styleType ?? 'success'"
+      (userClick)="snackbar$()?.onButtonClick?.($event)"
+      class="snackbar-button"
+    ></aava-button>
+  </div>
+</div>

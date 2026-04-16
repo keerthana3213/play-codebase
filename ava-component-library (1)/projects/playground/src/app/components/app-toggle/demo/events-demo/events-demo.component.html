@@ -1,0 +1,23 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-toggle
+        size="md"
+        title="Event Toggle"
+        position="left"
+        [checked]="false"
+        (checkedChange)="onEventToggleChange($event)"
+      >
+      </aava-toggle>
+
+      <div class="result">
+        <h5>Event Log:</h5>
+        <div class="log-entries">
+          <div *ngFor="let log of eventLogs" class="log-entry">
+            {{ log }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

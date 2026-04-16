@@ -1,0 +1,266 @@
+<div class="demo-section">
+  <div class="demo-header">
+    <h2>Smart Count Badges</h2>
+    <p>
+      Explore intelligent count formatting and various count scenarios with
+      different badge states and sizes.
+    </p>
+  </div>
+
+  <!-- ================== COUNT FORMATTING ================== -->
+  <div class="count-section">
+    <h3>Smart Count Formatting</h3>
+    <p>
+      Badge counts automatically format large numbers for better readability and
+      user experience.
+    </p>
+
+    <div class="formatting-examples">
+      <div class="example-group">
+        <h4>Small Numbers</h4>
+        <p>Numbers under 100 display as-is for precise counting.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="1"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="12"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="25"></aava-badges>
+          <aava-badges state="information" size="md" [count]="99"></aava-badges>
+        </div>
+      </div>
+
+      <div class="example-group">
+        <h4>Medium Numbers</h4>
+        <p>Numbers 100-999 display in full for detailed counting.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="100"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="250"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="500"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="750"></aava-badges>
+          <aava-badges state="information" size="md" [count]="999"></aava-badges>
+        </div>
+      </div>
+
+      <div class="example-group">
+        <h4>Large Numbers</h4>
+        <p>
+          Numbers 1000+ use smart formatting (e.g., 1K, 1.5K, 2M) for better
+          readability.
+        </p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="1000"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="1500"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="2500"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="10000"></aava-badges>
+          <aava-badges state="information" size="md" [count]="1000000"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== COUNT BY STATE ================== -->
+  <div class="count-section">
+    <h3>Count Examples by State</h3>
+    <p>
+      Different count values across various badge states to show visual
+      hierarchy and priority.
+    </p>
+
+    <div class="state-counts">
+      <div class="state-group high-priority">
+        <h4>High Priority Counts</h4>
+        <p>
+          Critical notifications and urgent alerts with various count values.
+        </p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="lg" [count]="3"></aava-badges>
+          <aava-badges state="high-priority" size="md" [count]="7"></aava-badges>
+          <aava-badges state="high-priority" size="sm" [count]="15"></aava-badges>
+          <aava-badges state="high-priority" size="xs" [count]="99"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-group medium-priority">
+        <h4>Medium Priority Counts</h4>
+        <p>Warnings and pending actions that need attention.</p>
+        <div class="badge-examples">
+          <aava-badges state="medium-priority" size="lg" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="12"></aava-badges>
+          <aava-badges state="medium-priority" size="sm" [count]="25"></aava-badges>
+          <aava-badges state="medium-priority" size="xs" [count]="150"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-group low-priority">
+        <h4>Low Priority Counts</h4>
+        <p>Success states and completed actions with positive counts.</p>
+        <div class="badge-examples">
+          <aava-badges state="low-priority" size="lg" [count]="8"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="18"></aava-badges>
+          <aava-badges state="low-priority" size="sm" [count]="42"></aava-badges>
+          <aava-badges state="low-priority" size="xs" [count]="250"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-group neutral">
+        <h4>Neutral Counts</h4>
+        <p>General information and default states with neutral counts.</p>
+        <div class="badge-examples">
+          <aava-badges state="neutral" size="lg" [count]="6"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="14"></aava-badges>
+          <aava-badges state="neutral" size="sm" [count]="33"></aava-badges>
+          <aava-badges state="neutral" size="xs" [count]="175"></aava-badges>
+        </div>
+      </div>
+
+      <div class="state-group information">
+        <h4>Information Counts</h4>
+        <p>
+          Helpful information and contextual updates with informational counts.
+        </p>
+        <div class="badge-examples">
+          <aava-badges state="information" size="lg" [count]="9"></aava-badges>
+          <aava-badges state="information" size="md" [count]="21"></aava-badges>
+          <aava-badges state="information" size="sm" [count]="47"></aava-badges>
+          <aava-badges state="information" size="xs" [count]="300"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== COUNT BY SIZE ================== -->
+  <div class="count-section">
+    <h3>Count Display by Size</h3>
+    <p>
+      How count values are displayed across different badge sizes for optimal
+      readability.
+    </p>
+
+    <div class="size-counts">
+      <div class="size-group">
+        <h4>XSmall Size</h4>
+        <p>
+          Compact display for tight spaces, shows essential count information.
+        </p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="xs" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="xs" [count]="25"></aava-badges>
+          <aava-badges state="low-priority" size="xs" [count]="100"></aava-badges>
+          <aava-badges state="neutral" size="xs" [count]="1000"></aava-badges>
+        </div>
+      </div>
+
+      <div class="size-group">
+        <h4>Small Size</h4>
+        <p>Standard small size with good readability for most use cases.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="sm" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="sm" [count]="25"></aava-badges>
+          <aava-badges state="low-priority" size="sm" [count]="100"></aava-badges>
+          <aava-badges state="neutral" size="sm" [count]="1000"></aava-badges>
+        </div>
+      </div>
+
+      <div class="size-group">
+        <h4>Medium Size</h4>
+        <p>Default size with optimal balance of visibility and space usage.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="25"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="100"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="1000"></aava-badges>
+        </div>
+      </div>
+
+      <div class="size-group">
+        <h4>Large Size</h4>
+        <p>Prominent display for important counts that need high visibility.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="lg" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="lg" [count]="25"></aava-badges>
+          <aava-badges state="low-priority" size="lg" [count]="100"></aava-badges>
+          <aava-badges state="neutral" size="lg" [count]="1000"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== REAL-WORLD SCENARIOS ================== -->
+  <div class="count-section">
+    <h3>Real-World Count Scenarios</h3>
+    <p>
+      Common use cases and count patterns you'll encounter in real applications.
+    </p>
+
+    <div class="scenario-examples">
+      <div class="scenario-item">
+        <h4>Notification Center</h4>
+        <p>Unread messages, alerts, and system notifications.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="3"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="12"></aava-badges>
+          <aava-badges state="information" size="md" [count]="47"></aava-badges>
+        </div>
+      </div>
+
+      <div class="scenario-item">
+        <h4>E-commerce Cart</h4>
+        <p>Shopping cart items, wishlist counts, and order notifications.</p>
+        <div class="badge-examples">
+          <aava-badges state="low-priority" size="md" [count]="2"></aava-badges>
+          <aava-badges state="neutral" size="md" [count]="15"></aava-badges>
+          <aava-badges state="information" size="md" [count]="99"></aava-badges>
+        </div>
+      </div>
+
+      <div class="scenario-item">
+        <h4>Social Media</h4>
+        <p>Likes, comments, shares, and friend requests.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="5"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="25"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="1500"></aava-badges>
+        </div>
+      </div>
+
+      <div class="scenario-item">
+        <h4>Dashboard Metrics</h4>
+        <p>System status, performance indicators, and data counts.</p>
+        <div class="badge-examples">
+          <aava-badges state="high-priority" size="md" [count]="1"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="8"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="42"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================== COUNT LIMITS ================== -->
+  <div class="count-section">
+    <h3>Count Limits and Edge Cases</h3>
+    <p>Understanding how badges handle extreme count values and edge cases.</p>
+
+    <div class="limit-examples">
+      <div class="limit-group">
+        <h4>Zero and Single Digits</h4>
+        <p>Special handling for zero and single-digit counts.</p>
+        <div class="badge-examples">
+          <aava-badges state="neutral" size="md" [count]="0"></aava-badges>
+          <aava-badges state="information" size="md" [count]="1"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="2"></aava-badges>
+          <aava-badges state="medium-priority" size="md" [count]="9"></aava-badges>
+        </div>
+      </div>
+
+      <div class="limit-group">
+        <h4>Large Number Formatting</h4>
+        <p>Smart formatting for very large numbers to maintain readability.</p>
+        <div class="badge-examples">
+          <aava-badges state="neutral" size="md" [count]="9999"></aava-badges>
+          <aava-badges state="information" size="md" [count]="15000"></aava-badges>
+          <aava-badges state="low-priority" size="md" [count]="100000"></aava-badges>
+          <aava-badges state="high-priority" size="md" [count]="1000000"></aava-badges>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

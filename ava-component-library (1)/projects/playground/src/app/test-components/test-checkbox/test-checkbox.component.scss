@@ -1,0 +1,47 @@
+.t-container {
+    padding: 25px;
+
+    .checkbox-grid {
+        display: grid;
+        grid-template-columns: repeat(3, auto);
+        gap: 15px;
+        align-items: center;
+        justify-content: start;
+        margin-bottom: 40px;
+    }
+
+    .checkbox-list {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+        margin-bottom: 40px;
+
+        ava-checkbox {
+            align-self: flex-start;
+        }
+    }
+
+    h3 {
+        color: var(--color-text-primary);
+    }
+
+    .checkbox-row {
+        display: flex;
+        gap: 15px;
+        align-items: center;
+        margin-bottom: 25px;
+    }
+
+    aava-checkbox {
+        &.wb {
+            margin-top: 10px;
+            display: block;
+        }
+
+    }
+
+    button {
+        margin-top: 15px;
+        margin-right: 15px;
+    }
+}

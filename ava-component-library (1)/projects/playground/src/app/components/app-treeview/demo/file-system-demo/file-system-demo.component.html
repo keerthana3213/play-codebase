@@ -1,0 +1,68 @@
+<div class="file-system-demo">
+  <div class="demo-description">
+    <h2>File System Demo</h2>
+    <p>
+      Tree view component configured to display a file system structure with
+      folders, files, and nested directories.
+    </p>
+  </div>
+
+  <div class="demo-container">
+    <div class="tree-section">
+      <h3>File System Tree</h3>
+      <div class="tree-container">
+        <aava-tree
+          [data]="fileSystemNodes"
+          [selectionMode]="'single'"
+          (nodeClick)="onNodeSelect($event)"
+        ></aava-tree>
+      </div>
+    </div>
+
+    <div class="selection-section" *ngIf="selectedNode">
+      <h3>Selected File/Folder</h3>
+      <div class="selection-info">
+        <div class="info-item">
+          <span class="label">Name:</span>
+          <span class="value">{{ selectedNode.name }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Type:</span>
+          <span class="value">
+            {{ selectedNode.children && selectedNode.children.length > 0 ? 'Folder' : 'File' }}
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="label">Icon:</span>
+          <span class="value">{{ selectedNode.icon }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h3>Features Demonstrated</h3>
+    <ul>
+      <li>
+        <strong>File System Structure:</strong> Hierarchical representation of
+        folders and files
+      </li>
+      <li>
+        <strong>Visual Icons:</strong> Different icons for folders, files, and
+        system directories
+      </li>
+      <li>
+        <strong>Nested Navigation:</strong> Deep folder structures with
+        expandable nodes
+      </li>
+      <li>
+        <strong>Selection Feedback:</strong> Detailed information about selected
+        items
+      </li>
+      <li>
+        <strong>Real-world Use Case:</strong> Practical application for file
+        managers and explorers
+      </li>
+    </ul>
+  </div>
+</div>

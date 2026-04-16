@@ -1,0 +1,288 @@
+<div class="user-profile-card-demo">
+  <div class="demo-header">
+    <h2>User Profile Card Component</h2>
+    <p>
+      A comprehensive user profile card component with customizable display
+      options, interactive actions, and multiple themes and layouts.
+    </p>
+  </div>
+
+  <!-- Profile Selection -->
+  <div class="profile-selection-card">
+    <aava-card>
+      <div header>
+        <h3>Select Profile</h3>
+      </div>
+      <div content>
+        <div class="profile-tabs">
+          <aava-button *ngFor="let profile of profiles; let i = index" (click)="selectProfile(i)"
+            [variant]="selectedProfileIndex === i ? 'primary' : 'secondary'" size="sm" [label]="profile.name"
+            [iconName]="profile.status === 'online' ? 'circle' : 'user'" [iconSize]="14">
+          </aava-button>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Configuration Controls -->
+  <div class="controls-card">
+    <aava-card>
+      <div header>
+        <h3>Configuration Controls</h3>
+      </div>
+      <div content>
+        <div class="controls-grid">
+          <!-- Theme Controls -->
+          <div class="control-group">
+            <h4>Theme</h4>
+            <div class="button-group">
+              <aava-button (click)="changeTheme('default')"
+                [variant]="config.theme === 'default' ? 'primary' : 'secondary'" size="sm" label="Default">
+              </aava-button>
+              <aava-button (click)="changeTheme('minimal')"
+                [variant]="config.theme === 'minimal' ? 'primary' : 'secondary'" size="sm" label="Minimal">
+              </aava-button>
+              <aava-button (click)="changeTheme('modern')"
+                [variant]="config.theme === 'modern' ? 'primary' : 'secondary'" size="sm" label="Modern">
+              </aava-button>
+              <aava-button (click)="changeTheme('professional')" [variant]="
+                  config.theme === 'professional' ? 'primary' : 'secondary'
+                " size="sm" label="Professional">
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Layout Controls -->
+          <div class="control-group">
+            <h4>Layout</h4>
+            <div class="button-group">
+              <aava-button (click)="changeLayout('vertical')" [variant]="
+                  config.layout === 'vertical' ? 'primary' : 'secondary'
+                " size="sm" label="Vertical">
+              </aava-button>
+              <aava-button (click)="changeLayout('horizontal')" [variant]="
+                  config.layout === 'horizontal' ? 'primary' : 'secondary'
+                " size="sm" label="Horizontal">
+              </aava-button>
+              <aava-button (click)="changeLayout('compact')" [variant]="
+                  config.layout === 'compact' ? 'primary' : 'secondary'
+                " size="sm" label="Compact">
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Avatar Size Controls -->
+          <div class="control-group">
+            <h4>Avatar Size</h4>
+            <div class="button-group">
+              <aava-button (click)="changeAvatarSize('sm')" [variant]="
+                  config.avatarSize === 'sm' ? 'primary' : 'secondary'
+                " size="sm" label="Small">
+              </aava-button>
+              <aava-button (click)="changeAvatarSize('md')" [variant]="
+                  config.avatarSize === 'md' ? 'primary' : 'secondary'
+                " size="sm" label="Medium">
+              </aava-button>
+              <aava-button (click)="changeAvatarSize('lg')" [variant]="
+                  config.avatarSize === 'lg' ? 'primary' : 'secondary'
+                " size="sm" label="Large">
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Section Toggles -->
+          <div class="control-group">
+            <h4>Display Sections</h4>
+            <div class="toggle-group">
+              <aava-button (click)="toggleSection('showAvatar')" [variant]="config.showAvatar ? 'success' : 'secondary'"
+                size="sm" [label]="config.showAvatar ? 'Avatar: On' : 'Avatar: Off'"
+                [iconName]="config.showAvatar ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showStatus')" [variant]="config.showStatus ? 'success' : 'secondary'"
+                size="sm" [label]="config.showStatus ? 'Status: On' : 'Status: Off'"
+                [iconName]="config.showStatus ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showBio')" [variant]="config.showBio ? 'success' : 'secondary'"
+                size="sm" [label]="config.showBio ? 'Bio: On' : 'Bio: Off'" [iconName]="config.showBio ? 'check' : 'x'"
+                [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showSkills')" [variant]="config.showSkills ? 'success' : 'secondary'"
+                size="sm" [label]="config.showSkills ? 'Skills: On' : 'Skills: Off'"
+                [iconName]="config.showSkills ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showStats')" [variant]="config.showStats ? 'success' : 'secondary'"
+                size="sm" [label]="config.showStats ? 'Stats: On' : 'Stats: Off'"
+                [iconName]="config.showStats ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showSocialLinks')"
+                [variant]="config.showSocialLinks ? 'success' : 'secondary'" size="sm"
+                [label]="config.showSocialLinks ? 'Social: On' : 'Social: Off'"
+                [iconName]="config.showSocialLinks ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showContactInfo')"
+                [variant]="config.showContactInfo ? 'success' : 'secondary'" size="sm" [label]="
+                  config.showContactInfo ? 'Contact: On' : 'Contact: Off'
+                " [iconName]="config.showContactInfo ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+              <aava-button (click)="toggleSection('showActions')"
+                [variant]="config.showActions ? 'success' : 'secondary'" size="sm"
+                [label]="config.showActions ? 'Actions: On' : 'Actions: Off'"
+                [iconName]="config.showActions ? 'check' : 'x'" [iconSize]="12">
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- State Controls -->
+          <div class="control-group">
+            <h4>Component States</h4>
+            <div class="button-group">
+              <aava-button (click)="toggleLoading()" [variant]="loading ? 'warning' : 'primary'" size="sm"
+                [label]="loading ? 'Stop Loading' : 'Start Loading'" [iconName]="loading ? 'pause' : 'play'"
+                [iconSize]="14">
+              </aava-button>
+              <aava-button (click)="toggleDisabled()" [variant]="disabled ? 'success' : 'secondary'" size="sm"
+                [label]="disabled ? 'Enable' : 'Disable'" [iconName]="disabled ? 'unlock' : 'lock'" [iconSize]="14">
+              </aava-button>
+            </div>
+          </div>
+
+          <!-- Limits Controls -->
+          <div class="control-group">
+            <h4>Display Limits</h4>
+            <div class="limits-group">
+              <div class="limit-item">
+                <label for="maxSkills">Max Skills: {{ config.maxSkills }}</label>
+                <input id="maxSkills" type="range" [min]="1" [max]="10" [value]="config.maxSkills"
+                  (input)="changeMaxSkills($event)" />
+              </div>
+              <div class="limit-item">
+                <label for="maxBioLength">Max Bio Length: {{ config.maxBioLength }}</label>
+                <input id="maxBioLength" type="range" [min]="50" [max]="300" [step]="25" [value]="config.maxBioLength"
+                  (input)="changeMaxBioLength($event)" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- User Profile Card Demo -->
+  <div class="demo-section">
+    <aava-card>
+      <div header>
+        <h3>Interactive User Profile Card</h3>
+        <p>
+          Try interacting with the profile card and observe the events below
+        </p>
+      </div>
+      <div content>
+        <aava-user-profile-card [profile]="currentProfile" [config]="config" [actions]="actions" [loading]="loading"
+          [disabled]="disabled" (profileView)="onProfileView($event)" (profileEdit)="onProfileEdit($event)"
+          (actionClick)="onActionClick($event)" (avatarClick)="onAvatarClick($event)"
+          (statusChange)="onStatusChange($event)" (contactClick)="onContactClick($event)"
+          (socialClick)="onSocialClick($event)" (profileEvent)="onProfileEvent($event)">
+        </aava-user-profile-card>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Event Log -->
+  <div class="event-log-card" *ngIf="lastEvent">
+    <aava-card>
+      <div header>
+        <h3>Event Log</h3>
+        <p>Real-time events from the profile card</p>
+      </div>
+      <div content>
+        <div class="event-content">
+          <pre>{{ lastEvent | json }}</pre>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+
+  <!-- Features Card -->
+  <div class="features-card">
+    <aava-card>
+      <div header>
+        <h3>Features Demonstrated</h3>
+        <p>Comprehensive list of capabilities</p>
+      </div>
+      <div content>
+        <div class="features-grid">
+          <div class="feature-item">
+            <aava-icon iconName="user" [iconSize]="20" iconColor="#007bff"></aava-icon>
+            <div class="feature-content">
+              <strong>User Information:</strong> Display name, role, department,
+              location, and contact details
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="image" [iconSize]="20" iconColor="#28a745"></aava-icon>
+            <div class="feature-content">
+              <strong>Avatar Support:</strong> Profile pictures with fallback to
+              initials
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="circle" [iconSize]="20" iconColor="#ffc107"></aava-icon>
+            <div class="feature-content">
+              <strong>Status Indicators:</strong> Online, away, busy, do not
+              disturb, and offline states
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="file-text" [iconSize]="20" iconColor="#17a2b8"></aava-icon>
+            <div class="feature-content">
+              <strong>Bio Section:</strong> Expandable biography with character
+              limits
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="tag" [iconSize]="20" iconColor="#6f42c1"></aava-icon>
+            <div class="feature-content">
+              <strong>Skills Display:</strong> Tag-based skills with expandable
+              view
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="chart-bar" [iconSize]="20" iconColor="#fd7e14"></aava-icon>
+            <div class="feature-content">
+              <strong>Statistics:</strong> Projects, tasks, contributions, and
+              experience metrics
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="share-2" [iconSize]="20" iconColor="#e83e8c"></aava-icon>
+            <div class="feature-content">
+              <strong>Social Links:</strong> LinkedIn, Twitter, GitHub, and
+              website integration
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="settings" [iconSize]="20" iconColor="#6c757d"></aava-icon>
+            <div class="feature-content">
+              <strong>Customizable:</strong> Multiple themes, layouts, and
+              display options
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="zap" [iconSize]="20" iconColor="#dc3545"></aava-icon>
+            <div class="feature-content">
+              <strong>Interactive Actions:</strong> Message, schedule, follow,
+              and other user actions
+            </div>
+          </div>
+          <div class="feature-item">
+            <aava-icon iconName="smartphone" [iconSize]="20" iconColor="#20c997"></aava-icon>
+            <div class="feature-content">
+              <strong>Responsive Design:</strong> Adapts to different screen
+              sizes and devices
+            </div>
+          </div>
+        </div>
+      </div>
+    </aava-card>
+  </div>
+</div>

@@ -1,0 +1,197 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Corporate Theme
+ *
+ * Corporate theme with formal business colors and professional styling.
+ * Perfect for corporate applications and formal business environments.
+ * =========================================================================
+ */
+
+[data-theme="corporate"] {
+  /* --- Corporate Theme Global Color Overrides --- */
+
+  /* Primary (Charcoal Gray) */
+  --global-color-gray-800: #1f2937;
+  --global-color-gray-900: #111827;
+
+  /* Secondary (Gold) */
+  --global-color-amber-600: #d97706;
+  --global-color-amber-700: #b45309;
+  --global-color-amber-100: #fef3c7;
+
+  /* Gray Scale */
+  --global-color-gray-500: #6b7280;
+  --global-color-gray-400: #9ca3af;
+  --global-color-gray-300: #d1d5db;
+  --global-color-gray-200: #e5e7eb;
+  --global-color-gray-100: #f3f4f6;
+  --global-color-white: #ffffff;
+
+  /* Semantic Colors */
+  --global-color-red-700: #b91c1c;
+  --global-color-green-700: #15803d;
+  --global-color-yellow-700: #a16207;
+  --global-color-yellow-800: #92400e;
+
+  /* --- Corporate Theme Color Overrides --- */
+  /* PRIMARY (Charcoal Gray) */
+  --color-brand-primary: var(--global-color-gray-800);
+  --color-brand-primary-hover: var(--global-color-gray-900);
+  --color-brand-primary-active: var(--global-color-gray-900);
+  --color-surface-interactive-primary: var(--global-color-gray-800);
+  --color-surface-interactive-primary-hover: var(--global-color-gray-900);
+  --color-surface-interactive-primary-active: var(--global-color-gray-900);
+  --color-border-primary: var(--global-color-gray-800);
+  --color-border-primary-hover: var(--global-color-gray-900);
+  --color-border-primary-active: var(--global-color-gray-900);
+  --color-text-primary: var(--global-color-gray-900);
+  --color-text-on-primary: var(--global-color-white);
+
+  /* SECONDARY (Gold) */
+  --color-brand-secondary: var(--global-color-amber-600);
+  --color-brand-secondary-hover: var(--global-color-amber-700);
+  --color-brand-secondary-active: var(--global-color-amber-700);
+  --color-surface-interactive-secondary: var(--global-color-amber-100);
+  --color-surface-interactive-secondary-hover: var(--global-color-amber-600);
+  --color-surface-interactive-secondary-active: var(--global-color-amber-700);
+  --color-border-secondary: var(--global-color-amber-600);
+  --color-border-secondary-hover: var(--global-color-amber-700);
+  --color-border-secondary-active: var(--global-color-amber-700);
+  --color-text-secondary: var(--global-color-amber-600);
+  --color-text-on-secondary: var(--global-color-white);
+  --color-background-secondary: var(--global-color-amber-100);
+
+  /* INTERACTIVE ELEMENTS */
+  --color-text-placeholder: var(--global-color-gray-500);
+  --color-text-disabled: var(--global-color-gray-400);
+  --color-text-on-brand: var(--global-color-white);
+  --color-text-interactive: var(--global-color-gray-800);
+  --color-text-interactive-hover: var(--global-color-gray-900);
+  --color-text-success: var(--global-color-green-700);
+  --color-text-error: var(--global-color-red-700);
+  --color-background-primary: var(--global-color-white);
+  --color-background-disabled: var(--global-color-gray-100);
+  --color-surface-interactive-default: var(--global-color-gray-800);
+  --color-surface-interactive-hover: var(--global-color-gray-900);
+  --color-surface-interactive-active: var(--global-color-gray-900);
+  --color-surface-disabled: var(--global-color-gray-200);
+  --color-surface-subtle-hover: var(--global-color-gray-100);
+  --color-border-default: var(--global-color-gray-400);
+  --color-border-subtle: var(--global-color-gray-300);
+  --color-border-interactive: var(--global-color-gray-800);
+  --color-border-focus: var(--global-color-gray-800);
+  --color-border-error: var(--global-color-red-700);
+  --color-background-error: var(--global-color-red-700);
+
+  /* SEMANTIC COLORS */
+  --color-border-warning: var(--global-color-yellow-700);
+  --color-border-success: var(--global-color-green-700);
+  --color-border-info: var(--global-color-gray-800);
+  --color-text-warning: var(--global-color-yellow-800);
+  --color-text-success: var(--global-color-green-700);
+  --color-text-info: var(--global-color-gray-800);
+  --color-background-warning: var(--global-color-yellow-700);
+  --color-background-success: var(--global-color-green-700);
+  --color-background-info: var(--global-color-gray-800);
+
+  /* GLASSMORPHISM */
+  --glass-backdrop-blur: 8px;
+  --glass-background-color: rgba(255, 255, 255, 0.9);
+  --glass-border-color: rgba(255, 255, 255, 0.5);
+  --glass-border-width: 1px;
+  --glass-elevation: var(--global-elevation-01);
+
+  /* =======================
+     CORPORATE THEME: RGB OVERRIDES
+     Extract RGB values from corporate theme semantic colors
+     ======================= */
+  --rgb-brand-primary: 31, 41, 55;
+  /* From #1f2937 */
+  --rgb-brand-secondary: 217, 119, 6;
+  /* From #d97706 */
+  --rgb-brand-tertiary: 3, 189, 212;
+  /* From #03bdd4 */
+  --rgb-brand-quaternary: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-brand-quinary: 254, 225, 64;
+  /* From #fee140 */
+  --rgb-brand-senary: 156, 39, 176;
+  /* From #9c27b0 */
+  --rgb-violet: 124, 58, 237;
+  /* From #7c3aed */
+  --rgb-royal-blue: 37, 99, 235;
+  /* From #2563eb */
+  --rgb-cyan: 3, 189, 212;
+  /* From #03bdd4 */
+  --rgb-spearmint: 67, 189, 144;
+  /* From #43bd90 */
+  --rgb-rose: 250, 112, 154;
+  /* From #fa709a */
+  --rgb-white: 255, 255, 255;
+  /* From #ffffff */
+  --rgb-black: 0, 0, 0;
+  /* From #000000 */
+  --rgb-neutral-100: 243, 244, 246;
+  /* From #f3f4f6 */
+
+  /* =======================
+     CORPORATE THEME: EFFECT COLOR OVERRIDES
+     Override all effect colors for proper corporate theme adaptation
+     ======================= */
+  --effect-color-primary: var(--rgb-brand-primary);
+  /* Charcoal Gray */
+  --effect-color-secondary: var(--rgb-brand-secondary);
+  /* Gold */
+  --effect-color-accent: var(--rgb-cyan);
+  /* Cyan accent for variety */
+  --effect-color-neutral: var(--rgb-black);
+  /* Black shadows work well on light bg */
+  --effect-color-surface: var(--rgb-white);
+  /* White glass/shimmer on light bg */
+
+  /* =======================
+     CORPORATE THEME: SEMANTIC COMPONENT TOKENS
+     Theme-aware component-specific tokens using the metaphor system
+     ======================= */
+
+  /* Glass Metaphor (Theme-Aware) */
+  --surface-glass-bg: rgba(var(--effect-color-surface), 0.15);
+  --surface-glass-border: rgba(var(--effect-color-surface), 0.7);
+  --surface-glass-shadow: rgba(var(--effect-color-surface), 0.18);
+
+  /* Light Metaphor (Theme-Aware) */
+  --color-light-glow: rgba(var(--effect-color-primary), 0.45);
+  --color-light-glow-focus: rgba(var(--effect-color-primary), 0.65);
+  --color-light-shadow: rgba(var(--effect-color-accent), 0.1);
+  --color-light-border: var(--color-brand-primary);
+  --color-light-border-focus: var(--color-brand-secondary);
+
+  /* Liquid Metaphor (Theme-Aware) */
+  --color-liquid-shimmer-start: var(--color-brand-secondary);
+  --color-liquid-shimmer-end: var(--color-brand-primary);
+
+  /* =======================
+     CORPORATE THEME: SOPHISTICATED GLASS CHAINING
+     Override glass surface colors for corporate theme variants
+     ======================= */
+
+  /* Corporate theme glass surface - keep default white */
+  --glass-surface-color: var(--rgb-white);
+
+  /* Corporate theme variant glass colors */
+  --glass-variant-primary: var(--rgb-brand-primary);
+  --glass-variant-success: 21, 128, 61;
+  --glass-variant-warning: 245, 158, 11;
+  --glass-variant-danger: 185, 28, 28;
+  --glass-variant-info: 31, 41, 55;
+  --glass-variant-purple: 156, 39, 176;
+  --glass-variant-emerald: 16, 185, 129;
+  --glass-variant-blue: 37, 99, 235;
+  --glass-variant-aqua: 3, 189, 212;
+
+  /* Corporate theme effect color adjustments */
+  --effect-color-neutral: var(--rgb-black);
+  /* Black shadows work on light bg */
+  --effect-color-surface: var(--rgb-white);
+  /* White highlights on light bg */
+}

@@ -1,0 +1,18 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-time-picker (timeSelected)="onTimeSelected($event)"></aava-time-picker>
+      <div class="description">Basic validation example</div>
+      <div class="result" *ngIf="selectedTime">
+        Selected Time: {{ selectedTime }}
+      </div>
+    </div>
+    <div class="example-group">
+      <aava-time-picker
+        [customStyles]="errorStyles"
+        (timeSelected)="onTimeSelected($event)">
+      </aava-time-picker>
+      <div class="description">Error state styling</div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,418 @@
+/* Breadcrumb container */
+.breadcrumb {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--breadcrumbs-background);
+  font: var(--breadcrumbs-font);
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+/* Breadcrumb items */
+.breadcrumb li {
+  display: flex;
+  align-items: center;
+  color: var(--breadcrumbs-item-text);
+  font: var(--breadcrumbs-font);
+}
+
+
+/* Breadcrumb links */
+.breadcrumb li a {
+  color: var(--breadcrumbs-item-text);
+  text-decoration: none;
+  padding: 0;
+  border-radius: var(--breadcrumbs-item-border-radius);
+  transition: var(--breadcrumbs-item-transition);
+}
+
+.breadcrumb li a:hover {
+  color: var(--breadcrumbs-item-hover-text);
+  background: var(--breadcrumbs-item-hover-background);
+}
+
+.breadcrumb li a:focus,
+.breadcrumb li a:active {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Current breadcrumb (last item) */
+.breadcrumb li>span {
+  color: var(--breadcrumbs-item-current-text);
+  font-weight: var(--breadcrumbs-item-current-font-weight);
+  background: var(--breadcrumbs-background);
+  padding: 0;
+}
+
+/* Breadcrumb item container (for icon + text) */
+.breadcrumb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  /* Small gap between icon and text */
+}
+
+.breadcrumb li span aava-icon lucide-icon svg {
+  color: var(--breadcrumbs-item-current-text) !important;
+  // fill: var(--breadcrumbs-item-current-text) !important;
+  stroke: var(--breadcrumbs-item-current-text) !important;
+}
+
+/* Removed clicked state styling to prevent gray background */
+
+.breadcrumb-item aava-icon {
+  flex-shrink: 0;
+  /* Prevent icon from shrinking */
+}
+
+/* Additional hover selectors for better coverage */
+.breadcrumb li:hover aava-icon lucide-icon svg {
+  color: var(--breadcrumbs-item-hover-text) !important;
+  stroke: var(--breadcrumbs-item-hover-text) !important;
+}
+
+/* Ensure icons don't block hover events */
+.breadcrumb li aava-icon {
+  pointer-events: none;
+}
+
+.breadcrumb li aava-icon .ava-icon-container {
+  pointer-events: none !important;
+}
+
+.breadcrumb-item span {
+  color: inherit;
+  /* Inherit color from parent */
+  font-weight: inherit;
+  /* Inherit font-weight from parent */
+}
+
+/* Size variants */
+.breadcrumb.xs {
+  font: var(--breadcrumbs-size-xs-font);
+}
+
+.breadcrumb.sm {
+  font: var(--breadcrumbs-size-sm-font);
+}
+
+.breadcrumb.md {
+  font: var(--breadcrumbs-size-md-font);
+}
+
+.breadcrumb.lg {
+  font: var(--breadcrumbs-size-lg-font);
+}
+
+/* Size classes */
+
+.breadcrumb.xs li {
+  font-size: var(--breadcrumbs-size-xs-font);
+}
+
+.breadcrumb.xs li a,
+.breadcrumb.xs li span {
+  padding: var(--breadcrumbs-icon-margin);
+}
+
+.breadcrumb.sm li {
+  font-size: var(--breadcrumbs-size-sm-font);
+}
+
+.breadcrumb.sm li a,
+.breadcrumb.sm li span {
+  padding: var(--breadcrumbs-icon-margin);
+}
+
+.breadcrumb.md li {
+  font-size: var(--breadcrumbs-size-md-font);
+}
+
+.breadcrumb.md li a,
+.breadcrumb.md li span {
+  padding: var(--breadcrumbs-padding);
+}
+
+.breadcrumb.lg li {
+  font-size: var(--breadcrumbs-size-lg-font);
+}
+
+.breadcrumb.lg li a,
+.breadcrumb.lg li span {
+  padding: var(--breadcrumbs-size-lg-padding);
+}
+
+/* Active states */
+.breadcrumb li.active a {
+  color: var(--breadcrumbs-item-current-text);
+  background: var(--breadcrumbs-item-active-background);
+}
+
+/* Removed clicked state styling to prevent gray background */
+
+/* Disabled state */
+.breadcrumb li.disabled a {
+  color: var(--breadcrumbs-item-disabled-text);
+  cursor: var(--breadcrumbs-item-disabled-cursor);
+  pointer-events: none;
+}
+
+/* Accessibility improvements */
+.breadcrumb li a:focus {
+  outline: 2px solid var(--color-brand-primary);
+  outline-offset: 2px;
+}
+
+/* Remove margin from last icon */
+.breadcrumb li:last-child aava-icon {
+  display: none;
+}
+
+/* Ellipsis styling for collapsible breadcrumbs */
+.breadcrumb-ellipsis {
+  display: flex;
+  align-items: center;
+}
+
+.ellipsis {
+  color: var(--breadcrumbs-item-text);
+  font: var(--breadcrumbs-font);
+  padding: var(--breadcrumbs-padding);
+  user-select: none;
+}
+
+.breadcrumb li aava-icon.breadcrumb-separator lucide-icon svg {
+  color: var(--breadcrumbs-item-text) !important;
+  /* Green color */
+  stroke: var(--breadcrumbs-item-text) !important;
+  /* Green stroke for SVG icons */
+}
+
+/* ===== DROPDOWN BREADCRUMB STYLING ===== */
+.breadcrumb .breadcrumb-item.dropdown-trigger {
+  position: relative;
+}
+
+.breadcrumb .dropdown-container {
+  position: relative;
+}
+
+.dropdown-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--breadcrumbs-dropdown-background);
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--breadcrumbs-dropdown-text-color, var(--color-text-primary));
+  transition: all 0.2s;
+  min-width: 100px;
+  justify-content: space-between;
+  font-weight: 500;
+}
+
+.dropdown-button:hover {
+  background: var(--breadcrumbs-dropdown-hover-background,
+      var(--color-surface-hover));
+  border-color: var(--breadcrumbs-dropdown-hover-border-color,
+      var(--color-border-primary));
+}
+
+.dropdown-button.active {
+  background: var(--breadcrumbs-dropdown-active-background,
+      var(--color-surface-primary));
+}
+
+.dropdown-button .arrow-icon {
+  transition: transform 0.2s;
+  color: var(--breadcrumbs-dropdown-arrow-color, var(--color-text-secondary));
+  margin-left: 8px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  margin-top: 8px;
+  background: var(--global-background);
+  border-radius: 12px;
+  box-shadow: var(--global-elevation-02);
+  list-style: none;
+  transform-origin: top;
+  /* Open from top like a shutter */
+  animation: shutter-open 0.5s ease forwards;
+}
+
+.dropdown-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  color: var(--breadcrumbs-dropdown-item-text-color, var(--color-text-primary));
+  transition: background 0.2s;
+  font-size: 14px;
+  padding: var(--global-spacing-4) var(--global-spacing-4);
+}
+
+.dropdown-item:hover {
+  background: var(--breadcrumbs-dropdown-item-hover-background,
+      var(--color-surface-hover));
+}
+
+.breadcrumb-link {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--breadcrumbs-item-text);
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.breadcrumb-link:hover {
+  color: var(--breadcrumbs-item-hover-text);
+  background: var(--breadcrumbs-item-hover-background);
+}
+
+.breadcrumb-current {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--breadcrumbs-item-current-text);
+  font-weight: 500;
+  padding: 4px 8px;
+}
+
+.breadcrumb-separator {
+  color: var(--breadcrumbs-item-text);
+  display: flex;
+  align-items: center;
+  margin: 0 4px;
+}
+
+.dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 1000;
+  min-width: 250px;
+  margin-top: 8px;
+  background: var(--global-background);
+  border-radius: 12px;
+  box-shadow: var(--global-elevation-02);
+  list-style: none;
+  transform-origin: top;
+  overflow: hidden;
+
+  /* Only shutter effect here */
+  animation: shutter-open 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.dropdown-menu::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 60%;
+  /* thicker flash for visibility */
+  background: linear-gradient(180deg,
+      transparent,
+      rgba(255, 255, 255, 0.6),
+      /* stronger white */
+      transparent);
+  pointer-events: none;
+
+  /* Flash only */
+  animation: flash-move-vertical 0.5s ease-in-out forwards;
+}
+
+/* Smooth shutter open */
+@keyframes shutter-open {
+  0% {
+    transform: scaleY(0);
+  }
+
+  80% {
+    transform: scaleY(1.02);
+    /* little overshoot */
+  }
+
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Smooth shutter close */
+@keyframes shutter-close {
+  0% {
+    transform: scaleY(1);
+  }
+
+  20% {
+    transform: scaleY(1.02);
+  }
+
+  100% {
+    transform: scaleY(0);
+  }
+}
+
+/* Flash moves smoothly */
+@keyframes flash-move-vertical {
+  0% {
+    top: -60%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    top: 150%;
+    opacity: 0;
+  }
+}
+
+/* Flash up for closing */
+@keyframes flash-move-vertical-reverse {
+  0% {
+    top: 150%;
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    top: -60%;
+    opacity: 0;
+  }
+}
+
+/* Closing state styles */
+.dropdown-menu.closing {
+  animation: shutter-close 0.5s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.dropdown-menu.closing::before {
+  animation: flash-move-vertical-reverse 0.5s ease-in-out forwards;
+}

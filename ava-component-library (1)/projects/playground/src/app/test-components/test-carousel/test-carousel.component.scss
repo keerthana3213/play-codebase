@@ -1,0 +1,23 @@
+.carousel-demo {
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+
+    h3 {
+        color: var(--color-text-primary);
+        margin: 0 0 1.5rem 0;
+        font-size: 1.5rem;
+        font-weight: 600;
+    }
+}
+
+.demo-section {
+    margin-bottom: 3rem;
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 200px;
+    }
+}

@@ -1,0 +1,34 @@
+
+
+.demo-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 16px; 
+  
+}
+
+.demo-column {
+  padding:2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 10px; 
+  &.padl{
+    padding-right: 0;
+  }
+   h3 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  aava-textbox{
+    margin-bottom: 20px;
+  }
+}

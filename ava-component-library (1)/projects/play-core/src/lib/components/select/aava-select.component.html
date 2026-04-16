@@ -1,0 +1,175 @@
+<div class="aava-select-option" [ngClass]="size" [ngStyle]="customStyles" [attr.id]="id ? 'aava-select-' + id : null">
+  <label
+    *ngIf="label"
+    [id]="inputId + '-label'"
+    [for]="inputId"
+    class="aava-select__label"
+    [class.aava-select__label--required]="required"
+  >
+    {{ label }}
+    <span *ngIf="required" class="aava-select__required" aria-hidden="true"
+      >*</span
+    >
+  </label>
+  <div
+    *ngIf="!disabled"
+    #selectContainer
+    class="aava-select-container"
+    [class.option_only]="optionOnly"
+    [class.open]="isOpen && !optionOnly"
+    (click)="toggleDropdown()"
+    (blur)="onContainerBlur($event)"
+    tabindex="0"
+    role="combobox"
+    [attr.id]="inputId"
+    [attr.aria-expanded]="isOpen"
+    [attr.aria-haspopup]="'listbox'"
+    [attr.aria-controls]="listboxId"
+    [attr.aria-activedescendant]="activeDescendant"
+    [attr.aria-label]="label ? null : getDisplayText()"
+    [attr.aria-labelledby]="label ? inputId + '-label' : null"
+    [attr.aria-invalid]="hasError"
+    [attr.aria-required]="required"
+    [attr.aria-describedby]="hasError ? errorId : null"
+    [class]="wrapperClasses"
+    [ngClass]="requiredError && !isOpen ? 'aava-select--error' : ''"
+  >
+    <ng-container *ngIf="!optionOnly">
+      <div class="aava-select" [class]="inputClasses">
+        <div
+          class="aava-select-placeholder"
+          [ngClass]="[hasValue ? 'has-value' : '']"
+        >
+          {{ getDisplayText() }}
+        </div>
+      </div>
+      <div class="aava-select-arrow">
+        <aava-icon
+          [iconName]="dropdownIcon"
+          [iconSize]="getIconSize"
+          [style.transform]="isOpen ? 'rotate(180deg)' : 'rotate(0deg)'"
+        ></aava-icon>
+      </div>
+    </ng-container>
+  </div>
+  <!-- Error Message -->
+  <div
+    *ngIf="!disabled && hasError"
+    [id]="errorId"
+    class="aava-select__error"
+    role="alert"
+    aria-live="polite"
+  >
+    <aava-icon
+      iconName="alert-circle"
+      [iconSize]="16"
+      class="aava-select__error-icon"
+      [cursor]="false"
+      [disabled]="false"
+      [iconColor]="'red'"
+    ></aava-icon>
+    <span class="aava-select__error-text">{{ error }}</span>
+  </div>
+  <div
+    *ngIf="!disabled"
+    class="select-option-container"
+    [ngClass]="[mode === 'normal' ? 'mode-normal' : '']"
+  >
+    <div
+      class="aava-select-panel"
+      [ngClass]="[mode === 'normal' ? 'normal-panel' : 'flyout-panel']"
+      *ngIf="isOpen || defaultOpen"
+      [class.single]="!multiple"
+    >
+      <div *ngIf="showSearch" class="search-box" [ngClass]="{ 'remove-search-gap': removeSearchGap }">
+        <div class="search-container">
+          <aava-textbox
+            variant="default"
+            placeholder="Search options"
+            [size]="size"
+            [attr.id]="searchInputId"
+            [attr.aria-label]="'Search options'"
+            [attr.aria-controls]="listboxId"
+            [attr.aria-autocomplete]="'list'"
+            (input)="onSearchChange($event)"
+          >
+            <aava-icon
+              slot="icon-start"
+              [iconSize]="getSearchIconSize"
+              iconName="search"
+            ></aava-icon>
+          </aava-textbox>
+        </div>
+      </div>
+
+      <!-- Standard Options (Non-Hierarchical) -->
+      <div 
+        class="options-container"
+        role="listbox"
+        [attr.id]="listboxId"
+        [attr.aria-label]="label || placeholder"
+        [attr.aria-multiselectable]="multiple"
+      >
+        <ng-content></ng-content>
+        <div 
+          class="no-results" 
+          *ngIf="!hasSearchedOptions"
+          role="status"
+          aria-live="polite"
+        >
+          No options found
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Live region for screen reader announcements -->
+  <div 
+    class="aava-select__sr-only" 
+    role="status" 
+    aria-live="polite" 
+    aria-atomic="true"
+  >
+    {{ liveRegionMessage }}
+  </div>
+
+  <div
+    *ngIf="disabled"
+    class="aava-select-container"
+    tabindex="-1"
+    role="combobox"
+    [attr.id]="inputId"
+    [attr.aria-expanded]="false"
+    [attr.aria-haspopup]="'listbox'"
+    [attr.aria-label]="label ? null : getDisplayText()"
+    [attr.aria-labelledby]="label ? inputId + '-label' : null"
+    [attr.aria-disabled]="true"
+    [class]="wrapperClasses"
+  >
+    <div class="aava-select" [class]="inputClasses">
+      <div class="aava-select-placeholder">
+        {{ getDisplayText() }}
+      </div>
+    </div>
+    <div class="aava-select-arrow">
+      <aava-icon [iconName]="dropdownIcon" [iconSize]="getIconSize" [disabled]="true"></aava-icon>
+    </div>
+  </div>
+   <div
+    *ngIf="disabled && hasError"
+    [id]="errorId"
+    class="aava-select__error"
+    role="alert"
+    aria-live="polite"
+  >
+    <aava-icon
+      iconName="alert-circle"
+      [iconSize]="16"
+      class="aava-select__error-icon"
+      [cursor]="false"
+      [disabled]="false"
+      [iconColor]="'red'"
+    ></aava-icon>
+    <span class="aava-select__error-text">{{ error }}</span>
+  </div>
+</div>

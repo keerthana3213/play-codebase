@@ -1,0 +1,20 @@
+<div class="date-time-picker-container">
+  <!-- Calendar Section -->
+  <div class="calendar-section">
+    <aava-datepicker [isRange]="isRange" [selectedDate]="selectedDate" [dateRange]="dateRange" [alwaysOpen]="alwaysOpen"
+      [weekdayFormat]="weekdayFormat" [selectorShape]="selectorShape" [surface]="surface"
+      [surfaceStrength]="surfaceStrength" (dateSelected)="onDateSelected($event)"
+      (rangeSelected)="onRangeSelected($event)">
+    </aava-datepicker>
+  </div>
+
+  <!-- Divider -->
+  <div class="divider"></div>
+
+  <!-- Time Section -->
+  <div class="time-section">
+    <div class="time-label">Select time</div>
+    <aava-time-picker (timeSelected)="onTimeSelected($event)">
+    </aava-time-picker>
+  </div>
+</div>

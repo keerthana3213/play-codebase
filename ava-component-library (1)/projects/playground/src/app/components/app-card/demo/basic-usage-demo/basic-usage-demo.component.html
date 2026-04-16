@@ -1,0 +1,231 @@
+<div class="basic-usage-demo">
+  <div class="demo-section">
+    <div class="demo-grid">
+      <!-- <div class="demo-item">
+        <h3>Simple Card</h3>
+        <ava-default-card>
+          <ava-card-content>
+            <h4>{{ cardTitle }}</h4>
+            <p>{{ cardContent }}</p>
+          </ava-card-content>
+        </ava-default-card>
+      </div>
+
+      <div class="demo-item">
+        <h3>Card with Header</h3>
+        <ava-default-card>
+          <ava-card-header>
+            <div class="header-with-icon">
+              <aava-icon
+                iconName="star"
+                [iconSize]="20"
+                iconColor="#ffd700"
+              ></aava-icon>
+              <h4>Featured Content</h4>
+            </div>
+          </ava-card-header>
+          <ava-card-content>
+            <p>
+              This card includes a header section with an icon to highlight
+              important information and provide clear visual hierarchy.
+            </p>
+          </ava-card-content>
+        </ava-default-card>
+      </div> -->
+
+      <!-- Card with Header, Content and Footer -->
+      <div class="demo-item">
+        <aava-default-card>
+          <aava-card-header>
+            <div class="header-with-badge">
+              <h4>Article Title</h4>
+              <aava-tag [pill]="true" label="New" color="primary"></aava-tag>
+            </div>
+          </aava-card-header>
+          <aava-card-content>
+            <p>
+              A complete card example with header, content, and footer sections.
+              Perfect for articles, blog posts, or detailed information
+              displays.
+            </p>
+          </aava-card-content>
+          <aava-card-footer>
+            <div class="footer-info">
+              <div class="meta-info">
+                <aava-icon iconName="calendar-days" [iconSize]="16" iconColor="#6c757d"></aava-icon>
+                <span>Dec 15, 2024</span>
+              </div>
+              <div class="meta-info">
+                <aava-icon iconName="user" [iconSize]="16" iconColor="#6c757d"></aava-icon>
+                <span>John Doe</span>
+              </div>
+            </div>
+          </aava-card-footer>
+        </aava-default-card>
+      </div>
+
+      <!-- <div class="demo-item">
+        <h3>Interactive Card</h3>
+        <ava-default-card class="interactive-card">
+          <ava-card-header>
+            <div class="product-header">
+              <h4>Premium Product</h4>
+              <aava-tag label="50% OFF" color="success"></aava-tag>
+            </div>
+          </ava-card-header>
+          <ava-card-content>
+            <div class="product-content">
+              <div class="product-icon">
+                <aava-icon
+                  iconName="package"
+                  [iconSize]="48"
+                  iconColor="#007bff"
+                ></aava-icon>
+              </div>
+              <p>
+                This interactive card demonstrates action buttons and user
+                engagement features.
+              </p>
+              <div class="price-section">
+                <span class="original-price">$99.99</span>
+                <span class="sale-price">$49.99</span>
+              </div>
+            </div>
+          </ava-card-content>
+          <ava-card-footer>
+            <div class="action-buttons">
+              <aava-button
+                label="Add to Cart"
+                variant="primary"
+                size="small"
+                (click)="onActionClick('Add to Cart')"
+              >
+              </aava-button>
+              <aava-button
+                label="Wishlist"
+                variant="secondary"
+                size="small"
+                (click)="onActionClick('Wishlist')"
+              >
+              </aava-button>
+            </div>
+          </ava-card-footer>
+        </ava-default-card>
+      </div>
+
+      <div class="demo-item">
+        <h3>Profile Card</h3>
+        <ava-default-card>
+          <ava-card-header>
+            <div class="profile-header">
+              <div class="avatar-placeholder">
+                <aava-icon
+                  iconName="user"
+                  [iconSize]="32"
+                  iconColor="#ffffff"
+                ></aava-icon>
+              </div>
+              <div class="profile-info">
+                <h4>Sarah Johnson</h4>
+                <p>Senior Developer</p>
+              </div>
+            </div>
+          </ava-card-header>
+          <ava-card-content>
+            <div class="profile-stats">
+              <div class="stat-item">
+                <span class="stat-number">127</span>
+                <span class="stat-label">Projects</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">1.2k</span>
+                <span class="stat-label">Followers</span>
+              </div>
+              <div class="stat-item">
+                <span class="stat-number">89</span>
+                <span class="stat-label">Following</span>
+              </div>
+            </div>
+          </ava-card-content>
+          <ava-card-footer>
+            <div class="profile-actions">
+              <aava-button
+                label="Follow"
+                variant="primary"
+                size="small"
+                (click)="onActionClick('Follow')"
+              >
+              </aava-button>
+              <aava-button
+                label="Message"
+                variant="secondary"
+                size="small"
+                (click)="onActionClick('Message')"
+              >
+              </aava-button>
+            </div>
+          </ava-card-footer>
+        </ava-default-card>
+      </div>
+
+      <div class="demo-item">
+        <h3>Status Card</h3>
+        <ava-default-card>
+          <ava-card-header>
+            <div class="status-header">
+              <aava-icon
+                iconName="check-circle"
+                [iconSize]="24"
+                iconColor="#28a745"
+              ></aava-icon>
+              <h4>System Status</h4>
+            </div>
+          </ava-card-header>
+          <ava-card-content>
+            <div class="status-content">
+              <p><strong>All systems operational</strong></p>
+              <div class="status-list">
+                <div class="status-item">
+                  <aava-icon
+                    iconName="circle"
+                    [iconSize]="8"
+                    iconColor="#28a745"
+                  ></aava-icon>
+                  <span>API Services</span>
+                </div>
+                <div class="status-item">
+                  <aava-icon
+                    iconName="circle"
+                    [iconSize]="8"
+                    iconColor="#28a745"
+                  ></aava-icon>
+                  <span>Database</span>
+                </div>
+                <div class="status-item">
+                  <aava-icon
+                    iconName="circle"
+                    [iconSize]="8"
+                    iconColor="#ffc107"
+                  ></aava-icon>
+                  <span>CDN (Degraded)</span>
+                </div>
+              </div>
+            </div>
+          </ava-card-content>
+          <ava-card-footer>
+            <div class="status-footer">
+              <span class="last-updated">Last updated: 2 minutes ago</span>
+              <aava-button
+                label="View Details"
+                variant="secondary"
+                size="small"
+                (click)="onActionClick('View Details')"
+              >
+              </aava-button>
+            </div>
+          </ava-card-footer>
+        </ava-default-card>
+      </div> -->
+    </div>
+  </div>
+</div>

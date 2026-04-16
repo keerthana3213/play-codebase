@@ -1,0 +1,133 @@
+.demo-section {
+    max-width: 700px;
+    margin: 2rem auto;
+    margin-top: 0;
+    padding: 2rem;
+}
+
+.demo-description {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.demo-description h3 {
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.demo-description p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.demo-container {
+    margin-bottom: 2rem;
+}
+
+.demo-output {
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.demo-output h4 {
+    color: #374151;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.output-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+}
+
+.output-item strong {
+    color: #374151;
+    margin-right: 0.5rem;
+}
+
+.accessibility-info {
+    margin-bottom: 2rem;
+}
+
+.accessibility-info h4 {
+    color: #374151;
+    margin-bottom: 1.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: center;
+}
+
+.info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+}
+
+.info-card {
+    padding: 1.5rem;
+}
+
+.info-card h5 {
+    color: #1e40af;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.info-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+}
+
+.info-card li {
+    margin-bottom: 0.5rem;
+    color: #475569;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+
+.info-card li strong {
+    color: #1e40af;
+}
+
+.features-list {
+    padding: 1.5rem;
+}
+
+.features-list h4 {
+    color: #0369a1;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.features-list ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+.features-list li {
+    margin-bottom: 0.5rem;
+    color: #0c4a6e;
+    line-height: 1.5;
+}
+
+.features-list li strong {
+    color: #0369a1;
+}
+
+@media (max-width: 768px) {
+    .info-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 1rem;
+}

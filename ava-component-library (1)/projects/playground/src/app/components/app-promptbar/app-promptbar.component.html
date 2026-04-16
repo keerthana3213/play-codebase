@@ -1,0 +1,118 @@
+<div class="component-documentation">
+  <div class="header-section">
+    <h1>Prompt Bar Component</h1>
+    <p class="component-description">
+      A comprehensive prompt bar component for AI chat interfaces with message input, file attachments,
+      icons, and customizable features.
+    </p>
+  </div>
+
+  <div class="quick-demo-section">
+    <h2>Quick Demo</h2>
+    <div class="demo-container">
+      <aava-prompt-bar
+        placeholder="Try typing a message here..."
+        [icons]="sampleIcons"
+        (messageSent)="onMessageSent($event)"
+        (iconClicked)="onIconClick($event)">
+      </aava-prompt-bar>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h2>Features & Examples</h2>
+    <div class="features-grid">
+      <div class="feature-card" *ngFor="let section of sections; let i = index"
+           [routerLink]="getRouteForSection(section.title)">
+        <div class="feature-header">
+          <h3>{{ section.title }}</h3>
+          <button class="code-toggle-btn"
+                  (click)="toggleCodeVisibility(i, $event)"
+                  [class.active]="section.showCode">
+            <span class="code-icon">&#123; &#125;</span>
+          </button>
+        </div>
+        <p class="feature-description">{{ section.description }}</p>
+
+        <div class="code-preview" *ngIf="section.showCode">
+          <pre><code>{{ getExampleCode(section.title) }}</code></pre>
+          <button class="copy-btn" (click)="copyCode(section.title)">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="api-overview-section">
+    <h2>API Overview</h2>
+    <div class="api-tables">
+      <div class="api-table-section">
+        <h3>Input Properties</h3>
+        <div class="table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prop of inputProperties.slice(0, 5)">
+                <td class="prop-name">{{ prop.name }}</td>
+                <td class="prop-type">{{ prop.type }}</td>
+                <td class="prop-default">{{ prop.default }}</td>
+                <td class="prop-description">{{ prop.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="api-link">
+          <a [routerLink]="['api']">View complete API documentation →</a>
+        </p>
+      </div>
+
+      <div class="api-table-section">
+        <h3>Events</h3>
+        <div class="table-wrapper">
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Event</th>
+                <th>Type</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let event of outputProperties">
+                <td class="prop-name">{{ event.name }}</td>
+                <td class="prop-type">{{ event.type }}</td>
+                <td class="prop-description">{{ event.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="getting-started-section">
+    <h2>Getting Started</h2>
+    <div class="installation-steps">
+      <div class="step">
+        <h4>1. Import the Component</h4>
+        <p>Import the AavaPromptBarComponent from the play-core library</p>
+      </div>
+
+      <div class="step">
+        <h4>2. Add to Your Template</h4>
+        <p>Add the prompt bar component to your template with desired properties</p>
+      </div>
+
+      <div class="step">
+        <h4>3. Handle Events</h4>
+        <p>Implement event handlers for message sending and icon clicks</p>
+      </div>
+    </div>
+  </div>
+</div>

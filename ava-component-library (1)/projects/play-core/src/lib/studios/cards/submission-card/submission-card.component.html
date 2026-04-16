@@ -1,0 +1,37 @@
+<aava-default-card
+    [customStyles]="{'border-radius': '12px',border: '1px solid #F0F1F2',background: 'rgba(255, 255, 255, 0.90)', 'box-shadow': 'none'}">
+    <div class="submission-card-container">
+        <!-- First line: Icon and Text with Right Tag -->
+        <div *ngIf="hasFirstLine" class="submission-card-first-line">
+            <div class="submission-card-left">
+                <aava-icon *ngIf="data.icon" [iconName]="data.icon.name" [iconSize]="iconSize" [iconColor]="iconColor">
+                </aava-icon>
+                <span *ngIf="data.text" class="submission-card-text">{{ data.text }}</span>
+            </div>
+            <aava-tag *ngIf="data.topTag"
+                [label]="data.topTag.timeStamp ? data.topTag.label + ' • ' + data.topTag.timeStamp : data.topTag.label"
+                [color]="getTagColor(data.topTag.color)" [variant]="data.topTag.variant || 'filled'" size="sm"
+                [customStyle]="getTagCustomStyle(data.topTag)" [icon]="data.topTag.iconName"
+                [iconColor]="data.topTag.iconColor" class="submission-card-top-tag">
+            </aava-tag>
+        </div>
+
+        <!-- Second line: Tags -->
+        <div *ngIf="hasSecondLine" class="submission-card-second-line">
+            <aava-tag *ngFor="let tag of data.tags" [label]="tag.label" [color]="getTagColor(tag.color)"
+                [variant]="tag.variant || 'filled'" size="sm" [customStyle]="getTagCustomStyle(tag)"
+                [icon]="tag.iconName" [iconColor]="tag.iconColor" class="submission-card-tag">
+            </aava-tag>
+        </div>
+
+        <!-- Third line: Avatar and Label -->
+        <div *ngIf="hasThirdLine" class="submission-card-third-line">
+            <aava-avatars *ngIf="data.avatar" [size]="avatarSize" [shape]="avatarShape"
+                [imageUrl]="data.avatar.imageUrl || ''" [initials]="data.avatar.initials || ''"
+                [initialsBackground]="data.avatar.initialsBackground || ''"
+                [initialsColor]="data.avatar.initialsColor || ''" [imageStyles]="{'width': '16px', 'height': '16px'}">
+            </aava-avatars>
+            <span *ngIf="data.label" class="submission-card-label">{{ data.label }}</span>
+        </div>
+    </div>
+</aava-default-card>

@@ -1,0 +1,58 @@
+
+    <div class="example-group">
+      <h4>File Upload Integration (Tags as Thumbnails)</h4>
+      <aava-prompt-bar
+        placeholder="Type your message with attached files..."
+        selectPlaceholder="Choose your device"
+        [icons]="icons"
+        [tags]="tags"
+        [deviceOptions]="deviceOptions"
+        [showSelection]="true"
+        [showImage]="false"
+        (tagRemoved)="onTagRemoved($event)">
+      </aava-prompt-bar>
+
+      <!-- Hidden file upload component -->
+      <aava-file-upload
+        #fileUpload
+        [allowedFormats]="['pdf', 'doc', 'docx', 'txt', 'jpg', 'jpeg', 'png', 'gif','.svg']"
+        [maxFiles]="5"
+        [maxFileSize]="5242880"
+        layout="default"
+        [style.display]="'none'"
+        (selectedList)="onFileSelected($event)">
+      </aava-file-upload>
+
+      <div class="result" *ngIf="tags.length > 0">
+        <p><strong>Result:</strong> {{ tags.length }} file(s) uploaded - displayed as tag thumbnails</p>
+      </div>
+    </div>
+
+    <div class="example-group">
+      <h4>File Upload with Image Preview (Images as Previews)</h4>
+      <aava-prompt-bar
+        placeholder="Upload images to see preview..."
+        selectPlaceholder="Choose your device"
+        [icons]="imageIcons"
+        [tags]="tagsWithImages"
+        [deviceOptions]="deviceOptions"
+        [showSelection]="true"
+        [showImage]="true"
+        (tagRemoved)="onTagRemovedWithImages($event)">
+      </aava-prompt-bar>
+
+      <!-- Hidden file upload component for image preview demo -->
+      <aava-file-upload
+        #fileUploadImages
+        [allowedFormats]="['jpg', 'jpeg', 'png', 'gif', 'svg', 'webp','txt']"
+        [maxFiles]="3"
+        [maxFileSize]="5242880"
+        layout="default"
+        [style.display]="'none'"
+        (selectedList)="onImageFileSelected($event)">
+      </aava-file-upload>
+
+      <div class="result" *ngIf="tagsWithImages.length > 0">
+        <p><strong>Result:</strong> {{ tagsWithImages.length }} image(s) uploaded - displayed as image previews</p>
+      </div>
+    </div>

@@ -1,0 +1,372 @@
+<div class="documentation">
+
+  <!-- Header -->
+
+  <header class="doc-header">
+    <h1>Experience Studio SplitScreen Component</h1>
+    <p class="description">
+      The SplitScreen component is used to create a split-screen layout with resizable panels. It includes various interactions such as toggling views, collapsing panels, and displaying different content types.
+    </p>
+  </header>
+
+  <!-- Installation -->
+
+  <section class="doc-section">
+    <h2>Installation</h2>
+    <div class="code-block">
+      <pre><code>import {{ '{' }} SplitScreenComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+    </div>
+  </section>
+
+   <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <awe-splitscreen [fixedLeftPanelWidth]="'30%'" class="container" [isResizable]="true" [minWidth]="'300px'">
+                <awe-leftpanel [hasHeader]="true" awe-leftpanel>
+                  <div awe-leftpanel-header>
+                    <!-- Custom left panel header instead of awe-header -->
+                    <div class="custom-header light-theme">
+                      <div class="header-left">
+                        <awe-icons iconName="awe_home" iconColor="neutralIcon"></awe-icons>
+                        <awe-icons
+                          (click)="toggleLeftPanel()"
+                          iconName="awe_dock_to_right"
+                          iconColor="neutralIcon"
+                        ></awe-icons>
+                      </div>
+                      <div class="header-right">
+                        <div
+                          class="custom-button"
+                          (click)="toggleHistoryView()"
+                          [class.active]="isHistoryActive"
+                        >
+                          History
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div awe-leftpanel-content>
+                    <div *ngIf="!isHistoryActive">
+                      <!--Injected chat-window on left content-->
+                      <awe-chat-window
+                        [theme]="'light'"
+                        [defaultText]="'Ask me'"
+                        [rightIcons]="rightIcons"
+                        [(textValue)]="lightPrompt"
+                        [chatMessages]="lightMessages"
+                        (iconClicked)="handleIconClick($event)"
+                        (enterPressed)="handleEnhancedSendLight()"
+                      >
+                      </awe-chat-window>
+                    </div>
+                    <div class="border history-container" *ngIf="isHistoryActive">
+                      <div class="history-content">
+                        <awe-icons
+                          iconName="awe_arrow_back_left"
+                          (click)="toggleHistoryView()"
+                        ></awe-icons>
+                      </div>
+                    </div>
+                  </div>
+                </awe-leftpanel>
+              
+                <awe-rightpanel [hasHeader]="true" awe-rightpanel>
+                  <div awe-rightpanel-header>
+                    <!-- Custom right panel header instead of awe-header -->
+                    <div class="custom-header light-theme">
+                      <div class="header-left">
+                        <awe-icons
+                          class="dockToRight"
+                          *ngIf="isLeftPanelCollapsed"
+                          (click)="toggleLeftPanel()"
+                          iconName="awe_dock_to_right"
+                          iconColor="neutralIcon"
+                        ></awe-icons>
+                        <div class="button-group">
+                          <div
+                            class="custom-button"
+                            [class.active]="isCodeActive"
+                            (click)="toggleCodeView()"
+                          >
+                            Code
+                          </div>
+                          <div
+                            class="custom-button"
+                            [class.active]="isPreviewActive"
+                            (click)="togglePreviewView()"
+                          >
+                            Preview
+                          </div>
+                          <div
+                            class="custom-button"
+                            [class.active]="isLogsActive"
+                            (click)="toggleLogsView()"
+                          >
+                            Logs
+                          </div>
+                        </div>
+                      </div>
+              
+                      <div class="header-right">
+                        <awe-icons
+                          iconName="awe_download"
+                          iconColor="neutralIcon"
+                        ></awe-icons>
+                        <awe-icons iconName="awe_copy" iconColor="neutralIcon"></awe-icons>
+                        <awe-icons iconName="awe_edit" iconColor="neutralIcon"></awe-icons>
+                      </div>
+                    </div>
+                  </div>
+                  <div awe-rightpanel-content>
+                    <div class="border" *ngIf="isCodeActive">
+                      <div class="content container-fluid">
+                        <pre><code>
+                        &lt;div class="container"&gt;
+                          &lt;h1&gt;Form Modal&lt;/h1&gt;
+                        
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="firstName"&gt;First Name&lt;/label&gt;
+                            &lt;input type="text" id="firstName" class="form-control" /&gt;
+                          &lt;/div&gt;
+                        
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="lastName"&gt;Last Name&lt;/label&gt;
+                            &lt;input type="text" id="lastName" class="form-control" /&gt;
+                          &lt;/div&gt;
+                        
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="email"&gt;Email&lt;/label&gt;
+                            &lt;input type="email" id="email" class="form-control" /&gt;
+                          &lt;/div&gt;
+              
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="phone"&gt;Phone Number&lt;/label&gt;
+                            &lt;input type="tel" id="phone" class="form-control" /&gt;
+                          &lt;/div&gt;
+              
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="address"&gt;Address&lt;/label&gt;
+                            &lt;input type="text" id="address" class="form-control" /&gt;
+                          &lt;/div&gt;
+              
+                          &lt;div class="form-group"&gt;
+                            &lt;label for="zip"&gt;Zip Code&lt;/label&gt;
+                            &lt;input type="text" id="zip" class="form-control" /&gt;
+                          &lt;/div&gt;
+              
+                          &lt;button type="submit" class="btn btn-primary"&gt;Submit&lt;/button&gt;
+                        &lt;/div&gt;
+              </code></pre>
+                      </div>
+                    </div>
+              
+                    <div class="border" *ngIf="isPreviewActive">
+                      <div class="content container-fluid">
+                        <!DOCTYPE html>
+                        <html lang="en">
+                          <head>
+                            <meta charset="UTF-8" />
+                            <meta
+                              name="viewport"
+                              content="width=device-width, initial-scale=1.0"
+                            />
+                            <title>Glowing Login</title>
+                            <style>
+                              body {
+                                margin: 0;
+                                font-family: "Segoe UI", sans-serif;
+                                background: linear-gradient(
+                                  135deg,
+                                  #0a1f2b,
+                                  #1f3b52,
+                                  #263b5b
+                                );
+                                height: 100vh;
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                overflow: hidden;
+                              }
+              
+                              .glow-box {
+                                background: rgba(255, 255, 255, 0.05);
+                                border: 1px solid rgba(255, 255, 255, 0.2);
+                                border-radius: 16px;
+                                padding: 2rem;
+                                width: 320px;
+                                color: white;
+                                backdrop-filter: blur(10px);
+                                box-shadow: 0 0 35px rgba(51, 102, 153, 0.8);
+                                animation: pulse 3s ease-in-out infinite;
+                              }
+              
+                              @keyframes pulse {
+                                0%,
+                                100% {
+                                  box-shadow: 0 0 30px rgba(51, 102, 153, 0.8);
+                                }
+                                50% {
+                                  box-shadow: 0 0 45px rgba(51, 102, 153, 1);
+                                }
+                              }
+              
+                              .glow-box h2 {
+                                text-align: center;
+                                margin-bottom: 1rem;
+                                color: #4db8ff;
+                              }
+              
+                              .glow-box input {
+                                width: 100%;
+                                padding: 0.6rem;
+                                margin: 0.5rem 0;
+                                border: none;
+                                border-radius: 8px;
+                                outline: none;
+                                background: rgba(255, 255, 255, 0.1);
+                                color: #4db8ff;
+                                box-shadow: inset 0 0 10px rgba(51, 102, 153, 0.6);
+                              }
+              
+                              .glow-box button {
+                                width: 100%;
+                                padding: 0.6rem;
+                                margin-top: 1rem;
+                                border: none;
+                                border-radius: 8px;
+                                background: #003366; /* Dark Blue */
+                                color: #fff;
+                                font-weight: bold;
+                                cursor: pointer;
+                                transition: background 0.3s ease;
+                              }
+              
+                              .glow-box button:hover {
+                                background: #002244; /* Darker Blue on Hover */
+                              }
+                            </style>
+                          </head>
+                          <body>
+                            <div class="glow-box">
+                              <h2>Confirm Password</h2>
+                              <input type="text" />
+                              <button>Save</button>
+                            </div>
+                          </body>
+                        </html>
+                      </div>
+                    </div>
+              
+                    <div class="border" *ngIf="isLogsActive">
+                      <div class="content">
+                        <pre>
+              15:56:23.123 - INFO - Starting application
+              
+              15:56:23.234 - DEBUG - Initializing database
+              
+              15:56:23.345 - WARN - No network connection
+              
+              15:56:23.456 - ERROR - Unable to connect to database
+              
+              15:56:23.567 - INFO - Application started
+              
+              15:56:23.678 - INFO - Attempting reconnection
+              
+              15:56:23.789 - DEBUG - Reconnection successful
+              
+              15:56:23.890 - INFO - Application running smoothly
+                      </pre
+                        >
+                      </div>
+                    </div>
+                  </div>
+                </awe-rightpanel>
+              </awe-splitscreen>
+              
+            </ng-container>
+          
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy" *ngIf="section.title!=='Available Icons'"></awe-icons>
+          </button>
+        </div>
+        
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td><code>{{ prop.name }}</code></td>
+          <td><code>{{ prop.type }}</code></td>
+          <td><code>{{ prop.default }}</code></td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- Events -->
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td><code>{{ event.name }}</code></td>
+          <td><code>{{ event.type }}</code></td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+</div>

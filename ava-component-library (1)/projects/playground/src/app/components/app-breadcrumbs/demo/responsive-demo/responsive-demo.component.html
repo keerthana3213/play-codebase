@@ -1,0 +1,61 @@
+<div class="responsive-demo">
+  <div class="demo-header">
+    <a routerLink="/app-breadcrumbs" class="back-button">
+      <aava-icon iconName="arrow-left" [iconSize]="16"></aava-icon>
+      <span>Back to Breadcrumbs</span>
+    </a>
+    <h1>Responsive Design</h1>
+    <p>
+      Breadcrumbs that adapt to different screen sizes and contexts for optimal
+      user experience.
+    </p>
+  </div>
+
+  <div class="demo-content">
+    <ava-breadcrumbs-demo-card
+      title="Mobile Optimized"
+      description="Compact breadcrumbs with shorter labels optimized for mobile screens."
+    >
+      <aava-breadcrumbs [breadcrumbs]="mobileBreadcrumbs" sizeClass="sm">
+      </aava-breadcrumbs>
+      <p class="demo-note">Optimized for screens under 768px width.</p>
+    </ava-breadcrumbs-demo-card>
+
+    <ava-breadcrumbs-demo-card
+      title="Tablet Layout"
+      description="Balanced breadcrumbs with medium labels for tablet interfaces."
+    >
+      <aava-breadcrumbs [breadcrumbs]="tabletBreadcrumbs" sizeClass="md">
+      </aava-breadcrumbs>
+      <p class="demo-note">Optimized for tablet screens (768px - 1024px).</p>
+    </ava-breadcrumbs-demo-card>
+
+    <ava-breadcrumbs-demo-card
+      title="Desktop Full Width"
+      description="Full-featured breadcrumbs with descriptive labels for desktop screens."
+    >
+      <aava-breadcrumbs
+        [breadcrumbs]="desktopBreadcrumbs"
+        sizeClass="lg"
+        [collapsible]="false"
+      >
+      </aava-breadcrumbs>
+      <p class="demo-note">Full display for desktop screens (1024px+).</p>
+    </ava-breadcrumbs-demo-card>
+
+    <ava-breadcrumbs-demo-card
+      title="Responsive with Collapsible"
+      description="Adaptive breadcrumbs that collapse based on available space and content length."
+    >
+      <aava-breadcrumbs
+        [breadcrumbs]="responsiveCollapsibleBreadcrumbs"
+        [collapsible]="true"
+        [maxVisibleItems]="4"
+      >
+      </aava-breadcrumbs>
+      <p class="demo-note">
+        Try resizing your browser to see adaptive behavior.
+      </p>
+    </ava-breadcrumbs-demo-card>
+  </div>
+</div>

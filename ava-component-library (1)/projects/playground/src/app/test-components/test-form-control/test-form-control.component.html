@@ -1,0 +1,34 @@
+<div class="form">
+    <form [formGroup]="form">
+
+        <div>
+            <aava-textbox formControlName="textbox"></aava-textbox>
+        </div>
+        <div>
+            <aava-textarea formControlName="textarea"></aava-textarea>
+        </div>
+        <div>
+            <aava-select formControlName="select">
+                <aava-select-option value="1">Apple </aava-select-option>
+                <aava-select-option value="2">Mango </aava-select-option>
+                <aava-select-option value="3">Orange </aava-select-option>
+            </aava-select>
+        </div>
+        <div>
+            <aava-checkbox formControlName="checkbox" label="checkbocx"
+                [isChecked]="form.value.checkbox"></aava-checkbox>
+        </div>
+        <div>
+            <aava-toggle formControlName="toggle" [checked]="form.value.toggle"></aava-toggle>
+        </div>
+        <div>
+            <aava-textbox formControlName="phoneMask" label="Phone Number (with Built-in Dropdown)"
+                [placeholder]="currentCountryPlaceholder" [mask]="currentCountryMask" [prefixDropdown]="true"
+                [prefixDropdownOptions]="countryOptions" [selectedPrefixOption]="selectedCountry"
+                (prefixDropdownSelect)="onCountrySelect($event)">
+            </aava-textbox>
+        </div>
+    </form>
+
+    <aava-button label="Patch" variant="primary" (userClick)="patch()"></aava-button>
+</div>

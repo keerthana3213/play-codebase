@@ -1,0 +1,109 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Reactive Form Integration</h3>
+    <p>Complete Angular reactive forms integration with validation.</p>
+    <form [formGroup]="demoForm" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <aava-textbox
+          label="Username"
+          placeholder="Enter username"
+          formControlName="username"
+          [error]="getFieldError('username')"
+          helper="3-20 characters, letters and numbers only"
+        ></aava-textbox>
+      </div>
+
+      <div class="form-row">
+        <aava-textbox
+          label="Email"
+          type="email"
+          placeholder="Enter email"
+          formControlName="email"
+          [error]="getFieldError('email')"
+          helper="We'll never share your email"
+        ></aava-textbox>
+      </div>
+
+      <div class="form-row">
+        <aava-textbox
+          label="Phone Number"
+          type="tel"
+          placeholder="Enter 10-digit phone number"
+          formControlName="phone"
+          [error]="getFieldError('phone')"
+          helper="Enter a 10-digit phone number"
+        ></aava-textbox>
+      </div>
+
+      <div class="form-row">
+        <aava-textbox
+          label="Age"
+          type="number"
+          placeholder="Enter your age"
+          formControlName="age"
+          [error]="getFieldError('age')"
+          helper="Must be between 18 and 100"
+        ></aava-textbox>
+      </div>
+
+      <div class="form-row">
+        <aava-textbox
+          label="Message"
+          placeholder="Enter your message..."
+          formControlName="message"
+          helper="Optional message field"
+        ></aava-textbox>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">Submit Form</button>
+        <button
+          type="button"
+          class="btn btn-secondary"
+          (click)="demoForm.reset()"
+        >
+          Reset Form
+        </button>
+      </div>
+    </form>
+  </div>
+
+  <div class="demo-section">
+    <h3>Template-Driven Form</h3>
+    <p>Simple template-driven form with ngModel.</p>
+    <aava-textbox
+      [(ngModel)]="templateValue"
+      label="Template Input"
+      placeholder="Enter text..."
+      (textboxChange)="onTemplateChange($event)"
+    ></aava-textbox>
+    <div class="value-display">
+      <strong>Current value:</strong> {{ templateValue || "(empty)" }}
+    </div>
+  </div>
+
+  <div class="demo-section">
+    <h3>Form Validation States</h3>
+    <p>Different validation states and error handling.</p>
+    <div class="validation-examples">
+      <div [formGroup]="demoForm">
+        <aava-textbox
+          label="Required Field"
+          placeholder="This field is required"
+          [required]="true"
+          formControlName="username"
+          [error]="usernameErrorMessage()"
+          (blur)="usernameError()"
+        ></aava-textbox>
+
+        <aava-textbox
+          label="Email Validation"
+          type="email"
+          formControlName="email"
+          [error]="getFieldError('email')"
+          placeholder="Enter valid email"
+        ></aava-textbox>
+      </div>
+    </div>
+  </div>
+</div>

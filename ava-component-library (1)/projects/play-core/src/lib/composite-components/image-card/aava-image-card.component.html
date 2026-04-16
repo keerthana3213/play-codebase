@@ -1,0 +1,157 @@
+<div class="ava-image-card-wrapper" [ngClass]="{
+    'vertical': isVertical,
+    'horizontal': isHorizontal && data.type !== 'simple',
+    'with-actions': isWithActions,
+    'without-actions': isWithoutActions,
+    'simple': data.type === 'simple'
+
+  }" role="region" aria-labelledby="cardTitle" (click)="onCardClick()">
+  <aava-default-card>
+    <!-- Vertical Layout -->
+    <div *ngIf="isVertical" class="vertical-layout">
+      <!-- Image Top (for withActions or withoutActions with imageGrid: 'top') -->
+      <div
+        *ngIf="(isWithActions && data.layout.imageGrid === 'top') || (isWithoutActions && data.layout.imageGrid === 'top')"
+        class="image-section">
+        <img [src]="data.image" [alt]="data.title">
+      </div>
+      <!-- Without Actions Variant - Top Section (tags and icon) -->
+      <div *ngIf="isWithoutActions" class="top-section"
+        [style.margin-top]="data.layout.imageGrid === 'top' ? '24px' : '0'">
+        <div class="tag-icon-row">
+          <div class="left-tags">
+            <aava-tag *ngFor="let tag of data.tags" [label]="tag.label" [size]="tag.size || 'xs'"
+              [color]="tag.color || 'primary'" [pill]="tag.shape === 'pill'">
+            </aava-tag>
+          </div>
+          <div class="right-icon">
+            <aava-icon iconName="more-vertical" [iconSize]="24" iconColor="#000000"></aava-icon>
+          </div>
+        </div>
+      </div>
+      <!-- Content Section -->
+      <div class="content-section"
+        [style.margin-top]="(isWithActions && data.layout.imageGrid === 'top') ? '24px' : (isWithoutActions ? '24px' : '0')">
+        <!-- Title -->
+        <div class="title" [style.margin-bottom]="'12px'">
+          {{ data.title }}
+        </div>
+        <!-- Description -->
+        <div *ngIf="data.description" class="description" [style.margin-bottom]="'12px'">
+          {{ data.description }}
+        </div>
+        <!-- Sub Description (Without Actions only) -->
+        <div *ngIf="isWithoutActions && data.subDescription" class="sub-description" [style.margin-bottom]="'12px'">
+          <div class="sub-desc-row">
+            <div class="sub-desc-left">{{ data.subDescription.left }}</div>
+            <div class="sub-desc-right">{{ data.subDescription.right }}</div>
+          </div>
+        </div>
+        <!-- Divider (With Actions only) -->
+        <div *ngIf="isWithActions && data.type !== 'simple'" class="divider-section">
+          <aava-dividers [variant]="data.divider?.variant || 'solid'"
+            [color]="data.divider?.color || '#E5E7EB'"></aava-dividers>
+        </div>
+        <!-- Avatar and SubText Row (With Actions only) -->
+        <div *ngIf="isWithActions" class="avatar-subtext-row" [style.margin-bottom]="'12px'">
+          <div class="avatar-text" *ngIf="data.avatar">
+            <aava-avatars [imageUrl]="data.avatar.url" [size]="data.avatar.size || 'md'" shape="pill"></aava-avatars>
+            <span class="avatar-name">{{ data.avatar.text }}</span>
+          </div>
+          <div class="subtext" *ngIf="data.subText">
+            <aava-icon [iconName]="data.subText.icon.name" [iconSize]="data.subText.icon.size || 14"
+              [iconColor]="data.subText.icon.color || '#BBBEC5'"></aava-icon>
+            <span class="subtext-label">{{ data.subText.text }}</span>
+          </div>
+        </div>
+        <div *ngIf="isWithActions && data.buttons && data.buttons.length > 0" class="buttons-section">
+          <ng-container *ngIf="data.type === 'simple'; else defaultButtons">
+            <aava-button *ngFor="let button of data.buttons" [label]="button.text"
+              [variant]="button.variant || 'primary'" [size]="button.size || 'md'" width="100%"
+              (userClick)="onButtonClick(button.action, button)">
+            </aava-button>
+          </ng-container>
+
+          <ng-template #defaultButtons>
+            <aava-button *ngFor="let button of data.buttons" [label]="button.text"
+              [variant]="button.variant || 'primary'" [size]="button.size || 'md'" [width]="button.width"
+              [height]="button.height" (userClick)="onButtonClick(button.action, button)">
+            </aava-button>
+          </ng-template>
+        </div>
+
+      </div>
+      <!-- Image Bottom (for withoutActions with imageGrid: 'bottom') -->
+      <div *ngIf="isWithoutActions && data.layout.imageGrid === 'bottom'" class="image-section"
+        [style.margin-top]="'24px'">
+        <img [src]="data.image" [alt]="data.title">
+      </div>
+    </div>
+    <!-- Horizontal Layout (only for default) -->
+    <div *ngIf="isHorizontal && data.type !== 'simple'" class="horizontal-layout">
+      <!-- Image Left -->
+      <div *ngIf="data.layout.imageGrid === 'left'" class="image-section">
+        <img [src]="data.image" [alt]="data.title">
+      </div>
+      <!-- Content Section -->
+      <div class="content-section">
+        <!-- Without Actions Variant - Top Section -->
+        <div *ngIf="isWithoutActions" class="top-section" [style.margin-bottom]="'24px'">
+          <div class="tag-icon-row">
+            <div class="left-tags">
+              <aava-tag *ngFor="let tag of data.tags" [label]="tag.label" [size]="tag.size || 'xs'"
+                [color]="tag.color || 'primary'" [pill]="tag.shape === 'pill'">
+              </aava-tag>
+            </div>
+            <div class="right-icon">
+              <aava-icon iconName="more-vertical" [iconSize]="24" iconColor="#000000"></aava-icon>
+            </div>
+          </div>
+        </div>
+        <!-- Title -->
+        <div class="title" [style.margin-bottom]="'12px'">
+          {{ data.title }}
+        </div>
+        <!-- Description -->
+        <div *ngIf="data.description" class="description" [style.margin-bottom]="'12px'">
+          {{ data.description }}
+        </div>
+        <!-- Sub Description (Without Actions only) -->
+        <div *ngIf="isWithoutActions && data.subDescription" class="sub-description" [style.margin-bottom]="'12px'">
+          <div class="sub-desc-row">
+            <div class="sub-desc-left">{{ data.subDescription.left }}</div>
+            <div class="sub-desc-right">{{ data.subDescription.right }}</div>
+          </div>
+        </div>
+        <!-- Divider (With Actions only) -->
+        <div *ngIf="isWithActions" class="divider-section">
+          <aava-dividers [variant]="data.divider?.variant || 'solid'"
+            [color]="data.divider?.color || '#E5E7EB'"></aava-dividers>
+        </div>
+        <!-- Avatar and SubText Row (With Actions only) -->
+        <div *ngIf="isWithActions" class="avatar-subtext-row" [style.margin-bottom]="'12px'">
+          <div class="avatar-text" *ngIf="data.avatar">
+            <aava-avatars [imageUrl]="data.avatar.url" [size]="data.avatar.size || 'md'" shape="pill"></aava-avatars>
+            <span class="avatar-name">{{ data.avatar.text }}</span>
+          </div>
+          <div class="subtext" *ngIf="data.subText">
+            <aava-icon [iconName]="data.subText.icon.name" [iconSize]="data.subText.icon.size || 14"
+              [iconColor]="data.subText.icon.color || '#BBBEC5'"></aava-icon>
+            <span class="subtext-label">{{ data.subText.text }}</span>
+          </div>
+        </div>
+        <!-- Buttons (With Actions only) -->
+        <div *ngIf="isWithActions && data.buttons && data.buttons.length > 0" class="buttons-section">
+          <aava-button *ngFor="let button of data.buttons" [label]="button.text" [variant]="button.variant || 'primary'"
+            [size]="button.size || 'md'" [width]="button.width" [height]="button.height"
+            (userClick)="onButtonClick(button.action, button)">
+          </aava-button>
+        </div>
+      </div>
+      <!-- Image Right -->
+      <div *ngIf="data.layout.imageGrid === 'right'" class="image-section">
+        <img [src]="data.image" [alt]="data.title">
+      </div>
+    </div>
+  </aava-default-card>
+</div>

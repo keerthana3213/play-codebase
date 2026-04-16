@@ -1,0 +1,81 @@
+<div class="nested-table-wrapper">
+
+  <aava-table [dataSource]="dataSource" (toggleExpand) = "onRowExpand($event)">
+    <ng-container aavaColumnDef="companyName">
+      <th aava-cell *aavaHeaderCellDef>
+        CompanyName</th>
+      <td aava-cell *aavaCellDef="let element">{{ element.companyName }}</td>
+    </ng-container>
+    <ng-container aavaColumnDef="location">
+      <th *aavaHeaderCellDef>Location</th>
+      <td aava-cell *aavaCellDef="let element">{{ element.location }}</td>
+    </ng-container>
+    <ng-container aavaColumnDef="revenue">
+      <th *aavaHeaderCellDef>Revenue</th>
+      <td aava-cell *aavaCellDef="let element"> {{ element.revenue }}</td>
+    </ng-container>
+    <ng-container aavaColumnDef="expand">
+      <th *aavaHeaderCellDef></th>
+      <td aava-cell *aavaCellDef="let element;let index = index">
+        <aava-icon [cursor]="true"
+          [iconName]="expandedRowIndex===index && isExpanded ?'chevron-up':'chevron-down'"></aava-icon>
+      </td>
+    </ng-container>
+
+    <tr aava-header-row *aavaHeaderRowDef="displayedColumns"></tr>
+    <tr aava-row *aavaRowDef="let row; columns: displayedColumns"></tr>
+      <!-- Expanded Row -->
+        <ng-template aavaRowDetail let-row="row">
+            <tr class="expanded-row">
+                <td colspan="5">
+                      <aava-table [dataSource]="row.departments" (toggleExpand) = "onRowExpand2($event)">
+                          <ng-container aavaColumnDef="departmentName">
+                              <th aava-header-cell *aavaHeaderCellDef> DepartmentName </th>
+                              <td aava-cell *aavaCellDef="let element">{{ element.departmentName }}</td>
+                          </ng-container>
+                          <ng-container aavaColumnDef="head">
+                              <th aava-header-cell *aavaHeaderCellDef> Head </th>
+                              <td aava-cell *aavaCellDef="let element">{{ element.head }}</td>
+                          </ng-container>
+                          <ng-container aavaColumnDef="budget">
+                              <th aava-header-cell *aavaHeaderCellDef> Budget </th>
+                              <td aava-cell *aavaCellDef="let element" style="text-align: right;">{{ element.budget |
+                              currency:'USD':'symbol':'1.2-2' }}</td>
+                          </ng-container>
+                          <ng-container aavaColumnDef="expand">
+                              <th *aavaHeaderCellDef></th>
+                              <td aava-cell *aavaCellDef="let element;let index = index">
+                              <aava-icon [cursor]="true"
+                              [iconName]="expandedRowIndex2===index && isExpanded2 ?'chevron-up':'chevron-down'"></aava-icon>
+                              </td>
+                          </ng-container>
+                          <tr aava-header-row *aavaHeaderRowDef="['departmentName','head','budget','expand']"></tr>
+                          <tr aava-row *aavaRowDef="let t; columns: ['departmentName','head','budget','expand']"></tr>
+                              <ng-template aavaRowDetail let-row="row.employees">
+                                    <tr class="expanded-row">
+                                          <td colspan="4">
+                                                <aava-table [dataSource]="row">
+                                                      <ng-container aavaColumnDef="name">
+                                                            <th aava-header-cell *aavaHeaderCellDef> Name </th>
+                                                            <td aava-cell *aavaCellDef="let element">{{ element.name }}</td>
+                                                      </ng-container>
+                                                      <ng-container aavaColumnDef="role">
+                                                            <th aava-header-cell *aavaHeaderCellDef> Role </th>
+                                                            <td aava-cell *aavaCellDef="let element">{{ element.role }}</td>
+                                                      </ng-container>
+                                                      <ng-container aavaColumnDef="salary">
+                                                            <th aava-header-cell *aavaHeaderCellDef> Salary </th>
+                                                            <td aava-cell *aavaCellDef="let element">{{ element.salary }}</td>
+                                                      </ng-container>
+                                                      <tr aava-header-row *aavaHeaderRowDef="['name','role','salary']"></tr>
+                                                      <tr aava-row *aavaRowDef="let t; columns: ['name','role','salary']"></tr>
+                                              </aava-table>
+                                          </td>
+                                    </tr>
+                              </ng-template>
+                      </aava-table>
+                </td>
+            </tr>
+        </ng-template>
+  </aava-table>
+</div>

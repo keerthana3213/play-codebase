@@ -1,0 +1,30 @@
+.demo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.demo-section {
+  padding: 1rem;
+  border-radius: 8px;
+
+  h3 {
+    color: #1e293b;
+    margin-bottom: 0.5rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+
+  p {
+    color: #64748b;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+}
+
+.size-comparison {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  align-items: end;
+}

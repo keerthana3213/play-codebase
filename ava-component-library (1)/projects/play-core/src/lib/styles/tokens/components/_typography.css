@@ -1,0 +1,93 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Typography Component Tokens
+ *
+ * Component-specific semantic tokens for typography elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for text styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Display Typography --- */
+  --typography-display-background: var(--color-background-primary);
+  --typography-display-text: var(--color-text-primary);
+  --typography-display-font: var(--font-family-display);
+  --typography-display-size: var(--global-font-size-xxxl);
+  --typography-display-weight: var(--global-font-weight-bold);
+  --typography-display-line-height: var(--global-line-height-tight);
+  --typography-display-spacing: var(--global-spacing-5);
+
+  /* --- Heading Typography --- */
+  --typography-heading-h1-text: var(--color-text-primary);
+  --typography-heading-h1-font: var(--font-heading-h1);
+  --typography-heading-h1-spacing: var(--global-spacing-6);
+
+  --typography-heading-h2-text: var(--color-text-primary);
+  --typography-heading-h2-font: var(--font-heading-h2);
+  --typography-heading-h2-spacing: var(--global-spacing-5);
+
+  --typography-heading-h3-text: var(--color-text-primary);
+  --typography-heading-h3-font: var(--font-heading-h3);
+  --typography-heading-h3-spacing: var(--global-spacing-4);
+
+  --typography-heading-h4-text: var(--color-text-primary);
+  --typography-heading-h4-font: var(--font-heading-h4);
+  --typography-heading-h4-spacing: var(--global-spacing-3);
+
+  /* --- Body Typography --- */
+  --typography-body-1-text: var(--color-text-primary);
+  --typography-body-1-font: var(--font-body-1);
+  --typography-body-1-spacing: var(--global-spacing-4);
+
+  --typography-body-2-text: var(--color-text-secondary);
+  --typography-body-2-font: var(--font-body-2);
+  --typography-body-2-spacing: var(--global-spacing-3);
+
+  /* --- Label Typography --- */
+  --typography-label-text: var(--color-text-primary);
+  --typography-label-font: var(--font-label);
+  --typography-label-spacing: var(--global-spacing-2);
+
+  /* --- Caption Typography --- */
+  --typography-caption-text: var(--color-text-secondary);
+  --typography-caption-font: var(--font-label);
+  --typography-caption-spacing: var(--global-spacing-1);
+
+  /* --- Link Typography --- */
+  --typography-link-text: var(--color-text-interactive);
+  --typography-link-text-hover: var(--color-text-interactive-hover);
+  --typography-link-text-visited: var(--color-text-interactive);
+  --typography-link-font: var(--font-body-1);
+  --typography-link-decoration: underline;
+  --typography-link-decoration-hover: none;
+  --typography-link-transition: var(--motion-pattern-fade);
+
+  /* --- Inline Elements --- */
+  --typography-strong-text: var(--color-text-primary);
+  --typography-strong-weight: var(--global-font-weight-bold);
+
+  --typography-emphasis-text: var(--color-text-primary);
+  --typography-emphasis-style: italic;
+
+  --typography-code-text: var(--color-text-primary);
+  --typography-code-background: var(--color-background-secondary);
+  --typography-code-font: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+  --typography-code-padding: var(--global-spacing-1);
+  --typography-code-border-radius: var(--global-radius-sm);
+
+  /* --- List Typography --- */
+  --typography-list-text: var(--color-text-primary);
+  --typography-list-font: var(--font-body-1);
+  --typography-list-spacing: var(--global-spacing-2);
+  --typography-list-marker-color: var(--color-text-secondary);
+  --typography-list-marker-size: var(--global-spacing-1);
+
+  /* --- Blockquote Typography --- */
+  --typography-blockquote-text: var(--color-text-secondary);
+  --typography-blockquote-font: var(--font-body-1);
+  --typography-blockquote-border: var(--color-border-subtle);
+  --typography-blockquote-border-width: 4px;
+  --typography-blockquote-padding: var(--global-spacing-4);
+  --typography-blockquote-margin: var(--global-spacing-5);
+}

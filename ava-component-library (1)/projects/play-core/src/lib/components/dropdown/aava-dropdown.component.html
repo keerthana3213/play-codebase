@@ -1,0 +1,94 @@
+<div class="ava-dropdown"  [ngStyle]="customStyles" [attr.id]="id ? 'aava-dropdown-' + id : null" [class.open]="isOpen" [style.width]="width || null" (keydown)="onDropdownKeyDown($event)">
+  <!-- Label -->
+  <!-- Label -->
+  <div class="label-container" *ngIf="label || required">
+    <label *ngIf="label" class="dropdown-label">
+      {{ label }}
+    </label>
+    <span *ngIf="required" class="required-star">*</span>
+  </div>
+
+
+  <!-- Dropdown Toggle -->
+  <button type="button" class="dropdown-toggle" [class.open]="isOpen" [class.disabled]="disabled"
+    [class.error]="showValidationError || showCustomError" [disabled]="disabled" (click)="onToggleClick($event)"
+    (keydown)="onToggleKeyDown($event)" [attr.aria-expanded]="isOpen" [attr.aria-haspopup]="'listbox'"
+    [attr.aria-label]="getDisplayText()">
+    <span>{{ getDisplayText() }}</span>
+    <aava-icon [iconName]="dropdownIcon" [iconSize]="16"
+      [style.transform]="isOpen ? 'rotate(180deg)' : 'rotate(0deg)'"></aava-icon>
+  </button>
+
+
+  <!-- Dropdown Menu -->
+  <div class="dropdown-menu" *ngIf="isOpen" role="listbox" [attr.aria-label]="dropdownTitle">
+    <!-- Search -->
+    <div class="search-box" *ngIf="search || enableSearch">
+      <input type="text" placeholder="Search..." [(ngModel)]="searchTerm" (input)="onSearch()"
+        (keydown)="onSearchKeyDown($event)" [attr.aria-label]="'Search ' + dropdownTitle" tabindex="0"
+        autocomplete="off">
+      <aava-icon [iconName]="'search'" [iconSize]="14"></aava-icon>
+    </div>
+    <!-- Options -->
+    <div class="options" role="group">
+      <ng-content></ng-content>
+      <div *ngFor="let option of filteredOptions; let i = index" class="option-group">
+        <!-- Main Option -->
+        <div class="option" [class.selected]="isOptionSelected(option)"
+          [class.has-suboptions]="hasSubOptions(option.name)"
+          [class.checkbox-option]="checkboxOptions.includes(option.name)" [class.focused]="focusedOptionIndex === i"
+          [class.disabled]="isOptionDisabled(option)"
+          (click)="hasSubOptions(option.name) ? toggleSubOptions(option.name) : selectOption(option); $event.stopPropagation()"
+          (keydown)="onOptionKeyDown($event, option)" [attr.tabindex]="focusedOptionIndex === i ? '0' : '-1'"
+          [attr.role]="'option'" [attr.aria-selected]="isOptionSelected(option)"
+          [attr.aria-expanded]="hasSubOptions(option.name) ? (expandedOption === option.name) : null"
+          [attr.aria-label]="option.name" [attr.aria-disabled]="isOptionDisabled(option)">
+          <!-- With Checkbox -->
+          <aava-checkbox *ngIf="checkboxOptions.includes(option.name)" variant="with-bg"
+            [isChecked]="isOptionSelected(option)" [label]="option.name" [disable]="isOptionDisabled(option)">
+          </aava-checkbox>
+          <!-- Without Checkbox -->
+          <div *ngIf="!checkboxOptions.includes(option.name)" class="option-content">
+            <aava-icon *ngIf="shouldShowIcon(option)" [iconName]="getOptionIcon(option)" [iconSize]="16">
+            </aava-icon>
+            <span>{{ option.name }}</span>
+          </div>
+          <!-- Sub-options arrow: down by default, right when expanded -->
+          <aava-icon *ngIf="hasSubOptions(option.name)"
+            [iconName]="expandedOption === option.name ? 'chevron-right' : 'chevron-down'" [iconSize]="12"
+            (click)="toggleSubOptions(option.name); $event.stopPropagation()">
+          </aava-icon>
+        </div>
+      </div>
+    </div>
+    <!-- No results -->
+    <div *ngIf="filteredOptions.length === 0" class="no-results">
+      No options found
+    </div>
+  </div>
+
+  <!-- Sub-options positioned next to hovered option -->
+  <ng-container *ngFor="let option of filteredOptions; let optionIndex = index">
+    <div class="suboptions-overlay" *ngIf="expandedOption === option.name && isOpen"
+      [style.top.px]="getSuboptionPosition(optionIndex)" role="listbox"
+      [attr.aria-label]="'Sub-options for ' + option.name">
+      <div class="suboptions-panel">
+        <div *ngFor="let subOption of suboptions[option.name]; let i = index" class="suboption"
+          [class.selected]="isSubOptionSelected(subOption)" [class.focused]="focusedSubOptionIndex === i"
+          [class.disabled]="isSubOptionDisabled(subOption)"
+          (click)="selectSubOption(subOption); $event.stopPropagation()"
+          (keydown)="onSubOptionKeyDown($event, subOption)" [attr.tabindex]="focusedSubOptionIndex === i ? '0' : '-1'"
+          [attr.role]="'option'" [attr.aria-selected]="isSubOptionSelected(subOption)"
+          [attr.aria-label]="subOption.name" [attr.aria-disabled]="isSubOptionDisabled(subOption)">
+          <span>{{ subOption.name }}</span>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+
+  <!-- Validation Error (Bottom) -->
+  <div *ngIf="showValidationError || showCustomError" class="validation-error validation-error-bottom">
+    <aava-icon iconName="alert-circle" [iconSize]="14" [cursor]="false" [disabled]="false"
+      [iconColor]="'red'"></aava-icon> {{ error || 'This field is required' }}
+  </div>
+</div>

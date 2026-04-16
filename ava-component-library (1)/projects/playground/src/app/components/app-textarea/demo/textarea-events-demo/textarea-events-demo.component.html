@@ -1,0 +1,36 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <h3>Event Handling Demo</h3>
+    <p>This demo shows how to handle various textarea events.</p>
+
+    <aava-textarea
+      [(ngModel)]="inputValue"
+      placeholder="Type here to see events..."
+      [rows]="4"
+      (textareaInput)="onInput($event)"
+      (textareaFocus)="onFocus($event)"
+      (blur)="onBlur($event)"
+      (textareaChange)="onChange($event)"
+    ></aava-textarea>
+  </div>
+
+  <div class="demo-section">
+    <h3>Event Log</h3>
+    <p>Recent events will appear below:</p>
+
+    <div class="event-log">
+      <div class="event-header">
+        <h4>Event History</h4>
+        <button class="clear-btn" (click)="clearEvents()">Clear Events</button>
+      </div>
+      <div class="event-list">
+        <div *ngFor="let event of events" class="event-item">
+          {{ event }}
+        </div>
+        <div *ngIf="events.length === 0" class="no-events">
+          No events yet. Start typing in the textarea above to see events.
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

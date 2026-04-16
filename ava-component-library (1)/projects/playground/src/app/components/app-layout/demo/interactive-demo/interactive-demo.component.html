@@ -1,0 +1,392 @@
+<div class="layout-demo-container">
+    <h1>AVA Layout Component Demo</h1>
+
+    <!-- Controls Section -->
+    <div class="demo-controls">
+        <h3>Interactive Controls</h3>
+        <div class="control-group">
+            <label>Header Height:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateHeaderHeight('80px')"
+                    [class.active]="headerHeight === '80px'" label="80px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateHeaderHeight('100px')"
+                    [class.active]="headerHeight === '100px'" label="100px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateHeaderHeight('120px')"
+                    [class.active]="headerHeight === '120px'" label="120px">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Left Panel Width:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelWidth('200px')"
+                    [class.active]="leftPanelWidth === '200px'" label="200px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelWidth('250px')"
+                    [class.active]="leftPanelWidth === '250px'" label="250px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelWidth('300px')"
+                    [class.active]="leftPanelWidth === '300px'" label="300px">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Right Panel Width:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelWidth('250px')"
+                    [class.active]="rightPanelWidth === '250px'" label="250px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelWidth('300px')"
+                    [class.active]="rightPanelWidth === '300px'" label="300px">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelWidth('350px')"
+                    [class.active]="rightPanelWidth === '350px'" label="350px">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Footer Text:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateFooterText('© 2024 AVA Component Library')"
+                    [class.active]="footerText === '© 2024 AVA Component Library'" label="Default">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateFooterText('Built with ❤️ using Angular')"
+                    [class.active]="footerText === 'Built with ❤️ using Angular'" label="Custom">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateFooterText('')"
+                    [class.active]="footerText === ''" label="Empty">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Toggle Sections:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="primary" (click)="toggleHeader()" [class.active]="showHeader"
+                    label="{{ showHeader ? 'Hide' : 'Show' }} Header">
+                </aava-button>
+                <aava-button size="sm" variant="primary" (click)="toggleLeftPanel()" [class.active]="leftPanelOpen"
+                    label="{{ leftPanelOpen ? 'Close' : 'Open' }} Left Panel">
+                </aava-button>
+                <aava-button size="sm" variant="primary" (click)="toggleRightPanel()" [class.active]="rightPanelOpen"
+                    label="{{ rightPanelOpen ? 'Close' : 'Open' }} Right Panel">
+                </aava-button>
+                <aava-button size="sm" variant="primary" (click)="toggleFooter()" [class.active]="showFooter"
+                    label="{{ showFooter ? 'Hide' : 'Show' }} Footer">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="toggleFooterMode()"
+                    [class.active]="footerMode === 'scrollable'"
+                    label="{{ footerMode === 'sticky' ? 'Sticky' : 'Scrollable' }} Footer">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Show/Hide Panels:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="toggleShowLeftPanel()"
+                    [class.active]="showLeftPanel" label="{{ showLeftPanel ? 'Hide' : 'Show' }} Left Panel">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="toggleShowRightPanel()"
+                    [class.active]="showRightPanel" label="{{ showRightPanel ? 'Hide' : 'Show' }} Right Panel">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Left Panel Open Icons:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelOpenIcon('menu')"
+                    [class.active]="leftPanelOpenIcon === 'menu'" label="Menu">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelOpenIcon('panel-right-close')"
+                    [class.active]="leftPanelOpenIcon === 'panel-right-close'" label="Panel">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelOpenIcon('chevron-right')"
+                    [class.active]="leftPanelOpenIcon === 'chevron-right'" label="Chevron">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Left Panel Closed Icons:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelClosedIcon('x')"
+                    [class.active]="leftPanelClosedIcon === 'x'" label="X">
+                </aava-button>
+            </div>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelClosedIcon('panel-right-open')"
+                    [class.active]="leftPanelClosedIcon === 'panel-right-open'" label="Panel">
+                </aava-button>
+            </div>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateLeftPanelClosedIcon('chevron-left')"
+                    [class.active]="leftPanelClosedIcon === 'chevron-left'" label="Chevron">
+                </aava-button>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label>Right Panel Open Icons:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelOpenIcon('menu')"
+                    [class.active]="rightPanelOpenIcon === 'menu'" label="Menu">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelOpenIcon('panel-right-open')"
+                    [class.active]="rightPanelOpenIcon === 'panel-right-open'" label="Panel">
+                </aava-button>
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelOpenIcon('chevron-left')"
+                    [class.active]="rightPanelOpenIcon === 'chevron-left'" label="Chevron">
+                </aava-button>
+            </div>
+        </div>
+        <div class="control-group">
+            <label>Right Panel Closed Icons:</label>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelClosedIcon('x')"
+                    [class.active]="rightPanelClosedIcon === 'x'" label="X">
+                </aava-button>
+            </div>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelClosedIcon('panel-right-close')"
+                    [class.active]="rightPanelClosedIcon === 'panel-right-close'" label="Panel">
+                </aava-button>
+            </div>
+            <div class="button-group">
+                <aava-button size="sm" variant="secondary" (click)="updateRightPanelClosedIcon('chevron-right')"
+                    [class.active]="rightPanelClosedIcon === 'chevron-right'" label="Chevron">
+                </aava-button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Layout Component Demo -->
+    <div class="layout-demo">
+        <aava-layout [headerHeight]="headerHeight" [leftPanelWidth]="leftPanelWidth" [rightPanelWidth]="rightPanelWidth"
+            [footerText]="footerText" [footerMode]="footerMode" [showHeader]="showHeader"
+            [showLeftPanel]="showLeftPanel" [showRightPanel]="false" [leftPanelTriggerTop]="'90%'"
+            [showFooter]="showFooter" [(leftPanelOpen)]="leftPanelOpen" [(rightPanelOpen)]="rightPanelOpen"
+            [leftPanelOpenIcon]="leftPanelOpenIcon" [leftPanelClosedIcon]="leftPanelClosedIcon"
+            [rightPanelOpenIcon]="rightPanelOpenIcon" [rightPanelClosedIcon]="rightPanelClosedIcon"
+            [customStyles]="customStyles">
+
+            <!-- Header Content -->
+            <div slot="header" class="demo-header">Header Here</div>
+
+            <!-- Sidebar Content -->
+            <div slot="left-panel">
+                <!-- Sidebar with secondary avatar example -->
+                <aava-rail-navigation-sidebar [config]="sidebarConfig" (menuItemClick)="onMenuItemClick($event)"
+                    (subMenuItemClick)="onSubMenuItemClick($event)" (profileClick)="onProfileClick($event)"
+                    (profileMenuItemClick)="onProfileMenuItemClick($event)"
+                    (profileSubMenuItemClick)="onProfileSubMenuItemClick($event)"
+                    (studioCardClick)="onStudioCardClick($event)"
+                    (secondaryAvatarClick)="onSecondaryAvatarClick($event)"
+                    (secondaryAvatarSelectionChange)="onSecondaryAvatarSelectionChange($event)"
+                    (languageSelectionChange)="onLanguageSelectionChange($event)">
+                </aava-rail-navigation-sidebar>
+            </div>
+
+            <!-- Main Content -->
+            <div class="demo-main-content">
+                <h2>Welcome to the Layout Component</h2>
+                <p>
+                    This is a demonstration of the AVA Layout component. It provides a
+                    consistent structure with:
+                </p>
+
+                <div class="feature-grid">
+                    <div class="feature-card">
+                        <h3>Header Section</h3>
+                        <p>
+                            Fixed height with full width, perfect for navigation and branding.
+                            Current height: <strong>{{ headerHeight }}</strong>
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Left Panel</h3>
+                        <p>
+                            Fixed width left panel with customizable content and responsive
+                            behavior. Current width:
+                            <strong>{{ leftPanelWidth }}</strong>
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Right Panel</h3>
+                        <p>
+                            Fixed width right panel with customizable content and responsive
+                            behavior. Current width:
+                            <strong>{{ rightPanelWidth }}</strong>
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Main Content</h3>
+                        <p>
+                            Flexible content area that adapts to the available space and panel
+                            visibility.
+                        </p>
+                    </div>
+
+                    <div class="feature-card">
+                        <h3>Footer</h3>
+                        <p>
+                            Bottom section with dynamic text support and customizable content.
+                            Current text: <strong>{{ footerText || "None" }}</strong>
+                        </p>
+                    </div>
+                </div>
+
+                <div class="demo-info">
+                    <h3>Component Features</h3>
+                    <ul>
+                        <li>
+                            <strong>Responsive Design:</strong> Automatically adapts to
+                            different screen sizes
+                        </li>
+                        <li>
+                            <strong>Content Slots:</strong> Uses ng-content with named slots
+                            for flexible content
+                        </li>
+                        <li>
+                            <strong>Customizable Dimensions:</strong> Configurable header
+                            height and sidebar width
+                        </li>
+                        <li>
+                            <strong>Toggle Options:</strong> Show/hide left panel, right
+                            panel, and footer as needed
+                        </li>
+                        <li>
+                            <strong>Accessibility:</strong> High contrast mode support and
+                            semantic HTML
+                        </li>
+                        <li>
+                            <strong>Mobile Friendly:</strong> Collapsible sidebar on small
+                            screens
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="demo-code">
+                    <h3>Usage Example</h3>
+                    <pre><code>&lt;aava-layout
+  [headerHeight]="'100px'"
+  [sidebarWidth]="'250px'"
+  [footerText]="'© 2024 Company'"
+  [showSidebar]="true"
+  [showFooter]="true"&gt;
+
+  &lt;div slot="header"&gt;Header Content&lt;/div&gt;
+  &lt;div slot="sidebar"&gt;Sidebar Content&lt;/div&gt;
+  &lt;div&gt;Main Content&lt;/div&gt;
+  &lt;div slot="footer"&gt;Footer Content&lt;/div&gt;
+&lt;/aava-layout&gt;</code></pre>
+                </div>
+
+                <!-- Additional content to ensure scrolling -->
+                <div class="demo-info" style="margin-top: 40px;">
+                    <h3>Footer Scrolling Behavior</h3>
+                    <p>
+                        <strong>Sticky Mode (Default):</strong> The footer remains fixed at the bottom of the viewport.
+                        Only the main content area scrolls. The footer is always visible.
+                    </p>
+                    <p>
+                        <strong>Scrollable Mode:</strong> The footer scrolls naturally with the page content.
+                        It is not visible initially and only appears when you scroll to the bottom of the content.
+                        The entire body becomes scrollable instead of just the main content area.
+                    </p>
+                    <p>
+                        Toggle between these modes using the "Sticky/Scrollable Footer" button in the controls above
+                        to see the difference in behavior.
+                    </p>
+                </div>
+
+                <div class="demo-info" style="margin-top: 40px;">
+                    <h3>Additional Content Section 1</h3>
+                    <p>This is additional content to ensure there is enough height for scrolling to work properly.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
+                        labore et dolore magna aliqua.</p>
+                    <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                        consequat.</p>
+                </div>
+
+                <div class="demo-info" style="margin-top: 40px;">
+                    <h3>Additional Content Section 2</h3>
+                    <p>More content to demonstrate scrolling behavior with the footer in scrollable mode.</p>
+                    <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+                        pariatur.</p>
+                    <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
+                        est laborum.</p>
+                </div>
+
+                <div class="demo-info" style="margin-top: 40px;">
+                    <h3>Additional Content Section 3</h3>
+                    <p>Even more content to ensure proper scrolling demonstration.</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.
+                    </p>
+                    <p>Totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae
+                        dicta sunt explicabo.</p>
+                </div>
+            </div>
+
+            <!-- Right Panel Content -->
+            <div slot="right-panel" class="demo-right-panel">
+                <div class="right-panel-section">
+                    <h3>Details Panel</h3>
+                    <p>
+                        This is the right panel content. You can add any content here like:
+                    </p>
+                    <ul class="right-panel-list">
+                        <li>Property details</li>
+                        <li>Configuration options</li>
+                        <li>Additional controls</li>
+                        <li>Contextual information</li>
+                    </ul>
+                </div>
+
+                <div class="right-panel-section">
+                    <h3>Quick Actions</h3>
+                    <aava-button variant="primary" size="sm" class="right-panel-btn" label="Save Changes">
+                    </aava-button>
+                    <aava-button variant="secondary" size="sm" class="right-panel-btn" label="Reset">
+                    </aava-button>
+                </div>
+
+                <div class="right-panel-section">
+                    <h3>Current Settings</h3>
+                    <div class="setting-item">
+                        <span class="setting-label">Sidebar Width:</span>
+                        <span class="setting-value">{{ leftPanelWidth }}</span>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-label">Right Panel Width:</span>
+                        <span class="setting-value">{{ rightPanelWidth }}</span>
+                    </div>
+                    <div class="setting-item">
+                        <span class="setting-label">Header Height:</span>
+                        <span class="setting-value">{{ headerHeight }}</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Content -->
+            <div slot="footer" class="demo-footer">
+                <p>{{ footerText || "No footer text set" }}</p>
+                <div class="footer-links">
+                    <a href="#">Documentation</a>
+                    <a href="#">GitHub</a>
+                    <a href="#">Support</a>
+                    <a href="#">Examples</a>
+                </div>
+            </div>
+        </aava-layout>
+    </div>
+</div>

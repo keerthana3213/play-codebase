@@ -1,0 +1,91 @@
+:root {
+  --select-label-color: var(--color-text-primary);
+  --select-required-color: var(--color-text-error);
+  --select-label-margin: var(--global-spacing-1);
+  --select-toggle-padding: var(--global-spacing-2);
+  --select-toggle-background: var(--global-background);
+  --select-toggle-border-radius: var(--global-radius-sm);
+  --select-box-shadow: var(--glass-50-shadow);
+  --select-brand-color: var(--color-brand-primary);
+  --select-border:var(--glass-50-border);
+  --select-label-font-weight: var(--global-font-weight-regular);
+  --select-label-font-family: var(--global-font-family-body);
+  --select-label-font-size-xl: var(--global-font-size-md);
+  --select-label-font-size-lg: var(--global-font-size-sm);
+  --select-label-font-size-md: var(--global-font-size-sm);
+  --select-label-font-size-sm: var(--global-font-size-xs);
+  --select-label-font-size-xs: 10px;
+
+
+  --select-place-holder-color: var(--color-text-placeholder);
+  --select-place-holder-font-weight:var(--global-font-weight-medium);
+  --select-selected-options-max-width: 100%;
+
+  --select-error-border: var(--color-border-error);
+  --select-background-disabled: var(--color-background-disabled);
+  --select-disabled-text: var(--color-text-disabled);
+  --select-panel-margin: var(--global-spacing-1);
+  --select-panel-max-height: 300px;
+  --select-menu-background: var(--global-background);
+  --select-menu-border: var(--color-border-default);
+  --select-menu-border-radius: var(--global-radius-sm);
+  --select-menu-shadow: var(--global-elevation-02);
+
+  --select-toggle-font: var(--font-body-2);
+  --select-brand-text-color: var(--color-text-on-primary);
+
+  --select-option-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --select-item-transition: var(--motion-pattern-fade);
+  --select-item-font: var(--font-body-2);
+  --select-item-color: var(--color-text-primary);
+
+  --select-item-background: transparent;
+
+  --select-option-gap: 10px;
+  --select-checkbox-margin: var(--global-spacing-1);
+  --select-item-background-hover: var(--color-surface-subtle-hover);
+  --select-item-text-hover: var(--color-text-primary);
+
+
+  --select-option-padding: var(--global-spacing-3) var(--global-spacing-3);
+  --select-error-gap: var(--global-spacing-1);
+  --select-error-color: var(--color-text-error);
+
+  --select-xl-height: 52px;
+  --select-xl-font-size: var(--global-font-size-lg);
+  --select-xl-padding: var(--global-spacing-1) var(--global-spacing-3);
+  --select-xl-error-font-size:var(--global-font-size-sm);
+
+  --select-lg-height: 48px;
+  --select-lg-font-size: 1.125rem;
+  --select-lg-padding: 6px var(--global-spacing-3);
+  --select-lg-error-font-size:var(--global-font-size-xs);
+
+  --select-md-height: 44px;
+  --select-md-font-size:var(--global-font-size-md);
+  --select-md-padding: var(--global-spacing-2);
+  --select-md-error-font-size:var(--global-font-size-xs);
+
+
+  --select-sm-height: 36px;
+  --select-sm-font-size: var(--global-font-size-sm);
+  --select-sm-padding: 6px var(--global-spacing-2);
+  --select-sm-error-font-size:var(--global-font-size-xs);
+
+
+  --select-xs-height: 28px;
+  --select-xs-font-size: var(--global-font-size-xs);
+  --select-xs-padding: 2px var(--global-spacing-2);
+  --select-xs-error-font-size:10px;
+
+
+  --select-option-row-gap: 0.5rem;
+
+  --select-options-gap:var(--global-spacing-1);
+  --select-options-font-weight: var(--global-font-weight-medium);
+  --select-options-padding: var(--global-spacing-2);
+
+    --select-input-color: var(--color-text-primary);
+
+
+}

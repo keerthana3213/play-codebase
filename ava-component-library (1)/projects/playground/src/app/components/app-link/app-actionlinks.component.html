@@ -1,0 +1,150 @@
+<div class="documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Link Component</h1>
+        <p class="description">
+          A versatile link component that supports multiple variants, states,
+          sizes, icons, and animations. Built with accessibility and user
+          experience in mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <!-- Demo Navigation -->
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Sections</h2>
+        <div class="demo-navigation">
+          <a routerLink="/action-links/basic-usage" class="nav-link">Basic Usage</a>
+          <a routerLink="/action-links/colors" class="nav-link">Colors</a>
+          <a routerLink="/action-links/sizes" class="nav-link">Sizes</a>
+          <a routerLink="/action-links/underline" class="nav-link">Underline</a>
+          <a routerLink="/action-links/custom-colors" class="nav-link">Custom Colors</a>
+          <a routerLink="/action-links/accessibility" class="nav-link">Accessibility</a>
+          <a routerLink="/action-links/api" class="nav-link">API Reference</a>
+        </div>
+        <div class="demo-content">
+          <router-outlet></router-outlet>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <!-- Installation -->
+
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <!-- <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <!-- Basic Usage -->
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Action Link" color="primary"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Action Link" color="danger"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Action Link" color="success"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Action Link" color="warning"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Action Link" color="info"></aava-link>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Link Sizes -->
+            <ng-container *ngSwitchCase="'Link Sizes'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Small Link" size="sm" color="primary"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Medium Link" size="md" color="success"></aava-link>
+                </div>
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Large Link" size="lg" color="warning"></aava-link>
+                </div>
+              </div>
+            </ng-container>
+
+            <!-- Underlined Link -->
+            <ng-container *ngSwitchCase="'Underlined Link'">
+              <div class="row g-3">
+                <div class="col-12 col-sm-auto">
+                  <aava-link label="Underlined Link" color="#ff3333" [underline]="true"></aava-link>
+                </div>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <!-- <awe-icons iconName="awe_copy"></awe-icons> -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- API Reference -->
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

@@ -1,0 +1,37 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-select
+        label="Countries"
+         [showSearch]="false"
+        placeholder="Select a country">
+        <aava-select-option value="us">
+          <aava-icon iconName="circle-check"></aava-icon> United States
+        </aava-select-option>
+        <aava-select-option value="ca">
+          <aava-icon iconName="x-circle"></aava-icon> Canada
+        </aava-select-option>
+        <aava-select-option value="uk"> 
+           <aava-icon iconName="clock"></aava-icon> United Kingdom
+        </aava-select-option>
+        <aava-select-option value="de"> 
+          <aava-icon iconName="pause"></aava-icon> Germany
+        </aava-select-option>
+      </aava-select>
+    </div>
+
+
+
+    <div class="example-group">
+      <aava-select
+        label="Custom Dropdown Icon"
+        [showSearch]="false"
+        placeholder="Select language"
+        dropdownIcon="settings">
+        <aava-select-option value="javascript">JavaScript</aava-select-option>
+        <aava-select-option value="typescript">TypeScript</aava-select-option>
+        <aava-select-option value="python">Python</aava-select-option>
+      </aava-select>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,16 @@
+<div class="demo-container">
+  <div class="show-value-demo">
+    <div class="demo-section">
+      <aava-rating
+        [value]="ratingValue"
+        [showValue]="true"
+        (rated)="onRatingChange($event)"
+      ></aava-rating>
+      <!-- <div class="rating-info">
+        <p>
+          Current Rating: <strong>{{ ratingValue }}</strong>
+        </p>
+      </div> -->
+    </div>
+  </div>
+</div>

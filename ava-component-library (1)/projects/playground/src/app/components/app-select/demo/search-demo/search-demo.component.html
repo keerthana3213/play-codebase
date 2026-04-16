@@ -1,0 +1,14 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <aava-select
+        label="Search Items"
+        placeholder="Search and select an item"
+        [showSearch]="true">
+        <aava-select-option *ngFor="let item of largeDataset" [value]="item.value">
+          {{ item.label }}
+        </aava-select-option>
+      </aava-select>
+    </div>
+  </div>
+</div>

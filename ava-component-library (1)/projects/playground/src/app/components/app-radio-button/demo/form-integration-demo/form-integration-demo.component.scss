@@ -1,0 +1,42 @@
+.center-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  &.demo-section {
+    margin-bottom: 2.5rem;
+    padding: 2rem;
+    background: #fff;
+    border-radius: 8px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+    h4 {
+      margin-bottom: 20px;
+    }
+    .form-group {
+      display: flex;
+      .form-field {
+        label {
+          display: block;
+          margin-bottom: 20px;
+        }
+      }
+    }
+    .form-status {
+      p {
+        margin: 0;
+        padding: 0;
+      }
+    }
+    .form-field {
+      margin-right: 20px;
+    }
+    aava-button {
+      display: block;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+  }
+}

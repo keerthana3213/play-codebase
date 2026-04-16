@@ -1,0 +1,55 @@
+trigger:
+  branches:
+    include:
+      - development
+
+pool:
+  vmImage: "ubuntu-latest"
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "18.x"
+    displayName: "Install Node.js"
+
+  - script: |
+      npm install
+    displayName: "Install root dependencies"
+
+  - script: |
+      npm run build-library play-core
+    displayName: "Build Angular Library (play-core)"
+
+  # Pack and install library into playground
+  - script: |
+      npm install ../../dist/play-core --force
+      npm install
+      npm run build-playground
+    displayName: "Install Library & Build Playground Angular App"
+    workingDirectory: "projects/playground"
+
+  - script: |
+      cp staticwebapp.config.json dist/playground/browser/
+    displayName: "Copy staticwebapp.config.json"
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: "dist/playground"
+      Contents: "**"
+      TargetFolder: "$(Build.ArtifactStagingDirectory)"
+    displayName: "Copy Build Files"
+
+  - task: PublishBuildArtifacts@1
+    inputs:
+      pathToPublish: "$(Build.ArtifactStagingDirectory)"
+      artifactName: "angular-build"
+    displayName: "Publish Artifact"
+
+  # Deploy to Static Web App for Development Branch
+  - task: AzureStaticWebApp@0
+    condition: eq(variables['Build.SourceBranchName'], 'development')
+    inputs:
+      app_location: "/"
+      output_location: "dist/playground/browser"
+      azure_static_web_apps_api_token: $(AZURE_STATIC_WEB_APPS_API_TOKEN_GENTLE_WAVE_0B254850F)
+    displayName: "Deploy to Azure SWA - Development"

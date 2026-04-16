@@ -1,0 +1,16 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="interactive-tags">
+      <aava-tag
+        *ngFor="let tag of tags; trackBy: trackByTag"
+        [label]="tag.label"
+        [removable]="true"
+        (clicked)="onTagClick(tag.label)"
+        (removed)="onTagRemove(tag)"
+        [pill]="true"
+        [size]="'lg'"
+        [variant]="'outlined'"
+      ></aava-tag>
+    </div>
+  </div>
+</div>

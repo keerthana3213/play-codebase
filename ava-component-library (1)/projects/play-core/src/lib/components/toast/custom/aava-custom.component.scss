@@ -1,0 +1,111 @@
+/* Custom Toast Component - Uses only _toast.css token variables */
+
+.ava-toast {
+  pointer-events: auto;
+  display: flex;
+  align-items: flex-start;
+  gap: var(--toast-gap);
+  padding: var(--toast-padding);
+  border-radius: var(--toast-border-radius);
+  box-shadow: var(--toast-shadow);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateY(100px);
+  opacity: 0;
+  max-width: 100%;
+  min-width: var(--toast-min-width);
+  position: relative;
+  overflow: hidden;
+  font-family: var(--font-family-body);
+
+  &.ava-toast-show {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  /* Override min-width when custom width is set */
+  &[style*="width"] {
+    min-width: unset;
+    max-width: calc(100vw - 40px);
+  }
+}
+
+.ava-toast-custom {
+  background: var(--toast-background);
+  color: var(--color-text-primary);
+  border: 1px solid var(--toast-border);
+
+  // Allow custom styling to override defaults
+  &[style*="background"] {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
+.ava-toast-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: var(--toast-margin);
+}
+
+.ava-toast-content {
+  flex: 1;
+  min-width: 0;
+}
+
+.ava-toast-title {
+  font: var(--toast-title-font);
+  color: var(--toast-title-color);
+  font-weight: var(--toast-title-weight);
+  line-height: var(--toast-title-line-height);
+  margin-bottom: var(--toast-title-margin-bottom);
+}
+
+.ava-toast-message {
+  font: var(--toast-title-font);
+  color: var(--toast-message-color);
+  font-weight: var(--toast-message-weight);
+  line-height: var(--toast-title-line-height);
+  margin-bottom: var(--toast-gap);
+}
+
+.ava-toast-close {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  flex-shrink: 0;
+  margin-top: var(--global-spacing-1);
+}
+
+// For light backgrounds, use darker hover states
+.ava-toast-custom:not([style*="background"]) .ava-toast-close {
+  &:hover {
+    background: var(--color-surface-subtle-hover) !important;
+  }
+
+  &:active {
+    background: var(--color-surface-subtle-active) !important;
+  }
+}
+
+.ava-toast-progress {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: rgba(255, 255, 255, 0.3);
+  width: 100%;
+  animation: toast-progress linear;
+}
+
+@keyframes toast-progress {
+  from {
+    width: 100%;
+  }
+
+  to {
+    width: 0%;
+  }
+}

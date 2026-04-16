@@ -1,0 +1,141 @@
+/* Apply Figma Layout to Drawer Content */
+:host ::ng-deep .aava-drawer__content {
+  display: flex;
+  width: 650px;
+  padding: 32px 32px 32px 32px;
+  flex-direction: column;
+  flex-shrink: 0;
+  background: var(--Backgorund-Surface, #FFF);
+  box-shadow: -2px 2px 4px 0 rgba(0, 0, 0, 0.12);
+  overflow-y: auto;
+}
+
+/* Wrapper for all content sections */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 32px; /* 32px gap between all sections */
+  width: 100%;
+  align-items: center;
+}
+
+.drawer-title{
+  flex: 1 0 0;
+  margin: 0;
+/* Heading 2 */
+font-family: var(--Global-Typography-family-Heading, Mulish);
+font-size: var(--Global-Typography-size-xxl, 32px);
+font-style: normal;
+font-weight: var(--Global-Typography-weight-Bold, 700);
+line-height: var(--Global-Typography-line-height-H2, 38.4px); /* 120% */
+background: var(--Gradient-Gradient-Dark, linear-gradient(109deg, var(--Colors-Brand-Primary, #E91E63) 4.7%, var(--Colors-Brand-Secondary, #9C27B0) 94.91%));
+background-clip: text;
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent;
+}
+
+.drawer-subtitle{
+  align-self: stretch;
+  margin: 0;
+  color: var(--Brand-and-Accent-Text-Caption, #6B7280);
+/* Heading 4 */
+font-family: var(--Global-Typography-family-Heading, Mulish);
+font-size: var(--Global-Typography-size-lg, 20px);
+font-style: normal;
+font-weight: var(--Global-Typography-weight-Semi-bold, 600);
+line-height: var(--Global-Typography-line-height-H4, 24px); /* 120% */
+}
+
+/* Tags Section */
+.agent-tags{
+  display: flex;
+  align-items: flex-start;
+  align-content: flex-start;
+  gap: 12px;
+  align-self: stretch;
+  flex-wrap: wrap;
+  width: 100%;
+  padding:8px;
+}
+
+/* Category Section */
+.agent-stats{
+  display: flex;
+  padding: 12px 24px;
+  justify-content: space-between;
+  align-items: center;
+  align-self: stretch;
+  border-radius: 12px;
+  border-top: 0.5px solid var(--Gradient-Gradient-Medium, #F06896);
+  border-bottom: 0.5px solid var(--Gradient-Gradient-Medium, #F06896);
+  width: 100%;
+  background: white;
+}
+
+/* What it's for Section - Card */
+.what-its-for-section{
+  display: flex;
+  padding: 24px;
+  flex-direction: column;
+  gap: 12px;
+  align-self: stretch;
+  border-radius: 12px;
+  background: var(--Gradient-Gradient-Light, linear-gradient(180deg, var(--Brand-Primary-50, #FDE9EF) 0%, var(--Brand-Tertiary-50, #F0EBF8) 100%));
+  width: 100%;
+}
+.section-title{
+  flex: 1 0 0;
+  margin: 0;
+  color: var(--Neutral-N-900, #3D415C);
+/* Heading 3 */
+font-family: var(--Global-Typography-family-Heading, Mulish);
+font-size: var(--Global-Typography-size-xl, 24px);
+font-style: normal;
+font-weight: var(--Global-Typography-weight-Semi-bold, 600);
+line-height: var(--Global-Typography-line-height-H3, 28.8px); /* 120% */
+}
+.section-description{
+  align-self: stretch;
+  margin: 0;
+  color: var(--Brand-and-Accent-Text-Caption, #6B7280);
+/* Body 1 */
+font-family: var(--Global-Typography-family-Body, Inter);
+font-size: var(--global-typography-size-md-base, 16px);
+font-style: normal;
+font-weight: var(--Global-Typography-weight-Regular, 400);
+line-height: var(--Global-Typography-line-height-Body-1, 24px); /* 150% */
+}
+.stat-label{
+  color: var(--Neutral-N-500, #858AAD);
+text-align: center;
+font-family: Mulish;
+font-size: 16px;
+font-style: normal;
+font-weight: 800;
+line-height: 110%; /* 17.6px */
+align-self: stretch;
+}
+.category-value{
+  color: var(--Neutral-N-600, #666D99);
+text-align: center;
+font-family: Mulish;
+font-size: 18px;
+font-style: normal;
+font-weight: 600;
+line-height: 110%; /* 19.8px */
+}
+.stat-navigation{
+  display: inline-flex;
+}
+
+
+ava-tag{
+  border:none !important;
+}
+:host ::ng-deep  .aava-drawer__body{
+  padding:0px ;
+}
+:host ::ng-deep .aava-drawer__header {
+  padding:0px ;
+  border-bottom: 0px ;
+}

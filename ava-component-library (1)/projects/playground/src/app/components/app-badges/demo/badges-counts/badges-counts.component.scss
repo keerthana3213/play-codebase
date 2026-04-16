@@ -1,0 +1,319 @@
+.demo-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h2 {
+      font-size: 2.5rem;
+      color: #333;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .count-section {
+    margin-bottom: 4rem;
+    padding: 2rem;
+    background: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+
+    h3 {
+      font-size: 1.8rem;
+      color: #333;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid #007bff;
+    }
+
+    > p {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 2rem;
+      line-height: 1.6;
+    }
+  }
+
+  // Count Formatting Section
+  .formatting-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .example-group {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      h4 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .badge-examples {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  // State Counts Section
+  .state-counts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .state-group {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid;
+
+      &.high-priority {
+        border-left-color: #dc3545;
+      }
+
+      &.medium-priority {
+        border-left-color: #ffc107;
+      }
+
+      &.low-priority {
+        border-left-color: #28a745;
+      }
+
+      &.neutral {
+        border-left-color: #6c757d;
+      }
+
+      &.information {
+        border-left-color: #17a2b8;
+      }
+
+      h4 {
+        font-size: 1.2rem;
+        color: #333;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .badge-examples {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  // Size Counts Section
+  .size-counts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+
+    .size-group {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      h4 {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .badge-examples {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  // Real-World Scenarios Section
+  .scenario-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .scenario-item {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border-left: 4px solid #007bff;
+
+      h4 {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .badge-examples {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  // Count Limits Section
+  .limit-examples {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+
+    .limit-group {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+      h4 {
+        font-size: 1.1rem;
+        color: #333;
+        margin-bottom: 0.75rem;
+        font-weight: 600;
+      }
+
+      p {
+        font-size: 0.9rem;
+        color: #666;
+        margin-bottom: 1rem;
+        line-height: 1.5;
+      }
+
+      .badge-examples {
+        display: flex;
+        gap: 0.75rem;
+        align-items: center;
+        flex-wrap: wrap;
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .demo-section {
+    padding: 1rem;
+
+    .demo-header {
+      h2 {
+        font-size: 2rem;
+      }
+
+      p {
+        font-size: 1rem;
+      }
+    }
+
+    .count-section {
+      padding: 1rem;
+      margin-bottom: 2rem;
+
+      h3 {
+        font-size: 1.5rem;
+      }
+
+      .formatting-examples,
+      .state-counts,
+      .size-counts,
+      .scenario-examples,
+      .limit-examples {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+    }
+  }
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .demo-section {
+    .count-section {
+      background: #2d3748;
+      border-color: #4a5568;
+
+      h3 {
+        color: #e2e8f0;
+        border-bottom-color: #63b3ed;
+      }
+
+      > p {
+        color: #a0aec0;
+      }
+    }
+
+    .formatting-examples .example-group,
+    .state-counts .state-group,
+    .size-counts .size-group,
+    .scenario-examples .scenario-item,
+    .limit-examples .limit-group {
+      background: #4a5568;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+
+      h4 {
+        color: #e2e8f0;
+      }
+
+      p {
+        color: #a0aec0;
+      }
+    }
+
+    .scenario-examples .scenario-item {
+      border-left-color: #63b3ed;
+    }
+  }
+}

@@ -1,0 +1,663 @@
+<div class="landing-page">
+  <!-- Main Content -->
+  <main class="landing-main">
+    <div class="container">
+      <!-- Welcome Section -->
+      <section class="welcome-section">
+        <div class="welcome-content">
+          <h2>Welcome to Ava Playground</h2>
+          <p>
+            Explore our collection of UI components with interactive demos and
+            examples
+          </p>
+          <app-theme-toggle></app-theme-toggle>
+        </div>
+      </section>
+
+      <!-- Component Categories -->
+      <section class="components-section">
+        <h3>Component Categories</h3>
+        <div class="component-grid">
+          <!-- Form Components -->
+          <div class="component-category">
+            <h4>Form Components</h4>
+            <div class="component-links">
+              <a routerLink="/autocomplete" class="component-link">
+                <span class="component-icon">🔍</span>
+                <span class="component-name">Autocomplete</span>
+              </a>
+              <a routerLink="/app-button" class="component-link">
+                <span class="component-icon">🔘</span>
+                <span class="component-name">Button</span>
+              </a>
+              <a routerLink="/app-date-input" class="component-link">
+                <span class="component-icon">📅</span>
+                <span class="component-name">Calendar</span>
+              </a>
+              <a routerLink="/app-calendar-demo" class="component-link">
+                <span class="component-icon">📅</span>
+                <span class="component-name">Calendar Demo</span>
+              </a>
+              <a routerLink="/app-checkbox" class="component-link">
+                <span class="component-icon">☑️</span>
+                <span class="component-name">Checkbox</span>
+              </a>
+              <a routerLink="/app-dropdown" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Dropdown</span>
+              </a>
+              <!-- <a routerLink="/app-file-upload" class="component-link">
+                <span class="component-icon">📁</span>
+                <span class="component-name">File Upload</span>
+              </a> -->
+              <a routerLink="/app-glass-button" class="component-link">
+                <span class="component-icon">🔘</span>
+                <span class="component-name">Glass Button</span>
+              </a>
+              <a routerLink="/radio-button" class="component-link">
+                <span class="component-icon">🔘</span>
+                <span class="component-name">Radio Button</span>
+              </a>
+              <a routerLink="/select" class="component-link">
+                <span class="component-icon">🎚️</span>
+                <span class="component-name">Select</span>
+              </a>
+              <a routerLink="/slider" class="component-link">
+                <span class="component-icon">🎚️</span>
+                <span class="component-name">Slider</span>
+              </a>
+              <a routerLink="/textarea" class="component-link">
+                <span class="component-icon">📄</span>
+                <span class="component-name">Textarea</span>
+              </a>
+              <a routerLink="/textbox" class="component-link">
+                <span class="component-icon">📝</span>
+                <span class="component-name">Textbox</span>
+              </a>
+              <a routerLink="/app-timepicker" class="component-link">
+                <span class="component-icon">🕐</span>
+                <span class="component-name">Time Picker</span>
+              </a>
+              <a routerLink="/toggle" class="component-link">
+                <span class="component-icon">🔀</span>
+                <span class="component-name">Toggle</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Display Components -->
+          <div class="component-category">
+            <h4>Display Components</h4>
+            <div class="component-links">
+              <a routerLink="/avatar" class="component-link">
+                <span class="component-icon">👤</span>
+                <span class="component-name">Avatars</span>
+              </a>
+              <a routerLink="/app-badges" class="component-link">
+                <span class="component-icon">🏷️</span>
+                <span class="component-name">Badges</span>
+              </a>
+              <a routerLink="/app-chat-bubble" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Chat Bubble</span>
+              </a>
+              <a routerLink="/cards" class="component-link">
+                <span class="component-icon">🃏</span>
+                <span class="component-name">Cards</span>
+              </a>
+              <a routerLink="/data-grid" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Data Grid</span>
+              </a>
+              <a routerLink="/app-dialog" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Dialog</span>
+              </a>
+              <a routerLink="/app-dividers" class="component-link">
+                <span class="component-icon">➖</span>
+                <span class="component-name">Dividers</span>
+              </a>
+              <a routerLink="/fileupload" class="component-link">
+                <span class="component-icon">📁</span>
+                <span class="component-name">File Upload</span>
+              </a>
+              <a routerLink="/filter" class="component-link">
+                <span class="component-icon">🔍</span>
+                <span class="component-name">Filter</span>
+              </a>
+              <a routerLink="/app-grid" class="component-link">
+                <span class="component-icon">🔲</span>
+                <span class="component-name">Grid</span>
+              </a>
+              <a routerLink="/header" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Header</span>
+              </a>
+              <a routerLink="/app-icons" class="component-link">
+                <span class="component-icon">🎯</span>
+                <span class="component-name">Icons</span>
+              </a>
+              <a routerLink="/app-list" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">List</span>
+              </a>
+              <a routerLink="/app-progress-bar" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">Progress Bar</span>
+              </a>
+              <a routerLink="rating" class="component-link">
+                <span class="component-icon">⭐</span>
+                <span class="component-name">Rating</span>
+              </a>
+              <a routerLink="/search-bar" class="component-link">
+                <span class="component-icon">🔍</span>
+                <span class="component-name">Search Bar</span>
+              </a>
+              <a routerLink="/app-table" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">Table</span>
+              </a>
+              <a routerLink="/nested-table-demo" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Nested Table</span>
+              </a>
+              <a routerLink="/app-tags" class="component-link">
+                <span class="component-icon">🏷️</span>
+                <span class="component-name">Tags</span>
+              </a>
+              <a routerLink="/timeline" class="component-link">
+                <span class="component-icon">🕒</span>
+                <span class="component-name">Timeline views</span>
+              </a>
+              <a routerLink="/trees" class="component-link">
+                <span class="component-icon">➖</span>
+                <span class="component-name">Trees</span>
+              </a>
+              <a routerLink="/app-treeview" class="component-link">
+                <span class="component-icon">🌳</span>
+                <span class="component-name">Tree View</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Navigation Components -->
+          <div class="component-category">
+            <h4>Navigation Components</h4>
+            <div class="component-links">
+              <a routerLink="/app-breadcrumbs" class="component-link">
+                <span class="component-icon">🍞</span>
+                <span class="component-name">Breadcrumbs</span>
+              </a>
+              <a routerLink="/app-layout-demo" class="component-link">
+                <span class="component-icon">🏗️</span>
+                <span class="component-name">Layout</span>
+              </a>
+              <a routerLink="/app-links" class="component-link">
+                <span class="component-icon">🔗</span>
+                <span class="component-name">Links</span>
+              </a>
+              <a routerLink="/app-menu" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Menu</span>
+              </a>
+              <a routerLink="/app-pagination" class="component-link">
+                <span class="component-icon">📄</span>
+                <span class="component-name">Pagination</span>
+              </a>
+              <a routerLink="/app-sidebar" class="component-link">
+                <span class="component-icon">📂</span>
+                <span class="component-name">Sidebar</span>
+              </a>
+              <a routerLink="/app-stepper" class="component-link">
+                <span class="component-icon">👣</span>
+                <span class="component-name">Stepper</span>
+              </a>
+              <a routerLink="/app-tabs" class="component-link">
+                <span class="component-icon">📑</span>
+                <span class="component-name">Tabs</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Feedback Components -->
+          <div class="component-category">
+            <h4>Feedback Components</h4>
+            <div class="component-links">
+              <a routerLink="/app-drawer" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Drawer</span>
+              </a>
+              <a routerLink="/popover" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Pop-over</span>
+              </a>
+              <a routerLink="/app-progress-bar" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">Progress Bar</span>
+              </a>
+              <a routerLink="/app-skeleton" class="component-link">
+                <span class="component-icon">🩻</span>
+                <span class="component-name">Skeleton</span>
+              </a>
+              <a routerLink="/app-app-snackbar" class="component-link">
+                <span class="component-icon">🍿</span>
+                <span class="component-name">Snackbar</span>
+              </a>
+              <a routerLink="/app-loader" class="component-link">
+                <span class="component-icon">⏳</span>
+                <span class="component-name">Loader</span>
+              </a>
+              <a routerLink="/app-flyout" class="component-link">
+                <span class="component-icon">🚀</span>
+                <span class="component-name">Flyout</span>
+              </a>
+              <a routerLink="/app-spinners" class="component-link">
+                <span class="component-icon">🌀</span>
+                <span class="component-name">Spinners</span>
+              </a>
+              <a routerLink="/app-toast" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Toast</span>
+              </a>
+              <a routerLink="/tooltip" class="component-link">
+                <span class="component-icon">💡</span>
+                <span class="component-name">Tooltip</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Utility Components -->
+          <div class="component-category">
+            <h4>Utility Components</h4>
+            <div class="component-links">
+              <a routerLink="/app-accordion" class="component-link">
+                <span class="component-icon">📖</span>
+                <span class="component-name">Accordion</span>
+              </a>
+              <a routerLink="/app-file-attach-pill" class="component-link">
+                <span class="component-icon">📎</span>
+                <span class="component-name">File Attach Pill</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Composite Components -->
+          <div class="component-category">
+            <h4>Composite Components</h4>
+            <div class="component-links">
+              <a routerLink="/app-approval-card" class="component-link">
+                <span class="component-icon">✅</span>
+                <span class="component-name">Approval Card</span>
+              </a>
+              <a routerLink="/carousel" class="component-link">
+                <span class="component-icon">✅</span>
+                <span class="component-name">Carousel</span>
+              </a>
+              <a routerLink="/app-chat-panel" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Chat panel</span>
+              </a>
+              <a routerLink="/app-chat-window" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Chat Window</span>
+              </a>
+              <a routerLink="/cubical-loading" class="component-link">
+                <span class="component-icon">🎲</span>
+                <span class="component-name">Cubical Loading</span>
+              </a>
+              <a routerLink="/app-custom-data-grid" class="component-link">
+                <span class="component-icon">🗃️</span>
+                <span class="component-name">Custom Data Grid</span>
+              </a>
+              <a routerLink="/app-custom-sidebar" class="component-link">
+                <span class="component-icon">📂</span>
+                <span class="component-name">Custom Sidebar</span>
+              </a>
+              <a routerLink="/app-dashboard-widget-grid" class="component-link">
+                <span class="component-icon">📈</span>
+                <span class="component-name">Dashboard Widget Grid</span>
+              </a>
+              <a routerLink="/app-data-table-with-actions" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">Data Table with Actions</span>
+              </a>
+              <a routerLink="/app-date-time-picker" class="component-link">
+                <span class="component-icon">📅⏰</span>
+                <span class="component-name">Date Time Picker</span>
+              </a>
+              <a routerLink="/filter" class="component-link">
+                <span class="component-icon">✅</span>
+                <span class="component-name">Filter</span>
+              </a>
+              <a routerLink="/app-flip-card" class="component-link">
+                <span class="component-icon">🔄</span>
+                <span class="component-name">Flip Card</span>
+              </a>
+              <a routerLink="/footer" class="component-link">
+                <span class="component-icon">🔐</span>
+                <span class="component-name">Footer</span>
+              </a>
+              <a routerLink="/app-journal-data-grid" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">Journal Data Grid</span>
+              </a>
+              <a routerLink="/app-launchpad-dashboard" class="component-link">
+                <span class="component-icon">✅</span>
+                <span class="component-name">LaunchPad Dashboard</span>
+              </a>
+              <a routerLink="/app-list-card" class="component-link">
+                <span class="component-icon">📋</span>
+                <span class="component-name">List Card</span>
+              </a>
+              <a routerLink="/app-login" class="component-link">
+                <span class="component-icon">🔐</span>
+                <span class="component-name">Login</span>
+              </a>
+              <a routerLink="/app-multi-step-form-wizard" class="component-link">
+                <span class="component-icon">📝</span>
+                <span class="component-name">Multi-Step Form Wizard</span>
+              </a>
+              <a routerLink="/app-nav-bar" class="component-link">
+                <span class="component-icon">🧭</span>
+                <span class="component-name">Navigation Bar</span>
+              </a>
+              <a routerLink="/promptbar" class="component-link">
+                <span class="component-icon">💬</span>
+                <span class="component-name">Prompt Bar</span>
+              </a>
+              <a routerLink="/app-rating-card" class="component-link">
+                <span class="component-icon">⭐</span>
+                <span class="component-name">Rating Card</span>
+              </a>
+              <a routerLink="/app-search-filter-panel" class="component-link">
+                <span class="component-icon">🔍</span>
+                <span class="component-name">Search Filter Panel</span>
+              </a>
+              <a routerLink="/app-sso-login" class="component-link">
+                <span class="component-icon">🔐</span>
+                <span class="component-name">SSO Login</span>
+              </a>
+              <a routerLink="/reset-password" class="component-link">
+                <span class="component-icon">🔑</span>
+                <span class="component-name">Reset Password</span>
+              </a>
+              <a routerLink="/app-text-card" class="component-link">
+                <span class="component-icon">📝</span>
+                <span class="component-name">Text Card</span>
+              </a>
+              <a routerLink="/app-textarea-counter" class="component-link">
+                <span class="component-icon">📄</span>
+                <span class="component-name">Textarea Counter</span>
+              </a>
+              <a routerLink="/app-user-data-table" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">User Data Table with Customized</span>
+              </a>
+              <a routerLink="/app-user-profile-card" class="component-link">
+                <span class="component-icon">👤</span>
+                <span class="component-name">User Profile Card</span>
+              </a>
+              <a routerLink="/app-views-card" class="component-link">
+                <span class="component-icon">📊</span>
+                <span class="component-name">Views Card</span>
+              </a>
+              <a routerLink="/cards/image-card" class="component-link">
+                <span class="component-icon">🖼️</span>
+                <span class="component-name">Image Card</span>
+              </a>
+              <a routerLink="cards/text-card" class="component-link">
+                <span class="component-icon">🖼️</span>
+                <span class="component-name">Text Card</span>
+              </a>
+            </div>
+          </div>
+          <!-- Developer Tools -->
+          <div class="component-category">
+            <h4>Developer Tools</h4>
+            <div class="component-links">
+              <a routerLink="/high-contrast-test" class="component-link">
+                <span class="component-icon">♿</span>
+                <span class="component-name">High Contrast Test</span>
+              </a>
+              <a routerLink="/theme-demo" class="component-link">
+                <span class="component-icon">🎨</span>
+                <span class="component-name">URL Theme Demo</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Test Components -->
+          <div class="component-category">
+            <h4>Test Components</h4>
+            <div class="component-links">
+              <a routerLink="/test-accordion" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Accordion</span>
+              </a>
+              <a routerLink="/test-alert" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Alert</span>
+              </a>
+              <a routerLink="/test-avatars" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Avatars</span>
+              </a>
+              <a routerLink="/test-badges" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Badges</span>
+              </a>
+              <a routerLink="/test-banner" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Banner</span>
+              </a>
+              <a routerLink="/test-basic-card" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Basic Card</span>
+              </a>
+              <a routerLink="/test-button" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Button</span>
+              </a>
+              <a routerLink="/test-calendar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Date picker</span>
+              </a>
+              <a routerLink="/test-carousel" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Carousel</span>
+              </a>
+              <a routerLink="/test-chat-bubble" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Chat bubble</span>
+              </a>
+              <a routerLink="/test-chat-panel" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Chat panel</span>
+              </a>
+              <a routerLink="/test-checkbox" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Checkbox</span>
+              </a>
+              <a routerLink="/test-confetti" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Confetti</span>
+              </a>
+              <a routerLink="/test-dividers" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Dividers</span>
+              </a>
+              <a routerLink="/test-drawer" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Drawer</span>
+              </a>
+              <a routerLink="/test-fileupload" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test FileUpload</span>
+              </a>
+              <a routerLink="/test-flyout" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Flyout</span>
+              </a>
+              <a routerLink="/test-footer" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Footer</span>
+              </a>
+              <a routerLink="/test-header" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Header</span>
+              </a>
+              <a routerLink="/test-img-card" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Image Card</span>
+              </a>
+              <a routerLink="/test-list" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test list</span>
+              </a>
+              <a routerLink="/test-list-card" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test List Card</span>
+              </a>
+              <a routerLink="/test-modal" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Modal</span>
+              </a>
+              <a routerLink="/test-otp" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test OTP</span>
+              </a>
+              <a routerLink="/test-pagination" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Pagination</span>
+              </a>
+              <a routerLink="/test-progressbar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Progress Bar</span>
+              </a>
+              <a routerLink="/test-prompt-bar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test PromptBar</span>
+              </a>
+              <a routerLink="/test-radio-button" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Radio Button</span>
+              </a>
+              <a routerLink="/test-rating" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Rating</span>
+              </a>
+              <a routerLink="/test-custom-sidebar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Custom SideBar</span>
+              </a>
+              <a routerLink="/test-search-bar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Search Bar</span>
+              </a>
+              <a routerLink="/test-select" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Select</span>
+              </a>
+              <a routerLink="/test-select-flyout" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Select Flyout</span>
+              </a>
+              <a routerLink="/slider" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Slider</span>
+              </a>
+              <a routerLink="/test-snackbar" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Snackbar</span>
+              </a>
+              <a routerLink="/test-sso-login" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test SSO Login</span>
+              </a>
+              <a routerLink="/test-spinner" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Spinner</span>
+              </a>
+              <a routerLink="/test-status-badge" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Status Badge</span>
+              </a>
+              <a routerLink="/test-stepper" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Stepper</span>
+              </a>
+              <a routerLink="/test-tab-group" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Tab Group</span>
+              </a>
+              <a routerLink="/test-tabs" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Tabs</span>
+              </a>
+              <a routerLink="/test-tags" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Tags</span>
+              </a>
+              <a routerLink="/test-textarea" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Textarea</span>
+              </a>
+              <a routerLink="/test-textbox" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Textbox</span>
+              </a>
+              <a routerLink="/test-timepicker" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Time Picker</span>
+              </a>
+              <a routerLink="/test-timeline" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Timeline</span>
+              </a>
+              <a routerLink="/test-toggle" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Toggle</span>
+              </a>
+              <a routerLink="/test-toaster" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Toaster</span>
+              </a>
+              <a routerLink="/test-tooltip" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Tooltip</span>
+              </a>
+              <a routerLink="/test-treeview" class="component-link">
+                <span class="component-icon">🧪</span>
+                <span class="component-name">Test Treeview</span>
+              </a>
+            </div>
+          </div>
+
+          <!-- Design System -->
+          <div class="component-category">
+            <h4>Design System</h4>
+            <div class="component-links">
+              <a routerLink="/typography-playground" class="component-link">
+                <span class="component-icon">🔤</span>
+                <span class="component-name">Typography Playground</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="landing-footer">
+    <div class="container">
+      <p>
+        &copy; 2024 Ava Component Library. Built with Angular and modern web
+        technologies.
+      </p>
+    </div>
+  </footer>
+
+  <!-- Snackbar for notifications -->
+  <aava-snackbar></aava-snackbar>
+</div>

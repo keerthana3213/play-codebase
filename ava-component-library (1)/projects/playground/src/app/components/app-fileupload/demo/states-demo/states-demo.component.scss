@@ -1,0 +1,39 @@
+.center-demo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.demo-section {
+  margin-bottom: 2rem;
+  padding: 2rem;
+  max-width: 870px;
+  margin-top: 0;
+}
+
+.demo-examples {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  justify-content: center;
+}
+
+.example-group {
+  h4 {
+    margin-bottom: 1rem;
+    color: #333;
+    font-size: 1.1rem;
+    text-align: center;
+  }
+}
+
+.result {
+  padding: 1rem;
+  background-color: var(--surface-secondary, #f8f9fa);
+  border-radius: 8px;
+  border-left: 4px solid var(--primary-color, #007bff);
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}

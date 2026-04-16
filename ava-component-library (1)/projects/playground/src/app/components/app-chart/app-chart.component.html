@@ -1,0 +1,144 @@
+
+
+<div class="documentation">
+  <!-- Header -->
+  <div class="row">
+    <div class="col-12">
+      <header class="doc-header">
+        <h1>Chart Component</h1>
+        <p class="description">
+          A versatile chart component that visualizes data in a clear, structured format with support for interactive features, customizable chart types, and responsive design. Built with accessibility and user experience in mind.
+        </p>
+      </header>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Installation</h2>
+        <div class="code-block">
+          <pre><code>import {{ '{' }} ChartComponent {{ '}' }} from '&#64;awe/@aava/play-core';</code></pre>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  
+
+  <!-- Documentation Sections -->
+  <div class="doc-sections">
+    <section *ngFor="let section of sections; let i = index" class="doc-section">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+                <awe-icons [iconName]="section.showCode ? 'awe_arrow_back_up' : 'awe_arrow_back_down'" iconColor="action"></awe-icons>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Code Example -->
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Line Chart with Time Scale and Grid'">
+              <awe-charts [options]="lineChartOptions"></awe-charts>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Bar Chart with Linear Scale and Custom Styles'">
+              <awe-charts [options]="barChartOptions"></awe-charts>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Scatter Plot with Log Scale and Dashed Line'">
+              <awe-charts [options]="scatterPlotOptions"></awe-charts>
+            </ng-container>
+            <ng-container *ngSwitchCase="'Pie Chart'">
+              <awe-charts [options]="pieChartOptions"></awe-charts>
+            </ng-container>
+
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getTabCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <awe-icons iconName="awe_copy"></awe-icons>
+          </button>
+        </div>
+      </div>
+    </section>
+
+
+  </div>
+
+
+    <!-- API Reference -->
+    <div class="row">
+      <div class="col-12">
+        <section class="doc-section api-reference">
+          <h2>API Reference</h2>
+          <table class="api-table">
+            <thead>
+              <tr>
+                <th>Property</th>
+                <th>Type</th>
+                <th>Default</th>
+                <th>Description</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let prop of apiProps">
+                <td><code>{{ prop.name }}</code></td>
+                <td><code>{{ prop.type }}</code></td>
+                <td><code>{{ prop.default }}</code></td>
+                <td>{{ prop.description }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+
+      <!-- Events -->
+   <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Events</h2>
+        <table class="api-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Type</th>
+              <th>Description</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>chartClick</code></td>
+              <td><code>EventEmitter&lt;ChartEvent&gt;</code></td>
+              <td>Emitted when the chart is clicked</td>
+            </tr>
+            <tr>
+              <td><code>chartHover</code></td>
+              <td><code>EventEmitter&lt;ChartEvent&gt;</code></td>
+              <td>Emitted when hovering over chart elements</td>
+            </tr>
+            <tr>
+              <td><code>chartLeave</code></td>
+              <td><code>EventEmitter&lt;ChartEvent&gt;</code></td>
+              <td>Emitted when mouse leaves chart elements</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+    </div>
+  </div>

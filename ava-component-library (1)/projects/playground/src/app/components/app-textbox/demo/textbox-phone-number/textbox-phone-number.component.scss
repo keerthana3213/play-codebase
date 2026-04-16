@@ -1,0 +1,59 @@
+.phone-demo-container {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  h2 {
+    color: var(--color-text-primary);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .demo-section {
+    margin-bottom: 3rem;
+    padding: 1.5rem;
+    border: 1px solid var(--color-border-light);
+    border-radius: 8px;
+    background: var(--color-surface-primary);
+
+    h3 {
+      color: var(--color-text-primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.2rem;
+      text-align: center;
+    }
+
+    // Create 2-column layout like in the requirement
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .variant-examples {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    ava-textbox {
+      width: 100%;
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .phone-demo-container {
+    padding: 1rem;
+
+    .demo-section {
+      padding: 1rem;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .variant-examples {
+      gap: 1rem;
+    }
+  }
+}

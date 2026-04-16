@@ -1,0 +1,185 @@
+.demo-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.demo-section {
+  display: flex;
+  justify-content: center;
+  min-height: 60vh;
+}
+
+.icon-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.icon-group {
+  padding: 1.5rem;
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.tag-demo {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.75rem;
+}
+
+.semantic-examples {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.semantic-group {
+  padding: 1.5rem;
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+.tag-examples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  align-items: center;
+  min-height: 2.5rem;
+  padding: 0.75rem;
+}
+
+.guidelines-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.guideline-card {
+  padding: 1.5rem;
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  li {
+    color: #6b7280;
+    padding: 0.25rem 0;
+    position: relative;
+    padding-left: 1.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+
+    &::before {
+      content: "•";
+      color: #3b82f6;
+      font-weight: bold;
+      position: absolute;
+      left: 0;
+    }
+  }
+}
+
+.best-practices {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.practice-card {
+  padding: 1.5rem;
+
+  h4 {
+    color: #374151;
+    font-size: 1.125rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  p {
+    color: #6b7280;
+    font-size: 0.875rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .demo-container {
+    padding: 1rem;
+  }
+
+  .guidelines-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .best-practices {
+    grid-template-columns: 1fr;
+  }
+
+  .tag-demo,
+  .tag-examples {
+    gap: 0.5rem;
+  }
+}
+
+// Interactive elements
+ava-tag {
+  &:focus {
+    outline: 2px solid #3b82f6;
+    outline-offset: 2px;
+  }
+}
+
+// Animation for icon examples
+.icon-group {
+  transition: all 0.2s ease;
+}
+
+.semantic-group {
+  transition: all 0.2s ease;
+}
+
+// Icon-specific styling
+.tag-demo ava-tag,
+.tag-examples ava-tag {
+  transition: all 0.2s ease;
+}

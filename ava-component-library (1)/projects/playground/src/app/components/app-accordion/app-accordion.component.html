@@ -1,0 +1,516 @@
+<div class="accordion-demo-page">
+  <!-- Header -->
+  <div class="demo-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <header class="doc-header">
+            <h1>Accordion Component</h1>
+            <p class="description">
+              A flexible collapsible content component with smooth animations,
+              icon support, and accessibility features for organizing and
+              displaying expandable sections.
+            </p>
+          </header>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Navigation Links to Demo Sections -->
+  <div class="demo-navigation">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="nav-links">
+            <h3>Demo Sections</h3>
+            <div class="nav-grid">
+              <a routerLink="/accordion/basic-usage" class="nav-link">
+                <span class="nav-icon">📝</span>
+                <span class="nav-text">Basic Usage</span>
+              </a>
+              <a routerLink="/accordion/types" class="nav-link">
+                <span class="nav-icon">🎨</span>
+                <span class="nav-text">Types</span>
+              </a>
+              <a routerLink="/accordion/sizes" class="nav-link">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Sizes</span>
+              </a>
+              <a routerLink="/accordion/icons" class="nav-link">
+                <span class="nav-icon">🎯</span>
+                <span class="nav-text">Icons</span>
+              </a>
+              <a routerLink="/accordion/animation" class="nav-link">
+                <span class="nav-icon">✨</span>
+                <span class="nav-text">Animation</span>
+              </a>
+              <a routerLink="/accordion/controlled" class="nav-link">
+                <span class="nav-icon">🎛️</span>
+                <span class="nav-text">Controlled Mode</span>
+              </a>
+              <a routerLink="/accordion/positions" class="nav-link">
+                <span class="nav-icon">📍</span>
+                <span class="nav-text">Positions</span>
+              </a>
+              <a routerLink="/accordion/content" class="nav-link">
+                <span class="nav-icon">📄</span>
+                <span class="nav-text">Content Projection</span>
+              </a>
+              <a routerLink="/accordion/accessibility" class="nav-link">
+                <span class="nav-icon">♿</span>
+                <span class="nav-text">Accessibility</span>
+              </a>
+              <a routerLink="/accordion/api" class="nav-link">
+                <span class="nav-icon">📚</span>
+                <span class="nav-text">API Reference</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Demo Sections -->
+  <div class="demo-sections">
+    <!-- Basic Usage -->
+    <section class="demo-section basic-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Basic Usage</h2>
+          <p>
+            Simple accordion implementations with expandable content sections
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-accordion>
+                <span header>Frequently Asked Questions</span>
+                <div content>
+                  <p>
+                    Here are the most common questions and answers about our
+                    product and services.
+                  </p>
+                  <ul>
+                    <li>How do I get started?</li>
+                    <li>What are the pricing plans?</li>
+                    <li>How can I contact support?</li>
+                  </ul>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-accordion [expanded]="true">
+                <span header>Getting Started Guide</span>
+                <div content>
+                  <p>Follow these steps to get up and running quickly:</p>
+                  <ol>
+                    <li>Create your account</li>
+                    <li>Complete your profile</li>
+                    <li>Explore the dashboard</li>
+                    <li>Start building!</li>
+                  </ol>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Types -->
+    <section class="demo-section types-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Accordion Types</h2>
+          <p>
+            Different accordion layouts for various content organization
+            patterns
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <h4>Default Type</h4>
+              <aava-accordion
+                type="default"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Default Accordion</span>
+                <div content>
+                  <p>
+                    Standard accordion with expandable icons and smooth
+                    animations.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <h4>Title Icon Type</h4>
+              <aava-accordion
+                type="titleIcon"
+                titleIcon="settings"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Settings Panel</span>
+                <div content>
+                  <p>
+                    Accordion with static title icon and separate
+                    expand/collapse control.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Icons -->
+    <section class="demo-section icons-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Icon Integration</h2>
+          <p>
+            Lucide icon integration with customizable states and positioning
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                iconClosed="plus"
+                iconOpen="minus"
+                iconPosition="right"
+              >
+                <span header>Plus/Minus Icons</span>
+                <div content>
+                  <p>
+                    Using plus and minus icons for clear expand/collapse
+                    indication.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                iconClosed="chevron-right"
+                iconOpen="chevron-down"
+                iconPosition="left"
+              >
+                <span header>Chevron Icons</span>
+                <div content>
+                  <p>Traditional chevron icons with left positioning.</p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                type="titleIcon"
+                titleIcon="folder"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Folder with Chevron</span>
+                <div content>
+                  <p>Static folder icon with animated chevron for expansion.</p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Animation -->
+    <section class="demo-section animation-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Animation Effects</h2>
+          <p>Configurable smooth animations with height-based transitions</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <h4>With Animation (Default)</h4>
+              <aava-accordion
+                [animation]="true"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Animated Accordion</span>
+                <div content>
+                  <p>
+                    This accordion has smooth height-based animations enabled.
+                  </p>
+                  <p>
+                    The content smoothly expands and collapses with calculated
+                    dimensions.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <h4>Without Animation</h4>
+              <aava-accordion
+                [animation]="false"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Instant Accordion</span>
+                <div content>
+                  <p>
+                    This accordion has animations disabled for instant
+                    expansion.
+                  </p>
+                  <p>
+                    Useful for performance-critical applications or when
+                    animations aren't desired.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controlled Mode -->
+    <section class="demo-section controlled-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Controlled Mode</h2>
+          <p>External state management for complex interaction patterns</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="controls mb-3">
+                <button class="btn btn-primary me-2" (click)="openAll()">
+                  Open All
+                </button>
+                <button class="btn btn-secondary me-2" (click)="closeAll()">
+                  Close All
+                </button>
+                <button class="btn btn-info" (click)="toggleFirst()">
+                  Toggle First
+                </button>
+              </div>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                [expanded]="controlledStates[0]"
+                [controlled]="true"
+                (click)="toggleControlled(0)"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Controlled Accordion 1</span>
+                <div content>
+                  <p>This accordion's state is controlled externally.</p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                [expanded]="controlledStates[1]"
+                [controlled]="true"
+                (click)="toggleControlled(1)"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Controlled Accordion 2</span>
+                <div content>
+                  <p>
+                    External state management allows for complex interactions.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-4">
+              <aava-accordion
+                [expanded]="controlledStates[2]"
+                [controlled]="true"
+                (click)="toggleControlled(2)"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Controlled Accordion 3</span>
+                <div content>
+                  <p>Perfect for coordinating multiple accordions.</p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Positions -->
+    <section class="demo-section positions-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Icon Positions</h2>
+          <p>Flexible icon positioning for optimal layout integration</p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <h4>Left Icons (Default)</h4>
+              <aava-accordion
+                iconPosition="left"
+                iconClosed="chevron-right"
+                iconOpen="chevron-down"
+              >
+                <span header>Left Positioned Icons</span>
+                <div content>
+                  <p>Icons positioned on the left side of the header.</p>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <h4>Right Icons</h4>
+              <aava-accordion
+                iconPosition="right"
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+              >
+                <span header>Right Positioned Icons</span>
+                <div content>
+                  <p>
+                    Icons positioned on the right side for different visual
+                    emphasis.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Content Projection -->
+    <section class="demo-section content-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Content Projection</h2>
+          <p>
+            Advanced content organization with flexible header and body sections
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12 col-md-6">
+              <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up">
+                <div header>
+                  <h4 style="margin: 0; color: #1e293b">Rich Header Content</h4>
+                  <small style="color: #64748b"
+                    >With subtitle and description</small
+                  >
+                </div>
+                <div content>
+                  <p>Support for complex header content including:</p>
+                  <ul>
+                    <li>Multiple text elements</li>
+                    <li>Different font sizes</li>
+                    <li>Color variations</li>
+                    <li>Rich formatting</li>
+                  </ul>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-accordion iconClosed="chevron-down" iconOpen="chevron-up">
+                <div header>
+                  <div style="display: flex; align-items: center; gap: 8px">
+                    <span style="font-size: 20px">📊</span>
+                    <span>Analytics Dashboard</span>
+                  </div>
+                </div>
+                <div content>
+                  <div
+                    style="
+                      background: #f8fafc;
+                      padding: 16px;
+                      border-radius: 8px;
+                    "
+                  >
+                    <h5>Dashboard Content</h5>
+                    <p>Rich content with custom styling and layout.</p>
+                    <button class="btn btn-primary btn-sm">View Details</button>
+                  </div>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Accessibility -->
+    <section class="demo-section accessibility-bg">
+      <div class="container">
+        <div class="section-header">
+          <h2>Accessibility Features</h2>
+          <p>
+            Built-in accessibility features ensuring inclusive user experience
+          </p>
+        </div>
+        <div class="demo-content">
+          <div class="row g-3">
+            <div class="col-12">
+              <div class="accessibility-info mb-3">
+                <h4>Keyboard Navigation</h4>
+                <p>
+                  Use <kbd>Tab</kbd> to navigate, <kbd>Enter</kbd> or
+                  <kbd>Space</kbd> to expand/collapse
+                </p>
+              </div>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-accordion
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+                [expanded]="false"
+              >
+                <span header>Accessible Accordion</span>
+                <div content>
+                  <p>This accordion includes:</p>
+                  <ul>
+                    <li>Proper ARIA attributes</li>
+                    <li>Keyboard navigation support</li>
+                    <li>Screen reader compatibility</li>
+                    <li>Focus management</li>
+                  </ul>
+                </div>
+              </aava-accordion>
+            </div>
+            <div class="col-12 col-md-6">
+              <aava-accordion
+                iconClosed="chevron-down"
+                iconOpen="chevron-up"
+                [expanded]="true"
+              >
+                <span header>Pre-expanded Accordion</span>
+                <div content>
+                  <p>
+                    This accordion starts expanded to show important content
+                    immediately.
+                  </p>
+                  <p>
+                    Useful for critical information that should be visible by
+                    default.
+                  </p>
+                </div>
+              </aava-accordion>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</div>

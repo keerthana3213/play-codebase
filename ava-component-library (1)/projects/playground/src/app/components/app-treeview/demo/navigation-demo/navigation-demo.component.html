@@ -1,0 +1,75 @@
+<div class="navigation-demo">
+  <div class="demo-description">
+    <h2>Navigation Demo</h2>
+    <p>
+      Tree view component configured for navigation purposes with breadcrumb
+      navigation and hierarchical menu structure.
+    </p>
+  </div>
+
+  <div class="demo-container">
+    <div class="tree-section">
+      <h3>Navigation Tree</h3>
+      <div class="tree-container">
+        <aava-tree
+          [data]="navigationNodes"
+          [selectionMode]="'single'"
+          (nodeClick)="onNodeSelect($event)"
+        ></aava-tree>
+      </div>
+    </div>
+
+    <div class="breadcrumb-section" *ngIf="breadcrumbPath">
+      <h3>Breadcrumb Navigation</h3>
+      <div class="breadcrumb">
+        <span class="breadcrumb-item">{{ breadcrumbPath }}</span>
+      </div>
+    </div>
+
+    <div class="selection-section" *ngIf="selectedNode">
+      <h3>Selected Navigation Item</h3>
+      <div class="selection-info">
+        <div class="info-item">
+          <span class="label">Name:</span>
+          <span class="value">{{ selectedNode.name }}</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Type:</span>
+          <span class="value">
+            {{ selectedNode.children && selectedNode.children.length > 0 ? 'Section' : 'Page' }}
+          </span>
+        </div>
+        <div class="info-item">
+          <span class="label">Icon:</span>
+          <span class="value">{{ selectedNode.icon }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="features-section">
+    <h3>Features Demonstrated</h3>
+    <ul>
+      <li>
+        <strong>Navigation Structure:</strong> Hierarchical menu and navigation
+        system
+      </li>
+      <li>
+        <strong>Breadcrumb Navigation:</strong> Visual path representation for
+        current location
+      </li>
+      <li>
+        <strong>Section Organization:</strong> Logical grouping of related
+        navigation items
+      </li>
+      <li>
+        <strong>Icon Support:</strong> Visual indicators for different
+        navigation types
+      </li>
+      <li>
+        <strong>Selection Feedback:</strong> Clear indication of current
+        navigation state
+      </li>
+    </ul>
+  </div>
+</div>

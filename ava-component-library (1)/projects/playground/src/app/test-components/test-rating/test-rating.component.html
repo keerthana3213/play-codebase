@@ -1,0 +1,33 @@
+<div class="rating-demo">
+
+    <div class="rating-item">
+        <label>Readonly 4.5 Stars</label>
+        <aava-rating [value]="4.5" [readonly]="true" [showValue]="true"></aava-rating>
+    </div>
+
+    <div class="rating-item">
+        <label>Interactive (Click to Rate)</label>
+        <aava-rating [showValue]="true" (rated)="onRated($event)"></aava-rating>
+    </div>
+
+    <div class="rating-item">
+        <label>XSmall (1.5)</label>
+        <aava-rating [value]="1.5" size="xs" [showValue]="true"></aava-rating>
+    </div>
+
+    <div class="rating-item">
+        <label>Small (2.5)</label>
+        <aava-rating [value]="2.5" size="sm" [showValue]="true"></aava-rating>
+    </div>
+
+    <div class="rating-item">
+        <label>Medium (3.5)</label>
+        <aava-rating [value]="3.5" size="md" [showValue]="true"></aava-rating>
+    </div>
+
+    <div class="rating-item">
+        <label>Large (Empty)</label>
+        <aava-rating size="lg" [showValue]="true"></aava-rating>
+    </div>
+
+</div>

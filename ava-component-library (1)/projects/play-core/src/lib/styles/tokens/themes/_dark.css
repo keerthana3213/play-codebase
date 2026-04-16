@@ -1,0 +1,399 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Dark Theme
+ *
+ * Dark theme overrides for semantic tokens.
+ * This theme uses lighter shades of the same colors from the light theme
+ * to ensure better contrast and readability on dark backgrounds.
+ * =========================================================================
+ */
+
+[data-theme="dark"] {
+    --global-color-pink-50: #620D2A;
+    --global-color-pink-100: #801136;
+    --global-color-pink-200: #A51546;
+    --global-color-pink-300: #D41B5A;
+    --global-color-pink-400: #E91E63;
+    --global-color-pink-500: #ED4B82;
+    --global-color-pink-600: #F06896;
+    --global-color-pink-700: #F598B7;
+    --global-color-pink-800: #F8B9CF;
+    --global-color-pink-900: #FDE9EF;
+    /*Blue*/
+    --global-color-blue-50: #0F2A63;
+    --global-color-blue-100: #143681;
+    --global-color-blue-200: #1A46A7;
+    --global-color-blue-300: #215AD6;
+    --global-color-blue-400: #2563EB;
+    --global-color-blue-500: #5082EF;
+    --global-color-blue-600: #6C96F2;
+    --global-color-blue-700: #9AB7F6;
+    --global-color-blue-800: #BBCFF9;
+    --global-color-blue-900: #E9EFFD;
+
+    /*Pulse blue*/
+    --global-color-pulse-blue-50: #00376B;
+    --global-color-pulse-blue-100: #00498C;
+    --global-color-pulse-blue-200: #005EB5;
+    --global-color-pulse-blue-300: #0078E8;
+    --global-color-pulse-blue-400: #0084FF;
+    --global-color-pulse-blue-500: #339DFF;
+    --global-color-pulse-blue-600: #54ADFF;
+    --global-color-pulse-blue-700: #8AC6FF;
+    --global-color-pulse-blue-800: #B0D9FF;
+    --global-color-pulse-blue-900: #E6F3FF;
+
+    /* purple*/
+    --global-color-deep-purple-50: #2B184D;
+    --global-color-deep-purple-100: #392065;
+    --global-color-deep-purple-200: #492982;
+    --global-color-deep-purple-300: #5E35A7;
+    --global-color-deep-purple-400: #673AB7;
+    --global-color-deep-purple-500: #8561C5;
+    --global-color-deep-purple-600: #997BCF;
+    --global-color-deep-purple-700: #B9A4DE;
+    --global-color-deep-purple-800: #D0C2E9;
+    --global-color-deep-purple-900: #F0EBF8;
+    /*violet*/
+    --global-color-violet-50: #341864;
+    --global-color-violet-100: #442082;
+    --global-color-violet-200: #7C3AED;
+    --global-color-violet-300: #7C3AED;
+    --global-color-violet-400: #7C3AED;
+    --global-color-violet-500: #A77BF3;
+    --global-color-violet-600: #A77BF3;
+    --global-color-violet-700: #C3A4F7;
+    --global-color-violet-800: #D6C2F9;
+    --global-color-violet-900: #F2EBFD;
+    /*Ryal blue*/
+    --global-color-royal-blue-50: #143681;
+    --global-color-royal-blue-100: #143681;
+    --global-color-royal-blue-200: #1A46A7;
+    --global-color-royal-blue-300: #215AD6;
+    --global-color-royal-blue-400: #2563EB;
+    --global-color-royal-blue-500: #5082EF;
+    --global-color-royal-blue-600: #6C96F2;
+    --global-color-royal-blue-700: #9AB7F6;
+    --global-color-royal-blue-800: #BBCFF9;
+    --global-color-royal-blue-900: #E9EFFD;
+    /*Rose*/
+    --global-color-rose-50: #692F41;
+    --global-color-rose-100: #8A3E55;
+    --global-color-rose-200: #B2506D;
+    --global-color-rose-300: #E4668C;
+    --global-color-rose-400: #FA709A;
+    --global-color-rose-500: #FB8DAE;
+    --global-color-rose-600: #FC9FBB;
+    --global-color-rose-700: #FDBDD1;
+    --global-color-rose-800: #FDD3E0;
+    --global-color-rose-900: #FFF1F5;
+    /*marigold*/
+    --global-color-marigold-50: #6B5F1A;
+    --global-color-marigold-100: #8C7C23;
+    --global-color-marigold-200: #B4A02D;
+    --global-color-marigold-300: #E7CD39;
+    --global-color-marigold-400: #FEE140;
+    --global-color-marigold-500: #FEE765;
+    --global-color-marigold-600: #FEEB7E;
+    --global-color-marigold-700: #FFF1A7;
+    --global-color-marigold-800: #FFF6C3;
+    --global-color-marigold-900: #FFFCEC;
+    /*neutral*/
+    --global-color-gray-50:  #2D3036;
+    --global-color-gray-100: #3B3F46;
+    --global-color-gray-200: #4C515B;
+    --global-color-gray-300: #616874;
+    --global-color-gray-400: #6B7280;
+    --global-color-gray-500: #898E99;
+    --global-color-gray-600: #9CA1AA;
+    --global-color-gray-700: #DDDEC5;
+    --global-color-gray-800: #D1D3D8;
+    --global-color-gray-900: #F0F1F2;
+
+
+    /* --- Global Palette: Feedback --- */
+    --global-color-green-50: #023F2C;
+    --global-color-green-100: #03533A;
+    --global-color-green-200: #046B4B;
+    --global-color-green-300: #058960;
+    --global-color-green-400: #059669;
+    --global-color-green-500: #37AB87;
+    --global-color-green-600: #58B99B;
+    --global-color-green-700: #8CCFBA;
+    --global-color-green-800: #B2DED1;
+    --global-color-green-900: #E6F5F0;
+
+    --global-color-red-50: #5C1010;
+    --global-color-red-100: #791515;
+    --global-color-red-200: #9C1B1B;
+    --global-color-red-300: #C82323;
+    --global-color-red-400: #E86E6E;
+    --global-color-red-500: #E86E6E;
+    --global-color-red-600: #E86E6E;
+    --global-color-red-700: #EF9B9B;
+    --global-color-red-800: #F4BCBC;
+    --global-color-red-900: #FCE9E9;
+
+    --global-color-yellow-50: #5B3203;
+    --global-color-yellow-100: #774103;
+    --global-color-yellow-200: #9A5404;
+    --global-color-yellow-300: #C56C05;
+    --global-color-yellow-400: #D97706;
+    --global-color-yellow-500: #E19238;
+    --global-color-yellow-600: #E6A458;
+    --global-color-yellow-700: #EEC08C;
+    --global-color-yellow-800: #F3D5B2;
+    --global-color-yellow-900: #FBF1E6;
+
+    --global-color-info-50: #033D4B;
+    --global-color-info-100: #06677E;
+    --global-color-info-200: #06677E;
+    --global-color-info-300: #06677E;
+    --global-color-info-400: #0784A2;
+    --global-color-info-500: #0891B2;
+    --global-color-info-600: #5AB5CB;
+    --global-color-info-700: #5AB5CB;
+    --global-color-info-800: #8DCCDC;
+    --global-color-info-900: #B2DDE7;
+    /* --- Dark Theme Color Overrides --- */
+    /* PRIMARY (Lighter Pink for dark backgrounds) */
+    --global-background: #1E1E1E;
+    --color-brand-primary: var(--global-color-pink-300);
+    --color-brand-primary-hover: var(--global-color-pink-200);
+    --color-brand-primary-active: var(--global-color-deep-purple-300);
+    --color-surface-interactive-primary: var(--global-color-pink-300);
+    --color-surface-interactive-primary-hover: var(--global-color-pink-200);
+    --color-surface-interactive-primary-active: var(--global-color-deep-purple-300);
+    --color-border-primary: var(--global-color-pink-300);
+    --color-border-primary-hover: var(--global-color-pink-200);
+    --color-border-primary-active: var(--global-color-deep-purple-300);
+    --color-text-primary: var(--global-color-gray-900);
+    --color-text-on-primary: var(--global-color-white);
+    --color-text-inactive-tab-button: var(--global-color-gray-300);
+    --color-text-active-stepper-circle: var(--global-color-gray-100);
+    --color-text-accordion-content: var(--global-color-gray-100);
+    --color-textbox-input: var(--global-color-gray-700);
+
+    /* SECONDARY (Lighter Blue for dark backgrounds) */
+    --color-brand-secondary: var(--global-color-blue-300);
+    --color-brand-secondary-hover: var(--global-color-royal-blue-300);
+    --color-brand-secondary-active: var(--global-color-royal-blue-400);
+    --color-surface-interactive-secondary: var(--global-color-blue-800);
+    --color-surface-interactive-secondary-hover: var(--global-color-blue-300);
+    --color-surface-interactive-secondary-active: var(--global-color-royal-blue-300);
+    --color-border-secondary: var(--global-color-blue-300);
+    --color-border-secondary-hover: var(--global-color-royal-blue-300);
+    --color-border-secondary-active: var(--global-color-royal-blue-400);
+    --color-text-secondary: var(--global-color-royal-blue-300);
+    --color-text-on-secondary: var(--global-color-gray-900);
+    --color-background-secondary: var(--global-color-blue-800);
+
+    /* BUTTONS, TABS, TAGS: Use these tokens for all secondary/primary states */
+    --color-text-placeholder: var(--global-color-gray-500);
+    --color-text-disabled: var(--global-color-gray-600);
+    --color-text-on-brand: var(--global-color-gray-900);
+    --color-text-interactive: var(--global-color-pink-300);
+    --color-text-interactive-hover: var(--global-color-pink-200);
+    --color-text-success: var(--global-color-spearmint-300);
+    --color-text-error: var(--global-color-rose-300);
+    --color-background-primary: var(--global-color-gray-900);
+    --color-surface-interactive-default: var(--global-color-pink-300);
+    --color-surface-interactive-hover: var(--global-color-pink-200);
+    --color-surface-interactive-active: var(--global-color-pink-200);
+    --color-surface-disabled: var(--global-color-gray-700);
+    /* --color-surface-subtle-hover: var(--global-color-gray-800); */
+    --color-border-default: var(--global-color-gray-600);
+    --color-border-subtle: var(--global-color-gray-700);
+    --color-border-interactive: var(--global-color-pink-300);
+    --color-border-focus: var(--global-color-pink-300);
+    --color-border-error: var(--global-color-rose-300);
+    --color-background-error: var(--global-color-rose-300);
+
+    /* Semantic Border Colors */
+    --color-border-warning: var(--global-color-amber-300);
+    --color-border-success: var(--global-color-spearmint-300);
+    --color-border-info: var(--global-color-blue-300);
+
+    /* Semantic Text Colors */
+    --color-text-warning: var(--global-color-amber-300);
+    --color-text-success: var(--global-color-spearmint-300);
+    --color-text-info: var(--global-color-blue-300);
+
+    /* Semantic Background Colors */
+    --color-background-warning: var(--global-color-amber-300);
+    --color-background-success: var(--global-color-spearmint-300);
+    --color-background-info: var(--global-color-blue-300);
+
+    /* --- Dark Theme Glassmorphism --- */
+    --glass-backdrop-blur: 16px;
+    --glass-background-color: rgba(0, 0, 0, 0.4);
+    --glass-border-color: rgba(255, 255, 255, 0.1);
+    --glass-border-width: 1px;
+    --glass-elevation: var(--global-elevation-03);
+
+    /*---- Time picker ----*/
+    --color-icon-border: var(--global-color-white);
+
+
+
+
+    /* =======================
+      DARK THEME: RGB OVERRIDES
+      Extract RGB values from dark theme semantic colors (lighter shades)
+      ======================= */
+    --rgb-brand-primary: 240, 98, 146;
+    /* From pink-300 #f06292 */
+    --rgb-brand-secondary: 149, 117, 205;
+    /* From deep-purple-300 #9575cd */
+    --rgb-brand-tertiary: 100, 181, 246;
+    /* From blue-300 #64b5f6 */
+    --rgb-brand-quaternary: 103, 232, 249;
+    /* From cyan-300 #67e8f9 */
+    --rgb-brand-quinary: 94, 234, 212;
+    /* From spearmint-300 #5eead4 */
+    --rgb-brand-senary: 253, 164, 175;
+    /* From rose-300 #fda4af */
+    --rgb-violet: 169, 149, 255;
+    /* From violet-300 #a995ff */
+    --rgb-royal-blue: 147, 197, 253;
+    /* From royal-blue-300 #93c5fd */
+    --rgb-cyan: 103, 232, 249;
+    /* From cyan-300 #67e8f9 */
+    --rgb-spearmint: 94, 234, 212;
+    /* From spearmint-300 #5eead4 */
+    --rgb-rose: 253, 164, 175;
+    /* From rose-300 #fda4af */
+    --rgb-white: 255, 255, 255;
+    /* From #ffffff */
+    --rgb-black: 0, 0, 0;
+    /* From #000000 */
+    --rgb-neutral-100: 17, 24, 39;
+    /* Dark background equivalent */
+
+    /* =======================
+      DARK THEME: EFFECT COLOR OVERRIDES
+      Override all effect colors for proper dark theme adaptation
+      ======================= */
+    --effect-color-primary: var(--rgb-brand-primary);
+    /* Pink 300 - lighter for dark bg */
+    --effect-color-secondary: var(--rgb-brand-secondary);
+    /* Deep purple 300 - lighter for dark bg */
+    --effect-color-accent: var(--rgb-violet);
+    /* Violet 300 - lighter accent */
+    --effect-color-neutral: var(--rgb-white);
+    /* White shadows/effects on dark bg */
+    --effect-color-surface: var(--rgb-black);
+    /* Black glass/shimmer on dark bg */
+
+    /* =======================
+      DARK THEME: SEMANTIC COMPONENT TOKENS
+      Theme-aware component-specific tokens using the metaphor system
+      ======================= */
+
+    /* Glass Metaphor (Dark Theme-Aware) */
+    --surface-glass-bg: rgba(var(--effect-color-neutral), 0.08);
+    --surface-glass-border: rgba(var(--effect-color-neutral), 0.12);
+    --surface-glass-shadow: rgba(var(--effect-color-surface), 0.25);
+
+    /* Light Metaphor (Dark Theme-Aware) */
+    --color-light-glow: rgba(var(--effect-color-primary), 0.35);
+    --color-light-glow-focus: rgba(var(--effect-color-primary), 0.55);
+    --color-light-shadow: rgba(var(--effect-color-accent), 0.15);
+    --color-light-border: var(--color-brand-primary);
+    --color-light-border-focus: var(--color-brand-secondary);
+
+    /* Liquid Metaphor (Dark Theme-Aware) */
+    --color-liquid-shimmer-start: var(--color-brand-secondary);
+    --color-liquid-shimmer-end: var(--color-brand-primary);
+
+    /* =======================
+      DARK THEME: SOPHISTICATED GLASS CHAINING
+      Override glass surface colors for dark theme variants
+      ======================= */
+
+    /* Dark theme glass surface - use dark background */
+    --glass-surface-color: var(--rgb-black);
+
+    /* Dark theme variant glass colors (lighter shades) */
+    --glass-variant-primary: var(--rgb-brand-primary);
+    --glass-variant-success: 94, 234, 212;
+    /* spearmint-300 */
+    --glass-variant-warning: 252, 211, 77;
+    /* amber-300 */
+    --glass-variant-danger: 253, 164, 175;
+    /* rose-300 */
+    --glass-variant-info: 100, 181, 246;
+    /* blue-300 */
+
+    /* Custom variant example - Lighter versions for dark theme */
+    --glass-variant-purple: 149, 117, 205;
+    /* deep-purple-300 */
+    --glass-variant-emerald: 94, 234, 212;
+    /* spearmint-300 */
+
+    /* Dark theme effect color adjustments */
+    --effect-color-neutral: var(--rgb-white);
+    /* White highlights work on dark bg */
+    --effect-color-surface: var(--rgb-black);
+    /* Black depths on dark bg */
+
+    /* =======================
+      DARK THEME: ADDITIONAL OVERRIDES
+      Additional tokens that need adjustment for dark theme
+      ======================= */
+
+    /* Text contrast adjustments */
+    --color-text-muted: var(--global-color-gray-400);
+    --color-text-subtle: var(--global-color-gray-500);
+    --color-text-inverse: var(--global-color-gray-900);
+
+    /* Surface variations for dark theme */
+    --color-surface-elevated: var(--global-color-gray-800);
+    --color-surface-sunken: var(--global-color-gray-900);
+    --color-surface-overlay: rgba(0, 0, 0, 0.8);
+
+    /* Input and form controls */
+    --color-input-background: var(--global-color-gray-800);
+    --color-input-border: var(--global-color-gray-600);
+    --color-input-border-focus: var(--global-color-pink-300);
+    --color-input-text: var(--global-color-gray-100);
+
+    /* Navigation and menu items */
+    --color-nav-item-hover: rgba(var(--rgb-brand-primary), 0.1);
+    --color-nav-item-active: rgba(var(--rgb-brand-primary), 0.2);
+
+    /* Dividers and separators */
+    --color-divider: var(--global-color-gray-700);
+    --color-divider-subtle: var(--global-color-gray-800);
+
+    --surface-border-radius: 24px;
+    --surface-border-color: #fff;
+    --surface-bg: 30, 30, 30;
+
+    --icon-hover-color: var(--color-brand-primary);
+    --icon-color: var(--global-color-gray-900);
+
+    --calendar-glass-background-max: rgb(0, 0, 0, 0.1);
+    --tabs-button-border: #fff;
+    --tabs-dropdown-bg: var(--global-color-black);
+
+        --skeleton-wave-gradient: linear-gradient(
+        90deg, 
+        rgba(255, 255, 255, 0) 0%, 
+        rgba(255, 255, 255, 0.08) 50%, 
+        rgba(255, 255, 255, 0) 100%
+    );
+ 
+    --skeleton-background-color: var(--color-background-primary);
+    --skeleton-background-gradient: linear-gradient(
+        90deg, 
+        #252525 25%, 
+        #333333 50%, 
+        #252525 75%
+    );
+    --skeleton-background-lightgray: #1e1e1e;
+    --skeleton-background-gray: #2c2c2c;
+    --skeleton-background-color:  #121212;
+    --glass-75-gradient:rgba(30,30,30,0,6);
+
+}

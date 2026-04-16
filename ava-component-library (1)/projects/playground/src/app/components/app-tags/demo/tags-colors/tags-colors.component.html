@@ -1,0 +1,14 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="color-tags">
+      <aava-tag
+        *ngFor="let tag of customColorTags"
+        [label]="tag.label"
+        [color]="tag.color"
+        [size]="tag.size"
+        [customStyle]="tag.customStyle"
+        (clicked)="onTagClick(tag.label)">
+      </aava-tag>
+    </div>
+  </div>
+</div>

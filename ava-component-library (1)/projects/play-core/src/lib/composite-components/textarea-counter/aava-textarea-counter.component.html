@@ -1,0 +1,22 @@
+<div>
+  <aava-textarea #baseTextarea [label]="label" [placeholder]="placeholder" [helper]="helper" [error]="''" [rows]="rows"
+    [required]="required" [variant]="computedVariant" [size]="size" [disabled]="disabled" [readonly]="readonly"
+    [id]="id" [name]="name" [maxlength]="maxlength" [minlength]="minlength" [fullWidth]="fullWidth" [style]="style"
+    [resizable]="resizable" [autoResize]="autoResize" [processing]="processing"
+    [processingGradientBorder]="processingGradientBorder" [processingGradientColors]="processingGradientColors"
+    (textareaInput)="onTextareaInput($event)" (blur)="onTextareaBlur($event)"
+    (textareaFocus)="onTextareaFocus($event)" (textareaChange)="onTextareaChange($event)"
+    (iconStartClick)="onIconStartClick($event)" (iconEndClick)="onIconEndClick($event)"
+    (keydown)="onTextareaKeydown($event)" (paste)="onTextareaPaste($event)">
+  </aava-textarea>
+ 
+  <!-- Combined error and counter container -->
+  <div class="counter-error-container" *ngIf="currentError || counterText">
+    <span class="error-message" *ngIf="currentError">
+      {{ currentError }}
+    </span>
+    <span class="counter-text" [class.align-right]="!currentError && counterAlignment === 'right'">
+      {{ counterText }}
+    </span>
+  </div>
+</div>

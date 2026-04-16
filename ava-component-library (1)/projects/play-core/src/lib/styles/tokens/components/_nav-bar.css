@@ -1,0 +1,96 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Nav Bar Component Tokens
+ * Component: ava-nav-bar
+ * 
+ * Following semantic token patterns for proper accessibility and theme support.
+ * =========================================================================
+ */
+
+:root {
+  /* === NAV BAR CONTAINER === */
+  --nav-bar-gap: var(--global-spacing-2);
+  --nav-bar-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --nav-bar-background: transparent;
+  --nav-bar-border-radius: var(--global-radius-lg);
+  --nav-bar-z-index: 1000;
+
+  /* === NAV BAR ITEMS === */
+  --nav-bar-items-gap: var(--global-spacing-1);
+  --nav-bar-item-z-index: 1000;
+
+  /* === NAV ITEMS (Pills) === */
+  --nav-item-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --nav-item-border-radius: var(--global-radius-xl);
+  --nav-item-font-size: var(--global-font-size-sm);
+  --nav-item-font-weight: var(--global-font-weight-regular);
+  --nav-item-color: var(--color-text-secondary);
+  --nav-item-transition: all var(--global-motion-duration-standard)
+    var(--global-motion-easing-standard);
+  --nav-item-font: var(--font-body-2);
+
+  /* === NAV PILL STATES (Following semantic patterns) === */
+  /* Hover - Using semantic hover patterns */
+  --nav-pill-hover-bg: var(--color-surface-subtle-hover);
+  --nav-pill-hover-color: var(--color-text-primary);
+  --nav-pill-hover-shadow: var(--global-elevation-01);
+
+  /* Selected/Active - Using semantic interactive patterns */
+  --nav-pill-selected-bg: var(--color-surface-interactive-default);
+  --nav-pill-selected-color: var(--color-text-on-brand);
+  --nav-pill-selected-font-weight: var(--global-font-weight-semibold);
+  --nav-pill-selected-shadow: var(--global-elevation-02);
+
+  /* Focus - Following accessibility patterns */
+  --nav-pill-focus-bg: transparent;
+  --nav-pill-focus-color: var(--color-text-secondary);
+  --nav-pill-focus-outline: 2px solid var(--accessibility-focus-ring-color);
+  --nav-pill-focus-outline-offset: 0.125rem;
+
+  /* Disabled - Using semantic disabled patterns */
+  --nav-pill-disabled-bg: var(--color-background-disabled);
+  --nav-pill-disabled-color: var(--color-text-disabled);
+  --nav-pill-disabled-cursor: not-allowed;
+
+  /* === NAV ITEM BADGE === */
+  --nav-item-badge-margin-left: var(--global-spacing-1);
+
+  /* === NAV ITEM DROPDOWN ARROW === */
+  --nav-item-dropdown-arrow-margin-left: var(--global-spacing-1);
+  --nav-item-dropdown-arrow-transition: transform
+    var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  --nav-item-dropdown-arrow-size: var(--global-icon-size-sm);
+  --nav-item-dropdown-arrow-color: var(--color-text-secondary);
+  --nav-item-dropdown-arrow-open-transform: rotate(180deg);
+
+  /* Arrow States */
+  --nav-item-dropdown-arrow-hover-color: var(--color-text-primary);
+  --nav-item-dropdown-arrow-active-color: var(--color-text-on-brand);
+
+  /* === NAV BAR SIZES (Following component size patterns) === */
+  --nav-bar-size-sm-gap: var(--global-spacing-1);
+  --nav-bar-size-sm-padding: var(--global-spacing-1) var(--global-spacing-2);
+  --nav-bar-size-sm-items-gap: calc(var(--global-spacing-1) / 2);
+  --nav-item-size-sm-padding: var(--global-spacing-1) var(--global-spacing-2);
+  --nav-item-size-sm-font-size: var(--global-font-size-xs);
+
+  --nav-bar-size-md-gap: var(--global-spacing-2);
+  --nav-bar-size-md-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --nav-bar-size-md-items-gap: var(--global-spacing-1);
+  --nav-item-size-md-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --nav-item-size-md-font-size: var(--global-font-size-sm);
+
+  --nav-bar-size-lg-gap: var(--global-spacing-3);
+  --nav-bar-size-lg-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --nav-bar-size-lg-items-gap: var(--global-spacing-2);
+  --nav-item-size-lg-padding: var(--global-spacing-3) var(--global-spacing-4);
+  --nav-item-size-lg-font-size: var(--global-font-size-md);
+
+  /* === RESPONSIVE BREAKPOINTS === */
+  --nav-bar-gap-mobile: var(--global-spacing-1);
+  --nav-bar-padding-mobile: var(--global-spacing-1) var(--global-spacing-2);
+  --nav-bar-items-gap-mobile: calc(var(--global-spacing-1) / 2);
+  --nav-item-padding-mobile: var(--global-spacing-1) var(--global-spacing-2);
+  --nav-item-font-size-mobile: var(--global-font-size-xs);
+  --nav-item-gap-mobile: var(--global-spacing-1);
+}

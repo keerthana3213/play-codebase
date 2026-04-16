@@ -1,0 +1,117 @@
+.example-group{
+    width: 50%;
+  margin: auto;
+  margin-top: 70px;
+}
+
+.custom-third-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.custom-left,
+.custom-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.custom-center {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  justify-content: center;
+}
+
+.custom-button {
+  padding: 6px 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.custom-button:hover {
+  background: #2563eb;
+}
+
+.custom-text {
+  font-size: 14px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+/* ng-content with icons example */
+.custom-content-with-icons {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 12px;
+}
+
+.action-button {
+  padding: 6px 12px;
+  background: #10b981;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.action-button:hover {
+  background: #059669;
+}
+
+.status-text {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+/* ng-content only example */
+.custom-content-only {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  gap: 8px;
+}
+
+.primary-button {
+  padding: 6px 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.primary-button:hover {
+  background: #2563eb;
+}
+
+.secondary-button {
+  padding: 6px 12px;
+  background: #f3f4f6;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.secondary-button:hover {
+  background: #e5e7eb;
+}

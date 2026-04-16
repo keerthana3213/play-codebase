@@ -1,0 +1,178 @@
+
+  <!-- Filter Trigger Button -->
+  <div #filterTrigger>
+    <aava-button
+      [label]="getButtonLabel()"
+      [size]="getButtonSize()"
+      [disabled]="disabled"
+      [iconName]="icon || 'list-filter'"
+      [iconColor]="iconColor || ''"
+      [clear]="true"
+      [iconPosition]="getButtonLabel() ? 'left' : 'only'"
+      variant="secondary"
+      (userClick)="flyout.open(filterTrigger)">
+    </aava-button>
+  </div>
+
+  <!-- Flyout with Filter Content -->
+  <aava-flyout #flyout [width]="width">
+    <div class="filter-content" [class]="size">
+
+      <!-- Multi-Group Mode -->
+      <div *ngIf="isMultiGroupMode()" class="filter-options">
+        <div *ngFor="let group of filterGroups; let groupIndex = index">
+          <!-- Group Title -->
+          <div class="category-name">{{ group.title }}</div>
+
+          <!-- Render options using shared template -->
+          <ng-container
+            *ngTemplateOutlet="optionsBySelectionType; context: {
+              $implicit: group.options,
+              selectionType: group.selectionType,
+              groupIndex: groupIndex
+            }">
+          </ng-container>
+
+          <!-- Add divider between groups (but not after the last group) -->
+          <aava-dividers
+            *ngIf="groupIndex < filterGroups.length - 1"
+            variant="solid"
+            color="#e5e7eb">
+          </aava-dividers>
+        </div>
+      </div>
+
+      <!-- Single-Group Mode (Backward Compatibility) -->
+      <div *ngIf="!isMultiGroupMode() && options.length > 0" class="filter-options">
+        <!-- Render options using shared template -->
+        <ng-container
+          *ngTemplateOutlet="optionsBySelectionType; context: {
+            $implicit: options,
+            selectionType: selectionType || 'none',
+            groupIndex: undefined
+          }">
+        </ng-container>
+      </div>
+
+      <!-- Empty State -->
+      <div *ngIf="!isMultiGroupMode() && options.length === 0">
+        <p>No options available</p>
+      </div>
+
+      <div *ngIf="isMultiGroupMode() && filterGroups.length === 0">
+        <p>No filter groups available</p>
+      </div>
+
+      <!-- Action Buttons -->
+      <div *ngIf="showActionButtons" class="filter-actions">
+        <aava-button
+          label="Clear All"
+          variant="secondary"
+          [clear]="true"
+          [size]="getActionButtonSize()"
+          [disabled]="getSelectedCount() === 0"
+          (userClick)="onClearAll()">
+        </aava-button>
+        <aava-button
+          label="Apply"
+          variant="primary"
+          [size]="getActionButtonSize()"
+          (userClick)="onApply()">
+        </aava-button>
+      </div>
+    </div>
+  </aava-flyout>
+
+  <!-- Reusable Template for Options by Selection Type -->
+  <ng-template #optionsBySelectionType let-optionsList let-selectionType="selectionType" let-groupIndex="groupIndex">
+    <!-- Checkbox Selection Type -->
+    <div *ngIf="selectionType === 'checkbox'">
+      <div
+        class="filter-option"
+        *ngFor="let option of optionsList"
+        [class.selected]="option.selected">
+        <div class="option-row">
+          <div class="option-left">
+            <aava-checkbox
+              [label]="option.label"
+              [isChecked]="option.selected || false"
+              [size]="getSelectionControlSize()"
+              (isCheckedChange)="onCheckboxChange(option, $event)">
+            </aava-checkbox>
+          </div>
+          <div class="option-right" *ngIf="option.icon">
+            <aava-icon
+              [iconName]="option.icon"
+              [iconSize]="getOptionIconSize()"
+              class="option-custom-icon">
+            </aava-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Radio Selection Type -->
+    <div *ngIf="selectionType === 'radio'">
+      <div
+        class="filter-option"
+        *ngFor="let option of optionsList"
+        [class.selected]="option.selected">
+        <div class="option-row">
+          <div class="option-left">
+            <aava-radio-button
+              [options]="[{label: option.label, value: option.value + '', disabled: false}]"
+              [name]="getRadioGroupName(groupIndex)"
+              [selectedValue]="option.selected ? (option.value + '') : ''"
+              [size]="getSelectionControlSize()"
+              orientation="vertical"
+              (selectedValueChange)="onRadioOptionChange(option, groupIndex)">
+            </aava-radio-button>
+          </div>
+          <div class="option-right" *ngIf="option.icon">
+            <aava-icon
+              [iconName]="option.icon"
+              [iconSize]="getOptionIconSize()"
+              class="option-custom-icon">
+            </aava-icon>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Label-only Selection Type (default) -->
+    <div *ngIf="selectionType === 'none'">
+      <ng-container *ngTemplateOutlet="labelOnlyOptions; context: { $implicit: optionsList }"></ng-container>
+    </div>
+  </ng-template>
+
+  <!-- Reusable Template for Label-only Options -->
+  <ng-template #labelOnlyOptions let-optionsList>
+    <div
+      class="filter-option"
+      *ngFor="let option of optionsList"
+      [class.selected]="option.selected">
+      <div class="option-row">
+        <div class="option-left">
+          <span
+            class="option-label clickable"
+            (click)="onLabelClick(option)">
+            {{ option.label }}
+          </span>
+        </div>
+        <div class="option-right">
+          <aava-icon
+            *ngIf="option.selected"
+            iconName="check"
+            [iconSize]="getOptionIconSize()"
+            class="option-tick-icon">
+          </aava-icon>
+          <aava-icon
+            *ngIf="!option.selected && option.icon"
+            [iconName]="option.icon"
+            [iconSize]="getOptionIconSize()"
+            class="option-custom-icon">
+          </aava-icon>
+        </div>
+      </div>
+    </div>
+  </ng-template>

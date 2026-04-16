@@ -1,0 +1,111 @@
+<!-- Demo Trigger Button -->
+<div class="demo-section">
+  <h4>🎯 Agent Details Demo</h4>
+  <p>Click to see the drawer with the exact Figma design implementation (650px × 1089px).</p>
+
+  <aava-button
+    label="Open Agent Details"
+    (click)="openDrawer()"
+    variant="primary">
+  </aava-button>
+
+  <!-- Figma Design Drawer -->
+  <aava-drawer
+    [isOpen]="isDrawerOpen"
+    position="right"
+    [width]="'650px'"
+    [resizable]="true"
+    [showHeader]="true"
+    [showFooter]="true"
+    (closed)="closeDrawer()"
+    class="drawer">
+<div class="wrapper">
+    <!-- Header Content with Close Button -->
+    <div class="drawer-header-content">
+      <div class="header-text">
+        <h2 class="drawer-title">{{ agentData.title }}</h2>
+        <p class="drawer-subtitle">{{ agentData.subtitle }}</p>
+      </div>
+
+    </div>
+
+    <!-- Tags Section -->
+    <div class="agent-tags">
+      <aava-tag
+        *ngFor="let tag of agentData.tags"
+        [label]="tag.label"
+        [color]="tag.color"
+        [variant]="tag.variant"
+        [pill]=true
+        (clicked)="onTagClick(tag.label)">
+      </aava-tag>
+    </div>
+
+    <!-- Stats Section -->
+    <div class="agent-stats">
+      <div class="stat-item">
+        <div class="stat-header">
+          <span class="stat-label">Category</span>
+        </div>
+        <div class="stat-value">
+          <div class="stat-navigation">
+            <div class="nav-arrow"><</div>
+            <div class="nav-arrow">></div>
+          </div>
+          <br>
+          <span class="category-value">{{ agentData.stats.category }}</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-header">
+          <span class="stat-label">Developed by</span>
+        </div>
+        <div class="stat-value">
+          <div class="stat-icon">👤</div>
+          <span class="category-value">{{ agentData.stats.developedBy }}</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-header">
+          <span class="stat-label">Relevancy</span>
+        </div>
+        <div class="stat-value">
+          <span class="score">{{ agentData.stats.relevancy }}</span>
+          <br>
+          <span class="category-value">{{ agentData.stats.relevancyScore }}</span>
+        </div>
+      </div>
+
+      <div class="stat-item">
+        <div class="stat-header">
+          <span class="stat-label">Rating</span>
+        </div>
+        <div class="stat-value">
+          <span class="rating">{{ agentData.stats.rating }} ⭐</span>
+          <br>
+          <span class="category-value">{{ agentData.stats.ratingOutOf }}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- What it's for Section -->
+    <div class="what-its-for-section">
+      <h3 class="section-title">What it's for</h3>
+      <p class="section-description">{{ agentData.whatItsFor }}</p>
+    </div>
+</div>
+    <!-- Footer Button -->
+    <div slot="footer" class="footer-section">
+      <aava-button
+      height="52px"
+      width="100%"
+        label="Label"
+        variant="primary"
+        [style.width.%]="100">
+      </aava-button>
+    </div>
+
+  </aava-drawer>
+</div>

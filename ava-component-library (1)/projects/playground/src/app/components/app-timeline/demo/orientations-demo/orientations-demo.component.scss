@@ -1,0 +1,216 @@
+.orientations-timeline-demo {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  .demo-header {
+    text-align: center;
+    margin-bottom: 3rem;
+
+    h1 {
+      font-size: 2.5rem;
+      color: var(--color-text-primary);
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: var(--ava-text-secondary);
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+  }
+
+  .demo-content {
+    .orientation-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+
+      .orientation-item {
+        background: var(--ava-surface-primary);
+        border: 1px solid var(--ava-border-primary);
+        border-radius: 12px;
+        padding: 1.5rem;
+
+        h3 {
+          color: var(--ava-text-primary);
+          margin-bottom: 0.5rem;
+          font-size: 1.3rem;
+          text-align: center;
+        }
+
+        p {
+          color: var(--ava-text-secondary);
+          margin-bottom: 1.5rem;
+          font-size: 0.9rem;
+          text-align: center;
+          line-height: 1.4;
+        }
+
+        .timeline-wrapper {
+          padding: 1rem;
+          background: var(--ava-surface-secondary);
+          border-radius: 8px;
+          border: 1px solid var(--ava-border-secondary);
+
+          &.horizontal {
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+          }
+        }
+      }
+    }
+
+    .event-details {
+      background: var(--ava-surface-primary);
+      border: 1px solid var(--ava-border-primary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+
+      h3 {
+        color: var(--ava-text-primary);
+        margin-bottom: 1rem;
+        font-size: 1.2rem;
+      }
+
+      .event-info {
+        p {
+          color: var(--ava-text-secondary);
+          margin-bottom: 0.5rem;
+          font-size: 0.95rem;
+
+          strong {
+            color: var(--ava-text-primary);
+          }
+        }
+      }
+    }
+
+    .code-example {
+      background: var(--ava-surface-secondary);
+      border: 1px solid var(--ava-border-secondary);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin-bottom: 2rem;
+
+      h3 {
+        color: var(--ava-text-primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+
+      .code-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        .code-item {
+          h4 {
+            color: var(--ava-text-primary);
+            margin-bottom: 0.75rem;
+            font-size: 1rem;
+          }
+
+          pre {
+            background: var(--ava-surface-primary);
+            border: 1px solid var(--ava-border-primary);
+            border-radius: 6px;
+            padding: 1rem;
+            overflow-x: auto;
+            margin: 0;
+
+            code {
+              color: var(--ava-text-primary);
+              font-family: "Monaco", "Menlo", "Ubuntu Mono", monospace;
+              font-size: 0.85rem;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+
+    .usage-tips {
+      background: var(--ava-surface-primary);
+      border: 1px solid var(--ava-border-primary);
+      border-radius: 8px;
+      padding: 1.5rem;
+
+      h3 {
+        color: var(--ava-text-primary);
+        margin-bottom: 1.5rem;
+        font-size: 1.2rem;
+      }
+
+      .tips-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+
+        .tip-item {
+          h4 {
+            color: var(--ava-text-primary);
+            margin-bottom: 1rem;
+            font-size: 1rem;
+          }
+
+          ul {
+            color: var(--ava-text-secondary);
+            padding-left: 1.5rem;
+            margin: 0;
+
+            li {
+              margin-bottom: 0.5rem;
+              font-size: 0.9rem;
+              line-height: 1.4;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// Responsive design
+@media (max-width: 768px) {
+  .orientations-timeline-demo {
+    padding: 1rem;
+
+    .demo-content {
+      .orientation-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .code-example {
+        padding: 1rem;
+
+        .code-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+
+          .code-item {
+            pre {
+              padding: 0.75rem;
+              font-size: 0.75rem;
+            }
+          }
+        }
+      }
+
+      .usage-tips {
+        padding: 1rem;
+
+        .tips-grid {
+          grid-template-columns: 1fr;
+          gap: 1rem;
+        }
+      }
+    }
+  }
+}

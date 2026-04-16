@@ -1,0 +1,20 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <div class="demo-column padl">
+      <aava-textbox [(ngModel)]="defaultValue" label="Default Variant" placeholder="Default variant..."
+        variant="default" (textboxChange)="onDefaultChange($event)"></aava-textbox>
+      <aava-textbox [(ngModel)]="primaryValue" label="Primary Variant" placeholder="Primary variant..."
+        variant="primary" (textboxChange)="onPrimaryChange($event)"></aava-textbox>
+      <aava-textbox [(ngModel)]="successValue" label="Success Variant" placeholder="Success variant..."
+        variant="success" (textboxChange)="onSuccessChange($event)"></aava-textbox>
+    </div>
+
+    <div class="demo-column padr">
+      <aava-textbox [(ngModel)]="errorValue" label="Error Variant" placeholder="Error variant..." variant="error"
+        (textboxChange)="onErrorChange($event)"></aava-textbox>
+      <aava-textbox [(ngModel)]="warningValue" label="Warning Variant" placeholder="Warning variant..."
+        variant="warning" (textboxChange)="onWarningChange($event)"></aava-textbox>
+      <aava-textbox [(ngModel)]="infoValue" label="Info Variant" placeholder="Info variant..." variant="info"
+        (textboxChange)="onInfoChange($event)"></aava-textbox>
+    </div>
+  </div>

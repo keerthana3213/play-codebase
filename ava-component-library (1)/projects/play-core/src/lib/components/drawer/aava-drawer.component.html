@@ -1,0 +1,99 @@
+<!-- Drawer Overlay -->
+<div 
+  *ngIf="isOpen && showOverlay"
+  [attr.id]="id ? 'aava-drawer-overlay-' + id : null"
+  [class]="getOverlayClasses()"
+  [style.z-index]="zIndex - 1"
+  (click)="onOverlayClick()"
+  role="presentation"
+  aria-hidden="true">
+</div>
+
+<!-- Drawer Container -->
+<div
+  *ngIf="isOpen"
+  [attr.id]="id ? 'aava-drawer-' + id : null"
+  [class]="getDrawerClasses()"
+  [ngStyle]="getDrawerStyles()"
+  (click)="onDrawerClick($event)"
+  role="dialog"
+  [attr.aria-modal]="true"
+  [attr.aria-labelledby]="title ? 'drawer-title' : null"
+  [attr.aria-describedby]="subtitle ? 'drawer-subtitle' : null">
+
+  <!-- Animation Wrapper -->
+  <div class="aava-drawer__animation-wrapper"
+       [class.aava-drawer--animated]="animate"
+       [class.aava-drawer--no-animate]="!animate">
+
+    <!-- Drawer Content -->
+    <div class="aava-drawer__content">
+    
+    <!-- Header Section -->
+    <div *ngIf="showHeader" class="aava-drawer__header" [class.aava-drawer__header--no-border]="!title && !subtitle">
+      <div class="aava-drawer__header-content">
+        <!-- Title and Subtitle -->
+        <div *ngIf="title || subtitle" class="aava-drawer__title-section">
+          <h2 *ngIf="title" id="drawer-title" class="aava-drawer__title">
+            {{ title }}
+          </h2>
+          <p *ngIf="subtitle" id="drawer-subtitle" class="aava-drawer__subtitle">
+            {{ subtitle }}
+          </p>
+        </div>
+
+        <!-- Custom Header Content -->
+        <div class="aava-drawer__header-slot">
+          <ng-content select="[slot=header]"></ng-content>
+        </div>
+      </div>
+
+      <!-- Close Button -->
+      <div *ngIf="showCloseButton" class="aava-drawer__close-section">
+        <aava-button
+          [iconName]="closeIcon"
+          iconPosition="only"
+          variant="secondary"
+          [size]="closeButtonSize"
+          [pill]="true"
+          (click)="onCloseClick()"
+          [attr.aria-label]="'Close drawer'"
+          >
+        </aava-button>
+      </div>
+    </div>
+
+    <!-- Standalone Close Button (when showHeader is false but showCloseButton is true) -->
+    <div *ngIf="!showHeader && showCloseButton" class="aava-drawer__close-button-standalone">
+      <aava-button
+        [iconName]="closeIcon"
+        iconPosition="only"
+        variant="secondary"
+        [size]="closeButtonSize"
+        [pill]="true"
+        (click)="onCloseClick()"
+        [attr.aria-label]="'Close drawer'"
+        >
+      </aava-button>
+    </div>
+
+    <!-- Main Content Section -->
+    <div class="aava-drawer__body">
+      <ng-content></ng-content>
+    </div>
+
+    <!-- Footer Section -->
+    <div *ngIf="showFooter" class="aava-drawer__footer">
+      <ng-content select="[slot=footer]"></ng-content>
+    </div>
+
+  </div>
+
+  </div> <!-- Close Animation Wrapper -->
+
+  <!-- Resize Handle (if resizable) -->
+  <div *ngIf="resizable" class="aava-drawer__resize-handle"
+       [class]="'aava-drawer__resize-handle--' + position">
+  </div>
+
+</div>

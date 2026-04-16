@@ -1,0 +1,52 @@
+<div class="demo-section center-demo">
+  <div class="states-grid">
+    <div class="state-group">
+      <h4 style="color: var(--text-primary)" class="state-title">
+        Default States
+      </h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1', value: 'option1' },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="default-states"
+        selectedValue=""
+        (selectedValueChange)="onSelectionChange('default', $event)"
+      >
+      </aava-radio-button>
+    </div>
+
+    <div class="state-group">
+      <h4 style="color: var(--text-primary)" class="state-title">
+        Disabled Options
+      </h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },
+          { label: 'Option 2', value: 'option2' },
+          { label: 'Option 3', value: 'option3' }
+        ]"
+        name="disabled-states"
+        selectedValue="option2"
+        (selectedValueChange)="onSelectionChange('disabled', $event)"
+      ></aava-radio-button>
+    </div>
+
+    <div class="state-group">
+      <h4 style="color: var(--text-primary)" class="state-title">
+        All Disabled
+      </h4>
+      <aava-radio-button
+        [options]="[
+          { label: 'Option 1 (Disabled)', value: 'option1', disabled: true },
+          { label: 'Option 2 (Disabled)', value: 'option2', disabled: true },
+          { label: 'Option 3 (Disabled)', value: 'option3', disabled: true }
+        ]"
+        name="all-disabled"
+        selectedValue="option3"
+        (selectedValueChange)="onSelectionChange('all-disabled', $event)"
+      ></aava-radio-button>
+    </div>
+  </div>
+</div>

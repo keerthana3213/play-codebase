@@ -1,0 +1,59 @@
+<div class="accordion-container" [ngClass]="accordionClasses" [attr.id]="id ? 'aava-accordion-' + id : null" #containerRef [style.height]="containerHeightStyle"
+  [style.max-height]="expanded ? 'none' : collapsedHeight + 'px'"
+  [style.overflow]="containerOverflowStyle"
+  [style.transition]="animation ? 'height 0.3s ease, max-height 0.3s ease, overflow 0.3s ease' : 'none'" [ngStyle]="customStyles">
+
+  <div class="accordion-header" (click)="toggleExpand()" [attr.tabindex]="disabled ? '-1' : '0'" role="button" 
+    [attr.id]="headerId"
+    [attr.aria-expanded]="expanded"
+    [attr.aria-controls]="contentId"
+    [attr.aria-disabled]="disabled"
+    (keydown.enter)="!disabled && toggleExpand()" (keydown.space)="!disabled && toggleExpand()">
+    <div class="header-row">
+      <!-- TYPE: titleIcon -->
+      <ng-container *ngIf="type === 'titleIcon'">
+        <!-- LEFT: Static Title Icon -->
+        <aava-icon [iconName]="titleIcon" [iconSize]="currentIconSize" [attr.aria-hidden]="true"
+          class="accordion-title-icon" [iconColor]="iconColor">
+        </aava-icon>
+      </ng-container>
+
+      <!-- DEFAULT ICON LEFT -->
+      <ng-container *ngIf="type !== 'titleIcon' && iconPosition === 'left'">
+        <aava-icon [iconName]="expanded ? iconOpen : iconClosed" [iconSize]="currentIconSize" [attr.aria-hidden]="true"
+          class="accordion-icon" [iconColor]="iconColor">
+        </aava-icon>
+      </ng-container>
+
+      <!-- TITLE: Always Rendered -->
+      <div class="accordion-title" [ngClass]="['body-medium-default-' + currentFontSize + '-inter']">
+        <ng-content select="[header]"></ng-content>
+      </div>
+
+      <!-- ICON RIGHT -->
+      <ng-container *ngIf="
+            (type !== 'titleIcon' && iconPosition === 'right') ||
+            type === 'titleIcon'
+          ">
+        <aava-icon [iconName]="expanded ? iconOpen : iconClosed" [iconSize]="currentIconSize" [attr.aria-hidden]="true"
+          class="accordion-icon" [iconColor]="iconColor">
+        </aava-icon>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="accordion-divider" [ngClass]="accordionClasses" *ngIf="withoutBox && showHeaderDivider"></div>
+
+  <div class="accordion-body" [ngClass]="{ 'animated-content': animation, open: expanded }" #bodyRef
+    [attr.id]="contentId"
+    role="region"
+    [attr.aria-labelledby]="headerId"
+    [attr.aria-hidden]="!expanded"
+    (transitionend)="onBodyTransitionEnd($event)">
+    <div class="accordion-content">
+      <ng-content select="[content]"></ng-content>
+    </div>
+  </div>
+
+  <div class="accordion-divider" [ngClass]="accordionClasses" *ngIf="withoutBox && showContentDivider"></div>
+</div>

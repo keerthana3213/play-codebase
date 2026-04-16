@@ -1,0 +1,92 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Drawer Component Tokens
+ *
+ * Component-specific semantic tokens for drawer/slide-out panel elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for drawer styling.
+ *
+ * STRUCTURE:
+ * - Drawer base properties (background, borders, shadows)
+ * - Position-specific sizing (left/right vs top/bottom)
+ * - Animation and transition properties
+ * - Overlay and backdrop styling
+ * - Content area styling (header, body, footer)
+ * =========================================================================
+ */
+
+:root {
+
+  /* Drawer Surface */
+  --drawer-background: var(--global-background);
+  --drawer-border: 1px solid var(--color-border-default);
+  --drawer-shadow: var(--global-elevation-04);
+  --drawer-z-index: 1050;
+
+  /* Small Drawer */
+  --drawer-size-sm-width: 320px;
+  --drawer-size-sm-height: 200px;
+  --drawer-size-sm-max-width: 90vw;
+  --drawer-size-sm-max-height: 50vh;
+
+  /* Medium Drawer (Default) */
+  --drawer-size-md-width: 472px;
+  --drawer-size-md-height: 300px;
+  --drawer-size-md-max-width: 90vw;
+  --drawer-size-md-max-height: 60vh;
+
+  /* Large Drawer */
+  --drawer-size-lg-width: 640px;
+  --drawer-size-lg-height: 400px;
+  --drawer-size-lg-max-width: 90vw;
+  --drawer-size-lg-max-height: 70vh;
+
+  /* Extra Large Drawer */
+  --drawer-size-xl-width: 800px;
+  --drawer-size-xl-height: 500px;
+  --drawer-size-xl-max-width: 95vw;
+  --drawer-size-xl-max-height: 80vh;
+
+  /* Full Size Drawer */
+  --drawer-size-full-width: 100vw;
+  --drawer-size-full-height: 100vh;
+
+  /* Header Layout */
+  --drawer-header-padding: var(--global-spacing-4);
+  --drawer-header-border: 1px solid var(--color-border-default);
+  --drawer-header-background:var(--global-background);
+  --drawer-header-gap: var(--global-spacing-3);
+
+  /* Header Typography */
+  --drawer-title-font: var(--font-heading-3);
+  --drawer-title-color: var(--color-text-primary);
+  --drawer-title-weight: var(--global-font-weight-semibold);
+  --drawer-title-line-height: var(--global-line-height-tight);
+
+  --drawer-subtitle-font: var(--font-body-2);
+  --drawer-subtitle-color: var(--color-text-secondary);
+  --drawer-subtitle-weight: var(--global-font-weight-regular);
+  --drawer-subtitle-line-height: var(--global-line-height-default);
+  --drawer-subtitle-margin: var(--global-spacing-1) 0 0 0;
+
+  /* Body Content */
+  --drawer-body-padding: var(--global-spacing-4);
+  --drawer-body-vertical-padding: var(--global-spacing-5);
+  --drawer-body-background: var(--global-background);
+  --drawer-body-text-color: var(--color-text-primary);
+  --drawer-body-button-label-font-weight: var(--global-font-weight-semibold);
+  --drawer-body-button-label-font-size: var(--global-font-size-md);
+
+  /* Footer Content */
+  --drawer-footer-padding: var(--global-spacing-4);
+  --drawer-footer-border: 1px solid var(--color-border-default);
+  --drawer-footer-background: var(--global-background);
+
+  /* Mobile Breakpoint */
+  --drawer-mobile-breakpoint: 768px;
+  --drawer-mobile-padding: var(--global-spacing-3);
+  --drawer-mobile-width: 100vw;
+  --drawer-mobile-height: 100vh;
+
+  --drawer-show-close-button-padding:var(--global-spacing-3);
+}

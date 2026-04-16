@@ -1,0 +1,114 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Badge Component Tokens
+ *
+ * Component-specific semantic tokens for badge elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for badge styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Badge Base --- */
+  --badge-font: var(--font-label);
+  --badge-weight: var(--global-font-weight-medium);
+  --badge-line-height: var(--global-line-height-tight);
+  --badge-border-radius: var(--global-radius-sm);
+  --badge-padding: var(--global-spacing-1) var(--global-spacing-2);
+  --badge-display: inline-flex;
+  --badge-align-items: center;
+  --badge-justify-content: center;
+  --badge-gap: var(--global-spacing-1);
+
+  /* --- Badge Default --- */
+  --badge-default-background: var(--color-surface-subtle);
+  --badge-default-text: var(--color-text-secondary);
+  --badge-default-border: 1px solid var(--color-border-default);
+
+  /* --- Badge Primary --- */
+  --badge-primary-background: var(--color-brand-primary);
+  --badge-primary-text: var(--color-text-on-brand);
+  --badge-primary-border: 1px solid var(--color-brand-primary);
+
+  /* --- Badge Secondary --- */
+  --badge-secondary-background: var(--color-surface-subtle);
+  --badge-secondary-text: var(--color-text-primary);
+  --badge-secondary-border: 1px solid var(--color-border-default);
+
+  /* --- Badge Success --- */
+  --badge-success-background: var(--global-color-green-500);
+  --badge-success-text: var(--color-text-on-brand);
+  --badge-success-border: 1px solid var(--global-color-green-500);
+
+  /* --- Badge Warning --- */
+  --badge-warning-background: var(--global-color-yellow-500);
+  --badge-warning-text: var(--global-color-black);
+  --badge-warning-border: 1px solid var(--global-color-yellow-500);
+
+  /* --- Badge Error --- */
+  --badge-error-background: var(--global-color-red-500);
+  --badge-error-text: var(--color-text-on-brand);
+  --badge-error-border: 1px solid var(--global-color-red-500);
+
+  /* --- Badge Info --- */
+  --badge-info-background: var(--global-color-blue-500);
+  --badge-info-text: var(--color-text-on-brand);
+  --badge-info-border: 1px solid var(--global-color-blue-500);
+
+  --badge-online-background: var(--global-color-green-400);
+  --badge-offline-background: var(--global-color-blue-500);
+
+  /* --- Badge Sizes --- */
+
+  --badge-size-xs-min-width: 14px;
+  --badge-size-xs-height: 14px;
+
+  --badge-size-sm-font: var(--font-caption);
+  --badge-size-sm-padding: var(--global-spacing-1);
+  --badge-size-sm-min-width: 16px;
+  --badge-size-sm-height: 16px;
+
+  --badge-size-md-font: var(--font-label);
+  --badge-size-md-padding: var(--global-spacing-1) var(--global-spacing-2);
+  --badge-size-md-min-width: 20px;
+  --badge-size-md-height: 20px;
+
+  --badge-size-lg-font: var(--font-body-2);
+  --badge-size-lg-padding: var(--global-spacing-2) var(--global-spacing-3);
+  --badge-size-lg-min-width: 24px;
+  --badge-size-lg-height: 24px;
+
+  /* --- Badge Variants --- */
+  --badge-solid-background: var(--badge-primary-background);
+  --badge-solid-text: var(--badge-primary-text);
+  --badge-solid-border: var(--badge-primary-border);
+
+  --badge-outline-background: transparent;
+  --badge-outline-text: var(--color-brand-primary);
+  --badge-outline-border: 1px solid var(--color-brand-primary);
+
+  --badge-ghost-background: var(--color-surface-subtle);
+  --badge-ghost-text: var(--color-text-secondary);
+  --badge-ghost-border: 1px solid var(--color-border-default);
+
+  /* --- Badge Dot --- */
+  --badge-dot-size: 6px;
+  --badge-dot-border-radius: 50%;
+  --badge-dot-margin-right: var(--global-spacing-1);
+
+  /* --- Badge Icon --- */
+  --badge-icon-size: 12px;
+  --badge-icon-color: currentColor;
+  --badge-icon-margin-right: var(--global-spacing-1);
+
+  /* --- Badge Counter --- */
+  --badge-counter-background: var(--global-color-red-500);
+  --badge-counter-text: var(--color-text-on-brand);
+  --badge-counter-font: var(--font-caption);
+  --badge-counter-min-width: 16px;
+  --badge-counter-height: 16px;
+  --badge-counter-border-radius: 50%;
+  --badge-counter-padding: 0 var(--global-spacing-1);
+
+  --badge-font-family: var(--font-family-body);
+}

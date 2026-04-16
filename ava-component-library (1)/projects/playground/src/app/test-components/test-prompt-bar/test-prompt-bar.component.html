@@ -1,0 +1,91 @@
+<div class="prompt-bar-demo">
+    <h1>Prompt Bar Component Demo</h1>
+    <p>Prompt Bar component with size variants and file upload integration using aava-fileupload.</p>
+
+    <!-- File Upload Section -->
+    <div class="file-upload-section">
+        <h3>File Upload Integration</h3>
+        <aava-file-upload
+            componentTitle="Select files to attach"
+            [allowedFormats]="allowedFormats"
+            [maxFiles]="maxFiles"
+            [maxFileSize]="maxFileSize"
+            layout="list"
+            (selectedList)="onFilesSelected($event)">
+        </aava-file-upload>
+    </div>
+
+    <h2>Size Variants</h2>
+
+    <h3>Large (lg)</h3>
+    <div class="demo-section-large">
+        <aava-prompt-bar
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [icons]="chatIcons"
+            [deviceOptions]="deviceOptions"
+            [showSelection]="true"
+            [tags]="tags"
+            [selectPlaceholder]="'Select device'"
+            (iconClicked)="onIconClick($event)"
+            (tagRemoved)="onTagRemoved($event)"
+            size="lg"
+            [width]="796"
+            [height]="240">
+        </aava-prompt-bar>
+    </div>
+
+    <h3>Medium (md) - Default</h3>
+    <div class="demo-section-medium">
+        <aava-prompt-bar
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [icons]="chatIcons"
+            [deviceOptions]="deviceOptions"
+            [showSelection]="true"
+            [tags]="tags"
+            [selectPlaceholder]="'Choose option'"
+            (iconClicked)="onIconClick($event)"
+            (tagRemoved)="onTagRemoved($event)"
+            size="md"
+            [width]="904"
+            [height]="230">
+        </aava-prompt-bar>
+    </div>
+
+    <h3>Small (sm)</h3>
+    <div class="demo-section-small">
+        <aava-prompt-bar
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [icons]="chatIcons"
+            [deviceOptions]="deviceOptions"
+            [showSelection]="true"
+            [tags]="tags"
+            [selectPlaceholder]="'Pick one'"
+            (iconClicked)="onIconClick($event)"
+            (tagRemoved)="onTagRemoved($event)"
+            size="sm"
+            [width]="516"
+            [height]="220">
+        </aava-prompt-bar>
+    </div>
+
+    <h3>Extra Small (xs)</h3>
+    <div class="demo-section-xsmall">
+        <aava-prompt-bar
+            [placeholder]="placeholder"
+            [disabled]="disabled"
+            [icons]="chatIcons"
+            [deviceOptions]="deviceOptions"
+            [showSelection]="true"
+            [tags]="tags"
+            [selectPlaceholder]="'Select'"
+            (iconClicked)="onIconClick($event)"
+            (tagRemoved)="onTagRemoved($event)"
+            [width]="450"
+            [textAreaMaxHeight]="200"
+            [textAreaAutoResize]="true">
+        </aava-prompt-bar>
+    </div>
+</div>

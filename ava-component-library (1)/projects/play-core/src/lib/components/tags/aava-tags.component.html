@@ -1,0 +1,157 @@
+<ng-container>
+  <!-- Clickable tag using button element -->
+  <button
+    *ngIf="type==='tag' && clickable"
+    type="button"
+    [attr.id]="tagId"
+    [ngClass]="[
+      'ava-tag',
+      'ava-tag--' + color,
+      'ava-tag--' + variant,
+      'ava-tag--' + size,
+      pill ? 'ava-tag--pill' : '',
+      disabled ? 'ava-tag--disabled' : '',
+      customClass || '',
+      'ava-tag--clickable'
+    ]"
+    [ngStyle]="customStyle"
+    [disabled]="disabled"
+    [attr.aria-label]="computedAriaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby || null"
+    [attr.aria-describedby]="ariaDescribedby || null"
+    (click)="onClick()"
+    (keydown)="onKeyDown($event)"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
+    <ng-container *ngIf="shouldShowAvatar">
+      <aava-avatars
+        *ngIf="avatar && avatar.startsWith('http')"
+        [size]="getAvatarSize()"
+        shape="pill"
+        [imageUrl]="avatar"
+        class="ava-tag__avatar">
+      </aava-avatars>
+      <span class="ava-tag__avatar ava-tag__avatar--initials" *ngIf="avatar && !avatar.startsWith('http')">
+        {{ avatar }}
+      </span>
+    </ng-container>
+    <ng-container *ngIf="icon && iconPosition === 'start'">
+      <aava-icon
+        [iconName]="icon || ''"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('start')"
+        [cursor]="false"
+        [disabled]="disabled"
+        class="ava-tag__icon ava-tag__icon--start">
+      </aava-icon>
+    </ng-container>
+    <span class="ava-tag__label">{{ label }}</span>
+    <ng-container *ngIf="icon && iconPosition === 'end' && !removable">
+      <aava-icon
+        [iconName]="icon || ''"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('end')"
+        [cursor]="false"
+        [disabled]="disabled"
+        class="ava-tag__icon ava-tag__icon--end">
+      </aava-icon>
+    </ng-container>
+    <button *ngIf="removable" type="button" class="ava-tag__remove-btn" [disabled]="disabled"
+      [attr.aria-label]="removeTagLabel" (click)="onRemove($event)" (keydown)="onRemoveKeyDown($event)">
+      <aava-icon
+        iconName="x"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('end')"
+        [cursor]="true"
+        [disabled]="disabled"
+        [ariaHidden]="true"
+        class="ava-tag__remove">
+      </aava-icon>
+    </button>
+  </button>
+
+  <!-- Non-clickable tag using span element -->
+  <span
+    *ngIf="type==='tag' && !clickable"
+    [attr.id]="tagId"
+    [ngClass]="[
+      'ava-tag',
+      'ava-tag--' + color,
+      'ava-tag--' + variant,
+      'ava-tag--' + size,
+      pill ? 'ava-tag--pill' : '',
+      disabled ? 'ava-tag--disabled' : '',
+      customClass || ''
+    ]"
+    [ngStyle]="customStyle"
+    [attr.aria-label]="computedAriaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby || null"
+    [attr.aria-describedby]="ariaDescribedby || null"
+    (mouseenter)="onMouseEnter()"
+    (mouseleave)="onMouseLeave()">
+    <ng-container *ngIf="shouldShowAvatar">
+      <aava-avatars
+        *ngIf="avatar && avatar.startsWith('http')"
+        [size]="getAvatarSize()"
+        shape="pill"
+        [imageUrl]="avatar"
+        class="ava-tag__avatar">
+      </aava-avatars>
+      <span class="ava-tag__avatar ava-tag__avatar--initials" *ngIf="avatar && !avatar.startsWith('http')">
+        {{ avatar }}
+      </span>
+    </ng-container>
+    <ng-container *ngIf="icon && iconPosition === 'start'">
+      <aava-icon
+        [iconName]="icon || ''"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('start')"
+        [cursor]="false"
+        [disabled]="disabled"
+        class="ava-tag__icon ava-tag__icon--start">
+      </aava-icon>
+    </ng-container>
+    <span class="ava-tag__label">{{ label }}</span>
+    <ng-container *ngIf="icon && iconPosition === 'end' && !removable">
+      <aava-icon
+        [iconName]="icon || ''"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('end')"
+        [cursor]="false"
+        [disabled]="disabled"
+        class="ava-tag__icon ava-tag__icon--end">
+      </aava-icon>
+    </ng-container>
+    <button *ngIf="removable" type="button" class="ava-tag__remove-btn" [disabled]="disabled"
+      [attr.aria-label]="removeTagLabel" (click)="onRemove($event)" (keydown)="onRemoveKeyDown($event)">
+      <aava-icon
+        iconName="x"
+        [iconSize]="getIconSize()"
+        [iconColor]="getIconColor('end')"
+        [cursor]="true"
+        [disabled]="disabled"
+        [ariaHidden]="true"
+        class="ava-tag__remove">
+      </aava-icon>
+    </button>
+  </span>
+
+  <!-- Badge type -->
+  <span
+    *ngIf="type==='badge'"
+    [attr.id]="tagId"
+    [ngClass]="[
+      'ava-status-badge',
+      'ava-status-badge--' + color,
+      'ava-status-badge--' + size,
+      pill ? 'ava-status-badge--pill' : '',
+      customClass || ''
+    ]"
+    [ngStyle]="customStyle"
+    role="status"
+    [attr.aria-label]="computedAriaLabel || null"
+    [attr.aria-labelledby]="ariaLabelledby || null"
+    [attr.aria-describedby]="ariaDescribedby || null">
+    {{ label }}
+  </span>
+</ng-container>

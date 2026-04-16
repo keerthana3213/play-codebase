@@ -1,0 +1,65 @@
+.ava-rating-card-container {
+  width: 25%;
+  margin: 20px;
+
+.thank-you-container {
+  text-align: center;
+  padding: 16px;
+  background: #ffffff;
+  border-radius: 12px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  .illustration {
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .selected-rating {
+    display: inline-block;
+    background: #4A5568;
+    color: #A0AEC0;
+    padding: 0.4rem 0.8rem;
+    border-radius: 0.8rem;
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .thank-you-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: black;
+  }
+
+  .thank-you-message {
+    font-size: 0.8rem;
+    color: #A0AEC0;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+  }
+}
+
+::ng-deep .ava-button.large {
+        padding: 17px !important;
+        min-width: none;
+    }    
+.ava-button.large {
+  padding: 17px !important;
+  min-width: 0px !important; 
+  border-radius: 50px !important;
+  margin-bottom: 10px !important;
+  margin: 10px;
+}
+.star-icon{
+   margin-bottom: 10px;
+}
+.ava-textarea__container {
+  margin-bottom: 15px !important;
+}
+
+}

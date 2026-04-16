@@ -1,0 +1,31 @@
+<div class="skeleton-demo-container">
+  <div class="demo-header">
+    <h1>Skeleton Component</h1>
+    <p>
+      A versatile skeleton loading component with multiple shapes, animations,
+      and customizable styling for creating smooth loading states and improving
+      perceived performance.
+    </p>
+  </div>
+
+  <div class="demo-navigation">
+    <div class="demo-grid">
+      <div
+        *ngFor="let demo of demos"
+        class="demo-card"
+        [routerLink]="[demo.path]"
+        routerLinkActive="active"
+      >
+        <h3>{{ demo.title }}</h3>
+        <p>{{ demo.description }}</p>
+        <div class="demo-arrow">
+          <span>→</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="demo-content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+.demo-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+
+  .demo-grid {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+  }
+}

@@ -1,0 +1,379 @@
+.user-table-wrapper {
+  table-layout: auto;
+
+  .table-wrapper {
+    position: relative;
+    width: 100%;
+    overflow-x: auto;
+    overflow-y: auto;
+    border-radius: 8px;
+
+    .ava-user-table {
+      table-layout: auto;
+      width: max-content;
+      min-width: 100%;
+      border-collapse: collapse;
+      border-spacing: 0;
+      font-family: var(--table-font-family-body);
+      background-color: var(--table-background-color);
+
+      th,
+      td {
+        padding: 1rem;
+        text-align: left;
+      }
+
+      thead th {
+        position: sticky;
+        top: 0;
+        z-index: 5;
+        border-bottom: 1px solid var(--table-border);
+        background-color: var(--table-background-color);
+        color: var(--color-text-primary);
+      }
+      tbody tr {
+        transition: background-color 0.3s ease;
+        border-bottom: 1px solid var(--table-border);
+        color: var(--color-text-primary);
+        &:nth-child(odd) {
+          background-color: var(--table-background-color);
+          color: var(--color-text-primary);
+        }
+
+        &:nth-child(even) {
+          background-color: var(--table-background-color);
+          color: var(--color-text-primary);
+        }
+
+        &.row-selected {
+          background-color: var(--table-row-selected-background);
+        }
+
+        .cell-link {
+          color: inherit;
+          text-decoration: none;
+          cursor: pointer;
+
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .ava-icon {
+        margin: 2px;
+        padding: 2px;
+      }
+    }
+
+    .dropdown {
+      position: relative;
+
+      [data-theme="dark"] .action-button {
+        color: var(--table-background-color-odd);
+
+        &:hover {
+          color: var(--table-background-color-odd);
+        }
+      }
+
+      .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        margin-top: 0.5rem;
+        min-width: 13.75rem;
+        padding: 0.25rem 0;
+        background: var(--table-background-color-odd);
+        border: 1px solid var(--table-border);
+        border-radius: 0.5rem;
+        box-shadow: 0 0.25rem 0.625rem rgba(0, 0, 0, 0.08);
+        z-index: 1000;
+
+        .dropdown-item {
+          display: flex;
+          align-items: center;
+          gap: 0.625rem;
+          width: 100%;
+          padding: 0.625rem 1rem;
+          font-size: 1rem;
+          text-align: left;
+          background: none;
+          border: none;
+          cursor: pointer;
+          white-space: nowrap;
+          color: var(--text-color);
+
+          &:hover {
+            background: var(--table-background-color-odd);
+          }
+
+          .dropdown-icon {
+            font-size: 1rem;
+          }
+        }
+      }
+    }
+
+    .actions-cell {
+      width: 1%;
+      white-space: nowrap;
+      text-align: right;
+
+      .action-button {
+        background: none;
+        border: none;
+        font-size: 1.25rem;
+        cursor: pointer;
+        padding: 0;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    .actions-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+
+      .action-button,
+      .action-icon {
+        background: none;
+        border: none;
+        font-size: 1.125rem;
+        cursor: pointer;
+        padding: 0.25rem;
+        border-radius: 0.375rem;
+
+        &:hover {
+          background-color: rgba(0, 0, 0, 0.05);
+        }
+      }
+    }
+
+    th {
+      position: relative;
+
+      // Add padding when filter icon is present
+      &.filterable {
+        padding-right: 32px; // Space for filter icon (16px icon + 8px right + 8px buffer)
+      }
+
+      .th-content {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+      }
+
+      .filter-icon {
+        position: absolute;
+        right: 8px;
+        top: 50%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        z-index: 1;
+
+        &.active {
+          color: #446dd4;
+        }
+      }
+    }
+  }
+}
+
+.default-filter-modal {
+  position: fixed;
+  z-index: 999;
+  background-color: var(--table-background-color-odd);
+  border: 1px solid var(--table-border);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  min-width: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: transform 0.2s ease-in-out;
+
+  // Style for upward dropdown
+  &.filter-dropdown-upward {
+    transform: translateY(-4px);
+    box-shadow: 0 -6px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .section-checkbox {
+    min-height: auto;
+    max-height: 20rem;
+    overflow-y: auto;
+    overflow-x: hidden;
+    scrollbar-width: thin;
+  }
+  .default-filter-select,
+  .default-filter-input {
+    width: 100%;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    border: 1px solid var(--table-border);
+    border-radius: 4px;
+  }
+
+  .filter-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 0.5rem;
+
+    button {
+      flex: 1;
+      padding: 0.5rem 0;
+      font-size: 0.875rem;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  }
+
+  .checkbox-header,
+  .checkbox-cell {
+    width: 40px;
+    text-align: center;
+  }
+}
+.loading-indicator {
+  text-align: center;
+  padding: 8px;
+}
+
+.lazy-loading-row {
+  background: var(--table-background-color-odd);
+  height: auto;
+
+  td {
+    padding: 0;
+    height: auto;
+  }
+}
+
+.lazy-loading-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 12px;
+  color: var(--color-text-primary);
+  font-size: 14px;
+  height: 40px;
+  min-height: 40px;
+}
+
+// ===== NESTED TABLE STYLES =====
+
+.expand-header {
+  width: 50px !important;
+  min-width: 50px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+
+  .th-content {
+    justify-content: center;
+  }
+}
+
+.expand-cell {
+  width: 50px !important;
+  min-width: 50px !important;
+  text-align: center !important;
+  vertical-align: middle !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+
+  .expand-icon {
+    transition: transform 0.2s ease;
+    color: var(--primary-color, #007bff);
+
+    &.expanded {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+.nested-content-row {
+  background-color: rgba(0, 0, 0, 0.02);
+
+  .nested-content-cell {
+
+    .nested-content-wrapper {
+      background-color: transparent;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+  }
+}
+
+// Responsive design for nested tables
+@media (max-width: 768px) {
+  .expand-header,
+  .expand-cell {
+    width: 40px !important;
+    min-width: 40px !important;
+  }
+
+  .nested-content-row {
+    .nested-content-cell {
+      padding: 12px !important;
+
+      .nested-content-wrapper {
+        padding: 12px;
+      }
+    }
+  }
+}
+
+.realm-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  .a-tag{
+    margin: 2px;
+    display: inline-block;
+  }
+}
+.cell-multiline {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+}
+
+.line1 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.text-container {
+  display: flex;
+  flex-direction: column;
+  white-space: pre-wrap;
+  
+}
+
+.subvalue-text {
+  font-size: 0.85em;
+  color: var(--color-text-primary);
+  font-weight: 400;
+  margin-top: 2px;
+}
+.clickable-cell {
+  cursor: pointer;
+}
+
+.ava-checkbox {
+  margin: 8px 5px;
+}

@@ -1,0 +1,58 @@
+/**
+ * Component: Breadcrumbs
+ * Purpose: Breadcrumbs component tokens for navigation hierarchy
+ */
+
+:root {
+  /* Breadcrumbs Base */
+  --breadcrumbs-background: transparent;
+  --breadcrumbs-padding: var(--global-spacing-2);
+  --breadcrumbs-font: var(--font-body-2);
+  /* Breadcrumbs Item */
+  --breadcrumbs-item-text: var(--color-text-primary);
+  --breadcrumbs-item-border-radius: var(--global-radius-sm);
+  --breadcrumbs-item-transition: color var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  /* Breadcrumbs Item States */
+  --breadcrumbs-item-hover-text: var(--global-color-pink-900);
+  --breadcrumbs-item-active-background: var(--color-surface-subtle);
+  --breadcrumbs-item-current-text: var(--color-brand-primary);
+  --breadcrumbs-item-current-font-weight: var(--global-font-weight-regular);
+  --breadcrumbs-item-disabled-text: var(--color-text-disabled);
+  --breadcrumbs-item-disabled-cursor: not-allowed;
+  /* Breadcrumbs Icon */
+  --breadcrumbs-icon-margin: var(--global-spacing-1);
+  /* Breadcrumbs Sizes */
+  --breadcrumbs-size-xs-font: var(--global-font-size-xs);
+  --breadcrumbs-size-sm-font: var(--global-font-size-sm);
+  --breadcrumbs-size-md-font: var(--global-font-size-md);
+  --breadcrumbs-size-lg-font: 1.125rem;
+  --breadcrumbs-size-lg-padding: var(--global-spacing-3);
+  /* Breadcrumbs Collapsed */
+  --breadcrumbs-collapsed-button-text: var(--color-text-secondary);
+  /* Breadcrumbs Dropdown */
+  --breadcrumbs-dropdown-background: var(--global-background);
+  --breadcrumbs-dropdown-shadow: var(--global-elevation-02);
+  --breadcrumbs-dropdown-z-index: 1000;
+  /* Dropdown Button */
+  --breadcrumbs-dropdown-border-color: var(--color-border-subtle);
+  --breadcrumbs-dropdown-text-color: var(--color-text-primary);
+  --breadcrumbs-dropdown-hover-background: var(--color-surface-hover);
+  --breadcrumbs-dropdown-hover-border-color: var(--color-border-primary);
+  --breadcrumbs-dropdown-active-background: var(--color-surface-primary);
+  --breadcrumbs-dropdown-active-border-color: var(--color-border-primary);
+  --breadcrumbs-dropdown-arrow-color: var(--color-text-secondary);
+  /* Dropdown Menu */
+  --breadcrumbs-dropdown-menu-background: var(--color-surface-primary);
+  --breadcrumbs-dropdown-menu-border-color: var(--color-border-subtle);
+  --breadcrumbs-dropdown-menu-shadow: var(--global-elevation-02);
+  --breadcrumbs-dropdown-item-text-color: var(--color-text-primary);
+  --breadcrumbs-dropdown-item-hover-background: var(--color-surface-hover);
+  /* dropdown breadcrumb */
+  --breadcrumbs-trigger-min-width: 87px;
+  --breadcrumbs-dropdown-menu-min-width: 118px;
+  --breadcrumbs-dropdown-menu-margin-top: 0;
+  --breadcrumbs-arrow-transition: 0.2s;
+  --breadcrumbs-dropdown-selected-font-weight: bold;
+  --breadcrumbs-trigger-radius: 8px 8px 0 0;
+  --breadcrumbs-dropdown-menu-border-radius: 0 8px 8px 8px;
+}

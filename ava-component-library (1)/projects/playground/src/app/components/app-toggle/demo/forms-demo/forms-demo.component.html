@@ -1,0 +1,47 @@
+<div class="demo-section center-demo">
+  <div class="demo-examples">
+    <div class="example-group">
+      <form (ngSubmit)="onSubmit()" #toggleForm="ngForm">
+        <div class="form-group">
+          <aava-toggle
+            size="md"
+            title="Email Notifications"
+            position="left"
+            [(ngModel)]="formData.emailNotifications"
+            name="emailNotifications"
+          >
+          </aava-toggle>
+        </div>
+
+        <div class="form-group">
+          <aava-toggle
+            size="md"
+            title="SMS Notifications"
+            position="left"
+            [(ngModel)]="formData.smsNotifications"
+            name="smsNotifications"
+          >
+          </aava-toggle>
+        </div>
+
+        <div class="form-group">
+          <aava-toggle
+            size="md"
+            title="Push Notifications"
+            position="left"
+            [(ngModel)]="formData.pushNotifications"
+            name="pushNotifications"
+          >
+          </aava-toggle>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Form</button>
+      </form>
+
+      <div class="result">
+        <h5>Form Data:</h5>
+        <pre>{{ formData | json }}</pre>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+<ng-container [ngSwitch]="design">
+  <div *ngSwitchCase="'classic'" class="ava-toast ava-toast-warning" [style.width]="customWidth"
+    [style.height]="customHeight" [ngStyle]="customStyles">
+    <!-- Icon -->
+    <div class="ava-toast-icon">
+      <aava-icon [iconName]="icon || 'alert-triangle'" [iconColor]="iconColor || 'white'" [iconSize]="24">
+      </aava-icon>
+    </div>
+
+    <!-- Content -->
+    <div class="ava-toast-content">
+      <div class="ava-toast-title" *ngIf="title">{{ title }}</div>
+      <div class="ava-toast-message" *ngIf="message">{{ message }}</div>
+      <ng-content></ng-content>
+
+      <!-- Action Button -->
+      <div class="ava-toast-actions" *ngIf="showActionButton">
+        <aava-button [label]="actionButtonText || 'Take Action'" variant="primary" size="sm" (userClick)="onAction()">
+        </aava-button>
+      </div>
+    </div>
+
+    <!-- Close Button -->
+    <aava-button *ngIf="showCloseButton" class="ava-toast-close" size="sm" iconName="x" iconColor="white"
+      [iconSize]="16" iconPosition="only" (userClick)="onClose()" aria-label="Close toast">
+    </aava-button>
+
+    <!-- Progress Bar -->
+    <div class="ava-toast-progress" *ngIf="showProgress && duration && duration > 0"
+      [style.animation-duration.ms]="duration"></div>
+  </div>
+
+  <div class="toast-wrapper" *ngSwitchCase="'modern'">
+    <div [ngClass]="size" class="toast warning-toast large" [style.width]="customWidth" [style.height]="customHeight">
+      <div class="toast-icon">
+        <aava-icon [iconName]="icon || 'alert-triangle'" [iconColor]="iconColor || 'white'" [iconSize]="getIconSize()">
+        </aava-icon>
+      </div>
+      <div class="toast-text">
+        <div class="toast-title">{{ title }}</div>
+        <div class="toast-message">
+          {{ message }}
+        </div>
+      </div>
+      <aava-icon [cursor]="true" *ngIf="showCloseButton" (userClick)="onClose()" 
+        [iconName]="'x'"></aava-icon>
+      <div class="toast-progress" *ngIf="showProgress && duration && duration > 0"
+        [style.animation-duration.ms]="duration"></div>
+    </div>
+  </div>
+</ng-container>

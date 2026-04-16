@@ -1,0 +1,22 @@
+<div
+  class="ava-card-wrapper d-flex flex-column {{ cardClass }}"
+  [attr.id]="id ? 'aava-product-card-' + id : null"
+  [class.with-header-padding]="applyHeaderPadding"
+  [class.with-body-padding]="applyBodyPadding"
+  [class.with-footer-padding]="applyFooterPadding"
+>
+  <!-- HEADER - Fully Projectable -->
+  <div *ngIf="showHeader" class="ava-card-header">
+    <ng-content select="[ava-card-header-content]"></ng-content> <!-- Single slot for all header content -->
+  </div>
+
+  <!-- BODY -->
+  <div *ngIf="showBody" class="ava-card-body">
+    <ng-content></ng-content> <!-- Default slot for main body content -->
+  </div>
+
+  <!-- FOOTER -->
+  <div *ngIf="showFooter" class="ava-card-footer">
+    <ng-content select="[ava-card-footer-content]"></ng-content>
+  </div>
+</div>

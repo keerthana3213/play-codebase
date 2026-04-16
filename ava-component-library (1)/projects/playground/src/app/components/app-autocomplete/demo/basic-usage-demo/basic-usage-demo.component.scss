@@ -1,0 +1,55 @@
+.demo-section {
+    max-width: 600px;
+    margin: 2rem auto;
+    margin-top: 0;
+    padding: 2rem;
+}
+
+.demo-description {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.demo-description h3 {
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.demo-description p {
+    color: #6b7280;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.demo-container {
+    margin-bottom: 2rem;
+}
+
+.demo-output h4 {
+    color: #374151;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.output-item {
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    background: #fff;
+    border-radius: 4px;
+    border-left: 3px solid #3b82f6;
+}
+
+.output-item strong {
+    color: #374151;
+    margin-right: 0.5rem;
+}
+
+:host {
+    display: block;
+
+    min-height: 100vh;
+    padding: 1rem;
+}

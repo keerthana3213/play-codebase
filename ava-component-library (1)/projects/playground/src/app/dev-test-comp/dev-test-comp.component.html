@@ -1,0 +1,767 @@
+
+<div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <div>
+        <ng-content select="[commonTab]"></ng-content>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-10">
+          <ng-content select="[heading]"></ng-content>
+        </div>
+        <div class="col-2 d-flex justify-content-end more-control-container">
+          <aava-button
+      #filterBtnRef2
+      variant="secondary"
+      size="sm"
+      label="More Control"
+      (userClick)="filterFlyout2.open(filterBtnRef2)"
+    ></aava-button>
+    <aava-flyout #filterFlyout2>
+      <div>
+        <aava-button
+          variant="tertiary"
+          size="sm"
+          [label]="'Reactivate'"
+        ></aava-button>
+      </div>
+    </aava-flyout>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ng-content select="[search-sort]"></ng-content>
+        </div>
+      </div>
+    </div>
+ 
+    </div>
+  </div>
+
+<div style="padding: 40px; max-width: 1200px; margin: 0 auto;">
+  <h1 style="margin-bottom: 24px; color: var(--text-primary, #000);">Card Component with Menu Demo</h1>
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 1
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger1 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout1.open(getTriggerElement($event, menuTrigger1))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout1 [width]="200" [offsetTop]="-50" [offsetLeft]="15" alignment="right" boundaryAdjustment="none" [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout1.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout1.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout1.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 2
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger2 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout2.open(getTriggerElement($event, menuTrigger2))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout2 [width]="200"  alignment = "left"  [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout2.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout2.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout2.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 3
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger3 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout3.open(getTriggerElement($event, menuTrigger3))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout3 [width]="200" [offsetTop]="-50" [offsetLeft]="15" alignment="right" boundaryAdjustment="none" [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout3.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout3.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout3.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 4
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger4 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout4.open(getTriggerElement($event, menuTrigger4))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout4 [width]="200" alignment="right" [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout4.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout4.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout4.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 5
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger5 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout5.open(getTriggerElement($event, menuTrigger5))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout5 [width]="200" [offsetTop]="-50" [offsetLeft]="15" alignment="right" boundaryAdjustment="none" [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout5.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout5.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout5.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+  <div style="display: flex; justify-content: center; margin-top: 40px;">
+    <div style="position: relative; width: 100%; max-width: 500px;">
+      <div style="position: relative;">
+        <aava-default-card [cardStyles]="{ 'position': 'relative' }">
+          <div style="display: flex; flex-direction: column; gap: 16px;">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+              <div>
+                <h3 style="margin: 0 0 8px 0; font-size: 18px; font-weight: 600; color: var(--text-primary, #000);">
+                  Sample Card Title 6
+                </h3>
+                <p style="margin: 0; color: var(--text-secondary, #666); line-height: 1.5;">
+                  This is a sample card message with a menu option. Click the three dots to see more actions.
+                </p>
+              </div>
+
+              <!-- Three dots menu button positioned on the right -->
+              <div #menuTrigger2 style="flex-shrink: 0; margin-left: 16px; display: inline-block;">
+                <aava-button size="sm" iconName="ellipsis-vertical" iconPosition="only" [iconSize]="20"
+                  iconColor="var(--color-text-primary)"
+                  (userClick)="menuFlyout2.open(getTriggerElement($event, menuTrigger2))" [customStyles]="{
+                    'background': 'transparent',
+                    'border': 'none',
+                    'box-shadow': 'none',
+                    'padding': '4px',
+                    'min-width': 'auto',
+                    'width': 'auto',
+                    'height': 'auto'
+                  }" aria-label="More options">
+                </aava-button>
+              </div>
+            </div>
+          </div>
+        </aava-default-card>
+      </div>
+
+      <!-- Flyout with action buttons -->
+      <aava-flyout #menuFlyout6 [width]="200" [customPanelStyles]="{
+          'padding': '8px',
+          'border-radius': '8px',
+          'box-shadow': '0 4px 12px rgba(0, 0, 0, 0.15)',
+          'background': 'var(--surface-primary, #fff)',
+          'border': '1px solid var(--border-color, #e0e0e0)'
+        }">
+
+        <div style="display: flex; flex-direction: column; gap: 4px;">
+          <!-- View Option -->
+          <div class="flyout-menu-item" (click)="onView(); menuFlyout6.close()">
+            <aava-icon iconName="eye" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">View</span>
+          </div>
+
+          <!-- Edit Option -->
+          <div class="flyout-menu-item" (click)="onEdit(); menuFlyout6.close()">
+            <aava-icon iconName="edit" [iconSize]="16" iconColor="var(--color-text-primary, #000)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-text-primary, #000);">Edit</span>
+          </div>
+
+          <!-- Delete Option -->
+          <div class="flyout-menu-item" (click)="onDelete(); menuFlyout6.close()">
+            <aava-icon iconName="trash-2" [iconSize]="16" iconColor="var(--color-error, #dc3545)">
+            </aava-icon>
+            <span style="font-size: 14px; color: var(--color-error, #dc3545);">Delete</span>
+          </div>
+        </div>
+      </aava-flyout>
+    </div>
+  </div>
+
+  
+
+</div>
+
+<div>
+  <div class="row">
+    <div class="col-12 d-flex justify-content-center">
+      <div>
+        <ng-content select="[commonTab]"></ng-content>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-10">
+          <ng-content select="[heading]"></ng-content>
+        </div>
+        <div class="col-2 d-flex justify-content-end more-control-container">
+          <aava-button
+      #filterBtnRef
+      variant="secondary"
+      size="sm"
+      label="More Control"
+      (userClick)="filterFlyout.open(filterBtnRef)"
+    ></aava-button>
+    <aava-flyout #filterFlyout>
+      <div>
+        <aava-button
+          variant="tertiary"
+          size="sm"
+          [label]="'Reactivate'"
+        ></aava-button>
+      </div>
+    </aava-flyout>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <ng-content select="[search-sort]"></ng-content>
+        </div>
+      </div>
+    </div>
+ 
+    </div>
+  </div>
+
+
+<!-- Flyout Alignment Examples -->
+<div style="padding: 40px; max-width: 1400px; margin: 0 auto;">
+  <h1 style="margin-bottom: 32px; color: var(--text-primary, #000);">Flyout Alignment Examples</h1>
+  
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Left Alignment (Default)</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #leftAlignBtn
+          variant="primary"
+          size="md"
+          label="Left Aligned Flyout"
+          (userClick)="leftAlignFlyout.open(leftAlignBtn)">
+        </aava-button>
+        <aava-flyout #leftAlignFlyout alignment="left" [width]="200">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">Left aligned flyout panel</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Action"
+              (userClick)="leftAlignFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Right Alignment</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #rightAlignBtn
+          variant="primary"
+          size="md"
+          label="Right Aligned Flyout"
+          (userClick)="rightAlignFlyout.open(rightAlignBtn)">
+        </aava-button>
+        <aava-flyout #rightAlignFlyout alignment="right" [width]="200">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">Right aligned flyout panel</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Action"
+              (userClick)="rightAlignFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Top Alignment</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-flyout #topAlignFlyout alignment="top" [width]="200">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">Top aligned flyout panel</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Action"
+              (userClick)="topAlignFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+        <div style="margin-top: 20px;">
+          <aava-button
+            #topAlignBtn
+            variant="primary"
+            size="md"
+            label="Top Aligned Flyout"
+            (userClick)="topAlignFlyout.open(topAlignBtn)">
+          </aava-button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Bottom Alignment</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #bottomAlignBtn
+          variant="primary"
+          size="md"
+          label="Bottom Aligned Flyout"
+          (userClick)="bottomAlignFlyout.open(bottomAlignBtn)">
+        </aava-button>
+        <aava-flyout #bottomAlignFlyout alignment="bottom" [width]="200">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">Bottom aligned flyout panel</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Action"
+              (userClick)="bottomAlignFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Auto Width (No width set)</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #autoWidthBtn
+          variant="primary"
+          size="md"
+          label="Auto Width Flyout"
+          (userClick)="autoWidthFlyout.open(autoWidthBtn)">
+        </aava-button>
+        <aava-flyout #autoWidthFlyout alignment="left">
+          <div style="padding: 16px; white-space: nowrap;">
+            <p style="margin: 0 0 12px 0;">This flyout has auto width based on content</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Close"
+              (userClick)="autoWidthFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">With Overlay</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #overlayBtn
+          variant="primary"
+          size="md"
+          label="Flyout with Overlay"
+          (userClick)="overlayFlyout.open(overlayBtn)">
+        </aava-button>
+        <aava-flyout #overlayFlyout alignment="left" [width]="250" [overlay]="true">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">This flyout has an overlay background</p>
+            <p style="margin: 0 0 12px 0; font-size: 14px; color: var(--text-secondary, #666);">Click outside or on overlay to close</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Close"
+              (userClick)="overlayFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">With Offsets</h2>
+    <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #offsetBtn
+          variant="primary"
+          size="md"
+          label="Flyout with Offsets"
+          (userClick)="offsetFlyout.open(offsetBtn)">
+        </aava-button>
+        <aava-flyout #offsetFlyout alignment="left" [width]="200" [offsetTop]="10" [offsetLeft]="15">
+          <div style="padding: 16px;">
+            <p style="margin: 0 0 12px 0;">This flyout has custom offsets</p>
+            <p style="margin: 0 0 12px 0; font-size: 12px; color: var(--text-secondary, #666);">offsetTop: 10px, offsetLeft: 15px</p>
+            <aava-button
+              variant="tertiary"
+              size="sm"
+              label="Close"
+              (userClick)="offsetFlyout.close()">
+            </aava-button>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+
+  <div style="margin-bottom: 60px;">
+    <h2 style="margin-bottom: 24px; color: var(--text-primary, #000); font-size: 20px;">Multiple Flyouts (Different Alignments)</h2>
+    <div style="display: flex; justify-content: center; gap: 30px; flex-wrap: wrap;">
+      <div style="text-align: center;">
+        <aava-button
+          #multiLeftBtn
+          variant="secondary"
+          size="sm"
+          label="Left"
+          (userClick)="multiLeftFlyout.open(multiLeftBtn)">
+        </aava-button>
+        <aava-flyout #multiLeftFlyout alignment="left" [width]="150">
+          <div style="padding: 12px;">
+            <p style="margin: 0; font-size: 14px;">Left aligned</p>
+          </div>
+        </aava-flyout>
+      </div>
+      
+      <div style="text-align: center;">
+        <aava-button
+          #multiRightBtn
+          variant="secondary"
+          size="sm"
+          label="Right"
+          (userClick)="multiRightFlyout.open(multiRightBtn)">
+        </aava-button>
+        <aava-flyout #multiRightFlyout alignment="right" [width]="150">
+          <div style="padding: 12px;">
+            <p style="margin: 0; font-size: 14px;">Right aligned</p>
+          </div>
+        </aava-flyout>
+      </div>
+      
+      <div style="text-align: center;">
+        <aava-button
+          #multiTopBtn
+          variant="secondary"
+          size="sm"
+          label="Top"
+          (userClick)="multiTopFlyout.open(multiTopBtn)">
+        </aava-button>
+        <aava-flyout #multiTopFlyout alignment="top" [width]="150">
+          <div style="padding: 12px;">
+            <p style="margin: 0; font-size: 14px;">Top aligned</p>
+          </div>
+        </aava-flyout>
+      </div>
+      
+      <div style="text-align: center;">
+        <aava-button
+          #multiBottomBtn
+          variant="secondary"
+          size="sm"
+          label="Bottom"
+          (userClick)="multiBottomFlyout.open(multiBottomBtn)">
+        </aava-button>
+        <aava-flyout #multiBottomFlyout alignment="bottom" [width]="150">
+          <div style="padding: 12px;">
+            <p style="margin: 0; font-size: 14px;">Bottom aligned</p>
+          </div>
+        </aava-flyout>
+      </div>
+    </div>
+  </div>
+</div>

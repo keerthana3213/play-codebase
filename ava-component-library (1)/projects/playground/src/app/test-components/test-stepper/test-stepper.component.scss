@@ -1,0 +1,26 @@
+.stepper-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.stepper-horizontal, .stepper-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.stepper-horizontal {
+  flex-direction: column;
+}
+
+.stepper-vertical {
+  flex-direction: row;
+}
+
+ava-stepper {
+  margin-bottom: 10px;
+}
+
+

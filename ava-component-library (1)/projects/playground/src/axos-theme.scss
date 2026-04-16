@@ -1,0 +1,539 @@
+/**
+* =========================================================================
+* Play+ Design System: Axos Theme
+*
+* Axos theme overrides for semantic tokens.
+* This theme maintains the same token structure but changes
+* the visual appearance to use the Axos color palette.
+* =========================================================================
+*/
+
+[data-theme="light"] {
+    /* Brand colors */
+    /* Yellowstone - Warm earth tones */
+    --yellowstone-50: rgb(255, 246, 237);
+    --yellowstone-100: rgb(253, 228, 199);
+    --yellowstone-200: rgb(253, 215, 172);
+    --yellowstone-300: rgb(252, 196, 134);
+    --yellowstone-400: rgb(251, 185, 110);
+    --yellowstone-500: rgb(250, 167, 74);
+    --yellowstone-600: rgb(228, 152, 67);
+    --yellowstone-700: rgb(178, 119, 53);
+    --yellowstone-800: rgb(138, 92, 41);
+    --yellowstone-900: rgb(105, 70, 31);
+
+    /* Yosemite Sky - Cool blue-greys */
+    --yosemite-sky-50: rgb(233, 235, 239);
+    --yosemite-sky-100: rgb(191, 193, 206);
+    --yosemite-sky-200: rgb(152, 163, 182);
+    --yosemite-sky-300: rgb(104, 122, 148);
+    --yosemite-sky-400: rgb(75, 96, 128);
+    --yosemite-sky-500: rgb(30, 56, 96);
+    --yosemite-sky-600: rgb(27, 51, 87);
+    --yosemite-sky-700: rgb(21, 40, 68);
+    --yosemite-sky-800: rgb(17, 31, 53);
+    --yosemite-sky-900: rgb(13, 24, 40);
+
+    /* Sequoia Mist - Soft greens */
+    --sequoia-mist-50: rgb(252, 254, 255);
+    --sequoia-mist-100: rgb(245, 252, 255);
+    --sequoia-mist-200: rgb(240, 250, 255);
+    --sequoia-mist-300: rgb(233, 248, 255);
+    --sequoia-mist-400: rgb(229, 246, 255);
+    --sequoia-mist-500: rgb(222, 244, 255);
+    --sequoia-mist-600: rgb(94, 53, 167);
+    --sequoia-mist-700: rgb(73, 41, 130);
+    --sequoia-mist-800: rgb(57, 32, 101);
+    --sequoia-mist-900: rgb(43, 24, 77);
+
+    /* Big Sur Deep - Deep blue-greys */
+    --big-sur-deep-50: rgb(233, 239, 253);
+    --big-sur-deep-100: rgb(187, 207, 249);
+    --big-sur-deep-200: rgb(154, 183, 246);
+    --big-sur-deep-300: rgb(167, 123, 243);
+    --big-sur-deep-400: rgb(80, 130, 239);
+    --big-sur-deep-500: rgb(37, 99, 235);
+    --big-sur-deep-600: rgb(33, 90, 214);
+    --big-sur-deep-700: rgb(26, 70, 167);
+    --big-sur-deep-800: rgb(20, 54, 129);
+    --big-sur-deep-900: rgb(15, 42, 99);
+
+    /* Coronado Tide - Ocean blues */
+    --coronado-tide-50: rgb(251, 233, 241);
+    --coronado-tide-100: rgb(244, 188, 213);
+    --coronado-tide-200: rgb(238, 156, 192);
+    --coronado-tide-300: rgb(231, 110, 164);
+    --coronado-tide-400: rgb(226, 82, 146);
+    --coronado-tide-500: rgb(219, 39, 119);
+    --coronado-tide-600: rgb(199, 35, 108);
+    --coronado-tide-700: rgb(155, 28, 84);
+    --coronado-tide-800: rgb(120, 21, 65);
+    --coronado-tide-900: rgb(92, 16, 50);
+
+    /* Semantic Colors */
+    --sem-green-50: rgb(5, 150, 105);
+    --sem-green-100: rgb(16, 185, 129);
+    --sem-green-200: rgb(220, 38, 38);
+    --sem-green-300: rgb(239, 68, 68);
+    --sem-green-400: rgb(217, 119, 6);
+    --sem-green-500: rgb(245, 158, 11);
+    --sem-green-600: rgb(8, 145, 178);
+    --sem-green-700: rgb(6, 182, 212);
+    --sem-green-800: rgb(6, 182, 212);
+    --sem-green-900: rgb(6, 182, 212);
+
+    /* Error Colors */
+    --sem-red-50: rgb(5, 150, 105);
+    --sem-red-100: rgb(16, 185, 129);
+    --sem-red-200: rgb(220, 38, 38);
+    --sem-red-300: rgb(239, 68, 68);
+    --sem-red-400: rgb(217, 119, 6);
+    --sem-red-500: rgb(245, 158, 11);
+    --sem-red-600: rgb(8, 145, 178);
+    --sem-red-700: rgb(6, 182, 212);
+    --sem-red-800: rgb(6, 182, 212);
+    --sem-red-900: rgb(6, 182, 212);
+
+    /* Warning Colors */
+    --warning-light: rgb(5, 150, 105);
+    --warning-dark: rgb(16, 185, 129);
+    --error-light: rgb(220, 38, 38);
+    --error-dark: rgb(239, 68, 68);
+    --warning-light-alt: rgb(217, 119, 6);
+    --warning-dark-alt: rgb(245, 158, 11);
+    --info-light: rgb(8, 145, 178);
+    --info-dark: rgb(6, 182, 212);
+    --info-dark-alt: rgb(6, 182, 212);
+    --info-dark-final: rgb(6, 182, 212);
+
+    /* Info Colors */
+    --success-light: rgb(5, 150, 105);
+    --success-dark: rgb(16, 185, 129);
+    --error-light-info: rgb(220, 38, 38);
+    --error-dark-info: rgb(239, 68, 68);
+    --warning-light-info: rgb(217, 119, 6);
+    --warning-dark-info: rgb(245, 158, 11);
+    --info-light-main: rgb(8, 145, 178);
+    --info-dark-main: rgb(6, 182, 212);
+    --info-dark-secondary: rgb(6, 182, 212);
+    --info-dark-tertiary: rgb(6, 182, 212);
+
+    /* Neutral Colors */
+    --neutral-50: rgb(250, 250, 250);
+    --neutral-100: rgb(243, 243, 243);
+    --neutral-200: rgb(231, 231, 231);
+    --neutral-300: rgb(206, 206, 206);
+    --neutral-400: rgb(198, 198, 199);
+    --neutral-500: rgb(182, 182, 183);
+    --neutral-600: rgb(170, 170, 171);
+    --neutral-700: rgb(158, 158, 159);
+    --neutral-800: rgb(146, 146, 147);
+    --neutral-900: rgb(133, 133, 134);
+
+    /* Neutral Colors - Dark */
+    --neutral-dark-50: rgb(121, 121, 122);
+    --neutral-dark-100: rgb(109, 109, 110);
+    --neutral-dark-200: rgb(97, 97, 98);
+    --neutral-dark-300: rgb(85, 85, 86);
+    --neutral-dark-400: rgb(73, 73, 74);
+    --neutral-dark-500: rgb(61, 61, 62);
+    --neutral-dark-600: rgb(48, 48, 49);
+    --neutral-dark-700: rgb(45, 45, 47);
+    --neutral-dark-800: rgb(24, 24, 26);
+    --neutral-dark-900: rgb(12, 12, 14);
+
+    --background: url("../../../public/light_bg.svg");
+    /* PRIMARY (Yellowstone - Warm Earth Tones) */
+    --color-brand-primary: var(--yellowstone-500);
+    --color-brand-primary-hover: var(--yellowstone-700);
+    --color-brand-primary-active: var(--yellowstone-800);
+    --color-surface-interactive-primary: var(--yellowstone-500);
+    --color-surface-interactive-primary-hover: var(--yellowstone-700);
+    --color-surface-interactive-primary-active: var(--yellowstone-800);
+    --color-border-primary: var(--yellowstone-500);
+    --color-border-primary-hover: var(--yellowstone-700);
+    --color-border-primary-active: var(--yellowstone-800);
+    --color-text-primary: var(--neutral-800);
+    --color-text-on-primary: var(--neutral-50);
+    --color-text-inactive-tab-button: var(--neutral-900);
+    --color-text-active-stepper-circle: var(--neutral-900);
+
+    /* SECONDARY (Big Sur Deep - Deep Blue) */
+    --color-brand-secondary: var(--big-sur-deep-500);
+    --color-brand-secondary-hover: var(--big-sur-deep-700);
+    --color-brand-secondary-active: var(--big-sur-deep-800);
+    --color-surface-interactive-secondary: var(--big-sur-deep-100);
+    --color-surface-interactive-secondary-hover: var(--big-sur-deep-500);
+    --color-surface-interactive-secondary-active: var(--big-sur-deep-700);
+    --color-border-secondary: var(--big-sur-deep-500);
+    --color-border-secondary-hover: var(--big-sur-deep-700);
+    --color-border-secondary-active: var(--big-sur-deep-800);
+    --color-text-secondary: var(--big-sur-deep-700);
+    --color-text-on-secondary: var(--neutral-50);
+    --color-background-secondary: var(--big-sur-deep-100);
+    --tabs-button-active-border: var(--rgb-brand-primary);
+
+    /* BUTTONS, TABS, TAGS: Use these tokens for all secondary/primary states */
+    --color-text-placeholder: var(--neutral-400);
+    --color-text-disabled: var(--neutral-400);
+    --color-text-on-brand: var(--neutral-50);
+    --color-text-interactive: var(--yellowstone-500);
+    --color-text-interactive-hover: var(--yellowstone-700);
+    --color-text-success: var(--sem-green-600);
+    --color-text-error: var(--sem-red-600);
+    --color-background-primary: var(--neutral-50);
+    --color-background-disabled: var(--neutral-100);
+    --color-surface-interactive-default: var(--yellowstone-500);
+    --color-surface-interactive-hover: var(--yellowstone-700);
+    --color-surface-interactive-active: var(--yellowstone-700);
+    --color-surface-disabled: var(--neutral-200);
+    --color-surface-subtle-hover: var(--neutral-100);
+    --color-border-default: var(--neutral-300);
+    --color-border-subtle: var(--neutral-200);
+    --color-border-interactive: var(--yellowstone-500);
+    --color-border-focus: var(--yellowstone-500);
+    --color-border-error: var(--sem-red-500);
+    --color-background-error: var(--sem-red-100);
+
+    /* Semantic Border Colors */
+    --color-border-warning: var(--warning-dark-alt);
+    --color-border-success: var(--sem-green-500);
+    --color-border-info: var(--big-sur-deep-500);
+
+    /* Semantic Text Colors */
+    --color-text-warning: var(--warning-dark-alt);
+    --color-text-success: var(--sem-green-600);
+    --color-text-info: var(--big-sur-deep-700);
+
+    /* Semantic Background Colors */
+    --color-background-warning: var(--warning-light);
+    --color-background-success: var(--sem-green-100);
+    --color-background-info: var(--big-sur-deep-100);
+
+    /* --- Axos Theme Glassmorphism --- */
+    --glass-backdrop-blur: 12px;
+    --glass-background-color: rgba(250, 250, 250, 0.6);
+    --glass-border-color: rgba(250, 250, 250, 0.3);
+    --glass-border-width: 1px;
+    --glass-elevation: var(--global-elevation-02);
+
+    /* RGB OVERRIDES */
+    --rgb-brand-primary: 250, 167, 74 !important;
+    /* From yellowstone-500 */
+    --rgb-brand-secondary: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --rgb-brand-tertiary: 30, 56, 96;
+    /* From yosemite-sky-500 */
+    --rgb-brand-quaternary: 250, 167, 74;
+    /* From yellowstone-500 */
+    --rgb-brand-quinary: 222, 244, 255;
+    /* From sequoia-mist-500 */
+    --rgb-brand-senary: 94, 53, 167;
+    /* From sequoia-mist-600 */
+    --rgb-violet: 94, 53, 167;
+    /* From sequoia-mist-600 */
+    --rgb-royal-blue: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --rgb-cyan: 222, 244, 255;
+    /* From sequoia-mist-500 */
+    --rgb-spearmint: 16, 185, 129;
+    /* From sem-green-100 */
+    --rgb-rose: 250, 167, 74;
+    /* From yellowstone-500 */
+    --rgb-white: 250, 250, 250;
+    /* From neutral-50 */
+    --rgb-black: 12, 12, 14;
+    /* From neutral-dark-900 */
+    --rgb-neutral-100: 243, 243, 243;
+    /* From neutral-100 */
+
+    /* EFFECT COLOR OVERRIDES */
+
+
+    /* GLASS SURFACE COLORS */
+    --glass-variant-success: 5, 150, 105;
+    /* From sem-green-600 */
+    --glass-variant-warning: 245, 158, 11;
+    /* From warning-dark-alt */
+    --glass-variant-danger: 220, 38, 38;
+    /* From sem-red-600 */
+    --glass-variant-info: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --glass-variant-yellowstone: 250, 167, 74;
+    /* Primary yellowstone variant */
+    --glass-variant-yosemite: 30, 56, 96;
+    /* Custom yosemite variant */
+    --glass-variant-sequoia: 222, 244, 255;
+    /* Custom sequoia variant */
+}
+
+[data-theme="dark"] {
+    /* Brand colors */
+    /* Yellowstone - Warm earth tones */
+    --yellowstone-50: rgb(255, 246, 237);
+    --yellowstone-100: rgb(253, 228, 199);
+    --yellowstone-200: rgb(253, 215, 172);
+    --yellowstone-300: rgb(252, 196, 134);
+    --yellowstone-400: rgb(251, 185, 110);
+    --yellowstone-500: rgb(250, 167, 74);
+
+
+    --yellowstone-600: rgb(228, 152, 67);
+    --yellowstone-700: rgb(178, 119, 53);
+    --yellowstone-800: rgb(138, 92, 41);
+    --yellowstone-900: rgb(105, 70, 31);
+
+    /* Yosemite Sky - Cool blue-greys */
+    --yosemite-sky-50: rgb(233, 235, 239);
+    --yosemite-sky-100: rgb(191, 193, 206);
+    --yosemite-sky-200: rgb(152, 163, 182);
+    --yosemite-sky-300: rgb(104, 122, 148);
+    --yosemite-sky-400: rgb(75, 96, 128);
+    --yosemite-sky-500: rgb(30, 56, 96);
+    --yosemite-sky-600: rgb(27, 51, 87);
+    --yosemite-sky-700: rgb(21, 40, 68);
+    --yosemite-sky-800: rgb(17, 31, 53);
+    --yosemite-sky-900: rgb(13, 24, 40);
+
+    /* Sequoia Mist - Soft greens */
+    --sequoia-mist-50: rgb(252, 254, 255);
+    --sequoia-mist-100: rgb(245, 252, 255);
+    --sequoia-mist-200: rgb(240, 250, 255);
+    --sequoia-mist-300: rgb(233, 248, 255);
+    --sequoia-mist-400: rgb(229, 246, 255);
+    --sequoia-mist-500: rgb(222, 244, 255);
+    --sequoia-mist-600: rgb(94, 53, 167);
+    --sequoia-mist-700: rgb(73, 41, 130);
+    --sequoia-mist-800: rgb(57, 32, 101);
+    --sequoia-mist-900: rgb(43, 24, 77);
+
+    /* Big Sur Deep - Deep blue-greys */
+    --big-sur-deep-50: rgb(233, 239, 253);
+    --big-sur-deep-100: rgb(187, 207, 249);
+    --big-sur-deep-200: rgb(154, 183, 246);
+    --big-sur-deep-300: rgb(167, 123, 243);
+    --big-sur-deep-400: rgb(80, 130, 239);
+    --big-sur-deep-500: rgb(37, 99, 235);
+    --big-sur-deep-600: rgb(33, 90, 214);
+    --big-sur-deep-700: rgb(26, 70, 167);
+    --big-sur-deep-800: rgb(20, 54, 129);
+    --big-sur-deep-900: rgb(15, 42, 99);
+
+    /* Coronado Tide - Ocean blues */
+    --coronado-tide-50: rgb(251, 233, 241);
+    --coronado-tide-100: rgb(244, 188, 213);
+    --coronado-tide-200: rgb(238, 156, 192);
+    --coronado-tide-300: rgb(231, 110, 164);
+    --coronado-tide-400: rgb(226, 82, 146);
+    --coronado-tide-500: rgb(219, 39, 119);
+    --coronado-tide-600: rgb(199, 35, 108);
+    --coronado-tide-700: rgb(155, 28, 84);
+    --coronado-tide-800: rgb(120, 21, 65);
+    --coronado-tide-900: rgb(92, 16, 50);
+
+    /* Semantic Colors */
+    --sem-green-50: rgb(5, 150, 105);
+    --sem-green-100: rgb(16, 185, 129);
+    --sem-green-200: rgb(220, 38, 38);
+    --sem-green-300: rgb(239, 68, 68);
+    --sem-green-400: rgb(217, 119, 6);
+    --sem-green-500: rgb(245, 158, 11);
+    --sem-green-600: rgb(8, 145, 178);
+    --sem-green-700: rgb(6, 182, 212);
+    --sem-green-800: rgb(6, 182, 212);
+    --sem-green-900: rgb(6, 182, 212);
+
+    /* Error Colors */
+    --sem-red-50: rgb(5, 150, 105);
+    --sem-red-100: rgb(16, 185, 129);
+    --sem-red-200: rgb(220, 38, 38);
+    --sem-red-300: rgb(239, 68, 68);
+    --sem-red-400: rgb(217, 119, 6);
+    --sem-red-500: rgb(245, 158, 11);
+    --sem-red-600: rgb(8, 145, 178);
+    --sem-red-700: rgb(6, 182, 212);
+    --sem-red-800: rgb(6, 182, 212);
+    --sem-red-900: rgb(6, 182, 212);
+
+    /* Warning Colors */
+    --warning-light: rgb(5, 150, 105);
+    --warning-dark: rgb(16, 185, 129);
+    --error-light: rgb(220, 38, 38);
+    --error-dark: rgb(239, 68, 68);
+    --warning-light-alt: rgb(217, 119, 6);
+    --warning-dark-alt: rgb(245, 158, 11);
+    --info-light: rgb(8, 145, 178);
+    --info-dark: rgb(6, 182, 212);
+    --info-dark-alt: rgb(6, 182, 212);
+    --info-dark-final: rgb(6, 182, 212);
+
+    /* Info Colors */
+    --success-light: rgb(5, 150, 105);
+    --success-dark: rgb(16, 185, 129);
+    --error-light-info: rgb(220, 38, 38);
+    --error-dark-info: rgb(239, 68, 68);
+    --warning-light-info: rgb(217, 119, 6);
+    --warning-dark-info: rgb(245, 158, 11);
+    --info-light-main: rgb(8, 145, 178);
+    --info-dark-main: rgb(6, 182, 212);
+    --info-dark-secondary: rgb(6, 182, 212);
+    --info-dark-tertiary: rgb(6, 182, 212);
+
+    /* Neutral Colors */
+    --neutral-50: rgb(250, 250, 250);
+    --neutral-100: rgb(243, 243, 243);
+    --neutral-200: rgb(231, 231, 231);
+    --neutral-300: rgb(206, 206, 206);
+    --neutral-400: rgb(198, 198, 199);
+    --neutral-500: rgb(182, 182, 183);
+    --neutral-600: rgb(170, 170, 171);
+    --neutral-700: rgb(158, 158, 159);
+    --neutral-800: rgb(146, 146, 147);
+    --neutral-900: rgb(133, 133, 134);
+
+    /* Neutral Colors - Dark */
+    --neutral-dark-50: rgb(121, 121, 122);
+    --neutral-dark-100: rgb(109, 109, 110);
+    --neutral-dark-200: rgb(97, 97, 98);
+    --neutral-dark-300: rgb(85, 85, 86);
+    --neutral-dark-400: rgb(73, 73, 74);
+    --neutral-dark-500: rgb(61, 61, 62);
+    --neutral-dark-600: rgb(48, 48, 49);
+    --neutral-dark-700: rgb(45, 45, 47);
+    --neutral-dark-800: rgb(24, 24, 26);
+    --neutral-dark-900: rgb(12, 12, 14);
+    --white: rgb(255, 255, 255);
+    --font-size-xs: 0.75rem;
+    --label-font-weight: 400;
+    --form-label-color: var(--neutral-700);
+    --background: url("../../../public/dark_bg.svg");
+    --header-text: var(--neutral-200)
+        /* PRIMARY (Yellowstone - Warm Earth Tones) */
+        --color-brand-primary: var(--yellowstone-500);
+    --color-brand-primary-hover: var(--yellowstone-700);
+    --color-brand-primary-active: var(--yellowstone-800);
+    --color-surface-interactive-primary: var(--yellowstone-500);
+    --color-surface-interactive-primary-hover: var(--yellowstone-700);
+    --color-surface-interactive-primary-active: var(--yellowstone-800);
+    --color-border-primary: var(--yellowstone-500);
+    --color-border-primary-hover: var(--yellowstone-700);
+    --color-border-primary-active: var(--yellowstone-800);
+    --color-text-primary: var(--neutral-50);
+    --color-text-on-primary: var(--white);
+    --color-text-inactive-tab-button: var(--neutral-100);
+    --color-text-active-stepper-circle: var(--neutral-100);
+
+    /* SECONDARY (Big Sur Deep - Deep Blue) */
+    --color-brand-secondary: var(--big-sur-deep-500);
+    --color-brand-secondary-hover: var(--big-sur-deep-700);
+    --color-brand-secondary-active: var(--big-sur-deep-800);
+    --color-surface-interactive-secondary: var(--big-sur-deep-100);
+    --color-surface-interactive-secondary-hover: var(--big-sur-deep-500);
+    --color-surface-interactive-secondary-active: var(--big-sur-deep-700);
+    --color-border-secondary: var(--big-sur-deep-500);
+    --color-border-secondary-hover: var(--big-sur-deep-700);
+    --color-border-secondary-active: var(--big-sur-deep-800);
+    --color-text-secondary: var(--big-sur-deep-300);
+    --color-text-on-secondary: var(--neutral-900);
+    --color-background-secondary: var(--big-sur-deep-900);
+
+    /* BUTTONS, TABS, TAGS: Use these tokens for all secondary/primary states */
+    --color-text-placeholder: var(--neutral-600);
+    --color-text-disabled: var(--neutral-600);
+    --color-text-on-brand: var(--neutral-900);
+    --color-text-interactive: var(--yellowstone-500);
+    --color-text-interactive-hover: var(--yellowstone-700);
+    --color-text-success: var(--sem-green-400);
+    --color-text-error: var(--sem-red-400);
+    --color-background-primary: linear-gradient(152.8deg,
+            rgba(255, 255, 255, 0.1) 2.22%,
+            rgba(0, 0, 0, 0.03) 58.86%,
+            rgba(0, 0, 0, 0.03) 76.17%,
+            rgba(255, 255, 255, 0.1) 100%);
+    --play-font-secondary: "Albert Sans", sans-serif;
+    --color-background-disabled: var(--neutral-dark-900);
+    --color-surface-interactive-default: var(--yellowstone-500);
+    --color-surface-interactive-hover: var(--yellowstone-700);
+    --color-surface-interactive-active: var(--yellowstone-700);
+    --color-surface-disabled: var(--neutral-dark-700);
+    --color-surface-subtle-hover: var(--neutral-dark-800);
+    --color-border-default: var(--neutral-300);
+    --color-border-subtle: var(--neutral-dark-700);
+    --color-border-interactive: var(--yellowstone-500);
+    --color-border-focus: var(--yellowstone-500);
+    --color-border-error: var(--sem-red-400);
+    --color-background-error: var(--sem-red-900);
+
+    /* Semantic Border Colors */
+    --color-border-warning: var(--warning-dark-alt);
+    --color-border-success: var(--sem-green-400);
+    --color-border-info: var(--big-sur-deep-400);
+
+    /* Semantic Text Colors */
+    --color-text-warning: var(--warning-dark-alt);
+    --color-text-success: var(--sem-green-400);
+    --color-text-info: var(--big-sur-deep-300);
+
+    --tabs-button-active-border: var(--rgb-brand-primary);
+
+    /* Semantic Background Colors */
+    --color-background-warning: var(--warning-dark);
+    --color-background-success: var(--sem-green-900);
+    --color-background-info: var(--big-sur-deep-900);
+
+    /* --- Axos Theme Glassmorphism --- */
+    --glass-backdrop-blur: 12px;
+    --glass-background-color: rgba(12, 12, 14, 0.6);
+    --glass-border-color: rgba(12, 12, 14, 0.3);
+    --glass-border-width: 1px;
+    --glass-elevation: var(--global-elevation-02);
+
+    /* RGB OVERRIDES */
+    --rgb-brand-primary: 250, 167, 74 !important;
+    --yellowstone-500: rgb(250, 167, 74);
+    /* From yellowstone-500 */
+    --rgb-brand-secondary: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --rgb-brand-tertiary: 30, 56, 96;
+    /* From yosemite-sky-500 */
+    --rgb-brand-quaternary: 250, 167, 74;
+    /* From yellowstone-500 */
+    --rgb-brand-quinary: 222, 244, 255;
+    /* From sequoia-mist-500 */
+    --rgb-brand-senary: 94, 53, 167;
+    /* From sequoia-mist-600 */
+    --rgb-violet: 94, 53, 167;
+    /* From sequoia-mist-600 */
+    --rgb-royal-blue: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --rgb-cyan: 222, 244, 255;
+    /* From sequoia-mist-500 */
+    --rgb-spearmint: 16, 185, 129;
+    /* From sem-green-100 */
+    --rgb-rose: 250, 167, 74;
+    /* From yellowstone-500 */
+    --rgb-white: 250, 250, 250;
+    /* From neutral-50 */
+    --rgb-black: 12, 12, 14;
+    /* From neutral-dark-900 */
+    --rgb-neutral-100: 243, 243, 243;
+    /* From neutral-100 */
+
+
+
+    /* GLASS SURFACE COLORS */
+    --glass-variant-success: 5, 150, 105;
+    /* From sem-green-600 */
+    --glass-variant-warning: 245, 158, 11;
+    /* From warning-dark-alt */
+    --glass-variant-danger: 220, 38, 38;
+    /* From sem-red-600 */
+    --glass-variant-info: 37, 99, 235;
+    /* From big-sur-deep-500 */
+    --glass-variant-yellowstone: 250, 167, 74;
+    /* Primary yellowstone variant */
+    --glass-variant-yosemite: 30, 56, 96;
+    /* Custom yosemite variant */
+    --glass-variant-sequoia: 222, 244, 255;
+    /* Custom sequoia variant */
+}

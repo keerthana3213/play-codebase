@@ -1,0 +1,416 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Button Component Tokens
+ *
+ * Component-specific semantic tokens for button elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for button styling.
+ *
+ * STRUCTURE:
+ * - All buttons have glass effects by default
+ * - Variants control glass tint colors (primary=pink, warning=orange, etc.)
+ * - Glass intensity controlled via glass-10 through glass-100
+ * - Clean separation of interaction states vs visual variants
+ * =========================================================================
+ */
+
+:root {
+      /* =======================
+     BUTTON BASE PROPERTIES
+     ======================= */
+      --button-font: var(--font-body-2);
+      --button-font-weight: var(--global-font-weight-medium);
+      --button-line-height: var(--global-line-height-default);
+      --button-border-radius: var(--global-radius-sm);
+      --button-transition: var(--motion-pattern-fade);
+      --button-cursor: pointer;
+      --button-cursor-disabled: not-allowed;
+      --button-text-on-color-primary: var(--color-text-on-primary);
+      --button-text-on-color-secondary: var(--color-brand-primary);
+      --button-text-on-color-success: var(--color-text-on-primary);
+      --button-text-on-color-warning: var(--color-text-on-primary);
+      --button-text-on-color-danger: var(--color-text-on-primary);
+      --button-text-on-color-info: var(--color-text-on-primary);
+      --button-gap: var(--global-spacing-2);
+
+      /* =======================
+     BUTTON SIZES
+     ======================= */
+
+      --button-size-xsm-padding: 0.37rem var(--global-spacing-2);
+      --button-size-xsm-font: var(--global-font-size-xs);
+      --button-size-xsm-height: 28px;
+      --button-size-xsm-min-width: 60px;
+      --button-size-xsm-letter-spacing: 0.024px;
+      --button-size-xsm-border-radius: 4px;
+
+      --button-line-height: 16px;
+      --button-size-sm-padding: 0.625rem var(--global-spacing-3);
+      --button-size-sm-font: var(--global-font-size-sm);
+      --button-size-sm-height: 36px;
+      --button-size-sm-min-width: 80px;
+      --button-size-sm-letter-spacing: 0.028px;
+      --button-size-sm-border-radius: 6px;
+
+      --button-size-md-padding: var(--global-spacing-3) var(--global-spacing-4);
+      --button-size-md-font: var(--global-font-size-md);
+      --button-size-md-height: 44px;
+      --button-size-md-min-width: 100px;
+      --button-size-md-letter-spacing: 0.032px;
+      --button-size-md-border-radius: 8px;
+
+      --button-size-lg-padding: var(--global-spacing-3) 1.25rem;
+      --button-size-lg-font: 18px;
+      --button-size-lg-height: 48px;
+      --button-size-lg-min-width: 120px;
+      --button-size-lg-letter-spacing: 0.04px;
+      --button-size-lg-border-radius: 8px;
+
+
+
+      --button-size-xlg-padding: 0.875rem var(--global-spacing-6);
+      --button-size-xlg-font-size: var(--global-font-size-lg);
+      --button-size-xlg-height: 52px;
+      --button-size-xlg-border-radius: .5rem;
+      --button-size-xlg-min-width: 150px;
+      --button-size-xlg-letter-spacing: 0.048px;
+      --button-size-xlg-border-radius: 8px;
+
+
+
+
+
+
+      /* =======================
+     BUTTON ICON PROPERTIES
+     ======================= */
+      --button-icon-size-sm: 16px;
+      --button-icon-size-md: 20px;
+      --button-icon-size-lg: 24px;
+      --button-icon-margin: var(--global-spacing-2);
+      --button-icon-padding: var(--global-spacing-3);
+      --button-icon-color: inherit;
+      --button-icon-color-disabled: var(--global-color-gray-400);
+
+      /* =======================
+     DEFAULT BUTTON FALLBACKS
+     ======================= */
+      --button-default-torch-color: 255, 255, 255;
+
+      /* =======================
+     BUTTON BORDER AND TORCH COLORS
+     ======================= */
+      --button-border-color-primary: rgba(var(--rgb-brand-primary), 0.2);
+      --button-border-color-primary-outline: rgba(var(--rgb-brand-primary));
+      --button-torch-color-primary: var(--rgb-white);
+
+      --button-border-color-secondary: 2px solid rgb(var(--rgb-brand-primary));
+
+      --button-border-color-success: rgb(var(--rgb-brand-success));
+      --button-torch-color-success: var(--rgb-white);
+
+      --button-border-color-warning: rgb(var(--rgb-brand-warning));
+      --button-torch-color-warning: var(--rgb-white);
+
+      --button-border-color-danger: rgb(var(--rgb-brand-danger));
+      --button-torch-color-danger: var(--rgb-white);
+
+      --button-border-color-info: rgb(var(--rgb-brand-info));
+      --button-torch-color-info: var(--rgb-white);
+
+      /* =======================
+     GLASS SYSTEM - VARIANT-SPECIFIC GRADIENT TOKENS
+     Create explicit variant-specific gradients instead of relying on overrides
+     ======================= */
+
+      /* PRIMARY VARIANT GLASS GRADIENTS */
+
+      --button-primary-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-primary-glass-color)) 17.96%,
+                  color-mix(in srgb,
+                        rgba(var(--button-variant-primary-glass-color), 0.75),
+                        black 30%) 116.64%);
+      --button-primary-glass-50-background: linear-gradient(90deg,
+                  transparent,
+                  rgba(var(--button-variant-primary-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-primary-glass-color), 0.18) 100%);
+      --button-primary-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-primary-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-primary-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-primary-glass-color), 0.1) 100%);
+      --button-primary-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-primary-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-primary-glass-color), 0.04) 100%);
+
+      /* SECONDARY VARIANT GLASS GRADIENTS */
+      --button-secondary-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-secondary-glass-color)) 17.96%,
+                  color-mix(in srgb,
+                        rgba(var(--button-variant-secondary-glass-color), 0.75),
+                        black 30%) 116.64%);
+      --button-secondary-glass-25-background: linear-gradient(180deg,
+                  rgba(var(--button-variant-secondary-glass-color), 0.4) 0%,
+                  rgba(var(--button-variant-secondary-glass-color), 0.3) 100%);
+      --button-secondary-glass-50-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-secondary-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-secondary-glass-color), 0.18) 100%);
+      --button-secondary-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-secondary-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-secondary-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-secondary-glass-color), 0.1) 100%);
+      --button-secondary-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-secondary-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-secondary-glass-color), 0.04) 100%);
+
+      /* SUCCESS VARIANT GLASS GRADIENTS */
+
+      --button-success-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-success-glass-color)) 17.96%,
+                  color-mix(in srgb,
+                        rgba(var(--button-variant-success-glass-color), 0.75),
+                        black 30%) 116.64%);
+      --button-success-glass-25-background: linear-gradient(180deg,
+                  rgba(var(--button-variant-success-glass-color), 0.4) 0%,
+                  rgba(var(--button-variant-success-glass-color), 0.3) 100%);
+      --button-success-glass-50-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-success-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-success-glass-color), 0.18) 100%);
+      --button-success-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-success-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-success-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-success-glass-color), 0.1) 100%);
+      --button-success-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-success-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-success-glass-color), 0.04) 100%);
+
+      /* WARNING VARIANT GLASS GRADIENTS */
+
+      --button-warning-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-warning-glass-color)) 25.56%,
+                  color-mix(in srgb,
+                        rgb(var(--button-variant-warning-glass-color)),
+                        black 30%) 184.76%);
+      --button-warning-glass-25-background: linear-gradient(180deg,
+                  rgba(var(--button-variant-warning-glass-color), 0.4) 0%,
+                  rgba(var(--button-variant-warning-glass-color), 0.3) 100%);
+      --button-warning-glass-50-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-warning-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-warning-glass-color), 0.18) 100%);
+      --button-warning-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-warning-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-warning-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-warning-glass-color), 0.1) 100%);
+      --button-warning-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-warning-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-warning-glass-color), 0.04) 100%);
+
+      /* DANGER VARIANT GLASS GRADIENTS */
+
+      --button-danger-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-danger-glass-color)) 17.96%,
+                  color-mix(in srgb, rgb(var(--button-variant-danger-glass-color)), black 30%) 184.76%);
+      --button-danger-glass-25-background: linear-gradient(180deg,
+                  rgba(var(--button-variant-danger-glass-color), 0.4) 0%,
+                  rgba(var(--button-variant-danger-glass-color), 0.3) 100%);
+      --button-danger-glass-50-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-danger-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-danger-glass-color), 0.18) 100%);
+      --button-danger-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-danger-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-danger-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-danger-glass-color), 0.1) 100%);
+      --button-danger-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-danger-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-danger-glass-color), 0.04) 100%);
+
+      /* INFO VARIANT GLASS GRADIENTS */
+
+      --button-info-glass-10-background: linear-gradient(153deg,
+                  rgba(var(--button-variant-info-glass-color)) 17.96%,
+                  color-mix(in srgb,
+                        rgba(var(--button-variant-info-glass-color), 0.75),
+                        black 30%) 116.64%);
+      --button-info-glass-25-background: linear-gradient(180deg,
+                  rgba(var(--button-variant-info-glass-color), 0.4) 0%,
+                  rgba(var(--button-variant-info-glass-color), 0.3) 100%);
+      --button-info-glass-50-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-info-glass-color), 0.22) 0%,
+                  rgba(var(--button-variant-info-glass-color), 0.18) 100%);
+      --button-info-glass-75-background: linear-gradient(135deg,
+                  rgba(var(--button-variant-info-glass-color), 0.12) 0%,
+                  rgba(var(--button-variant-info-glass-color), 0.08) 50%,
+                  rgba(var(--button-variant-info-glass-color), 0.1) 100%);
+      --button-info-glass-100-background: linear-gradient(90deg,
+                  rgba(var(--button-variant-info-glass-color), 0.06) 0%,
+                  rgba(var(--button-variant-info-glass-color), 0.04) 100%);
+
+      /* Glass Intensity Shared Properties (blur, border, shadow remain generic) */
+
+      --button-glass-10-backdrop-filter: var(--glass-10-blur);
+      --button-glass-10-border: var(--glass-10-border);
+      --button-glass-10-shadow: var(--glass-10-shadow);
+
+      --button-glass-50-backdrop-filter: var(--glass-50-blur);
+      --button-glass-50-border: var(--glass-50-border);
+      --button-glass-50-shadow: var(--glass-50-shadow);
+
+      --button-glass-75-backdrop-filter: var(--glass-75-blur);
+      --button-glass-75-border: var(--glass-75-border);
+      --button-glass-75-shadow: var(--glass-75-shadow);
+
+      --button-glass-100-backdrop-filter: var(--glass-100-blur);
+      --button-glass-100-border: var(--glass-100-border);
+      --button-glass-100-shadow: var(--glass-100-shadow);
+
+      /* Default Glass Properties (use primary as default) */
+      --button-glass-default-background: var(--button-primary-glass-10-background);
+      --button-glass-default-backdrop-filter: var(--button-glass-10-backdrop-filter);
+      --button-glass-default-border: var(--button-glass-10-border);
+      --button-glass-default-shadow: var(--button-glass-10-shadow);
+
+      /* =======================
+     BUTTON VARIANT GLASS COLORS - SEMANTIC TOKENS
+     Component-specific semantic tokens for button variant glass colors
+     ======================= */
+
+      /* Default variant glass color */
+      --button-variant-default-glass-color: var(--rgb-brand-primary);
+      --button-variant-default-effect-color: var(--rgb-brand-primary);
+
+      /* Primary variant glass color */
+      --button-variant-primary-glass-color: var(--rgb-brand-primary);
+      --button-variant-primary-effect-color: var(--rgb-brand-primary);
+
+      /* Secondary variant glass color */
+      --button-variant-secondary-glass-color: var(--rgb-white);
+      --button-variant-secondary-effect-color: var(--rgb-brand-primary);
+      /* Uses primary for consistency */
+
+      /* Success variant glass color */
+      --button-variant-success-glass-color: var(--glass-variant-success);
+      --button-variant-success-effect-color: var(--glass-variant-success);
+
+      /* Warning variant glass color */
+      --button-variant-warning-glass-color: var(--glass-variant-warning);
+      --button-variant-warning-effect-color: var(--glass-variant-warning);
+
+      /* Danger variant glass color */
+      --button-variant-danger-glass-color: var(--glass-variant-danger);
+      --button-variant-danger-effect-color: var(--glass-variant-danger);
+
+      /* Info variant glass color */
+      --button-variant-info-glass-color: var(--glass-variant-info);
+      --button-variant-info-effect-color: var(--glass-variant-info);
+
+      /* Default Glass Properties (references glass-25 for consistency) */
+      --button-glass-default-background: var(--button-glass-25-background);
+      --button-glass-default-backdrop-filter: var(--button-glass-25-backdrop-filter);
+      --button-glass-default-border: var(--button-glass-25-border);
+      --button-glass-default-shadow: var(--button-glass-25-shadow);
+
+      /* LEGACY GLASS INTENSITY MULTIPLIERS REMOVED - Using sophisticated glass system */
+
+      /* LEGACY BUTTON VARIANT GLASS BACKGROUNDS REMOVED - Using sophisticated glass system with --glass-surface-color override */
+
+      /* =======================
+     BUTTON INTERACTION STATES
+     Clean separation of interaction states
+     ======================= */
+
+      /* Hover States - Enhance glass effect */
+      --button-hover-opacity-boost: 1.5;
+      /* Multiply glass opacity by 1.5 on hover */
+      --button-hover-border-boost: 1.8;
+      /* Multiply border opacity by 1.8 on hover */
+
+      /* Active/Pressed States - Slightly reduce opacity */
+      --button-active-opacity-reduce: 0.8;
+      /* Multiply glass opacity by 0.8 when pressed */
+      --button-active-scale: 0.98;
+      /* Slightly scale down when pressed */
+
+      /* Disabled States */
+      --button-disabled-opacity: 0.5;
+      --button-disabled-filter: grayscale(0.6) brightness(0.8);
+      /*--button-disabled-background: linear-gradient(90deg, var(--global-color-gray-300) 0%, var(--global-color-gray-400) 100%);*/
+      --button-disabled-background: var(--global-color-gray-100);
+       --button-disabled-color: var(--global-color-gray-400);
+       --button-secondary-disabled-border-color: var(--color-border-disabled);
+       
+      /* Focus States */
+      --button-focus-border-width: 2px;
+      --button-focus-border-opacity: 0.8;
+
+      /* Processing States */
+      --button-processing-pulse-duration: 2s;
+
+      /* =======================
+     BUTTON EFFECTS SYSTEM - VARIANT COLORS FOR EFFECTS
+     Effect colors automatically match button variants
+     ======================= */
+
+      /* Default Effect Colors - Override in variant classes */
+      --button-effect-color: var(--rgb-brand-primary);
+
+      /* === GLASS TONE SYSTEM (for GlassButton) === */
+      /* Accent (Primary CTA) */
+      --glass-accent-medium-bg: var(--button-primary-glass-50-background);
+      --glass-accent-strong-bg: var(--button-primary-glass-75-background);
+      --glass-accent-bold-bg: var(--button-primary-glass-100-background);
+      --glass-accent-effect-color: var(--button-variant-primary-effect-color);
+
+      /* Neutral (Secondary/Subtle) */
+      --glass-neutral-medium-bg: var(--button-secondary-glass-50-background);
+      --glass-neutral-strong-bg: var(--button-secondary-glass-75-background);
+      --glass-neutral-bold-bg: var(--button-secondary-glass-100-background);
+      --glass-neutral-effect-color: var(--button-variant-secondary-effect-color);
+
+      /* Positive (Success) */
+      --glass-positive-medium-bg: var(--button-success-glass-50-background);
+      --glass-positive-strong-bg: var(--button-success-glass-75-background);
+      --glass-positive-bold-bg: var(--button-success-glass-100-background);
+      --glass-positive-effect-color: var(--button-variant-success-effect-color);
+
+      /* Negative (Danger/Destructive) */
+      --glass-negative-medium-bg: var(--button-danger-glass-50-background);
+      --glass-negative-strong-bg: var(--button-danger-glass-75-background);
+      --glass-negative-bold-bg: var(--button-danger-glass-100-background);
+      --glass-negative-effect-color: var(--button-variant-danger-effect-color);
+
+      /* Warning (Caution) */
+      --glass-warning-medium-bg: var(--button-warning-glass-50-background);
+      --glass-warning-strong-bg: var(--button-warning-glass-75-background);
+      --glass-warning-bold-bg: var(--button-warning-glass-100-background);
+      --glass-warning-effect-color: var(--button-variant-warning-effect-color);
+
+      /* Info (Supporting/Tooltip) */
+      --glass-info-medium-bg: var(--button-info-glass-50-background);
+      --glass-info-strong-bg: var(--button-info-glass-75-background);
+      --glass-info-bold-bg: var(--button-info-glass-100-background);
+      --glass-info-effect-color: var(--button-variant-info-effect-color);
+
+      /* =======================
+     EFFECTS INTEGRATION
+     Hover, Pressed, Processing effects that work with glass
+     ======================= */
+
+      /* Default Effects (Recommended) */
+      --button-default-hover-effect: torch;
+      /* Torch hover effect */
+      --button-default-pressed-effect: ripple;
+      /* Ripple pressed effect */
+      --button-default-processing-effect: pulse;
+      /* Pulse processing effect */
+      --button-default-focus-effect: border;
+      /* Thick border focus */
+      --button-default-disabled-effect: dim;
+      /* Dim disabled effect */
+
+      /* Effect Integration with Glass */
+      --button-hover-torch-shadow: 0 12px 24px rgba(var(--button-effect-color), 0.4);
+      --button-pressed-ripple-shadow: inset 0 4px 12px rgba(var(--button-effect-color), 0.2);
+      --button-processing-pulse-shadow: 0 0 0 8px rgba(var(--button-effect-color), 0.3);
+      --button-focus-border-color: rgb(var(--button-effect-color));
+
+
+}

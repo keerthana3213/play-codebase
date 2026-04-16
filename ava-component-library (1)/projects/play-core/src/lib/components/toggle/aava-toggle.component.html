@@ -1,0 +1,103 @@
+<!-- toggle.component.html -->
+<div
+  class="ava-toggle-container"
+  [attr.id]="id ? 'aava-toggle-' + id : null"
+  [class.toggle-left]="position === 'left'"
+  [class.toggle-right]="position === 'right'"
+  [class.disabled]="disabled"
+  [class.toggle-size-xs]="size === 'xs'"
+  [class.toggle-size-sm]="size === 'sm'"
+  [class.toggle-size-md]="size === 'md'"
+  [class.toggle-size-lg]="size === 'lg'"
+  [ngStyle]="customStyles" 
+>
+  <!-- Title - always show when it exists, let CSS handle positioning -->
+  <label
+    *ngIf="title && position === 'left'"
+    class="toggle-title"
+    [class.disabled]="disabled"
+    [id]="titleName"
+    [for]="toggleId"
+    [tabindex]="disabled ? -1 : 0"
+    (click)="onLabelClick($event)"
+    (keydown)="onLabelClick($event)"
+  >
+    {{ title }}
+  </label>
+
+  <!-- Hidden checkbox for form integration -->
+  <input
+    type="checkbox"
+    [id]="toggleId"
+    [name]="name"
+    [checked]="checked"
+    [disabled]="disabled"
+    [required]="required"
+    class="sr-only"
+    (change)="onToggle()"
+  />
+
+  <!-- Toggle Switch -->
+  <div
+    class="toggle-wrapper"
+    [class.toggle-xs]="size === 'xs'"
+    [class.toggle-sm]="size === 'sm'"
+    [class.toggle-md]="size === 'md'"
+    [class.toggle-lg]="size === 'lg'"
+    [class.checked]="checked"
+    [class.disabled]="disabled"
+    [class.animated]="animation"
+    [class.toggle-with-icons]="showIcons"
+    [tabindex]="disabled ? -1 : 0"
+    [attr.role]="'switch'"
+    [attr.aria-checked]="checked"
+    [attr.aria-disabled]="disabled"
+    [attr.aria-required]="required || null"
+    [attr.aria-labelledby]="titleName"
+    [attr.aria-label]="!title ? 'Toggle switch' : null"
+    [attr.aria-describedby]="ariaDescribedby || null"
+    (click)="onToggle()"
+    (keydown)="onKeyDown($event)"
+  >
+    <div class="toggle-slider">
+      <!-- Icons inside the slider -->
+      <div *ngIf="showIcons" class="toggle-icons">
+        <aava-icon
+          *ngIf="checked"
+          [iconName]="checkedIcon"
+          class="toggle-icon toggle-icon-checked"
+          [iconSize]="getIconSize()"
+          [iconColor]="getCheckedIconColor()"
+          [attr.aria-hidden]="'true'"
+        >
+        </aava-icon>
+        <aava-icon
+          *ngIf="!checked"
+          [iconName]="uncheckedIcon"
+          class="toggle-icon toggle-icon-unchecked"
+          [iconSize]="getIconSize()"
+          [iconColor]="getUncheckedIconColor()"
+          [attr.aria-hidden]="'true'"
+        >
+        </aava-icon>
+      </div>
+    </div>
+
+    <!-- Screen reader support -->
+    <span class="sr-only">
+      {{ title || "Toggle switch" }} {{ checked ? "enabled" : "disabled" }}
+    </span>
+  </div>
+  <label
+    *ngIf="title && position === 'right'"
+    class="toggle-title"
+    [class.disabled]="disabled"
+    [id]="titleName"
+    [for]="toggleId"
+    [tabindex]="disabled ? -1 : 0"
+    (click)="onLabelClick($event)"
+    (keydown)="onLabelClick($event)"
+  >
+    {{ title }}
+  </label>
+</div>

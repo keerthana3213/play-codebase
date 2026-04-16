@@ -1,0 +1,205 @@
+<div class="documentation">
+
+  <div class="row">
+    <div class="col-12">
+      <section class="doc-section">
+        <h2>Demo Components</h2>
+        <div class="nav-links">
+          <h3>Demo Sections</h3>
+          <div class="nav-grid">
+            <a routerLink="/toggle/basic-usage" class="nav-link">
+              <span class="nav-icon">📝</span>
+              <span class="nav-text">Basic Usage</span>
+            </a>
+            <a routerLink="/toggle/sizes" class="nav-link">
+              <span class="nav-icon">📏</span>
+              <span class="nav-text">Sizes</span>
+            </a>
+            <a routerLink="/toggle/positions" class="nav-link">
+              <span class="nav-icon">📍</span>
+              <span class="nav-text">Positions</span>
+            </a>
+            <a routerLink="/toggle/states" class="nav-link">
+              <span class="nav-icon">⚡</span>
+              <span class="nav-text">States</span>
+            </a>
+            <a routerLink="/toggle/animation" class="nav-link">
+              <span class="nav-icon">✨</span>
+              <span class="nav-text">Animation</span>
+            </a>
+            <a routerLink="/toggle/events" class="nav-link">
+              <span class="nav-icon">🎯</span>
+              <span class="nav-text">Events</span>
+            </a>
+            <a routerLink="/toggle/forms" class="nav-link">
+              <span class="nav-icon">📋</span>
+              <span class="nav-text">Forms</span>
+            </a>
+            <a routerLink="/toggle/accessibility" class="nav-link">
+              <span class="nav-icon">♿</span>
+              <span class="nav-text">Accessibility</span>
+            </a>
+            <a routerLink="/toggle/api" class="nav-link">
+              <span class="nav-icon">📚</span>
+              <span class="nav-text">API Reference</span>
+            </a>
+            <a routerLink="/toggle/icon" class="nav-link">
+              <span class="nav-icon">⭐</span>
+              <span class="nav-text">Toggle with Icons</span>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <div class="doc-sections">
+    <section class="doc-section" *ngFor="let section of sections; let i = index">
+      <div class="row">
+        <div class="col-12">
+          <div class="section-header" tabindex="0" role="button">
+            <h2>{{ section.title }}</h2>
+            <div class="description-container">
+              <p>{{ section.description }}</p>
+              <div class="code-toggle" (click)="toggleCodeVisibility(i, $event)"
+                (keydown.enter)="toggleCodeVisibility(i, $event)" (keydown.space)="toggleCodeVisibility(i, $event)"
+                tabindex="0" role="button" [attr.aria-expanded]="section.showCode"
+                [attr.aria-label]="section.showCode ? 'Hide code' : 'View code'">
+                <span *ngIf="!section.showCode">View Code</span>
+                <span *ngIf="section.showCode">Hide Code</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="code-example" [class.expanded]="section.showCode">
+        <div class="example-preview">
+          <ng-container [ngSwitch]="section.title">
+            <ng-container *ngSwitchCase="'Basic Usage'">
+              <aava-toggle size="md" title="Enable Notifications (Click me!)" position="left"
+                [checked]="basicToggleEnabled" (checkedChange)="onBasicToggle($event)">
+              </aava-toggle>
+              <p class="status-text">
+                Status: {{ basicToggleEnabled ? "Enabled" : "Disabled" }}
+              </p>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Toggle Sizes'">
+              <aava-toggle size="sm" title="Small Toggle" position="left" [checked]="true" [animation]="true">
+              </aava-toggle>
+
+              <aava-toggle size="md" title="Medium Toggle" position="left" [checked]="mediumToggleEnabled"
+                [animation]="true" (checkedChange)="onMediumToggle($event)">
+              </aava-toggle>
+
+              <aava-toggle size="lg" title="Large Toggle" position="left" [checked]="false" [animation]="true">
+              </aava-toggle>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Disabled State'">
+              <aava-toggle size="md" title="Disabled Toggle" position="left" [checked]="false" [disabled]="true"
+                [animation]="true">
+              </aava-toggle>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Title positions in Toggle'">
+              <aava-toggle size="md" title="Enable Notifications" position="left" [checked]="notificationsEnabled"
+                [animation]="true" (checkedChange)="onNotificationToggle($event)">
+              </aava-toggle>
+
+              <aava-toggle size="md" title="Dark Mode" position="right" [checked]="darkModeEnabled" [animation]="true"
+                (checkedChange)="onDarkModeToggle($event)">
+              </aava-toggle>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Events Usage'">
+              <aava-toggle size="md" title="Toggle with Event" position="left" [checked]="eventToggleEnabled"
+                [animation]="true" (checkedChange)="onEventToggle($event)">
+              </aava-toggle>
+            </ng-container>
+
+            <ng-container *ngSwitchCase="'Toggle with Icons'">
+              <div class="icon-showcase">
+                <aava-toggle size="md" title="Power Toggle (Brand theme colors)" position="left" [showIcons]="true"
+                  uncheckedIcon="power" checkedIcon="check" [checked]="iconToggleEnabled" [animation]="true"
+                  (checkedChange)="onIconToggle($event)">
+                </aava-toggle>
+
+                <aava-toggle size="lg" title="Heart Toggle (Brand theme colors)" position="left" [showIcons]="true"
+                  uncheckedIcon="heart" checkedIcon="check" [checked]="iconToggle2Enabled" [animation]="true"
+                  (checkedChange)="onIconToggle2($event)">
+                </aava-toggle>
+
+                <aava-toggle size="sm" title="X / Check Toggle (Brand theme colors)" position="left" [showIcons]="true"
+                  uncheckedIcon="x" checkedIcon="check" [checked]="iconToggle3Enabled" [animation]="true"
+                  (checkedChange)="onIconToggle3($event)">
+                </aava-toggle>
+              </div>
+            </ng-container>
+          </ng-container>
+        </div>
+        <div class="code-block" *ngIf="section.showCode">
+          <div class="code-content">
+            <pre><code [innerText]="getExampleCode(section.title.toLowerCase())"></code></pre>
+          </div>
+          <button class="copy-button" (click)="copyCode(section.title.toLowerCase())">
+            <!-- Icon for copy button -->
+          </button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="doc-section api-reference">
+    <h2>API Reference</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Property</th>
+          <th>Type</th>
+          <th>Default</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let prop of apiProps">
+          <td>
+            <code>{{ prop.name }}</code>
+          </td>
+          <td>
+            <code>{{ prop.type }}</code>
+          </td>
+          <td>
+            <code>{{ prop.default }}</code>
+          </td>
+          <td>{{ prop.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="doc-section">
+    <h2>Events</h2>
+    <table class="api-table">
+      <thead>
+        <tr>
+          <th>Event</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let event of events">
+          <td>
+            <code>{{ event.name }}</code>
+          </td>
+          <td>
+            <code>{{ event.type }}</code>
+          </td>
+          <td>{{ event.description }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+</div>

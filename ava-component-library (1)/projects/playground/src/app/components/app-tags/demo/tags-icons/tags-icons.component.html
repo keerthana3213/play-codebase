@@ -1,0 +1,23 @@
+<div class="demo-container">
+  <div class="demo-section">
+    <div class="icon-examples">
+      <div class="icon-group" *ngFor="let example of iconExamples">
+        <div class="tag-demo">
+          <aava-tag
+            *ngFor="let tag of example.tags"
+            [label]="tag.label"
+            [icon]="tag.icon"
+            [iconPosition]="tag.iconPosition"
+            [iconColor]="tag.iconColor"
+            (clicked)="onTagClick(tag.label)"
+            tabindex="0"
+            role="button"
+            [attr.aria-label]="tag.label + ' tag'"
+            [size]="'lg'"
+          >
+          </aava-tag>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

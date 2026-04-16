@@ -1,0 +1,27 @@
+<div class="rating" [attr.id]="id ? 'aava-rating-' + id : null" role="radiogroup" aria-label="Rating" [ngStyle]="customStyles">
+    <ng-container *ngFor="let star of [].constructor(max); let i = index">
+
+        <!-- Full Star -->
+        <img *ngIf="isFullStar(i)" [src]="starFilled" [style.width.px]="starSize" [style.height.px]="starSize"
+            alt="Full Star" role="radio" [attr.aria-checked]="value >= i + 1" tabindex="0"
+            (click)="onStarClick($event, i)" (mousemove)="onHoverStar($event, i)" (mouseleave)="onLeave()"
+            (keydown)="onKeyDown($event, i)">
+
+        <!-- Half Star -->
+        <img *ngIf="isHalfStar(i)" [src]="starHalf" [style.width.px]="starSize" [style.height.px]="starSize"
+            alt="Half Star" role="radio" [attr.aria-checked]="value >= i + 0.5 && value < i + 1" tabindex="0"
+            (click)="onStarClick($event, i)" (mousemove)="onHoverStar($event, i)" (mouseleave)="onLeave()"
+            (keydown)="onKeyDown($event, i)">
+
+        <!-- Empty Star -->
+        <img *ngIf="!isFullStar(i) && !isHalfStar(i)" [src]="starEmpty" [style.width.px]="starSize"
+            [style.height.px]="starSize" alt="Empty Star" role="radio" [attr.aria-checked]="false" tabindex="0"
+            (click)="onStarClick($event, i)" (mousemove)="onHoverStar($event, i)" (mouseleave)="onLeave()"
+            (keydown)="onKeyDown($event, i)">
+
+    </ng-container>
+
+    <span *ngIf="showValue" class="rating-value" [ngClass]="'rating-value--' + size">
+        {{ value.toFixed(1) }}
+    </span>
+</div>

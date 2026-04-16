@@ -1,0 +1,48 @@
+<div class="demo-container">
+  <div class="custom-max-demo">
+    <div class="demo-section">
+      <div class="scale-examples">
+        <div class="scale-example">
+          <h5>3-Star Scale</h5>
+          <aava-rating
+            [value]="rating3Star"
+            [max]="3"
+            (rated)="onRating3StarChange($event)"
+          ></aava-rating>
+          <span class="rating-value">{{ rating3Star }} out of 3</span>
+        </div>
+
+        <div class="scale-example">
+          <h5>4-Star Scale</h5>
+          <aava-rating
+            [value]="rating4Star"
+            [max]="4"
+            (rated)="onRating4StarChange($event)"
+          ></aava-rating>
+          <span class="rating-value">{{ rating4Star }} out of 4</span>
+        </div>
+
+        <div class="scale-example">
+          <h5>5-Star Scale (Default)</h5>
+          <aava-rating
+            [value]="rating5Star"
+            [max]="5"
+            (rated)="onRating5StarChange($event)"
+          ></aava-rating>
+          <span class="rating-value">{{ rating5Star }} out of 5</span>
+        </div>
+      </div>
+    </div>
+    <div class="demo-section">
+      <div class="scale-example">
+        <h5>10-Star Scale</h5>
+        <aava-rating
+          [value]="rating10Star"
+          [max]="10"
+          (rated)="onRating10StarChange($event)"
+        ></aava-rating>
+        <span class="rating-value">{{ rating10Star }} out of 10</span>
+      </div>
+    </div>
+  </div>
+</div>

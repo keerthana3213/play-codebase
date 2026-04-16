@@ -1,0 +1,14 @@
+<div class="demo-container">
+  <aava-icon
+    *ngFor="let icon of accessibilityIcons"
+    [iconName]="icon.name"
+    [iconSize]="24"
+    iconColor="#374151"
+    [cursor]="icon.cursor"
+    [attr.aria-label]="icon.label"
+    [attr.role]="icon.role"
+    tabindex="0"
+    (userClick)="onIconClick($event, icon.label)"
+  >
+  </aava-icon>
+</div>

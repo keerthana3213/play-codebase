@@ -1,0 +1,113 @@
+/**
+ * Component: Timepicker
+ * Purpose: Timepicker component tokens for time selection
+ */
+
+:root {
+  /* Timepicker Base */
+  --timepicker-background: var(--global-background);
+  --timepicker-border: 1px solid #e5e7eb;
+  --timepicker-border-radius: var(--global-radius-md);
+  --timepicker-shadow: var(--global-elevation-02);
+  --timepicker-text-to-icon-gap: 12px;
+
+  /* Border radius scale */
+  --timepicker-border-radius-xs: 6px;
+  --timepicker-border-radius-sm: 6px;
+  --timepicker-border-radius-md: 8px;
+  --timepicker-border-radius-lg: 10px;
+  --timepicker-border-radius-xl: 12px;
+
+  /* Timepicker Input Container */
+  --timepicker-input-height: 48px;
+  --timepicker-input-border-radius: 8px;
+  --timepicker-input-min-width: 200px;
+  --timepicker-input-padding-horizontal: 10px;
+
+  /* Timepicker Display */
+  --timepicker-display-text: var(--color-text-primary);
+  --timepicker-display-font-family: var(--global-font-family-body);
+
+  /* Timepicker Input Fields */
+  --timepicker-input-background: var(--color-background-primary);
+  --timepicker-input-text: var(--color-text-primary);
+  --timepicker-input-border-color: var(--color-brand-primary);
+  --timepicker-input-border-width: 1px;
+  --timepicker-input-border-radius-small: 4px;
+  --timepicker-input-padding-small: 1px;
+  --timepicker-input-shadow-overlay: var(--global-elevation-03);
+
+  /* Timepicker Scroll Areas */
+  --timepicker-scroll-background: var(--global-background);
+  --timepicker-scroll-max-height: 12rem;
+  --timepicker-scroll-gap-hours-minutes: 3px;
+  --timepicker-scroll-gap-minutes-period: 10px;
+
+  /* Timepicker Time Items */
+  --timepicker-time-item-background: transparent;
+  --timepicker-time-item-text: var(--color-text-primary);
+  /* --timepicker-time-item-font: var(--font-body-2); */
+  --timepicker-time-item-padding: var(--global-spacing-2);
+  --timepicker-time-item-border-radius: var(--global-radius-sm);
+  --timepicker-time-item-transition: all var(--global-motion-duration-standard) var(--global-motion-easing-standard);
+  --timepicker-time-item-height: 32px;
+
+  --timepicker-time-item-hover-background: var(--color-surface-subtle-hover);
+  --timepicker-time-item-hover-text: var(--color-text-primary);
+
+  --timepicker-time-item-selected-text: var(--color-brand-primary);
+  --timepicker-time-item-selected-font-weight: 500;
+
+  /* Timepicker Icon */
+  --timepicker-icon-background: var(--color-surface-subtle);
+  --timepicker-icon-color: var(--color-text-secondary);
+  --timepicker-icon-padding: var(--global-spacing-2);
+  --timepicker-icon-size: 32px;
+  --timepicker-icon-border-radius: 50%;
+  --timepicker-icon-margin-left: var(--global-spacing-3);
+  --timepicker-icon-border-color: var(--color-icon-border);
+  /* ===========================================================
+     Timepicker Size Variants
+     =========================================================== */
+
+  /* Extra Small */
+  --timepicker-size-xsm-height: 28px;
+  /* matches button xsm */
+  --timepicker-size-xsm-min-width: 112px;
+  --timepicker-size-xsm-font: var(--global-font-size-xs);
+  --timepicker-size-xsm-item-height: 20px;
+  --timepicker-size-xsm-padding-horizontal: var(--global-spacing-3);
+  --timepicker-size-xsm-icon-size: 16px;
+
+  /* Small */
+  --timepicker-size-sm-height: 24px;
+  --timepicker-size-sm-min-width: 156px;
+  --timepicker-size-sm-font: 14px;
+  --timepicker-size-sm-item-height: 24px;
+  --timepicker-size-sm-padding-horizontal: 8px;
+  --timepicker-size-sm-icon-size: 16px;
+
+  /* Medium */
+  --timepicker-size-md-height: 36px;
+  --timepicker-size-md-min-width: 189px;
+  --timepicker-size-md-font: 16px;
+  --timepicker-size-md-item-height: 28px;
+  --timepicker-size-md-padding-horizontal: 10px;
+  --timepicker-size-md-icon-size: 18px;
+
+  /* Large */
+  --timepicker-size-lg-height: 44px;
+  --timepicker-size-lg-min-width: 208px;
+  --timepicker-size-lg-font: 18px;
+  --timepicker-size-lg-item-height: 32px;
+  --timepicker-size-lg-padding-horizontal: 12px;
+  --timepicker-size-lg-icon-size: 20px;
+
+  /* Extra Large */
+  --timepicker-size-xlg-height: 48px;
+  --timepicker-size-xlg-min-width: 393px;
+  --timepicker-size-xlg-font: 20px;
+  --timepicker-size-xlg-item-height: 36px;
+  --timepicker-size-xlg-padding-horizontal: 14px;
+  --timepicker-size-xlg-icon-size: 24px;
+}

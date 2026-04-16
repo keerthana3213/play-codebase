@@ -1,0 +1,14 @@
+<div *ngIf="showOverlay" 
+     class="ava-dialog-backdrop" 
+     [class.transparent]="isTransparentOverlay"
+     [ngStyle]="computedOverlayStyles" 
+     (click)="onBackdropClick()"></div>
+<div class="ava-dialog-content" [attr.id]="id ? 'aava-dialog-' + id : null" [class]="'position-' + position" [ngStyle]="computedDialogStyles">
+    <div class="close-container" *ngIf="showCloseButton">
+        <aava-icon class="close-btn" iconName="X" iconSize="20" [cursor]="true" role="button" aria-label="Close popup"
+            tabindex="0" (userClick)="onCloseClick()">
+        </aava-icon>
+    </div>
+
+    <ng-container #container></ng-container>
+</div>

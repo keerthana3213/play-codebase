@@ -1,0 +1,44 @@
+<div class="dialog-demo-page">
+  <!-- Header -->
+  <div class="demo-header" style="background: #fff">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="box container">
+            <h1>Dialog Components</h1>
+            <p class="demo-description">
+              Comprehensive dialog system with multiple variants for different
+              use cases. Each dialog type provides appropriate styling, icons,
+              and interaction patterns.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Dialog Examples Grid -->
+  <div class="demo-content" style="background: #f8f9fa">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="dialog-grid">
+            <div class="dialog-example" *ngFor="let example of dialogExamples">
+              <div class="example-card">
+                <h3 class="example-title">{{ example.title }}</h3>
+                <p class="example-description">{{ example.description }}</p>
+                <ava-button [variant]="example.buttonVariant" [label]="example.buttonLabel"
+                  (userClick)="example.action()" size="md">
+                </ava-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+</div>

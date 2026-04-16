@@ -1,0 +1,11 @@
+<div class="large-variant-demo">
+  <div class="demo-container">
+    <div class="upload-section">
+      <aava-file-upload [enableAnimation]="true" [singleFileMode]="false" [maxFiles]="10"
+        [componentTitle]="'Drag & Drop Files Here'" [supportedFormatLabel]="'Supported file formats'"
+        [maxFileSize]="52428800" [showUploadButton]="true" layout="icon" [allowedFormats]="allowedFormats"
+        uploaderId="large-variant-uploader" (selectedList)="onSelectedList($event)" removeIconPosition="right"
+        removeIconName="trash"></aava-file-upload>
+    </div>
+  </div>
+</div>

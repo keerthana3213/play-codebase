@@ -1,0 +1,38 @@
+
+<aava-toggle size="xs" position = "right" title="Extra Small" [checked]="true"></aava-toggle>
+<aava-toggle size="xs" title="Extra Small" [checked]="true"></aava-toggle>
+<div class="t-container">
+  <div>
+      <aava-toggle size="xs" position = "right" title="Extra Small" [checked]="true"></aava-toggle>
+  </div>
+<div class="t-container">
+
+  <div>
+    <aava-toggle size="xs" position = "right" title="Extra Small" [checked]="true"></aava-toggle>
+    <aava-toggle size="sm" title="Small" [checked]="true"></aava-toggle>
+    <aava-toggle size="md" title="Medium" [checked]="true"></aava-toggle>
+    <aava-toggle size="lg" title="Large" [checked]="true"></aava-toggle>
+  </div>
+
+  <div>
+    <aava-toggle size="md" title="Disabled Toggle" position="left" [checked]="false" [disabled]="true"
+      [animation]="true">
+    </aava-toggle>
+  </div>
+
+</div>
+
+<div style="margin:25px">
+  <form [formGroup]="form">
+    <aava-toggle size="md" formControlName="chk1" title="Medium" [checked]="form.value.chk1"></aava-toggle>
+    <aava-toggle size="md" formControlName="chk1" title="Medium" [checked]="form.value.chk2"></aava-toggle>
+
+
+  </form>
+
+  <button (click)="pf()">Path Form</button>
+  <button (click)="pc()">Path Control1</button>
+  <pre>
+            {{form.value | json}}
+        </pre>
+</div>

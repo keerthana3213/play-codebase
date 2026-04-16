@@ -1,0 +1,25 @@
+<div class="demo-container">
+  <div class="demo-grid">
+    <div class="demo-column padl">
+      <aava-textbox [(ngModel)]="currencyValue" label="Amount" placeholder="0.00" type="number"
+        (textboxChange)="onCurrencyChange($event)">
+        <span slot="prefix">$</span>
+        <span slot="suffix">USD</span>
+      </aava-textbox>
+      <aava-textbox [(ngModel)]="passwordValue" label="Password" [type]="showPassword ? 'text' : 'password'"
+        placeholder="Enter password">
+        <aava-icon slot="icon-end" [iconName]="showPassword ? 'eye' : 'eye-off'"
+          (click)="togglePasswordVisibility()"></aava-icon>
+      </aava-textbox>
+    </div>
+
+    <div class="demo-column padr">
+
+      <aava-textbox label="With Icon Separator (Start)" placeholder="Search..." [iconSeparator]="true">
+        <aava-icon slot="icon-start" iconName="search"></aava-icon>
+      </aava-textbox>
+      <aava-textbox label="With Icon Separator (End)" placeholder="Clear..." [iconSeparator]="true">
+        <aava-icon slot="icon-end" iconName="x"></aava-icon>
+      </aava-textbox>
+    </div>
+  </div>

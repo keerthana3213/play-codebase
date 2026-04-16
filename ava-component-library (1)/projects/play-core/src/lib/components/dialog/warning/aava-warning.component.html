@@ -1,0 +1,22 @@
+<div class="warning-dialog" [ngStyle]="customStyles"
+    [ngClass]="[size, showButtons && buttons.length > 0 ? 'has-actions' : '', bottomBorder ? 'has-bottom-border' : '']">
+    <div class="content-wrapper">
+        <div class="icon-container">
+            <aava-icon [iconName]="icon" [iconSize]="effectiveIconSize" iconColor="white" aria-hidden="true">
+            </aava-icon>
+        </div>
+        <div class="text-content">
+            <h3 class="popup-title" id="popup-title">
+                {{ title }}
+            </h3>
+            <p class="inline-text" [innerHTML]="message"></p>
+        </div>
+    </div>
+
+    <div class="dialog-actions" *ngIf="showButtons && buttons.length > 0">
+        <aava-button *ngFor="let button of buttons" [label]="button.label" [variant]="button.variant || 'secondary'"
+            [disabled]="button.disabled || false" size="sm"
+            (userClick)="onButtonClick(button.action || button.label)">
+        </aava-button>
+    </div>
+</div>

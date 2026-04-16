@@ -1,0 +1,53 @@
+/**
+ * =========================================================================
+ * Play+ Design System: Checkbox Component Tokens
+ *
+ * Component-specific semantic tokens for checkbox elements.
+ * These tokens reference base semantic tokens and provide
+ * contextual meaning for checkbox styling.
+ * =========================================================================
+ */
+
+:root {
+  /* --- Checkbox Base --- */
+  --checkbox-cursor-disabled: not-allowed;
+
+  /* --- Checkbox Box --- */
+  --checkbox-box-background: var(--global-background);
+  --checkbox-box-background-disabled: var(--color-surface-disabled);
+  --checkbox-box-border-disabled: 2px solid var(--color-text-disabled);
+
+  /* --- Checkbox Checked State --- */
+  --checkbox-box-checked-background: var(--color-brand-primary);
+  --checkbox-box-checked-border: 2px solid var(--global-color-gray-500);
+  --checkbox-box-checked-color: var(--color-text-on-brand);
+
+  /* --- Checkbox Icon --- */
+  --checkbox-icon-color-disabled: var(--color-text-disabled);
+
+  /* --- Checkbox Label --- */
+  --checkbox-label-font-sm: var(--global-font-size-xs);
+  --checkbox-label-font-md: var(--global-font-size-sm);
+  --checkbox-label-font-lg: var(--global-font-size-md);
+  --checkbox-label-color: var(--color-text-primary);
+  --checkbox-label-color-disabled: var(--color-text-disabled);
+  --checkbox-label-cursor: pointer;
+  --checkbox-label-cursor-disabled: not-allowed;
+
+  /* --- Checkbox Gap --- */
+  --checkbox-gap: 8px;
+
+  /* --- Checkbox Sizes --- */
+  --checkbox-size-small: 16px;
+  --checkbox-size-medium: 20px;
+  --checkbox-size-large: 24px;
+
+  --checkbox-icon-size-small: 16px;
+  --checkbox-icon-size-medium: 20px;
+  --checkbox-icon-size-large: 24px;
+
+  --checkbox-indeterminate-width: 12px;
+  --checkbox-indeterminate-height-small: 2px;
+  --checkbox-indeterminate-height-medium: 3px;
+  --checkbox-indeterminate-height-large: 4px;
+}

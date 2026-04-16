@@ -1,0 +1,16 @@
+.demo-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 30px;
+    /* space between tree variants */
+
+    .tree-variant {
+        p {
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--color-text-primary);
+
+        }
+    }
+}

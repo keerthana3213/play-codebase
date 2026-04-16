@@ -1,0 +1,51 @@
+@use "../../styles/tokens/components/nav-bar";
+
+.ava-nav-bar {
+  // Container layout
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  // Default styling using CSS tokens
+  background: var(--nav-bar-background);
+  border-radius: var(--nav-bar-border-radius);
+  padding: var(--nav-bar-padding);
+  border: var(--nav-bar-border);
+  box-shadow: var(--nav-bar-box-shadow);
+  backdrop-filter: var(--nav-bar-backdrop-filter);
+
+  // Size variants
+  &--sm {
+    padding: var(--nav-bar-size-sm-padding);
+    gap: var(--nav-bar-size-sm-gap);
+  }
+
+  &--md {
+    padding: var(--nav-bar-size-md-padding);
+    gap: var(--nav-bar-size-md-gap);
+  }
+
+  &--lg {
+    padding: var(--nav-bar-size-lg-padding);
+    gap: var(--nav-bar-size-lg-gap);
+  }
+
+  // Responsive behavior
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+.ava-nav-bar__content {
+  display: flex;
+  align-items: center;
+  gap: inherit;
+  width: 100%;
+
+  // Allow content to wrap on mobile
+  @media screen and (max-width: 768px) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
